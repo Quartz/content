@@ -19,10 +19,19 @@ jobs:
 
       - name: Cache build
         uses: actions/cache@v2
+        env:
+          cache-name: cache-swift-packages
         with:
           path: |
-            .build/
-            iOS/Codegen/.build/
+            .build
+            iOS/Codegen/.build
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+        with:
+          path:
           key: ${{ runner.os }}-${{ hashFiles('./Package.swift') }}
 
       - name: Generate Swift types
