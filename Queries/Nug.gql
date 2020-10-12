@@ -1,0 +1,9 @@
+query Nug(
+	$slug: String!
+) {
+	nugBy(
+		slug: $slug
+	) {
+		...NugParts
+	}
+}

@@ -1,0 +1,20 @@
+query LatestGuides( $perPage: Int = 10 ) {
+	guides(
+		last: $perPage
+		where: {
+			orderby: TERM_ORDER
+		}
+	) {
+		nodes {
+			...GuideParts
+			posts(
+				last: 1
+			) {
+				nodes {
+					id
+					dateGmt
+				}
+			}
+		}
+	}
+}

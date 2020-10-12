@@ -1,0 +1,15 @@
+query GuidesBySlug(
+	$perPage: Int!
+	$slugs: [String]!
+) {
+	guides(
+		first: $perPage
+		where: {
+			slug: $slugs
+		}
+	) {
+		nodes {
+			...GuideParts
+		}
+	}
+}
