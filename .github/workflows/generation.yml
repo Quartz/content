@@ -30,9 +30,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-        with:
-          path:
-          key: ${{ runner.os }}-${{ hashFiles('./Package.swift') }}
 
       - name: Generate Swift types
         run: |
