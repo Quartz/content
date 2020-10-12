@@ -1,0 +1,8 @@
+schema: Schemas/ContentSchema.json # https://content.qz.com/graphql
+documents: Queries/**/*.gql
+generates:
+  Web/QuartzContent.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo

@@ -3,3 +3,6 @@ iOS/QuartzContent/QuartzContent.swift linguist-generated=true
 
 Schemas/*.json -diff -merge
 Schemas/*.json linguist-generated=true
+
+Web/*.ts -diff -merge
+Web/*.ts linguist-generated=true
