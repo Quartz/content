@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+
       - name: Cache build
         uses: actions/cache@v2
         with:
@@ -23,14 +24,11 @@ jobs:
             iOS/Codegen/.build/
           key: ${{ runner.os }}-${{ hashFiles('./Package.swift') }}
 
-      - run: cd iOS/Codegen
-
       - name: Generate Swift types
         run: |
+          cd iOS/Codegen
           swift build
           ./.build/debug/Codegen
-
-      - run: cd ../../
 
       - name: Verify client package can be built
         run: swift build
