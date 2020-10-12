@@ -1,8 +1,8 @@
 {
   "name": "@quartz/content",
   "description": "Quartz content queries",
-	"version": "0.0.1",
-	"main": "Web/QuartzContent.ts",
+  "version": "0.0.1",
+  "main": "Web/QuartzContent.ts",
   "files": [
     "Web/**/*"
   ],

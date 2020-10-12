@@ -9,8 +9,6 @@ jobs:
   build-ios:
     name: Generate & verify iOS Swift types
     runs-on: macOS-latest
-    outputs:
-      sha: ${{ steps.git_commit.outputs.sha }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -21,11 +19,17 @@ jobs:
 
       - name: Cache build
         uses: actions/cache@v2
+        env:
+          cache-name: cache-swift-packages
         with:
           path: |
-            .build/
-            iOS/Codegen/.build/
-          key: ${{ runner.os }}-${{ hashFiles('./Package.swift') }}
+            .build
+            iOS/Codegen/.build
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Generate Swift types
         run: |
@@ -47,8 +51,44 @@ jobs:
         run: git push
 
       - uses: Sibz/github-status-action@v1
+        continue-on-error: true
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ steps.git_commit.outputs.sha }}
           state: success
           context: Built Swift types
+
+  build-ts:
+    name: Generate & verify TypeScript types
+    needs: build-ios # we can’t run in parallel because `build-ios` downloads the schema and this job uses that schema file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+
+      - run: npm i
+
+      - run: npm run generate
+
+      - name: Commit build files
+        continue-on-error: true
+        id: git_commit
+        uses: zwaldowski/git-commit-action@v1
+        with:
+          commit_message: Add TypeScript types
+
+      - continue-on-error: true
+        run: git push
+
+      - uses: Sibz/github-status-action@v1
+        continue-on-error: true
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ steps.git_commit.outputs.sha }}
+          state: success
+          context: Built TypeScript types
