@@ -53,7 +53,7 @@ jobs:
 
   build-ts:
     name: Generate & verify TypeScript types
-    needs: build-ios
+    needs: build-ios # we can’t run in parallel because `build-ios` downloads the schema and this job uses that schema file
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
