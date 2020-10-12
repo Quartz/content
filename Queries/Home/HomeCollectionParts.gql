@@ -1,0 +1,21 @@
+fragment HomeCollectionParts on Collection {
+	id
+	title
+	featuredImage {
+		...MediaParts
+	}
+	blocks {
+		...BlockParts
+		connections {
+			... on Post {
+				...ArticleListItemParts
+			}
+			... on MediaItem {
+				...MediaParts
+			}
+			... on Nug {
+				...NugParts
+			}
+		}
+	}
+}

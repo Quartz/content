@@ -1,0 +1,24 @@
+fragment NugParts on Nug {
+	id
+	blocks {
+		...BlockParts
+		connections {
+			... on Post {
+				...ArticleListItemParts
+			}
+			... on MediaItem {
+				...MediaParts
+			}
+		}
+	}
+	emailLists {
+		edges {
+			node {
+				emailListId
+				listId
+				name
+			}
+		}
+	}
+	title
+}

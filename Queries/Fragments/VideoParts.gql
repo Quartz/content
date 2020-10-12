@@ -1,0 +1,8 @@
+fragment VideoParts on VideoData {
+	id
+	duration
+	episode
+	playlistId
+	season
+	type
+}

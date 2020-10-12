@@ -1,0 +1,10 @@
+fragment BlockParts on Block {
+	attributes {
+		name
+		value
+	}
+	id
+	innerHtml
+	tagName
+	type
+}

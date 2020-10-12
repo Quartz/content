@@ -1,0 +1,12 @@
+query HomeCollection {
+	collections(
+		first: 1
+		where: {
+			tagSlugIn: [ "home" ]
+		}
+	) {
+		nodes {
+			...HomeCollectionParts
+		}
+	}
+}

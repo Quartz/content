@@ -1,0 +1,19 @@
+query HomeCollectionPreview(
+	$id: Int!,
+	$time: Int!,
+	$token: String!
+) {
+	collections(
+		where: {
+			id: $id
+			preview: {
+				time: $time
+				token: $token
+			}
+		}
+	) {
+		nodes {
+			...HomeCollectionParts
+		}
+	}
+}

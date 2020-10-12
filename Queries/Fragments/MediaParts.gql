@@ -1,0 +1,12 @@
+fragment MediaParts on MediaItem {
+	altText
+	caption
+	credit
+	id
+	mediaDetails {
+		height
+		width
+	}
+	sourceUrl
+	title
+}

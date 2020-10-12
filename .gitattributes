@@ -1,0 +1,5 @@
+iOS/QuartzContent/ -diff -merge
+iOS/QuartzContent/ linguist-generated=true
+
+Schemas/*.json -diff -merge
+Schemas/*.json linguist-generated=true

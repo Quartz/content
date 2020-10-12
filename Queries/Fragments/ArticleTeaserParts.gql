@@ -1,0 +1,47 @@
+fragment ArticleTeaserParts on Post {
+	bulletin {
+		campaign {
+			id
+			logo
+			name
+			slug
+		}
+		sponsor {
+			attribution
+			id
+			slug
+			name
+		}
+		clientTracking {
+			article
+			elsewhere
+			logo
+		}
+	}
+	dateGmt
+	featuredImage {
+		...MediaParts
+	}
+	flags {
+		edges {
+			node {
+				name
+				slug
+			}
+		}
+	}
+	video {
+		...VideoParts
+	}
+	id
+	kicker
+	link
+	postId
+	title
+	video {
+		...VideoParts
+	}
+	trailerVideo {
+		...VideoParts
+	}
+}
