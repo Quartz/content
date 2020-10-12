@@ -23343,6 +23343,23 @@ export type NugQuery = (
   )> }
 );
 
+export type NugsByTagQueryVariables = Exact<{
+  perPage: Scalars['Int'];
+  tag: Array<Maybe<Scalars['String']>>;
+}>;
+
+
+export type NugsByTagQuery = (
+  { __typename?: 'RootQuery' }
+  & { nugs?: Maybe<(
+    { __typename?: 'RootQueryToNugConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Nug' }
+      & NugPartsFragment
+    )>>> }
+  )> }
+);
+
 export const MediaPartsFragmentDoc = gql`
     fragment MediaParts on MediaItem {
   altText
@@ -23705,3 +23722,39 @@ export function useNugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NugQue
 export type NugQueryHookResult = ReturnType<typeof useNugQuery>;
 export type NugLazyQueryHookResult = ReturnType<typeof useNugLazyQuery>;
 export type NugQueryResult = Apollo.QueryResult<NugQuery, NugQueryVariables>;
+export const NugsByTagDocument = gql`
+    query NugsByTag($perPage: Int!, $tag: [String]!) {
+  nugs(first: $perPage, where: {tagSlugIn: $tag}) {
+    nodes {
+      ...NugParts
+    }
+  }
+}
+    ${NugPartsFragmentDoc}`;
+
+/**
+ * __useNugsByTagQuery__
+ *
+ * To run a query within a React component, call `useNugsByTagQuery` and pass it any options that fit your needs.
+ * When your component renders, `useNugsByTagQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useNugsByTagQuery({
+ *   variables: {
+ *      perPage: // value for 'perPage'
+ *      tag: // value for 'tag'
+ *   },
+ * });
+ */
+export function useNugsByTagQuery(baseOptions?: Apollo.QueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>) {
+        return Apollo.useQuery<NugsByTagQuery, NugsByTagQueryVariables>(NugsByTagDocument, baseOptions);
+      }
+export function useNugsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>) {
+          return Apollo.useLazyQuery<NugsByTagQuery, NugsByTagQueryVariables>(NugsByTagDocument, baseOptions);
+        }
+export type NugsByTagQueryHookResult = ReturnType<typeof useNugsByTagQuery>;
+export type NugsByTagLazyQueryHookResult = ReturnType<typeof useNugsByTagLazyQuery>;
+export type NugsByTagQueryResult = Apollo.QueryResult<NugsByTagQuery, NugsByTagQueryVariables>;
