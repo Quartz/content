@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+
+      - name: Switch to Xcode 12
+        run: ls /Applications; sudo xcode-select -s /Applications/Xcode_12.app
+
       - name: Cache build
         uses: actions/cache@v2
         with:
@@ -23,23 +27,24 @@ jobs:
             iOS/Codegen/.build/
           key: ${{ runner.os }}-${{ hashFiles('./Package.swift') }}
 
-      - run: cd iOS/Codegen
-
       - name: Generate Swift types
-        run: swift build
-
-      - run: cd ../../
+        run: |
+          cd iOS/Codegen
+          swift build
+          ./.build/debug/Codegen
 
       - name: Verify client package can be built
         run: swift build
 
       - name: Commit build files
+        continue-on-error: true
         id: git_commit
         uses: zwaldowski/git-commit-action@v1
         with:
           commit_message: Add Swift types
 
-      - run: git push
+      - continue-on-error: true
+        run: git push
 
       - uses: Sibz/github-status-action@v1
         with:
