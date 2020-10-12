@@ -51,6 +51,7 @@ jobs:
         run: git push
 
       - uses: Sibz/github-status-action@v1
+        continue-on-error: true
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ steps.git_commit.outputs.sha }}
@@ -85,6 +86,7 @@ jobs:
         run: git push
 
       - uses: Sibz/github-status-action@v1
+        continue-on-error: true
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ steps.git_commit.outputs.sha }}
