@@ -16,6 +16,9 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Switch to Xcode 12
+        run: ls /Applications; sudo xcode-select -s /Applications/Xcode_12.app
+
       - name: Cache build
         uses: actions/cache@v2
         with:
@@ -28,9 +31,6 @@ jobs:
         run: |
           cd iOS/Codegen
           swift build
-          ls
-          ls .build/
-          ls .build/debug/
           ./.build/debug/Codegen
 
       - name: Verify client package can be built
