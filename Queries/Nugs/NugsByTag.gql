@@ -1,0 +1,15 @@
+query NugsByTag(
+	$perPage: Int!
+	$tag: [String]!
+) {
+	nugs(
+		first: $perPage
+		where: {
+			tagSlugIn: $tag
+		}
+	) {
+		nodes {
+			...NugParts
+		}
+	}
+}
