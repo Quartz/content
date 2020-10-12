@@ -26,7 +26,9 @@ jobs:
       - run: cd iOS/Codegen
 
       - name: Generate Swift types
-        run: swift build
+        run: |
+          swift build
+          ./.build/debug/Codegen
 
       - run: cd ../../
 
@@ -34,12 +36,14 @@ jobs:
         run: swift build
 
       - name: Commit build files
+        continue-on-error: true
         id: git_commit
         uses: zwaldowski/git-commit-action@v1
         with:
           commit_message: Add Swift types
 
-      - run: git push
+      - continue-on-error: true
+        run: git push
 
       - uses: Sibz/github-status-action@v1
         with:
