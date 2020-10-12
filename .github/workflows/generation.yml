@@ -1,0 +1,49 @@
+name: Type Generation
+
+on:
+	pull_request:
+		branches:
+			- main
+
+jobs:
+	build-ios:
+		name: Generate & verify iOS Swift types
+		runs-on: macOS-latest
+		outputs:
+			sha: ${{ steps.git_commit.outputs.sha }}
+		steps:
+			- uses: actions/checkout@v2
+				with:
+					ref: ${{ github.head_ref }}
+			- name: Cache build
+				uses: actions/cache@v2
+				with:
+					path: |
+						.build/
+						iOS/Codegen/.build/
+					key: ${{ runner.os }}-${{ hashFiles('./Package.swift') }}
+
+			- run: cd iOS/Codegen
+
+			- name: Generate Swift types
+				run: swift build
+
+			- run: cd ../../
+
+			- name: Verify client package can be built
+				run: swift build
+
+			- name: Commit build files
+				id: git_commit
+				uses: zwaldowski/git-commit-action@v1
+				with:
+					commit_message: Add Swift types
+
+			- run: git push
+
+			- uses: Sibz/github-status-action@v1
+				with:
+					authToken: ${{ secrets.GITHUB_TOKEN }}
+					sha: ${{ steps.git_commit.outputs.sha }}
+					state: success
+					context: Built Swift types
