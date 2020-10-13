@@ -2,7 +2,7 @@
   "name": "@quartz/content",
   "description": "Quartz content queries",
   "version": "0.0.1",
-  "main": "Web/QuartzContent.ts",
+  "main": "Web/content.ts",
   "files": [
     "Web/**/*"
   ],
