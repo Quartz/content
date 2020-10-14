@@ -1,0 +1,23 @@
+query LatestArticles(
+	$after: String = ""
+	$edition: EditionName
+	$postsPerPage: Int
+) {
+	posts(
+		after: $after
+		first: $postsPerPage
+		where: {
+			edition: $edition
+		}
+	) {
+		edges {
+			node {
+				...ArticleListItemParts
+			}
+		}
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+	}
+}
