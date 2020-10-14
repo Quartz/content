@@ -1,8 +1,6 @@
 iOS/QuartzContent/QuartzContent.swift -diff -merge
-iOS/QuartzContent/QuartzContent.swift linguist-generated=true
 
 Schemas/*.json -diff -merge
-Schemas/*.json linguist-generated=true
+Schemas/*.json linguist-generated
 
 Web/*.ts -diff -merge
-Web/*.ts linguist-generated=true
