@@ -1,8 +1,12 @@
-query LatestGuides( $perPage: Int = 10 ) {
+query Guides(
+	$before: String = ""
+	$perPage: Int = 10
+) {
 	guides(
+		before: $before
 		last: $perPage
 		where: {
-			orderby: TERM_ORDER
+			orderby: TERM_ID
 		}
 	) {
 		nodes {
@@ -15,6 +19,10 @@ query LatestGuides( $perPage: Int = 10 ) {
 					dateGmt
 				}
 			}
+		}
+		pageInfo {
+			hasPreviousPage
+			startCursor
 		}
 	}
 }

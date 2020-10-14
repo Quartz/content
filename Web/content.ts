@@ -23236,12 +23236,13 @@ export type GuidePartsFragment = (
   )>>> }
 );
 
-export type LatestGuidesQueryVariables = Exact<{
+export type GuidesQueryVariables = Exact<{
+  before?: Maybe<Scalars['String']>;
   perPage?: Maybe<Scalars['Int']>;
 }>;
 
 
-export type LatestGuidesQuery = (
+export type GuidesQuery = (
   { __typename?: 'RootQuery' }
   & { guides?: Maybe<(
     { __typename?: 'RootQueryToGuideConnection' }
@@ -23255,7 +23256,10 @@ export type LatestGuidesQuery = (
         )>>> }
       )> }
       & GuidePartsFragment
-    )>>> }
+    )>>>, pageInfo?: Maybe<(
+      { __typename?: 'WPPageInfo' }
+      & Pick<WpPageInfo, 'hasPreviousPage' | 'startCursor'>
+    )> }
   )> }
 );
 
@@ -23541,9 +23545,9 @@ export const HomeCollectionPartsFragmentDoc = gql`
 ${BlockPartsFragmentDoc}
 ${ArticleListItemPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;
-export const LatestGuidesDocument = gql`
-    query LatestGuides($perPage: Int = 10) {
-  guides(last: $perPage, where: {orderby: TERM_ORDER}) {
+export const GuidesDocument = gql`
+    query Guides($before: String = "", $perPage: Int = 10) {
+  guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
     nodes {
       ...GuideParts
       posts(last: 1) {
@@ -23553,35 +23557,40 @@ export const LatestGuidesDocument = gql`
         }
       }
     }
+    pageInfo {
+      hasPreviousPage
+      startCursor
+    }
   }
 }
     ${GuidePartsFragmentDoc}`;
 
 /**
- * __useLatestGuidesQuery__
+ * __useGuidesQuery__
  *
- * To run a query within a React component, call `useLatestGuidesQuery` and pass it any options that fit your needs.
- * When your component renders, `useLatestGuidesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGuidesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGuidesQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useLatestGuidesQuery({
+ * const { data, loading, error } = useGuidesQuery({
  *   variables: {
+ *      before: // value for 'before'
  *      perPage: // value for 'perPage'
  *   },
  * });
  */
-export function useLatestGuidesQuery(baseOptions?: Apollo.QueryHookOptions<LatestGuidesQuery, LatestGuidesQueryVariables>) {
-        return Apollo.useQuery<LatestGuidesQuery, LatestGuidesQueryVariables>(LatestGuidesDocument, baseOptions);
+export function useGuidesQuery(baseOptions?: Apollo.QueryHookOptions<GuidesQuery, GuidesQueryVariables>) {
+        return Apollo.useQuery<GuidesQuery, GuidesQueryVariables>(GuidesDocument, baseOptions);
       }
-export function useLatestGuidesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestGuidesQuery, LatestGuidesQueryVariables>) {
-          return Apollo.useLazyQuery<LatestGuidesQuery, LatestGuidesQueryVariables>(LatestGuidesDocument, baseOptions);
+export function useGuidesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesQuery, GuidesQueryVariables>) {
+          return Apollo.useLazyQuery<GuidesQuery, GuidesQueryVariables>(GuidesDocument, baseOptions);
         }
-export type LatestGuidesQueryHookResult = ReturnType<typeof useLatestGuidesQuery>;
-export type LatestGuidesLazyQueryHookResult = ReturnType<typeof useLatestGuidesLazyQuery>;
-export type LatestGuidesQueryResult = Apollo.QueryResult<LatestGuidesQuery, LatestGuidesQueryVariables>;
+export type GuidesQueryHookResult = ReturnType<typeof useGuidesQuery>;
+export type GuidesLazyQueryHookResult = ReturnType<typeof useGuidesLazyQuery>;
+export type GuidesQueryResult = Apollo.QueryResult<GuidesQuery, GuidesQueryVariables>;
 export const GuidesBySlugDocument = gql`
     query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
   guides(first: $perPage, where: {slug: $slugs}) {

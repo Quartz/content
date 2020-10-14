@@ -1240,12 +1240,12 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   }
 }
 
-public final class LatestGuidesQuery: GraphQLQuery {
+public final class GuidesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query LatestGuides($perPage: Int = 10) {
-      guides(last: $perPage, where: {orderby: TERM_ORDER}) {
+    query Guides($before: String = "", $perPage: Int = 10) {
+      guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
         __typename
         nodes {
           __typename
@@ -1259,24 +1259,31 @@ public final class LatestGuidesQuery: GraphQLQuery {
             }
           }
         }
+        pageInfo {
+          __typename
+          hasPreviousPage
+          startCursor
+        }
       }
     }
     """
 
-  public let operationName: String = "LatestGuides"
+  public let operationName: String = "Guides"
 
-  public let operationIdentifier: String? = "8260c73c811e2fca0443d55b0659defb54133c9110fb64ab445f783baad75e91"
+  public let operationIdentifier: String? = "73fb95f9b2078b0fa155c49d85ffe778e7541cea1579c1a856b324df5162057b"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
 
+  public var before: String?
   public var perPage: Int?
 
-  public init(perPage: Int? = nil) {
+  public init(before: String? = nil, perPage: Int? = nil) {
+    self.before = before
     self.perPage = perPage
   }
 
   public var variables: GraphQLMap? {
-    return ["perPage": perPage]
+    return ["before": before, "perPage": perPage]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -1284,7 +1291,7 @@ public final class LatestGuidesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("guides", arguments: ["last": GraphQLVariable("perPage"), "where": ["orderby": "TERM_ORDER"]], type: .object(Guide.selections)),
+        GraphQLField("guides", arguments: ["before": GraphQLVariable("before"), "last": GraphQLVariable("perPage"), "where": ["orderby": "TERM_ID"]], type: .object(Guide.selections)),
       ]
     }
 
@@ -1316,6 +1323,7 @@ public final class LatestGuidesQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("nodes", type: .list(.object(Node.selections))),
+          GraphQLField("pageInfo", type: .object(PageInfo.selections)),
         ]
       }
 
@@ -1325,8 +1333,8 @@ public final class LatestGuidesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToGuideConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      public init(nodes: [Node?]? = nil, pageInfo: PageInfo? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToGuideConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -1346,6 +1354,17 @@ public final class LatestGuidesQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      /// Information about pagination in a connection.
+      @available(*, deprecated, message: "")
+      public var pageInfo: PageInfo? {
+        get {
+          return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "pageInfo")
         }
       }
 
@@ -1503,6 +1522,59 @@ public final class LatestGuidesQuery: GraphQLQuery {
                 resultMap.updateValue(newValue, forKey: "dateGmt")
               }
             }
+          }
+        }
+      }
+
+      public struct PageInfo: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["WPPageInfo"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("hasPreviousPage", type: .nonNull(.scalar(Bool.self))),
+            GraphQLField("startCursor", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(hasPreviousPage: Bool, startCursor: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "WPPageInfo", "hasPreviousPage": hasPreviousPage, "startCursor": startCursor])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// When paginating backwards, are there more items?
+        @available(*, deprecated, message: "")
+        public var hasPreviousPage: Bool {
+          get {
+            return resultMap["hasPreviousPage"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "hasPreviousPage")
+          }
+        }
+
+        /// When paginating backwards, the cursor to continue.
+        @available(*, deprecated, message: "")
+        public var startCursor: String? {
+          get {
+            return resultMap["startCursor"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "startCursor")
           }
         }
       }
