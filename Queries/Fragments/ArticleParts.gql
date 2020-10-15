@@ -1,13 +1,3 @@
-#import 'data/fragments/AuthorParts.gql'
-#import 'data/fragments/BlockParts.gql'
-#import 'data/fragments/ArticleListItemParts.gql'
-#import 'data/fragments/GuideParts.gql'
-#import 'data/fragments/ObsessionParts.gql'
-#import 'data/fragments/ProjectParts.gql'
-#import 'data/fragments/SeriesParts.gql'
-#import 'data/fragments/ShowParts.gql'
-#import 'data/fragments/VideoParts.gql'
-
 fragment ArticleParts on Post {
 	...ArticleListItemParts
 	blocks {
@@ -116,4 +106,3 @@ fragment ArticleParts on Post {
 		}
 	}
 }
-

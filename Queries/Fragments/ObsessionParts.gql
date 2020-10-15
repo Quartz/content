@@ -1,0 +1,20 @@
+fragment ObsessionParts on Obsession {
+	id
+	description
+	link
+	name
+	shortDescription
+	slug
+	subtitle
+	featuredImage {
+		...MediaParts
+	}
+	sponsor {
+		name
+		campaign {
+			id
+			logo
+			logoLink
+		}
+	}
+}

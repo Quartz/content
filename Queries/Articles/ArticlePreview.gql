@@ -1,5 +1,3 @@
-#import 'data/fragments/ArticleParts.gql'
-
 query ArticlePreview(
 	$id: Int!
 	$time: Int!

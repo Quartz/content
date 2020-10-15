@@ -22,14 +22,6 @@ fragment ArticleTeaserParts on Post {
 	featuredImage {
 		...MediaParts
 	}
-	flags {
-		edges {
-			node {
-				name
-				slug
-			}
-		}
-	}
 	video {
 		...VideoParts
 	}
