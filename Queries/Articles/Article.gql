@@ -1,0 +1,11 @@
+#import 'data/fragments/ArticleParts.gql'
+
+query Article(
+	$id: ID!
+) {
+	post(
+		id: $id
+	) {
+		...ArticleParts
+	}
+}

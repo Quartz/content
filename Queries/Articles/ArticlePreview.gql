@@ -1,0 +1,21 @@
+#import 'data/fragments/ArticleParts.gql'
+
+query ArticlePreview(
+	$id: Int!
+	$time: Int!
+	$token: String!
+) {
+	posts(
+		where: {
+			id: $id
+			preview: {
+				time: $time
+				token: $token
+			}
+		}
+	) {
+		nodes {
+			...ArticleParts
+		}
+	}
+}

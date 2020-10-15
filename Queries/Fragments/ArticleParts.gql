@@ -1,0 +1,119 @@
+#import 'data/fragments/AuthorParts.gql'
+#import 'data/fragments/BlockParts.gql'
+#import 'data/fragments/ArticleListItemParts.gql'
+#import 'data/fragments/GuideParts.gql'
+#import 'data/fragments/ObsessionParts.gql'
+#import 'data/fragments/ProjectParts.gql'
+#import 'data/fragments/SeriesParts.gql'
+#import 'data/fragments/ShowParts.gql'
+#import 'data/fragments/VideoParts.gql'
+
+fragment ArticleParts on Post {
+	...ArticleListItemParts
+	blocks {
+		...BlockParts
+	}
+	canonicalUrl
+	classifications
+	excerpt
+	footnotes
+	flags {
+		edges {
+			node {
+				name
+				slug
+			}
+		}
+	}
+	guides {
+		edges {
+			node {
+				...GuideParts
+			}
+		}
+	}
+	locations {
+		edges {
+			node {
+				name
+			}
+		}
+	}
+	metered
+	modifiedGmt
+	paywalled
+	projects {
+		edges {
+			node {
+				...ProjectParts
+			}
+		}
+	}
+	serieses {
+		edges {
+			node {
+				...SeriesParts
+			}
+		}
+	}
+	shows {
+		edges {
+			node {
+				...ShowParts
+			}
+		}
+	}
+	slug
+	seoTitle
+	socialTitle
+	socialDescription
+	subtype
+	suppressAds
+	trackingUrls
+	featuredImageSize
+	interactiveSource
+	interactiveShowHeader
+	readNext
+	socialImage
+	authors:coAuthors {
+		edges {
+			node {
+				...AuthorParts
+			}
+		}
+	}
+	trailerVideo {
+		...VideoParts
+	}
+	tags(
+		where: {
+			orderby: COUNT
+		},
+		last: 20
+	) {
+		edges {
+			node {
+				id
+				name
+				slug
+			}
+		}
+	}
+	topics {
+		edges {
+			node {
+				id
+				name
+				slug
+			}
+		}
+	}
+	obsessions {
+		edges {
+			node {
+				...ObsessionParts
+			}
+		}
+	}
+}
+
