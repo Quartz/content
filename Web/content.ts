@@ -23266,9 +23266,12 @@ export type ArticlesByTagQuery = (
       { __typename?: 'Tag' }
       & { posts?: Maybe<(
         { __typename?: 'TagToPostConnection' }
-        & { nodes?: Maybe<Array<Maybe<(
-          { __typename?: 'Post' }
-          & ArticleTeaserPartsFragment
+        & { edges?: Maybe<Array<Maybe<(
+          { __typename?: 'TagToPostConnectionEdge' }
+          & { node?: Maybe<(
+            { __typename?: 'Post' }
+            & ArticleTeaserPartsFragment
+          )> }
         )>>>, pageInfo?: Maybe<(
           { __typename?: 'WPPageInfo' }
           & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
@@ -24692,8 +24695,10 @@ export const ArticlesByTagDocument = gql`
     nodes {
       ...TagParts
       posts(after: $after, first: $perPage) {
-        nodes {
-          ...ArticleTeaserParts
+        edges {
+          node {
+            ...ArticleTeaserParts
+          }
         }
         pageInfo {
           endCursor
