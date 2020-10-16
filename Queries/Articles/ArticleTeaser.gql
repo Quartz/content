@@ -1,0 +1,5 @@
+query ArticleTeaser($id: ID!) {
+	post(id: $id) {
+		...ArticleTeaserParts
+	}
+}
