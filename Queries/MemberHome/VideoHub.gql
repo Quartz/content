@@ -30,10 +30,12 @@ query VideoHub {
 	featuredShows: menuItems(where: {location: SHOWS_VIDEO}) {
 		nodes {
 			connectedObject {
-				...ShowParts
-				posts(first: 6) {
-					nodes {
-						...ArticleTeaserParts
+				... on Show {
+					...ShowParts
+					posts(first: 6) {
+						nodes {
+							...ArticleTeaserParts
+						}
 					}
 				}
 			}
