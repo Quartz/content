@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 
 jobs:
   build-ios:
@@ -81,6 +84,7 @@ jobs:
         uses: zwaldowski/git-commit-action@v1
         with:
           commit_message: Add TypeScript types
+          commit_options: '--allow-empty'
 
       - continue-on-error: true
         run: git push
@@ -91,4 +95,4 @@ jobs:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ steps.git_commit.outputs.sha }}
           state: success
-          context: Built TypeScript types
+          context: Built TypeScript & Swift types
