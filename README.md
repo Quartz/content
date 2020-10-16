@@ -12,20 +12,26 @@ Shared queries can be found in [`/Queries`](/Queries). Fragments that might be s
 
 There’s no need to include `__typename` in your queries! Types will be introspected automatically.
 
-## Generating type definitions
+### Generating type definitions
 
-Type definitions are generated automatically when merging to the `main` branch. (See `.github/workflows/generation.yml`). However, it’s a good idea to run type generation locally before opening a PR; it can help catch errors like missing fragments or name collisions. Don’t commit the result, though, or the GitHub action will not finish. If you’d like to test your PR in a consuming repo like `qz-react`, open the PR, wait for the bot to commit the type definitions, then install the resulting commit in your repo, e.g.:
+Type definitions are generated automatically when merging to the `main` branch. (See `.github/workflows/generation.yml`). However, it’s a good idea to run type generation locally before opening a PR; it can help catch errors like missing fragments or name collisions. If you’d like to test your PR in a consuming repo like `qz-react`, open the PR, wait for the bot to commit the type definitions, then install the resulting commit in your repo, e.g.:
 
 ```
-npm i --save @quartz/content@github:Quartz/content#mysha1
+npm i --save Quartz/content#mysha1
 ```
 
-## Usage
+### Releases
+
+We’re using GitHub Releases (tags) for versioning. Click on “Releases”, then “Draft a new release”, and tag and title your release using semantic versioning. To update the package in a client project, use: `npm i --save Quartz/content#0.0.4`.
+
+![semver](semver.png)
+
+## Client usage
 
 ### In React projects
 
 ```sh
-npm i --save quartz/content#0.0.1 # we’re using GitHub Releases (tags) for versioning
+npm i --save Quartz/content#0.0.5 # we’re using GitHub Releases (tags) for versioning
 ```
 
 Hooks are automatically generated for each operation (query or mutation).
