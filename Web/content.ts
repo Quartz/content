@@ -23857,7 +23857,6 @@ export const ArticlePartsFragmentDoc = gql`
   classifications
   excerpt
   featuredImageSize
-  footnotes
   flags {
     edges {
       node {
@@ -23866,6 +23865,7 @@ export const ArticlePartsFragmentDoc = gql`
       }
     }
   }
+  footnotes
   guides {
     edges {
       node {
