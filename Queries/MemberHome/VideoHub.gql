@@ -1,0 +1,42 @@
+query VideoHub {
+	featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
+		nodes {
+			connectedObject {
+				...ArticleTeaserParts
+				... on Post {
+					shows {
+						nodes {
+							...ShowParts
+						}
+					}
+				}
+			}
+		}
+	}
+	latest: tags(where: {slug: "quartz-video"}) {
+		nodes {
+			posts(first: 6) {
+				nodes {
+					...ArticleTeaserParts
+					shows {
+						nodes {
+							...ShowParts
+						}
+					}
+				}
+			}
+		}
+	}
+	featuredShows: menuItems(where: {location: SHOWS_VIDEO}) {
+		nodes {
+			connectedObject {
+				...ShowPreview
+			}
+		}
+	}
+	allShows: shows(last: 40, where: {orderby: TERM_ID}) {
+		nodes {
+			...ShowParts
+		}
+	}
+}
