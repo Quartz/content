@@ -1,0 +1,27 @@
+query ArticlesByShow(
+	$after: String = ""
+	$perPage: Int
+	$slug: [String]
+) {
+	shows(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...ShowParts
+			posts(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...ArticleTeaserParts
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}

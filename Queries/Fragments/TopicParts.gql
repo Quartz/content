@@ -1,0 +1,12 @@
+fragment TopicParts on Topic {
+	description
+	featuredImage {
+		...MediaParts
+	}
+	id
+	link
+	name
+	shortDescription
+	slug
+	topicId
+}

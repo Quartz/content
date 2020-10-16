@@ -1,0 +1,26 @@
+query ArticlesByTopic(
+	$after: String = ""
+	$perPage: Int
+	$slug: [String]
+) {
+	topics(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...TopicParts
+			posts(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...ArticleTeaserParts
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
