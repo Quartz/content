@@ -1568,6 +1568,118 @@ public final class ArticlePreviewQuery: GraphQLQuery {
   }
 }
 
+public final class ArticleTeaserQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query ArticleTeaser($id: ID!) {
+      post(id: $id) {
+        __typename
+        ...ArticleTeaserParts
+      }
+    }
+    """
+
+  public let operationName: String = "ArticleTeaser"
+
+  public let operationIdentifier: String? = "27ae767254602f08a59e358247e6705ca94bef9b20704bdfe19a93f00fb339f5"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("post", arguments: ["id": GraphQLVariable("id")], type: .object(Post.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(post: Post? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "post": post.flatMap { (value: Post) -> ResultMap in value.resultMap }])
+    }
+
+    /// A 0bject
+    @available(*, deprecated, message: "")
+    public var post: Post? {
+      get {
+        return (resultMap["post"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "post")
+      }
+    }
+
+    public struct Post: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Post"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(ArticleTeaserParts.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var articleTeaserParts: ArticleTeaserParts {
+          get {
+            return ArticleTeaserParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class LatestArticlesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
