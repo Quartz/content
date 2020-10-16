@@ -23117,37 +23117,6 @@ export type RootQueryToUserConnectionEdge = {
   node?: Maybe<User>;
 };
 
-export type ArticleQueryVariables = Exact<{
-  id: Scalars['ID'];
-}>;
-
-
-export type ArticleQuery = (
-  { __typename?: 'RootQuery' }
-  & { post?: Maybe<(
-    { __typename?: 'Post' }
-    & ArticlePartsFragment
-  )> }
-);
-
-export type ArticlePreviewQueryVariables = Exact<{
-  id: Scalars['Int'];
-  time: Scalars['Int'];
-  token: Scalars['String'];
-}>;
-
-
-export type ArticlePreviewQuery = (
-  { __typename?: 'RootQuery' }
-  & { posts?: Maybe<(
-    { __typename?: 'RootQueryToPostConnection' }
-    & { nodes?: Maybe<Array<Maybe<(
-      { __typename?: 'Post' }
-      & ArticlePartsFragment
-    )>>> }
-  )> }
-);
-
 export type LatestArticlesQueryVariables = Exact<{
   after?: Maybe<Scalars['String']>;
   edition?: Maybe<EditionName>;
@@ -23187,109 +23156,6 @@ export type ArticleListItemPartsFragment = (
   & ArticleTeaserPartsFragment
 );
 
-export type ArticlePartsFragment = (
-  { __typename?: 'Post' }
-  & Pick<Post, 'canonicalUrl' | 'classifications' | 'excerpt' | 'footnotes' | 'metered' | 'modifiedGmt' | 'paywalled' | 'slug' | 'seoTitle' | 'socialTitle' | 'socialDescription' | 'subtype' | 'suppressAds' | 'trackingUrls' | 'featuredImageSize' | 'interactiveSource' | 'interactiveShowHeader' | 'readNext' | 'socialImage'>
-  & { blocks?: Maybe<Array<Maybe<(
-    { __typename?: 'Block' }
-    & BlockPartsFragment
-  )>>>, flags?: Maybe<(
-    { __typename?: 'PostToFlagConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToFlagConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Flag' }
-        & Pick<Flag, 'name' | 'slug'>
-      )> }
-    )>>> }
-  )>, guides?: Maybe<(
-    { __typename?: 'PostToGuideConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToGuideConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Guide' }
-        & GuidePartsFragment
-      )> }
-    )>>> }
-  )>, locations?: Maybe<(
-    { __typename?: 'PostToLocationConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToLocationConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Location' }
-        & Pick<Location, 'name'>
-      )> }
-    )>>> }
-  )>, projects?: Maybe<(
-    { __typename?: 'PostToProjectConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToProjectConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Project' }
-        & ProjectPartsFragment
-      )> }
-    )>>> }
-  )>, serieses?: Maybe<(
-    { __typename?: 'PostToSeriesConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToSeriesConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Series' }
-        & SeriesPartsFragment
-      )> }
-    )>>> }
-  )>, shows?: Maybe<(
-    { __typename?: 'PostToShowConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToShowConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Show' }
-        & ShowPartsFragment
-      )> }
-    )>>> }
-  )>, authors?: Maybe<(
-    { __typename?: 'PostToCoAuthorConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToCoAuthorConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'CoAuthor' }
-        & AuthorPartsFragment
-      )> }
-    )>>> }
-  )>, trailerVideo?: Maybe<(
-    { __typename?: 'VideoData' }
-    & VideoPartsFragment
-  )>, tags?: Maybe<(
-    { __typename?: 'PostToTagConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToTagConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Tag' }
-        & Pick<Tag, 'id' | 'name' | 'slug'>
-      )> }
-    )>>> }
-  )>, topics?: Maybe<(
-    { __typename?: 'PostToTopicConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToTopicConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Topic' }
-        & Pick<Topic, 'id' | 'name' | 'slug'>
-      )> }
-    )>>> }
-  )>, obsessions?: Maybe<(
-    { __typename?: 'PostToObsessionConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToObsessionConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Obsession' }
-        & ObsessionPartsFragment
-      )> }
-    )>>> }
-  )> }
-  & ArticleListItemPartsFragment
-);
-
 export type ArticleTeaserPartsFragment = (
   { __typename?: 'Post' }
   & Pick<Post, 'dateGmt' | 'id' | 'kicker' | 'link' | 'postId' | 'title'>
@@ -23308,6 +23174,15 @@ export type ArticleTeaserPartsFragment = (
   )>, featuredImage?: Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
+  )>, flags?: Maybe<(
+    { __typename?: 'PostToFlagConnection' }
+    & { edges?: Maybe<Array<Maybe<(
+      { __typename?: 'PostToFlagConnectionEdge' }
+      & { node?: Maybe<(
+        { __typename?: 'Flag' }
+        & Pick<Flag, 'name' | 'slug'>
+      )> }
+    )>>> }
   )>, video?: Maybe<(
     { __typename?: 'VideoData' }
     & VideoPartsFragment
@@ -23318,36 +23193,12 @@ export type ArticleTeaserPartsFragment = (
   )> }
 );
 
-export type AuthorPartsFragment = (
-  { __typename?: 'CoAuthor' }
-  & Pick<CoAuthor, 'avatar' | 'bio' | 'emeritus' | 'email' | 'facebook' | 'firstName' | 'id' | 'instagram' | 'lastName' | 'linkedin' | 'name' | 'organization' | 'pgp' | 'shortBio' | 'title' | 'twitter' | 'type' | 'url' | 'username' | 'website'>
-);
-
 export type BlockPartsFragment = (
   { __typename?: 'Block' }
   & Pick<Block, 'id' | 'innerHtml' | 'tagName' | 'type'>
   & { attributes?: Maybe<Array<Maybe<(
     { __typename?: 'Attribute' }
     & Pick<Attribute, 'name' | 'value'>
-  )>>> }
-);
-
-export type GuidePartsFragment = (
-  { __typename?: 'Guide' }
-  & Pick<Guide, 'id' | 'guideId' | 'link' | 'count' | 'description' | 'shortDescription' | 'name' | 'slug' | 'socialTitle' | 'colors'>
-  & { featuredImage?: Maybe<(
-    { __typename?: 'MediaItem' }
-    & MediaPartsFragment
-  )>, socialImage?: Maybe<(
-    { __typename?: 'MediaItem' }
-    & MediaPartsFragment
-  )>, headerImages?: Maybe<Array<Maybe<(
-    { __typename?: 'HeaderImages' }
-    & Pick<HeaderImages, 'layer' | 'size'>
-    & { image?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )> }
   )>>> }
 );
 
@@ -23362,7 +23213,7 @@ export type MediaPartsFragment = (
 
 export type NugPartsFragment = (
   { __typename?: 'Nug' }
-  & Pick<Nug, 'id' | 'dateGmt' | 'link' | 'modifiedGmt' | 'nugId' | 'slug' | 'title'>
+  & Pick<Nug, 'id' | 'title'>
   & { blocks?: Maybe<Array<Maybe<(
     { __typename?: 'Block' }
     & { connections?: Maybe<Array<Maybe<(
@@ -23385,31 +23236,18 @@ export type NugPartsFragment = (
   )> }
 );
 
-export type ObsessionPartsFragment = (
-  { __typename?: 'Obsession' }
-  & Pick<Obsession, 'id' | 'description' | 'link' | 'name' | 'shortDescription' | 'slug' | 'subtitle'>
+export type VideoPartsFragment = (
+  { __typename?: 'VideoData' }
+  & Pick<VideoData, 'id' | 'duration' | 'episode' | 'playlistId' | 'season' | 'type'>
+);
+
+export type GuidePartsFragment = (
+  { __typename?: 'Guide' }
+  & Pick<Guide, 'id' | 'guideId' | 'link' | 'count' | 'description' | 'shortDescription' | 'name' | 'slug' | 'socialTitle' | 'colors'>
   & { featuredImage?: Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
-  )>, sponsor?: Maybe<(
-    { __typename?: 'SponsorData' }
-    & Pick<SponsorData, 'name'>
-    & { campaign?: Maybe<(
-      { __typename?: 'CampaignData' }
-      & Pick<CampaignData, 'id' | 'logo' | 'logoLink'>
-    )> }
-  )> }
-);
-
-export type ProjectPartsFragment = (
-  { __typename?: 'Project' }
-  & Pick<Project, 'id' | 'count' | 'description' | 'shortDescription' | 'link' | 'name' | 'slug'>
-);
-
-export type SeriesPartsFragment = (
-  { __typename?: 'Series' }
-  & Pick<Series, 'colors' | 'count' | 'description' | 'emailListId' | 'ended' | 'id' | 'link' | 'name' | 'postOrder' | 'shortDescription' | 'showToc' | 'slug' | 'socialTitle'>
-  & { featuredImage?: Maybe<(
+  )>, socialImage?: Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, headerImages?: Maybe<Array<Maybe<(
@@ -23419,60 +23257,7 @@ export type SeriesPartsFragment = (
       { __typename?: 'MediaItem' }
       & MediaPartsFragment
     )> }
-  )>>>, headerVideos?: Maybe<Array<Maybe<(
-    { __typename?: 'HeaderVideos' }
-    & Pick<HeaderVideos, 'size'>
-    & { mp4?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )>, webm?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )>, poster?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )> }
-  )>>>, socialImage?: Maybe<(
-    { __typename?: 'MediaItem' }
-    & MediaPartsFragment
-  )> }
-);
-
-export type ShowPartsFragment = (
-  { __typename?: 'Show' }
-  & Pick<Show, 'colors' | 'count' | 'description' | 'id' | 'link' | 'name' | 'postOrder' | 'shortDescription' | 'slug'>
-  & { featuredImage?: Maybe<(
-    { __typename?: 'MediaItem' }
-    & MediaPartsFragment
-  )>, headerImages?: Maybe<Array<Maybe<(
-    { __typename?: 'ShowHeaderImages' }
-    & Pick<ShowHeaderImages, 'layer' | 'size'>
-    & { image?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )> }
-  )>>>, headerVideos?: Maybe<Array<Maybe<(
-    { __typename?: 'ShowHeaderVideos' }
-    & Pick<ShowHeaderVideos, 'size'>
-    & { mp4?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )>, webm?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )>, poster?: Maybe<(
-      { __typename?: 'MediaItem' }
-      & MediaPartsFragment
-    )> }
-  )>>>, socialImage?: Maybe<(
-    { __typename?: 'MediaItem' }
-    & MediaPartsFragment
-  )> }
-);
-
-export type VideoPartsFragment = (
-  { __typename?: 'VideoData' }
-  & Pick<VideoData, 'id' | 'duration' | 'episode' | 'playlistId' | 'season' | 'type'>
+  )>>> }
 );
 
 export type GuidesQueryVariables = Exact<{
@@ -23617,6 +23402,45 @@ export const MediaPartsFragmentDoc = gql`
   title
 }
     `;
+export const GuidePartsFragmentDoc = gql`
+    fragment GuideParts on Guide {
+  id
+  guideId
+  link
+  count
+  description
+  shortDescription
+  name
+  slug
+  featuredImage {
+    ...MediaParts
+  }
+  socialImage {
+    ...MediaParts
+  }
+  socialTitle
+  colors
+  headerImages {
+    layer
+    size
+    image {
+      ...MediaParts
+    }
+  }
+}
+    ${MediaPartsFragmentDoc}`;
+export const BlockPartsFragmentDoc = gql`
+    fragment BlockParts on Block {
+  attributes {
+    name
+    value
+  }
+  id
+  innerHtml
+  tagName
+  type
+}
+    `;
 export const VideoPartsFragmentDoc = gql`
     fragment VideoParts on VideoData {
   id
@@ -23652,6 +23476,14 @@ export const ArticleTeaserPartsFragmentDoc = gql`
   featuredImage {
     ...MediaParts
   }
+  flags {
+    edges {
+      node {
+        name
+        slug
+      }
+    }
+  }
   video {
     ...VideoParts
     ...VideoParts
@@ -23683,295 +23515,6 @@ export const ArticleListItemPartsFragmentDoc = gql`
   }
 }
     ${ArticleTeaserPartsFragmentDoc}`;
-export const BlockPartsFragmentDoc = gql`
-    fragment BlockParts on Block {
-  attributes {
-    name
-    value
-  }
-  id
-  innerHtml
-  tagName
-  type
-}
-    `;
-export const GuidePartsFragmentDoc = gql`
-    fragment GuideParts on Guide {
-  id
-  guideId
-  link
-  count
-  description
-  shortDescription
-  name
-  slug
-  featuredImage {
-    ...MediaParts
-  }
-  socialImage {
-    ...MediaParts
-  }
-  socialTitle
-  colors
-  headerImages {
-    layer
-    size
-    image {
-      ...MediaParts
-    }
-  }
-}
-    ${MediaPartsFragmentDoc}`;
-export const ProjectPartsFragmentDoc = gql`
-    fragment ProjectParts on Project {
-  id
-  count
-  description
-  shortDescription
-  link
-  name
-  slug
-}
-    `;
-export const SeriesPartsFragmentDoc = gql`
-    fragment SeriesParts on Series {
-  colors
-  count
-  description
-  emailListId
-  ended
-  featuredImage {
-    ...MediaParts
-  }
-  headerImages {
-    layer
-    size
-    image {
-      ...MediaParts
-    }
-  }
-  headerVideos {
-    size
-    mp4 {
-      ...MediaParts
-    }
-    webm {
-      ...MediaParts
-    }
-    poster {
-      ...MediaParts
-    }
-  }
-  id
-  link
-  name
-  postOrder
-  shortDescription
-  showToc
-  slug
-  socialImage {
-    ...MediaParts
-  }
-  socialTitle
-}
-    ${MediaPartsFragmentDoc}`;
-export const ShowPartsFragmentDoc = gql`
-    fragment ShowParts on Show {
-  colors
-  count
-  description
-  featuredImage {
-    ...MediaParts
-  }
-  headerImages {
-    layer
-    size
-    image {
-      ...MediaParts
-    }
-  }
-  headerVideos {
-    size
-    mp4 {
-      ...MediaParts
-    }
-    webm {
-      ...MediaParts
-    }
-    poster {
-      ...MediaParts
-    }
-  }
-  id
-  link
-  name
-  postOrder
-  shortDescription
-  slug
-  socialImage {
-    ...MediaParts
-  }
-}
-    ${MediaPartsFragmentDoc}`;
-export const AuthorPartsFragmentDoc = gql`
-    fragment AuthorParts on CoAuthor {
-  avatar
-  bio
-  emeritus
-  email
-  facebook
-  firstName
-  id
-  instagram
-  lastName
-  linkedin
-  name
-  organization
-  pgp
-  shortBio
-  title
-  twitter
-  type
-  url
-  username
-  website
-}
-    `;
-export const ObsessionPartsFragmentDoc = gql`
-    fragment ObsessionParts on Obsession {
-  id
-  description
-  link
-  name
-  shortDescription
-  slug
-  subtitle
-  featuredImage {
-    ...MediaParts
-  }
-  sponsor {
-    name
-    campaign {
-      id
-      logo
-      logoLink
-    }
-  }
-}
-    ${MediaPartsFragmentDoc}`;
-export const ArticlePartsFragmentDoc = gql`
-    fragment ArticleParts on Post {
-  ...ArticleListItemParts
-  blocks {
-    ...BlockParts
-  }
-  canonicalUrl
-  classifications
-  excerpt
-  footnotes
-  flags {
-    edges {
-      node {
-        name
-        slug
-      }
-    }
-  }
-  guides {
-    edges {
-      node {
-        ...GuideParts
-      }
-    }
-  }
-  locations {
-    edges {
-      node {
-        name
-      }
-    }
-  }
-  metered
-  modifiedGmt
-  paywalled
-  projects {
-    edges {
-      node {
-        ...ProjectParts
-      }
-    }
-  }
-  serieses {
-    edges {
-      node {
-        ...SeriesParts
-      }
-    }
-  }
-  shows {
-    edges {
-      node {
-        ...ShowParts
-      }
-    }
-  }
-  slug
-  seoTitle
-  socialTitle
-  socialDescription
-  subtype
-  suppressAds
-  trackingUrls
-  featuredImageSize
-  interactiveSource
-  interactiveShowHeader
-  readNext
-  socialImage
-  authors: coAuthors {
-    edges {
-      node {
-        ...AuthorParts
-      }
-    }
-  }
-  trailerVideo {
-    ...VideoParts
-  }
-  tags(where: {orderby: COUNT}, last: 20) {
-    edges {
-      node {
-        id
-        name
-        slug
-      }
-    }
-  }
-  topics {
-    edges {
-      node {
-        id
-        name
-        slug
-      }
-    }
-  }
-  obsessions {
-    edges {
-      node {
-        ...ObsessionParts
-      }
-    }
-  }
-}
-    ${ArticleListItemPartsFragmentDoc}
-${BlockPartsFragmentDoc}
-${GuidePartsFragmentDoc}
-${ProjectPartsFragmentDoc}
-${SeriesPartsFragmentDoc}
-${ShowPartsFragmentDoc}
-${AuthorPartsFragmentDoc}
-${VideoPartsFragmentDoc}
-${ObsessionPartsFragmentDoc}`;
 export const NugPartsFragmentDoc = gql`
     fragment NugParts on Nug {
   id
@@ -23986,7 +23529,6 @@ export const NugPartsFragmentDoc = gql`
       }
     }
   }
-  dateGmt
   emailLists {
     edges {
       node {
@@ -23996,10 +23538,6 @@ export const NugPartsFragmentDoc = gql`
       }
     }
   }
-  link
-  modifiedGmt
-  nugId
-  slug
   title
 }
     ${BlockPartsFragmentDoc}
@@ -24031,76 +23569,6 @@ export const HomeCollectionPartsFragmentDoc = gql`
 ${BlockPartsFragmentDoc}
 ${ArticleListItemPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;
-export const ArticleDocument = gql`
-    query Article($id: ID!) {
-  post(id: $id) {
-    ...ArticleParts
-  }
-}
-    ${ArticlePartsFragmentDoc}`;
-
-/**
- * __useArticleQuery__
- *
- * To run a query within a React component, call `useArticleQuery` and pass it any options that fit your needs.
- * When your component renders, `useArticleQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useArticleQuery({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useArticleQuery(baseOptions?: Apollo.QueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
-        return Apollo.useQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, baseOptions);
-      }
-export function useArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
-          return Apollo.useLazyQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, baseOptions);
-        }
-export type ArticleQueryHookResult = ReturnType<typeof useArticleQuery>;
-export type ArticleLazyQueryHookResult = ReturnType<typeof useArticleLazyQuery>;
-export type ArticleQueryResult = Apollo.QueryResult<ArticleQuery, ArticleQueryVariables>;
-export const ArticlePreviewDocument = gql`
-    query ArticlePreview($id: Int!, $time: Int!, $token: String!) {
-  posts(where: {id: $id, preview: {time: $time, token: $token}}) {
-    nodes {
-      ...ArticleParts
-    }
-  }
-}
-    ${ArticlePartsFragmentDoc}`;
-
-/**
- * __useArticlePreviewQuery__
- *
- * To run a query within a React component, call `useArticlePreviewQuery` and pass it any options that fit your needs.
- * When your component renders, `useArticlePreviewQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useArticlePreviewQuery({
- *   variables: {
- *      id: // value for 'id'
- *      time: // value for 'time'
- *      token: // value for 'token'
- *   },
- * });
- */
-export function useArticlePreviewQuery(baseOptions?: Apollo.QueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {
-        return Apollo.useQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, baseOptions);
-      }
-export function useArticlePreviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {
-          return Apollo.useLazyQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, baseOptions);
-        }
-export type ArticlePreviewQueryHookResult = ReturnType<typeof useArticlePreviewQuery>;
-export type ArticlePreviewLazyQueryHookResult = ReturnType<typeof useArticlePreviewLazyQuery>;
-export type ArticlePreviewQueryResult = Apollo.QueryResult<ArticlePreviewQuery, ArticlePreviewQueryVariables>;
 export const LatestArticlesDocument = gql`
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
