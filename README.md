@@ -12,6 +12,10 @@ Shared queries can be found in [`/Queries`](/Queries). Fragments that might be s
 
 There’s no need to include `__typename` in your queries! Types will be introspected automatically.
 
+## Generating type definitions
+
+Type definitions are generated automatically when merging to the `main` branch. (See `.github/workflows/generation.yml`). However, it’s a good idea to run type generation locally before opening a PR; it can help catch errors like missing fragments or name collisions. It’s up to you whether to commit your locally generated type definition. The GitHub action will run no matter what, but committing the result could be useful for testing your PR in a consuming repo like `qz-react`.
+
 ## Usage
 
 ### In React projects
