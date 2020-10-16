@@ -9,4 +9,3 @@ fragment ArticleListItemParts on Post {
 		}
 	}
 }
-
