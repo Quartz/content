@@ -14,8 +14,10 @@ query ArticlesByTag(
 				after: $after
 				first: $perPage
 			) {
-				nodes {
-					...ArticleTeaserParts
+				edges {
+					node {
+						...ArticleTeaserParts
+					}
 				}
 				pageInfo {
 					endCursor
