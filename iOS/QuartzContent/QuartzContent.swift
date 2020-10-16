@@ -1310,7 +1310,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "7feec8bdcda8b314af52da67b2ebcc8308194e81b5166e99ae092416b43291ba"
+  public let operationIdentifier: String? = "d27deb27de2161fba49a939b6a5c91ddb91f0ad6d391e46b3d62682a9a7ca9e3"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
@@ -1425,7 +1425,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlePreview"
 
-  public let operationIdentifier: String? = "21e220da30851673531a11a85cb2ca803392da94da33496394db217a3ecf4d02"
+  public let operationIdentifier: String? = "3700d40498c1a1a539d359c924fd35086106be336a4a251d383aff118e48b1e6"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
@@ -2946,7 +2946,6 @@ public struct ArticleParts: GraphQLFragment {
       classifications
       excerpt
       featuredImageSize
-      footnotes
       flags {
         __typename
         edges {
@@ -2958,6 +2957,7 @@ public struct ArticleParts: GraphQLFragment {
           }
         }
       }
+      footnotes
       guides {
         __typename
         edges {
@@ -3071,8 +3071,8 @@ public struct ArticleParts: GraphQLFragment {
       GraphQLField("classifications", type: .list(.scalar(String.self))),
       GraphQLField("excerpt", type: .scalar(String.self)),
       GraphQLField("featuredImageSize", type: .scalar(String.self)),
-      GraphQLField("footnotes", type: .list(.scalar(String.self))),
       GraphQLField("flags", type: .object(Flag.selections)),
+      GraphQLField("footnotes", type: .list(.scalar(String.self))),
       GraphQLField("guides", type: .object(Guide.selections)),
       GraphQLField("interactiveSource", type: .scalar(String.self)),
       GraphQLField("interactiveShowHeader", type: .scalar(Bool.self)),
@@ -3179,17 +3179,6 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Article footnotes
-  @available(*, deprecated, message: "")
-  public var footnotes: [String?]? {
-    get {
-      return resultMap["footnotes"] as? [String?]
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "footnotes")
-    }
-  }
-
   /// Connection between the post type and the post type
   @available(*, deprecated, message: "")
   public var flags: Flag? {
@@ -3198,6 +3187,17 @@ public struct ArticleParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue?.resultMap, forKey: "flags")
+    }
+  }
+
+  /// Article footnotes
+  @available(*, deprecated, message: "")
+  public var footnotes: [String?]? {
+    get {
+      return resultMap["footnotes"] as? [String?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "footnotes")
     }
   }
 
