@@ -1,0 +1,9 @@
+query Article(
+	$id: ID!
+) {
+	post(
+		id: $id
+	) {
+		...ArticleParts
+	}
+}

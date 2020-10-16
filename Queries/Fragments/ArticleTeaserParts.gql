@@ -19,10 +19,7 @@ fragment ArticleTeaserParts on Post {
 		}
 	}
 	dateGmt
-	featuredImage {
-		...MediaParts
-	}
-	flags {
+	editions {
 		edges {
 			node {
 				name
@@ -30,18 +27,18 @@ fragment ArticleTeaserParts on Post {
 			}
 		}
 	}
-	video {
-		...VideoParts
+	featuredImage {
+		...MediaParts
 	}
 	id
 	kicker
 	link
 	postId
 	title
-	video {
+	trailerVideo {
 		...VideoParts
 	}
-	trailerVideo {
+	video {
 		...VideoParts
 	}
 }

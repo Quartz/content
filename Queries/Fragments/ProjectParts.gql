@@ -1,0 +1,9 @@
+fragment ProjectParts on Project {
+	id
+	count
+	description
+	shortDescription
+	link
+	name
+	slug
+}

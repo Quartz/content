@@ -12,7 +12,7 @@ query LatestArticles(
 	) {
 		edges {
 			node {
-				...ArticleListItemParts
+				...ArticleTeaserParts
 			}
 		}
 		pageInfo {

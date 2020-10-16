@@ -1,0 +1,105 @@
+fragment ArticleParts on Post {
+	...ArticleTeaserParts
+	authors:coAuthors {
+		edges {
+			node {
+				...AuthorParts
+			}
+		}
+	}
+	blocks {
+		...BlockParts
+	}
+	canonicalUrl
+	classifications
+	excerpt
+	featuredImageSize
+	flags {
+		edges {
+			node {
+				name
+				slug
+			}
+		}
+	}
+	footnotes
+	guides {
+		edges {
+			node {
+				...GuideParts
+			}
+		}
+	}
+	interactiveSource
+	interactiveShowHeader
+	locations {
+		edges {
+			node {
+				name
+			}
+		}
+	}
+	metered
+	modifiedGmt
+	obsessions {
+		edges {
+			node {
+				...ObsessionParts
+			}
+		}
+	}
+	paywalled
+	projects {
+		edges {
+			node {
+				...ProjectParts
+			}
+		}
+	}
+	readNext
+	serieses {
+		edges {
+			node {
+				...SeriesParts
+			}
+		}
+	}
+	shows {
+		edges {
+			node {
+				...ShowParts
+			}
+		}
+	}
+	slug
+	seoTitle
+	socialDescription
+	socialImage
+	socialTitle
+	subtype
+	suppressAds
+	tags(
+		where: {
+			orderby: COUNT
+		},
+		last: 20
+	) {
+		edges {
+			node {
+				id
+				name
+				slug
+			}
+		}
+	}
+	topics {
+		edges {
+			node {
+				id
+				name
+				slug
+			}
+		}
+	}
+	trackingUrls
+}
