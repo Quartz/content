@@ -1,0 +1,13 @@
+fragment TagParts on Tag {
+	count
+	description
+	featuredImage {
+		...MediaParts
+	}
+	id
+	link
+	name
+	shortDescription
+	slug
+	tagId
+}

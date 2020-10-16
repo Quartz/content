@@ -1,0 +1,17 @@
+query MemberVideo {
+	features: menuItems(first: 3, where: { location: FEATURES_VIDEO_MEMBERS }) {
+		nodes {
+			id
+			connectedObject {
+				... on Tag {
+					...TagParts
+					posts(first: 6, where: { orderby: { field: MEMBERSHIP } }) {
+						nodes {
+							...ArticleTeaserParts
+						}
+					}
+				}
+			}
+		}
+	}
+}
