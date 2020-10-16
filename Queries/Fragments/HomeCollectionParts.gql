@@ -8,7 +8,7 @@ fragment HomeCollectionParts on Collection {
 		...BlockParts
 		connections {
 			... on Post {
-				...ArticleListItemParts
+				...ArticleTeaserParts
 			}
 			... on MediaItem {
 				...MediaParts

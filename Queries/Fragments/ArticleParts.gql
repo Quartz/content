@@ -1,11 +1,19 @@
 fragment ArticleParts on Post {
-	...ArticleListItemParts
+	...ArticleTeaserParts
+	authors:coAuthors {
+		edges {
+			node {
+				...AuthorParts
+			}
+		}
+	}
 	blocks {
 		...BlockParts
 	}
 	canonicalUrl
 	classifications
 	excerpt
+	featuredImageSize
 	footnotes
 	flags {
 		edges {
@@ -22,6 +30,8 @@ fragment ArticleParts on Post {
 			}
 		}
 	}
+	interactiveSource
+	interactiveShowHeader
 	locations {
 		edges {
 			node {
@@ -31,6 +41,13 @@ fragment ArticleParts on Post {
 	}
 	metered
 	modifiedGmt
+	obsessions {
+		edges {
+			node {
+				...ObsessionParts
+			}
+		}
+	}
 	paywalled
 	projects {
 		edges {
@@ -39,6 +56,7 @@ fragment ArticleParts on Post {
 			}
 		}
 	}
+	readNext
 	serieses {
 		edges {
 			node {
@@ -55,26 +73,11 @@ fragment ArticleParts on Post {
 	}
 	slug
 	seoTitle
-	socialTitle
 	socialDescription
+	socialImage
+	socialTitle
 	subtype
 	suppressAds
-	trackingUrls
-	featuredImageSize
-	interactiveSource
-	interactiveShowHeader
-	readNext
-	socialImage
-	authors:coAuthors {
-		edges {
-			node {
-				...AuthorParts
-			}
-		}
-	}
-	trailerVideo {
-		...VideoParts
-	}
 	tags(
 		where: {
 			orderby: COUNT
@@ -98,11 +101,5 @@ fragment ArticleParts on Post {
 			}
 		}
 	}
-	obsessions {
-		edges {
-			node {
-				...ObsessionParts
-			}
-		}
-	}
+	trackingUrls
 }

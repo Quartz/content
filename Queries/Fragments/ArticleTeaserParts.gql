@@ -19,21 +19,26 @@ fragment ArticleTeaserParts on Post {
 		}
 	}
 	dateGmt
+	editions {
+		edges {
+			node {
+				name
+				slug
+			}
+		}
+	}
 	featuredImage {
 		...MediaParts
-	}
-	video {
-		...VideoParts
 	}
 	id
 	kicker
 	link
 	postId
 	title
-	video {
+	trailerVideo {
 		...VideoParts
 	}
-	trailerVideo {
+	video {
 		...VideoParts
 	}
 }

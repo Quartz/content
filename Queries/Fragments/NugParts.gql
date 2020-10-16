@@ -4,7 +4,7 @@ fragment NugParts on Nug {
 		...BlockParts
 		connections {
 			... on Post {
-				...ArticleListItemParts
+				...ArticleTeaserParts
 			}
 			... on MediaItem {
 				...MediaParts
