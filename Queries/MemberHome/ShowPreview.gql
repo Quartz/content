@@ -1,8 +1,0 @@
-fragment ShowPreview on Show {
-	...ShowParts
-	posts(first: 6) {
-		nodes {
-			...ArticleTeaserParts
-		}
-	}
-}
