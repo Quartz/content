@@ -14,7 +14,6 @@ fragment ArticleParts on Post {
 	classifications
 	excerpt
 	featuredImageSize
-	footnotes
 	flags {
 		edges {
 			node {
@@ -23,6 +22,7 @@ fragment ArticleParts on Post {
 			}
 		}
 	}
+	footnotes
 	guides {
 		edges {
 			node {
