@@ -1,0 +1,26 @@
+query ContentBySearchTerm(
+	$after: String = ""
+	$limit: Int = 10
+	$search: String!
+) {
+	content(
+		after: $after
+		first: $limit
+		where: {
+			search: $search
+		}
+	) {
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+		edges {
+			node {
+				... on Post {
+					trackingUrls
+					...ArticleTeaserParts
+				}
+			}
+		}
+	}
+}
