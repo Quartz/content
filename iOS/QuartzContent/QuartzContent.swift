@@ -2809,12 +2809,9 @@ public final class ArticlesByTagQuery: GraphQLQuery {
           ...TagParts
           posts(after: $after, first: $perPage) {
             __typename
-            edges {
+            nodes {
               __typename
-              node {
-                __typename
-                ...ArticleTeaserParts
-              }
+              ...ArticleTeaserParts
             }
             pageInfo {
               __typename
@@ -2829,7 +2826,7 @@ public final class ArticlesByTagQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlesByTag"
 
-  public let operationIdentifier: String? = "b763f6280967c683f51935a0d3ba163526ff5b366a8e5d195e05abe7a3d09506"
+  public let operationIdentifier: String? = "cd952fd5405facfbc2222638d46e78f0c55ca432b0b0e48844ac46ed42d6aa09"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + TagParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -2986,7 +2983,7 @@ public final class ArticlesByTagQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("edges", type: .list(.object(Edge.selections))),
+              GraphQLField("nodes", type: .list(.object(Node.selections))),
               GraphQLField("pageInfo", type: .object(PageInfo.selections)),
             ]
           }
@@ -2997,8 +2994,8 @@ public final class ArticlesByTagQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(edges: [Edge?]? = nil, pageInfo: PageInfo? = nil) {
-            self.init(unsafeResultMap: ["__typename": "TagToPostConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
+          public init(nodes: [Node?]? = nil, pageInfo: PageInfo? = nil) {
+            self.init(unsafeResultMap: ["__typename": "TagToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -3010,14 +3007,14 @@ public final class ArticlesByTagQuery: GraphQLQuery {
             }
           }
 
-          /// Edges for the TagToPostConnection connection
+          /// The nodes of the connection, without the edges
           @available(*, deprecated, message: "")
-          public var edges: [Edge?]? {
+          public var nodes: [Node?]? {
             get {
-              return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
+              return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
             }
             set {
-              resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+              resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
             }
           }
 
@@ -3032,13 +3029,13 @@ public final class ArticlesByTagQuery: GraphQLQuery {
             }
           }
 
-          public struct Edge: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["TagToPostConnectionEdge"]
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Post"]
 
             public static var selections: [GraphQLSelection] {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("node", type: .object(Node.selections)),
+                GraphQLFragmentSpread(ArticleTeaserParts.self),
               ]
             }
 
@@ -3046,10 +3043,6 @@ public final class ArticlesByTagQuery: GraphQLQuery {
 
             public init(unsafeResultMap: ResultMap) {
               self.resultMap = unsafeResultMap
-            }
-
-            public init(node: Node? = nil) {
-              self.init(unsafeResultMap: ["__typename": "TagToPostConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
             }
 
             public var __typename: String {
@@ -3061,65 +3054,28 @@ public final class ArticlesByTagQuery: GraphQLQuery {
               }
             }
 
-            /// The item at the end of the edge
-            @available(*, deprecated, message: "")
-            public var node: Node? {
+            public var fragments: Fragments {
               get {
-                return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+                return Fragments(unsafeResultMap: resultMap)
               }
               set {
-                resultMap.updateValue(newValue?.resultMap, forKey: "node")
+                resultMap += newValue.resultMap
               }
             }
 
-            public struct Node: GraphQLSelectionSet {
-              public static let possibleTypes: [String] = ["Post"]
-
-              public static var selections: [GraphQLSelection] {
-                return [
-                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                  GraphQLFragmentSpread(ArticleTeaserParts.self),
-                ]
-              }
-
+            public struct Fragments {
               public private(set) var resultMap: ResultMap
 
               public init(unsafeResultMap: ResultMap) {
                 self.resultMap = unsafeResultMap
               }
 
-              public var __typename: String {
+              public var articleTeaserParts: ArticleTeaserParts {
                 get {
-                  return resultMap["__typename"]! as! String
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "__typename")
-                }
-              }
-
-              public var fragments: Fragments {
-                get {
-                  return Fragments(unsafeResultMap: resultMap)
+                  return ArticleTeaserParts(unsafeResultMap: resultMap)
                 }
                 set {
                   resultMap += newValue.resultMap
-                }
-              }
-
-              public struct Fragments {
-                public private(set) var resultMap: ResultMap
-
-                public init(unsafeResultMap: ResultMap) {
-                  self.resultMap = unsafeResultMap
-                }
-
-                public var articleTeaserParts: ArticleTeaserParts {
-                  get {
-                    return ArticleTeaserParts(unsafeResultMap: resultMap)
-                  }
-                  set {
-                    resultMap += newValue.resultMap
-                  }
                 }
               }
             }
@@ -3649,14 +3605,11 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
           endCursor
           hasNextPage
         }
-        edges {
+        nodes {
           __typename
-          node {
-            __typename
-            ... on Post {
-              trackingUrls
-              ...ArticleTeaserParts
-            }
+          ... on Post {
+            trackingUrls
+            ...ArticleTeaserParts
           }
         }
       }
@@ -3665,7 +3618,7 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
 
   public let operationName: String = "ContentBySearchTerm"
 
-  public let operationIdentifier: String? = "6514002c4cfc659306009424a3754a02878fabb2dddcdd70a42fd7fe991e5acf"
+  public let operationIdentifier: String? = "4fdf109a8d7497c039b4b18f0cc54641001a6bea4114bc54ba493495be53d681"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -3720,7 +3673,7 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("pageInfo", type: .object(PageInfo.selections)),
-          GraphQLField("edges", type: .list(.object(Edge.selections))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
         ]
       }
 
@@ -3730,8 +3683,8 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(pageInfo: PageInfo? = nil, edges: [Edge?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToContentUnionConnection", "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }, "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
+      public init(pageInfo: PageInfo? = nil, nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToContentUnionConnection", "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }, "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -3754,14 +3707,14 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         }
       }
 
-      /// Edges for the RootQueryToContentUnionConnection connection
+      /// The nodes of the connection, without the edges
       @available(*, deprecated, message: "")
-      public var edges: [Edge?]? {
+      public var nodes: [Node?]? {
         get {
-          return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
@@ -3818,13 +3771,17 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         }
       }
 
-      public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["RootQueryToContentUnionConnectionEdge"]
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Card", "Chapter", "Promotion", "Collection", "Stack", "Bulletin"]
 
         public static var selections: [GraphQLSelection] {
           return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("node", type: .object(Node.selections)),
+            GraphQLTypeCase(
+              variants: ["Post": AsPost.selections],
+              default: [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              ]
+            )
           ]
         }
 
@@ -3834,8 +3791,40 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(node: Node? = nil) {
-          self.init(unsafeResultMap: ["__typename": "RootQueryToContentUnionConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
+        public static func makePage() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Page"])
+        }
+
+        public static func makeMediaItem() -> Node {
+          return Node(unsafeResultMap: ["__typename": "MediaItem"])
+        }
+
+        public static func makeEmail() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Email"])
+        }
+
+        public static func makeCard() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Card"])
+        }
+
+        public static func makeChapter() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Chapter"])
+        }
+
+        public static func makePromotion() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Promotion"])
+        }
+
+        public static func makeCollection() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Collection"])
+        }
+
+        public static func makeStack() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Stack"])
+        }
+
+        public static func makeBulletin() -> Node {
+          return Node(unsafeResultMap: ["__typename": "Bulletin"])
         }
 
         public var __typename: String {
@@ -3847,28 +3836,25 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
           }
         }
 
-        /// The item at the end of the edge
-        @available(*, deprecated, message: "")
-        public var node: Node? {
+        public var asPost: AsPost? {
           get {
-            return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+            if !AsPost.possibleTypes.contains(__typename) { return nil }
+            return AsPost(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            guard let newValue = newValue else { return }
+            resultMap = newValue.resultMap
           }
         }
 
-        public struct Node: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Card", "Chapter", "Promotion", "Collection", "Stack", "Bulletin"]
+        public struct AsPost: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Post"]
 
           public static var selections: [GraphQLSelection] {
             return [
-              GraphQLTypeCase(
-                variants: ["Post": AsPost.selections],
-                default: [
-                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                ]
-              )
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("trackingUrls", type: .list(.scalar(String.self))),
+              GraphQLFragmentSpread(ArticleTeaserParts.self),
             ]
           }
 
@@ -3876,42 +3862,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
-          }
-
-          public static func makePage() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Page"])
-          }
-
-          public static func makeMediaItem() -> Node {
-            return Node(unsafeResultMap: ["__typename": "MediaItem"])
-          }
-
-          public static func makeEmail() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Email"])
-          }
-
-          public static func makeCard() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Card"])
-          }
-
-          public static func makeChapter() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Chapter"])
-          }
-
-          public static func makePromotion() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Promotion"])
-          }
-
-          public static func makeCollection() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Collection"])
-          }
-
-          public static func makeStack() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Stack"])
-          }
-
-          public static func makeBulletin() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Bulletin"])
           }
 
           public var __typename: String {
@@ -3923,77 +3873,39 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
             }
           }
 
-          public var asPost: AsPost? {
+          /// List of tracking urls
+          @available(*, deprecated, message: "")
+          public var trackingUrls: [String?]? {
             get {
-              if !AsPost.possibleTypes.contains(__typename) { return nil }
-              return AsPost(unsafeResultMap: resultMap)
+              return resultMap["trackingUrls"] as? [String?]
             }
             set {
-              guard let newValue = newValue else { return }
-              resultMap = newValue.resultMap
+              resultMap.updateValue(newValue, forKey: "trackingUrls")
             }
           }
 
-          public struct AsPost: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["Post"]
-
-            public static var selections: [GraphQLSelection] {
-              return [
-                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("trackingUrls", type: .list(.scalar(String.self))),
-                GraphQLFragmentSpread(ArticleTeaserParts.self),
-              ]
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
             }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
 
+          public struct Fragments {
             public private(set) var resultMap: ResultMap
 
             public init(unsafeResultMap: ResultMap) {
               self.resultMap = unsafeResultMap
             }
 
-            public var __typename: String {
+            public var articleTeaserParts: ArticleTeaserParts {
               get {
-                return resultMap["__typename"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            /// List of tracking urls
-            @available(*, deprecated, message: "")
-            public var trackingUrls: [String?]? {
-              get {
-                return resultMap["trackingUrls"] as? [String?]
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "trackingUrls")
-              }
-            }
-
-            public var fragments: Fragments {
-              get {
-                return Fragments(unsafeResultMap: resultMap)
+                return ArticleTeaserParts(unsafeResultMap: resultMap)
               }
               set {
                 resultMap += newValue.resultMap
-              }
-            }
-
-            public struct Fragments {
-              public private(set) var resultMap: ResultMap
-
-              public init(unsafeResultMap: ResultMap) {
-                self.resultMap = unsafeResultMap
-              }
-
-              public var articleTeaserParts: ArticleTeaserParts {
-                get {
-                  return ArticleTeaserParts(unsafeResultMap: resultMap)
-                }
-                set {
-                  resultMap += newValue.resultMap
-                }
               }
             }
           }
@@ -4010,12 +3922,9 @@ public final class LatestArticlesQuery: GraphQLQuery {
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
       posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
         __typename
-        edges {
+        nodes {
           __typename
-          node {
-            __typename
-            ...ArticleTeaserParts
-          }
+          ...ArticleTeaserParts
         }
         pageInfo {
           __typename
@@ -4028,7 +3937,7 @@ public final class LatestArticlesQuery: GraphQLQuery {
 
   public let operationName: String = "LatestArticles"
 
-  public let operationIdentifier: String? = "740f35fc11935553f97a9ee95fb6d52f19f501c00afcad76d1184eff270c7b43"
+  public let operationIdentifier: String? = "40cce08258b519e270524a050dff89a5b2fdf34ad5d0324245308ac9b7346dcc"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -4082,7 +3991,7 @@ public final class LatestArticlesQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("edges", type: .list(.object(Edge.selections))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
           GraphQLField("pageInfo", type: .object(PageInfo.selections)),
         ]
       }
@@ -4093,8 +4002,8 @@ public final class LatestArticlesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(edges: [Edge?]? = nil, pageInfo: PageInfo? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
+      public init(nodes: [Node?]? = nil, pageInfo: PageInfo? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -4106,14 +4015,14 @@ public final class LatestArticlesQuery: GraphQLQuery {
         }
       }
 
-      /// Edges for the RootQueryToPostConnection connection
+      /// The nodes of the connection, without the edges
       @available(*, deprecated, message: "")
-      public var edges: [Edge?]? {
+      public var nodes: [Node?]? {
         get {
-          return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
@@ -4128,13 +4037,13 @@ public final class LatestArticlesQuery: GraphQLQuery {
         }
       }
 
-      public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["RootQueryToPostConnectionEdge"]
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
 
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("node", type: .object(Node.selections)),
+            GraphQLFragmentSpread(ArticleTeaserParts.self),
           ]
         }
 
@@ -4142,10 +4051,6 @@ public final class LatestArticlesQuery: GraphQLQuery {
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
-        }
-
-        public init(node: Node? = nil) {
-          self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -4157,65 +4062,28 @@ public final class LatestArticlesQuery: GraphQLQuery {
           }
         }
 
-        /// The item at the end of the edge
-        @available(*, deprecated, message: "")
-        public var node: Node? {
+        public var fragments: Fragments {
           get {
-            return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            resultMap += newValue.resultMap
           }
         }
 
-        public struct Node: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post"]
-
-          public static var selections: [GraphQLSelection] {
-            return [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLFragmentSpread(ArticleTeaserParts.self),
-            ]
-          }
-
+        public struct Fragments {
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
           }
 
-          public var __typename: String {
+          public var articleTeaserParts: ArticleTeaserParts {
             get {
-              return resultMap["__typename"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          public var fragments: Fragments {
-            get {
-              return Fragments(unsafeResultMap: resultMap)
+              return ArticleTeaserParts(unsafeResultMap: resultMap)
             }
             set {
               resultMap += newValue.resultMap
-            }
-          }
-
-          public struct Fragments {
-            public private(set) var resultMap: ResultMap
-
-            public init(unsafeResultMap: ResultMap) {
-              self.resultMap = unsafeResultMap
-            }
-
-            public var articleTeaserParts: ArticleTeaserParts {
-              get {
-                return ArticleTeaserParts(unsafeResultMap: resultMap)
-              }
-              set {
-                resultMap += newValue.resultMap
-              }
             }
           }
         }
@@ -4277,6 +4145,498 @@ public final class LatestArticlesQuery: GraphQLQuery {
   }
 }
 
+public final class DiscoverQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query Discover($topics: [String]!) {
+      latest: posts(first: 5) {
+        __typename
+        nodes {
+          __typename
+          ...ArticleTeaserParts
+        }
+      }
+      trendingPosts(first: 5) {
+        __typename
+        nodes {
+          __typename
+          ...ArticleTeaserParts
+        }
+      }
+      topics(first: 7, where: {slug: $topics}) {
+        __typename
+        nodes {
+          __typename
+          ...TopicParts
+          posts(first: 3) {
+            __typename
+            nodes {
+              __typename
+              ...ArticleTeaserParts
+            }
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "Discover"
+
+  public let operationIdentifier: String? = "8cac5c487adcb80b817bd705430ef671b175354c50fe15991c343ca860a08cd3"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + TopicParts.fragmentDefinition) }
+
+  public var topics: [String?]
+
+  public init(topics: [String?]) {
+    self.topics = topics
+  }
+
+  public var variables: GraphQLMap? {
+    return ["topics": topics]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("posts", alias: "latest", arguments: ["first": 5], type: .object(Latest.selections)),
+        GraphQLField("trendingPosts", arguments: ["first": 5], type: .object(TrendingPost.selections)),
+        GraphQLField("topics", arguments: ["first": 7, "where": ["slug": GraphQLVariable("topics")]], type: .object(Topic.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(latest: Latest? = nil, trendingPosts: TrendingPost? = nil, topics: Topic? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "latest": latest.flatMap { (value: Latest) -> ResultMap in value.resultMap }, "trendingPosts": trendingPosts.flatMap { (value: TrendingPost) -> ResultMap in value.resultMap }, "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var latest: Latest? {
+      get {
+        return (resultMap["latest"] as? ResultMap).flatMap { Latest(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "latest")
+      }
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var trendingPosts: TrendingPost? {
+      get {
+        return (resultMap["trendingPosts"] as? ResultMap).flatMap { TrendingPost(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "trendingPosts")
+      }
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var topics: Topic? {
+      get {
+        return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "topics")
+      }
+    }
+
+    public struct Latest: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ArticleTeaserParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var articleTeaserParts: ArticleTeaserParts {
+            get {
+              return ArticleTeaserParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+
+    public struct TrendingPost: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ArticleTeaserParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var articleTeaserParts: ArticleTeaserParts {
+            get {
+              return ArticleTeaserParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+
+    public struct Topic: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToTopicConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToTopicConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Topic"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(TopicParts.self),
+            GraphQLField("posts", arguments: ["first": 3], type: .object(Post.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// Connection between the topic type and the topic type
+        @available(*, deprecated, message: "")
+        public var posts: Post? {
+          get {
+            return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "posts")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var topicParts: TopicParts {
+            get {
+              return TopicParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+
+        public struct Post: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["TopicToPostConnection"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("nodes", type: .list(.object(Node.selections))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(nodes: [Node?]? = nil) {
+            self.init(unsafeResultMap: ["__typename": "TopicToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The nodes of the connection, without the edges
+          @available(*, deprecated, message: "")
+          public var nodes: [Node?]? {
+            get {
+              return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+            }
+            set {
+              resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+            }
+          }
+
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Post"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLFragmentSpread(ArticleTeaserParts.self),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var fragments: Fragments {
+              get {
+                return Fragments(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+
+            public struct Fragments {
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var articleTeaserParts: ArticleTeaserParts {
+                get {
+                  return ArticleTeaserParts(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class GuidesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -4284,17 +4644,14 @@ public final class GuidesQuery: GraphQLQuery {
     query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
       guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
         __typename
-        edges {
+        nodes {
           __typename
-          node {
+          ...GuideParts
+          posts(last: $postsPerGuide) {
             __typename
-            ...GuideParts
-            posts(last: $postsPerGuide) {
+            nodes {
               __typename
-              nodes {
-                __typename
-                ...ArticleTeaserParts
-              }
+              ...ArticleTeaserParts
             }
           }
         }
@@ -4309,7 +4666,7 @@ public final class GuidesQuery: GraphQLQuery {
 
   public let operationName: String = "Guides"
 
-  public let operationIdentifier: String? = "f0eae9738309ec45529920c31c4ff472b6dbb5f85641d6dd7d0c37d7c74049f3"
+  public let operationIdentifier: String? = "5b91620f554de5bbd20be161d43cb394f7fae26a4767220b5f6f5692e955bc67"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -4363,7 +4720,7 @@ public final class GuidesQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("edges", type: .list(.object(Edge.selections))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
           GraphQLField("pageInfo", type: .object(PageInfo.selections)),
         ]
       }
@@ -4374,8 +4731,8 @@ public final class GuidesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(edges: [Edge?]? = nil, pageInfo: PageInfo? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToGuideConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
+      public init(nodes: [Node?]? = nil, pageInfo: PageInfo? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToGuideConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -4387,14 +4744,14 @@ public final class GuidesQuery: GraphQLQuery {
         }
       }
 
-      /// Edges for the RootQueryToGuideConnection connection
+      /// The nodes of the connection, without the edges
       @available(*, deprecated, message: "")
-      public var edges: [Edge?]? {
+      public var nodes: [Node?]? {
         get {
-          return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
@@ -4409,13 +4766,14 @@ public final class GuidesQuery: GraphQLQuery {
         }
       }
 
-      public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["RootQueryToGuideConnectionEdge"]
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Guide"]
 
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("node", type: .object(Node.selections)),
+            GraphQLFragmentSpread(GuideParts.self),
+            GraphQLField("posts", arguments: ["last": GraphQLVariable("postsPerGuide")], type: .object(Post.selections)),
           ]
         }
 
@@ -4423,10 +4781,6 @@ public final class GuidesQuery: GraphQLQuery {
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
-        }
-
-        public init(node: Node? = nil) {
-          self.init(unsafeResultMap: ["__typename": "RootQueryToGuideConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -4438,25 +4792,50 @@ public final class GuidesQuery: GraphQLQuery {
           }
         }
 
-        /// The item at the end of the edge
+        /// Connection between the guide type and the guide type
         @available(*, deprecated, message: "")
-        public var node: Node? {
+        public var posts: Post? {
           get {
-            return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+            return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
           }
           set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            resultMap.updateValue(newValue?.resultMap, forKey: "posts")
           }
         }
 
-        public struct Node: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Guide"]
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var guideParts: GuideParts {
+            get {
+              return GuideParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+
+        public struct Post: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["GuideToPostConnection"]
 
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLFragmentSpread(GuideParts.self),
-              GraphQLField("posts", arguments: ["last": GraphQLVariable("postsPerGuide")], type: .object(Post.selections)),
+              GraphQLField("nodes", type: .list(.object(Node.selections))),
             ]
           }
 
@@ -4464,6 +4843,10 @@ public final class GuidesQuery: GraphQLQuery {
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
+          }
+
+          public init(nodes: [Node?]? = nil) {
+            self.init(unsafeResultMap: ["__typename": "GuideToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
           }
 
           public var __typename: String {
@@ -4475,50 +4858,24 @@ public final class GuidesQuery: GraphQLQuery {
             }
           }
 
-          /// Connection between the guide type and the guide type
+          /// The nodes of the connection, without the edges
           @available(*, deprecated, message: "")
-          public var posts: Post? {
+          public var nodes: [Node?]? {
             get {
-              return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+              return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
             }
             set {
-              resultMap.updateValue(newValue?.resultMap, forKey: "posts")
+              resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
             }
           }
 
-          public var fragments: Fragments {
-            get {
-              return Fragments(unsafeResultMap: resultMap)
-            }
-            set {
-              resultMap += newValue.resultMap
-            }
-          }
-
-          public struct Fragments {
-            public private(set) var resultMap: ResultMap
-
-            public init(unsafeResultMap: ResultMap) {
-              self.resultMap = unsafeResultMap
-            }
-
-            public var guideParts: GuideParts {
-              get {
-                return GuideParts(unsafeResultMap: resultMap)
-              }
-              set {
-                resultMap += newValue.resultMap
-              }
-            }
-          }
-
-          public struct Post: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["GuideToPostConnection"]
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Post"]
 
             public static var selections: [GraphQLSelection] {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("nodes", type: .list(.object(Node.selections))),
+                GraphQLFragmentSpread(ArticleTeaserParts.self),
               ]
             }
 
@@ -4526,10 +4883,6 @@ public final class GuidesQuery: GraphQLQuery {
 
             public init(unsafeResultMap: ResultMap) {
               self.resultMap = unsafeResultMap
-            }
-
-            public init(nodes: [Node?]? = nil) {
-              self.init(unsafeResultMap: ["__typename": "GuideToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
             }
 
             public var __typename: String {
@@ -4541,65 +4894,28 @@ public final class GuidesQuery: GraphQLQuery {
               }
             }
 
-            /// The nodes of the connection, without the edges
-            @available(*, deprecated, message: "")
-            public var nodes: [Node?]? {
+            public var fragments: Fragments {
               get {
-                return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+                return Fragments(unsafeResultMap: resultMap)
               }
               set {
-                resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+                resultMap += newValue.resultMap
               }
             }
 
-            public struct Node: GraphQLSelectionSet {
-              public static let possibleTypes: [String] = ["Post"]
-
-              public static var selections: [GraphQLSelection] {
-                return [
-                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                  GraphQLFragmentSpread(ArticleTeaserParts.self),
-                ]
-              }
-
+            public struct Fragments {
               public private(set) var resultMap: ResultMap
 
               public init(unsafeResultMap: ResultMap) {
                 self.resultMap = unsafeResultMap
               }
 
-              public var __typename: String {
+              public var articleTeaserParts: ArticleTeaserParts {
                 get {
-                  return resultMap["__typename"]! as! String
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "__typename")
-                }
-              }
-
-              public var fragments: Fragments {
-                get {
-                  return Fragments(unsafeResultMap: resultMap)
+                  return ArticleTeaserParts(unsafeResultMap: resultMap)
                 }
                 set {
                   resultMap += newValue.resultMap
-                }
-              }
-
-              public struct Fragments {
-                public private(set) var resultMap: ResultMap
-
-                public init(unsafeResultMap: ResultMap) {
-                  self.resultMap = unsafeResultMap
-                }
-
-                public var articleTeaserParts: ArticleTeaserParts {
-                  get {
-                    return ArticleTeaserParts(unsafeResultMap: resultMap)
-                  }
-                  set {
-                    resultMap += newValue.resultMap
-                  }
                 }
               }
             }
