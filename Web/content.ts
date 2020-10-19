@@ -23161,6 +23161,34 @@ export type ArticleTeaserQuery = (
   )> }
 );
 
+export type ArticlesByGuideQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+}>;
+
+
+export type ArticlesByGuideQuery = (
+  { __typename?: 'RootQuery' }
+  & { guides?: Maybe<(
+    { __typename?: 'RootQueryToGuideConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Guide' }
+      & { posts?: Maybe<(
+        { __typename?: 'GuideToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'hasNextPage' | 'endCursor'>
+        )> }
+      )> }
+      & GuidePartsFragment
+    )>>> }
+  )> }
+);
+
 export type ArticlesByObsessionQueryVariables = Exact<{
   after?: Maybe<Scalars['String']>;
   perPage?: Maybe<Scalars['Int']>;
@@ -24561,6 +24589,53 @@ export function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type ArticleTeaserQueryHookResult = ReturnType<typeof useArticleTeaserQuery>;
 export type ArticleTeaserLazyQueryHookResult = ReturnType<typeof useArticleTeaserLazyQuery>;
 export type ArticleTeaserQueryResult = Apollo.QueryResult<ArticleTeaserQuery, ArticleTeaserQueryVariables>;
+export const ArticlesByGuideDocument = gql`
+    query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
+  guides(where: {slug: $slug}) {
+    nodes {
+      ...GuideParts
+      posts(after: $after, first: $perPage, where: {orderby: {field: DATE, order: ASC}}) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+  }
+}
+    ${GuidePartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useArticlesByGuideQuery__
+ *
+ * To run a query within a React component, call `useArticlesByGuideQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesByGuideQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesByGuideQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesByGuideQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>) {
+        return Apollo.useQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, baseOptions);
+      }
+export function useArticlesByGuideLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, baseOptions);
+        }
+export type ArticlesByGuideQueryHookResult = ReturnType<typeof useArticlesByGuideQuery>;
+export type ArticlesByGuideLazyQueryHookResult = ReturnType<typeof useArticlesByGuideLazyQuery>;
+export type ArticlesByGuideQueryResult = Apollo.QueryResult<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>;
 export const ArticlesByObsessionDocument = gql`
     query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
   obsessions(where: {slug: $slug}) {
