@@ -13,12 +13,10 @@ fragment NugParts on Nug {
 	}
 	dateGmt
 	emailLists {
-		edges {
-			node {
-				emailListId
-				listId
-				name
-			}
+		nodes {
+			emailListId
+			listId
+			name
 		}
 	}
 	link
