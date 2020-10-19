@@ -10,10 +10,8 @@ query LatestArticles(
 			edition: $edition
 		}
 	) {
-		edges {
-			node {
-				...ArticleTeaserParts
-			}
+		nodes {
+			...ArticleTeaserParts
 		}
 		pageInfo {
 			endCursor

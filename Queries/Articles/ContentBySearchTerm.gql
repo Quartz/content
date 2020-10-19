@@ -14,12 +14,10 @@ query ContentBySearchTerm(
 			endCursor
 			hasNextPage
 		}
-		edges {
-			node {
-				... on Post {
-					trackingUrls
-					...ArticleTeaserParts
-				}
+		nodes {
+			... on Post {
+				trackingUrls
+				...ArticleTeaserParts
 			}
 		}
 	}

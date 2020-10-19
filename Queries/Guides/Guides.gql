@@ -10,13 +10,11 @@ query Guides(
 			orderby: TERM_ID
 		}
 	) {
-		edges {
-			node {
-				...GuideParts
-				posts(last: $postsPerGuide) {
-					nodes {
-						...ArticleTeaserParts
-					}
+		nodes {
+			...GuideParts
+			posts(last: $postsPerGuide) {
+				nodes {
+					...ArticleTeaserParts
 				}
 			}
 		}
