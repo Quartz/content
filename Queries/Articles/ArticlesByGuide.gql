@@ -1,0 +1,33 @@
+query ArticlesByGuide(
+	$after: String = ""
+	$perPage: Int
+	$slug: [String]
+) {
+	guides(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...GuideParts
+			posts(
+				after: $after
+				first: $perPage
+				where: {
+					orderby: {
+						field: DATE
+						order: ASC
+					}
+				}
+			) {
+				nodes {
+					...ArticleTeaserParts
+				}
+				pageInfo {
+					hasNextPage
+					endCursor
+				}
+			}
+		}
+	}
+}
