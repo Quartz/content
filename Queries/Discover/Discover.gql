@@ -1,12 +1,12 @@
 query Discover($topics: [String]!) {
 	latest: posts(first: 5) {
 		nodes {
-			...PostParts
+			...ArticleTeaserParts
 		}
 	}
 	trendingPosts(first: 5) {
 		nodes {
-			...PostParts
+			...ArticleTeaserParts
 		}
 	}
 	topics(first: 7, where: {slug: $topics}) {
@@ -14,7 +14,7 @@ query Discover($topics: [String]!) {
 			...TopicParts
 			posts(first: 3) {
 				nodes {
-					...PostParts
+					...ArticleTeaserParts
 				}
 			}
 		}
