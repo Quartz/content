@@ -23266,12 +23266,9 @@ export type ArticlesByTagQuery = (
       { __typename?: 'Tag' }
       & { posts?: Maybe<(
         { __typename?: 'TagToPostConnection' }
-        & { edges?: Maybe<Array<Maybe<(
-          { __typename?: 'TagToPostConnectionEdge' }
-          & { node?: Maybe<(
-            { __typename?: 'Post' }
-            & ArticleTeaserPartsFragment
-          )> }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
         )>>>, pageInfo?: Maybe<(
           { __typename?: 'WPPageInfo' }
           & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
@@ -23324,14 +23321,11 @@ export type ContentBySearchTermQuery = (
     & { pageInfo?: Maybe<(
       { __typename?: 'WPPageInfo' }
       & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
-    )>, edges?: Maybe<Array<Maybe<(
-      { __typename?: 'RootQueryToContentUnionConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Post' }
-        & Pick<Post, 'trackingUrls'>
-        & ArticleTeaserPartsFragment
-      ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }> }
-    )>>> }
+    )>, nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & Pick<Post, 'trackingUrls'>
+      & ArticleTeaserPartsFragment
+    ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }
   )> }
 );
 
@@ -23346,12 +23340,9 @@ export type LatestArticlesQuery = (
   { __typename?: 'RootQuery' }
   & { posts?: Maybe<(
     { __typename?: 'RootQueryToPostConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'RootQueryToPostConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Post' }
-        & ArticleTeaserPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
     )>>>, pageInfo?: Maybe<(
       { __typename?: 'WPPageInfo' }
       & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
@@ -23366,6 +23357,41 @@ export type PromotionPartsFragment = (
   & { featuredImage?: Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
+  )> }
+);
+
+export type DiscoverQueryVariables = Exact<{
+  topics: Array<Maybe<Scalars['String']>>;
+}>;
+
+
+export type DiscoverQuery = (
+  { __typename?: 'RootQuery' }
+  & { latest?: Maybe<(
+    { __typename?: 'RootQueryToPostConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
+    )>>> }
+  )>, trendingPosts?: Maybe<(
+    { __typename?: 'RootQueryToPostConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
+    )>>> }
+  )>, topics?: Maybe<(
+    { __typename?: 'RootQueryToTopicConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Topic' }
+      & { posts?: Maybe<(
+        { __typename?: 'TopicToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>> }
+      )> }
+      & TopicPartsFragment
+    )>>> }
   )> }
 );
 
@@ -23734,19 +23760,16 @@ export type GuidesQuery = (
   { __typename?: 'RootQuery' }
   & { guides?: Maybe<(
     { __typename?: 'RootQueryToGuideConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'RootQueryToGuideConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Guide' }
-        & { posts?: Maybe<(
-          { __typename?: 'GuideToPostConnection' }
-          & { nodes?: Maybe<Array<Maybe<(
-            { __typename?: 'Post' }
-            & ArticleTeaserPartsFragment
-          )>>> }
-        )> }
-        & GuidePartsFragment
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Guide' }
+      & { posts?: Maybe<(
+        { __typename?: 'GuideToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>> }
       )> }
+      & GuidePartsFragment
     )>>>, pageInfo?: Maybe<(
       { __typename?: 'WPPageInfo' }
       & Pick<WpPageInfo, 'hasPreviousPage' | 'startCursor'>
@@ -24695,10 +24718,8 @@ export const ArticlesByTagDocument = gql`
     nodes {
       ...TagParts
       posts(after: $after, first: $perPage) {
-        edges {
-          node {
-            ...ArticleTeaserParts
-          }
+        nodes {
+          ...ArticleTeaserParts
         }
         pageInfo {
           endCursor
@@ -24792,12 +24813,10 @@ export const ContentBySearchTermDocument = gql`
       endCursor
       hasNextPage
     }
-    edges {
-      node {
-        ... on Post {
-          trackingUrls
-          ...ArticleTeaserParts
-        }
+    nodes {
+      ... on Post {
+        trackingUrls
+        ...ArticleTeaserParts
       }
     }
   }
@@ -24834,10 +24853,8 @@ export type ContentBySearchTermQueryResult = Apollo.QueryResult<ContentBySearchT
 export const LatestArticlesDocument = gql`
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
-    edges {
-      node {
-        ...ArticleTeaserParts
-      }
+    nodes {
+      ...ArticleTeaserParts
     }
     pageInfo {
       endCursor
@@ -24874,16 +24891,65 @@ export function useLatestArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type LatestArticlesQueryHookResult = ReturnType<typeof useLatestArticlesQuery>;
 export type LatestArticlesLazyQueryHookResult = ReturnType<typeof useLatestArticlesLazyQuery>;
 export type LatestArticlesQueryResult = Apollo.QueryResult<LatestArticlesQuery, LatestArticlesQueryVariables>;
+export const DiscoverDocument = gql`
+    query Discover($topics: [String]!) {
+  latest: posts(first: 5) {
+    nodes {
+      ...ArticleTeaserParts
+    }
+  }
+  trendingPosts(first: 5) {
+    nodes {
+      ...ArticleTeaserParts
+    }
+  }
+  topics(first: 7, where: {slug: $topics}) {
+    nodes {
+      ...TopicParts
+      posts(first: 3) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+      }
+    }
+  }
+}
+    ${ArticleTeaserPartsFragmentDoc}
+${TopicPartsFragmentDoc}`;
+
+/**
+ * __useDiscoverQuery__
+ *
+ * To run a query within a React component, call `useDiscoverQuery` and pass it any options that fit your needs.
+ * When your component renders, `useDiscoverQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useDiscoverQuery({
+ *   variables: {
+ *      topics: // value for 'topics'
+ *   },
+ * });
+ */
+export function useDiscoverQuery(baseOptions?: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
+        return Apollo.useQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
+      }
+export function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
+          return Apollo.useLazyQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
+        }
+export type DiscoverQueryHookResult = ReturnType<typeof useDiscoverQuery>;
+export type DiscoverLazyQueryHookResult = ReturnType<typeof useDiscoverLazyQuery>;
+export type DiscoverQueryResult = Apollo.QueryResult<DiscoverQuery, DiscoverQueryVariables>;
 export const GuidesDocument = gql`
     query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
   guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
-    edges {
-      node {
-        ...GuideParts
-        posts(last: $postsPerGuide) {
-          nodes {
-            ...ArticleTeaserParts
-          }
+    nodes {
+      ...GuideParts
+      posts(last: $postsPerGuide) {
+        nodes {
+          ...ArticleTeaserParts
         }
       }
     }
