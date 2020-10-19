@@ -23428,96 +23428,66 @@ export type ArticlePartsFragment = (
   & Pick<Post, 'canonicalUrl' | 'classifications' | 'excerpt' | 'featuredImageSize' | 'footnotes' | 'interactiveSource' | 'interactiveShowHeader' | 'metered' | 'modifiedGmt' | 'paywalled' | 'readNext' | 'slug' | 'seoTitle' | 'socialDescription' | 'socialImage' | 'socialTitle' | 'subtype' | 'suppressAds' | 'trackingUrls'>
   & { authors?: Maybe<(
     { __typename?: 'PostToCoAuthorConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToCoAuthorConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'CoAuthor' }
-        & AuthorPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'CoAuthor' }
+      & AuthorPartsFragment
     )>>> }
   )>, blocks?: Maybe<Array<Maybe<(
     { __typename?: 'Block' }
     & BlockPartsFragment
   )>>>, flags?: Maybe<(
     { __typename?: 'PostToFlagConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToFlagConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Flag' }
-        & Pick<Flag, 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Flag' }
+      & Pick<Flag, 'name' | 'slug'>
     )>>> }
   )>, guides?: Maybe<(
     { __typename?: 'PostToGuideConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToGuideConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Guide' }
-        & GuidePartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Guide' }
+      & GuidePartsFragment
     )>>> }
   )>, locations?: Maybe<(
     { __typename?: 'PostToLocationConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToLocationConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Location' }
-        & Pick<Location, 'name'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Location' }
+      & Pick<Location, 'name'>
     )>>> }
   )>, obsessions?: Maybe<(
     { __typename?: 'PostToObsessionConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToObsessionConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Obsession' }
-        & ObsessionPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Obsession' }
+      & ObsessionPartsFragment
     )>>> }
   )>, projects?: Maybe<(
     { __typename?: 'PostToProjectConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToProjectConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Project' }
-        & ProjectPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Project' }
+      & ProjectPartsFragment
     )>>> }
   )>, serieses?: Maybe<(
     { __typename?: 'PostToSeriesConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToSeriesConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Series' }
-        & SeriesPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Series' }
+      & SeriesPartsFragment
     )>>> }
   )>, shows?: Maybe<(
     { __typename?: 'PostToShowConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToShowConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Show' }
-        & ShowPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Show' }
+      & ShowPartsFragment
     )>>> }
   )>, tags?: Maybe<(
     { __typename?: 'PostToTagConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToTagConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Tag' }
-        & Pick<Tag, 'id' | 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Tag' }
+      & Pick<Tag, 'id' | 'name' | 'slug'>
     )>>> }
   )>, topics?: Maybe<(
     { __typename?: 'PostToTopicConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToTopicConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Topic' }
-        & Pick<Topic, 'id' | 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Topic' }
+      & Pick<Topic, 'id' | 'name' | 'slug'>
     )>>> }
   )> }
   & ArticleTeaserPartsFragment
@@ -23540,12 +23510,9 @@ export type ArticleTeaserPartsFragment = (
     )> }
   )>, editions?: Maybe<(
     { __typename?: 'PostToEditionConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToEditionConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Edition' }
-        & Pick<Edition, 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Edition' }
+      & Pick<Edition, 'name' | 'slug'>
     )>>> }
   )>, featuredImage?: Maybe<(
     { __typename?: 'MediaItem' }
@@ -23659,12 +23626,9 @@ export type NugPartsFragment = (
     & BlockPartsFragment
   )>>>, emailLists?: Maybe<(
     { __typename?: 'NugToEmailListConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'NugToEmailListConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'EmailList' }
-        & Pick<EmailList, 'emailListId' | 'listId' | 'name'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'EmailList' }
+      & Pick<EmailList, 'emailListId' | 'listId' | 'name'>
     )>>> }
   )> }
 );
@@ -24067,11 +24031,9 @@ export const ArticleTeaserPartsFragmentDoc = gql`
   }
   dateGmt
   editions {
-    edges {
-      node {
-        name
-        slug
-      }
+    nodes {
+      name
+      slug
     }
   }
   featuredImage {
@@ -24271,10 +24233,8 @@ export const ArticlePartsFragmentDoc = gql`
     fragment ArticleParts on Post {
   ...ArticleTeaserParts
   authors: coAuthors {
-    edges {
-      node {
-        ...AuthorParts
-      }
+    nodes {
+      ...AuthorParts
     }
   }
   blocks {
@@ -24285,60 +24245,46 @@ export const ArticlePartsFragmentDoc = gql`
   excerpt
   featuredImageSize
   flags {
-    edges {
-      node {
-        name
-        slug
-      }
+    nodes {
+      name
+      slug
     }
   }
   footnotes
   guides {
-    edges {
-      node {
-        ...GuideParts
-      }
+    nodes {
+      ...GuideParts
     }
   }
   interactiveSource
   interactiveShowHeader
   locations {
-    edges {
-      node {
-        name
-      }
+    nodes {
+      name
     }
   }
   metered
   modifiedGmt
   obsessions {
-    edges {
-      node {
-        ...ObsessionParts
-      }
+    nodes {
+      ...ObsessionParts
     }
   }
   paywalled
   projects {
-    edges {
-      node {
-        ...ProjectParts
-      }
+    nodes {
+      ...ProjectParts
     }
   }
   readNext
   serieses {
-    edges {
-      node {
-        ...SeriesParts
-      }
+    nodes {
+      ...SeriesParts
     }
   }
   shows {
-    edges {
-      node {
-        ...ShowParts
-      }
+    nodes {
+      ...ShowParts
     }
   }
   slug
@@ -24349,21 +24295,17 @@ export const ArticlePartsFragmentDoc = gql`
   subtype
   suppressAds
   tags(where: {orderby: COUNT}, last: 20) {
-    edges {
-      node {
-        id
-        name
-        slug
-      }
+    nodes {
+      id
+      name
+      slug
     }
   }
   topics {
-    edges {
-      node {
-        id
-        name
-        slug
-      }
+    nodes {
+      id
+      name
+      slug
     }
   }
   trackingUrls
@@ -24414,12 +24356,10 @@ export const NugPartsFragmentDoc = gql`
   }
   dateGmt
   emailLists {
-    edges {
-      node {
-        emailListId
-        listId
-        name
-      }
+    nodes {
+      emailListId
+      listId
+      name
     }
   }
   link
