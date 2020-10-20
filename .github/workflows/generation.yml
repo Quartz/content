@@ -9,61 +9,61 @@ on:
       - main
 
 jobs:
-  build-ios:
-    name: Generate & verify iOS Swift types
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
+  # build-ios:
+  #   name: Generate & verify iOS Swift types
+  #   runs-on: macOS-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         ref: ${{ github.head_ref }}
 
-      - name: Switch to Xcode 12
-        run: ls /Applications; sudo xcode-select -s /Applications/Xcode_12.app
+  #     - name: Switch to Xcode 12
+  #       run: ls /Applications; sudo xcode-select -s /Applications/Xcode_12.app
 
-      - name: Cache build
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-swift-packages
-        with:
-          path: |
-            .build
-            iOS/Codegen/.build
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Package.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+  #     - name: Cache build
+  #       uses: actions/cache@v2
+  #       env:
+  #         cache-name: cache-swift-packages
+  #       with:
+  #         path: |
+  #           .build
+  #           iOS/Codegen/.build
+  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Package.resolved') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-build-${{ env.cache-name }}-
+  #           ${{ runner.os }}-build-
+  #           ${{ runner.os }}-
 
-      - name: Generate Swift types
-        run: |
-          cd iOS/Codegen
-          swift build
-          ./.build/debug/Codegen
+  #     - name: Generate Swift types
+  #       run: |
+  #         cd iOS/Codegen
+  #         swift build
+  #         ./.build/debug/Codegen
 
-      - name: Verify client package can be built
-        run: swift build
+  #     - name: Verify client package can be built
+  #       run: swift build
 
-      - name: Commit build files
-        continue-on-error: true
-        id: git_commit
-        uses: zwaldowski/git-commit-action@v1
-        with:
-          commit_message: Add Swift types
+  #     - name: Commit build files
+  #       continue-on-error: true
+  #       id: git_commit
+  #       uses: zwaldowski/git-commit-action@v1
+  #       with:
+  #         commit_message: Add Swift types
 
-      - continue-on-error: true
-        run: git push
+  #     - continue-on-error: true
+  #       run: git push
 
-      - uses: Sibz/github-status-action@v1
-        continue-on-error: true
-        with:
-          authToken: ${{ secrets.GITHUB_TOKEN }}
-          sha: ${{ steps.git_commit.outputs.sha }}
-          state: success
-          context: Built Swift types
+  #     - uses: Sibz/github-status-action@v1
+  #       continue-on-error: true
+  #       with:
+  #         authToken: ${{ secrets.GITHUB_TOKEN }}
+  #         sha: ${{ steps.git_commit.outputs.sha }}
+  #         state: success
+  #         context: Built Swift types
 
   build-ts:
     name: Generate & verify TypeScript types
-    needs: build-ios # we can’t run in parallel because `build-ios` downloads the schema and this job uses that schema file
+    # needs: build-ios # we can’t run in parallel because `build-ios` downloads the schema and this job uses that schema file
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -74,20 +74,18 @@ jobs:
         with:
           node-version: '12'
 
-      - run: npm i
+      # - run: npm i
 
-      - run: npm run generate
+      # - run: npm run generate
 
       - name: Commit build files
         continue-on-error: true
         id: git_commit
-        uses: zwaldowski/git-commit-action@v1
-        with:
-          commit_message: Add TypeScript types
-          commit_options: '--allow-empty'
-
-      - continue-on-error: true
-        run: git push
+        run: |
+          git commit -a -m "Add TypeScript types" --no-verify --allow-empty
+          git rev-parse HEAD >> $SHA_OUTPUT
+          echo "::set-output name=sha::"$SHA_OUTPUT""
+          git push
 
       - uses: Sibz/github-status-action@v1
         continue-on-error: true
