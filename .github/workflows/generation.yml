@@ -82,6 +82,8 @@ jobs:
         continue-on-error: true
         id: git_commit
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git commit -a -m "Add TypeScript types" --no-verify --allow-empty
           git rev-parse HEAD >> $SHA_OUTPUT
           echo "::set-output name=sha::"$SHA_OUTPUT""
