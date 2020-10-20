@@ -20,11 +20,9 @@ fragment ArticleTeaserParts on Post {
 	}
 	dateGmt
 	editions {
-		edges {
-			node {
-				name
-				slug
-			}
+		nodes {
+			name
+			slug
 		}
 	}
 	featuredImage {

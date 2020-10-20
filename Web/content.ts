@@ -23161,6 +23161,202 @@ export type ArticleTeaserQuery = (
   )> }
 );
 
+export type ArticlesByGuideQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+}>;
+
+
+export type ArticlesByGuideQuery = (
+  { __typename?: 'RootQuery' }
+  & { guides?: Maybe<(
+    { __typename?: 'RootQueryToGuideConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Guide' }
+      & { posts?: Maybe<(
+        { __typename?: 'GuideToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'hasNextPage' | 'endCursor'>
+        )> }
+      )> }
+      & GuidePartsFragment
+    )>>> }
+  )> }
+);
+
+export type ArticlesByObsessionQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug: Array<Maybe<Scalars['String']>>;
+}>;
+
+
+export type ArticlesByObsessionQuery = (
+  { __typename?: 'RootQuery' }
+  & { obsessions?: Maybe<(
+    { __typename?: 'RootQueryToObsessionConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Obsession' }
+      & { posts?: Maybe<(
+        { __typename?: 'ObsessionToContentUnionConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | (
+          { __typename?: 'Promotion' }
+          & PromotionPartsFragment
+        ) | { __typename?: 'Collection' } | { __typename?: 'Stack' } | (
+          { __typename?: 'Bulletin' }
+          & BulletinPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+        )> }
+      )> }
+      & ObsessionPartsFragment
+    )>>> }
+  )> }
+);
+
+export type ArticlesBySeriesQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+}>;
+
+
+export type ArticlesBySeriesQuery = (
+  { __typename?: 'RootQuery' }
+  & { serieses?: Maybe<(
+    { __typename?: 'RootQueryToSeriesConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Series' }
+      & { posts?: Maybe<(
+        { __typename?: 'SeriesToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+        )> }
+      )> }
+      & SeriesPartsFragment
+    )>>> }
+  )> }
+);
+
+export type ArticlesByShowQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+}>;
+
+
+export type ArticlesByShowQuery = (
+  { __typename?: 'RootQuery' }
+  & { shows?: Maybe<(
+    { __typename?: 'RootQueryToShowConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Show' }
+      & { posts?: Maybe<(
+        { __typename?: 'ShowToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+        )> }
+      )> }
+      & ShowPartsFragment
+    )>>> }
+  )> }
+);
+
+export type ArticlesByTagQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+}>;
+
+
+export type ArticlesByTagQuery = (
+  { __typename?: 'RootQuery' }
+  & { tags?: Maybe<(
+    { __typename?: 'RootQueryToTagConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Tag' }
+      & { posts?: Maybe<(
+        { __typename?: 'TagToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+        )> }
+      )> }
+      & TagPartsFragment
+    )>>> }
+  )> }
+);
+
+export type ArticlesByTopicQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  perPage?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+}>;
+
+
+export type ArticlesByTopicQuery = (
+  { __typename?: 'RootQuery' }
+  & { topics?: Maybe<(
+    { __typename?: 'RootQueryToTopicConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Topic' }
+      & { posts?: Maybe<(
+        { __typename?: 'TopicToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>>, pageInfo?: Maybe<(
+          { __typename?: 'WPPageInfo' }
+          & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+        )> }
+      )> }
+      & TopicPartsFragment
+    )>>> }
+  )> }
+);
+
+export type ContentBySearchTermQueryVariables = Exact<{
+  after?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  search: Scalars['String'];
+}>;
+
+
+export type ContentBySearchTermQuery = (
+  { __typename?: 'RootQuery' }
+  & { content?: Maybe<(
+    { __typename?: 'RootQueryToContentUnionConnection' }
+    & { pageInfo?: Maybe<(
+      { __typename?: 'WPPageInfo' }
+      & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+    )>, nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & Pick<Post, 'trackingUrls'>
+      & ArticleTeaserPartsFragment
+    ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }
+  )> }
+);
+
 export type LatestArticlesQueryVariables = Exact<{
   after?: Maybe<Scalars['String']>;
   edition?: Maybe<EditionName>;
@@ -23172,16 +23368,58 @@ export type LatestArticlesQuery = (
   { __typename?: 'RootQuery' }
   & { posts?: Maybe<(
     { __typename?: 'RootQueryToPostConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'RootQueryToPostConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Post' }
-        & ArticleTeaserPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
     )>>>, pageInfo?: Maybe<(
       { __typename?: 'WPPageInfo' }
       & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
     )> }
+  )> }
+);
+
+export type PromotionPartsFragment = (
+  { __typename?: 'Promotion' }
+  & Pick<Promotion, 'content' | 'dateGmt' | 'destination' | 'id' | 'link' | 'modified' | 'title'>
+  & { description: Promotion['excerpt'] }
+  & { featuredImage?: Maybe<(
+    { __typename?: 'MediaItem' }
+    & MediaPartsFragment
+  )> }
+);
+
+export type DiscoverQueryVariables = Exact<{
+  topics: Array<Maybe<Scalars['String']>>;
+}>;
+
+
+export type DiscoverQuery = (
+  { __typename?: 'RootQuery' }
+  & { latest?: Maybe<(
+    { __typename?: 'RootQueryToPostConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
+    )>>> }
+  )>, trendingPosts?: Maybe<(
+    { __typename?: 'RootQueryToPostConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
+    )>>> }
+  )>, topics?: Maybe<(
+    { __typename?: 'RootQueryToTopicConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Topic' }
+      & { posts?: Maybe<(
+        { __typename?: 'TopicToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>> }
+      )> }
+      & TopicPartsFragment
+    )>>> }
   )> }
 );
 
@@ -23190,96 +23428,66 @@ export type ArticlePartsFragment = (
   & Pick<Post, 'canonicalUrl' | 'classifications' | 'excerpt' | 'featuredImageSize' | 'footnotes' | 'interactiveSource' | 'interactiveShowHeader' | 'metered' | 'modifiedGmt' | 'paywalled' | 'readNext' | 'slug' | 'seoTitle' | 'socialDescription' | 'socialImage' | 'socialTitle' | 'subtype' | 'suppressAds' | 'trackingUrls'>
   & { authors?: Maybe<(
     { __typename?: 'PostToCoAuthorConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToCoAuthorConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'CoAuthor' }
-        & AuthorPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'CoAuthor' }
+      & AuthorPartsFragment
     )>>> }
   )>, blocks?: Maybe<Array<Maybe<(
     { __typename?: 'Block' }
     & BlockPartsFragment
   )>>>, flags?: Maybe<(
     { __typename?: 'PostToFlagConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToFlagConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Flag' }
-        & Pick<Flag, 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Flag' }
+      & Pick<Flag, 'name' | 'slug'>
     )>>> }
   )>, guides?: Maybe<(
     { __typename?: 'PostToGuideConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToGuideConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Guide' }
-        & GuidePartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Guide' }
+      & GuidePartsFragment
     )>>> }
   )>, locations?: Maybe<(
     { __typename?: 'PostToLocationConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToLocationConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Location' }
-        & Pick<Location, 'name'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Location' }
+      & Pick<Location, 'name'>
     )>>> }
   )>, obsessions?: Maybe<(
     { __typename?: 'PostToObsessionConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToObsessionConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Obsession' }
-        & ObsessionPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Obsession' }
+      & ObsessionPartsFragment
     )>>> }
   )>, projects?: Maybe<(
     { __typename?: 'PostToProjectConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToProjectConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Project' }
-        & ProjectPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Project' }
+      & ProjectPartsFragment
     )>>> }
   )>, serieses?: Maybe<(
     { __typename?: 'PostToSeriesConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToSeriesConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Series' }
-        & SeriesPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Series' }
+      & SeriesPartsFragment
     )>>> }
   )>, shows?: Maybe<(
     { __typename?: 'PostToShowConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToShowConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Show' }
-        & ShowPartsFragment
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Show' }
+      & ShowPartsFragment
     )>>> }
   )>, tags?: Maybe<(
     { __typename?: 'PostToTagConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToTagConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Tag' }
-        & Pick<Tag, 'id' | 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Tag' }
+      & Pick<Tag, 'id' | 'name' | 'slug'>
     )>>> }
   )>, topics?: Maybe<(
     { __typename?: 'PostToTopicConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToTopicConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Topic' }
-        & Pick<Topic, 'id' | 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Topic' }
+      & Pick<Topic, 'id' | 'name' | 'slug'>
     )>>> }
   )> }
   & ArticleTeaserPartsFragment
@@ -23302,12 +23510,9 @@ export type ArticleTeaserPartsFragment = (
     )> }
   )>, editions?: Maybe<(
     { __typename?: 'PostToEditionConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'PostToEditionConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'Edition' }
-        & Pick<Edition, 'name' | 'slug'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Edition' }
+      & Pick<Edition, 'name' | 'slug'>
     )>>> }
   )>, featuredImage?: Maybe<(
     { __typename?: 'MediaItem' }
@@ -23333,6 +23538,27 @@ export type BlockPartsFragment = (
     { __typename?: 'Attribute' }
     & Pick<Attribute, 'name' | 'value'>
   )>>> }
+);
+
+export type BulletinPartsFragment = (
+  { __typename?: 'Bulletin' }
+  & Pick<Bulletin, 'link' | 'title' | 'dateGmt'>
+  & { featuredImage?: Maybe<(
+    { __typename?: 'MediaItem' }
+    & MediaPartsFragment
+  )>, bulletin?: Maybe<(
+    { __typename?: 'BulletinData' }
+    & { sponsor?: Maybe<(
+      { __typename?: 'CampaignData' }
+      & Pick<CampaignData, 'name'>
+    )>, campaign?: Maybe<(
+      { __typename?: 'CampaignData' }
+      & Pick<CampaignData, 'id'>
+    )>, clientTracking?: Maybe<(
+      { __typename?: 'ClientTrackingData' }
+      & Pick<ClientTrackingData, 'article' | 'elsewhere'>
+    )> }
+  )> }
 );
 
 export type GuidePartsFragment = (
@@ -23400,12 +23626,9 @@ export type NugPartsFragment = (
     & BlockPartsFragment
   )>>>, emailLists?: Maybe<(
     { __typename?: 'NugToEmailListConnection' }
-    & { edges?: Maybe<Array<Maybe<(
-      { __typename?: 'NugToEmailListConnectionEdge' }
-      & { node?: Maybe<(
-        { __typename?: 'EmailList' }
-        & Pick<EmailList, 'emailListId' | 'listId' | 'name'>
-      )> }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'EmailList' }
+      & Pick<EmailList, 'emailListId' | 'listId' | 'name'>
     )>>> }
   )> }
 );
@@ -23495,6 +23718,24 @@ export type ShowPartsFragment = (
   )> }
 );
 
+export type TagPartsFragment = (
+  { __typename?: 'Tag' }
+  & Pick<Tag, 'count' | 'description' | 'id' | 'link' | 'name' | 'shortDescription' | 'slug' | 'tagId'>
+  & { featuredImage?: Maybe<(
+    { __typename?: 'MediaItem' }
+    & MediaPartsFragment
+  )> }
+);
+
+export type TopicPartsFragment = (
+  { __typename?: 'Topic' }
+  & Pick<Topic, 'description' | 'id' | 'link' | 'name' | 'shortDescription' | 'slug' | 'topicId'>
+  & { featuredImage?: Maybe<(
+    { __typename?: 'MediaItem' }
+    & MediaPartsFragment
+  )> }
+);
+
 export type VideoPartsFragment = (
   { __typename?: 'VideoData' }
   & Pick<VideoData, 'id' | 'duration' | 'episode' | 'playlistId' | 'season' | 'type'>
@@ -23503,6 +23744,7 @@ export type VideoPartsFragment = (
 export type GuidesQueryVariables = Exact<{
   before?: Maybe<Scalars['String']>;
   perPage?: Maybe<Scalars['Int']>;
+  postsPerGuide?: Maybe<Scalars['Int']>;
 }>;
 
 
@@ -23516,7 +23758,7 @@ export type GuidesQuery = (
         { __typename?: 'GuideToPostConnection' }
         & { nodes?: Maybe<Array<Maybe<(
           { __typename?: 'Post' }
-          & Pick<Post, 'id' | 'dateGmt'>
+          & ArticleTeaserPartsFragment
         )>>> }
       )> }
       & GuidePartsFragment
@@ -23576,6 +23818,127 @@ export type HomeCollectionPreviewQuery = (
   )> }
 );
 
+export type MemberHomeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MemberHomeQuery = (
+  { __typename?: 'RootQuery' }
+  & { features?: Maybe<(
+    { __typename?: 'RootQueryToMenuItemConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'MenuItem' }
+      & Pick<MenuItem, 'id'>
+      & { connectedObject?: Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | (
+        { __typename?: 'Tag' }
+        & { posts?: Maybe<(
+          { __typename?: 'TagToPostConnection' }
+          & { nodes?: Maybe<Array<Maybe<(
+            { __typename?: 'Post' }
+            & ArticleTeaserPartsFragment
+          )>>> }
+        )> }
+        & TagPartsFragment
+      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
+    )>>> }
+  )>, guides?: Maybe<(
+    { __typename?: 'RootQueryToGuideConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Guide' }
+      & GuidePartsFragment
+    )>>> }
+  )> }
+);
+
+export type MemberVideoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MemberVideoQuery = (
+  { __typename?: 'RootQuery' }
+  & { features?: Maybe<(
+    { __typename?: 'RootQueryToMenuItemConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'MenuItem' }
+      & Pick<MenuItem, 'id'>
+      & { connectedObject?: Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | (
+        { __typename?: 'Tag' }
+        & { posts?: Maybe<(
+          { __typename?: 'TagToPostConnection' }
+          & { nodes?: Maybe<Array<Maybe<(
+            { __typename?: 'Post' }
+            & ArticleTeaserPartsFragment
+          )>>> }
+        )> }
+        & TagPartsFragment
+      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
+    )>>> }
+  )> }
+);
+
+export type VideoHubQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type VideoHubQuery = (
+  { __typename?: 'RootQuery' }
+  & { featuredVideoPlayer?: Maybe<(
+    { __typename?: 'RootQueryToMenuItemConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'MenuItem' }
+      & { connectedObject?: Maybe<(
+        { __typename?: 'Post' }
+        & { shows?: Maybe<(
+          { __typename?: 'PostToShowConnection' }
+          & { nodes?: Maybe<Array<Maybe<(
+            { __typename?: 'Show' }
+            & ShowPartsFragment
+          )>>> }
+        )> }
+        & ArticleTeaserPartsFragment
+      ) | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
+    )>>> }
+  )>, latest?: Maybe<(
+    { __typename?: 'RootQueryToTagConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Tag' }
+      & { posts?: Maybe<(
+        { __typename?: 'TagToPostConnection' }
+        & { nodes?: Maybe<Array<Maybe<(
+          { __typename?: 'Post' }
+          & { shows?: Maybe<(
+            { __typename?: 'PostToShowConnection' }
+            & { nodes?: Maybe<Array<Maybe<(
+              { __typename?: 'Show' }
+              & ShowPartsFragment
+            )>>> }
+          )> }
+          & ArticleTeaserPartsFragment
+        )>>> }
+      )> }
+    )>>> }
+  )>, featuredShows?: Maybe<(
+    { __typename?: 'RootQueryToMenuItemConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'MenuItem' }
+      & { connectedObject?: Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | (
+        { __typename?: 'Show' }
+        & { posts?: Maybe<(
+          { __typename?: 'ShowToPostConnection' }
+          & { nodes?: Maybe<Array<Maybe<(
+            { __typename?: 'Post' }
+            & ArticleTeaserPartsFragment
+          )>>> }
+        )> }
+        & ShowPartsFragment
+      ) | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
+    )>>> }
+  )>, allShows?: Maybe<(
+    { __typename?: 'RootQueryToShowConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Show' }
+      & ShowPartsFragment
+    )>>> }
+  )> }
+);
+
 export type NugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -23620,6 +23983,21 @@ export const MediaPartsFragmentDoc = gql`
   title
 }
     `;
+export const PromotionPartsFragmentDoc = gql`
+    fragment PromotionParts on Promotion {
+  content
+  dateGmt
+  description: excerpt(format: RAW)
+  destination
+  featuredImage {
+    ...MediaParts
+  }
+  id
+  link
+  modified
+  title
+}
+    ${MediaPartsFragmentDoc}`;
 export const VideoPartsFragmentDoc = gql`
     fragment VideoParts on VideoData {
   id
@@ -23653,11 +24031,9 @@ export const ArticleTeaserPartsFragmentDoc = gql`
   }
   dateGmt
   editions {
-    edges {
-      node {
-        name
-        slug
-      }
+    nodes {
+      name
+      slug
     }
   }
   featuredImage {
@@ -23857,10 +24233,8 @@ export const ArticlePartsFragmentDoc = gql`
     fragment ArticleParts on Post {
   ...ArticleTeaserParts
   authors: coAuthors {
-    edges {
-      node {
-        ...AuthorParts
-      }
+    nodes {
+      ...AuthorParts
     }
   }
   blocks {
@@ -23871,60 +24245,46 @@ export const ArticlePartsFragmentDoc = gql`
   excerpt
   featuredImageSize
   flags {
-    edges {
-      node {
-        name
-        slug
-      }
+    nodes {
+      name
+      slug
     }
   }
   footnotes
   guides {
-    edges {
-      node {
-        ...GuideParts
-      }
+    nodes {
+      ...GuideParts
     }
   }
   interactiveSource
   interactiveShowHeader
   locations {
-    edges {
-      node {
-        name
-      }
+    nodes {
+      name
     }
   }
   metered
   modifiedGmt
   obsessions {
-    edges {
-      node {
-        ...ObsessionParts
-      }
+    nodes {
+      ...ObsessionParts
     }
   }
   paywalled
   projects {
-    edges {
-      node {
-        ...ProjectParts
-      }
+    nodes {
+      ...ProjectParts
     }
   }
   readNext
   serieses {
-    edges {
-      node {
-        ...SeriesParts
-      }
+    nodes {
+      ...SeriesParts
     }
   }
   shows {
-    edges {
-      node {
-        ...ShowParts
-      }
+    nodes {
+      ...ShowParts
     }
   }
   slug
@@ -23935,21 +24295,17 @@ export const ArticlePartsFragmentDoc = gql`
   subtype
   suppressAds
   tags(where: {orderby: COUNT}, last: 20) {
-    edges {
-      node {
-        id
-        name
-        slug
-      }
+    nodes {
+      id
+      name
+      slug
     }
   }
   topics {
-    edges {
-      node {
-        id
-        name
-        slug
-      }
+    nodes {
+      id
+      name
+      slug
     }
   }
   trackingUrls
@@ -23962,6 +24318,28 @@ ${ObsessionPartsFragmentDoc}
 ${ProjectPartsFragmentDoc}
 ${SeriesPartsFragmentDoc}
 ${ShowPartsFragmentDoc}`;
+export const BulletinPartsFragmentDoc = gql`
+    fragment BulletinParts on Bulletin {
+  link
+  title
+  dateGmt
+  featuredImage {
+    ...MediaParts
+  }
+  bulletin {
+    sponsor {
+      name
+    }
+    campaign {
+      id
+    }
+    clientTracking {
+      article
+      elsewhere
+    }
+  }
+}
+    ${MediaPartsFragmentDoc}`;
 export const NugPartsFragmentDoc = gql`
     fragment NugParts on Nug {
   id
@@ -23978,12 +24356,10 @@ export const NugPartsFragmentDoc = gql`
   }
   dateGmt
   emailLists {
-    edges {
-      node {
-        emailListId
-        listId
-        name
-      }
+    nodes {
+      emailListId
+      listId
+      name
     }
   }
   link
@@ -24021,6 +24397,35 @@ export const HomeCollectionPartsFragmentDoc = gql`
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;
+export const TagPartsFragmentDoc = gql`
+    fragment TagParts on Tag {
+  count
+  description
+  featuredImage {
+    ...MediaParts
+  }
+  id
+  link
+  name
+  shortDescription
+  slug
+  tagId
+}
+    ${MediaPartsFragmentDoc}`;
+export const TopicPartsFragmentDoc = gql`
+    fragment TopicParts on Topic {
+  description
+  featuredImage {
+    ...MediaParts
+  }
+  id
+  link
+  name
+  shortDescription
+  slug
+  topicId
+}
+    ${MediaPartsFragmentDoc}`;
 export const ArticleDocument = gql`
     query Article($id: ID!) {
   post(id: $id) {
@@ -24124,13 +24529,347 @@ export function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type ArticleTeaserQueryHookResult = ReturnType<typeof useArticleTeaserQuery>;
 export type ArticleTeaserLazyQueryHookResult = ReturnType<typeof useArticleTeaserLazyQuery>;
 export type ArticleTeaserQueryResult = Apollo.QueryResult<ArticleTeaserQuery, ArticleTeaserQueryVariables>;
+export const ArticlesByGuideDocument = gql`
+    query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
+  guides(where: {slug: $slug}) {
+    nodes {
+      ...GuideParts
+      posts(after: $after, first: $perPage, where: {orderby: {field: DATE, order: ASC}}) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+  }
+}
+    ${GuidePartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useArticlesByGuideQuery__
+ *
+ * To run a query within a React component, call `useArticlesByGuideQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesByGuideQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesByGuideQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesByGuideQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>) {
+        return Apollo.useQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, baseOptions);
+      }
+export function useArticlesByGuideLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, baseOptions);
+        }
+export type ArticlesByGuideQueryHookResult = ReturnType<typeof useArticlesByGuideQuery>;
+export type ArticlesByGuideLazyQueryHookResult = ReturnType<typeof useArticlesByGuideLazyQuery>;
+export type ArticlesByGuideQueryResult = Apollo.QueryResult<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>;
+export const ArticlesByObsessionDocument = gql`
+    query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
+  obsessions(where: {slug: $slug}) {
+    nodes {
+      ...ObsessionParts
+      posts: content(after: $after, first: $perPage) {
+        nodes {
+          ... on Post {
+            ...ArticleTeaserParts
+          }
+          ... on Bulletin {
+            ...BulletinParts
+          }
+          ... on Promotion {
+            ...PromotionParts
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+}
+    ${ObsessionPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}
+${BulletinPartsFragmentDoc}
+${PromotionPartsFragmentDoc}`;
+
+/**
+ * __useArticlesByObsessionQuery__
+ *
+ * To run a query within a React component, call `useArticlesByObsessionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesByObsessionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesByObsessionQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesByObsessionQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>) {
+        return Apollo.useQuery<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>(ArticlesByObsessionDocument, baseOptions);
+      }
+export function useArticlesByObsessionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>(ArticlesByObsessionDocument, baseOptions);
+        }
+export type ArticlesByObsessionQueryHookResult = ReturnType<typeof useArticlesByObsessionQuery>;
+export type ArticlesByObsessionLazyQueryHookResult = ReturnType<typeof useArticlesByObsessionLazyQuery>;
+export type ArticlesByObsessionQueryResult = Apollo.QueryResult<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>;
+export const ArticlesBySeriesDocument = gql`
+    query ArticlesBySeries($after: String = "", $perPage: Int, $slug: [String]) {
+  serieses(where: {slug: $slug}) {
+    nodes {
+      ...SeriesParts
+      posts(after: $after, first: $perPage) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+}
+    ${SeriesPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useArticlesBySeriesQuery__
+ *
+ * To run a query within a React component, call `useArticlesBySeriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesBySeriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesBySeriesQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesBySeriesQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>) {
+        return Apollo.useQuery<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>(ArticlesBySeriesDocument, baseOptions);
+      }
+export function useArticlesBySeriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>(ArticlesBySeriesDocument, baseOptions);
+        }
+export type ArticlesBySeriesQueryHookResult = ReturnType<typeof useArticlesBySeriesQuery>;
+export type ArticlesBySeriesLazyQueryHookResult = ReturnType<typeof useArticlesBySeriesLazyQuery>;
+export type ArticlesBySeriesQueryResult = Apollo.QueryResult<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>;
+export const ArticlesByShowDocument = gql`
+    query ArticlesByShow($after: String = "", $perPage: Int, $slug: [String]) {
+  shows(where: {slug: $slug}) {
+    nodes {
+      ...ShowParts
+      posts(after: $after, first: $perPage) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+}
+    ${ShowPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useArticlesByShowQuery__
+ *
+ * To run a query within a React component, call `useArticlesByShowQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesByShowQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesByShowQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesByShowQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByShowQuery, ArticlesByShowQueryVariables>) {
+        return Apollo.useQuery<ArticlesByShowQuery, ArticlesByShowQueryVariables>(ArticlesByShowDocument, baseOptions);
+      }
+export function useArticlesByShowLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByShowQuery, ArticlesByShowQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesByShowQuery, ArticlesByShowQueryVariables>(ArticlesByShowDocument, baseOptions);
+        }
+export type ArticlesByShowQueryHookResult = ReturnType<typeof useArticlesByShowQuery>;
+export type ArticlesByShowLazyQueryHookResult = ReturnType<typeof useArticlesByShowLazyQuery>;
+export type ArticlesByShowQueryResult = Apollo.QueryResult<ArticlesByShowQuery, ArticlesByShowQueryVariables>;
+export const ArticlesByTagDocument = gql`
+    query ArticlesByTag($after: String = "", $perPage: Int, $slug: [String]) {
+  tags(where: {slug: $slug}) {
+    nodes {
+      ...TagParts
+      posts(after: $after, first: $perPage) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+}
+    ${TagPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useArticlesByTagQuery__
+ *
+ * To run a query within a React component, call `useArticlesByTagQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesByTagQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesByTagQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesByTagQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByTagQuery, ArticlesByTagQueryVariables>) {
+        return Apollo.useQuery<ArticlesByTagQuery, ArticlesByTagQueryVariables>(ArticlesByTagDocument, baseOptions);
+      }
+export function useArticlesByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByTagQuery, ArticlesByTagQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesByTagQuery, ArticlesByTagQueryVariables>(ArticlesByTagDocument, baseOptions);
+        }
+export type ArticlesByTagQueryHookResult = ReturnType<typeof useArticlesByTagQuery>;
+export type ArticlesByTagLazyQueryHookResult = ReturnType<typeof useArticlesByTagLazyQuery>;
+export type ArticlesByTagQueryResult = Apollo.QueryResult<ArticlesByTagQuery, ArticlesByTagQueryVariables>;
+export const ArticlesByTopicDocument = gql`
+    query ArticlesByTopic($after: String = "", $perPage: Int, $slug: [String]) {
+  topics(where: {slug: $slug}) {
+    nodes {
+      ...TopicParts
+      posts(after: $after, first: $perPage) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+}
+    ${TopicPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useArticlesByTopicQuery__
+ *
+ * To run a query within a React component, call `useArticlesByTopicQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticlesByTopicQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useArticlesByTopicQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useArticlesByTopicQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByTopicQuery, ArticlesByTopicQueryVariables>) {
+        return Apollo.useQuery<ArticlesByTopicQuery, ArticlesByTopicQueryVariables>(ArticlesByTopicDocument, baseOptions);
+      }
+export function useArticlesByTopicLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByTopicQuery, ArticlesByTopicQueryVariables>) {
+          return Apollo.useLazyQuery<ArticlesByTopicQuery, ArticlesByTopicQueryVariables>(ArticlesByTopicDocument, baseOptions);
+        }
+export type ArticlesByTopicQueryHookResult = ReturnType<typeof useArticlesByTopicQuery>;
+export type ArticlesByTopicLazyQueryHookResult = ReturnType<typeof useArticlesByTopicLazyQuery>;
+export type ArticlesByTopicQueryResult = Apollo.QueryResult<ArticlesByTopicQuery, ArticlesByTopicQueryVariables>;
+export const ContentBySearchTermDocument = gql`
+    query ContentBySearchTerm($after: String = "", $limit: Int = 10, $search: String!) {
+  content(after: $after, first: $limit, where: {search: $search}) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    nodes {
+      ... on Post {
+        trackingUrls
+        ...ArticleTeaserParts
+      }
+    }
+  }
+}
+    ${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useContentBySearchTermQuery__
+ *
+ * To run a query within a React component, call `useContentBySearchTermQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContentBySearchTermQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useContentBySearchTermQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      limit: // value for 'limit'
+ *      search: // value for 'search'
+ *   },
+ * });
+ */
+export function useContentBySearchTermQuery(baseOptions?: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {
+        return Apollo.useQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, baseOptions);
+      }
+export function useContentBySearchTermLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {
+          return Apollo.useLazyQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, baseOptions);
+        }
+export type ContentBySearchTermQueryHookResult = ReturnType<typeof useContentBySearchTermQuery>;
+export type ContentBySearchTermLazyQueryHookResult = ReturnType<typeof useContentBySearchTermLazyQuery>;
+export type ContentBySearchTermQueryResult = Apollo.QueryResult<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>;
 export const LatestArticlesDocument = gql`
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
-    edges {
-      node {
-        ...ArticleTeaserParts
-      }
+    nodes {
+      ...ArticleTeaserParts
     }
     pageInfo {
       endCursor
@@ -24167,15 +24906,65 @@ export function useLatestArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type LatestArticlesQueryHookResult = ReturnType<typeof useLatestArticlesQuery>;
 export type LatestArticlesLazyQueryHookResult = ReturnType<typeof useLatestArticlesLazyQuery>;
 export type LatestArticlesQueryResult = Apollo.QueryResult<LatestArticlesQuery, LatestArticlesQueryVariables>;
+export const DiscoverDocument = gql`
+    query Discover($topics: [String]!) {
+  latest: posts(first: 5) {
+    nodes {
+      ...ArticleTeaserParts
+    }
+  }
+  trendingPosts(first: 5) {
+    nodes {
+      ...ArticleTeaserParts
+    }
+  }
+  topics(first: 7, where: {slug: $topics}) {
+    nodes {
+      ...TopicParts
+      posts(first: 3) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+      }
+    }
+  }
+}
+    ${ArticleTeaserPartsFragmentDoc}
+${TopicPartsFragmentDoc}`;
+
+/**
+ * __useDiscoverQuery__
+ *
+ * To run a query within a React component, call `useDiscoverQuery` and pass it any options that fit your needs.
+ * When your component renders, `useDiscoverQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useDiscoverQuery({
+ *   variables: {
+ *      topics: // value for 'topics'
+ *   },
+ * });
+ */
+export function useDiscoverQuery(baseOptions?: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
+        return Apollo.useQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
+      }
+export function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
+          return Apollo.useLazyQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
+        }
+export type DiscoverQueryHookResult = ReturnType<typeof useDiscoverQuery>;
+export type DiscoverLazyQueryHookResult = ReturnType<typeof useDiscoverLazyQuery>;
+export type DiscoverQueryResult = Apollo.QueryResult<DiscoverQuery, DiscoverQueryVariables>;
 export const GuidesDocument = gql`
-    query Guides($before: String = "", $perPage: Int = 10) {
+    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
   guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
     nodes {
       ...GuideParts
-      posts(last: 1) {
+      posts(last: $postsPerGuide) {
         nodes {
-          id
-          dateGmt
+          ...ArticleTeaserParts
         }
       }
     }
@@ -24185,7 +24974,8 @@ export const GuidesDocument = gql`
     }
   }
 }
-    ${GuidePartsFragmentDoc}`;
+    ${GuidePartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 
 /**
  * __useGuidesQuery__
@@ -24201,6 +24991,7 @@ export const GuidesDocument = gql`
  *   variables: {
  *      before: // value for 'before'
  *      perPage: // value for 'perPage'
+ *      postsPerGuide: // value for 'postsPerGuide'
  *   },
  * });
  */
@@ -24320,6 +25111,179 @@ export function useHomeCollectionPreviewLazyQuery(baseOptions?: Apollo.LazyQuery
 export type HomeCollectionPreviewQueryHookResult = ReturnType<typeof useHomeCollectionPreviewQuery>;
 export type HomeCollectionPreviewLazyQueryHookResult = ReturnType<typeof useHomeCollectionPreviewLazyQuery>;
 export type HomeCollectionPreviewQueryResult = Apollo.QueryResult<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>;
+export const MemberHomeDocument = gql`
+    query MemberHome {
+  features: menuItems(first: 3, where: {location: FEATURES_MEMBERS}) {
+    nodes {
+      id
+      connectedObject {
+        ... on Tag {
+          ...TagParts
+          posts(first: 3, where: {orderby: {field: MEMBERSHIP}}) {
+            nodes {
+              ...ArticleTeaserParts
+            }
+          }
+        }
+      }
+    }
+  }
+  guides(last: 6, where: {orderby: TERM_ORDER}) {
+    nodes {
+      ...GuideParts
+    }
+  }
+}
+    ${TagPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}
+${GuidePartsFragmentDoc}`;
+
+/**
+ * __useMemberHomeQuery__
+ *
+ * To run a query within a React component, call `useMemberHomeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMemberHomeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMemberHomeQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMemberHomeQuery(baseOptions?: Apollo.QueryHookOptions<MemberHomeQuery, MemberHomeQueryVariables>) {
+        return Apollo.useQuery<MemberHomeQuery, MemberHomeQueryVariables>(MemberHomeDocument, baseOptions);
+      }
+export function useMemberHomeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MemberHomeQuery, MemberHomeQueryVariables>) {
+          return Apollo.useLazyQuery<MemberHomeQuery, MemberHomeQueryVariables>(MemberHomeDocument, baseOptions);
+        }
+export type MemberHomeQueryHookResult = ReturnType<typeof useMemberHomeQuery>;
+export type MemberHomeLazyQueryHookResult = ReturnType<typeof useMemberHomeLazyQuery>;
+export type MemberHomeQueryResult = Apollo.QueryResult<MemberHomeQuery, MemberHomeQueryVariables>;
+export const MemberVideoDocument = gql`
+    query MemberVideo {
+  features: menuItems(first: 3, where: {location: FEATURES_VIDEO_MEMBERS}) {
+    nodes {
+      id
+      connectedObject {
+        ... on Tag {
+          ...TagParts
+          posts(first: 6, where: {orderby: {field: MEMBERSHIP}}) {
+            nodes {
+              ...ArticleTeaserParts
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    ${TagPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
+
+/**
+ * __useMemberVideoQuery__
+ *
+ * To run a query within a React component, call `useMemberVideoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMemberVideoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMemberVideoQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMemberVideoQuery(baseOptions?: Apollo.QueryHookOptions<MemberVideoQuery, MemberVideoQueryVariables>) {
+        return Apollo.useQuery<MemberVideoQuery, MemberVideoQueryVariables>(MemberVideoDocument, baseOptions);
+      }
+export function useMemberVideoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MemberVideoQuery, MemberVideoQueryVariables>) {
+          return Apollo.useLazyQuery<MemberVideoQuery, MemberVideoQueryVariables>(MemberVideoDocument, baseOptions);
+        }
+export type MemberVideoQueryHookResult = ReturnType<typeof useMemberVideoQuery>;
+export type MemberVideoLazyQueryHookResult = ReturnType<typeof useMemberVideoLazyQuery>;
+export type MemberVideoQueryResult = Apollo.QueryResult<MemberVideoQuery, MemberVideoQueryVariables>;
+export const VideoHubDocument = gql`
+    query VideoHub {
+  featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
+    nodes {
+      connectedObject {
+        ...ArticleTeaserParts
+        ... on Post {
+          shows {
+            nodes {
+              ...ShowParts
+            }
+          }
+        }
+      }
+    }
+  }
+  latest: tags(where: {slug: "quartz-video"}) {
+    nodes {
+      posts(first: 6) {
+        nodes {
+          ...ArticleTeaserParts
+          shows {
+            nodes {
+              ...ShowParts
+            }
+          }
+        }
+      }
+    }
+  }
+  featuredShows: menuItems(where: {location: SHOWS_VIDEO}) {
+    nodes {
+      connectedObject {
+        ... on Show {
+          ...ShowParts
+          posts(first: 6) {
+            nodes {
+              ...ArticleTeaserParts
+            }
+          }
+        }
+      }
+    }
+  }
+  allShows: shows(last: 40, where: {orderby: TERM_ID}) {
+    nodes {
+      ...ShowParts
+    }
+  }
+}
+    ${ArticleTeaserPartsFragmentDoc}
+${ShowPartsFragmentDoc}`;
+
+/**
+ * __useVideoHubQuery__
+ *
+ * To run a query within a React component, call `useVideoHubQuery` and pass it any options that fit your needs.
+ * When your component renders, `useVideoHubQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoHubQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useVideoHubQuery(baseOptions?: Apollo.QueryHookOptions<VideoHubQuery, VideoHubQueryVariables>) {
+        return Apollo.useQuery<VideoHubQuery, VideoHubQueryVariables>(VideoHubDocument, baseOptions);
+      }
+export function useVideoHubLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoHubQuery, VideoHubQueryVariables>) {
+          return Apollo.useLazyQuery<VideoHubQuery, VideoHubQueryVariables>(VideoHubDocument, baseOptions);
+        }
+export type VideoHubQueryHookResult = ReturnType<typeof useVideoHubQuery>;
+export type VideoHubLazyQueryHookResult = ReturnType<typeof useVideoHubLazyQuery>;
+export type VideoHubQueryResult = Apollo.QueryResult<VideoHubQuery, VideoHubQueryVariables>;
 export const NugDocument = gql`
     query Nug($slug: String!) {
   nugBy(slug: $slug) {

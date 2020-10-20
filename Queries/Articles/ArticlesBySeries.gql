@@ -1,0 +1,27 @@
+query ArticlesBySeries(
+	$after: String = ""
+	$perPage: Int
+	$slug: [String]
+) {
+	serieses(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...SeriesParts
+			posts(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...ArticleTeaserParts
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}

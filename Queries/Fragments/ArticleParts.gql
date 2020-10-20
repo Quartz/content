@@ -1,10 +1,8 @@
 fragment ArticleParts on Post {
 	...ArticleTeaserParts
 	authors:coAuthors {
-		edges {
-			node {
-				...AuthorParts
-			}
+		nodes {
+			...AuthorParts
 		}
 	}
 	blocks {
@@ -15,60 +13,46 @@ fragment ArticleParts on Post {
 	excerpt
 	featuredImageSize
 	flags {
-		edges {
-			node {
-				name
-				slug
-			}
+		nodes {
+			name
+			slug
 		}
 	}
 	footnotes
 	guides {
-		edges {
-			node {
-				...GuideParts
-			}
+		nodes {
+			...GuideParts
 		}
 	}
 	interactiveSource
 	interactiveShowHeader
 	locations {
-		edges {
-			node {
-				name
-			}
+		nodes {
+			name
 		}
 	}
 	metered
 	modifiedGmt
 	obsessions {
-		edges {
-			node {
-				...ObsessionParts
-			}
+		nodes {
+			...ObsessionParts
 		}
 	}
 	paywalled
 	projects {
-		edges {
-			node {
-				...ProjectParts
-			}
+		nodes {
+			...ProjectParts
 		}
 	}
 	readNext
 	serieses {
-		edges {
-			node {
-				...SeriesParts
-			}
+		nodes {
+			...SeriesParts
 		}
 	}
 	shows {
-		edges {
-			node {
-				...ShowParts
-			}
+		nodes {
+			...ShowParts
 		}
 	}
 	slug
@@ -84,21 +68,17 @@ fragment ArticleParts on Post {
 		},
 		last: 20
 	) {
-		edges {
-			node {
-				id
-				name
-				slug
-			}
+		nodes {
+			id
+			name
+			slug
 		}
 	}
 	topics {
-		edges {
-			node {
-				id
-				name
-				slug
-			}
+		nodes {
+			id
+			name
+			slug
 		}
 	}
 	trackingUrls

@@ -1,0 +1,35 @@
+query ArticlesByObsession(
+	$after: String = ""
+	$perPage: Int = 10
+	$slug: [String]!
+) {
+	obsessions(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...ObsessionParts
+			posts:content(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					... on Post {
+						...ArticleTeaserParts
+					}
+					... on Bulletin {
+						...BulletinParts
+					}
+					... on Promotion {
+						...PromotionParts
+					}
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}

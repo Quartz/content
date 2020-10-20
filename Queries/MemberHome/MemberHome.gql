@@ -1,0 +1,22 @@
+query MemberHome {
+	features: menuItems(first: 3, where: { location: FEATURES_MEMBERS }) {
+		nodes {
+			id
+			connectedObject {
+				... on Tag {
+					...TagParts
+					posts(first: 3, where: { orderby: { field: MEMBERSHIP } }) {
+						nodes {
+							...ArticleTeaserParts
+						}
+					}
+				}
+			}
+		}
+	}
+	guides(last: 6, where: { orderby: TERM_ORDER }) {
+		nodes {
+			...GuideParts
+		}
+	}
+}

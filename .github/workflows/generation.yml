@@ -46,9 +46,13 @@ jobs:
       - name: Commit build files
         continue-on-error: true
         id: git_commit
-        uses: zwaldowski/git-commit-action@v1
-        with:
-          commit_message: Add Swift types
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "Add Swift types" --no-verify --allow-empty
+          SHA_OUTPUT=`git rev-parse HEAD`
+          echo "::set-output name=sha::"$SHA_OUTPUT""
+          git push
 
       - continue-on-error: true
         run: git push
@@ -81,13 +85,13 @@ jobs:
       - name: Commit build files
         continue-on-error: true
         id: git_commit
-        uses: zwaldowski/git-commit-action@v1
-        with:
-          commit_message: Add TypeScript types
-          commit_options: '--allow-empty'
-
-      - continue-on-error: true
-        run: git push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "Add TypeScript types" --no-verify --allow-empty
+          SHA_OUTPUT=`git rev-parse HEAD`
+          echo "::set-output name=sha::"$SHA_OUTPUT""
+          git push
 
       - uses: Sibz/github-status-action@v1
         continue-on-error: true

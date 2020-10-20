@@ -1,0 +1,21 @@
+fragment BulletinParts on Bulletin {
+	# We’re leaving out the `id` field because it causes issues when paging back from a bulletin to the sponsored obsession page
+	link
+	title
+	dateGmt
+	featuredImage {
+		...MediaParts
+	}
+	bulletin {
+		sponsor {
+			name
+		}
+		campaign {
+			id
+		}
+		clientTracking {
+			article
+			elsewhere
+		}
+	}
+}

@@ -11,7 +11,7 @@ let package = Package(
 		.package(
 			name: "Apollo",
 			url: "https://github.com/apollographql/apollo-ios",
-			.exact("0.33.0")
+			.exact("0.35.0")
 		),
 		.package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.0")
 	],

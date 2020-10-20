@@ -1,0 +1,13 @@
+fragment PromotionParts on Promotion {
+	content
+	dateGmt
+	description:excerpt(format: RAW)
+	destination
+	featuredImage {
+		...MediaParts
+	}
+	id
+	link
+	modified
+	title
+}

@@ -1,0 +1,27 @@
+query ArticlesByTag(
+	$after: String = ""
+	$perPage: Int
+	$slug: [String]
+) {
+	tags(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...TagParts
+			posts(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...ArticleTeaserParts
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}
