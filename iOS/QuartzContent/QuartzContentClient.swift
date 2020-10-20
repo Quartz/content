@@ -1,21 +1,21 @@
-import Apollo
+@_exported import Apollo
 import ApolloSQLite
 import Foundation
 
-public enum QuartzContent {
+public enum QuartzContentClient {
 
 	private static let endpoint = URL(string: "https://content.qz.com/graphql")!
 
 	private static let name = "content"
 
-	/// Quartz content GraphQL Apollo client.
+	/// Quartz content GraphQL Apollo client
 	///
 	/// - Parameters:
 	///   - authorization: `Authorization` header string to append to network requests.
 	///   - userAgent: `User-Agent` header string to append to network requests.
 	///   - database: If true, uses ApolloSQLite for caching responses. If false, uses a simple in-memory cache.
 	/// - Throws: May throw if a database file cannot be created. Will never throw if `database` is false.
-	public static func client(
+	public static func create(
 		authorization: (() -> String?)?,
 		userAgent: (() -> String?)?,
 		database: Bool
