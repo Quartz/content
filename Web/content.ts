@@ -23282,26 +23282,25 @@ export type ArticlesByShowQuery = (
 export type ArticlesByTagQueryVariables = Exact<{
   after?: Maybe<Scalars['String']>;
   perPage?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug: Scalars['String'];
 }>;
 
 
 export type ArticlesByTagQuery = (
   { __typename?: 'RootQuery' }
-  & { tags?: Maybe<(
+  & { posts?: Maybe<(
+    { __typename?: 'RootQueryToPostConnection' }
+    & { nodes?: Maybe<Array<Maybe<(
+      { __typename?: 'Post' }
+      & ArticleTeaserPartsFragment
+    )>>>, pageInfo?: Maybe<(
+      { __typename?: 'WPPageInfo' }
+      & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
+    )> }
+  )>, tags?: Maybe<(
     { __typename?: 'RootQueryToTagConnection' }
     & { nodes?: Maybe<Array<Maybe<(
       { __typename?: 'Tag' }
-      & { posts?: Maybe<(
-        { __typename?: 'TagToPostConnection' }
-        & { nodes?: Maybe<Array<Maybe<(
-          { __typename?: 'Post' }
-          & ArticleTeaserPartsFragment
-        )>>>, pageInfo?: Maybe<(
-          { __typename?: 'WPPageInfo' }
-          & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>
-        )> }
-      )> }
       & TagPartsFragment
     )>>> }
   )> }
@@ -24728,24 +24727,24 @@ export type ArticlesByShowQueryHookResult = ReturnType<typeof useArticlesByShowQ
 export type ArticlesByShowLazyQueryHookResult = ReturnType<typeof useArticlesByShowLazyQuery>;
 export type ArticlesByShowQueryResult = Apollo.QueryResult<ArticlesByShowQuery, ArticlesByShowQueryVariables>;
 export const ArticlesByTagDocument = gql`
-    query ArticlesByTag($after: String = "", $perPage: Int, $slug: [String]) {
-  tags(where: {slug: $slug}) {
+    query ArticlesByTag($after: String = "", $perPage: Int, $slug: String!) {
+  posts(where: {tagSlugIn: [$slug]}, first: $perPage, after: $after) {
+    nodes {
+      ...ArticleTeaserParts
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+  tags(where: {slug: [$slug]}) {
     nodes {
       ...TagParts
-      posts(after: $after, first: $perPage) {
-        nodes {
-          ...ArticleTeaserParts
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
     }
   }
 }
-    ${TagPartsFragmentDoc}
-${ArticleTeaserPartsFragmentDoc}`;
+    ${ArticleTeaserPartsFragmentDoc}
+${TagPartsFragmentDoc}`;
 
 /**
  * __useArticlesByTagQuery__
