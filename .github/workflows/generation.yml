@@ -80,7 +80,7 @@ jobs:
 
       - run: npm i
 
-      - run: npm run generate
+      - run: npm run build
 
       - name: Commit build files
         continue-on-error: true
