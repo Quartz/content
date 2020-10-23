@@ -1313,24 +1313,24 @@ function useArticlesByShowLazyQuery(baseOptions) {
 }
 exports.useArticlesByShowLazyQuery = useArticlesByShowLazyQuery;
 exports.ArticlesByTagDocument = client_1.gql `
-    query ArticlesByTag($after: String = "", $perPage: Int, $slug: String!) {
-  posts(where: {tagSlugIn: [$slug]}, first: $perPage, after: $after) {
-    nodes {
-      ...ArticleTeaserParts
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-  tags(where: {slug: [$slug]}) {
+    query ArticlesByTag($after: String = "", $perPage: Int, $slug: [String]) {
+  tags(where: {slug: $slug}) {
     nodes {
       ...TagParts
+      posts(after: $after, first: $perPage) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
     }
   }
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}
-${exports.TagPartsFragmentDoc}`;
+    ${exports.TagPartsFragmentDoc}
+${exports.ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticlesByTagQuery__
  *

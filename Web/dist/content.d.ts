@@ -22240,26 +22240,27 @@ export declare type ArticlesByShowQuery = ({
 export declare type ArticlesByTagQueryVariables = Exact<{
     after?: Maybe<Scalars['String']>;
     perPage?: Maybe<Scalars['Int']>;
-    slug: Scalars['String'];
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
 }>;
 export declare type ArticlesByTagQuery = ({
     __typename?: 'RootQuery';
 } & {
-    posts?: Maybe<({
-        __typename?: 'RootQueryToPostConnection';
-    } & {
-        nodes?: Maybe<Array<Maybe<({
-            __typename?: 'Post';
-        } & ArticleTeaserPartsFragment)>>>;
-        pageInfo?: Maybe<({
-            __typename?: 'WPPageInfo';
-        } & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
-    })>;
     tags?: Maybe<({
         __typename?: 'RootQueryToTagConnection';
     } & {
         nodes?: Maybe<Array<Maybe<({
             __typename?: 'Tag';
+        } & {
+            posts?: Maybe<({
+                __typename?: 'TagToPostConnection';
+            } & {
+                nodes?: Maybe<Array<Maybe<({
+                    __typename?: 'Post';
+                } & ArticleTeaserPartsFragment)>>>;
+                pageInfo?: Maybe<({
+                    __typename?: 'WPPageInfo';
+                } & Pick<WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
+            })>;
         } & TagPartsFragment)>>>;
     })>;
 });
@@ -23335,12 +23336,12 @@ export declare const ArticlesByTagDocument: Apollo.DocumentNode;
 export declare function useArticlesByTagQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByTagQuery, ArticlesByTagQueryVariables>): Apollo.QueryResult<ArticlesByTagQuery, Exact<{
     after?: string | null | undefined;
     perPage?: number | null | undefined;
-    slug: string;
+    slug?: (string | null)[] | null | undefined;
 }>>;
 export declare function useArticlesByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByTagQuery, ArticlesByTagQueryVariables>): Apollo.QueryTuple<ArticlesByTagQuery, Exact<{
     after?: string | null | undefined;
     perPage?: number | null | undefined;
-    slug: string;
+    slug?: (string | null)[] | null | undefined;
 }>>;
 export declare type ArticlesByTagQueryHookResult = ReturnType<typeof useArticlesByTagQuery>;
 export declare type ArticlesByTagLazyQueryHookResult = ReturnType<typeof useArticlesByTagLazyQuery>;
