@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "target": "es2017",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "Web/dist",
+    "baseUrl": "."
+  },
+  "include": [
+    "Web/"
+  ]
+}
