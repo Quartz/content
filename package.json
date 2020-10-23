@@ -9,7 +9,7 @@
     "Web/dist/**/*"
   ],
   "scripts": {
-    "generate": "graphql-codegen && tsc"
+    "build": "graphql-codegen && tsc"
   },
   "devDependencies": {
     "@apollo/client": "^3.2.5",
