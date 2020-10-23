@@ -12,6 +12,6 @@
     "baseUrl": "."
   },
   "include": [
-    "Web/"
+    "Web/content.ts"
   ]
 }
