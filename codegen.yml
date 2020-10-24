@@ -2,6 +2,8 @@ schema: Schemas/ContentSchema.json # https://content.qz.com/graphql
 documents: Queries/**/*.gql
 generates:
   Web/content.ts:
+    config:
+      pureMagicComment: true
     plugins:
       - typescript
       - typescript-operations

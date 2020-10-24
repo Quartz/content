@@ -23969,7 +23969,7 @@ export type NugsByTagQuery = (
   )> }
 );
 
-export const MediaPartsFragmentDoc = gql`
+export const MediaPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment MediaParts on MediaItem {
   altText
   caption
@@ -23983,7 +23983,7 @@ export const MediaPartsFragmentDoc = gql`
   title
 }
     `;
-export const PromotionPartsFragmentDoc = gql`
+export const PromotionPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment PromotionParts on Promotion {
   content
   dateGmt
@@ -23998,7 +23998,7 @@ export const PromotionPartsFragmentDoc = gql`
   title
 }
     ${MediaPartsFragmentDoc}`;
-export const VideoPartsFragmentDoc = gql`
+export const VideoPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment VideoParts on VideoData {
   id
   duration
@@ -24008,7 +24008,7 @@ export const VideoPartsFragmentDoc = gql`
   type
 }
     `;
-export const ArticleTeaserPartsFragmentDoc = gql`
+export const ArticleTeaserPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment ArticleTeaserParts on Post {
   bulletin {
     campaign {
@@ -24053,7 +24053,7 @@ export const ArticleTeaserPartsFragmentDoc = gql`
 }
     ${MediaPartsFragmentDoc}
 ${VideoPartsFragmentDoc}`;
-export const AuthorPartsFragmentDoc = gql`
+export const AuthorPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment AuthorParts on CoAuthor {
   avatar
   bio
@@ -24077,7 +24077,7 @@ export const AuthorPartsFragmentDoc = gql`
   website
 }
     `;
-export const BlockPartsFragmentDoc = gql`
+export const BlockPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment BlockParts on Block {
   attributes {
     name
@@ -24089,7 +24089,7 @@ export const BlockPartsFragmentDoc = gql`
   type
 }
     `;
-export const GuidePartsFragmentDoc = gql`
+export const GuidePartsFragmentDoc = /*#__PURE__*/ gql`
     fragment GuideParts on Guide {
   id
   guideId
@@ -24116,7 +24116,7 @@ export const GuidePartsFragmentDoc = gql`
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const ObsessionPartsFragmentDoc = gql`
+export const ObsessionPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment ObsessionParts on Obsession {
   id
   description
@@ -24138,7 +24138,7 @@ export const ObsessionPartsFragmentDoc = gql`
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const ProjectPartsFragmentDoc = gql`
+export const ProjectPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment ProjectParts on Project {
   id
   count
@@ -24149,7 +24149,7 @@ export const ProjectPartsFragmentDoc = gql`
   slug
 }
     `;
-export const SeriesPartsFragmentDoc = gql`
+export const SeriesPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment SeriesParts on Series {
   colors
   count
@@ -24191,7 +24191,7 @@ export const SeriesPartsFragmentDoc = gql`
   socialTitle
 }
     ${MediaPartsFragmentDoc}`;
-export const ShowPartsFragmentDoc = gql`
+export const ShowPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment ShowParts on Show {
   colors
   count
@@ -24229,7 +24229,7 @@ export const ShowPartsFragmentDoc = gql`
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const ArticlePartsFragmentDoc = gql`
+export const ArticlePartsFragmentDoc = /*#__PURE__*/ gql`
     fragment ArticleParts on Post {
   ...ArticleTeaserParts
   authors: coAuthors {
@@ -24318,7 +24318,7 @@ ${ObsessionPartsFragmentDoc}
 ${ProjectPartsFragmentDoc}
 ${SeriesPartsFragmentDoc}
 ${ShowPartsFragmentDoc}`;
-export const BulletinPartsFragmentDoc = gql`
+export const BulletinPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment BulletinParts on Bulletin {
   link
   title
@@ -24340,7 +24340,7 @@ export const BulletinPartsFragmentDoc = gql`
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const NugPartsFragmentDoc = gql`
+export const NugPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment NugParts on Nug {
   id
   blocks {
@@ -24371,7 +24371,7 @@ export const NugPartsFragmentDoc = gql`
     ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${MediaPartsFragmentDoc}`;
-export const HomeCollectionPartsFragmentDoc = gql`
+export const HomeCollectionPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment HomeCollectionParts on Collection {
   id
   title
@@ -24397,7 +24397,7 @@ export const HomeCollectionPartsFragmentDoc = gql`
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;
-export const TagPartsFragmentDoc = gql`
+export const TagPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment TagParts on Tag {
   count
   description
@@ -24412,7 +24412,7 @@ export const TagPartsFragmentDoc = gql`
   tagId
 }
     ${MediaPartsFragmentDoc}`;
-export const TopicPartsFragmentDoc = gql`
+export const TopicPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment TopicParts on Topic {
   description
   featuredImage {
@@ -24426,7 +24426,7 @@ export const TopicPartsFragmentDoc = gql`
   topicId
 }
     ${MediaPartsFragmentDoc}`;
-export const ArticleDocument = gql`
+export const ArticleDocument = /*#__PURE__*/ gql`
     query Article($id: ID!) {
   post(id: $id) {
     ...ArticleParts
@@ -24459,7 +24459,7 @@ export function useArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ar
 export type ArticleQueryHookResult = ReturnType<typeof useArticleQuery>;
 export type ArticleLazyQueryHookResult = ReturnType<typeof useArticleLazyQuery>;
 export type ArticleQueryResult = Apollo.QueryResult<ArticleQuery, ArticleQueryVariables>;
-export const ArticlePreviewDocument = gql`
+export const ArticlePreviewDocument = /*#__PURE__*/ gql`
     query ArticlePreview($id: Int!, $time: Int!, $token: String!) {
   posts(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
@@ -24496,7 +24496,7 @@ export function useArticlePreviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type ArticlePreviewQueryHookResult = ReturnType<typeof useArticlePreviewQuery>;
 export type ArticlePreviewLazyQueryHookResult = ReturnType<typeof useArticlePreviewLazyQuery>;
 export type ArticlePreviewQueryResult = Apollo.QueryResult<ArticlePreviewQuery, ArticlePreviewQueryVariables>;
-export const ArticleTeaserDocument = gql`
+export const ArticleTeaserDocument = /*#__PURE__*/ gql`
     query ArticleTeaser($id: ID!) {
   post(id: $id) {
     ...ArticleTeaserParts
@@ -24529,7 +24529,7 @@ export function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type ArticleTeaserQueryHookResult = ReturnType<typeof useArticleTeaserQuery>;
 export type ArticleTeaserLazyQueryHookResult = ReturnType<typeof useArticleTeaserLazyQuery>;
 export type ArticleTeaserQueryResult = Apollo.QueryResult<ArticleTeaserQuery, ArticleTeaserQueryVariables>;
-export const ArticlesByGuideDocument = gql`
+export const ArticlesByGuideDocument = /*#__PURE__*/ gql`
     query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
   guides(where: {slug: $slug}) {
     nodes {
@@ -24576,7 +24576,7 @@ export function useArticlesByGuideLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type ArticlesByGuideQueryHookResult = ReturnType<typeof useArticlesByGuideQuery>;
 export type ArticlesByGuideLazyQueryHookResult = ReturnType<typeof useArticlesByGuideLazyQuery>;
 export type ArticlesByGuideQueryResult = Apollo.QueryResult<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>;
-export const ArticlesByObsessionDocument = gql`
+export const ArticlesByObsessionDocument = /*#__PURE__*/ gql`
     query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
   obsessions(where: {slug: $slug}) {
     nodes {
@@ -24633,7 +24633,7 @@ export function useArticlesByObsessionLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type ArticlesByObsessionQueryHookResult = ReturnType<typeof useArticlesByObsessionQuery>;
 export type ArticlesByObsessionLazyQueryHookResult = ReturnType<typeof useArticlesByObsessionLazyQuery>;
 export type ArticlesByObsessionQueryResult = Apollo.QueryResult<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>;
-export const ArticlesBySeriesDocument = gql`
+export const ArticlesBySeriesDocument = /*#__PURE__*/ gql`
     query ArticlesBySeries($after: String = "", $perPage: Int, $slug: [String]) {
   serieses(where: {slug: $slug}) {
     nodes {
@@ -24680,7 +24680,7 @@ export function useArticlesBySeriesLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type ArticlesBySeriesQueryHookResult = ReturnType<typeof useArticlesBySeriesQuery>;
 export type ArticlesBySeriesLazyQueryHookResult = ReturnType<typeof useArticlesBySeriesLazyQuery>;
 export type ArticlesBySeriesQueryResult = Apollo.QueryResult<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>;
-export const ArticlesByShowDocument = gql`
+export const ArticlesByShowDocument = /*#__PURE__*/ gql`
     query ArticlesByShow($after: String = "", $perPage: Int, $slug: [String]) {
   shows(where: {slug: $slug}) {
     nodes {
@@ -24727,7 +24727,7 @@ export function useArticlesByShowLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type ArticlesByShowQueryHookResult = ReturnType<typeof useArticlesByShowQuery>;
 export type ArticlesByShowLazyQueryHookResult = ReturnType<typeof useArticlesByShowLazyQuery>;
 export type ArticlesByShowQueryResult = Apollo.QueryResult<ArticlesByShowQuery, ArticlesByShowQueryVariables>;
-export const ArticlesByTagDocument = gql`
+export const ArticlesByTagDocument = /*#__PURE__*/ gql`
     query ArticlesByTag($after: String = "", $perPage: Int, $slug: [String]) {
   tags(where: {slug: $slug}) {
     nodes {
@@ -24774,7 +24774,7 @@ export function useArticlesByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type ArticlesByTagQueryHookResult = ReturnType<typeof useArticlesByTagQuery>;
 export type ArticlesByTagLazyQueryHookResult = ReturnType<typeof useArticlesByTagLazyQuery>;
 export type ArticlesByTagQueryResult = Apollo.QueryResult<ArticlesByTagQuery, ArticlesByTagQueryVariables>;
-export const ArticlesByTopicDocument = gql`
+export const ArticlesByTopicDocument = /*#__PURE__*/ gql`
     query ArticlesByTopic($after: String = "", $perPage: Int, $slug: [String]) {
   topics(where: {slug: $slug}) {
     nodes {
@@ -24821,7 +24821,7 @@ export function useArticlesByTopicLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type ArticlesByTopicQueryHookResult = ReturnType<typeof useArticlesByTopicQuery>;
 export type ArticlesByTopicLazyQueryHookResult = ReturnType<typeof useArticlesByTopicLazyQuery>;
 export type ArticlesByTopicQueryResult = Apollo.QueryResult<ArticlesByTopicQuery, ArticlesByTopicQueryVariables>;
-export const ContentBySearchTermDocument = gql`
+export const ContentBySearchTermDocument = /*#__PURE__*/ gql`
     query ContentBySearchTerm($after: String = "", $limit: Int = 10, $search: String!) {
   content(after: $after, first: $limit, where: {search: $search}) {
     pageInfo {
@@ -24865,7 +24865,7 @@ export function useContentBySearchTermLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type ContentBySearchTermQueryHookResult = ReturnType<typeof useContentBySearchTermQuery>;
 export type ContentBySearchTermLazyQueryHookResult = ReturnType<typeof useContentBySearchTermLazyQuery>;
 export type ContentBySearchTermQueryResult = Apollo.QueryResult<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>;
-export const LatestArticlesDocument = gql`
+export const LatestArticlesDocument = /*#__PURE__*/ gql`
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
     nodes {
@@ -24906,7 +24906,7 @@ export function useLatestArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type LatestArticlesQueryHookResult = ReturnType<typeof useLatestArticlesQuery>;
 export type LatestArticlesLazyQueryHookResult = ReturnType<typeof useLatestArticlesLazyQuery>;
 export type LatestArticlesQueryResult = Apollo.QueryResult<LatestArticlesQuery, LatestArticlesQueryVariables>;
-export const DiscoverDocument = gql`
+export const DiscoverDocument = /*#__PURE__*/ gql`
     query Discover($topics: [String]!) {
   latest: posts(first: 5) {
     nodes {
@@ -24957,7 +24957,7 @@ export function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<D
 export type DiscoverQueryHookResult = ReturnType<typeof useDiscoverQuery>;
 export type DiscoverLazyQueryHookResult = ReturnType<typeof useDiscoverLazyQuery>;
 export type DiscoverQueryResult = Apollo.QueryResult<DiscoverQuery, DiscoverQueryVariables>;
-export const GuidesDocument = gql`
+export const GuidesDocument = /*#__PURE__*/ gql`
     query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
   guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
     nodes {
@@ -25004,7 +25004,7 @@ export function useGuidesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Gui
 export type GuidesQueryHookResult = ReturnType<typeof useGuidesQuery>;
 export type GuidesLazyQueryHookResult = ReturnType<typeof useGuidesLazyQuery>;
 export type GuidesQueryResult = Apollo.QueryResult<GuidesQuery, GuidesQueryVariables>;
-export const GuidesBySlugDocument = gql`
+export const GuidesBySlugDocument = /*#__PURE__*/ gql`
     query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
   guides(first: $perPage, where: {slug: $slugs}) {
     nodes {
@@ -25040,7 +25040,7 @@ export function useGuidesBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GuidesBySlugQueryHookResult = ReturnType<typeof useGuidesBySlugQuery>;
 export type GuidesBySlugLazyQueryHookResult = ReturnType<typeof useGuidesBySlugLazyQuery>;
 export type GuidesBySlugQueryResult = Apollo.QueryResult<GuidesBySlugQuery, GuidesBySlugQueryVariables>;
-export const HomeCollectionDocument = gql`
+export const HomeCollectionDocument = /*#__PURE__*/ gql`
     query HomeCollection {
   collections(first: 1, where: {tagSlugIn: ["home"]}) {
     nodes {
@@ -25074,7 +25074,7 @@ export function useHomeCollectionLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type HomeCollectionQueryHookResult = ReturnType<typeof useHomeCollectionQuery>;
 export type HomeCollectionLazyQueryHookResult = ReturnType<typeof useHomeCollectionLazyQuery>;
 export type HomeCollectionQueryResult = Apollo.QueryResult<HomeCollectionQuery, HomeCollectionQueryVariables>;
-export const HomeCollectionPreviewDocument = gql`
+export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql`
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
@@ -25111,7 +25111,7 @@ export function useHomeCollectionPreviewLazyQuery(baseOptions?: Apollo.LazyQuery
 export type HomeCollectionPreviewQueryHookResult = ReturnType<typeof useHomeCollectionPreviewQuery>;
 export type HomeCollectionPreviewLazyQueryHookResult = ReturnType<typeof useHomeCollectionPreviewLazyQuery>;
 export type HomeCollectionPreviewQueryResult = Apollo.QueryResult<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>;
-export const MemberHomeDocument = gql`
+export const MemberHomeDocument = /*#__PURE__*/ gql`
     query MemberHome {
   features: menuItems(first: 3, where: {location: FEATURES_MEMBERS}) {
     nodes {
@@ -25162,7 +25162,7 @@ export function useMemberHomeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MemberHomeQueryHookResult = ReturnType<typeof useMemberHomeQuery>;
 export type MemberHomeLazyQueryHookResult = ReturnType<typeof useMemberHomeLazyQuery>;
 export type MemberHomeQueryResult = Apollo.QueryResult<MemberHomeQuery, MemberHomeQueryVariables>;
-export const MemberVideoDocument = gql`
+export const MemberVideoDocument = /*#__PURE__*/ gql`
     query MemberVideo {
   features: menuItems(first: 3, where: {location: FEATURES_VIDEO_MEMBERS}) {
     nodes {
@@ -25207,7 +25207,7 @@ export function useMemberVideoLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type MemberVideoQueryHookResult = ReturnType<typeof useMemberVideoQuery>;
 export type MemberVideoLazyQueryHookResult = ReturnType<typeof useMemberVideoLazyQuery>;
 export type MemberVideoQueryResult = Apollo.QueryResult<MemberVideoQuery, MemberVideoQueryVariables>;
-export const VideoHubDocument = gql`
+export const VideoHubDocument = /*#__PURE__*/ gql`
     query VideoHub {
   featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
     nodes {
@@ -25284,7 +25284,7 @@ export function useVideoHubLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<V
 export type VideoHubQueryHookResult = ReturnType<typeof useVideoHubQuery>;
 export type VideoHubLazyQueryHookResult = ReturnType<typeof useVideoHubLazyQuery>;
 export type VideoHubQueryResult = Apollo.QueryResult<VideoHubQuery, VideoHubQueryVariables>;
-export const NugDocument = gql`
+export const NugDocument = /*#__PURE__*/ gql`
     query Nug($slug: String!) {
   nugBy(slug: $slug) {
     ...NugParts
@@ -25317,7 +25317,7 @@ export function useNugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NugQue
 export type NugQueryHookResult = ReturnType<typeof useNugQuery>;
 export type NugLazyQueryHookResult = ReturnType<typeof useNugLazyQuery>;
 export type NugQueryResult = Apollo.QueryResult<NugQuery, NugQueryVariables>;
-export const NugsByTagDocument = gql`
+export const NugsByTagDocument = /*#__PURE__*/ gql`
     query NugsByTag($perPage: Int!, $tag: [String]!) {
   nugs(first: $perPage, where: {tagSlugIn: $tag}) {
     nodes {

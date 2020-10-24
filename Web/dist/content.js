@@ -565,7 +565,7 @@ export var UsersConnectionSearchColumnEnum;
     UsersConnectionSearchColumnEnum["Nicename"] = "NICENAME";
     UsersConnectionSearchColumnEnum["Url"] = "URL";
 })(UsersConnectionSearchColumnEnum || (UsersConnectionSearchColumnEnum = {}));
-export const MediaPartsFragmentDoc = gql `
+export const MediaPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment MediaParts on MediaItem {
   altText
   caption
@@ -579,7 +579,7 @@ export const MediaPartsFragmentDoc = gql `
   title
 }
     `;
-export const PromotionPartsFragmentDoc = gql `
+export const PromotionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment PromotionParts on Promotion {
   content
   dateGmt
@@ -594,7 +594,7 @@ export const PromotionPartsFragmentDoc = gql `
   title
 }
     ${MediaPartsFragmentDoc}`;
-export const VideoPartsFragmentDoc = gql `
+export const VideoPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment VideoParts on VideoData {
   id
   duration
@@ -604,7 +604,7 @@ export const VideoPartsFragmentDoc = gql `
   type
 }
     `;
-export const ArticleTeaserPartsFragmentDoc = gql `
+export const ArticleTeaserPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment ArticleTeaserParts on Post {
   bulletin {
     campaign {
@@ -649,7 +649,7 @@ export const ArticleTeaserPartsFragmentDoc = gql `
 }
     ${MediaPartsFragmentDoc}
 ${VideoPartsFragmentDoc}`;
-export const AuthorPartsFragmentDoc = gql `
+export const AuthorPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment AuthorParts on CoAuthor {
   avatar
   bio
@@ -673,7 +673,7 @@ export const AuthorPartsFragmentDoc = gql `
   website
 }
     `;
-export const BlockPartsFragmentDoc = gql `
+export const BlockPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment BlockParts on Block {
   attributes {
     name
@@ -685,7 +685,7 @@ export const BlockPartsFragmentDoc = gql `
   type
 }
     `;
-export const GuidePartsFragmentDoc = gql `
+export const GuidePartsFragmentDoc = /*#__PURE__*/ gql `
     fragment GuideParts on Guide {
   id
   guideId
@@ -712,7 +712,7 @@ export const GuidePartsFragmentDoc = gql `
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const ObsessionPartsFragmentDoc = gql `
+export const ObsessionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment ObsessionParts on Obsession {
   id
   description
@@ -734,7 +734,7 @@ export const ObsessionPartsFragmentDoc = gql `
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const ProjectPartsFragmentDoc = gql `
+export const ProjectPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment ProjectParts on Project {
   id
   count
@@ -745,7 +745,7 @@ export const ProjectPartsFragmentDoc = gql `
   slug
 }
     `;
-export const SeriesPartsFragmentDoc = gql `
+export const SeriesPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment SeriesParts on Series {
   colors
   count
@@ -787,7 +787,7 @@ export const SeriesPartsFragmentDoc = gql `
   socialTitle
 }
     ${MediaPartsFragmentDoc}`;
-export const ShowPartsFragmentDoc = gql `
+export const ShowPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment ShowParts on Show {
   colors
   count
@@ -825,7 +825,7 @@ export const ShowPartsFragmentDoc = gql `
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const ArticlePartsFragmentDoc = gql `
+export const ArticlePartsFragmentDoc = /*#__PURE__*/ gql `
     fragment ArticleParts on Post {
   ...ArticleTeaserParts
   authors: coAuthors {
@@ -914,7 +914,7 @@ ${ObsessionPartsFragmentDoc}
 ${ProjectPartsFragmentDoc}
 ${SeriesPartsFragmentDoc}
 ${ShowPartsFragmentDoc}`;
-export const BulletinPartsFragmentDoc = gql `
+export const BulletinPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment BulletinParts on Bulletin {
   link
   title
@@ -936,7 +936,7 @@ export const BulletinPartsFragmentDoc = gql `
   }
 }
     ${MediaPartsFragmentDoc}`;
-export const NugPartsFragmentDoc = gql `
+export const NugPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment NugParts on Nug {
   id
   blocks {
@@ -967,7 +967,7 @@ export const NugPartsFragmentDoc = gql `
     ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${MediaPartsFragmentDoc}`;
-export const HomeCollectionPartsFragmentDoc = gql `
+export const HomeCollectionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment HomeCollectionParts on Collection {
   id
   title
@@ -993,7 +993,7 @@ export const HomeCollectionPartsFragmentDoc = gql `
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;
-export const TagPartsFragmentDoc = gql `
+export const TagPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment TagParts on Tag {
   count
   description
@@ -1008,7 +1008,7 @@ export const TagPartsFragmentDoc = gql `
   tagId
 }
     ${MediaPartsFragmentDoc}`;
-export const TopicPartsFragmentDoc = gql `
+export const TopicPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment TopicParts on Topic {
   description
   featuredImage {
@@ -1022,7 +1022,7 @@ export const TopicPartsFragmentDoc = gql `
   topicId
 }
     ${MediaPartsFragmentDoc}`;
-export const ArticleDocument = gql `
+export const ArticleDocument = /*#__PURE__*/ gql `
     query Article($id: ID!) {
   post(id: $id) {
     ...ArticleParts
@@ -1051,7 +1051,7 @@ export function useArticleQuery(baseOptions) {
 export function useArticleLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticleDocument, baseOptions);
 }
-export const ArticlePreviewDocument = gql `
+export const ArticlePreviewDocument = /*#__PURE__*/ gql `
     query ArticlePreview($id: Int!, $time: Int!, $token: String!) {
   posts(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
@@ -1084,7 +1084,7 @@ export function useArticlePreviewQuery(baseOptions) {
 export function useArticlePreviewLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlePreviewDocument, baseOptions);
 }
-export const ArticleTeaserDocument = gql `
+export const ArticleTeaserDocument = /*#__PURE__*/ gql `
     query ArticleTeaser($id: ID!) {
   post(id: $id) {
     ...ArticleTeaserParts
@@ -1113,7 +1113,7 @@ export function useArticleTeaserQuery(baseOptions) {
 export function useArticleTeaserLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticleTeaserDocument, baseOptions);
 }
-export const ArticlesByGuideDocument = gql `
+export const ArticlesByGuideDocument = /*#__PURE__*/ gql `
     query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
   guides(where: {slug: $slug}) {
     nodes {
@@ -1156,7 +1156,7 @@ export function useArticlesByGuideQuery(baseOptions) {
 export function useArticlesByGuideLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlesByGuideDocument, baseOptions);
 }
-export const ArticlesByObsessionDocument = gql `
+export const ArticlesByObsessionDocument = /*#__PURE__*/ gql `
     query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
   obsessions(where: {slug: $slug}) {
     nodes {
@@ -1209,7 +1209,7 @@ export function useArticlesByObsessionQuery(baseOptions) {
 export function useArticlesByObsessionLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlesByObsessionDocument, baseOptions);
 }
-export const ArticlesBySeriesDocument = gql `
+export const ArticlesBySeriesDocument = /*#__PURE__*/ gql `
     query ArticlesBySeries($after: String = "", $perPage: Int, $slug: [String]) {
   serieses(where: {slug: $slug}) {
     nodes {
@@ -1252,7 +1252,7 @@ export function useArticlesBySeriesQuery(baseOptions) {
 export function useArticlesBySeriesLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlesBySeriesDocument, baseOptions);
 }
-export const ArticlesByShowDocument = gql `
+export const ArticlesByShowDocument = /*#__PURE__*/ gql `
     query ArticlesByShow($after: String = "", $perPage: Int, $slug: [String]) {
   shows(where: {slug: $slug}) {
     nodes {
@@ -1295,7 +1295,7 @@ export function useArticlesByShowQuery(baseOptions) {
 export function useArticlesByShowLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlesByShowDocument, baseOptions);
 }
-export const ArticlesByTagDocument = gql `
+export const ArticlesByTagDocument = /*#__PURE__*/ gql `
     query ArticlesByTag($after: String = "", $perPage: Int, $slug: [String]) {
   tags(where: {slug: $slug}) {
     nodes {
@@ -1338,7 +1338,7 @@ export function useArticlesByTagQuery(baseOptions) {
 export function useArticlesByTagLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlesByTagDocument, baseOptions);
 }
-export const ArticlesByTopicDocument = gql `
+export const ArticlesByTopicDocument = /*#__PURE__*/ gql `
     query ArticlesByTopic($after: String = "", $perPage: Int, $slug: [String]) {
   topics(where: {slug: $slug}) {
     nodes {
@@ -1381,7 +1381,7 @@ export function useArticlesByTopicQuery(baseOptions) {
 export function useArticlesByTopicLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ArticlesByTopicDocument, baseOptions);
 }
-export const ContentBySearchTermDocument = gql `
+export const ContentBySearchTermDocument = /*#__PURE__*/ gql `
     query ContentBySearchTerm($after: String = "", $limit: Int = 10, $search: String!) {
   content(after: $after, first: $limit, where: {search: $search}) {
     pageInfo {
@@ -1421,7 +1421,7 @@ export function useContentBySearchTermQuery(baseOptions) {
 export function useContentBySearchTermLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(ContentBySearchTermDocument, baseOptions);
 }
-export const LatestArticlesDocument = gql `
+export const LatestArticlesDocument = /*#__PURE__*/ gql `
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
     nodes {
@@ -1458,7 +1458,7 @@ export function useLatestArticlesQuery(baseOptions) {
 export function useLatestArticlesLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(LatestArticlesDocument, baseOptions);
 }
-export const DiscoverDocument = gql `
+export const DiscoverDocument = /*#__PURE__*/ gql `
     query Discover($topics: [String]!) {
   latest: posts(first: 5) {
     nodes {
@@ -1505,7 +1505,7 @@ export function useDiscoverQuery(baseOptions) {
 export function useDiscoverLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(DiscoverDocument, baseOptions);
 }
-export const GuidesDocument = gql `
+export const GuidesDocument = /*#__PURE__*/ gql `
     query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
   guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
     nodes {
@@ -1548,7 +1548,7 @@ export function useGuidesQuery(baseOptions) {
 export function useGuidesLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(GuidesDocument, baseOptions);
 }
-export const GuidesBySlugDocument = gql `
+export const GuidesBySlugDocument = /*#__PURE__*/ gql `
     query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
   guides(first: $perPage, where: {slug: $slugs}) {
     nodes {
@@ -1580,7 +1580,7 @@ export function useGuidesBySlugQuery(baseOptions) {
 export function useGuidesBySlugLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(GuidesBySlugDocument, baseOptions);
 }
-export const HomeCollectionDocument = gql `
+export const HomeCollectionDocument = /*#__PURE__*/ gql `
     query HomeCollection {
   collections(first: 1, where: {tagSlugIn: ["home"]}) {
     nodes {
@@ -1610,7 +1610,7 @@ export function useHomeCollectionQuery(baseOptions) {
 export function useHomeCollectionLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(HomeCollectionDocument, baseOptions);
 }
-export const HomeCollectionPreviewDocument = gql `
+export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql `
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
@@ -1643,7 +1643,7 @@ export function useHomeCollectionPreviewQuery(baseOptions) {
 export function useHomeCollectionPreviewLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(HomeCollectionPreviewDocument, baseOptions);
 }
-export const MemberHomeDocument = gql `
+export const MemberHomeDocument = /*#__PURE__*/ gql `
     query MemberHome {
   features: menuItems(first: 3, where: {location: FEATURES_MEMBERS}) {
     nodes {
@@ -1690,7 +1690,7 @@ export function useMemberHomeQuery(baseOptions) {
 export function useMemberHomeLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(MemberHomeDocument, baseOptions);
 }
-export const MemberVideoDocument = gql `
+export const MemberVideoDocument = /*#__PURE__*/ gql `
     query MemberVideo {
   features: menuItems(first: 3, where: {location: FEATURES_VIDEO_MEMBERS}) {
     nodes {
@@ -1731,7 +1731,7 @@ export function useMemberVideoQuery(baseOptions) {
 export function useMemberVideoLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(MemberVideoDocument, baseOptions);
 }
-export const VideoHubDocument = gql `
+export const VideoHubDocument = /*#__PURE__*/ gql `
     query VideoHub {
   featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
     nodes {
@@ -1804,7 +1804,7 @@ export function useVideoHubQuery(baseOptions) {
 export function useVideoHubLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(VideoHubDocument, baseOptions);
 }
-export const NugDocument = gql `
+export const NugDocument = /*#__PURE__*/ gql `
     query Nug($slug: String!) {
   nugBy(slug: $slug) {
     ...NugParts
@@ -1833,7 +1833,7 @@ export function useNugQuery(baseOptions) {
 export function useNugLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(NugDocument, baseOptions);
 }
-export const NugsByTagDocument = gql `
+export const NugsByTagDocument = /*#__PURE__*/ gql `
     query NugsByTag($perPage: Int!, $tag: [String]!) {
   nugs(first: $perPage, where: {tagSlugIn: $tag}) {
     nodes {
