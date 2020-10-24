@@ -5,6 +5,7 @@
   "homepage": "https://github.com/Quartz/content#readme",
   "version": "0.0.7",
   "module": "Web/dist/index.js",
+  "types": "Web/dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "Web/dist/**/*"
