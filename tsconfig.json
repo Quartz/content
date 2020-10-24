@@ -16,6 +16,7 @@
     "Web/**/*.ts"
   ],
   "exclude": [
-    "Web/dist"
+    "Web/dist",
+    "Web/dist-cjs"
   ]
 }
