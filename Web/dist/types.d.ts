@@ -21621,3 +21621,4 @@ export declare type RootQueryToUserConnectionEdge = {
      */
     node?: Maybe<User>;
 };
+//# sourceMappingURL=types.d.ts.map

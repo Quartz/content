@@ -49,3 +49,4 @@ export declare function useArticlePreviewLazyQuery(baseOptions?: Apollo.LazyQuer
 export declare type ArticlePreviewQueryHookResult = ReturnType<typeof useArticlePreviewQuery>;
 export declare type ArticlePreviewLazyQueryHookResult = ReturnType<typeof useArticlePreviewLazyQuery>;
 export declare type ArticlePreviewQueryResult = Apollo.QueryResult<ArticlePreviewQuery, ArticlePreviewQueryVariables>;
+//# sourceMappingURL=ArticlePreview.d.ts.map

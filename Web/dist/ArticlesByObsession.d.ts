@@ -81,3 +81,4 @@ export declare function useArticlesByObsessionLazyQuery(baseOptions?: Apollo.Laz
 export declare type ArticlesByObsessionQueryHookResult = ReturnType<typeof useArticlesByObsessionQuery>;
 export declare type ArticlesByObsessionLazyQueryHookResult = ReturnType<typeof useArticlesByObsessionLazyQuery>;
 export declare type ArticlesByObsessionQueryResult = Apollo.QueryResult<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>;
+//# sourceMappingURL=ArticlesByObsession.d.ts.map

@@ -37,3 +37,4 @@ export declare function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQuery
 export declare type ArticleTeaserQueryHookResult = ReturnType<typeof useArticleTeaserQuery>;
 export declare type ArticleTeaserLazyQueryHookResult = ReturnType<typeof useArticleTeaserLazyQuery>;
 export declare type ArticleTeaserQueryResult = Apollo.QueryResult<ArticleTeaserQuery, ArticleTeaserQueryVariables>;
+//# sourceMappingURL=ArticleTeaser.d.ts.map

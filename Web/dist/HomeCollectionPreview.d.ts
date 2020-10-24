@@ -49,3 +49,4 @@ export declare function useHomeCollectionPreviewLazyQuery(baseOptions?: Apollo.L
 export declare type HomeCollectionPreviewQueryHookResult = ReturnType<typeof useHomeCollectionPreviewQuery>;
 export declare type HomeCollectionPreviewLazyQueryHookResult = ReturnType<typeof useHomeCollectionPreviewLazyQuery>;
 export declare type HomeCollectionPreviewQueryResult = Apollo.QueryResult<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>;
+//# sourceMappingURL=HomeCollectionPreview.d.ts.map

@@ -7,3 +7,4 @@ export declare type BlockPartsFragment = ({
     } & Pick<Types.Attribute, 'name' | 'value'>)>>>;
 });
 export declare const BlockPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=BlockParts.d.ts.map

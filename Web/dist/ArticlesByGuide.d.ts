@@ -61,3 +61,4 @@ export declare function useArticlesByGuideLazyQuery(baseOptions?: Apollo.LazyQue
 export declare type ArticlesByGuideQueryHookResult = ReturnType<typeof useArticlesByGuideQuery>;
 export declare type ArticlesByGuideLazyQueryHookResult = ReturnType<typeof useArticlesByGuideLazyQuery>;
 export declare type ArticlesByGuideQueryResult = Apollo.QueryResult<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>;
+//# sourceMappingURL=ArticlesByGuide.d.ts.map

@@ -52,3 +52,4 @@ export declare function useLatestArticlesLazyQuery(baseOptions?: Apollo.LazyQuer
 export declare type LatestArticlesQueryHookResult = ReturnType<typeof useLatestArticlesQuery>;
 export declare type LatestArticlesLazyQueryHookResult = ReturnType<typeof useLatestArticlesLazyQuery>;
 export declare type LatestArticlesQueryResult = Apollo.QueryResult<LatestArticlesQuery, LatestArticlesQueryVariables>;
+//# sourceMappingURL=LatestArticles.d.ts.map

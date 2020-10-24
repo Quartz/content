@@ -18,3 +18,4 @@ export declare type GuidePartsFragment = ({
     })>>>;
 });
 export declare const GuidePartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=GuideParts.d.ts.map

@@ -61,3 +61,4 @@ export declare function useArticlesByTagLazyQuery(baseOptions?: Apollo.LazyQuery
 export declare type ArticlesByTagQueryHookResult = ReturnType<typeof useArticlesByTagQuery>;
 export declare type ArticlesByTagLazyQueryHookResult = ReturnType<typeof useArticlesByTagLazyQuery>;
 export declare type ArticlesByTagQueryResult = Apollo.QueryResult<ArticlesByTagQuery, ArticlesByTagQueryVariables>;
+//# sourceMappingURL=ArticlesByTag.d.ts.map

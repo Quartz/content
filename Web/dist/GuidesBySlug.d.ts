@@ -45,3 +45,4 @@ export declare function useGuidesBySlugLazyQuery(baseOptions?: Apollo.LazyQueryH
 export declare type GuidesBySlugQueryHookResult = ReturnType<typeof useGuidesBySlugQuery>;
 export declare type GuidesBySlugLazyQueryHookResult = ReturnType<typeof useGuidesBySlugLazyQuery>;
 export declare type GuidesBySlugQueryResult = Apollo.QueryResult<GuidesBySlugQuery, GuidesBySlugQueryVariables>;
+//# sourceMappingURL=GuidesBySlug.d.ts.map

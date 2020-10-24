@@ -45,3 +45,4 @@ export declare function useNugsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHook
 export declare type NugsByTagQueryHookResult = ReturnType<typeof useNugsByTagQuery>;
 export declare type NugsByTagLazyQueryHookResult = ReturnType<typeof useNugsByTagLazyQuery>;
 export declare type NugsByTagQueryResult = Apollo.QueryResult<NugsByTagQuery, NugsByTagQueryVariables>;
+//# sourceMappingURL=NugsByTag.d.ts.map

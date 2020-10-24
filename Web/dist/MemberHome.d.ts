@@ -91,3 +91,4 @@ export declare function useMemberHomeLazyQuery(baseOptions?: Apollo.LazyQueryHoo
 export declare type MemberHomeQueryHookResult = ReturnType<typeof useMemberHomeQuery>;
 export declare type MemberHomeLazyQueryHookResult = ReturnType<typeof useMemberHomeLazyQuery>;
 export declare type MemberHomeQueryResult = Apollo.QueryResult<MemberHomeQuery, MemberHomeQueryVariables>;
+//# sourceMappingURL=MemberHome.d.ts.map

@@ -61,3 +61,4 @@ export declare function useArticlesBySeriesLazyQuery(baseOptions?: Apollo.LazyQu
 export declare type ArticlesBySeriesQueryHookResult = ReturnType<typeof useArticlesBySeriesQuery>;
 export declare type ArticlesBySeriesLazyQueryHookResult = ReturnType<typeof useArticlesBySeriesLazyQuery>;
 export declare type ArticlesBySeriesQueryResult = Apollo.QueryResult<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>;
+//# sourceMappingURL=ArticlesBySeries.d.ts.map

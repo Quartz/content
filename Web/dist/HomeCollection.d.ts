@@ -40,3 +40,4 @@ export declare function useHomeCollectionLazyQuery(baseOptions?: Apollo.LazyQuer
 export declare type HomeCollectionQueryHookResult = ReturnType<typeof useHomeCollectionQuery>;
 export declare type HomeCollectionLazyQueryHookResult = ReturnType<typeof useHomeCollectionLazyQuery>;
 export declare type HomeCollectionQueryResult = Apollo.QueryResult<HomeCollectionQuery, HomeCollectionQueryVariables>;
+//# sourceMappingURL=HomeCollection.d.ts.map

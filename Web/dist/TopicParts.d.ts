@@ -8,3 +8,4 @@ export declare type TopicPartsFragment = ({
     } & MediaPartsFragment)>;
 });
 export declare const TopicPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=TopicParts.d.ts.map

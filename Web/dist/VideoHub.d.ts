@@ -162,3 +162,4 @@ export declare function useVideoHubLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export declare type VideoHubQueryHookResult = ReturnType<typeof useVideoHubQuery>;
 export declare type VideoHubLazyQueryHookResult = ReturnType<typeof useVideoHubLazyQuery>;
 export declare type VideoHubQueryResult = Apollo.QueryResult<VideoHubQuery, VideoHubQueryVariables>;
+//# sourceMappingURL=VideoHub.d.ts.map

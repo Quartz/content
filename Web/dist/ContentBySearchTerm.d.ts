@@ -70,3 +70,4 @@ export declare function useContentBySearchTermLazyQuery(baseOptions?: Apollo.Laz
 export declare type ContentBySearchTermQueryHookResult = ReturnType<typeof useContentBySearchTermQuery>;
 export declare type ContentBySearchTermLazyQueryHookResult = ReturnType<typeof useContentBySearchTermLazyQuery>;
 export declare type ContentBySearchTermQueryResult = Apollo.QueryResult<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>;
+//# sourceMappingURL=ContentBySearchTerm.d.ts.map

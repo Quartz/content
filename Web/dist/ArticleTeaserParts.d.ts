@@ -35,3 +35,4 @@ export declare type ArticleTeaserPartsFragment = ({
     } & VideoPartsFragment)>;
 });
 export declare const ArticleTeaserPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=ArticleTeaserParts.d.ts.map

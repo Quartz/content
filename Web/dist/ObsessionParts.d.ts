@@ -15,3 +15,4 @@ export declare type ObsessionPartsFragment = ({
     })>;
 });
 export declare const ObsessionPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=ObsessionParts.d.ts.map

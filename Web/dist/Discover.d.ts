@@ -64,3 +64,4 @@ export declare function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export declare type DiscoverQueryHookResult = ReturnType<typeof useDiscoverQuery>;
 export declare type DiscoverLazyQueryHookResult = ReturnType<typeof useDiscoverLazyQuery>;
 export declare type DiscoverQueryResult = Apollo.QueryResult<DiscoverQuery, DiscoverQueryVariables>;
+//# sourceMappingURL=Discover.d.ts.map

@@ -44,3 +44,4 @@ export declare type HomeCollectionPartsFragment = ({
     } & BlockPartsFragment)>>>;
 });
 export declare const HomeCollectionPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=HomeCollectionParts.d.ts.map

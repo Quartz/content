@@ -47,3 +47,4 @@ export declare type NugPartsFragment = ({
     })>;
 });
 export declare const NugPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=NugParts.d.ts.map

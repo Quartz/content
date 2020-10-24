@@ -7,3 +7,4 @@ export declare type MediaPartsFragment = ({
     } & Pick<Types.MediaDetails, 'height' | 'width'>)>;
 });
 export declare const MediaPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=MediaParts.d.ts.map

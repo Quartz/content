@@ -83,3 +83,4 @@ export declare function useMemberVideoLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export declare type MemberVideoQueryHookResult = ReturnType<typeof useMemberVideoQuery>;
 export declare type MemberVideoLazyQueryHookResult = ReturnType<typeof useMemberVideoLazyQuery>;
 export declare type MemberVideoQueryResult = Apollo.QueryResult<MemberVideoQuery, MemberVideoQueryVariables>;
+//# sourceMappingURL=MemberVideo.d.ts.map

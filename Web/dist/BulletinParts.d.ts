@@ -21,3 +21,4 @@ export declare type BulletinPartsFragment = ({
     })>;
 });
 export declare const BulletinPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=BulletinParts.d.ts.map

@@ -37,3 +37,4 @@ export declare function useNugLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export declare type NugQueryHookResult = ReturnType<typeof useNugQuery>;
 export declare type NugLazyQueryHookResult = ReturnType<typeof useNugLazyQuery>;
 export declare type NugQueryResult = Apollo.QueryResult<NugQuery, NugQueryVariables>;
+//# sourceMappingURL=Nug.d.ts.map

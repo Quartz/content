@@ -10,3 +10,4 @@ export declare type PromotionPartsFragment = ({
     } & MediaPartsFragment)>;
 });
 export declare const PromotionPartsFragmentDoc: import("@apollo/client").DocumentNode;
+//# sourceMappingURL=PromotionParts.d.ts.map
