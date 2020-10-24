@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "declarationMap": true,
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
@@ -10,12 +11,12 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "Web/dist",
-    "baseUrl": "."
   },
   "include": [
     "Web/**/*.ts"
   ],
   "exclude": [
-    "Web/dist"
+    "Web/dist",
+    "Web/dist-cjs"
   ]
 }
