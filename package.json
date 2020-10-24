@@ -4,7 +4,7 @@
   "description": "Quartz content queries",
   "homepage": "https://github.com/Quartz/content#readme",
   "version": "0.0.7",
-  "main": "Web/dist/content.js",
+  "module": "Web/dist/content.js",
   "files": [
     "Web/dist/**/*"
   ],

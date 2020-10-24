@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.useNugsByTagLazyQuery = exports.useNugsByTagQuery = exports.NugsByTagDocument = exports.useNugLazyQuery = exports.useNugQuery = exports.NugDocument = exports.useVideoHubLazyQuery = exports.useVideoHubQuery = exports.VideoHubDocument = exports.useMemberVideoLazyQuery = exports.useMemberVideoQuery = exports.MemberVideoDocument = exports.useMemberHomeLazyQuery = exports.useMemberHomeQuery = exports.MemberHomeDocument = exports.useHomeCollectionPreviewLazyQuery = exports.useHomeCollectionPreviewQuery = exports.HomeCollectionPreviewDocument = exports.useHomeCollectionLazyQuery = exports.useHomeCollectionQuery = exports.HomeCollectionDocument = exports.useGuidesBySlugLazyQuery = exports.useGuidesBySlugQuery = exports.GuidesBySlugDocument = exports.useGuidesLazyQuery = exports.useGuidesQuery = exports.GuidesDocument = exports.useDiscoverLazyQuery = exports.useDiscoverQuery = exports.DiscoverDocument = exports.useLatestArticlesLazyQuery = exports.useLatestArticlesQuery = exports.LatestArticlesDocument = exports.useContentBySearchTermLazyQuery = exports.useContentBySearchTermQuery = exports.ContentBySearchTermDocument = exports.useArticlesByTopicLazyQuery = exports.useArticlesByTopicQuery = exports.ArticlesByTopicDocument = exports.useArticlesByTagLazyQuery = exports.useArticlesByTagQuery = exports.ArticlesByTagDocument = exports.useArticlesByShowLazyQuery = exports.useArticlesByShowQuery = exports.ArticlesByShowDocument = exports.useArticlesBySeriesLazyQuery = exports.useArticlesBySeriesQuery = exports.ArticlesBySeriesDocument = exports.useArticlesByObsessionLazyQuery = exports.useArticlesByObsessionQuery = exports.ArticlesByObsessionDocument = exports.useArticlesByGuideLazyQuery = exports.useArticlesByGuideQuery = exports.ArticlesByGuideDocument = exports.useArticleTeaserLazyQuery = exports.useArticleTeaserQuery = exports.ArticleTeaserDocument = exports.useArticlePreviewLazyQuery = exports.useArticlePreviewQuery = exports.ArticlePreviewDocument = exports.useArticleLazyQuery = exports.useArticleQuery = exports.ArticleDocument = exports.TopicPartsFragmentDoc = exports.TagPartsFragmentDoc = exports.HomeCollectionPartsFragmentDoc = exports.NugPartsFragmentDoc = exports.BulletinPartsFragmentDoc = exports.ArticlePartsFragmentDoc = exports.ShowPartsFragmentDoc = exports.SeriesPartsFragmentDoc = exports.ProjectPartsFragmentDoc = exports.ObsessionPartsFragmentDoc = exports.GuidePartsFragmentDoc = exports.BlockPartsFragmentDoc = exports.AuthorPartsFragmentDoc = exports.ArticleTeaserPartsFragmentDoc = exports.VideoPartsFragmentDoc = exports.PromotionPartsFragmentDoc = exports.MediaPartsFragmentDoc = exports.UsersConnectionSearchColumnEnum = exports.UserRoleEnum = exports.MenuLocationEnum = exports.CommentsConnectionOrderbyEnum = exports.PostObjectFieldFormatEnum = exports.TermObjectsConnectionOrderbyEnum = exports.BlockNameEnum = exports.TaxonomyEnum = exports.PostStatusEnum = exports.OrderEnum = exports.PostObjectsConnectionOrderbyEnum = exports.MimeTypeEnum = exports.EditionName = exports.RelationEnum = exports.PostObjectsConnectionDateColumnEnum = exports.AuthorType = exports.AvatarRatingEnum = exports.PostTypeEnum = void 0;
-const client_1 = require("@apollo/client");
-const Apollo = require("@apollo/client");
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 /** Allowed Post Types */
-var PostTypeEnum;
+export var PostTypeEnum;
 (function (PostTypeEnum) {
     PostTypeEnum["Attachment"] = "ATTACHMENT";
     PostTypeEnum["Blog"] = "BLOG";
@@ -20,44 +17,44 @@ var PostTypeEnum;
     PostTypeEnum["QzEmail"] = "QZ_EMAIL";
     PostTypeEnum["QzStack"] = "QZ_STACK";
     PostTypeEnum["Revision"] = "REVISION";
-})(PostTypeEnum = exports.PostTypeEnum || (exports.PostTypeEnum = {}));
+})(PostTypeEnum || (PostTypeEnum = {}));
 /** What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are judged in that order. Default is the value of the 'avatar_rating' option */
-var AvatarRatingEnum;
+export var AvatarRatingEnum;
 (function (AvatarRatingEnum) {
     AvatarRatingEnum["G"] = "G";
     AvatarRatingEnum["Pg"] = "PG";
     AvatarRatingEnum["R"] = "R";
     AvatarRatingEnum["X"] = "X";
-})(AvatarRatingEnum = exports.AvatarRatingEnum || (exports.AvatarRatingEnum = {}));
+})(AvatarRatingEnum || (AvatarRatingEnum = {}));
 /** Coauthor type */
-var AuthorType;
+export var AuthorType;
 (function (AuthorType) {
     AuthorType["Guest"] = "GUEST";
     AuthorType["Wordpress"] = "WORDPRESS";
-})(AuthorType = exports.AuthorType || (exports.AuthorType = {}));
+})(AuthorType || (AuthorType = {}));
 /** The column to use when filtering by date */
-var PostObjectsConnectionDateColumnEnum;
+export var PostObjectsConnectionDateColumnEnum;
 (function (PostObjectsConnectionDateColumnEnum) {
     PostObjectsConnectionDateColumnEnum["Date"] = "DATE";
     PostObjectsConnectionDateColumnEnum["Modified"] = "MODIFIED";
-})(PostObjectsConnectionDateColumnEnum = exports.PostObjectsConnectionDateColumnEnum || (exports.PostObjectsConnectionDateColumnEnum = {}));
+})(PostObjectsConnectionDateColumnEnum || (PostObjectsConnectionDateColumnEnum = {}));
 /** The logical relation between each item in the array when there are more than one. */
-var RelationEnum;
+export var RelationEnum;
 (function (RelationEnum) {
     RelationEnum["And"] = "AND";
     RelationEnum["Or"] = "OR";
-})(RelationEnum = exports.RelationEnum || (exports.RelationEnum = {}));
+})(RelationEnum || (RelationEnum = {}));
 /** Quartz edition */
-var EditionName;
+export var EditionName;
 (function (EditionName) {
     EditionName["Africa"] = "AFRICA";
     EditionName["India"] = "INDIA";
     EditionName["Quartz"] = "QUARTZ";
     EditionName["Quartzy"] = "QUARTZY";
     EditionName["Work"] = "WORK";
-})(EditionName = exports.EditionName || (exports.EditionName = {}));
+})(EditionName || (EditionName = {}));
 /** The MimeType of the object */
-var MimeTypeEnum;
+export var MimeTypeEnum;
 (function (MimeTypeEnum) {
     MimeTypeEnum["ApplicationJava"] = "APPLICATION_JAVA";
     MimeTypeEnum["ApplicationMsword"] = "APPLICATION_MSWORD";
@@ -146,9 +143,9 @@ var MimeTypeEnum;
     MimeTypeEnum["VideoXMsWm"] = "VIDEO_X_MS_WM";
     MimeTypeEnum["VideoXMsWmv"] = "VIDEO_X_MS_WMV";
     MimeTypeEnum["VideoXMsWmx"] = "VIDEO_X_MS_WMX";
-})(MimeTypeEnum = exports.MimeTypeEnum || (exports.MimeTypeEnum = {}));
+})(MimeTypeEnum || (MimeTypeEnum = {}));
 /** Field to order the connection by */
-var PostObjectsConnectionOrderbyEnum;
+export var PostObjectsConnectionOrderbyEnum;
 (function (PostObjectsConnectionOrderbyEnum) {
     /** Order by author */
     PostObjectsConnectionOrderbyEnum["Author"] = "AUTHOR";
@@ -170,15 +167,15 @@ var PostObjectsConnectionOrderbyEnum;
     PostObjectsConnectionOrderbyEnum["Slug"] = "SLUG";
     /** Order by title */
     PostObjectsConnectionOrderbyEnum["Title"] = "TITLE";
-})(PostObjectsConnectionOrderbyEnum = exports.PostObjectsConnectionOrderbyEnum || (exports.PostObjectsConnectionOrderbyEnum = {}));
+})(PostObjectsConnectionOrderbyEnum || (PostObjectsConnectionOrderbyEnum = {}));
 /** The cardinality of the connection order */
-var OrderEnum;
+export var OrderEnum;
 (function (OrderEnum) {
     OrderEnum["Asc"] = "ASC";
     OrderEnum["Desc"] = "DESC";
-})(OrderEnum = exports.OrderEnum || (exports.OrderEnum = {}));
+})(OrderEnum || (OrderEnum = {}));
 /** The status of the object. */
-var PostStatusEnum;
+export var PostStatusEnum;
 (function (PostStatusEnum) {
     /** Objects with the auto-draft status */
     PostStatusEnum["AutoDraft"] = "AUTO_DRAFT";
@@ -214,9 +211,9 @@ var PostStatusEnum;
     PostStatusEnum["Trash"] = "TRASH";
     /** Objects with the writing status */
     PostStatusEnum["Writing"] = "WRITING";
-})(PostStatusEnum = exports.PostStatusEnum || (exports.PostStatusEnum = {}));
+})(PostStatusEnum || (PostStatusEnum = {}));
 /** Allowed taxonomies */
-var TaxonomyEnum;
+export var TaxonomyEnum;
 (function (TaxonomyEnum) {
     TaxonomyEnum["Category"] = "CATEGORY";
     TaxonomyEnum["Coauthor"] = "COAUTHOR";
@@ -231,9 +228,9 @@ var TaxonomyEnum;
     TaxonomyEnum["Show"] = "SHOW";
     TaxonomyEnum["Tag"] = "TAG";
     TaxonomyEnum["Topic"] = "TOPIC";
-})(TaxonomyEnum = exports.TaxonomyEnum || (exports.TaxonomyEnum = {}));
+})(TaxonomyEnum || (TaxonomyEnum = {}));
 /** Allowed content block names */
-var BlockNameEnum;
+export var BlockNameEnum;
 (function (BlockNameEnum) {
     BlockNameEnum["Blockquote"] = "BLOCKQUOTE";
     BlockNameEnum["CoreArchives"] = "CORE_ARCHIVES";
@@ -476,9 +473,9 @@ var BlockNameEnum;
     BlockNameEnum["ShortcodeYoutube"] = "SHORTCODE_YOUTUBE";
     BlockNameEnum["Table"] = "TABLE";
     BlockNameEnum["Ul"] = "UL";
-})(BlockNameEnum = exports.BlockNameEnum || (exports.BlockNameEnum = {}));
+})(BlockNameEnum || (BlockNameEnum = {}));
 /** Options for ordering the connection by */
-var TermObjectsConnectionOrderbyEnum;
+export var TermObjectsConnectionOrderbyEnum;
 (function (TermObjectsConnectionOrderbyEnum) {
     TermObjectsConnectionOrderbyEnum["Count"] = "COUNT";
     TermObjectsConnectionOrderbyEnum["Description"] = "DESCRIPTION";
@@ -487,17 +484,17 @@ var TermObjectsConnectionOrderbyEnum;
     TermObjectsConnectionOrderbyEnum["TermGroup"] = "TERM_GROUP";
     TermObjectsConnectionOrderbyEnum["TermId"] = "TERM_ID";
     TermObjectsConnectionOrderbyEnum["TermOrder"] = "TERM_ORDER";
-})(TermObjectsConnectionOrderbyEnum = exports.TermObjectsConnectionOrderbyEnum || (exports.TermObjectsConnectionOrderbyEnum = {}));
+})(TermObjectsConnectionOrderbyEnum || (TermObjectsConnectionOrderbyEnum = {}));
 /** The format of post field data. */
-var PostObjectFieldFormatEnum;
+export var PostObjectFieldFormatEnum;
 (function (PostObjectFieldFormatEnum) {
     /** Provide the field value directly from database */
     PostObjectFieldFormatEnum["Raw"] = "RAW";
     /** Apply the default WordPress rendering */
     PostObjectFieldFormatEnum["Rendered"] = "RENDERED";
-})(PostObjectFieldFormatEnum = exports.PostObjectFieldFormatEnum || (exports.PostObjectFieldFormatEnum = {}));
+})(PostObjectFieldFormatEnum || (PostObjectFieldFormatEnum = {}));
 /** Options for ordering the connection */
-var CommentsConnectionOrderbyEnum;
+export var CommentsConnectionOrderbyEnum;
 (function (CommentsConnectionOrderbyEnum) {
     CommentsConnectionOrderbyEnum["CommentAgent"] = "COMMENT_AGENT";
     CommentsConnectionOrderbyEnum["CommentApproved"] = "COMMENT_APPROVED";
@@ -515,9 +512,9 @@ var CommentsConnectionOrderbyEnum;
     CommentsConnectionOrderbyEnum["CommentPostId"] = "COMMENT_POST_ID";
     CommentsConnectionOrderbyEnum["CommentType"] = "COMMENT_TYPE";
     CommentsConnectionOrderbyEnum["UserId"] = "USER_ID";
-})(CommentsConnectionOrderbyEnum = exports.CommentsConnectionOrderbyEnum || (exports.CommentsConnectionOrderbyEnum = {}));
+})(CommentsConnectionOrderbyEnum || (CommentsConnectionOrderbyEnum = {}));
 /** Registered menu locations */
-var MenuLocationEnum;
+export var MenuLocationEnum;
 (function (MenuLocationEnum) {
     MenuLocationEnum["About"] = "ABOUT";
     MenuLocationEnum["AuthorsWork"] = "AUTHORS_WORK";
@@ -546,9 +543,9 @@ var MenuLocationEnum;
     MenuLocationEnum["TopWork"] = "TOP_WORK";
     MenuLocationEnum["VideosQuartz"] = "VIDEOS_QUARTZ";
     MenuLocationEnum["VideosQuartzy"] = "VIDEOS_QUARTZY";
-})(MenuLocationEnum = exports.MenuLocationEnum || (exports.MenuLocationEnum = {}));
+})(MenuLocationEnum || (MenuLocationEnum = {}));
 /** Names of available user roles */
-var UserRoleEnum;
+export var UserRoleEnum;
 (function (UserRoleEnum) {
     UserRoleEnum["Administrator"] = "ADMINISTRATOR";
     UserRoleEnum["Author"] = "AUTHOR";
@@ -558,17 +555,17 @@ var UserRoleEnum;
     UserRoleEnum["Subscriber"] = "SUBSCRIBER";
     UserRoleEnum["VipSupport"] = "VIP_SUPPORT";
     UserRoleEnum["VipSupportInactive"] = "VIP_SUPPORT__INACTIVE_";
-})(UserRoleEnum = exports.UserRoleEnum || (exports.UserRoleEnum = {}));
+})(UserRoleEnum || (UserRoleEnum = {}));
 /** Column used for searching for users */
-var UsersConnectionSearchColumnEnum;
+export var UsersConnectionSearchColumnEnum;
 (function (UsersConnectionSearchColumnEnum) {
     UsersConnectionSearchColumnEnum["Email"] = "EMAIL";
     UsersConnectionSearchColumnEnum["Id"] = "ID";
     UsersConnectionSearchColumnEnum["Login"] = "LOGIN";
     UsersConnectionSearchColumnEnum["Nicename"] = "NICENAME";
     UsersConnectionSearchColumnEnum["Url"] = "URL";
-})(UsersConnectionSearchColumnEnum = exports.UsersConnectionSearchColumnEnum || (exports.UsersConnectionSearchColumnEnum = {}));
-exports.MediaPartsFragmentDoc = client_1.gql `
+})(UsersConnectionSearchColumnEnum || (UsersConnectionSearchColumnEnum = {}));
+export const MediaPartsFragmentDoc = gql `
     fragment MediaParts on MediaItem {
   altText
   caption
@@ -582,7 +579,7 @@ exports.MediaPartsFragmentDoc = client_1.gql `
   title
 }
     `;
-exports.PromotionPartsFragmentDoc = client_1.gql `
+export const PromotionPartsFragmentDoc = gql `
     fragment PromotionParts on Promotion {
   content
   dateGmt
@@ -596,8 +593,8 @@ exports.PromotionPartsFragmentDoc = client_1.gql `
   modified
   title
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.VideoPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const VideoPartsFragmentDoc = gql `
     fragment VideoParts on VideoData {
   id
   duration
@@ -607,7 +604,7 @@ exports.VideoPartsFragmentDoc = client_1.gql `
   type
 }
     `;
-exports.ArticleTeaserPartsFragmentDoc = client_1.gql `
+export const ArticleTeaserPartsFragmentDoc = gql `
     fragment ArticleTeaserParts on Post {
   bulletin {
     campaign {
@@ -650,9 +647,9 @@ exports.ArticleTeaserPartsFragmentDoc = client_1.gql `
     ...VideoParts
   }
 }
-    ${exports.MediaPartsFragmentDoc}
-${exports.VideoPartsFragmentDoc}`;
-exports.AuthorPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}
+${VideoPartsFragmentDoc}`;
+export const AuthorPartsFragmentDoc = gql `
     fragment AuthorParts on CoAuthor {
   avatar
   bio
@@ -676,7 +673,7 @@ exports.AuthorPartsFragmentDoc = client_1.gql `
   website
 }
     `;
-exports.BlockPartsFragmentDoc = client_1.gql `
+export const BlockPartsFragmentDoc = gql `
     fragment BlockParts on Block {
   attributes {
     name
@@ -688,7 +685,7 @@ exports.BlockPartsFragmentDoc = client_1.gql `
   type
 }
     `;
-exports.GuidePartsFragmentDoc = client_1.gql `
+export const GuidePartsFragmentDoc = gql `
     fragment GuideParts on Guide {
   id
   guideId
@@ -714,8 +711,8 @@ exports.GuidePartsFragmentDoc = client_1.gql `
     }
   }
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.ObsessionPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const ObsessionPartsFragmentDoc = gql `
     fragment ObsessionParts on Obsession {
   id
   description
@@ -736,8 +733,8 @@ exports.ObsessionPartsFragmentDoc = client_1.gql `
     }
   }
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.ProjectPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const ProjectPartsFragmentDoc = gql `
     fragment ProjectParts on Project {
   id
   count
@@ -748,7 +745,7 @@ exports.ProjectPartsFragmentDoc = client_1.gql `
   slug
 }
     `;
-exports.SeriesPartsFragmentDoc = client_1.gql `
+export const SeriesPartsFragmentDoc = gql `
     fragment SeriesParts on Series {
   colors
   count
@@ -789,8 +786,8 @@ exports.SeriesPartsFragmentDoc = client_1.gql `
   }
   socialTitle
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.ShowPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const ShowPartsFragmentDoc = gql `
     fragment ShowParts on Show {
   colors
   count
@@ -827,8 +824,8 @@ exports.ShowPartsFragmentDoc = client_1.gql `
     ...MediaParts
   }
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.ArticlePartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const ArticlePartsFragmentDoc = gql `
     fragment ArticleParts on Post {
   ...ArticleTeaserParts
   authors: coAuthors {
@@ -909,15 +906,15 @@ exports.ArticlePartsFragmentDoc = client_1.gql `
   }
   trackingUrls
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}
-${exports.AuthorPartsFragmentDoc}
-${exports.BlockPartsFragmentDoc}
-${exports.GuidePartsFragmentDoc}
-${exports.ObsessionPartsFragmentDoc}
-${exports.ProjectPartsFragmentDoc}
-${exports.SeriesPartsFragmentDoc}
-${exports.ShowPartsFragmentDoc}`;
-exports.BulletinPartsFragmentDoc = client_1.gql `
+    ${ArticleTeaserPartsFragmentDoc}
+${AuthorPartsFragmentDoc}
+${BlockPartsFragmentDoc}
+${GuidePartsFragmentDoc}
+${ObsessionPartsFragmentDoc}
+${ProjectPartsFragmentDoc}
+${SeriesPartsFragmentDoc}
+${ShowPartsFragmentDoc}`;
+export const BulletinPartsFragmentDoc = gql `
     fragment BulletinParts on Bulletin {
   link
   title
@@ -938,8 +935,8 @@ exports.BulletinPartsFragmentDoc = client_1.gql `
     }
   }
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.NugPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const NugPartsFragmentDoc = gql `
     fragment NugParts on Nug {
   id
   blocks {
@@ -967,10 +964,10 @@ exports.NugPartsFragmentDoc = client_1.gql `
   slug
   title
 }
-    ${exports.BlockPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}
-${exports.MediaPartsFragmentDoc}`;
-exports.HomeCollectionPartsFragmentDoc = client_1.gql `
+    ${BlockPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}
+${MediaPartsFragmentDoc}`;
+export const HomeCollectionPartsFragmentDoc = gql `
     fragment HomeCollectionParts on Collection {
   id
   title
@@ -992,11 +989,11 @@ exports.HomeCollectionPartsFragmentDoc = client_1.gql `
     }
   }
 }
-    ${exports.MediaPartsFragmentDoc}
-${exports.BlockPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}
-${exports.NugPartsFragmentDoc}`;
-exports.TagPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}
+${BlockPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}
+${NugPartsFragmentDoc}`;
+export const TagPartsFragmentDoc = gql `
     fragment TagParts on Tag {
   count
   description
@@ -1010,8 +1007,8 @@ exports.TagPartsFragmentDoc = client_1.gql `
   slug
   tagId
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.TopicPartsFragmentDoc = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const TopicPartsFragmentDoc = gql `
     fragment TopicParts on Topic {
   description
   featuredImage {
@@ -1024,14 +1021,14 @@ exports.TopicPartsFragmentDoc = client_1.gql `
   slug
   topicId
 }
-    ${exports.MediaPartsFragmentDoc}`;
-exports.ArticleDocument = client_1.gql `
+    ${MediaPartsFragmentDoc}`;
+export const ArticleDocument = gql `
     query Article($id: ID!) {
   post(id: $id) {
     ...ArticleParts
   }
 }
-    ${exports.ArticlePartsFragmentDoc}`;
+    ${ArticlePartsFragmentDoc}`;
 /**
  * __useArticleQuery__
  *
@@ -1048,15 +1045,13 @@ exports.ArticleDocument = client_1.gql `
  *   },
  * });
  */
-function useArticleQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticleDocument, baseOptions);
+export function useArticleQuery(baseOptions) {
+    return Apollo.useQuery(ArticleDocument, baseOptions);
 }
-exports.useArticleQuery = useArticleQuery;
-function useArticleLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticleDocument, baseOptions);
+export function useArticleLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticleDocument, baseOptions);
 }
-exports.useArticleLazyQuery = useArticleLazyQuery;
-exports.ArticlePreviewDocument = client_1.gql `
+export const ArticlePreviewDocument = gql `
     query ArticlePreview($id: Int!, $time: Int!, $token: String!) {
   posts(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
@@ -1064,7 +1059,7 @@ exports.ArticlePreviewDocument = client_1.gql `
     }
   }
 }
-    ${exports.ArticlePartsFragmentDoc}`;
+    ${ArticlePartsFragmentDoc}`;
 /**
  * __useArticlePreviewQuery__
  *
@@ -1083,21 +1078,19 @@ exports.ArticlePreviewDocument = client_1.gql `
  *   },
  * });
  */
-function useArticlePreviewQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlePreviewDocument, baseOptions);
+export function useArticlePreviewQuery(baseOptions) {
+    return Apollo.useQuery(ArticlePreviewDocument, baseOptions);
 }
-exports.useArticlePreviewQuery = useArticlePreviewQuery;
-function useArticlePreviewLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlePreviewDocument, baseOptions);
+export function useArticlePreviewLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlePreviewDocument, baseOptions);
 }
-exports.useArticlePreviewLazyQuery = useArticlePreviewLazyQuery;
-exports.ArticleTeaserDocument = client_1.gql `
+export const ArticleTeaserDocument = gql `
     query ArticleTeaser($id: ID!) {
   post(id: $id) {
     ...ArticleTeaserParts
   }
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticleTeaserQuery__
  *
@@ -1114,15 +1107,13 @@ exports.ArticleTeaserDocument = client_1.gql `
  *   },
  * });
  */
-function useArticleTeaserQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticleTeaserDocument, baseOptions);
+export function useArticleTeaserQuery(baseOptions) {
+    return Apollo.useQuery(ArticleTeaserDocument, baseOptions);
 }
-exports.useArticleTeaserQuery = useArticleTeaserQuery;
-function useArticleTeaserLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticleTeaserDocument, baseOptions);
+export function useArticleTeaserLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticleTeaserDocument, baseOptions);
 }
-exports.useArticleTeaserLazyQuery = useArticleTeaserLazyQuery;
-exports.ArticlesByGuideDocument = client_1.gql `
+export const ArticlesByGuideDocument = gql `
     query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
   guides(where: {slug: $slug}) {
     nodes {
@@ -1139,8 +1130,8 @@ exports.ArticlesByGuideDocument = client_1.gql `
     }
   }
 }
-    ${exports.GuidePartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${GuidePartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticlesByGuideQuery__
  *
@@ -1159,15 +1150,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useArticlesByGuideQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByGuideDocument, baseOptions);
+export function useArticlesByGuideQuery(baseOptions) {
+    return Apollo.useQuery(ArticlesByGuideDocument, baseOptions);
 }
-exports.useArticlesByGuideQuery = useArticlesByGuideQuery;
-function useArticlesByGuideLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByGuideDocument, baseOptions);
+export function useArticlesByGuideLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlesByGuideDocument, baseOptions);
 }
-exports.useArticlesByGuideLazyQuery = useArticlesByGuideLazyQuery;
-exports.ArticlesByObsessionDocument = client_1.gql `
+export const ArticlesByObsessionDocument = gql `
     query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
   obsessions(where: {slug: $slug}) {
     nodes {
@@ -1192,10 +1181,10 @@ exports.ArticlesByObsessionDocument = client_1.gql `
     }
   }
 }
-    ${exports.ObsessionPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}
-${exports.BulletinPartsFragmentDoc}
-${exports.PromotionPartsFragmentDoc}`;
+    ${ObsessionPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}
+${BulletinPartsFragmentDoc}
+${PromotionPartsFragmentDoc}`;
 /**
  * __useArticlesByObsessionQuery__
  *
@@ -1214,15 +1203,13 @@ ${exports.PromotionPartsFragmentDoc}`;
  *   },
  * });
  */
-function useArticlesByObsessionQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByObsessionDocument, baseOptions);
+export function useArticlesByObsessionQuery(baseOptions) {
+    return Apollo.useQuery(ArticlesByObsessionDocument, baseOptions);
 }
-exports.useArticlesByObsessionQuery = useArticlesByObsessionQuery;
-function useArticlesByObsessionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByObsessionDocument, baseOptions);
+export function useArticlesByObsessionLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlesByObsessionDocument, baseOptions);
 }
-exports.useArticlesByObsessionLazyQuery = useArticlesByObsessionLazyQuery;
-exports.ArticlesBySeriesDocument = client_1.gql `
+export const ArticlesBySeriesDocument = gql `
     query ArticlesBySeries($after: String = "", $perPage: Int, $slug: [String]) {
   serieses(where: {slug: $slug}) {
     nodes {
@@ -1239,8 +1226,8 @@ exports.ArticlesBySeriesDocument = client_1.gql `
     }
   }
 }
-    ${exports.SeriesPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${SeriesPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticlesBySeriesQuery__
  *
@@ -1259,15 +1246,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useArticlesBySeriesQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesBySeriesDocument, baseOptions);
+export function useArticlesBySeriesQuery(baseOptions) {
+    return Apollo.useQuery(ArticlesBySeriesDocument, baseOptions);
 }
-exports.useArticlesBySeriesQuery = useArticlesBySeriesQuery;
-function useArticlesBySeriesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesBySeriesDocument, baseOptions);
+export function useArticlesBySeriesLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlesBySeriesDocument, baseOptions);
 }
-exports.useArticlesBySeriesLazyQuery = useArticlesBySeriesLazyQuery;
-exports.ArticlesByShowDocument = client_1.gql `
+export const ArticlesByShowDocument = gql `
     query ArticlesByShow($after: String = "", $perPage: Int, $slug: [String]) {
   shows(where: {slug: $slug}) {
     nodes {
@@ -1284,8 +1269,8 @@ exports.ArticlesByShowDocument = client_1.gql `
     }
   }
 }
-    ${exports.ShowPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${ShowPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticlesByShowQuery__
  *
@@ -1304,15 +1289,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useArticlesByShowQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByShowDocument, baseOptions);
+export function useArticlesByShowQuery(baseOptions) {
+    return Apollo.useQuery(ArticlesByShowDocument, baseOptions);
 }
-exports.useArticlesByShowQuery = useArticlesByShowQuery;
-function useArticlesByShowLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByShowDocument, baseOptions);
+export function useArticlesByShowLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlesByShowDocument, baseOptions);
 }
-exports.useArticlesByShowLazyQuery = useArticlesByShowLazyQuery;
-exports.ArticlesByTagDocument = client_1.gql `
+export const ArticlesByTagDocument = gql `
     query ArticlesByTag($after: String = "", $perPage: Int, $slug: [String]) {
   tags(where: {slug: $slug}) {
     nodes {
@@ -1329,8 +1312,8 @@ exports.ArticlesByTagDocument = client_1.gql `
     }
   }
 }
-    ${exports.TagPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${TagPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticlesByTagQuery__
  *
@@ -1349,15 +1332,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useArticlesByTagQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByTagDocument, baseOptions);
+export function useArticlesByTagQuery(baseOptions) {
+    return Apollo.useQuery(ArticlesByTagDocument, baseOptions);
 }
-exports.useArticlesByTagQuery = useArticlesByTagQuery;
-function useArticlesByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByTagDocument, baseOptions);
+export function useArticlesByTagLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlesByTagDocument, baseOptions);
 }
-exports.useArticlesByTagLazyQuery = useArticlesByTagLazyQuery;
-exports.ArticlesByTopicDocument = client_1.gql `
+export const ArticlesByTopicDocument = gql `
     query ArticlesByTopic($after: String = "", $perPage: Int, $slug: [String]) {
   topics(where: {slug: $slug}) {
     nodes {
@@ -1374,8 +1355,8 @@ exports.ArticlesByTopicDocument = client_1.gql `
     }
   }
 }
-    ${exports.TopicPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${TopicPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useArticlesByTopicQuery__
  *
@@ -1394,15 +1375,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useArticlesByTopicQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByTopicDocument, baseOptions);
+export function useArticlesByTopicQuery(baseOptions) {
+    return Apollo.useQuery(ArticlesByTopicDocument, baseOptions);
 }
-exports.useArticlesByTopicQuery = useArticlesByTopicQuery;
-function useArticlesByTopicLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByTopicDocument, baseOptions);
+export function useArticlesByTopicLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ArticlesByTopicDocument, baseOptions);
 }
-exports.useArticlesByTopicLazyQuery = useArticlesByTopicLazyQuery;
-exports.ContentBySearchTermDocument = client_1.gql `
+export const ContentBySearchTermDocument = gql `
     query ContentBySearchTerm($after: String = "", $limit: Int = 10, $search: String!) {
   content(after: $after, first: $limit, where: {search: $search}) {
     pageInfo {
@@ -1417,7 +1396,7 @@ exports.ContentBySearchTermDocument = client_1.gql `
     }
   }
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useContentBySearchTermQuery__
  *
@@ -1436,15 +1415,13 @@ exports.ContentBySearchTermDocument = client_1.gql `
  *   },
  * });
  */
-function useContentBySearchTermQuery(baseOptions) {
-    return Apollo.useQuery(exports.ContentBySearchTermDocument, baseOptions);
+export function useContentBySearchTermQuery(baseOptions) {
+    return Apollo.useQuery(ContentBySearchTermDocument, baseOptions);
 }
-exports.useContentBySearchTermQuery = useContentBySearchTermQuery;
-function useContentBySearchTermLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ContentBySearchTermDocument, baseOptions);
+export function useContentBySearchTermLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(ContentBySearchTermDocument, baseOptions);
 }
-exports.useContentBySearchTermLazyQuery = useContentBySearchTermLazyQuery;
-exports.LatestArticlesDocument = client_1.gql `
+export const LatestArticlesDocument = gql `
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
     nodes {
@@ -1456,7 +1433,7 @@ exports.LatestArticlesDocument = client_1.gql `
     }
   }
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useLatestArticlesQuery__
  *
@@ -1475,15 +1452,13 @@ exports.LatestArticlesDocument = client_1.gql `
  *   },
  * });
  */
-function useLatestArticlesQuery(baseOptions) {
-    return Apollo.useQuery(exports.LatestArticlesDocument, baseOptions);
+export function useLatestArticlesQuery(baseOptions) {
+    return Apollo.useQuery(LatestArticlesDocument, baseOptions);
 }
-exports.useLatestArticlesQuery = useLatestArticlesQuery;
-function useLatestArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.LatestArticlesDocument, baseOptions);
+export function useLatestArticlesLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(LatestArticlesDocument, baseOptions);
 }
-exports.useLatestArticlesLazyQuery = useLatestArticlesLazyQuery;
-exports.DiscoverDocument = client_1.gql `
+export const DiscoverDocument = gql `
     query Discover($topics: [String]!) {
   latest: posts(first: 5) {
     nodes {
@@ -1506,8 +1481,8 @@ exports.DiscoverDocument = client_1.gql `
     }
   }
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}
-${exports.TopicPartsFragmentDoc}`;
+    ${ArticleTeaserPartsFragmentDoc}
+${TopicPartsFragmentDoc}`;
 /**
  * __useDiscoverQuery__
  *
@@ -1524,15 +1499,13 @@ ${exports.TopicPartsFragmentDoc}`;
  *   },
  * });
  */
-function useDiscoverQuery(baseOptions) {
-    return Apollo.useQuery(exports.DiscoverDocument, baseOptions);
+export function useDiscoverQuery(baseOptions) {
+    return Apollo.useQuery(DiscoverDocument, baseOptions);
 }
-exports.useDiscoverQuery = useDiscoverQuery;
-function useDiscoverLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.DiscoverDocument, baseOptions);
+export function useDiscoverLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(DiscoverDocument, baseOptions);
 }
-exports.useDiscoverLazyQuery = useDiscoverLazyQuery;
-exports.GuidesDocument = client_1.gql `
+export const GuidesDocument = gql `
     query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
   guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
     nodes {
@@ -1549,8 +1522,8 @@ exports.GuidesDocument = client_1.gql `
     }
   }
 }
-    ${exports.GuidePartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${GuidePartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useGuidesQuery__
  *
@@ -1569,15 +1542,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useGuidesQuery(baseOptions) {
-    return Apollo.useQuery(exports.GuidesDocument, baseOptions);
+export function useGuidesQuery(baseOptions) {
+    return Apollo.useQuery(GuidesDocument, baseOptions);
 }
-exports.useGuidesQuery = useGuidesQuery;
-function useGuidesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.GuidesDocument, baseOptions);
+export function useGuidesLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(GuidesDocument, baseOptions);
 }
-exports.useGuidesLazyQuery = useGuidesLazyQuery;
-exports.GuidesBySlugDocument = client_1.gql `
+export const GuidesBySlugDocument = gql `
     query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
   guides(first: $perPage, where: {slug: $slugs}) {
     nodes {
@@ -1585,7 +1556,7 @@ exports.GuidesBySlugDocument = client_1.gql `
     }
   }
 }
-    ${exports.GuidePartsFragmentDoc}`;
+    ${GuidePartsFragmentDoc}`;
 /**
  * __useGuidesBySlugQuery__
  *
@@ -1603,15 +1574,13 @@ exports.GuidesBySlugDocument = client_1.gql `
  *   },
  * });
  */
-function useGuidesBySlugQuery(baseOptions) {
-    return Apollo.useQuery(exports.GuidesBySlugDocument, baseOptions);
+export function useGuidesBySlugQuery(baseOptions) {
+    return Apollo.useQuery(GuidesBySlugDocument, baseOptions);
 }
-exports.useGuidesBySlugQuery = useGuidesBySlugQuery;
-function useGuidesBySlugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.GuidesBySlugDocument, baseOptions);
+export function useGuidesBySlugLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(GuidesBySlugDocument, baseOptions);
 }
-exports.useGuidesBySlugLazyQuery = useGuidesBySlugLazyQuery;
-exports.HomeCollectionDocument = client_1.gql `
+export const HomeCollectionDocument = gql `
     query HomeCollection {
   collections(first: 1, where: {tagSlugIn: ["home"]}) {
     nodes {
@@ -1619,7 +1588,7 @@ exports.HomeCollectionDocument = client_1.gql `
     }
   }
 }
-    ${exports.HomeCollectionPartsFragmentDoc}`;
+    ${HomeCollectionPartsFragmentDoc}`;
 /**
  * __useHomeCollectionQuery__
  *
@@ -1635,15 +1604,13 @@ exports.HomeCollectionDocument = client_1.gql `
  *   },
  * });
  */
-function useHomeCollectionQuery(baseOptions) {
-    return Apollo.useQuery(exports.HomeCollectionDocument, baseOptions);
+export function useHomeCollectionQuery(baseOptions) {
+    return Apollo.useQuery(HomeCollectionDocument, baseOptions);
 }
-exports.useHomeCollectionQuery = useHomeCollectionQuery;
-function useHomeCollectionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.HomeCollectionDocument, baseOptions);
+export function useHomeCollectionLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(HomeCollectionDocument, baseOptions);
 }
-exports.useHomeCollectionLazyQuery = useHomeCollectionLazyQuery;
-exports.HomeCollectionPreviewDocument = client_1.gql `
+export const HomeCollectionPreviewDocument = gql `
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
@@ -1651,7 +1618,7 @@ exports.HomeCollectionPreviewDocument = client_1.gql `
     }
   }
 }
-    ${exports.HomeCollectionPartsFragmentDoc}`;
+    ${HomeCollectionPartsFragmentDoc}`;
 /**
  * __useHomeCollectionPreviewQuery__
  *
@@ -1670,15 +1637,13 @@ exports.HomeCollectionPreviewDocument = client_1.gql `
  *   },
  * });
  */
-function useHomeCollectionPreviewQuery(baseOptions) {
-    return Apollo.useQuery(exports.HomeCollectionPreviewDocument, baseOptions);
+export function useHomeCollectionPreviewQuery(baseOptions) {
+    return Apollo.useQuery(HomeCollectionPreviewDocument, baseOptions);
 }
-exports.useHomeCollectionPreviewQuery = useHomeCollectionPreviewQuery;
-function useHomeCollectionPreviewLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.HomeCollectionPreviewDocument, baseOptions);
+export function useHomeCollectionPreviewLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(HomeCollectionPreviewDocument, baseOptions);
 }
-exports.useHomeCollectionPreviewLazyQuery = useHomeCollectionPreviewLazyQuery;
-exports.MemberHomeDocument = client_1.gql `
+export const MemberHomeDocument = gql `
     query MemberHome {
   features: menuItems(first: 3, where: {location: FEATURES_MEMBERS}) {
     nodes {
@@ -1701,9 +1666,9 @@ exports.MemberHomeDocument = client_1.gql `
     }
   }
 }
-    ${exports.TagPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}
-${exports.GuidePartsFragmentDoc}`;
+    ${TagPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}
+${GuidePartsFragmentDoc}`;
 /**
  * __useMemberHomeQuery__
  *
@@ -1719,15 +1684,13 @@ ${exports.GuidePartsFragmentDoc}`;
  *   },
  * });
  */
-function useMemberHomeQuery(baseOptions) {
-    return Apollo.useQuery(exports.MemberHomeDocument, baseOptions);
+export function useMemberHomeQuery(baseOptions) {
+    return Apollo.useQuery(MemberHomeDocument, baseOptions);
 }
-exports.useMemberHomeQuery = useMemberHomeQuery;
-function useMemberHomeLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MemberHomeDocument, baseOptions);
+export function useMemberHomeLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(MemberHomeDocument, baseOptions);
 }
-exports.useMemberHomeLazyQuery = useMemberHomeLazyQuery;
-exports.MemberVideoDocument = client_1.gql `
+export const MemberVideoDocument = gql `
     query MemberVideo {
   features: menuItems(first: 3, where: {location: FEATURES_VIDEO_MEMBERS}) {
     nodes {
@@ -1745,8 +1708,8 @@ exports.MemberVideoDocument = client_1.gql `
     }
   }
 }
-    ${exports.TagPartsFragmentDoc}
-${exports.ArticleTeaserPartsFragmentDoc}`;
+    ${TagPartsFragmentDoc}
+${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useMemberVideoQuery__
  *
@@ -1762,15 +1725,13 @@ ${exports.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useMemberVideoQuery(baseOptions) {
-    return Apollo.useQuery(exports.MemberVideoDocument, baseOptions);
+export function useMemberVideoQuery(baseOptions) {
+    return Apollo.useQuery(MemberVideoDocument, baseOptions);
 }
-exports.useMemberVideoQuery = useMemberVideoQuery;
-function useMemberVideoLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MemberVideoDocument, baseOptions);
+export function useMemberVideoLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(MemberVideoDocument, baseOptions);
 }
-exports.useMemberVideoLazyQuery = useMemberVideoLazyQuery;
-exports.VideoHubDocument = client_1.gql `
+export const VideoHubDocument = gql `
     query VideoHub {
   featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
     nodes {
@@ -1820,8 +1781,8 @@ exports.VideoHubDocument = client_1.gql `
     }
   }
 }
-    ${exports.ArticleTeaserPartsFragmentDoc}
-${exports.ShowPartsFragmentDoc}`;
+    ${ArticleTeaserPartsFragmentDoc}
+${ShowPartsFragmentDoc}`;
 /**
  * __useVideoHubQuery__
  *
@@ -1837,21 +1798,19 @@ ${exports.ShowPartsFragmentDoc}`;
  *   },
  * });
  */
-function useVideoHubQuery(baseOptions) {
-    return Apollo.useQuery(exports.VideoHubDocument, baseOptions);
+export function useVideoHubQuery(baseOptions) {
+    return Apollo.useQuery(VideoHubDocument, baseOptions);
 }
-exports.useVideoHubQuery = useVideoHubQuery;
-function useVideoHubLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.VideoHubDocument, baseOptions);
+export function useVideoHubLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(VideoHubDocument, baseOptions);
 }
-exports.useVideoHubLazyQuery = useVideoHubLazyQuery;
-exports.NugDocument = client_1.gql `
+export const NugDocument = gql `
     query Nug($slug: String!) {
   nugBy(slug: $slug) {
     ...NugParts
   }
 }
-    ${exports.NugPartsFragmentDoc}`;
+    ${NugPartsFragmentDoc}`;
 /**
  * __useNugQuery__
  *
@@ -1868,15 +1827,13 @@ exports.NugDocument = client_1.gql `
  *   },
  * });
  */
-function useNugQuery(baseOptions) {
-    return Apollo.useQuery(exports.NugDocument, baseOptions);
+export function useNugQuery(baseOptions) {
+    return Apollo.useQuery(NugDocument, baseOptions);
 }
-exports.useNugQuery = useNugQuery;
-function useNugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.NugDocument, baseOptions);
+export function useNugLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(NugDocument, baseOptions);
 }
-exports.useNugLazyQuery = useNugLazyQuery;
-exports.NugsByTagDocument = client_1.gql `
+export const NugsByTagDocument = gql `
     query NugsByTag($perPage: Int!, $tag: [String]!) {
   nugs(first: $perPage, where: {tagSlugIn: $tag}) {
     nodes {
@@ -1884,7 +1841,7 @@ exports.NugsByTagDocument = client_1.gql `
     }
   }
 }
-    ${exports.NugPartsFragmentDoc}`;
+    ${NugPartsFragmentDoc}`;
 /**
  * __useNugsByTagQuery__
  *
@@ -1902,12 +1859,10 @@ exports.NugsByTagDocument = client_1.gql `
  *   },
  * });
  */
-function useNugsByTagQuery(baseOptions) {
-    return Apollo.useQuery(exports.NugsByTagDocument, baseOptions);
+export function useNugsByTagQuery(baseOptions) {
+    return Apollo.useQuery(NugsByTagDocument, baseOptions);
 }
-exports.useNugsByTagQuery = useNugsByTagQuery;
-function useNugsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.NugsByTagDocument, baseOptions);
+export function useNugsByTagLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(NugsByTagDocument, baseOptions);
 }
-exports.useNugsByTagLazyQuery = useNugsByTagLazyQuery;
 //# sourceMappingURL=content.js.map

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "module": "commonjs",
+    "module": "es2015",
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "target": "es2017",
