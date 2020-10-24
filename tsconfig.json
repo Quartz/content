@@ -13,6 +13,9 @@
     "baseUrl": "."
   },
   "include": [
-    "Web/content.ts"
+    "Web/**/*.ts"
+  ],
+  "exclude": [
+    "Web/dist"
   ]
 }

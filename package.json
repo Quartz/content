@@ -4,21 +4,23 @@
   "description": "Quartz content queries",
   "homepage": "https://github.com/Quartz/content#readme",
   "version": "0.0.7",
-  "module": "Web/dist/content.js",
+  "module": "Web/dist/index.js",
   "sideEffects": false,
   "files": [
     "Web/dist/**/*"
   ],
   "scripts": {
-    "build": "graphql-codegen && tsc"
+    "build": "rm -r Web && mkdir Web && graphql-codegen && autobarrel Web && tsc"
   },
   "devDependencies": {
     "@apollo/client": "^3.2.5",
     "@graphql-codegen/cli": "^1.17.10",
+    "@graphql-codegen/near-operation-file-preset": "^1.17.11",
     "@graphql-codegen/typescript": "^1.17.10",
     "@graphql-codegen/typescript-operations": "^1.17.8",
     "@graphql-codegen/typescript-react-apollo": "^2.0.7",
     "@types/react": "^16.9.53",
+    "autobarrel": "^1.0.1",
     "graphql": "^15.3.0",
     "typescript": "^4.0.3"
   }
