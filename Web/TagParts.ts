@@ -1,6 +1,6 @@
-import * as Types from './types';
+import type * as Types from './types';
 
-import { MediaPartsFragment } from './MediaParts';
+import type { MediaPartsFragment } from './MediaParts';
 import { gql } from '@apollo/client';
 import { MediaPartsFragmentDoc } from './MediaParts';
 export type TagPartsFragment = (

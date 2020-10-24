@@ -1,5 +1,5 @@
-import * as Types from './types';
-import { GuidePartsFragment } from './GuideParts';
+import type * as Types from './types';
+import type { GuidePartsFragment } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export declare type GuidesBySlugQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];

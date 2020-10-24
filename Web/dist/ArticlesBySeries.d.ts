@@ -1,6 +1,6 @@
-import * as Types from './types';
-import { SeriesPartsFragment } from './SeriesParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type * as Types from './types';
+import type { SeriesPartsFragment } from './SeriesParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type ArticlesBySeriesQueryVariables = Types.Exact<{
     after?: Types.Maybe<Types.Scalars['String']>;

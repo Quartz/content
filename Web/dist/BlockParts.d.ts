@@ -1,4 +1,4 @@
-import * as Types from './types';
+import type * as Types from './types';
 export declare type BlockPartsFragment = ({
     __typename?: 'Block';
 } & Pick<Types.Block, 'id' | 'innerHtml' | 'tagName' | 'type'> & {

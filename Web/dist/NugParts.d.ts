@@ -1,7 +1,7 @@
-import * as Types from './types';
-import { BlockPartsFragment } from './BlockParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { MediaPartsFragment } from './MediaParts';
+import type * as Types from './types';
+import type { BlockPartsFragment } from './BlockParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { MediaPartsFragment } from './MediaParts';
 export declare type NugPartsFragment = ({
     __typename?: 'Nug';
 } & Pick<Types.Nug, 'id' | 'dateGmt' | 'link' | 'modifiedGmt' | 'nugId' | 'slug' | 'title'> & {

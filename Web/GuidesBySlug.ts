@@ -1,6 +1,6 @@
-import * as Types from './types';
+import type * as Types from './types';
 
-import { GuidePartsFragment } from './GuideParts';
+import type { GuidePartsFragment } from './GuideParts';
 import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';

@@ -1,8 +1,8 @@
-import * as Types from './types';
-import { MediaPartsFragment } from './MediaParts';
-import { BlockPartsFragment } from './BlockParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { NugPartsFragment } from './NugParts';
+import type * as Types from './types';
+import type { MediaPartsFragment } from './MediaParts';
+import type { BlockPartsFragment } from './BlockParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { NugPartsFragment } from './NugParts';
 export declare type HomeCollectionPartsFragment = ({
     __typename?: 'Collection';
 } & Pick<Types.Collection, 'id' | 'title'> & {

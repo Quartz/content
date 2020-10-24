@@ -1,5 +1,5 @@
-import * as Types from './types';
-import { NugPartsFragment } from './NugParts';
+import type * as Types from './types';
+import type { NugPartsFragment } from './NugParts';
 import * as Apollo from '@apollo/client';
 export declare type NugsByTagQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];

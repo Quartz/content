@@ -1,5 +1,5 @@
-import * as Types from './types';
-import { HomeCollectionPartsFragment } from './HomeCollectionParts';
+import type * as Types from './types';
+import type { HomeCollectionPartsFragment } from './HomeCollectionParts';
 import * as Apollo from '@apollo/client';
 export declare type HomeCollectionQueryVariables = Types.Exact<{
     [key: string]: never;

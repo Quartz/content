@@ -1,8 +1,8 @@
-import * as Types from './types';
+import type * as Types from './types';
 
-import { TagPartsFragment } from './TagParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { GuidePartsFragment } from './GuideParts';
+import type { TagPartsFragment } from './TagParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { GuidePartsFragment } from './GuideParts';
 import { gql } from '@apollo/client';
 import { TagPartsFragmentDoc } from './TagParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';

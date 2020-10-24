@@ -1,6 +1,6 @@
-import * as Types from './types';
-import { TagPartsFragment } from './TagParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type * as Types from './types';
+import type { TagPartsFragment } from './TagParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type MemberVideoQueryVariables = Types.Exact<{
     [key: string]: never;

@@ -1,5 +1,5 @@
-import * as Types from './types';
-import { ArticlePartsFragment } from './ArticleParts';
+import type * as Types from './types';
+import type { ArticlePartsFragment } from './ArticleParts';
 import * as Apollo from '@apollo/client';
 export declare type ArticlePreviewQueryVariables = Types.Exact<{
     id: Types.Scalars['Int'];

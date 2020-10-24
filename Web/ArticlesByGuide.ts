@@ -1,7 +1,7 @@
-import * as Types from './types';
+import type * as Types from './types';
 
-import { GuidePartsFragment } from './GuideParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { GuidePartsFragment } from './GuideParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';

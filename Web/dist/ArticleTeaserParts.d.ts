@@ -1,6 +1,6 @@
-import * as Types from './types';
-import { MediaPartsFragment } from './MediaParts';
-import { VideoPartsFragment } from './VideoParts';
+import type * as Types from './types';
+import type { MediaPartsFragment } from './MediaParts';
+import type { VideoPartsFragment } from './VideoParts';
 export declare type ArticleTeaserPartsFragment = ({
     __typename?: 'Post';
 } & Pick<Types.Post, 'dateGmt' | 'id' | 'kicker' | 'link' | 'postId' | 'title'> & {

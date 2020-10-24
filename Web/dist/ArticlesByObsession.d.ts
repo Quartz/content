@@ -1,8 +1,8 @@
-import * as Types from './types';
-import { ObsessionPartsFragment } from './ObsessionParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { BulletinPartsFragment } from './BulletinParts';
-import { PromotionPartsFragment } from './PromotionParts';
+import type * as Types from './types';
+import type { ObsessionPartsFragment } from './ObsessionParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { BulletinPartsFragment } from './BulletinParts';
+import type { PromotionPartsFragment } from './PromotionParts';
 import * as Apollo from '@apollo/client';
 export declare type ArticlesByObsessionQueryVariables = Types.Exact<{
     after?: Types.Maybe<Types.Scalars['String']>;

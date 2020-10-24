@@ -1,7 +1,7 @@
-import * as Types from './types';
-import { TagPartsFragment } from './TagParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { GuidePartsFragment } from './GuideParts';
+import type * as Types from './types';
+import type { TagPartsFragment } from './TagParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { GuidePartsFragment } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export declare type MemberHomeQueryVariables = Types.Exact<{
     [key: string]: never;

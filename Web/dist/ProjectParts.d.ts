@@ -1,4 +1,4 @@
-import * as Types from './types';
+import type * as Types from './types';
 export declare type ProjectPartsFragment = ({
     __typename?: 'Project';
 } & Pick<Types.Project, 'id' | 'count' | 'description' | 'shortDescription' | 'link' | 'name' | 'slug'>);

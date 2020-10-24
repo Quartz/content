@@ -1,6 +1,6 @@
-import * as Types from './types';
+import type * as Types from './types';
 
-import { NugPartsFragment } from './NugParts';
+import type { NugPartsFragment } from './NugParts';
 import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
 import * as Apollo from '@apollo/client';

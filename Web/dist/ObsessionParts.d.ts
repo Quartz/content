@@ -1,5 +1,5 @@
-import * as Types from './types';
-import { MediaPartsFragment } from './MediaParts';
+import type * as Types from './types';
+import type { MediaPartsFragment } from './MediaParts';
 export declare type ObsessionPartsFragment = ({
     __typename?: 'Obsession';
 } & Pick<Types.Obsession, 'id' | 'description' | 'link' | 'name' | 'shortDescription' | 'slug' | 'subtitle'> & {

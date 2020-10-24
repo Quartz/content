@@ -1,4 +1,4 @@
-import * as Types from './types';
+import type * as Types from './types';
 export declare type MediaPartsFragment = ({
     __typename?: 'MediaItem';
 } & Pick<Types.MediaItem, 'altText' | 'caption' | 'credit' | 'id' | 'sourceUrl' | 'title'> & {

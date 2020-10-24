@@ -1,9 +1,9 @@
-import * as Types from './types';
+import type * as Types from './types';
 
-import { ObsessionPartsFragment } from './ObsessionParts';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { BulletinPartsFragment } from './BulletinParts';
-import { PromotionPartsFragment } from './PromotionParts';
+import type { ObsessionPartsFragment } from './ObsessionParts';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { BulletinPartsFragment } from './BulletinParts';
+import type { PromotionPartsFragment } from './PromotionParts';
 import { gql } from '@apollo/client';
 import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';

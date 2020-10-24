@@ -4,6 +4,7 @@ generates:
   Web/types.ts:
     config:
       pureMagicComment: true
+      useTypeImports: true
     plugins:
       - typescript
   Web/:
@@ -14,6 +15,7 @@ generates:
       baseTypesPath: types.ts
     config:
       pureMagicComment: true
+      useTypeImports: true
     plugins:
       - typescript-operations
       - typescript-react-apollo

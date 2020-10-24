@@ -1,5 +1,5 @@
-import * as Types from './types';
-import { MediaPartsFragment } from './MediaParts';
+import type * as Types from './types';
+import type { MediaPartsFragment } from './MediaParts';
 export declare type GuidePartsFragment = ({
     __typename?: 'Guide';
 } & Pick<Types.Guide, 'id' | 'guideId' | 'link' | 'count' | 'description' | 'shortDescription' | 'name' | 'slug' | 'socialTitle' | 'colors'> & {

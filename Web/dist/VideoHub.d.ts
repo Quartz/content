@@ -1,6 +1,6 @@
-import * as Types from './types';
-import { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import { ShowPartsFragment } from './ShowParts';
+import type * as Types from './types';
+import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
+import type { ShowPartsFragment } from './ShowParts';
 import * as Apollo from '@apollo/client';
 export declare type VideoHubQueryVariables = Types.Exact<{
     [key: string]: never;
