@@ -4,7 +4,7 @@
   "description": "Quartz content queries",
   "homepage": "https://github.com/Quartz/content#readme",
   "version": "0.0.7",
-  "main": "Web/dist-cjs/index.js"
+  "main": "Web/dist-cjs/index.js",
   "module": "Web/dist/index.js",
   "types": "Web/dist/index.d.ts",
   "sideEffects": false,
