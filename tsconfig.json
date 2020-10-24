@@ -4,6 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "target": "es2015",
     "noImplicitAny": true,
     "moduleResolution": "node",
