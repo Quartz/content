@@ -1,8 +1,23 @@
 schema: Schemas/ContentSchema.json # https://content.qz.com/graphql
 documents: Queries/**/*.gql
 generates:
-  Web/content.ts:
+  Web/types.ts:
+    config:
+      enumsAsTypes: true
+      pureMagicComment: true
+      useTypeImports: true
     plugins:
       - typescript
+  Web/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .ts
+      folder: ../../Web
+      baseTypesPath: types.ts
+    config:
+      enumsAsTypes: true
+      pureMagicComment: true
+      useTypeImports: true
+    plugins:
       - typescript-operations
       - typescript-react-apollo

@@ -1,9 +1,3 @@
-iOS/QuartzContent/QuartzContent.swift -diff -merge
-iOS/QuartzContent/QuartzContent.swift linguist-generated
-Web/content.ts -diff -merge
-Web/content.ts linguist-generated
-Web/dist/* -diff -merge
-Web/dist/* linguist-generated
-
-Schemas/*.json -diff -merge
-Schemas/*.json linguist-generated
+iOS/QuartzContent/QuartzContent.swift -diff -merge linguist-generated
+Web/* -diff -merge linguist-generated
+Schemas/*.json -diff -merge linguist-generated

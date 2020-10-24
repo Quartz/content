@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "module": "commonjs",
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
-    "target": "es2017",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "target": "es2015",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
@@ -12,6 +13,9 @@
     "baseUrl": "."
   },
   "include": [
-    "Web/content.ts"
+    "Web/**/*.ts"
+  ],
+  "exclude": [
+    "Web/dist"
   ]
 }

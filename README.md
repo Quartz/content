@@ -22,7 +22,7 @@ npm i --save Quartz/content#mysha1
 
 ### Releases
 
-We’re using GitHub Releases (tags) for versioning. Click on “Releases”, then “Draft a new release”, and tag and title your release using semantic versioning. To update the package in a client project, use: `npm i --save Quartz/content#0.0.4`.
+We’re using GitHub Releases (tags) for versioning. Click on “Releases”, then “Draft a new release”, and tag and title your release using semantic versioning. To update the package in a client project, use: `npm i --save Quartz/content#0.0.8`.
 
 ![semver](semver.png)
 
@@ -31,7 +31,7 @@ We’re using GitHub Releases (tags) for versioning. Click on “Releases”, th
 ### In React projects
 
 ```sh
-npm i --save Quartz/content#0.0.5 # we’re using GitHub Releases (tags) for versioning
+npm i --save Quartz/content#0.0.8 # we’re using GitHub Releases (tags) for versioning
 ```
 
 Hooks are automatically generated for each operation (query or mutation).
@@ -48,6 +48,6 @@ export default function MyComponent() {
 ```swift
 // Package.swift
 dependencies: [
-    .package(url: "https://github.com/Quartz/content", from: "0.0.1"),
+    .package(url: "https://github.com/Quartz/content", from: "0.0.8"),
 ],
 ```
