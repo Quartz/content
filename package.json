@@ -5,6 +5,7 @@
   "homepage": "https://github.com/Quartz/content#readme",
   "version": "0.0.7",
   "module": "Web/dist/content.js",
+  "sideEffects": false,
   "files": [
     "Web/dist/**/*"
   ],
