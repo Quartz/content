@@ -1,4 +1,3 @@
 {
-  "paths": ["Web/**"],
-  "exclude": ["Web/types.ts"]
+  "paths": ["Web/**"]
 }

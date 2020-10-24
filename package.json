@@ -10,7 +10,7 @@
     "Web/dist/**/*"
   ],
   "scripts": {
-    "build": "rm -r Web && mkdir Web && graphql-codegen && autobarrel Web && tsc && rm Web/dist/types.js"
+    "build": "rm -r Web && mkdir Web && graphql-codegen && autobarrel Web && tsc"
   },
   "devDependencies": {
     "@apollo/client": "^3.2.5",

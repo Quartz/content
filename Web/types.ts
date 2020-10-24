@@ -1242,7 +1242,7 @@ export type Node = {
 };
 
 /** Allowed Post Types */
-export enum PostTypeEnum {
+export const enum PostTypeEnum {
   Attachment = 'ATTACHMENT',
   Blog = 'BLOG',
   Bulletin = 'BULLETIN',
@@ -1257,7 +1257,7 @@ export enum PostTypeEnum {
   QzEmail = 'QZ_EMAIL',
   QzStack = 'QZ_STACK',
   Revision = 'REVISION'
-}
+};
 
 export type PostObjectUnion = Post | Page | MediaItem | Revision | Push | Email | Card | Chapter | Promotion | BlogPost | Nug | Collection | Stack | Bulletin;
 
@@ -2107,12 +2107,12 @@ export type UserStacksArgs = {
 };
 
 /** What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are judged in that order. Default is the value of the 'avatar_rating' option */
-export enum AvatarRatingEnum {
+export const enum AvatarRatingEnum {
   G = 'G',
   Pg = 'PG',
   R = 'R',
   X = 'X'
-}
+};
 
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
 export type Avatar = {
@@ -2262,10 +2262,10 @@ export type UserToBlogPostConnectionWhereArgs = {
 };
 
 /** Coauthor type */
-export enum AuthorType {
+export const enum AuthorType {
   Guest = 'GUEST',
   Wordpress = 'WORDPRESS'
-}
+};
 
 /** Filter the connection based on input */
 export type DateQueryInput = {
@@ -2306,28 +2306,28 @@ export type DateInput = {
 };
 
 /** The column to use when filtering by date */
-export enum PostObjectsConnectionDateColumnEnum {
+export const enum PostObjectsConnectionDateColumnEnum {
   Date = 'DATE',
   Modified = 'MODIFIED'
-}
+};
 
 /** The logical relation between each item in the array when there are more than one. */
-export enum RelationEnum {
+export const enum RelationEnum {
   And = 'AND',
   Or = 'OR'
-}
+};
 
 /** Quartz edition */
-export enum EditionName {
+export const enum EditionName {
   Africa = 'AFRICA',
   India = 'INDIA',
   Quartz = 'QUARTZ',
   Quartzy = 'QUARTZY',
   Work = 'WORK'
-}
+};
 
 /** The MimeType of the object */
-export enum MimeTypeEnum {
+export const enum MimeTypeEnum {
   ApplicationJava = 'APPLICATION_JAVA',
   ApplicationMsword = 'APPLICATION_MSWORD',
   ApplicationOctetStream = 'APPLICATION_OCTET_STREAM',
@@ -2415,7 +2415,7 @@ export enum MimeTypeEnum {
   VideoXMsWm = 'VIDEO_X_MS_WM',
   VideoXMsWmv = 'VIDEO_X_MS_WMV',
   VideoXMsWmx = 'VIDEO_X_MS_WMX'
-}
+};
 
 /** Options for ordering the connection */
 export type PostObjectsConnectionOrderbyInput = {
@@ -2424,7 +2424,7 @@ export type PostObjectsConnectionOrderbyInput = {
 };
 
 /** Field to order the connection by */
-export enum PostObjectsConnectionOrderbyEnum {
+export const enum PostObjectsConnectionOrderbyEnum {
   /** Order by author */
   Author = 'AUTHOR',
   /** Order by publish date */
@@ -2445,13 +2445,13 @@ export enum PostObjectsConnectionOrderbyEnum {
   Slug = 'SLUG',
   /** Order by title */
   Title = 'TITLE'
-}
+};
 
 /** The cardinality of the connection order */
-export enum OrderEnum {
+export const enum OrderEnum {
   Asc = 'ASC',
   Desc = 'DESC'
-}
+};
 
 /** Get popular posts */
 export type PopularQuery = {
@@ -2472,7 +2472,7 @@ export type RecommendedQuery = {
 };
 
 /** The status of the object. */
-export enum PostStatusEnum {
+export const enum PostStatusEnum {
   /** Objects with the auto-draft status */
   AutoDraft = 'AUTO_DRAFT',
   /** Objects with the draft status */
@@ -2507,7 +2507,7 @@ export enum PostStatusEnum {
   Trash = 'TRASH',
   /** Objects with the writing status */
   Writing = 'WRITING'
-}
+};
 
 /** Connection between the User type and the User type */
 export type UserToBlogPostConnection = {
@@ -2719,7 +2719,7 @@ export type PostTypeConnectedTaxonomyNamesArgs = {
 };
 
 /** Allowed taxonomies */
-export enum TaxonomyEnum {
+export const enum TaxonomyEnum {
   Category = 'CATEGORY',
   Coauthor = 'COAUTHOR',
   Edition = 'EDITION',
@@ -2733,7 +2733,7 @@ export enum TaxonomyEnum {
   Show = 'SHOW',
   Tag = 'TAG',
   Topic = 'TOPIC'
-}
+};
 
 /** A taxonomy object */
 export type Taxonomy = Node & {
@@ -3584,7 +3584,7 @@ export type Attribute = {
 };
 
 /** Allowed content block names */
-export enum BlockNameEnum {
+export const enum BlockNameEnum {
   Blockquote = 'BLOCKQUOTE',
   CoreArchives = 'CORE_ARCHIVES',
   CoreAudio = 'CORE_AUDIO',
@@ -3826,7 +3826,7 @@ export enum BlockNameEnum {
   ShortcodeYoutube = 'SHORTCODE_YOUTUBE',
   Table = 'TABLE',
   Ul = 'UL'
-}
+};
 
 export type BulletinData = {
   __typename?: 'BulletinData';
@@ -3947,7 +3947,7 @@ export type BulletinToCoAuthorConnectionWhereArgs = {
 };
 
 /** Options for ordering the connection by */
-export enum TermObjectsConnectionOrderbyEnum {
+export const enum TermObjectsConnectionOrderbyEnum {
   Count = 'COUNT',
   Description = 'DESCRIPTION',
   Name = 'NAME',
@@ -3955,7 +3955,7 @@ export enum TermObjectsConnectionOrderbyEnum {
   TermGroup = 'TERM_GROUP',
   TermId = 'TERM_ID',
   TermOrder = 'TERM_ORDER'
-}
+};
 
 /** Connection between the bulletin type and the bulletin type */
 export type BulletinToCoAuthorConnection = {
@@ -4865,12 +4865,12 @@ export type ChapterToCoAuthorConnectionEdge = {
 };
 
 /** The format of post field data. */
-export enum PostObjectFieldFormatEnum {
+export const enum PostObjectFieldFormatEnum {
   /** Provide the field value directly from database */
   Raw = 'RAW',
   /** Apply the default WordPress rendering */
   Rendered = 'RENDERED'
-}
+};
 
 /** Info on whether the object is locked by another user editing it */
 export type EditLock = {
@@ -5220,7 +5220,7 @@ export type MediaItemToCommentConnectionWhereArgs = {
 };
 
 /** Options for ordering the connection */
-export enum CommentsConnectionOrderbyEnum {
+export const enum CommentsConnectionOrderbyEnum {
   CommentAgent = 'COMMENT_AGENT',
   CommentApproved = 'COMMENT_APPROVED',
   CommentAuthor = 'COMMENT_AUTHOR',
@@ -5237,7 +5237,7 @@ export enum CommentsConnectionOrderbyEnum {
   CommentPostId = 'COMMENT_POST_ID',
   CommentType = 'COMMENT_TYPE',
   UserId = 'USER_ID'
-}
+};
 
 /** Connection between the mediaItem type and the mediaItem type */
 export type MediaItemToCommentConnection = {
@@ -21319,7 +21319,7 @@ export type MenuToMenuItemConnectionWhereArgs = {
 };
 
 /** Registered menu locations */
-export enum MenuLocationEnum {
+export const enum MenuLocationEnum {
   About = 'ABOUT',
   AuthorsWork = 'AUTHORS_WORK',
   CaseStudiesCreative = 'CASE_STUDIES_CREATIVE',
@@ -21347,7 +21347,7 @@ export enum MenuLocationEnum {
   TopWork = 'TOP_WORK',
   VideosQuartz = 'VIDEOS_QUARTZ',
   VideosQuartzy = 'VIDEOS_QUARTZY'
-}
+};
 
 /** Connection between the Menu type and the Menu type */
 export type MenuToMenuItemConnection = {
@@ -23060,7 +23060,7 @@ export type RootQueryToUserConnectionWhereArgs = {
 };
 
 /** Names of available user roles */
-export enum UserRoleEnum {
+export const enum UserRoleEnum {
   Administrator = 'ADMINISTRATOR',
   Author = 'AUTHOR',
   Business = 'BUSINESS',
@@ -23069,16 +23069,16 @@ export enum UserRoleEnum {
   Subscriber = 'SUBSCRIBER',
   VipSupport = 'VIP_SUPPORT',
   VipSupportInactive = 'VIP_SUPPORT__INACTIVE_'
-}
+};
 
 /** Column used for searching for users */
-export enum UsersConnectionSearchColumnEnum {
+export const enum UsersConnectionSearchColumnEnum {
   Email = 'EMAIL',
   Id = 'ID',
   Login = 'LOGIN',
   Nicename = 'NICENAME',
   Url = 'URL'
-}
+};
 
 /** Connection between the RootQuery type and the RootQuery type */
 export type RootQueryToUserConnection = {

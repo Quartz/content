@@ -1074,7 +1074,7 @@ export declare type Node = {
     id: Scalars['ID'];
 };
 /** Allowed Post Types */
-export declare enum PostTypeEnum {
+export declare const enum PostTypeEnum {
     Attachment = "ATTACHMENT",
     Blog = "BLOG",
     Bulletin = "BULLETIN",
@@ -1863,7 +1863,7 @@ export declare type UserStacksArgs = {
     where?: Maybe<UserToStackConnectionWhereArgs>;
 };
 /** What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are judged in that order. Default is the value of the 'avatar_rating' option */
-export declare enum AvatarRatingEnum {
+export declare const enum AvatarRatingEnum {
     G = "G",
     Pg = "PG",
     R = "R",
@@ -2015,7 +2015,7 @@ export declare type UserToBlogPostConnectionWhereArgs = {
     title?: Maybe<Scalars['String']>;
 };
 /** Coauthor type */
-export declare enum AuthorType {
+export declare const enum AuthorType {
     Guest = "GUEST",
     Wordpress = "WORDPRESS"
 }
@@ -2056,17 +2056,17 @@ export declare type DateInput = {
     year?: Maybe<Scalars['Int']>;
 };
 /** The column to use when filtering by date */
-export declare enum PostObjectsConnectionDateColumnEnum {
+export declare const enum PostObjectsConnectionDateColumnEnum {
     Date = "DATE",
     Modified = "MODIFIED"
 }
 /** The logical relation between each item in the array when there are more than one. */
-export declare enum RelationEnum {
+export declare const enum RelationEnum {
     And = "AND",
     Or = "OR"
 }
 /** Quartz edition */
-export declare enum EditionName {
+export declare const enum EditionName {
     Africa = "AFRICA",
     India = "INDIA",
     Quartz = "QUARTZ",
@@ -2074,7 +2074,7 @@ export declare enum EditionName {
     Work = "WORK"
 }
 /** The MimeType of the object */
-export declare enum MimeTypeEnum {
+export declare const enum MimeTypeEnum {
     ApplicationJava = "APPLICATION_JAVA",
     ApplicationMsword = "APPLICATION_MSWORD",
     ApplicationOctetStream = "APPLICATION_OCTET_STREAM",
@@ -2169,7 +2169,7 @@ export declare type PostObjectsConnectionOrderbyInput = {
     order?: Maybe<OrderEnum>;
 };
 /** Field to order the connection by */
-export declare enum PostObjectsConnectionOrderbyEnum {
+export declare const enum PostObjectsConnectionOrderbyEnum {
     /** Order by author */
     Author = "AUTHOR",
     /** Order by publish date */
@@ -2192,7 +2192,7 @@ export declare enum PostObjectsConnectionOrderbyEnum {
     Title = "TITLE"
 }
 /** The cardinality of the connection order */
-export declare enum OrderEnum {
+export declare const enum OrderEnum {
     Asc = "ASC",
     Desc = "DESC"
 }
@@ -2212,7 +2212,7 @@ export declare type RecommendedQuery = {
     id?: Maybe<Scalars['Int']>;
 };
 /** The status of the object. */
-export declare enum PostStatusEnum {
+export declare const enum PostStatusEnum {
     /** Objects with the auto-draft status */
     AutoDraft = "AUTO_DRAFT",
     /** Objects with the draft status */
@@ -2450,7 +2450,7 @@ export declare type PostTypeConnectedTaxonomyNamesArgs = {
     taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
 };
 /** Allowed taxonomies */
-export declare enum TaxonomyEnum {
+export declare const enum TaxonomyEnum {
     Category = "CATEGORY",
     Coauthor = "COAUTHOR",
     Edition = "EDITION",
@@ -3268,7 +3268,7 @@ export declare type Attribute = {
     value?: Maybe<Scalars['String']>;
 };
 /** Allowed content block names */
-export declare enum BlockNameEnum {
+export declare const enum BlockNameEnum {
     Blockquote = "BLOCKQUOTE",
     CoreArchives = "CORE_ARCHIVES",
     CoreAudio = "CORE_AUDIO",
@@ -3626,7 +3626,7 @@ export declare type BulletinToCoAuthorConnectionWhereArgs = {
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 /** Options for ordering the connection by */
-export declare enum TermObjectsConnectionOrderbyEnum {
+export declare const enum TermObjectsConnectionOrderbyEnum {
     Count = "COUNT",
     Description = "DESCRIPTION",
     Name = "NAME",
@@ -4500,7 +4500,7 @@ export declare type ChapterToCoAuthorConnectionEdge = {
     node?: Maybe<CoAuthor>;
 };
 /** The format of post field data. */
-export declare enum PostObjectFieldFormatEnum {
+export declare const enum PostObjectFieldFormatEnum {
     /** Provide the field value directly from database */
     Raw = "RAW",
     /** Apply the default WordPress rendering */
@@ -4835,7 +4835,7 @@ export declare type MediaItemToCommentConnectionWhereArgs = {
     userId?: Maybe<Scalars['ID']>;
 };
 /** Options for ordering the connection */
-export declare enum CommentsConnectionOrderbyEnum {
+export declare const enum CommentsConnectionOrderbyEnum {
     CommentAgent = "COMMENT_AGENT",
     CommentApproved = "COMMENT_APPROVED",
     CommentAuthor = "COMMENT_AUTHOR",
@@ -20338,7 +20338,7 @@ export declare type MenuToMenuItemConnectionWhereArgs = {
     location?: Maybe<MenuLocationEnum>;
 };
 /** Registered menu locations */
-export declare enum MenuLocationEnum {
+export declare const enum MenuLocationEnum {
     About = "ABOUT",
     AuthorsWork = "AUTHORS_WORK",
     CaseStudiesCreative = "CASE_STUDIES_CREATIVE",
@@ -22023,7 +22023,7 @@ export declare type RootQueryToUserConnectionWhereArgs = {
     searchColumns?: Maybe<Array<Maybe<UsersConnectionSearchColumnEnum>>>;
 };
 /** Names of available user roles */
-export declare enum UserRoleEnum {
+export declare const enum UserRoleEnum {
     Administrator = "ADMINISTRATOR",
     Author = "AUTHOR",
     Business = "BUSINESS",
@@ -22034,7 +22034,7 @@ export declare enum UserRoleEnum {
     VipSupportInactive = "VIP_SUPPORT__INACTIVE_"
 }
 /** Column used for searching for users */
-export declare enum UsersConnectionSearchColumnEnum {
+export declare const enum UsersConnectionSearchColumnEnum {
     Email = "EMAIL",
     Id = "ID",
     Login = "LOGIN",
