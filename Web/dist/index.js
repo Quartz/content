@@ -37,5 +37,4 @@ export * from './TagParts';
 export * from './TopicParts';
 export * from './VideoHub';
 export * from './VideoParts';
-export * from './types';
 //# sourceMappingURL=index.js.map
