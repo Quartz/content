@@ -63,6 +63,14 @@ export declare type MemberHomeQuery = ({
     } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Guide';
+        } & {
+            posts?: Types.Maybe<({
+                __typename?: 'GuideToPostConnection';
+            } & {
+                nodes?: Types.Maybe<Array<Types.Maybe<({
+                    __typename?: 'Post';
+                } & ArticleTeaserPartsFragment)>>>;
+            })>;
         } & GuidePartsFragment)>>>;
     })>;
 });
