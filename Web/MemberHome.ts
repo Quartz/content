@@ -34,6 +34,13 @@ export type MemberHomeQuery = (
     { __typename?: 'RootQueryToGuideConnection' }
     & { nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Guide' }
+      & { posts?: Types.Maybe<(
+        { __typename?: 'GuideToPostConnection' }
+        & { nodes?: Types.Maybe<Array<Types.Maybe<(
+          { __typename?: 'Post' }
+          & ArticleTeaserPartsFragment
+        )>>> }
+      )> }
       & GuidePartsFragment
     )>>> }
   )> }
@@ -60,6 +67,11 @@ export const MemberHomeDocument = /*#__PURE__*/ gql`
   guides(last: 6, where: {orderby: TERM_ORDER}) {
     nodes {
       ...GuideParts
+      posts(last: 1) {
+        nodes {
+          ...ArticleTeaserParts
+        }
+      }
     }
   }
 }
