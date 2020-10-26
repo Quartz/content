@@ -3,7 +3,7 @@ documents: Queries/**/*.gql
 generates:
   Web/types.ts:
     config:
-      enumsAsTypes: true
+      constEnums: true
       pureMagicComment: true
       useTypeImports: true
     plugins:
@@ -15,7 +15,7 @@ generates:
       folder: ../../Web
       baseTypesPath: types.ts
     config:
-      enumsAsTypes: true
+      constEnums: true
       pureMagicComment: true
       useTypeImports: true
     plugins:
