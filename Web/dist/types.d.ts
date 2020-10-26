@@ -1074,7 +1074,22 @@ export declare type Node = {
     id: Scalars['ID'];
 };
 /** Allowed Post Types */
-export declare type PostTypeEnum = 'ATTACHMENT' | 'BLOG' | 'BULLETIN' | 'CHAPTER' | 'COLLECTION' | 'NUG' | 'PAGE' | 'POST' | 'PROMOTION' | 'PUSH' | 'QZ_CARD' | 'QZ_EMAIL' | 'QZ_STACK' | 'REVISION';
+export declare const enum PostTypeEnum {
+    Attachment = "ATTACHMENT",
+    Blog = "BLOG",
+    Bulletin = "BULLETIN",
+    Chapter = "CHAPTER",
+    Collection = "COLLECTION",
+    Nug = "NUG",
+    Page = "PAGE",
+    Post = "POST",
+    Promotion = "PROMOTION",
+    Push = "PUSH",
+    QzCard = "QZ_CARD",
+    QzEmail = "QZ_EMAIL",
+    QzStack = "QZ_STACK",
+    Revision = "REVISION"
+}
 export declare type PostObjectUnion = Post | Page | MediaItem | Revision | Push | Email | Card | Chapter | Promotion | BlogPost | Nug | Collection | Stack | Bulletin;
 /** The post type */
 export declare type Post = Node & {
@@ -1848,7 +1863,12 @@ export declare type UserStacksArgs = {
     where?: Maybe<UserToStackConnectionWhereArgs>;
 };
 /** What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are judged in that order. Default is the value of the 'avatar_rating' option */
-export declare type AvatarRatingEnum = 'G' | 'PG' | 'R' | 'X';
+export declare const enum AvatarRatingEnum {
+    G = "G",
+    Pg = "PG",
+    R = "R",
+    X = "X"
+}
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
 export declare type Avatar = {
     __typename?: 'Avatar';
@@ -1995,7 +2015,10 @@ export declare type UserToBlogPostConnectionWhereArgs = {
     title?: Maybe<Scalars['String']>;
 };
 /** Coauthor type */
-export declare type AuthorType = 'GUEST' | 'WORDPRESS';
+export declare const enum AuthorType {
+    Guest = "GUEST",
+    Wordpress = "WORDPRESS"
+}
 /** Filter the connection based on input */
 export declare type DateQueryInput = {
     after?: Maybe<DateInput>;
@@ -2033,42 +2056,146 @@ export declare type DateInput = {
     year?: Maybe<Scalars['Int']>;
 };
 /** The column to use when filtering by date */
-export declare type PostObjectsConnectionDateColumnEnum = 'DATE' | 'MODIFIED';
+export declare const enum PostObjectsConnectionDateColumnEnum {
+    Date = "DATE",
+    Modified = "MODIFIED"
+}
 /** The logical relation between each item in the array when there are more than one. */
-export declare type RelationEnum = 'AND' | 'OR';
+export declare const enum RelationEnum {
+    And = "AND",
+    Or = "OR"
+}
 /** Quartz edition */
-export declare type EditionName = 'AFRICA' | 'INDIA' | 'QUARTZ' | 'QUARTZY' | 'WORK';
+export declare const enum EditionName {
+    Africa = "AFRICA",
+    India = "INDIA",
+    Quartz = "QUARTZ",
+    Quartzy = "QUARTZY",
+    Work = "WORK"
+}
 /** The MimeType of the object */
-export declare type MimeTypeEnum = 'APPLICATION_JAVA' | 'APPLICATION_MSWORD' | 'APPLICATION_OCTET_STREAM' | 'APPLICATION_ONENOTE' | 'APPLICATION_OXPS' | 'APPLICATION_PDF' | 'APPLICATION_RAR' | 'APPLICATION_RTF' | 'APPLICATION_TTAF_XML' | 'APPLICATION_VND_APPLE_KEYNOTE' | 'APPLICATION_VND_APPLE_NUMBERS' | 'APPLICATION_VND_APPLE_PAGES' | 'APPLICATION_VND_MS_ACCESS' | 'APPLICATION_VND_MS_EXCEL' | 'APPLICATION_VND_MS_EXCEL_ADDIN_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_SHEET_BINARY_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT' | 'APPLICATION_VND_MS_POWERPOINT_ADDIN_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_SLIDE_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_PROJECT' | 'APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12' | 'APPLICATION_VND_MS_WORD_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_WRITE' | 'APPLICATION_VND_MS_XPSDOCUMENT' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_CHART' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_DATABASE' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE' | 'APPLICATION_WORDPERFECT' | 'APPLICATION_X_7Z_COMPRESSED' | 'APPLICATION_X_GZIP' | 'APPLICATION_X_TAR' | 'APPLICATION_ZIP' | 'AUDIO_AAC' | 'AUDIO_FLAC' | 'AUDIO_MIDI' | 'AUDIO_MPEG' | 'AUDIO_OGG' | 'AUDIO_WAV' | 'AUDIO_X_MATROSKA' | 'AUDIO_X_MS_WAX' | 'AUDIO_X_MS_WMA' | 'AUDIO_X_REALAUDIO' | 'IMAGE_BMP' | 'IMAGE_GIF' | 'IMAGE_HEIC' | 'IMAGE_JPEG' | 'IMAGE_PNG' | 'IMAGE_TIFF' | 'IMAGE_X_ICON' | 'TEXT_CALENDAR' | 'TEXT_CSS' | 'TEXT_CSV' | 'TEXT_PLAIN' | 'TEXT_RICHTEXT' | 'TEXT_TAB_SEPARATED_VALUES' | 'TEXT_VTT' | 'VIDEO_3GPP' | 'VIDEO_3GPP2' | 'VIDEO_AVI' | 'VIDEO_DIVX' | 'VIDEO_MP4' | 'VIDEO_MPEG' | 'VIDEO_OGG' | 'VIDEO_QUICKTIME' | 'VIDEO_WEBM' | 'VIDEO_X_MATROSKA' | 'VIDEO_X_MS_ASF' | 'VIDEO_X_MS_WM' | 'VIDEO_X_MS_WMV' | 'VIDEO_X_MS_WMX';
+export declare const enum MimeTypeEnum {
+    ApplicationJava = "APPLICATION_JAVA",
+    ApplicationMsword = "APPLICATION_MSWORD",
+    ApplicationOctetStream = "APPLICATION_OCTET_STREAM",
+    ApplicationOnenote = "APPLICATION_ONENOTE",
+    ApplicationOxps = "APPLICATION_OXPS",
+    ApplicationPdf = "APPLICATION_PDF",
+    ApplicationRar = "APPLICATION_RAR",
+    ApplicationRtf = "APPLICATION_RTF",
+    ApplicationTtafXml = "APPLICATION_TTAF_XML",
+    ApplicationVndAppleKeynote = "APPLICATION_VND_APPLE_KEYNOTE",
+    ApplicationVndAppleNumbers = "APPLICATION_VND_APPLE_NUMBERS",
+    ApplicationVndApplePages = "APPLICATION_VND_APPLE_PAGES",
+    ApplicationVndMsAccess = "APPLICATION_VND_MS_ACCESS",
+    ApplicationVndMsExcel = "APPLICATION_VND_MS_EXCEL",
+    ApplicationVndMsExcelAddinMacroenabled_12 = "APPLICATION_VND_MS_EXCEL_ADDIN_MACROENABLED_12",
+    ApplicationVndMsExcelSheetBinaryMacroenabled_12 = "APPLICATION_VND_MS_EXCEL_SHEET_BINARY_MACROENABLED_12",
+    ApplicationVndMsExcelSheetMacroenabled_12 = "APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12",
+    ApplicationVndMsExcelTemplateMacroenabled_12 = "APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12",
+    ApplicationVndMsPowerpoint = "APPLICATION_VND_MS_POWERPOINT",
+    ApplicationVndMsPowerpointAddinMacroenabled_12 = "APPLICATION_VND_MS_POWERPOINT_ADDIN_MACROENABLED_12",
+    ApplicationVndMsPowerpointPresentationMacroenabled_12 = "APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12",
+    ApplicationVndMsPowerpointSlideshowMacroenabled_12 = "APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12",
+    ApplicationVndMsPowerpointSlideMacroenabled_12 = "APPLICATION_VND_MS_POWERPOINT_SLIDE_MACROENABLED_12",
+    ApplicationVndMsPowerpointTemplateMacroenabled_12 = "APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12",
+    ApplicationVndMsProject = "APPLICATION_VND_MS_PROJECT",
+    ApplicationVndMsWordDocumentMacroenabled_12 = "APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12",
+    ApplicationVndMsWordTemplateMacroenabled_12 = "APPLICATION_VND_MS_WORD_TEMPLATE_MACROENABLED_12",
+    ApplicationVndMsWrite = "APPLICATION_VND_MS_WRITE",
+    ApplicationVndMsXpsdocument = "APPLICATION_VND_MS_XPSDOCUMENT",
+    ApplicationVndOasisOpendocumentChart = "APPLICATION_VND_OASIS_OPENDOCUMENT_CHART",
+    ApplicationVndOasisOpendocumentDatabase = "APPLICATION_VND_OASIS_OPENDOCUMENT_DATABASE",
+    ApplicationVndOasisOpendocumentFormula = "APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA",
+    ApplicationVndOasisOpendocumentGraphics = "APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS",
+    ApplicationVndOasisOpendocumentPresentation = "APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION",
+    ApplicationVndOasisOpendocumentSpreadsheet = "APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET",
+    ApplicationVndOasisOpendocumentText = "APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT",
+    ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION",
+    ApplicationVndOpenxmlformatsOfficedocumentPresentationmlSlide = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDE",
+    ApplicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshow = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW",
+    ApplicationVndOpenxmlformatsOfficedocumentPresentationmlTemplate = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE",
+    ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET",
+    ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplate = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE",
+    ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT",
+    ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlTemplate = "APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE",
+    ApplicationWordperfect = "APPLICATION_WORDPERFECT",
+    ApplicationX_7ZCompressed = "APPLICATION_X_7Z_COMPRESSED",
+    ApplicationXGzip = "APPLICATION_X_GZIP",
+    ApplicationXTar = "APPLICATION_X_TAR",
+    ApplicationZip = "APPLICATION_ZIP",
+    AudioAac = "AUDIO_AAC",
+    AudioFlac = "AUDIO_FLAC",
+    AudioMidi = "AUDIO_MIDI",
+    AudioMpeg = "AUDIO_MPEG",
+    AudioOgg = "AUDIO_OGG",
+    AudioWav = "AUDIO_WAV",
+    AudioXMatroska = "AUDIO_X_MATROSKA",
+    AudioXMsWax = "AUDIO_X_MS_WAX",
+    AudioXMsWma = "AUDIO_X_MS_WMA",
+    AudioXRealaudio = "AUDIO_X_REALAUDIO",
+    ImageBmp = "IMAGE_BMP",
+    ImageGif = "IMAGE_GIF",
+    ImageHeic = "IMAGE_HEIC",
+    ImageJpeg = "IMAGE_JPEG",
+    ImagePng = "IMAGE_PNG",
+    ImageTiff = "IMAGE_TIFF",
+    ImageXIcon = "IMAGE_X_ICON",
+    TextCalendar = "TEXT_CALENDAR",
+    TextCss = "TEXT_CSS",
+    TextCsv = "TEXT_CSV",
+    TextPlain = "TEXT_PLAIN",
+    TextRichtext = "TEXT_RICHTEXT",
+    TextTabSeparatedValues = "TEXT_TAB_SEPARATED_VALUES",
+    TextVtt = "TEXT_VTT",
+    Video_3Gpp = "VIDEO_3GPP",
+    Video_3Gpp2 = "VIDEO_3GPP2",
+    VideoAvi = "VIDEO_AVI",
+    VideoDivx = "VIDEO_DIVX",
+    VideoMp4 = "VIDEO_MP4",
+    VideoMpeg = "VIDEO_MPEG",
+    VideoOgg = "VIDEO_OGG",
+    VideoQuicktime = "VIDEO_QUICKTIME",
+    VideoWebm = "VIDEO_WEBM",
+    VideoXMatroska = "VIDEO_X_MATROSKA",
+    VideoXMsAsf = "VIDEO_X_MS_ASF",
+    VideoXMsWm = "VIDEO_X_MS_WM",
+    VideoXMsWmv = "VIDEO_X_MS_WMV",
+    VideoXMsWmx = "VIDEO_X_MS_WMX"
+}
 /** Options for ordering the connection */
 export declare type PostObjectsConnectionOrderbyInput = {
     field: PostObjectsConnectionOrderbyEnum;
     order?: Maybe<OrderEnum>;
 };
 /** Field to order the connection by */
-export declare type PostObjectsConnectionOrderbyEnum = 
-/** Order by author */
-'AUTHOR'
-/** Order by publish date */
- | 'DATE'
-/** Preserve the ID order given in the IN array */
- | 'IN'
-/** Order by membership editor’s choice */
- | 'MEMBERSHIP'
-/** Order by the menu order value */
- | 'MENU_ORDER'
-/** Order by last modified date */
- | 'MODIFIED'
-/** Preserve slug order given in the NAME_IN array */
- | 'NAME_IN'
-/** Order by parent ID */
- | 'PARENT'
-/** Order by slug */
- | 'SLUG'
-/** Order by title */
- | 'TITLE';
+export declare const enum PostObjectsConnectionOrderbyEnum {
+    /** Order by author */
+    Author = "AUTHOR",
+    /** Order by publish date */
+    Date = "DATE",
+    /** Preserve the ID order given in the IN array */
+    In = "IN",
+    /** Order by membership editor’s choice */
+    Membership = "MEMBERSHIP",
+    /** Order by the menu order value */
+    MenuOrder = "MENU_ORDER",
+    /** Order by last modified date */
+    Modified = "MODIFIED",
+    /** Preserve slug order given in the NAME_IN array */
+    NameIn = "NAME_IN",
+    /** Order by parent ID */
+    Parent = "PARENT",
+    /** Order by slug */
+    Slug = "SLUG",
+    /** Order by title */
+    Title = "TITLE"
+}
 /** The cardinality of the connection order */
-export declare type OrderEnum = 'ASC' | 'DESC';
+export declare const enum OrderEnum {
+    Asc = "ASC",
+    Desc = "DESC"
+}
 /** Get popular posts */
 export declare type PopularQuery = {
     edition?: Maybe<EditionName>;
@@ -2085,41 +2212,42 @@ export declare type RecommendedQuery = {
     id?: Maybe<Scalars['Int']>;
 };
 /** The status of the object. */
-export declare type PostStatusEnum = 
-/** Objects with the auto-draft status */
-'AUTO_DRAFT'
-/** Objects with the draft status */
- | 'DRAFT'
-/** Objects with the editor-ok status */
- | 'EDITOR_OK'
-/** Objects with the future status */
- | 'FUTURE'
-/** Objects with the hold status */
- | 'HOLD'
-/** Objects with the inherit status */
- | 'INHERIT'
-/** Objects with the pending-edit status */
- | 'PENDING_EDIT'
-/** Objects with the pending-revision status */
- | 'PENDING_REVISION'
-/** Objects with the private status */
- | 'PRIVATE'
-/** Objects with the publish status */
- | 'PUBLISH'
-/** Objects with the ready-to-publish status */
- | 'READY_TO_PUBLISH'
-/** Objects with the request-completed status */
- | 'REQUEST_COMPLETED'
-/** Objects with the request-confirmed status */
- | 'REQUEST_CONFIRMED'
-/** Objects with the request-failed status */
- | 'REQUEST_FAILED'
-/** Objects with the request-pending status */
- | 'REQUEST_PENDING'
-/** Objects with the trash status */
- | 'TRASH'
-/** Objects with the writing status */
- | 'WRITING';
+export declare const enum PostStatusEnum {
+    /** Objects with the auto-draft status */
+    AutoDraft = "AUTO_DRAFT",
+    /** Objects with the draft status */
+    Draft = "DRAFT",
+    /** Objects with the editor-ok status */
+    EditorOk = "EDITOR_OK",
+    /** Objects with the future status */
+    Future = "FUTURE",
+    /** Objects with the hold status */
+    Hold = "HOLD",
+    /** Objects with the inherit status */
+    Inherit = "INHERIT",
+    /** Objects with the pending-edit status */
+    PendingEdit = "PENDING_EDIT",
+    /** Objects with the pending-revision status */
+    PendingRevision = "PENDING_REVISION",
+    /** Objects with the private status */
+    Private = "PRIVATE",
+    /** Objects with the publish status */
+    Publish = "PUBLISH",
+    /** Objects with the ready-to-publish status */
+    ReadyToPublish = "READY_TO_PUBLISH",
+    /** Objects with the request-completed status */
+    RequestCompleted = "REQUEST_COMPLETED",
+    /** Objects with the request-confirmed status */
+    RequestConfirmed = "REQUEST_CONFIRMED",
+    /** Objects with the request-failed status */
+    RequestFailed = "REQUEST_FAILED",
+    /** Objects with the request-pending status */
+    RequestPending = "REQUEST_PENDING",
+    /** Objects with the trash status */
+    Trash = "TRASH",
+    /** Objects with the writing status */
+    Writing = "WRITING"
+}
 /** Connection between the User type and the User type */
 export declare type UserToBlogPostConnection = {
     __typename?: 'UserToBlogPostConnection';
@@ -2322,7 +2450,21 @@ export declare type PostTypeConnectedTaxonomyNamesArgs = {
     taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
 };
 /** Allowed taxonomies */
-export declare type TaxonomyEnum = 'CATEGORY' | 'COAUTHOR' | 'EDITION' | 'EMAILLIST' | 'FLAG' | 'GUIDE' | 'LOCATION' | 'OBSESSION' | 'PROJECT' | 'SERIES' | 'SHOW' | 'TAG' | 'TOPIC';
+export declare const enum TaxonomyEnum {
+    Category = "CATEGORY",
+    Coauthor = "COAUTHOR",
+    Edition = "EDITION",
+    Emaillist = "EMAILLIST",
+    Flag = "FLAG",
+    Guide = "GUIDE",
+    Location = "LOCATION",
+    Obsession = "OBSESSION",
+    Project = "PROJECT",
+    Series = "SERIES",
+    Show = "SHOW",
+    Tag = "TAG",
+    Topic = "TOPIC"
+}
 /** A taxonomy object */
 export declare type Taxonomy = Node & {
     __typename?: 'Taxonomy';
@@ -3126,7 +3268,249 @@ export declare type Attribute = {
     value?: Maybe<Scalars['String']>;
 };
 /** Allowed content block names */
-export declare type BlockNameEnum = 'BLOCKQUOTE' | 'CORE_ARCHIVES' | 'CORE_AUDIO' | 'CORE_BLOCK' | 'CORE_BUTTON' | 'CORE_CATEGORIES' | 'CORE_CODE' | 'CORE_COLUMN' | 'CORE_COLUMNS' | 'CORE_COVER_IMAGE' | 'CORE_EMBED' | 'CORE_EMBED_ANIMOTO' | 'CORE_EMBED_CLOUDUP' | 'CORE_EMBED_COLLEGEHUMOR' | 'CORE_EMBED_DAILYMOTION' | 'CORE_EMBED_FACEBOOK' | 'CORE_EMBED_FLICKR' | 'CORE_EMBED_FUNNYORDIE' | 'CORE_EMBED_HULU' | 'CORE_EMBED_IMGUR' | 'CORE_EMBED_INSTAGRAM' | 'CORE_EMBED_ISSUU' | 'CORE_EMBED_KICKSTARTER' | 'CORE_EMBED_MEETUP_COM' | 'CORE_EMBED_MIXCLOUD' | 'CORE_EMBED_PHOTOBUCKET' | 'CORE_EMBED_POLLDADDY' | 'CORE_EMBED_REDDIT' | 'CORE_EMBED_REVERBNATION' | 'CORE_EMBED_SCREENCAST' | 'CORE_EMBED_SCRIBD' | 'CORE_EMBED_SLIDESHARE' | 'CORE_EMBED_SMUGMUG' | 'CORE_EMBED_SOUNDCLOUD' | 'CORE_EMBED_SPEAKER' | 'CORE_EMBED_SPOTIFY' | 'CORE_EMBED_TED' | 'CORE_EMBED_TUMBLR' | 'CORE_EMBED_TWITTER' | 'CORE_EMBED_VIDEOPRESS' | 'CORE_EMBED_VIMEO' | 'CORE_EMBED_WORDPRESS' | 'CORE_EMBED_WORDPRESS_TV' | 'CORE_EMBED_YOUTUBE' | 'CORE_FILE' | 'CORE_FREEFORM' | 'CORE_GALLERY' | 'CORE_HEADING' | 'CORE_HTML' | 'CORE_IMAGE' | 'CORE_LATEST_COMMENTS' | 'CORE_LATEST_POSTS' | 'CORE_LIST' | 'CORE_MORE' | 'CORE_NEXTPAGE' | 'CORE_PARAGRAPH' | 'CORE_PREFORMATTED' | 'CORE_PULLQUOTE' | 'CORE_QUOTE' | 'CORE_SEPARATOR' | 'CORE_SHORTCODE' | 'CORE_SPACER' | 'CORE_SUBHEAD' | 'CORE_TABLE' | 'CORE_TEXT_COLUMNS' | 'CORE_VERSE' | 'CORE_VIDEO' | 'EL' | 'EMBED_ANIMOTO' | 'EMBED_API_CROWDSIGNAL_COM_OEMBED' | 'EMBED_GFYCAT' | 'EMBED_IMGUR' | 'EMBED_MEETUP' | 'EMBED_SCREENCAST' | 'EMBED_SMUGMUG' | 'EMBED_DATAWRAPPER' | 'EMBED_ATLAS' | 'EMBED_AUDIO' | 'EMBED_CLOUDUP' | 'EMBED_CODEPEN_IO_API_OEMBED' | 'EMBED_EMBED_GETTYIMAGES_COM_OEMBED_' | 'EMBED_SPOTIFY' | 'EMBED_FACEBOOK_ALTERNATE' | 'EMBED_FACEBOOK_ALTERNATE_VIDEO' | 'EMBED_FACEBOOK_PHOTO' | 'EMBED_FACEBOOK_VIDEO' | 'EMBED_WISTIA' | 'EMBED_FLICKR' | 'EMBED_GITHUB_GIST' | 'EMBED_GOOGLEPLUS' | 'EMBED_INLINE_PDFS' | 'EMBED_ISSUU' | 'EMBED_ICLOUD' | 'EMBED_JETPACK_INSTAGRAM' | 'EMBED_JETPACK_INSTAGRAM_ALTERNATE_FORMAT' | 'EMBED_MEDIUM' | 'EMBED_QZ_OBJECT' | 'EMBED_ODESLI_CO_OEMBED' | 'EMBED_PINTEREST' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM' | 'EMBED_TWITTER' | 'EMBED_FACEBOOK' | 'EMBED_VINE' | 'EMBED_AMAZON' | 'EMBED_SERVICES_CARTO_COM_OEMBED' | 'EMBED_SKETCHFAB' | 'EMBED_SOUNDCLOUD' | 'EMBED_SPEAKERDECK' | 'EMBED_VIDEO' | 'EMBED_VIMEO' | 'EMBED_WORDPRESS_TV' | 'EMBED_WPCOM_VIMEO_EMBED_URL' | 'EMBED_WPCOM_YOUTUBE_EMBED_CRAZY_URL' | 'EMBED_DAILYMOTION' | 'EMBED_DOCUMENTCLOUD' | 'EMBED_WWW_HOUZZ_COM_OEMBED' | 'EMBED_KICKSTARTER' | 'EMBED_LOOM' | 'EMBED_MIXCLOUD' | 'EMBED_REDDIT' | 'EMBED_REVERBNATION' | 'EMBED_SCRIBD' | 'EMBED_SLIDESHARE' | 'EMBED_SOMEECARDS' | 'EMBED_TED' | 'EMBED_WWW_TED_COM_TALKS_OEMBED_JSON' | 'EMBED_TIKTOK' | 'EMBED_TUMBLR' | 'EMBED_YOUTUBE' | 'FIGURE' | 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6' | 'HR' | 'IMG' | 'OL' | 'P' | 'PRE' | 'QZ_ITEM' | 'QZ_POST_TOUT' | 'QZ_TAXONOMY_TERM' | 'QZ_WIFY_ANSWER' | 'SAFE_COMMENT' | 'SHORTCODE_ANSWER' | 'SHORTCODE_ARCHIVEORG' | 'SHORTCODE_ARCHIVEORG_BOOK' | 'SHORTCODE_ARCHIVES' | 'SHORTCODE_AUDIO' | 'SHORTCODE_BANDCAMP' | 'SHORTCODE_BRIGHTCOVE' | 'SHORTCODE_CAPTION' | 'SHORTCODE_CPI_BROADBAND_MAP' | 'SHORTCODE_CROWDSIGNAL' | 'SHORTCODE_DAILYMOTION' | 'SHORTCODE_DAILYMOTION_CHANNEL' | 'SHORTCODE_EMBED' | 'SHORTCODE_ENDMATTER' | 'SHORTCODE_EXPLANATION' | 'SHORTCODE_FACEBOOK' | 'SHORTCODE_FLICKR' | 'SHORTCODE_GALLERY' | 'SHORTCODE_GEO_LOCATION' | 'SHORTCODE_GETTY' | 'SHORTCODE_GIST' | 'SHORTCODE_GOOGLEAPPS' | 'SHORTCODE_GOOGLEMAPS' | 'SHORTCODE_GOOGLEPLUS' | 'SHORTCODE_GRAVATAR' | 'SHORTCODE_GRAVATAR_PROFILE' | 'SHORTCODE_HOUZZ' | 'SHORTCODE_HULU' | 'SHORTCODE_INSTAGRAM' | 'SHORTCODE_KICKSTARTER' | 'SHORTCODE_LATEX' | 'SHORTCODE_MAILCHIMP_SUBSCRIBER_POPUP' | 'SHORTCODE_MEDIUM' | 'SHORTCODE_MIXCLOUD' | 'SHORTCODE_PLAYLIST' | 'SHORTCODE_POLLDADDY' | 'SHORTCODE_PRESENTATION' | 'SHORTCODE_PROMO_LINK' | 'SHORTCODE_PULLQUOTE' | 'SHORTCODE_QUARTZY_AD' | 'SHORTCODE_QUARTZY_PS' | 'SHORTCODE_QUESTION' | 'SHORTCODE_QUIZ' | 'SHORTCODE_QZ_ATLAS' | 'SHORTCODE_QZ_DAILY_BRIEF' | 'SHORTCODE_QZ_DATAWRAPPER' | 'SHORTCODE_QZ_FACEBOOK_POST' | 'SHORTCODE_QZ_FACEBOOK_VIDEO' | 'SHORTCODE_QZ_FURTHER_READING' | 'SHORTCODE_QZ_GUIDE_PROMO' | 'SHORTCODE_QZ_IFRAME' | 'SHORTCODE_QZ_INLINE_AD' | 'SHORTCODE_QZ_INTERACTIVE' | 'SHORTCODE_QZ_RELATED_STACK' | 'SHORTCODE_QZ_SECTION_DIVIDER' | 'SHORTCODE_QZ_TIPS' | 'SHORTCODE_QZ_TOPIC_UPDATE' | 'SHORTCODE_RECIPE' | 'SHORTCODE_RECIPE_DIRECTIONS' | 'SHORTCODE_RECIPE_IMAGE' | 'SHORTCODE_RECIPE_INGREDIENTS' | 'SHORTCODE_RECIPE_NOTES' | 'SHORTCODE_RECIPE_NUTRITION' | 'SHORTCODE_SCRIBD' | 'SHORTCODE_SERIES_RECIRC' | 'SHORTCODE_SIMPLE_PAYMENT' | 'SHORTCODE_SITEMAP' | 'SHORTCODE_SLIDE' | 'SHORTCODE_SLIDESHARE' | 'SHORTCODE_SLIDESHOW' | 'SHORTCODE_SOUNDCLOUD' | 'SHORTCODE_SPOTIFY' | 'SHORTCODE_STORIFY' | 'SHORTCODE_TED' | 'SHORTCODE_TWEET' | 'SHORTCODE_TWITCH' | 'SHORTCODE_TWITCHTV' | 'SHORTCODE_TWITTER_TIMELINE' | 'SHORTCODE_UNTAPPD_MENU' | 'SHORTCODE_UPCOMINGEVENTS' | 'SHORTCODE_USTREAM' | 'SHORTCODE_USTREAMSOCIAL' | 'SHORTCODE_VIDEO' | 'SHORTCODE_VIDEOPRESS' | 'SHORTCODE_VIMEO' | 'SHORTCODE_VINE' | 'SHORTCODE_VR' | 'SHORTCODE_WPVIDEO' | 'SHORTCODE_WP_CAPTION' | 'SHORTCODE_WRONG' | 'SHORTCODE_WUFOO' | 'SHORTCODE_YOUTUBE' | 'TABLE' | 'UL';
+export declare const enum BlockNameEnum {
+    Blockquote = "BLOCKQUOTE",
+    CoreArchives = "CORE_ARCHIVES",
+    CoreAudio = "CORE_AUDIO",
+    CoreBlock = "CORE_BLOCK",
+    CoreButton = "CORE_BUTTON",
+    CoreCategories = "CORE_CATEGORIES",
+    CoreCode = "CORE_CODE",
+    CoreColumn = "CORE_COLUMN",
+    CoreColumns = "CORE_COLUMNS",
+    CoreCoverImage = "CORE_COVER_IMAGE",
+    CoreEmbed = "CORE_EMBED",
+    CoreEmbedAnimoto = "CORE_EMBED_ANIMOTO",
+    CoreEmbedCloudup = "CORE_EMBED_CLOUDUP",
+    CoreEmbedCollegehumor = "CORE_EMBED_COLLEGEHUMOR",
+    CoreEmbedDailymotion = "CORE_EMBED_DAILYMOTION",
+    CoreEmbedFacebook = "CORE_EMBED_FACEBOOK",
+    CoreEmbedFlickr = "CORE_EMBED_FLICKR",
+    CoreEmbedFunnyordie = "CORE_EMBED_FUNNYORDIE",
+    CoreEmbedHulu = "CORE_EMBED_HULU",
+    CoreEmbedImgur = "CORE_EMBED_IMGUR",
+    CoreEmbedInstagram = "CORE_EMBED_INSTAGRAM",
+    CoreEmbedIssuu = "CORE_EMBED_ISSUU",
+    CoreEmbedKickstarter = "CORE_EMBED_KICKSTARTER",
+    CoreEmbedMeetupCom = "CORE_EMBED_MEETUP_COM",
+    CoreEmbedMixcloud = "CORE_EMBED_MIXCLOUD",
+    CoreEmbedPhotobucket = "CORE_EMBED_PHOTOBUCKET",
+    CoreEmbedPolldaddy = "CORE_EMBED_POLLDADDY",
+    CoreEmbedReddit = "CORE_EMBED_REDDIT",
+    CoreEmbedReverbnation = "CORE_EMBED_REVERBNATION",
+    CoreEmbedScreencast = "CORE_EMBED_SCREENCAST",
+    CoreEmbedScribd = "CORE_EMBED_SCRIBD",
+    CoreEmbedSlideshare = "CORE_EMBED_SLIDESHARE",
+    CoreEmbedSmugmug = "CORE_EMBED_SMUGMUG",
+    CoreEmbedSoundcloud = "CORE_EMBED_SOUNDCLOUD",
+    CoreEmbedSpeaker = "CORE_EMBED_SPEAKER",
+    CoreEmbedSpotify = "CORE_EMBED_SPOTIFY",
+    CoreEmbedTed = "CORE_EMBED_TED",
+    CoreEmbedTumblr = "CORE_EMBED_TUMBLR",
+    CoreEmbedTwitter = "CORE_EMBED_TWITTER",
+    CoreEmbedVideopress = "CORE_EMBED_VIDEOPRESS",
+    CoreEmbedVimeo = "CORE_EMBED_VIMEO",
+    CoreEmbedWordpress = "CORE_EMBED_WORDPRESS",
+    CoreEmbedWordpressTv = "CORE_EMBED_WORDPRESS_TV",
+    CoreEmbedYoutube = "CORE_EMBED_YOUTUBE",
+    CoreFile = "CORE_FILE",
+    CoreFreeform = "CORE_FREEFORM",
+    CoreGallery = "CORE_GALLERY",
+    CoreHeading = "CORE_HEADING",
+    CoreHtml = "CORE_HTML",
+    CoreImage = "CORE_IMAGE",
+    CoreLatestComments = "CORE_LATEST_COMMENTS",
+    CoreLatestPosts = "CORE_LATEST_POSTS",
+    CoreList = "CORE_LIST",
+    CoreMore = "CORE_MORE",
+    CoreNextpage = "CORE_NEXTPAGE",
+    CoreParagraph = "CORE_PARAGRAPH",
+    CorePreformatted = "CORE_PREFORMATTED",
+    CorePullquote = "CORE_PULLQUOTE",
+    CoreQuote = "CORE_QUOTE",
+    CoreSeparator = "CORE_SEPARATOR",
+    CoreShortcode = "CORE_SHORTCODE",
+    CoreSpacer = "CORE_SPACER",
+    CoreSubhead = "CORE_SUBHEAD",
+    CoreTable = "CORE_TABLE",
+    CoreTextColumns = "CORE_TEXT_COLUMNS",
+    CoreVerse = "CORE_VERSE",
+    CoreVideo = "CORE_VIDEO",
+    El = "EL",
+    EmbedAnimoto = "EMBED_ANIMOTO",
+    EmbedApiCrowdsignalComOembed = "EMBED_API_CROWDSIGNAL_COM_OEMBED",
+    EmbedGfycat = "EMBED_GFYCAT",
+    EmbedImgur = "EMBED_IMGUR",
+    EmbedMeetup = "EMBED_MEETUP",
+    EmbedScreencast = "EMBED_SCREENCAST",
+    EmbedSmugmug = "EMBED_SMUGMUG",
+    EmbedDatawrapper = "EMBED_DATAWRAPPER",
+    EmbedAtlas = "EMBED_ATLAS",
+    EmbedAudio = "EMBED_AUDIO",
+    EmbedCloudup = "EMBED_CLOUDUP",
+    EmbedCodepenIoApiOembed = "EMBED_CODEPEN_IO_API_OEMBED",
+    EmbedEmbedGettyimagesComOembed = "EMBED_EMBED_GETTYIMAGES_COM_OEMBED_",
+    EmbedSpotify = "EMBED_SPOTIFY",
+    EmbedFacebookAlternate = "EMBED_FACEBOOK_ALTERNATE",
+    EmbedFacebookAlternateVideo = "EMBED_FACEBOOK_ALTERNATE_VIDEO",
+    EmbedFacebookPhoto = "EMBED_FACEBOOK_PHOTO",
+    EmbedFacebookVideo = "EMBED_FACEBOOK_VIDEO",
+    EmbedWistia = "EMBED_WISTIA",
+    EmbedFlickr = "EMBED_FLICKR",
+    EmbedGithubGist = "EMBED_GITHUB_GIST",
+    EmbedGoogleplus = "EMBED_GOOGLEPLUS",
+    EmbedInlinePdfs = "EMBED_INLINE_PDFS",
+    EmbedIssuu = "EMBED_ISSUU",
+    EmbedIcloud = "EMBED_ICLOUD",
+    EmbedJetpackInstagram = "EMBED_JETPACK_INSTAGRAM",
+    EmbedJetpackInstagramAlternateFormat = "EMBED_JETPACK_INSTAGRAM_ALTERNATE_FORMAT",
+    EmbedMedium = "EMBED_MEDIUM",
+    EmbedQzObject = "EMBED_QZ_OBJECT",
+    EmbedOdesliCoOembed = "EMBED_ODESLI_CO_OEMBED",
+    EmbedPinterest = "EMBED_PINTEREST",
+    EmbedPublicApiWordpressComOembed_1_0 = "EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_",
+    EmbedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom = "EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM",
+    EmbedTwitter = "EMBED_TWITTER",
+    EmbedFacebook = "EMBED_FACEBOOK",
+    EmbedVine = "EMBED_VINE",
+    EmbedAmazon = "EMBED_AMAZON",
+    EmbedServicesCartoComOembed = "EMBED_SERVICES_CARTO_COM_OEMBED",
+    EmbedSketchfab = "EMBED_SKETCHFAB",
+    EmbedSoundcloud = "EMBED_SOUNDCLOUD",
+    EmbedSpeakerdeck = "EMBED_SPEAKERDECK",
+    EmbedVideo = "EMBED_VIDEO",
+    EmbedVimeo = "EMBED_VIMEO",
+    EmbedWordpressTv = "EMBED_WORDPRESS_TV",
+    EmbedWpcomVimeoEmbedUrl = "EMBED_WPCOM_VIMEO_EMBED_URL",
+    EmbedWpcomYoutubeEmbedCrazyUrl = "EMBED_WPCOM_YOUTUBE_EMBED_CRAZY_URL",
+    EmbedDailymotion = "EMBED_DAILYMOTION",
+    EmbedDocumentcloud = "EMBED_DOCUMENTCLOUD",
+    EmbedWwwHouzzComOembed = "EMBED_WWW_HOUZZ_COM_OEMBED",
+    EmbedKickstarter = "EMBED_KICKSTARTER",
+    EmbedLoom = "EMBED_LOOM",
+    EmbedMixcloud = "EMBED_MIXCLOUD",
+    EmbedReddit = "EMBED_REDDIT",
+    EmbedReverbnation = "EMBED_REVERBNATION",
+    EmbedScribd = "EMBED_SCRIBD",
+    EmbedSlideshare = "EMBED_SLIDESHARE",
+    EmbedSomeecards = "EMBED_SOMEECARDS",
+    EmbedTed = "EMBED_TED",
+    EmbedWwwTedComTalksOembedJson = "EMBED_WWW_TED_COM_TALKS_OEMBED_JSON",
+    EmbedTiktok = "EMBED_TIKTOK",
+    EmbedTumblr = "EMBED_TUMBLR",
+    EmbedYoutube = "EMBED_YOUTUBE",
+    Figure = "FIGURE",
+    H1 = "H1",
+    H2 = "H2",
+    H3 = "H3",
+    H4 = "H4",
+    H5 = "H5",
+    H6 = "H6",
+    Hr = "HR",
+    Img = "IMG",
+    Ol = "OL",
+    P = "P",
+    Pre = "PRE",
+    QzItem = "QZ_ITEM",
+    QzPostTout = "QZ_POST_TOUT",
+    QzTaxonomyTerm = "QZ_TAXONOMY_TERM",
+    QzWifyAnswer = "QZ_WIFY_ANSWER",
+    SafeComment = "SAFE_COMMENT",
+    ShortcodeAnswer = "SHORTCODE_ANSWER",
+    ShortcodeArchiveorg = "SHORTCODE_ARCHIVEORG",
+    ShortcodeArchiveorgBook = "SHORTCODE_ARCHIVEORG_BOOK",
+    ShortcodeArchives = "SHORTCODE_ARCHIVES",
+    ShortcodeAudio = "SHORTCODE_AUDIO",
+    ShortcodeBandcamp = "SHORTCODE_BANDCAMP",
+    ShortcodeBrightcove = "SHORTCODE_BRIGHTCOVE",
+    ShortcodeCaption = "SHORTCODE_CAPTION",
+    ShortcodeCpiBroadbandMap = "SHORTCODE_CPI_BROADBAND_MAP",
+    ShortcodeCrowdsignal = "SHORTCODE_CROWDSIGNAL",
+    ShortcodeDailymotion = "SHORTCODE_DAILYMOTION",
+    ShortcodeDailymotionChannel = "SHORTCODE_DAILYMOTION_CHANNEL",
+    ShortcodeEmbed = "SHORTCODE_EMBED",
+    ShortcodeEndmatter = "SHORTCODE_ENDMATTER",
+    ShortcodeExplanation = "SHORTCODE_EXPLANATION",
+    ShortcodeFacebook = "SHORTCODE_FACEBOOK",
+    ShortcodeFlickr = "SHORTCODE_FLICKR",
+    ShortcodeGallery = "SHORTCODE_GALLERY",
+    ShortcodeGeoLocation = "SHORTCODE_GEO_LOCATION",
+    ShortcodeGetty = "SHORTCODE_GETTY",
+    ShortcodeGist = "SHORTCODE_GIST",
+    ShortcodeGoogleapps = "SHORTCODE_GOOGLEAPPS",
+    ShortcodeGooglemaps = "SHORTCODE_GOOGLEMAPS",
+    ShortcodeGoogleplus = "SHORTCODE_GOOGLEPLUS",
+    ShortcodeGravatar = "SHORTCODE_GRAVATAR",
+    ShortcodeGravatarProfile = "SHORTCODE_GRAVATAR_PROFILE",
+    ShortcodeHouzz = "SHORTCODE_HOUZZ",
+    ShortcodeHulu = "SHORTCODE_HULU",
+    ShortcodeInstagram = "SHORTCODE_INSTAGRAM",
+    ShortcodeKickstarter = "SHORTCODE_KICKSTARTER",
+    ShortcodeLatex = "SHORTCODE_LATEX",
+    ShortcodeMailchimpSubscriberPopup = "SHORTCODE_MAILCHIMP_SUBSCRIBER_POPUP",
+    ShortcodeMedium = "SHORTCODE_MEDIUM",
+    ShortcodeMixcloud = "SHORTCODE_MIXCLOUD",
+    ShortcodePlaylist = "SHORTCODE_PLAYLIST",
+    ShortcodePolldaddy = "SHORTCODE_POLLDADDY",
+    ShortcodePresentation = "SHORTCODE_PRESENTATION",
+    ShortcodePromoLink = "SHORTCODE_PROMO_LINK",
+    ShortcodePullquote = "SHORTCODE_PULLQUOTE",
+    ShortcodeQuartzyAd = "SHORTCODE_QUARTZY_AD",
+    ShortcodeQuartzyPs = "SHORTCODE_QUARTZY_PS",
+    ShortcodeQuestion = "SHORTCODE_QUESTION",
+    ShortcodeQuiz = "SHORTCODE_QUIZ",
+    ShortcodeQzAtlas = "SHORTCODE_QZ_ATLAS",
+    ShortcodeQzDailyBrief = "SHORTCODE_QZ_DAILY_BRIEF",
+    ShortcodeQzDatawrapper = "SHORTCODE_QZ_DATAWRAPPER",
+    ShortcodeQzFacebookPost = "SHORTCODE_QZ_FACEBOOK_POST",
+    ShortcodeQzFacebookVideo = "SHORTCODE_QZ_FACEBOOK_VIDEO",
+    ShortcodeQzFurtherReading = "SHORTCODE_QZ_FURTHER_READING",
+    ShortcodeQzGuidePromo = "SHORTCODE_QZ_GUIDE_PROMO",
+    ShortcodeQzIframe = "SHORTCODE_QZ_IFRAME",
+    ShortcodeQzInlineAd = "SHORTCODE_QZ_INLINE_AD",
+    ShortcodeQzInteractive = "SHORTCODE_QZ_INTERACTIVE",
+    ShortcodeQzRelatedStack = "SHORTCODE_QZ_RELATED_STACK",
+    ShortcodeQzSectionDivider = "SHORTCODE_QZ_SECTION_DIVIDER",
+    ShortcodeQzTips = "SHORTCODE_QZ_TIPS",
+    ShortcodeQzTopicUpdate = "SHORTCODE_QZ_TOPIC_UPDATE",
+    ShortcodeRecipe = "SHORTCODE_RECIPE",
+    ShortcodeRecipeDirections = "SHORTCODE_RECIPE_DIRECTIONS",
+    ShortcodeRecipeImage = "SHORTCODE_RECIPE_IMAGE",
+    ShortcodeRecipeIngredients = "SHORTCODE_RECIPE_INGREDIENTS",
+    ShortcodeRecipeNotes = "SHORTCODE_RECIPE_NOTES",
+    ShortcodeRecipeNutrition = "SHORTCODE_RECIPE_NUTRITION",
+    ShortcodeScribd = "SHORTCODE_SCRIBD",
+    ShortcodeSeriesRecirc = "SHORTCODE_SERIES_RECIRC",
+    ShortcodeSimplePayment = "SHORTCODE_SIMPLE_PAYMENT",
+    ShortcodeSitemap = "SHORTCODE_SITEMAP",
+    ShortcodeSlide = "SHORTCODE_SLIDE",
+    ShortcodeSlideshare = "SHORTCODE_SLIDESHARE",
+    ShortcodeSlideshow = "SHORTCODE_SLIDESHOW",
+    ShortcodeSoundcloud = "SHORTCODE_SOUNDCLOUD",
+    ShortcodeSpotify = "SHORTCODE_SPOTIFY",
+    ShortcodeStorify = "SHORTCODE_STORIFY",
+    ShortcodeTed = "SHORTCODE_TED",
+    ShortcodeTweet = "SHORTCODE_TWEET",
+    ShortcodeTwitch = "SHORTCODE_TWITCH",
+    ShortcodeTwitchtv = "SHORTCODE_TWITCHTV",
+    ShortcodeTwitterTimeline = "SHORTCODE_TWITTER_TIMELINE",
+    ShortcodeUntappdMenu = "SHORTCODE_UNTAPPD_MENU",
+    ShortcodeUpcomingevents = "SHORTCODE_UPCOMINGEVENTS",
+    ShortcodeUstream = "SHORTCODE_USTREAM",
+    ShortcodeUstreamsocial = "SHORTCODE_USTREAMSOCIAL",
+    ShortcodeVideo = "SHORTCODE_VIDEO",
+    ShortcodeVideopress = "SHORTCODE_VIDEOPRESS",
+    ShortcodeVimeo = "SHORTCODE_VIMEO",
+    ShortcodeVine = "SHORTCODE_VINE",
+    ShortcodeVr = "SHORTCODE_VR",
+    ShortcodeWpvideo = "SHORTCODE_WPVIDEO",
+    ShortcodeWpCaption = "SHORTCODE_WP_CAPTION",
+    ShortcodeWrong = "SHORTCODE_WRONG",
+    ShortcodeWufoo = "SHORTCODE_WUFOO",
+    ShortcodeYoutube = "SHORTCODE_YOUTUBE",
+    Table = "TABLE",
+    Ul = "UL"
+}
 export declare type BulletinData = {
     __typename?: 'BulletinData';
     /**
@@ -3242,7 +3626,15 @@ export declare type BulletinToCoAuthorConnectionWhereArgs = {
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 /** Options for ordering the connection by */
-export declare type TermObjectsConnectionOrderbyEnum = 'COUNT' | 'DESCRIPTION' | 'NAME' | 'SLUG' | 'TERM_GROUP' | 'TERM_ID' | 'TERM_ORDER';
+export declare const enum TermObjectsConnectionOrderbyEnum {
+    Count = "COUNT",
+    Description = "DESCRIPTION",
+    Name = "NAME",
+    Slug = "SLUG",
+    TermGroup = "TERM_GROUP",
+    TermId = "TERM_ID",
+    TermOrder = "TERM_ORDER"
+}
 /** Connection between the bulletin type and the bulletin type */
 export declare type BulletinToCoAuthorConnection = {
     __typename?: 'BulletinToCoAuthorConnection';
@@ -4108,11 +4500,12 @@ export declare type ChapterToCoAuthorConnectionEdge = {
     node?: Maybe<CoAuthor>;
 };
 /** The format of post field data. */
-export declare type PostObjectFieldFormatEnum = 
-/** Provide the field value directly from database */
-'RAW'
-/** Apply the default WordPress rendering */
- | 'RENDERED';
+export declare const enum PostObjectFieldFormatEnum {
+    /** Provide the field value directly from database */
+    Raw = "RAW",
+    /** Apply the default WordPress rendering */
+    Rendered = "RENDERED"
+}
 /** Info on whether the object is locked by another user editing it */
 export declare type EditLock = {
     __typename?: 'EditLock';
@@ -4442,7 +4835,24 @@ export declare type MediaItemToCommentConnectionWhereArgs = {
     userId?: Maybe<Scalars['ID']>;
 };
 /** Options for ordering the connection */
-export declare type CommentsConnectionOrderbyEnum = 'COMMENT_AGENT' | 'COMMENT_APPROVED' | 'COMMENT_AUTHOR' | 'COMMENT_AUTHOR_EMAIL' | 'COMMENT_AUTHOR_IP' | 'COMMENT_AUTHOR_URL' | 'COMMENT_CONTENT' | 'COMMENT_DATE' | 'COMMENT_DATE_GMT' | 'COMMENT_ID' | 'COMMENT_IN' | 'COMMENT_KARMA' | 'COMMENT_PARENT' | 'COMMENT_POST_ID' | 'COMMENT_TYPE' | 'USER_ID';
+export declare const enum CommentsConnectionOrderbyEnum {
+    CommentAgent = "COMMENT_AGENT",
+    CommentApproved = "COMMENT_APPROVED",
+    CommentAuthor = "COMMENT_AUTHOR",
+    CommentAuthorEmail = "COMMENT_AUTHOR_EMAIL",
+    CommentAuthorIp = "COMMENT_AUTHOR_IP",
+    CommentAuthorUrl = "COMMENT_AUTHOR_URL",
+    CommentContent = "COMMENT_CONTENT",
+    CommentDate = "COMMENT_DATE",
+    CommentDateGmt = "COMMENT_DATE_GMT",
+    CommentId = "COMMENT_ID",
+    CommentIn = "COMMENT_IN",
+    CommentKarma = "COMMENT_KARMA",
+    CommentParent = "COMMENT_PARENT",
+    CommentPostId = "COMMENT_POST_ID",
+    CommentType = "COMMENT_TYPE",
+    UserId = "USER_ID"
+}
 /** Connection between the mediaItem type and the mediaItem type */
 export declare type MediaItemToCommentConnection = {
     __typename?: 'MediaItemToCommentConnection';
@@ -19928,7 +20338,35 @@ export declare type MenuToMenuItemConnectionWhereArgs = {
     location?: Maybe<MenuLocationEnum>;
 };
 /** Registered menu locations */
-export declare type MenuLocationEnum = 'ABOUT' | 'AUTHORS_WORK' | 'CASE_STUDIES_CREATIVE' | 'CHARTS_AFRICA' | 'CHARTS_INDIA' | 'CHARTS_QUARTZ' | 'CLIENTS_CREATIVE' | 'FEATURED_QUARTZ' | 'FEATURES_MARKETING_MEMBERS' | 'FEATURES_MEMBERS' | 'FEATURES_VIDEO_MEMBERS' | 'OBSESSIONS' | 'OBSESSIONS_AFRICA' | 'OBSESSIONS_INDIA' | 'OBSESSIONS_QUARTZ' | 'OBSESSIONS_QUARTZY' | 'OBSESSIONS_WORK' | 'PLAYER_VIDEO' | 'PREMIUM_MEMBERS' | 'SHOWS_VIDEO' | 'TOP_AFRICA' | 'TOP_INDIA' | 'TOP_QUARTZ' | 'TOP_QUARTZY' | 'TOP_WORK' | 'VIDEOS_QUARTZ' | 'VIDEOS_QUARTZY';
+export declare const enum MenuLocationEnum {
+    About = "ABOUT",
+    AuthorsWork = "AUTHORS_WORK",
+    CaseStudiesCreative = "CASE_STUDIES_CREATIVE",
+    ChartsAfrica = "CHARTS_AFRICA",
+    ChartsIndia = "CHARTS_INDIA",
+    ChartsQuartz = "CHARTS_QUARTZ",
+    ClientsCreative = "CLIENTS_CREATIVE",
+    FeaturedQuartz = "FEATURED_QUARTZ",
+    FeaturesMarketingMembers = "FEATURES_MARKETING_MEMBERS",
+    FeaturesMembers = "FEATURES_MEMBERS",
+    FeaturesVideoMembers = "FEATURES_VIDEO_MEMBERS",
+    Obsessions = "OBSESSIONS",
+    ObsessionsAfrica = "OBSESSIONS_AFRICA",
+    ObsessionsIndia = "OBSESSIONS_INDIA",
+    ObsessionsQuartz = "OBSESSIONS_QUARTZ",
+    ObsessionsQuartzy = "OBSESSIONS_QUARTZY",
+    ObsessionsWork = "OBSESSIONS_WORK",
+    PlayerVideo = "PLAYER_VIDEO",
+    PremiumMembers = "PREMIUM_MEMBERS",
+    ShowsVideo = "SHOWS_VIDEO",
+    TopAfrica = "TOP_AFRICA",
+    TopIndia = "TOP_INDIA",
+    TopQuartz = "TOP_QUARTZ",
+    TopQuartzy = "TOP_QUARTZY",
+    TopWork = "TOP_WORK",
+    VideosQuartz = "VIDEOS_QUARTZ",
+    VideosQuartzy = "VIDEOS_QUARTZY"
+}
 /** Connection between the Menu type and the Menu type */
 export declare type MenuToMenuItemConnection = {
     __typename?: 'MenuToMenuItemConnection';
@@ -21585,9 +22023,24 @@ export declare type RootQueryToUserConnectionWhereArgs = {
     searchColumns?: Maybe<Array<Maybe<UsersConnectionSearchColumnEnum>>>;
 };
 /** Names of available user roles */
-export declare type UserRoleEnum = 'ADMINISTRATOR' | 'AUTHOR' | 'BUSINESS' | 'CONTRIBUTOR' | 'EDITOR' | 'SUBSCRIBER' | 'VIP_SUPPORT' | 'VIP_SUPPORT__INACTIVE_';
+export declare const enum UserRoleEnum {
+    Administrator = "ADMINISTRATOR",
+    Author = "AUTHOR",
+    Business = "BUSINESS",
+    Contributor = "CONTRIBUTOR",
+    Editor = "EDITOR",
+    Subscriber = "SUBSCRIBER",
+    VipSupport = "VIP_SUPPORT",
+    VipSupportInactive = "VIP_SUPPORT__INACTIVE_"
+}
 /** Column used for searching for users */
-export declare type UsersConnectionSearchColumnEnum = 'EMAIL' | 'ID' | 'LOGIN' | 'NICENAME' | 'URL';
+export declare const enum UsersConnectionSearchColumnEnum {
+    Email = "EMAIL",
+    Id = "ID",
+    Login = "LOGIN",
+    Nicename = "NICENAME",
+    Url = "URL"
+}
 /** Connection between the RootQuery type and the RootQuery type */
 export declare type RootQueryToUserConnection = {
     __typename?: 'RootQueryToUserConnection';
