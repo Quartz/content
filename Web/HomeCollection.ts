@@ -1,8 +1,8 @@
 import type * as Types from './types';
 
-import type { HomeCollectionPartsFragment } from './HomeCollectionParts';
+import type { CollectionPartsFragment } from './CollectionParts';
 import { gql } from '@apollo/client';
-import { HomeCollectionPartsFragmentDoc } from './HomeCollectionParts';
+import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export type HomeCollectionQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
@@ -13,7 +13,7 @@ export type HomeCollectionQuery = (
     { __typename?: 'RootQueryToCollectionConnection' }
     & { nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Collection' }
-      & HomeCollectionPartsFragment
+      & CollectionPartsFragment
     )>>> }
   )> }
 );
@@ -23,11 +23,11 @@ export const HomeCollectionDocument = /*#__PURE__*/ gql`
     query HomeCollection {
   collections(first: 1, where: {tagSlugIn: ["home"]}) {
     nodes {
-      ...HomeCollectionParts
+      ...CollectionParts
     }
   }
 }
-    ${HomeCollectionPartsFragmentDoc}`;
+    ${CollectionPartsFragmentDoc}`;
 
 /**
  * __useHomeCollectionQuery__

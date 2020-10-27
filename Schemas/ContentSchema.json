@@ -36491,6 +36491,59 @@
             "deprecationReason": ""
           },
           {
+            "name": "essentials",
+            "description": "Connection between the Obsession type and the Obsession type",
+            "args": [
+              {
+                "name": "first",
+                "description": "The number of items to return after the referenced \"after\" cursor",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": "Cursor used along with the \"first\" argument to reference where in the dataset to get data",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Cursor used along with the \"last\" argument to reference where in the dataset to get data",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ObsessionToCollectionConnection",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
             "name": "featuredImage",
             "description": "The featured image for this term.",
             "args": [],
@@ -43567,6 +43620,96 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ObsessionToCollectionConnection",
+        "description": "Connection between the Obsession type and the Obsession type",
+        "fields": [
+          {
+            "name": "edges",
+            "description": "Edges for the ObsessionToCollectionConnection connection",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ObsessionToCollectionConnectionEdge",
+                "ofType": null
+              }
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
+            "name": "nodes",
+            "description": "The nodes of the connection, without the edges",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Collection",
+                "ofType": null
+              }
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
+            "name": "pageInfo",
+            "description": "Information about pagination in a connection.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "WPPageInfo",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ObsessionToCollectionConnectionEdge",
+        "description": "An edge in a connection",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Collection",
               "ofType": null
             },
             "isDeprecated": true,

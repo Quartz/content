@@ -1,8 +1,8 @@
 import type * as Types from './types';
 
-import type { HomeCollectionPartsFragment } from './HomeCollectionParts';
+import type { CollectionPartsFragment } from './CollectionParts';
 import { gql } from '@apollo/client';
-import { HomeCollectionPartsFragmentDoc } from './HomeCollectionParts';
+import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export type HomeCollectionPreviewQueryVariables = Types.Exact<{
   id: Types.Scalars['Int'];
@@ -17,7 +17,7 @@ export type HomeCollectionPreviewQuery = (
     { __typename?: 'RootQueryToCollectionConnection' }
     & { nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Collection' }
-      & HomeCollectionPartsFragment
+      & CollectionPartsFragment
     )>>> }
   )> }
 );
@@ -27,11 +27,11 @@ export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql`
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
-      ...HomeCollectionParts
+      ...CollectionParts
     }
   }
 }
-    ${HomeCollectionPartsFragmentDoc}`;
+    ${CollectionPartsFragmentDoc}`;
 
 /**
  * __useHomeCollectionPreviewQuery__

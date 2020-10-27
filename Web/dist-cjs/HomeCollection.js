@@ -21,17 +21,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useHomeCollectionLazyQuery = exports.useHomeCollectionQuery = exports.HomeCollectionDocument = void 0;
 const client_1 = require("@apollo/client");
-const HomeCollectionParts_1 = require("./HomeCollectionParts");
+const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.HomeCollectionDocument = client_1.gql `
     query HomeCollection {
   collections(first: 1, where: {tagSlugIn: ["home"]}) {
     nodes {
-      ...HomeCollectionParts
+      ...CollectionParts
     }
   }
 }
-    ${HomeCollectionParts_1.HomeCollectionPartsFragmentDoc}`;
+    ${CollectionParts_1.CollectionPartsFragmentDoc}`;
 /**
  * __useHomeCollectionQuery__
  *
