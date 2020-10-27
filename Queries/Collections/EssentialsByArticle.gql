@@ -1,0 +1,21 @@
+query EssentialsByArticle(
+	$id: ID!
+) {
+	post(
+		id: $id
+	) {
+		id
+		obsessions {
+			nodes {
+				id
+				essentials(
+					first: 1
+				) {
+					nodes {
+						...CollectionParts
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-fragment HomeCollectionParts on Collection {
+fragment CollectionParts on Collection {
 	id
 	title
 	featuredImage {
