@@ -1,5 +1,5 @@
 import type * as Types from './types';
-import type { HomeCollectionPartsFragment } from './HomeCollectionParts';
+import type { CollectionPartsFragment } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export declare type HomeCollectionPreviewQueryVariables = Types.Exact<{
     id: Types.Scalars['Int'];
@@ -14,7 +14,7 @@ export declare type HomeCollectionPreviewQuery = ({
     } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Collection';
-        } & HomeCollectionPartsFragment)>>>;
+        } & CollectionPartsFragment)>>>;
     })>;
 });
 export declare const HomeCollectionPreviewDocument: Apollo.DocumentNode;

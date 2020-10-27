@@ -1,15 +1,15 @@
 import { gql } from '@apollo/client';
-import { HomeCollectionPartsFragmentDoc } from './HomeCollectionParts';
+import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export const HomeCollectionDocument = /*#__PURE__*/ gql `
     query HomeCollection {
   collections(first: 1, where: {tagSlugIn: ["home"]}) {
     nodes {
-      ...HomeCollectionParts
+      ...CollectionParts
     }
   }
 }
-    ${HomeCollectionPartsFragmentDoc}`;
+    ${CollectionPartsFragmentDoc}`;
 /**
  * __useHomeCollectionQuery__
  *

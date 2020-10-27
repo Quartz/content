@@ -21,17 +21,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useHomeCollectionPreviewLazyQuery = exports.useHomeCollectionPreviewQuery = exports.HomeCollectionPreviewDocument = void 0;
 const client_1 = require("@apollo/client");
-const HomeCollectionParts_1 = require("./HomeCollectionParts");
+const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.HomeCollectionPreviewDocument = client_1.gql `
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
-      ...HomeCollectionParts
+      ...CollectionParts
     }
   }
 }
-    ${HomeCollectionParts_1.HomeCollectionPartsFragmentDoc}`;
+    ${CollectionParts_1.CollectionPartsFragmentDoc}`;
 /**
  * __useHomeCollectionPreviewQuery__
  *

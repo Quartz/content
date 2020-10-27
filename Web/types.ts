@@ -10419,6 +10419,11 @@ export type Obsession = Node & {
    */
   emailList?: Maybe<EmailList>;
   /**
+   * Connection between the Obsession type and the Obsession type
+   * @deprecated 
+   */
+  essentials?: Maybe<ObsessionToCollectionConnection>;
+  /**
    * The featured image for this term.
    * @deprecated 
    */
@@ -10518,6 +10523,15 @@ export type ObsessionBulletinsArgs = {
 
 /** The obsession type */
 export type ObsessionContentArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+};
+
+
+/** The obsession type */
+export type ObsessionEssentialsArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
@@ -12481,6 +12495,41 @@ export type VideoData = {
    * @deprecated 
    */
   type?: Maybe<Scalars['String']>;
+};
+
+/** Connection between the Obsession type and the Obsession type */
+export type ObsessionToCollectionConnection = {
+  __typename?: 'ObsessionToCollectionConnection';
+  /**
+   * Edges for the ObsessionToCollectionConnection connection
+   * @deprecated 
+   */
+  edges?: Maybe<Array<Maybe<ObsessionToCollectionConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   * @deprecated 
+   */
+  nodes?: Maybe<Array<Maybe<Collection>>>;
+  /**
+   * Information about pagination in a connection.
+   * @deprecated 
+   */
+  pageInfo?: Maybe<WpPageInfo>;
+};
+
+/** An edge in a connection */
+export type ObsessionToCollectionConnectionEdge = {
+  __typename?: 'ObsessionToCollectionConnectionEdge';
+  /**
+   * A cursor for use in pagination
+   * @deprecated 
+   */
+  cursor?: Maybe<Scalars['String']>;
+  /**
+   * The item at the end of the edge
+   * @deprecated 
+   */
+  node?: Maybe<Collection>;
 };
 
 /** Arguments for filtering the ObsessionToPostConnection connection */

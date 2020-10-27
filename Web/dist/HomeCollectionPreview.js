@@ -1,15 +1,15 @@
 import { gql } from '@apollo/client';
-import { HomeCollectionPartsFragmentDoc } from './HomeCollectionParts';
+import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql `
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
     nodes {
-      ...HomeCollectionParts
+      ...CollectionParts
     }
   }
 }
-    ${HomeCollectionPartsFragmentDoc}`;
+    ${CollectionPartsFragmentDoc}`;
 /**
  * __useHomeCollectionPreviewQuery__
  *
