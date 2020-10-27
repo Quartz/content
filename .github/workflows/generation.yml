@@ -49,7 +49,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -a -m "Add Swift types" --no-verify --allow-empty
+          git add --all iOS Package.* Schemas
+          git commit -m "Add Swift types" --no-verify --allow-empty
           SHA_OUTPUT=`git rev-parse HEAD`
           echo "::set-output name=sha::"$SHA_OUTPUT""
           git push
@@ -88,7 +89,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -a -m "Add TypeScript types" --no-verify --allow-empty
+          git add --all Web
+          git commit -m "Add TypeScript types" --no-verify --allow-empty
           SHA_OUTPUT=`git rev-parse HEAD`
           echo "::set-output name=sha::"$SHA_OUTPUT""
           git push
