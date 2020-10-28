@@ -1,7 +1,9 @@
 import type * as Types from './types';
 
+import type { ObsessionPartsFragment } from './ObsessionParts';
 import type { CollectionPartsFragment } from './CollectionParts';
 import { gql } from '@apollo/client';
+import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export type EssentialsByArticleQueryVariables = Types.Exact<{
@@ -18,7 +20,6 @@ export type EssentialsByArticleQuery = (
       { __typename?: 'PostToObsessionConnection' }
       & { nodes?: Types.Maybe<Array<Types.Maybe<(
         { __typename?: 'Obsession' }
-        & Pick<Types.Obsession, 'id'>
         & { essentials?: Types.Maybe<(
           { __typename?: 'ObsessionToCollectionConnection' }
           & { nodes?: Types.Maybe<Array<Types.Maybe<(
@@ -26,6 +27,7 @@ export type EssentialsByArticleQuery = (
             & CollectionPartsFragment
           )>>> }
         )> }
+        & ObsessionPartsFragment
       )>>> }
     )> }
   )> }
@@ -38,7 +40,7 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql`
     id
     obsessions {
       nodes {
-        id
+        ...ObsessionParts
         essentials(first: 1) {
           nodes {
             ...CollectionParts
@@ -48,7 +50,8 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql`
     }
   }
 }
-    ${CollectionPartsFragmentDoc}`;
+    ${ObsessionPartsFragmentDoc}
+${CollectionPartsFragmentDoc}`;
 
 /**
  * __useEssentialsByArticleQuery__

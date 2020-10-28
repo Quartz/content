@@ -21,6 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useEssentialsByArticleLazyQuery = exports.useEssentialsByArticleQuery = exports.EssentialsByArticleDocument = void 0;
 const client_1 = require("@apollo/client");
+const ObsessionParts_1 = require("./ObsessionParts");
 const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.EssentialsByArticleDocument = client_1.gql `
@@ -29,7 +30,7 @@ exports.EssentialsByArticleDocument = client_1.gql `
     id
     obsessions {
       nodes {
-        id
+        ...ObsessionParts
         essentials(first: 1) {
           nodes {
             ...CollectionParts
@@ -39,7 +40,8 @@ exports.EssentialsByArticleDocument = client_1.gql `
     }
   }
 }
-    ${CollectionParts_1.CollectionPartsFragmentDoc}`;
+    ${ObsessionParts_1.ObsessionPartsFragmentDoc}
+${CollectionParts_1.CollectionPartsFragmentDoc}`;
 /**
  * __useEssentialsByArticleQuery__
  *
