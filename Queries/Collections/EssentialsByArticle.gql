@@ -7,7 +7,7 @@ query EssentialsByArticle(
 		id
 		obsessions {
 			nodes {
-				id
+				...ObsessionParts
 				essentials(
 					first: 1
 				) {
