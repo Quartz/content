@@ -4499,7 +4499,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
           __typename
           nodes {
             __typename
-            id
+            ...ObsessionParts
             essentials(first: 1) {
               __typename
               nodes {
@@ -4515,9 +4515,9 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "48cf2e5273bb0372a54d543ebdfd8a13d385cee8cb4fce96656bb3cab7297eef"
+  public let operationIdentifier: String? = "814be8375626dc8ec903b3f82480265976572e60162a641012dad5077e446676"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
   public var id: GraphQLID
 
@@ -4657,7 +4657,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+              GraphQLFragmentSpread(ObsessionParts.self),
               GraphQLField("essentials", arguments: ["first": 1], type: .object(Essential.selections)),
             ]
           }
@@ -4666,10 +4666,6 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
-          }
-
-          public init(id: GraphQLID, essentials: Essential? = nil) {
-            self.init(unsafeResultMap: ["__typename": "Obsession", "id": id, "essentials": essentials.flatMap { (value: Essential) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -4681,17 +4677,6 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
             }
           }
 
-          /// The global ID for the obsession
-          @available(*, deprecated, message: "")
-          public var id: GraphQLID {
-            get {
-              return resultMap["id"]! as! GraphQLID
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "id")
-            }
-          }
-
           /// Connection between the Obsession type and the Obsession type
           @available(*, deprecated, message: "")
           public var essentials: Essential? {
@@ -4700,6 +4685,32 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue?.resultMap, forKey: "essentials")
+            }
+          }
+
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+
+          public struct Fragments {
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var obsessionParts: ObsessionParts {
+              get {
+                return ObsessionParts(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
             }
           }
 
