@@ -1,0 +1,18 @@
+query PromotionsByTag(
+	$perPage: Int!
+	$slug: [String]!
+) {
+	promotions(
+		first: $perPage
+		where: {
+			tagSlugIn: $slug
+		}
+	) {
+		nodes {
+			...PromotionParts
+			blocks {
+				...BlockParts
+			}
+		}
+	}
+}
