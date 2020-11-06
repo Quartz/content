@@ -4,8 +4,6 @@ import Foundation
 
 public enum QuartzContentClient {
 
-	private static let endpoint = URL(string: "https://content.qz.com/graphql")!
-
 	private static let name = "content"
 
 	/// Quartz content GraphQL Apollo client
@@ -18,7 +16,8 @@ public enum QuartzContentClient {
 	public static func create(
 		authorization: (() -> String?)?,
 		userAgent: (() -> String?)?,
-		database: Bool
+		database: Bool,
+		endpoint: URL = URL(string: "https://content.qz.com/graphql")!
 	) throws -> ApolloClient {
 		let cache: NormalizedCache
 		if database {
