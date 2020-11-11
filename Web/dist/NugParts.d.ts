@@ -2,12 +2,17 @@ import type * as Types from './types';
 import type { BlockPartsFragment } from './BlockParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { MediaPartsFragment } from './MediaParts';
-export declare type NugPartsFragment = ({
+export declare type NugPartsFragment = {
     __typename?: 'Nug';
-} & Pick<Types.Nug, 'id' | 'dateGmt' | 'link' | 'modifiedGmt' | 'nugId' | 'slug' | 'title'> & {
+    id: string;
+    dateGmt?: Types.Maybe<string>;
+    link?: Types.Maybe<string>;
+    modifiedGmt?: Types.Maybe<string>;
+    nugId: number;
+    slug?: Types.Maybe<string>;
+    title?: Types.Maybe<string>;
     blocks?: Types.Maybe<Array<Types.Maybe<({
         __typename?: 'Block';
-    } & {
         connections?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment) | {
@@ -38,13 +43,15 @@ export declare type NugPartsFragment = ({
             __typename?: 'Bulletin';
         }>>>;
     } & BlockPartsFragment)>>>;
-    emailLists?: Types.Maybe<({
+    emailLists?: Types.Maybe<{
         __typename?: 'NugToEmailListConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'EmailList';
-        } & Pick<Types.EmailList, 'emailListId' | 'listId' | 'name'>)>>>;
-    })>;
-});
+            emailListId?: Types.Maybe<number>;
+            listId?: Types.Maybe<number>;
+            name?: Types.Maybe<string>;
+        }>>>;
+    }>;
+};
 export declare const NugPartsFragmentDoc: import("@apollo/client").DocumentNode;
 //# sourceMappingURL=NugParts.d.ts.map

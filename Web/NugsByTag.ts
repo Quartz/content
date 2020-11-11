@@ -10,16 +10,10 @@ export type NugsByTagQueryVariables = Types.Exact<{
 }>;
 
 
-export type NugsByTagQuery = (
-  { __typename?: 'RootQuery' }
-  & { nugs?: Types.Maybe<(
-    { __typename?: 'RootQueryToNugConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type NugsByTagQuery = { __typename?: 'RootQuery', nugs?: Types.Maybe<{ __typename?: 'RootQueryToNugConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Nug' }
       & NugPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const NugsByTagDocument = /*#__PURE__*/ gql`

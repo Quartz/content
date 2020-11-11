@@ -6,20 +6,20 @@ export declare type LatestArticlesQueryVariables = Types.Exact<{
     edition?: Types.Maybe<Types.EditionName>;
     postsPerPage?: Types.Maybe<Types.Scalars['Int']>;
 }>;
-export declare type LatestArticlesQuery = ({
+export declare type LatestArticlesQuery = {
     __typename?: 'RootQuery';
-} & {
-    posts?: Types.Maybe<({
+    posts?: Types.Maybe<{
         __typename?: 'RootQueryToPostConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment)>>>;
-        pageInfo?: Types.Maybe<({
+        pageInfo?: Types.Maybe<{
             __typename?: 'WPPageInfo';
-        } & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
-    })>;
-});
+            endCursor?: Types.Maybe<string>;
+            hasNextPage: boolean;
+        }>;
+    }>;
+};
 export declare const LatestArticlesDocument: Apollo.DocumentNode;
 /**
  * __useLatestArticlesQuery__

@@ -17,15 +17,8 @@ export type ArticlesByObsessionQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticlesByObsessionQuery = (
-  { __typename?: 'RootQuery' }
-  & { obsessions?: Types.Maybe<(
-    { __typename?: 'RootQueryToObsessionConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Obsession' }
-      & { posts?: Types.Maybe<(
-        { __typename?: 'ObsessionToContentUnionConnection' }
-        & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ArticlesByObsessionQuery = { __typename?: 'RootQuery', obsessions?: Types.Maybe<{ __typename?: 'RootQueryToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Obsession', posts?: Types.Maybe<{ __typename?: 'ObsessionToContentUnionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment
         ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | (
@@ -34,15 +27,9 @@ export type ArticlesByObsessionQuery = (
         ) | { __typename?: 'Collection' } | { __typename?: 'Stack' } | (
           { __typename?: 'Bulletin' }
           & BulletinPartsFragment
-        )>>>, pageInfo?: Types.Maybe<(
-          { __typename?: 'WPPageInfo' }
-          & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>
-        )> }
-      )> }
+        )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> }
       & ObsessionPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const ArticlesByObsessionDocument = /*#__PURE__*/ gql`

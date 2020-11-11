@@ -13,26 +13,13 @@ export type ArticlesByGuideQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticlesByGuideQuery = (
-  { __typename?: 'RootQuery' }
-  & { guides?: Types.Maybe<(
-    { __typename?: 'RootQueryToGuideConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Guide' }
-      & { posts?: Types.Maybe<(
-        { __typename?: 'GuideToPostConnection' }
-        & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ArticlesByGuideQuery = { __typename?: 'RootQuery', guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Guide', posts?: Types.Maybe<{ __typename?: 'GuideToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment
-        )>>>, pageInfo?: Types.Maybe<(
-          { __typename?: 'WPPageInfo' }
-          & Pick<Types.WpPageInfo, 'hasNextPage' | 'endCursor'>
-        )> }
-      )> }
+        )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', hasNextPage: boolean, endCursor?: Types.Maybe<string> }> }> }
       & GuidePartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const ArticlesByGuideDocument = /*#__PURE__*/ gql`

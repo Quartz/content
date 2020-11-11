@@ -4,13 +4,12 @@ import * as Apollo from '@apollo/client';
 export declare type ArticleQueryVariables = Types.Exact<{
     id: Types.Scalars['ID'];
 }>;
-export declare type ArticleQuery = ({
+export declare type ArticleQuery = {
     __typename?: 'RootQuery';
-} & {
     post?: Types.Maybe<({
         __typename?: 'Post';
     } & ArticlePartsFragment)>;
-});
+};
 export declare const ArticleDocument: Apollo.DocumentNode;
 /**
  * __useArticleQuery__

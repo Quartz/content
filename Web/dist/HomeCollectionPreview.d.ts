@@ -6,17 +6,15 @@ export declare type HomeCollectionPreviewQueryVariables = Types.Exact<{
     time: Types.Scalars['Int'];
     token: Types.Scalars['String'];
 }>;
-export declare type HomeCollectionPreviewQuery = ({
+export declare type HomeCollectionPreviewQuery = {
     __typename?: 'RootQuery';
-} & {
-    collections?: Types.Maybe<({
+    collections?: Types.Maybe<{
         __typename?: 'RootQueryToCollectionConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Collection';
         } & CollectionPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const HomeCollectionPreviewDocument: Apollo.DocumentNode;
 /**
  * __useHomeCollectionPreviewQuery__

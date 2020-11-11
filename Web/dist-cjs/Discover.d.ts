@@ -5,39 +5,33 @@ import * as Apollo from '@apollo/client';
 export declare type DiscoverQueryVariables = Types.Exact<{
     topics: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
-export declare type DiscoverQuery = ({
+export declare type DiscoverQuery = {
     __typename?: 'RootQuery';
-} & {
-    latest?: Types.Maybe<({
+    latest?: Types.Maybe<{
         __typename?: 'RootQueryToPostConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment)>>>;
-    })>;
-    trendingPosts?: Types.Maybe<({
+    }>;
+    trendingPosts?: Types.Maybe<{
         __typename?: 'RootQueryToPostConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment)>>>;
-    })>;
-    topics?: Types.Maybe<({
+    }>;
+    topics?: Types.Maybe<{
         __typename?: 'RootQueryToTopicConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Topic';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'TopicToPostConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
                 } & ArticleTeaserPartsFragment)>>>;
-            })>;
+            }>;
         } & TopicPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const DiscoverDocument: Apollo.DocumentNode;
 /**
  * __useDiscoverQuery__

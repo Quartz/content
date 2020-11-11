@@ -9,80 +9,97 @@ import type { SeriesPartsFragment } from './SeriesParts';
 import type { ShowPartsFragment } from './ShowParts';
 export declare type ArticlePartsFragment = ({
     __typename?: 'Post';
-} & Pick<Types.Post, 'canonicalUrl' | 'classifications' | 'excerpt' | 'featuredImageSize' | 'footnotes' | 'interactiveSource' | 'interactiveShowHeader' | 'metered' | 'modifiedGmt' | 'paywalled' | 'readNext' | 'slug' | 'seoTitle' | 'socialDescription' | 'socialImage' | 'socialTitle' | 'subtype' | 'suppressAds' | 'trackingUrls'> & {
-    authors?: Types.Maybe<({
+    canonicalUrl?: Types.Maybe<string>;
+    classifications?: Types.Maybe<Array<Types.Maybe<string>>>;
+    excerpt?: Types.Maybe<string>;
+    featuredImageSize?: Types.Maybe<string>;
+    footnotes?: Types.Maybe<Array<Types.Maybe<string>>>;
+    interactiveSource?: Types.Maybe<string>;
+    interactiveShowHeader?: Types.Maybe<boolean>;
+    metered?: Types.Maybe<boolean>;
+    modifiedGmt?: Types.Maybe<string>;
+    paywalled?: Types.Maybe<boolean>;
+    readNext?: Types.Maybe<Array<Types.Maybe<string>>>;
+    slug?: Types.Maybe<string>;
+    seoTitle?: Types.Maybe<string>;
+    socialDescription?: Types.Maybe<string>;
+    socialImage?: Types.Maybe<string>;
+    socialTitle?: Types.Maybe<string>;
+    subtype?: Types.Maybe<string>;
+    suppressAds?: Types.Maybe<boolean>;
+    trackingUrls?: Types.Maybe<Array<Types.Maybe<string>>>;
+    authors?: Types.Maybe<{
         __typename?: 'PostToCoAuthorConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'CoAuthor';
         } & AuthorPartsFragment)>>>;
-    })>;
+    }>;
     blocks?: Types.Maybe<Array<Types.Maybe<({
         __typename?: 'Block';
     } & BlockPartsFragment)>>>;
-    flags?: Types.Maybe<({
+    flags?: Types.Maybe<{
         __typename?: 'PostToFlagConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Flag';
-        } & Pick<Types.Flag, 'name' | 'slug'>)>>>;
-    })>;
-    guides?: Types.Maybe<({
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
+    guides?: Types.Maybe<{
         __typename?: 'PostToGuideConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Guide';
         } & GuidePartsFragment)>>>;
-    })>;
-    locations?: Types.Maybe<({
+    }>;
+    locations?: Types.Maybe<{
         __typename?: 'PostToLocationConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Location';
-        } & Pick<Types.Location, 'name'>)>>>;
-    })>;
-    obsessions?: Types.Maybe<({
+            name?: Types.Maybe<string>;
+        }>>>;
+    }>;
+    obsessions?: Types.Maybe<{
         __typename?: 'PostToObsessionConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Obsession';
         } & ObsessionPartsFragment)>>>;
-    })>;
-    projects?: Types.Maybe<({
+    }>;
+    projects?: Types.Maybe<{
         __typename?: 'PostToProjectConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Project';
         } & ProjectPartsFragment)>>>;
-    })>;
-    serieses?: Types.Maybe<({
+    }>;
+    serieses?: Types.Maybe<{
         __typename?: 'PostToSeriesConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Series';
         } & SeriesPartsFragment)>>>;
-    })>;
-    shows?: Types.Maybe<({
+    }>;
+    shows?: Types.Maybe<{
         __typename?: 'PostToShowConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Show';
         } & ShowPartsFragment)>>>;
-    })>;
-    tags?: Types.Maybe<({
+    }>;
+    tags?: Types.Maybe<{
         __typename?: 'PostToTagConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Tag';
-        } & Pick<Types.Tag, 'id' | 'name' | 'slug'>)>>>;
-    })>;
-    topics?: Types.Maybe<({
+            id: string;
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
+    topics?: Types.Maybe<{
         __typename?: 'PostToTopicConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Topic';
-        } & Pick<Types.Topic, 'id' | 'name' | 'slug'>)>>>;
-    })>;
+            id: string;
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
 } & ArticleTeaserPartsFragment);
 export declare const ArticlePartsFragmentDoc: import("@apollo/client").DocumentNode;
 //# sourceMappingURL=ArticleParts.d.ts.map

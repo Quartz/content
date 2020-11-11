@@ -5,17 +5,15 @@ export declare type NugsByTagQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
     tag: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
-export declare type NugsByTagQuery = ({
+export declare type NugsByTagQuery = {
     __typename?: 'RootQuery';
-} & {
-    nugs?: Types.Maybe<({
+    nugs?: Types.Maybe<{
         __typename?: 'RootQueryToNugConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Nug';
         } & NugPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const NugsByTagDocument: Apollo.DocumentNode;
 /**
  * __useNugsByTagQuery__

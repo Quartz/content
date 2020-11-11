@@ -6,18 +6,19 @@ export declare type ContentBySearchTermQueryVariables = Types.Exact<{
     limit?: Types.Maybe<Types.Scalars['Int']>;
     search: Types.Scalars['String'];
 }>;
-export declare type ContentBySearchTermQuery = ({
+export declare type ContentBySearchTermQuery = {
     __typename?: 'RootQuery';
-} & {
-    content?: Types.Maybe<({
+    content?: Types.Maybe<{
         __typename?: 'RootQueryToContentUnionConnection';
-    } & {
-        pageInfo?: Types.Maybe<({
+        pageInfo?: Types.Maybe<{
             __typename?: 'WPPageInfo';
-        } & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
+            endCursor?: Types.Maybe<string>;
+            hasNextPage: boolean;
+        }>;
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
-        } & Pick<Types.Post, 'trackingUrls'> & ArticleTeaserPartsFragment) | {
+            trackingUrls?: Types.Maybe<Array<Types.Maybe<string>>>;
+        } & ArticleTeaserPartsFragment) | {
             __typename?: 'Page';
         } | {
             __typename?: 'MediaItem';
@@ -36,8 +37,8 @@ export declare type ContentBySearchTermQuery = ({
         } | {
             __typename?: 'Bulletin';
         }>>>;
-    })>;
-});
+    }>;
+};
 export declare const ContentBySearchTermDocument: Apollo.DocumentNode;
 /**
  * __useContentBySearchTermQuery__

@@ -12,20 +12,13 @@ export type PromotionsByTagQueryVariables = Types.Exact<{
 }>;
 
 
-export type PromotionsByTagQuery = (
-  { __typename?: 'RootQuery' }
-  & { promotions?: Types.Maybe<(
-    { __typename?: 'RootQueryToPromotionConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Promotion' }
-      & { blocks?: Types.Maybe<Array<Types.Maybe<(
+export type PromotionsByTagQuery = { __typename?: 'RootQuery', promotions?: Types.Maybe<{ __typename?: 'RootQueryToPromotionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Promotion', blocks?: Types.Maybe<Array<Types.Maybe<(
         { __typename?: 'Block' }
         & BlockPartsFragment
       )>>> }
       & PromotionPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const PromotionsByTagDocument = /*#__PURE__*/ gql`

@@ -9,13 +9,10 @@ export type ArticleQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticleQuery = (
-  { __typename?: 'RootQuery' }
-  & { post?: Types.Maybe<(
+export type ArticleQuery = { __typename?: 'RootQuery', post?: Types.Maybe<(
     { __typename?: 'Post' }
     & ArticlePartsFragment
-  )> }
-);
+  )> };
 
 
 export const ArticleDocument = /*#__PURE__*/ gql`

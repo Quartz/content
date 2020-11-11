@@ -16,6 +16,7 @@ generates:
       baseTypesPath: types.ts
     config:
       enumsAsTypes: true
+      preResolveTypes: true
       pureMagicComment: true
       useTypeImports: true
     plugins:

@@ -10,16 +10,10 @@ export type GuidesBySlugQueryVariables = Types.Exact<{
 }>;
 
 
-export type GuidesBySlugQuery = (
-  { __typename?: 'RootQuery' }
-  & { guides?: Types.Maybe<(
-    { __typename?: 'RootQueryToGuideConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type GuidesBySlugQuery = { __typename?: 'RootQuery', guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Guide' }
       & GuidePartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const GuidesBySlugDocument = /*#__PURE__*/ gql`

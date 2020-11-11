@@ -1,21 +1,30 @@
 import type * as Types from './types';
 import type { MediaPartsFragment } from './MediaParts';
-export declare type ShowPartsFragment = ({
+export declare type ShowPartsFragment = {
     __typename?: 'Show';
-} & Pick<Types.Show, 'colors' | 'count' | 'description' | 'id' | 'link' | 'name' | 'postOrder' | 'shortDescription' | 'slug'> & {
+    colors?: Types.Maybe<Array<Types.Maybe<string>>>;
+    count?: Types.Maybe<number>;
+    description?: Types.Maybe<string>;
+    id: string;
+    link?: Types.Maybe<string>;
+    name?: Types.Maybe<string>;
+    postOrder?: Types.Maybe<Array<Types.Maybe<number>>>;
+    shortDescription?: Types.Maybe<string>;
+    slug?: Types.Maybe<string>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
-    headerImages?: Types.Maybe<Array<Types.Maybe<({
+    headerImages?: Types.Maybe<Array<Types.Maybe<{
         __typename?: 'ShowHeaderImages';
-    } & Pick<Types.ShowHeaderImages, 'layer' | 'size'> & {
+        layer?: Types.Maybe<number>;
+        size?: Types.Maybe<string>;
         image?: Types.Maybe<({
             __typename?: 'MediaItem';
         } & MediaPartsFragment)>;
-    })>>>;
-    headerVideos?: Types.Maybe<Array<Types.Maybe<({
+    }>>>;
+    headerVideos?: Types.Maybe<Array<Types.Maybe<{
         __typename?: 'ShowHeaderVideos';
-    } & Pick<Types.ShowHeaderVideos, 'size'> & {
+        size?: Types.Maybe<string>;
         mp4?: Types.Maybe<({
             __typename?: 'MediaItem';
         } & MediaPartsFragment)>;
@@ -25,10 +34,10 @@ export declare type ShowPartsFragment = ({
         poster?: Types.Maybe<({
             __typename?: 'MediaItem';
         } & MediaPartsFragment)>;
-    })>>>;
+    }>>>;
     socialImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
-});
+};
 export declare const ShowPartsFragmentDoc: import("@apollo/client").DocumentNode;
 //# sourceMappingURL=ShowParts.d.ts.map

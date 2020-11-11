@@ -11,16 +11,10 @@ export type ArticlePreviewQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticlePreviewQuery = (
-  { __typename?: 'RootQuery' }
-  & { posts?: Types.Maybe<(
-    { __typename?: 'RootQueryToPostConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ArticlePreviewQuery = { __typename?: 'RootQuery', posts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticlePartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const ArticlePreviewDocument = /*#__PURE__*/ gql`

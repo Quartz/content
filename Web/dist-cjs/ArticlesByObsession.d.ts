@@ -9,18 +9,14 @@ export declare type ArticlesByObsessionQueryVariables = Types.Exact<{
     perPage?: Types.Maybe<Types.Scalars['Int']>;
     slug: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
-export declare type ArticlesByObsessionQuery = ({
+export declare type ArticlesByObsessionQuery = {
     __typename?: 'RootQuery';
-} & {
-    obsessions?: Types.Maybe<({
+    obsessions?: Types.Maybe<{
         __typename?: 'RootQueryToObsessionConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Obsession';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'ObsessionToContentUnionConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
                 } & ArticleTeaserPartsFragment) | {
@@ -42,13 +38,15 @@ export declare type ArticlesByObsessionQuery = ({
                 } | ({
                     __typename?: 'Bulletin';
                 } & BulletinPartsFragment)>>>;
-                pageInfo?: Types.Maybe<({
+                pageInfo?: Types.Maybe<{
                     __typename?: 'WPPageInfo';
-                } & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
-            })>;
+                    endCursor?: Types.Maybe<string>;
+                    hasNextPage: boolean;
+                }>;
+            }>;
         } & ObsessionPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const ArticlesByObsessionDocument: Apollo.DocumentNode;
 /**
  * __useArticlesByObsessionQuery__

@@ -6,15 +6,13 @@ import * as Apollo from '@apollo/client';
 export declare type MemberHomeQueryVariables = Types.Exact<{
     [key: string]: never;
 }>;
-export declare type MemberHomeQuery = ({
+export declare type MemberHomeQuery = {
     __typename?: 'RootQuery';
-} & {
-    features?: Types.Maybe<({
+    features?: Types.Maybe<{
         __typename?: 'RootQueryToMenuItemConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'MenuItem';
-        } & Pick<Types.MenuItem, 'id'> & {
+            id: string;
             connectedObject?: Types.Maybe<{
                 __typename?: 'Post';
             } | {
@@ -35,14 +33,12 @@ export declare type MemberHomeQuery = ({
                 __typename?: 'Category';
             } | ({
                 __typename?: 'Tag';
-            } & {
-                posts?: Types.Maybe<({
+                posts?: Types.Maybe<{
                     __typename?: 'TagToPostConnection';
-                } & {
                     nodes?: Types.Maybe<Array<Types.Maybe<({
                         __typename?: 'Post';
                     } & ArticleTeaserPartsFragment)>>>;
-                })>;
+                }>;
             } & TagPartsFragment) | {
                 __typename?: 'EmailList';
             } | {
@@ -56,24 +52,21 @@ export declare type MemberHomeQuery = ({
             } | {
                 __typename?: 'MenuItem';
             }>;
-        })>>>;
-    })>;
-    guides?: Types.Maybe<({
+        }>>>;
+    }>;
+    guides?: Types.Maybe<{
         __typename?: 'RootQueryToGuideConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Guide';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'GuideToPostConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
                 } & ArticleTeaserPartsFragment)>>>;
-            })>;
+            }>;
         } & GuidePartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const MemberHomeDocument: Apollo.DocumentNode;
 /**
  * __useMemberHomeQuery__

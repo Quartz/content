@@ -11,27 +11,13 @@ export type EssentialsByArticleQueryVariables = Types.Exact<{
 }>;
 
 
-export type EssentialsByArticleQuery = (
-  { __typename?: 'RootQuery' }
-  & { post?: Types.Maybe<(
-    { __typename?: 'Post' }
-    & Pick<Types.Post, 'id'>
-    & { obsessions?: Types.Maybe<(
-      { __typename?: 'PostToObsessionConnection' }
-      & { nodes?: Types.Maybe<Array<Types.Maybe<(
-        { __typename?: 'Obsession' }
-        & { essentials?: Types.Maybe<(
-          { __typename?: 'ObsessionToCollectionConnection' }
-          & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type EssentialsByArticleQuery = { __typename?: 'RootQuery', post?: Types.Maybe<{ __typename?: 'Post', id: string, obsessions?: Types.Maybe<{ __typename?: 'PostToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+        { __typename?: 'Obsession', essentials?: Types.Maybe<{ __typename?: 'ObsessionToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
             { __typename?: 'Collection' }
             & CollectionPartsFragment
-          )>>> }
-        )> }
+          )>>> }> }
         & ObsessionPartsFragment
-      )>>> }
-    )> }
-  )> }
-);
+      )>>> }> }> };
 
 
 export const EssentialsByArticleDocument = /*#__PURE__*/ gql`

@@ -7,28 +7,26 @@ export declare type ArticlesByShowQueryVariables = Types.Exact<{
     perPage?: Types.Maybe<Types.Scalars['Int']>;
     slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
 }>;
-export declare type ArticlesByShowQuery = ({
+export declare type ArticlesByShowQuery = {
     __typename?: 'RootQuery';
-} & {
-    shows?: Types.Maybe<({
+    shows?: Types.Maybe<{
         __typename?: 'RootQueryToShowConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Show';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'ShowToPostConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
                 } & ArticleTeaserPartsFragment)>>>;
-                pageInfo?: Types.Maybe<({
+                pageInfo?: Types.Maybe<{
                     __typename?: 'WPPageInfo';
-                } & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
-            })>;
+                    endCursor?: Types.Maybe<string>;
+                    hasNextPage: boolean;
+                }>;
+            }>;
         } & ShowPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const ArticlesByShowDocument: Apollo.DocumentNode;
 /**
  * __useArticlesByShowQuery__

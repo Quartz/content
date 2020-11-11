@@ -6,17 +6,15 @@ export declare type ArticlePreviewQueryVariables = Types.Exact<{
     time: Types.Scalars['Int'];
     token: Types.Scalars['String'];
 }>;
-export declare type ArticlePreviewQuery = ({
+export declare type ArticlePreviewQuery = {
     __typename?: 'RootQuery';
-} & {
-    posts?: Types.Maybe<({
+    posts?: Types.Maybe<{
         __typename?: 'RootQueryToPostConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticlePartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const ArticlePreviewDocument: Apollo.DocumentNode;
 /**
  * __useArticlePreviewQuery__
