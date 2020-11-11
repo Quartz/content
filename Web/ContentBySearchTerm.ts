@@ -52,7 +52,7 @@ export const ContentBySearchTermDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useContentBySearchTermQuery(baseOptions?: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {
+export function useContentBySearchTermQuery(baseOptions: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {
         return Apollo.useQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, baseOptions);
       }
 export function useContentBySearchTermLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {

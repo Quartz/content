@@ -36,7 +36,7 @@ export declare const PromotionsByTagDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function usePromotionsByTagQuery(baseOptions?: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>): Apollo.QueryResult<PromotionsByTagQuery, Types.Exact<{
+export declare function usePromotionsByTagQuery(baseOptions: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>): Apollo.QueryResult<PromotionsByTagQuery, Types.Exact<{
     perPage: number;
     slug: (string | null)[];
 }>>;

@@ -34,7 +34,7 @@ export declare const ArticlePreviewDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useArticlePreviewQuery(baseOptions?: Apollo.QueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>): Apollo.QueryResult<ArticlePreviewQuery, Types.Exact<{
+export declare function useArticlePreviewQuery(baseOptions: Apollo.QueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>): Apollo.QueryResult<ArticlePreviewQuery, Types.Exact<{
     id: number;
     time: number;
     token: string;

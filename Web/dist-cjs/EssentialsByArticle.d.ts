@@ -41,7 +41,7 @@ export declare const EssentialsByArticleDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useEssentialsByArticleQuery(baseOptions?: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>): Apollo.QueryResult<EssentialsByArticleQuery, Types.Exact<{
+export declare function useEssentialsByArticleQuery(baseOptions: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>): Apollo.QueryResult<EssentialsByArticleQuery, Types.Exact<{
     id: string;
 }>>;
 export declare function useEssentialsByArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>): Apollo.QueryTuple<EssentialsByArticleQuery, Types.Exact<{

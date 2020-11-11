@@ -58,7 +58,7 @@ export declare const ContentBySearchTermDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useContentBySearchTermQuery(baseOptions?: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>): Apollo.QueryResult<ContentBySearchTermQuery, Types.Exact<{
+export declare function useContentBySearchTermQuery(baseOptions: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>): Apollo.QueryResult<ContentBySearchTermQuery, Types.Exact<{
     after?: string | null | undefined;
     limit?: number | null | undefined;
     search: string;

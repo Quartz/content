@@ -32,7 +32,7 @@ export declare const GuidesBySlugDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useGuidesBySlugQuery(baseOptions?: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>): Apollo.QueryResult<GuidesBySlugQuery, Types.Exact<{
+export declare function useGuidesBySlugQuery(baseOptions: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>): Apollo.QueryResult<GuidesBySlugQuery, Types.Exact<{
     perPage: number;
     slugs: (string | null)[];
 }>>;

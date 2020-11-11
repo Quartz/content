@@ -39,7 +39,7 @@ export const ArticleTeaserDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useArticleTeaserQuery(baseOptions?: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {
+export function useArticleTeaserQuery(baseOptions: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {
         return Apollo.useQuery<ArticleTeaserQuery, ArticleTeaserQueryVariables>(ArticleTeaserDocument, baseOptions);
       }
 export function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {

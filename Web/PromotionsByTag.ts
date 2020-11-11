@@ -52,7 +52,7 @@ ${BlockPartsFragmentDoc}`;
  *   },
  * });
  */
-export function usePromotionsByTagQuery(baseOptions?: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>) {
+export function usePromotionsByTagQuery(baseOptions: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>) {
         return Apollo.useQuery<PromotionsByTagQuery, PromotionsByTagQueryVariables>(PromotionsByTagDocument, baseOptions);
       }
 export function usePromotionsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>) {

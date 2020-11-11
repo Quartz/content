@@ -55,7 +55,7 @@ ${CollectionPartsFragmentDoc}`;
  *   },
  * });
  */
-export function useEssentialsByArticleQuery(baseOptions?: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>) {
+export function useEssentialsByArticleQuery(baseOptions: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>) {
         return Apollo.useQuery<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>(EssentialsByArticleDocument, baseOptions);
       }
 export function useEssentialsByArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>) {

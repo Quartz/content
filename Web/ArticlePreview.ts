@@ -45,7 +45,7 @@ export const ArticlePreviewDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useArticlePreviewQuery(baseOptions?: Apollo.QueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {
+export function useArticlePreviewQuery(baseOptions: Apollo.QueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {
         return Apollo.useQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, baseOptions);
       }
 export function useArticlePreviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {

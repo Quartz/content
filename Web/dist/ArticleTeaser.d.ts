@@ -27,7 +27,7 @@ export declare const ArticleTeaserDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useArticleTeaserQuery(baseOptions?: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>): Apollo.QueryResult<ArticleTeaserQuery, Types.Exact<{
+export declare function useArticleTeaserQuery(baseOptions: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>): Apollo.QueryResult<ArticleTeaserQuery, Types.Exact<{
     id: string;
 }>>;
 export declare function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>): Apollo.QueryTuple<ArticleTeaserQuery, Types.Exact<{

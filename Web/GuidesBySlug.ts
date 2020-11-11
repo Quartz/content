@@ -43,7 +43,7 @@ export const GuidesBySlugDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useGuidesBySlugQuery(baseOptions?: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>) {
+export function useGuidesBySlugQuery(baseOptions: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>) {
         return Apollo.useQuery<GuidesBySlugQuery, GuidesBySlugQueryVariables>(GuidesBySlugDocument, baseOptions);
       }
 export function useGuidesBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>) {

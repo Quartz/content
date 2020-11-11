@@ -68,7 +68,7 @@ ${TopicPartsFragmentDoc}`;
  *   },
  * });
  */
-export function useDiscoverQuery(baseOptions?: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
+export function useDiscoverQuery(baseOptions: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
         return Apollo.useQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
       }
 export function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {

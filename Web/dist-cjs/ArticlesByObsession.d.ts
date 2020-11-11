@@ -66,7 +66,7 @@ export declare const ArticlesByObsessionDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useArticlesByObsessionQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>): Apollo.QueryResult<ArticlesByObsessionQuery, Types.Exact<{
+export declare function useArticlesByObsessionQuery(baseOptions: Apollo.QueryHookOptions<ArticlesByObsessionQuery, ArticlesByObsessionQueryVariables>): Apollo.QueryResult<ArticlesByObsessionQuery, Types.Exact<{
     after?: string | null | undefined;
     perPage?: number | null | undefined;
     slug: (string | null)[];

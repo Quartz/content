@@ -49,7 +49,7 @@ export declare const DiscoverDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useDiscoverQuery(baseOptions?: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>): Apollo.QueryResult<DiscoverQuery, Types.Exact<{
+export declare function useDiscoverQuery(baseOptions: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>): Apollo.QueryResult<DiscoverQuery, Types.Exact<{
     topics: (string | null)[];
 }>>;
 export declare function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>): Apollo.QueryTuple<DiscoverQuery, Types.Exact<{

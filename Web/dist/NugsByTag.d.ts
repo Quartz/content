@@ -32,7 +32,7 @@ export declare const NugsByTagDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useNugsByTagQuery(baseOptions?: Apollo.QueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>): Apollo.QueryResult<NugsByTagQuery, Types.Exact<{
+export declare function useNugsByTagQuery(baseOptions: Apollo.QueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>): Apollo.QueryResult<NugsByTagQuery, Types.Exact<{
     perPage: number;
     tag: (string | null)[];
 }>>;

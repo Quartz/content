@@ -34,7 +34,7 @@ export declare const HomeCollectionPreviewDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useHomeCollectionPreviewQuery(baseOptions?: Apollo.QueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>): Apollo.QueryResult<HomeCollectionPreviewQuery, Types.Exact<{
+export declare function useHomeCollectionPreviewQuery(baseOptions: Apollo.QueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>): Apollo.QueryResult<HomeCollectionPreviewQuery, Types.Exact<{
     id: number;
     time: number;
     token: string;
