@@ -7,7 +7,11 @@ export const ArticlesByGuideDocument = /*#__PURE__*/ gql `
   guides(where: {slug: $slug}) {
     nodes {
       ...GuideParts
-      posts(after: $after, first: $perPage, where: {orderby: {field: DATE, order: ASC}}) {
+      posts(
+        after: $after
+        first: $perPage
+        where: {orderby: {field: DATE, order: ASC}}
+      ) {
         nodes {
           ...ArticleTeaserParts
         }

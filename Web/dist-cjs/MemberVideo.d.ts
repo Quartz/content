@@ -5,15 +5,13 @@ import * as Apollo from '@apollo/client';
 export declare type MemberVideoQueryVariables = Types.Exact<{
     [key: string]: never;
 }>;
-export declare type MemberVideoQuery = ({
+export declare type MemberVideoQuery = {
     __typename?: 'RootQuery';
-} & {
-    features?: Types.Maybe<({
+    features?: Types.Maybe<{
         __typename?: 'RootQueryToMenuItemConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'MenuItem';
-        } & Pick<Types.MenuItem, 'id'> & {
+            id: string;
             connectedObject?: Types.Maybe<{
                 __typename?: 'Post';
             } | {
@@ -34,14 +32,12 @@ export declare type MemberVideoQuery = ({
                 __typename?: 'Category';
             } | ({
                 __typename?: 'Tag';
-            } & {
-                posts?: Types.Maybe<({
+                posts?: Types.Maybe<{
                     __typename?: 'TagToPostConnection';
-                } & {
                     nodes?: Types.Maybe<Array<Types.Maybe<({
                         __typename?: 'Post';
                     } & ArticleTeaserPartsFragment)>>>;
-                })>;
+                }>;
             } & TagPartsFragment) | {
                 __typename?: 'EmailList';
             } | {
@@ -55,9 +51,9 @@ export declare type MemberVideoQuery = ({
             } | {
                 __typename?: 'MenuItem';
             }>;
-        })>>>;
-    })>;
-});
+        }>>>;
+    }>;
+};
 export declare const MemberVideoDocument: Apollo.DocumentNode;
 /**
  * __useMemberVideoQuery__

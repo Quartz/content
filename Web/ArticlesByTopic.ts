@@ -13,26 +13,13 @@ export type ArticlesByTopicQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticlesByTopicQuery = (
-  { __typename?: 'RootQuery' }
-  & { topics?: Types.Maybe<(
-    { __typename?: 'RootQueryToTopicConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Topic' }
-      & { posts?: Types.Maybe<(
-        { __typename?: 'TopicToPostConnection' }
-        & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ArticlesByTopicQuery = { __typename?: 'RootQuery', topics?: Types.Maybe<{ __typename?: 'RootQueryToTopicConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Topic', posts?: Types.Maybe<{ __typename?: 'TopicToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment
-        )>>>, pageInfo?: Types.Maybe<(
-          { __typename?: 'WPPageInfo' }
-          & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>
-        )> }
-      )> }
+        )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> }
       & TopicPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const ArticlesByTopicDocument = /*#__PURE__*/ gql`

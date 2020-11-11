@@ -3,15 +3,15 @@ import type { MediaPartsFragment } from './MediaParts';
 import type { BlockPartsFragment } from './BlockParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { NugPartsFragment } from './NugParts';
-export declare type CollectionPartsFragment = ({
+export declare type CollectionPartsFragment = {
     __typename?: 'Collection';
-} & Pick<Types.Collection, 'id' | 'title'> & {
+    id: string;
+    title?: Types.Maybe<string>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
     blocks?: Types.Maybe<Array<Types.Maybe<({
         __typename?: 'Block';
-    } & {
         connections?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment) | {
@@ -42,6 +42,6 @@ export declare type CollectionPartsFragment = ({
             __typename?: 'Bulletin';
         }>>>;
     } & BlockPartsFragment)>>>;
-});
+};
 export declare const CollectionPartsFragmentDoc: import("@apollo/client").DocumentNode;
 //# sourceMappingURL=CollectionParts.d.ts.map

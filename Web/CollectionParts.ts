@@ -9,15 +9,11 @@ import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { NugPartsFragmentDoc } from './NugParts';
-export type CollectionPartsFragment = (
-  { __typename?: 'Collection' }
-  & Pick<Types.Collection, 'id' | 'title'>
-  & { featuredImage?: Types.Maybe<(
+export type CollectionPartsFragment = { __typename?: 'Collection', id: string, title?: Types.Maybe<string>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, blocks?: Types.Maybe<Array<Types.Maybe<(
-    { __typename?: 'Block' }
-    & { connections?: Types.Maybe<Array<Types.Maybe<(
+    { __typename?: 'Block', connections?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | (
@@ -28,8 +24,7 @@ export type CollectionPartsFragment = (
       & NugPartsFragment
     ) | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }
     & BlockPartsFragment
-  )>>> }
-);
+  )>>> };
 
 export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment CollectionParts on Collection {

@@ -5,25 +5,20 @@ import * as Apollo from '@apollo/client';
 export declare type VideoHubQueryVariables = Types.Exact<{
     [key: string]: never;
 }>;
-export declare type VideoHubQuery = ({
+export declare type VideoHubQuery = {
     __typename?: 'RootQuery';
-} & {
-    featuredVideoPlayer?: Types.Maybe<({
+    featuredVideoPlayer?: Types.Maybe<{
         __typename?: 'RootQueryToMenuItemConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'MenuItem';
-        } & {
             connectedObject?: Types.Maybe<({
                 __typename?: 'Post';
-            } & {
-                shows?: Types.Maybe<({
+                shows?: Types.Maybe<{
                     __typename?: 'PostToShowConnection';
-                } & {
                     nodes?: Types.Maybe<Array<Types.Maybe<({
                         __typename?: 'Show';
                     } & ShowPartsFragment)>>>;
-                })>;
+                }>;
             } & ArticleTeaserPartsFragment) | {
                 __typename?: 'Page';
             } | {
@@ -55,37 +50,30 @@ export declare type VideoHubQuery = ({
             } | {
                 __typename?: 'MenuItem';
             }>;
-        })>>>;
-    })>;
-    latest?: Types.Maybe<({
+        }>>>;
+    }>;
+    latest?: Types.Maybe<{
         __typename?: 'RootQueryToTagConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Tag';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'TagToPostConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
-                } & {
-                    shows?: Types.Maybe<({
+                    shows?: Types.Maybe<{
                         __typename?: 'PostToShowConnection';
-                    } & {
                         nodes?: Types.Maybe<Array<Types.Maybe<({
                             __typename?: 'Show';
                         } & ShowPartsFragment)>>>;
-                    })>;
+                    }>;
                 } & ArticleTeaserPartsFragment)>>>;
-            })>;
-        })>>>;
-    })>;
-    featuredShows?: Types.Maybe<({
+            }>;
+        }>>>;
+    }>;
+    featuredShows?: Types.Maybe<{
         __typename?: 'RootQueryToMenuItemConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'MenuItem';
-        } & {
             connectedObject?: Types.Maybe<{
                 __typename?: 'Post';
             } | {
@@ -114,29 +102,26 @@ export declare type VideoHubQuery = ({
                 __typename?: 'Topic';
             } | ({
                 __typename?: 'Show';
-            } & {
-                posts?: Types.Maybe<({
+                posts?: Types.Maybe<{
                     __typename?: 'ShowToPostConnection';
-                } & {
                     nodes?: Types.Maybe<Array<Types.Maybe<({
                         __typename?: 'Post';
                     } & ArticleTeaserPartsFragment)>>>;
-                })>;
+                }>;
             } & ShowPartsFragment) | {
                 __typename?: 'CoAuthor';
             } | {
                 __typename?: 'MenuItem';
             }>;
-        })>>>;
-    })>;
-    allShows?: Types.Maybe<({
+        }>>>;
+    }>;
+    allShows?: Types.Maybe<{
         __typename?: 'RootQueryToShowConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Show';
         } & ShowPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const VideoHubDocument: Apollo.DocumentNode;
 /**
  * __useVideoHubQuery__

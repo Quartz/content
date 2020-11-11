@@ -9,13 +9,10 @@ export type ArticleQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticleQuery = (
-  { __typename?: 'RootQuery' }
-  & { post?: Types.Maybe<(
+export type ArticleQuery = { __typename?: 'RootQuery', post?: Types.Maybe<(
     { __typename?: 'Post' }
     & ArticlePartsFragment
-  )> }
-);
+  )> };
 
 
 export const ArticleDocument = /*#__PURE__*/ gql`
@@ -42,7 +39,7 @@ export const ArticleDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useArticleQuery(baseOptions?: Apollo.QueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
+export function useArticleQuery(baseOptions: Apollo.QueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
         return Apollo.useQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, baseOptions);
       }
 export function useArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleQuery, ArticleQueryVariables>) {

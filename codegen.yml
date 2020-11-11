@@ -4,6 +4,7 @@ generates:
   Web/types.ts:
     config:
       enumsAsTypes: true
+      onlyOperationTypes: true
       pureMagicComment: true
       useTypeImports: true
     plugins:
@@ -16,6 +17,8 @@ generates:
       baseTypesPath: types.ts
     config:
       enumsAsTypes: true
+      exportFragmentSpreadSubTypes: true
+      preResolveTypes: true
       pureMagicComment: true
       useTypeImports: true
     plugins:

@@ -9,67 +9,28 @@ import * as Apollo from '@apollo/client';
 export type VideoHubQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type VideoHubQuery = (
-  { __typename?: 'RootQuery' }
-  & { featuredVideoPlayer?: Types.Maybe<(
-    { __typename?: 'RootQueryToMenuItemConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'MenuItem' }
-      & { connectedObject?: Types.Maybe<(
-        { __typename?: 'Post' }
-        & { shows?: Types.Maybe<(
-          { __typename?: 'PostToShowConnection' }
-          & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type VideoHubQuery = { __typename?: 'RootQuery', featuredVideoPlayer?: Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'MenuItem', connectedObject?: Types.Maybe<(
+        { __typename?: 'Post', shows?: Types.Maybe<{ __typename?: 'PostToShowConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
             { __typename?: 'Show' }
             & ShowPartsFragment
-          )>>> }
-        )> }
+          )>>> }> }
         & ArticleTeaserPartsFragment
-      ) | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
-    )>>> }
-  )>, latest?: Types.Maybe<(
-    { __typename?: 'RootQueryToTagConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Tag' }
-      & { posts?: Types.Maybe<(
-        { __typename?: 'TagToPostConnection' }
-        & { nodes?: Types.Maybe<Array<Types.Maybe<(
-          { __typename?: 'Post' }
-          & { shows?: Types.Maybe<(
-            { __typename?: 'PostToShowConnection' }
-            & { nodes?: Types.Maybe<Array<Types.Maybe<(
+      ) | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }>, latest?: Types.Maybe<{ __typename?: 'RootQueryToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', posts?: Types.Maybe<{ __typename?: 'TagToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+          { __typename?: 'Post', shows?: Types.Maybe<{ __typename?: 'PostToShowConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
               { __typename?: 'Show' }
               & ShowPartsFragment
-            )>>> }
-          )> }
+            )>>> }> }
           & ArticleTeaserPartsFragment
-        )>>> }
-      )> }
-    )>>> }
-  )>, featuredShows?: Types.Maybe<(
-    { __typename?: 'RootQueryToMenuItemConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'MenuItem' }
-      & { connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | (
-        { __typename?: 'Show' }
-        & { posts?: Types.Maybe<(
-          { __typename?: 'ShowToPostConnection' }
-          & { nodes?: Types.Maybe<Array<Types.Maybe<(
+        )>>> }> }>>> }>, featuredShows?: Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'MenuItem', connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | (
+        { __typename?: 'Show', posts?: Types.Maybe<{ __typename?: 'ShowToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
             { __typename?: 'Post' }
             & ArticleTeaserPartsFragment
-          )>>> }
-        )> }
+          )>>> }> }
         & ShowPartsFragment
-      ) | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
-    )>>> }
-  )>, allShows?: Types.Maybe<(
-    { __typename?: 'RootQueryToShowConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+      ) | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }>, allShows?: Types.Maybe<{ __typename?: 'RootQueryToShowConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Show' }
       & ShowPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const VideoHubDocument = /*#__PURE__*/ gql`

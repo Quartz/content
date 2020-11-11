@@ -1,29 +1,45 @@
 import type * as Types from './types';
 import type { MediaPartsFragment } from './MediaParts';
 import type { VideoPartsFragment } from './VideoParts';
-export declare type ArticleTeaserPartsFragment = ({
+export declare type ArticleTeaserPartsFragment = {
     __typename?: 'Post';
-} & Pick<Types.Post, 'dateGmt' | 'id' | 'kicker' | 'link' | 'postId' | 'title'> & {
-    bulletin?: Types.Maybe<({
+    dateGmt?: Types.Maybe<string>;
+    id: string;
+    kicker?: Types.Maybe<string>;
+    link?: Types.Maybe<string>;
+    postId: number;
+    title?: Types.Maybe<string>;
+    bulletin?: Types.Maybe<{
         __typename?: 'BulletinData';
-    } & {
-        campaign?: Types.Maybe<({
+        campaign?: Types.Maybe<{
             __typename?: 'CampaignData';
-        } & Pick<Types.CampaignData, 'id' | 'logo' | 'name' | 'slug'>)>;
-        sponsor?: Types.Maybe<({
+            id?: Types.Maybe<string>;
+            logo?: Types.Maybe<string>;
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>;
+        sponsor?: Types.Maybe<{
             __typename?: 'CampaignData';
-        } & Pick<Types.CampaignData, 'attribution' | 'id' | 'slug' | 'name'>)>;
-        clientTracking?: Types.Maybe<({
+            attribution?: Types.Maybe<string>;
+            id?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+            name?: Types.Maybe<string>;
+        }>;
+        clientTracking?: Types.Maybe<{
             __typename?: 'ClientTrackingData';
-        } & Pick<Types.ClientTrackingData, 'article' | 'elsewhere' | 'logo'>)>;
-    })>;
-    editions?: Types.Maybe<({
+            article?: Types.Maybe<Array<Types.Maybe<string>>>;
+            elsewhere?: Types.Maybe<Array<Types.Maybe<string>>>;
+            logo?: Types.Maybe<string>;
+        }>;
+    }>;
+    editions?: Types.Maybe<{
         __typename?: 'PostToEditionConnection';
-    } & {
-        nodes?: Types.Maybe<Array<Types.Maybe<({
+        nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Edition';
-        } & Pick<Types.Edition, 'name' | 'slug'>)>>>;
-    })>;
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
@@ -33,6 +49,6 @@ export declare type ArticleTeaserPartsFragment = ({
     video?: Types.Maybe<({
         __typename?: 'VideoData';
     } & VideoPartsFragment)>;
-});
+};
 export declare const ArticleTeaserPartsFragmentDoc: import("@apollo/client").DocumentNode;
 //# sourceMappingURL=ArticleTeaserParts.d.ts.map

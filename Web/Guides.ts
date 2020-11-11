@@ -13,26 +13,13 @@ export type GuidesQueryVariables = Types.Exact<{
 }>;
 
 
-export type GuidesQuery = (
-  { __typename?: 'RootQuery' }
-  & { guides?: Types.Maybe<(
-    { __typename?: 'RootQueryToGuideConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Guide' }
-      & { posts?: Types.Maybe<(
-        { __typename?: 'GuideToPostConnection' }
-        & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type GuidesQuery = { __typename?: 'RootQuery', guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Guide', posts?: Types.Maybe<{ __typename?: 'GuideToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment
-        )>>> }
-      )> }
+        )>>> }> }
       & GuidePartsFragment
-    )>>>, pageInfo?: Types.Maybe<(
-      { __typename?: 'WPPageInfo' }
-      & Pick<Types.WpPageInfo, 'hasPreviousPage' | 'startCursor'>
-    )> }
-  )> }
-);
+    )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', hasPreviousPage: boolean, startCursor?: Types.Maybe<string> }> }> };
 
 
 export const GuidesDocument = /*#__PURE__*/ gql`

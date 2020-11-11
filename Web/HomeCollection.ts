@@ -7,16 +7,10 @@ import * as Apollo from '@apollo/client';
 export type HomeCollectionQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type HomeCollectionQuery = (
-  { __typename?: 'RootQuery' }
-  & { collections?: Types.Maybe<(
-    { __typename?: 'RootQueryToCollectionConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type HomeCollectionQuery = { __typename?: 'RootQuery', collections?: Types.Maybe<{ __typename?: 'RootQueryToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Collection' }
       & CollectionPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const HomeCollectionDocument = /*#__PURE__*/ gql`

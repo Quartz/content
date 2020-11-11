@@ -9,27 +9,13 @@ import * as Apollo from '@apollo/client';
 export type MemberVideoQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type MemberVideoQuery = (
-  { __typename?: 'RootQuery' }
-  & { features?: Types.Maybe<(
-    { __typename?: 'RootQueryToMenuItemConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'MenuItem' }
-      & Pick<Types.MenuItem, 'id'>
-      & { connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | (
-        { __typename?: 'Tag' }
-        & { posts?: Types.Maybe<(
-          { __typename?: 'TagToPostConnection' }
-          & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type MemberVideoQuery = { __typename?: 'RootQuery', features?: Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'MenuItem', id: string, connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | (
+        { __typename?: 'Tag', posts?: Types.Maybe<{ __typename?: 'TagToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
             { __typename?: 'Post' }
             & ArticleTeaserPartsFragment
-          )>>> }
-        )> }
+          )>>> }> }
         & TagPartsFragment
-      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }
-    )>>> }
-  )> }
-);
+      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }> };
 
 
 export const MemberVideoDocument = /*#__PURE__*/ gql`

@@ -4,17 +4,15 @@ import * as Apollo from '@apollo/client';
 export declare type HomeCollectionQueryVariables = Types.Exact<{
     [key: string]: never;
 }>;
-export declare type HomeCollectionQuery = ({
+export declare type HomeCollectionQuery = {
     __typename?: 'RootQuery';
-} & {
-    collections?: Types.Maybe<({
+    collections?: Types.Maybe<{
         __typename?: 'RootQueryToCollectionConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Collection';
         } & CollectionPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const HomeCollectionDocument: Apollo.DocumentNode;
 /**
  * __useHomeCollectionQuery__

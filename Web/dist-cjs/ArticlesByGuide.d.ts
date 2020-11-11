@@ -7,28 +7,26 @@ export declare type ArticlesByGuideQueryVariables = Types.Exact<{
     perPage?: Types.Maybe<Types.Scalars['Int']>;
     slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
 }>;
-export declare type ArticlesByGuideQuery = ({
+export declare type ArticlesByGuideQuery = {
     __typename?: 'RootQuery';
-} & {
-    guides?: Types.Maybe<({
+    guides?: Types.Maybe<{
         __typename?: 'RootQueryToGuideConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Guide';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'GuideToPostConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
                 } & ArticleTeaserPartsFragment)>>>;
-                pageInfo?: Types.Maybe<({
+                pageInfo?: Types.Maybe<{
                     __typename?: 'WPPageInfo';
-                } & Pick<Types.WpPageInfo, 'hasNextPage' | 'endCursor'>)>;
-            })>;
+                    hasNextPage: boolean;
+                    endCursor?: Types.Maybe<string>;
+                }>;
+            }>;
         } & GuidePartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const ArticlesByGuideDocument: Apollo.DocumentNode;
 /**
  * __useArticlesByGuideQuery__

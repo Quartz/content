@@ -11,16 +11,10 @@ export type HomeCollectionPreviewQueryVariables = Types.Exact<{
 }>;
 
 
-export type HomeCollectionPreviewQuery = (
-  { __typename?: 'RootQuery' }
-  & { collections?: Types.Maybe<(
-    { __typename?: 'RootQueryToCollectionConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type HomeCollectionPreviewQuery = { __typename?: 'RootQuery', collections?: Types.Maybe<{ __typename?: 'RootQueryToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Collection' }
       & CollectionPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql`
@@ -51,7 +45,7 @@ export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useHomeCollectionPreviewQuery(baseOptions?: Apollo.QueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>) {
+export function useHomeCollectionPreviewQuery(baseOptions: Apollo.QueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>) {
         return Apollo.useQuery<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>(HomeCollectionPreviewDocument, baseOptions);
       }
 export function useHomeCollectionPreviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>) {

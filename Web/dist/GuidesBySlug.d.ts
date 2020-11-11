@@ -5,17 +5,15 @@ export declare type GuidesBySlugQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
     slugs: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
-export declare type GuidesBySlugQuery = ({
+export declare type GuidesBySlugQuery = {
     __typename?: 'RootQuery';
-} & {
-    guides?: Types.Maybe<({
+    guides?: Types.Maybe<{
         __typename?: 'RootQueryToGuideConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Guide';
         } & GuidePartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const GuidesBySlugDocument: Apollo.DocumentNode;
 /**
  * __useGuidesBySlugQuery__
@@ -34,7 +32,7 @@ export declare const GuidesBySlugDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useGuidesBySlugQuery(baseOptions?: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>): Apollo.QueryResult<GuidesBySlugQuery, Types.Exact<{
+export declare function useGuidesBySlugQuery(baseOptions: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>): Apollo.QueryResult<GuidesBySlugQuery, Types.Exact<{
     perPage: number;
     slugs: (string | null)[];
 }>>;

@@ -10,16 +10,10 @@ export type NugsByTagQueryVariables = Types.Exact<{
 }>;
 
 
-export type NugsByTagQuery = (
-  { __typename?: 'RootQuery' }
-  & { nugs?: Types.Maybe<(
-    { __typename?: 'RootQueryToNugConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type NugsByTagQuery = { __typename?: 'RootQuery', nugs?: Types.Maybe<{ __typename?: 'RootQueryToNugConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Nug' }
       & NugPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const NugsByTagDocument = /*#__PURE__*/ gql`
@@ -49,7 +43,7 @@ export const NugsByTagDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useNugsByTagQuery(baseOptions?: Apollo.QueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>) {
+export function useNugsByTagQuery(baseOptions: Apollo.QueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>) {
         return Apollo.useQuery<NugsByTagQuery, NugsByTagQueryVariables>(NugsByTagDocument, baseOptions);
       }
 export function useNugsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>) {

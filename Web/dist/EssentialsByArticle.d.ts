@@ -5,29 +5,25 @@ import * as Apollo from '@apollo/client';
 export declare type EssentialsByArticleQueryVariables = Types.Exact<{
     id: Types.Scalars['ID'];
 }>;
-export declare type EssentialsByArticleQuery = ({
+export declare type EssentialsByArticleQuery = {
     __typename?: 'RootQuery';
-} & {
-    post?: Types.Maybe<({
+    post?: Types.Maybe<{
         __typename?: 'Post';
-    } & Pick<Types.Post, 'id'> & {
-        obsessions?: Types.Maybe<({
+        id: string;
+        obsessions?: Types.Maybe<{
             __typename?: 'PostToObsessionConnection';
-        } & {
             nodes?: Types.Maybe<Array<Types.Maybe<({
                 __typename?: 'Obsession';
-            } & {
-                essentials?: Types.Maybe<({
+                essentials?: Types.Maybe<{
                     __typename?: 'ObsessionToCollectionConnection';
-                } & {
                     nodes?: Types.Maybe<Array<Types.Maybe<({
                         __typename?: 'Collection';
                     } & CollectionPartsFragment)>>>;
-                })>;
+                }>;
             } & ObsessionPartsFragment)>>>;
-        })>;
-    })>;
-});
+        }>;
+    }>;
+};
 export declare const EssentialsByArticleDocument: Apollo.DocumentNode;
 /**
  * __useEssentialsByArticleQuery__
@@ -45,7 +41,7 @@ export declare const EssentialsByArticleDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useEssentialsByArticleQuery(baseOptions?: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>): Apollo.QueryResult<EssentialsByArticleQuery, Types.Exact<{
+export declare function useEssentialsByArticleQuery(baseOptions: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>): Apollo.QueryResult<EssentialsByArticleQuery, Types.Exact<{
     id: string;
 }>>;
 export declare function useEssentialsByArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>): Apollo.QueryTuple<EssentialsByArticleQuery, Types.Exact<{

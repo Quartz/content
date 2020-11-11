@@ -9,13 +9,10 @@ export type ArticleTeaserQueryVariables = Types.Exact<{
 }>;
 
 
-export type ArticleTeaserQuery = (
-  { __typename?: 'RootQuery' }
-  & { post?: Types.Maybe<(
+export type ArticleTeaserQuery = { __typename?: 'RootQuery', post?: Types.Maybe<(
     { __typename?: 'Post' }
     & ArticleTeaserPartsFragment
-  )> }
-);
+  )> };
 
 
 export const ArticleTeaserDocument = /*#__PURE__*/ gql`
@@ -42,7 +39,7 @@ export const ArticleTeaserDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useArticleTeaserQuery(baseOptions?: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {
+export function useArticleTeaserQuery(baseOptions: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {
         return Apollo.useQuery<ArticleTeaserQuery, ArticleTeaserQueryVariables>(ArticleTeaserDocument, baseOptions);
       }
 export function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {

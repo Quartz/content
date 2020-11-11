@@ -11,19 +11,10 @@ export type LatestArticlesQueryVariables = Types.Exact<{
 }>;
 
 
-export type LatestArticlesQuery = (
-  { __typename?: 'RootQuery' }
-  & { posts?: Types.Maybe<(
-    { __typename?: 'RootQueryToPostConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type LatestArticlesQuery = { __typename?: 'RootQuery', posts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
-    )>>>, pageInfo?: Types.Maybe<(
-      { __typename?: 'WPPageInfo' }
-      & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>
-    )> }
-  )> }
-);
+    )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> };
 
 
 export const LatestArticlesDocument = /*#__PURE__*/ gql`

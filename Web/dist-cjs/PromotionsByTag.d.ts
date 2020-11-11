@@ -6,21 +6,18 @@ export declare type PromotionsByTagQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
     slug: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
-export declare type PromotionsByTagQuery = ({
+export declare type PromotionsByTagQuery = {
     __typename?: 'RootQuery';
-} & {
-    promotions?: Types.Maybe<({
+    promotions?: Types.Maybe<{
         __typename?: 'RootQueryToPromotionConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Promotion';
-        } & {
             blocks?: Types.Maybe<Array<Types.Maybe<({
                 __typename?: 'Block';
             } & BlockPartsFragment)>>>;
         } & PromotionPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const PromotionsByTagDocument: Apollo.DocumentNode;
 /**
  * __usePromotionsByTagQuery__
@@ -39,7 +36,7 @@ export declare const PromotionsByTagDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function usePromotionsByTagQuery(baseOptions?: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>): Apollo.QueryResult<PromotionsByTagQuery, Types.Exact<{
+export declare function usePromotionsByTagQuery(baseOptions: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>): Apollo.QueryResult<PromotionsByTagQuery, Types.Exact<{
     perPage: number;
     slug: (string | null)[];
 }>>;

@@ -11,35 +11,19 @@ export type DiscoverQueryVariables = Types.Exact<{
 }>;
 
 
-export type DiscoverQuery = (
-  { __typename?: 'RootQuery' }
-  & { latest?: Types.Maybe<(
-    { __typename?: 'RootQueryToPostConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+export type DiscoverQuery = { __typename?: 'RootQuery', latest?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
-    )>>> }
-  )>, trendingPosts?: Types.Maybe<(
-    { __typename?: 'RootQueryToPostConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
+    )>>> }>, trendingPosts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
-    )>>> }
-  )>, topics?: Types.Maybe<(
-    { __typename?: 'RootQueryToTopicConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Topic' }
-      & { posts?: Types.Maybe<(
-        { __typename?: 'TopicToPostConnection' }
-        & { nodes?: Types.Maybe<Array<Types.Maybe<(
+    )>>> }>, topics?: Types.Maybe<{ __typename?: 'RootQueryToTopicConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Topic', posts?: Types.Maybe<{ __typename?: 'TopicToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment
-        )>>> }
-      )> }
+        )>>> }> }
       & TopicPartsFragment
-    )>>> }
-  )> }
-);
+    )>>> }> };
 
 
 export const DiscoverDocument = /*#__PURE__*/ gql`
@@ -84,7 +68,7 @@ ${TopicPartsFragmentDoc}`;
  *   },
  * });
  */
-export function useDiscoverQuery(baseOptions?: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
+export function useDiscoverQuery(baseOptions: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
         return Apollo.useQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
       }
 export function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {

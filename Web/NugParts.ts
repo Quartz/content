@@ -7,12 +7,8 @@ import { gql } from '@apollo/client';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { MediaPartsFragmentDoc } from './MediaParts';
-export type NugPartsFragment = (
-  { __typename?: 'Nug' }
-  & Pick<Types.Nug, 'id' | 'dateGmt' | 'link' | 'modifiedGmt' | 'nugId' | 'slug' | 'title'>
-  & { blocks?: Types.Maybe<Array<Types.Maybe<(
-    { __typename?: 'Block' }
-    & { connections?: Types.Maybe<Array<Types.Maybe<(
+export type NugPartsFragment = { __typename?: 'Nug', id: string, dateGmt?: Types.Maybe<string>, link?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, nugId: number, slug?: Types.Maybe<string>, title?: Types.Maybe<string>, blocks?: Types.Maybe<Array<Types.Maybe<(
+    { __typename?: 'Block', connections?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | (
@@ -20,14 +16,7 @@ export type NugPartsFragment = (
       & MediaPartsFragment
     ) | { __typename?: 'Revision' } | { __typename?: 'Push' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }
     & BlockPartsFragment
-  )>>>, emailLists?: Types.Maybe<(
-    { __typename?: 'NugToEmailListConnection' }
-    & { nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'EmailList' }
-      & Pick<Types.EmailList, 'emailListId' | 'listId' | 'name'>
-    )>>> }
-  )> }
-);
+  )>>>, emailLists?: Types.Maybe<{ __typename?: 'NugToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', emailListId?: Types.Maybe<number>, listId?: Types.Maybe<number>, name?: Types.Maybe<string> }>>> }> };
 
 export const NugPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment NugParts on Nug {

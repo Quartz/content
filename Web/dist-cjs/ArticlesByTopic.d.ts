@@ -7,28 +7,26 @@ export declare type ArticlesByTopicQueryVariables = Types.Exact<{
     perPage?: Types.Maybe<Types.Scalars['Int']>;
     slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
 }>;
-export declare type ArticlesByTopicQuery = ({
+export declare type ArticlesByTopicQuery = {
     __typename?: 'RootQuery';
-} & {
-    topics?: Types.Maybe<({
+    topics?: Types.Maybe<{
         __typename?: 'RootQueryToTopicConnection';
-    } & {
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Topic';
-        } & {
-            posts?: Types.Maybe<({
+            posts?: Types.Maybe<{
                 __typename?: 'TopicToPostConnection';
-            } & {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Post';
                 } & ArticleTeaserPartsFragment)>>>;
-                pageInfo?: Types.Maybe<({
+                pageInfo?: Types.Maybe<{
                     __typename?: 'WPPageInfo';
-                } & Pick<Types.WpPageInfo, 'endCursor' | 'hasNextPage'>)>;
-            })>;
+                    endCursor?: Types.Maybe<string>;
+                    hasNextPage: boolean;
+                }>;
+            }>;
         } & TopicPartsFragment)>>>;
-    })>;
-});
+    }>;
+};
 export declare const ArticlesByTopicDocument: Apollo.DocumentNode;
 /**
  * __useArticlesByTopicQuery__
