@@ -12873,6 +12873,12 @@
             "deprecationReason": null
           },
           {
+            "name": "EMBED_INSTAGRAM",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "EMBED_INLINE_PDFS",
             "description": null,
             "isDeprecated": false,
@@ -12886,18 +12892,6 @@
           },
           {
             "name": "EMBED_ICLOUD",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "EMBED_JETPACK_INSTAGRAM",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "EMBED_JETPACK_INSTAGRAM_ALTERNATE_FORMAT",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -36550,6 +36544,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "MediaItem",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
+            "name": "hasEssentials",
+            "description": "Denotes whether there is an essentials collection associated with this obsession",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "isDeprecated": true,
