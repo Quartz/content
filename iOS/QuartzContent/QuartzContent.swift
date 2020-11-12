@@ -153,11 +153,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case embedFlickr
   case embedGithubGist
   case embedGoogleplus
+  case embedInstagram
   case embedInlinePdfs
   case embedIssuu
   case embedIcloud
-  case embedJetpackInstagram
-  case embedJetpackInstagramAlternateFormat
   case embedMedium
   case embedQzObject
   case embedOdesliCoOembed
@@ -399,11 +398,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "EMBED_FLICKR": self = .embedFlickr
       case "EMBED_GITHUB_GIST": self = .embedGithubGist
       case "EMBED_GOOGLEPLUS": self = .embedGoogleplus
+      case "EMBED_INSTAGRAM": self = .embedInstagram
       case "EMBED_INLINE_PDFS": self = .embedInlinePdfs
       case "EMBED_ISSUU": self = .embedIssuu
       case "EMBED_ICLOUD": self = .embedIcloud
-      case "EMBED_JETPACK_INSTAGRAM": self = .embedJetpackInstagram
-      case "EMBED_JETPACK_INSTAGRAM_ALTERNATE_FORMAT": self = .embedJetpackInstagramAlternateFormat
       case "EMBED_MEDIUM": self = .embedMedium
       case "EMBED_QZ_OBJECT": self = .embedQzObject
       case "EMBED_ODESLI_CO_OEMBED": self = .embedOdesliCoOembed
@@ -646,11 +644,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .embedFlickr: return "EMBED_FLICKR"
       case .embedGithubGist: return "EMBED_GITHUB_GIST"
       case .embedGoogleplus: return "EMBED_GOOGLEPLUS"
+      case .embedInstagram: return "EMBED_INSTAGRAM"
       case .embedInlinePdfs: return "EMBED_INLINE_PDFS"
       case .embedIssuu: return "EMBED_ISSUU"
       case .embedIcloud: return "EMBED_ICLOUD"
-      case .embedJetpackInstagram: return "EMBED_JETPACK_INSTAGRAM"
-      case .embedJetpackInstagramAlternateFormat: return "EMBED_JETPACK_INSTAGRAM_ALTERNATE_FORMAT"
       case .embedMedium: return "EMBED_MEDIUM"
       case .embedQzObject: return "EMBED_QZ_OBJECT"
       case .embedOdesliCoOembed: return "EMBED_ODESLI_CO_OEMBED"
@@ -893,11 +890,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.embedFlickr, .embedFlickr): return true
       case (.embedGithubGist, .embedGithubGist): return true
       case (.embedGoogleplus, .embedGoogleplus): return true
+      case (.embedInstagram, .embedInstagram): return true
       case (.embedInlinePdfs, .embedInlinePdfs): return true
       case (.embedIssuu, .embedIssuu): return true
       case (.embedIcloud, .embedIcloud): return true
-      case (.embedJetpackInstagram, .embedJetpackInstagram): return true
-      case (.embedJetpackInstagramAlternateFormat, .embedJetpackInstagramAlternateFormat): return true
       case (.embedMedium, .embedMedium): return true
       case (.embedQzObject, .embedQzObject): return true
       case (.embedOdesliCoOembed, .embedOdesliCoOembed): return true
@@ -1141,11 +1137,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .embedFlickr,
       .embedGithubGist,
       .embedGoogleplus,
+      .embedInstagram,
       .embedInlinePdfs,
       .embedIssuu,
       .embedIcloud,
-      .embedJetpackInstagram,
-      .embedJetpackInstagramAlternateFormat,
       .embedMedium,
       .embedQzObject,
       .embedOdesliCoOembed,
@@ -1310,7 +1305,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "4972f413255e6a9c4961f5769801cd97ece37e701854c657d50b1985b67b27e4"
+  public let operationIdentifier: String? = "26922014e24b691b115a2d34518f5d30b2a81b85d1218c1662893c13f4bd5729"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
@@ -1425,7 +1420,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlePreview"
 
-  public let operationIdentifier: String? = "c2a6e1ef64dccd8e7802c27a893a11d79bf09fb57cba2b1692d9beb744c8976d"
+  public let operationIdentifier: String? = "0423f93e9f31092bd8a7e78e7580114830c53092a519fa79a552cc95025ef961"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
@@ -1947,7 +1942,7 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlesByObsession"
 
-  public let operationIdentifier: String? = "1c15ded6998e1b210223223ecb798f7a130e9b4014e439a7ef7613379f17da1a"
+  public let operationIdentifier: String? = "8f2a520532607af71b44f8a64ebaf44d65b2683b923f4b38595a291410c79059"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + BulletinParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
@@ -4515,7 +4510,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "814be8375626dc8ec903b3f82480265976572e60162a641012dad5077e446676"
+  public let operationIdentifier: String? = "a1ae61949cf0fa2ffcc8e0485feb2ddd6dbce1d6f8a8a1795c5833196ebb1be4"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -13785,6 +13780,7 @@ public struct ObsessionParts: GraphQLFragment {
       __typename
       id
       description
+      hasEssentials
       link
       name
       shortDescription
@@ -13814,6 +13810,7 @@ public struct ObsessionParts: GraphQLFragment {
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
       GraphQLField("description", type: .scalar(String.self)),
+      GraphQLField("hasEssentials", type: .scalar(Bool.self)),
       GraphQLField("link", type: .scalar(String.self)),
       GraphQLField("name", type: .scalar(String.self)),
       GraphQLField("shortDescription", type: .scalar(String.self)),
@@ -13830,8 +13827,8 @@ public struct ObsessionParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, description: String? = nil, link: String? = nil, name: String? = nil, shortDescription: String? = nil, slug: String? = nil, subtitle: String? = nil, featuredImage: FeaturedImage? = nil, sponsor: Sponsor? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Obsession", "id": id, "description": description, "link": link, "name": name, "shortDescription": shortDescription, "slug": slug, "subtitle": subtitle, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "sponsor": sponsor.flatMap { (value: Sponsor) -> ResultMap in value.resultMap }])
+  public init(id: GraphQLID, description: String? = nil, hasEssentials: Bool? = nil, link: String? = nil, name: String? = nil, shortDescription: String? = nil, slug: String? = nil, subtitle: String? = nil, featuredImage: FeaturedImage? = nil, sponsor: Sponsor? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Obsession", "id": id, "description": description, "hasEssentials": hasEssentials, "link": link, "name": name, "shortDescription": shortDescription, "slug": slug, "subtitle": subtitle, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "sponsor": sponsor.flatMap { (value: Sponsor) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -13862,6 +13859,17 @@ public struct ObsessionParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "description")
+    }
+  }
+
+  /// Denotes whether there is an essentials collection associated with this obsession
+  @available(*, deprecated, message: "")
+  public var hasEssentials: Bool? {
+    get {
+      return resultMap["hasEssentials"] as? Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "hasEssentials")
     }
   }
 
