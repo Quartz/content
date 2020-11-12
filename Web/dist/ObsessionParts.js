@@ -4,6 +4,7 @@ export const ObsessionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment ObsessionParts on Obsession {
   id
   description
+  hasEssentials
   link
   name
   shortDescription

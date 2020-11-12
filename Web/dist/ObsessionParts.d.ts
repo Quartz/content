@@ -4,6 +4,7 @@ export declare type ObsessionPartsFragment = {
     __typename?: 'Obsession';
     id: string;
     description?: Types.Maybe<string>;
+    hasEssentials?: Types.Maybe<boolean>;
     link?: Types.Maybe<string>;
     name?: Types.Maybe<string>;
     shortDescription?: Types.Maybe<string>;

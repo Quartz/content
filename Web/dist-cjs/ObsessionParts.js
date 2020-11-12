@@ -7,6 +7,7 @@ exports.ObsessionPartsFragmentDoc = client_1.gql `
     fragment ObsessionParts on Obsession {
   id
   description
+  hasEssentials
   link
   name
   shortDescription
