@@ -1,0 +1,11 @@
+query EssentialsByObsession($slug: String!) {
+  obsessions(where: {slug: [$slug]}) {
+    nodes {
+      essentials(first: 1) {
+        nodes {
+          ...CollectionParts
+        }
+      }
+    }
+  }
+}
