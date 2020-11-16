@@ -29,6 +29,7 @@ __exportStar(require("./CollectionParts"), exports);
 __exportStar(require("./ContentBySearchTerm"), exports);
 __exportStar(require("./Discover"), exports);
 __exportStar(require("./EssentialsByArticle"), exports);
+__exportStar(require("./EssentialsByObsession"), exports);
 __exportStar(require("./GuideParts"), exports);
 __exportStar(require("./Guides"), exports);
 __exportStar(require("./GuidesBySlug"), exports);
