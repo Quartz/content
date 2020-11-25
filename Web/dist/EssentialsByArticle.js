@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
+import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export const EssentialsByArticleDocument = /*#__PURE__*/ gql `
     query EssentialsByArticle($id: ID!) {
@@ -16,10 +17,21 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql `
         }
       }
     }
+    guides {
+      nodes {
+        ...GuideParts
+        essentials(first: 1) {
+          nodes {
+            ...CollectionParts
+          }
+        }
+      }
+    }
   }
 }
     ${ObsessionPartsFragmentDoc}
-${CollectionPartsFragmentDoc}`;
+${CollectionPartsFragmentDoc}
+${GuidePartsFragmentDoc}`;
 /**
  * __useEssentialsByArticleQuery__
  *
