@@ -16,6 +16,7 @@ export * from './CollectionParts';
 export * from './ContentBySearchTerm';
 export * from './Discover';
 export * from './EssentialsByArticle';
+export * from './EssentialsByGuide';
 export * from './EssentialsByObsession';
 export * from './GuideParts';
 export * from './Guides';

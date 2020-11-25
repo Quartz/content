@@ -3,7 +3,7 @@ import type * as Types from './types';
 import type { MediaPartsFragment } from './MediaParts';
 import { gql } from '@apollo/client';
 import { MediaPartsFragmentDoc } from './MediaParts';
-export type GuidePartsFragment = { __typename?: 'Guide', id: string, guideId?: Types.Maybe<number>, link?: Types.Maybe<string>, count?: Types.Maybe<number>, description?: Types.Maybe<string>, shortDescription?: Types.Maybe<string>, name?: Types.Maybe<string>, slug?: Types.Maybe<string>, socialTitle?: Types.Maybe<string>, colors?: Types.Maybe<Array<Types.Maybe<string>>>, featuredImage?: Types.Maybe<(
+export type GuidePartsFragment = { __typename?: 'Guide', id: string, guideId?: Types.Maybe<number>, hasEssentials?: Types.Maybe<boolean>, link?: Types.Maybe<string>, count?: Types.Maybe<number>, description?: Types.Maybe<string>, shortDescription?: Types.Maybe<string>, name?: Types.Maybe<string>, slug?: Types.Maybe<string>, socialTitle?: Types.Maybe<string>, colors?: Types.Maybe<Array<Types.Maybe<string>>>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, socialImage?: Types.Maybe<(
@@ -18,6 +18,7 @@ export const GuidePartsFragmentDoc = /*#__PURE__*/ gql`
     fragment GuideParts on Guide {
   id
   guideId
+  hasEssentials
   link
   count
   description
