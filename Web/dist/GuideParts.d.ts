@@ -4,6 +4,7 @@ export declare type GuidePartsFragment = {
     __typename?: 'Guide';
     id: string;
     guideId?: Types.Maybe<number>;
+    hasEssentials?: Types.Maybe<boolean>;
     link?: Types.Maybe<string>;
     count?: Types.Maybe<number>;
     description?: Types.Maybe<string>;

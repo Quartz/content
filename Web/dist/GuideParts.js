@@ -4,6 +4,7 @@ export const GuidePartsFragmentDoc = /*#__PURE__*/ gql `
     fragment GuideParts on Guide {
   id
   guideId
+  hasEssentials
   link
   count
   description

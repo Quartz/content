@@ -23,6 +23,7 @@ exports.useEssentialsByArticleLazyQuery = exports.useEssentialsByArticleQuery = 
 const client_1 = require("@apollo/client");
 const ObsessionParts_1 = require("./ObsessionParts");
 const CollectionParts_1 = require("./CollectionParts");
+const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.EssentialsByArticleDocument = client_1.gql `
     query EssentialsByArticle($id: ID!) {
@@ -38,10 +39,21 @@ exports.EssentialsByArticleDocument = client_1.gql `
         }
       }
     }
+    guides {
+      nodes {
+        ...GuideParts
+        essentials(first: 1) {
+          nodes {
+            ...CollectionParts
+          }
+        }
+      }
+    }
   }
 }
     ${ObsessionParts_1.ObsessionPartsFragmentDoc}
-${CollectionParts_1.CollectionPartsFragmentDoc}`;
+${CollectionParts_1.CollectionPartsFragmentDoc}
+${GuideParts_1.GuidePartsFragmentDoc}`;
 /**
  * __useEssentialsByArticleQuery__
  *

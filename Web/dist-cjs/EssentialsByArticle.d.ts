@@ -1,6 +1,7 @@
 import type * as Types from './types';
 import type { ObsessionPartsFragment } from './ObsessionParts';
 import type { CollectionPartsFragment } from './CollectionParts';
+import type { GuidePartsFragment } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export declare type EssentialsByArticleQueryVariables = Types.Exact<{
     id: Types.Scalars['ID'];
@@ -21,6 +22,18 @@ export declare type EssentialsByArticleQuery = {
                     } & CollectionPartsFragment)>>>;
                 }>;
             } & ObsessionPartsFragment)>>>;
+        }>;
+        guides?: Types.Maybe<{
+            __typename?: 'PostToGuideConnection';
+            nodes?: Types.Maybe<Array<Types.Maybe<({
+                __typename?: 'Guide';
+                essentials?: Types.Maybe<{
+                    __typename?: 'GuideToCollectionConnection';
+                    nodes?: Types.Maybe<Array<Types.Maybe<({
+                        __typename?: 'Collection';
+                    } & CollectionPartsFragment)>>>;
+                }>;
+            } & GuidePartsFragment)>>>;
         }>;
     }>;
 };

@@ -7,6 +7,7 @@ exports.GuidePartsFragmentDoc = client_1.gql `
     fragment GuideParts on Guide {
   id
   guideId
+  hasEssentials
   link
   count
   description

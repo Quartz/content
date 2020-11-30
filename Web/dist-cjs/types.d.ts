@@ -1449,144 +1449,8 @@ export declare type CollectionToTagConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
-/** Arguments for filtering the TagToNugConnection connection */
-export declare type TagToNugConnectionWhereArgs = {
-    /**
-     * The user that's connected as the author of the object. Use the
-     * 							userId for the author object.
-     */
-    author?: Maybe<Scalars['Int']>;
-    authorType?: Maybe<AuthorType>;
-    /** Find objects connected to author(s) in the array of author's userIds */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Find objects connected to the author by the author's nicename */
-    authorName?: Maybe<Scalars['String']>;
-    /**
-     * Find objects NOT connected to author(s) in the array of author's
-     * 							userIds
-     */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Category ID */
-    categoryId?: Maybe<Scalars['Int']>;
-    /**
-     * Array of category IDs, used to display objects from one
-     * 										category OR another
-     */
-    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Use Category Slug */
-    categoryName?: Maybe<Scalars['String']>;
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    edition?: Maybe<EditionName>;
-    /**
-     * True for objects with passwords; False for objects without passwords;
-     * 							null for all objects with or without passwords
-     */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /**
-     * Specify IDs NOT to retrieve. If this is used in the same query as "in",
-     * 							it will be ignored
-     */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /**
-     * Use ID to return only children. Use 0 to return only top-level
-     * 							items
-     */
-    parent?: Maybe<Scalars['String']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    popular?: Maybe<PopularQuery>;
-    preview?: Maybe<PreviewQuery>;
-    recommended?: Maybe<RecommendedQuery>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Tag Slug */
-    tag?: Maybe<Scalars['String']>;
-    /** Use Tag ID */
-    tagId?: Maybe<Scalars['String']>;
-    /**
-     * Array of tag IDs, used to display objects from one tag OR
-     * 							another
-     */
-    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /**
-     * Array of tag slugs, used to display objects from one tag OR
-     * 							another
-     */
-    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /**
-     * Array of tag slugs, used to exclude objects in specified
-     * 							tags
-     */
-    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the NugToEmailListConnection connection */
-export declare type NugToEmailListConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default true */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Default false. If true, only the items connected to the source item will be returned. If false, all items will be returned regardless of connection to the source */
-    shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>;
-    /** Default false. If true, the connection will be output in a flat list instead of the hierarchical list. So child terms will be output in the same level as the parent terms */
-    shouldOutputInFlatList?: Maybe<Scalars['Boolean']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the EmailListToEmailConnection connection */
-export declare type EmailListToEmailConnectionWhereArgs = {
+/** Arguments for filtering the TagToEmailConnection connection */
+export declare type TagToEmailConnectionWhereArgs = {
     /**
      * The user that's connected as the author of the object. Use the
      * 							userId for the author object.
@@ -1721,6 +1585,97 @@ export declare type EmailToEmailListConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
+/** Arguments for filtering the EmailListToEmailConnection connection */
+export declare type EmailListToEmailConnectionWhereArgs = {
+    /**
+     * The user that's connected as the author of the object. Use the
+     * 							userId for the author object.
+     */
+    author?: Maybe<Scalars['Int']>;
+    authorType?: Maybe<AuthorType>;
+    /** Find objects connected to author(s) in the array of author's userIds */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Find objects connected to the author by the author's nicename */
+    authorName?: Maybe<Scalars['String']>;
+    /**
+     * Find objects NOT connected to author(s) in the array of author's
+     * 							userIds
+     */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Category ID */
+    categoryId?: Maybe<Scalars['Int']>;
+    /**
+     * Array of category IDs, used to display objects from one
+     * 										category OR another
+     */
+    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Use Category Slug */
+    categoryName?: Maybe<Scalars['String']>;
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    edition?: Maybe<EditionName>;
+    /**
+     * True for objects with passwords; False for objects without passwords;
+     * 							null for all objects with or without passwords
+     */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /**
+     * Specify IDs NOT to retrieve. If this is used in the same query as "in",
+     * 							it will be ignored
+     */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /**
+     * Use ID to return only children. Use 0 to return only top-level
+     * 							items
+     */
+    parent?: Maybe<Scalars['String']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    popular?: Maybe<PopularQuery>;
+    preview?: Maybe<PreviewQuery>;
+    recommended?: Maybe<RecommendedQuery>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Tag Slug */
+    tag?: Maybe<Scalars['String']>;
+    /** Use Tag ID */
+    tagId?: Maybe<Scalars['String']>;
+    /**
+     * Array of tag IDs, used to display objects from one tag OR
+     * 							another
+     */
+    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /**
+     * Array of tag slugs, used to display objects from one tag OR
+     * 							another
+     */
+    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /**
+     * Array of tag slugs, used to exclude objects in specified
+     * 							tags
+     */
+    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
 /** Arguments for filtering the EmailListToNugConnection connection */
 export declare type EmailListToNugConnectionWhereArgs = {
     /**
@@ -1811,6 +1766,51 @@ export declare type EmailListToNugConnectionWhereArgs = {
     tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the NugToEmailListConnection connection */
+export declare type NugToEmailListConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default true */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Default false. If true, only the items connected to the source item will be returned. If false, all items will be returned regardless of connection to the source */
+    shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>;
+    /** Default false. If true, the connection will be output in a flat list instead of the hierarchical list. So child terms will be output in the same level as the parent terms */
+    shouldOutputInFlatList?: Maybe<Scalars['Boolean']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 /** Arguments for filtering the NugToTagConnection connection */
 export declare type NugToTagConnectionWhereArgs = {
@@ -2222,6 +2222,142 @@ export declare type TopicToNugConnectionWhereArgs = {
 };
 /** Arguments for filtering the TopicToPostConnection connection */
 export declare type TopicToPostConnectionWhereArgs = {
+    /**
+     * The user that's connected as the author of the object. Use the
+     * 							userId for the author object.
+     */
+    author?: Maybe<Scalars['Int']>;
+    authorType?: Maybe<AuthorType>;
+    /** Find objects connected to author(s) in the array of author's userIds */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Find objects connected to the author by the author's nicename */
+    authorName?: Maybe<Scalars['String']>;
+    /**
+     * Find objects NOT connected to author(s) in the array of author's
+     * 							userIds
+     */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Category ID */
+    categoryId?: Maybe<Scalars['Int']>;
+    /**
+     * Array of category IDs, used to display objects from one
+     * 										category OR another
+     */
+    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Use Category Slug */
+    categoryName?: Maybe<Scalars['String']>;
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    edition?: Maybe<EditionName>;
+    /**
+     * True for objects with passwords; False for objects without passwords;
+     * 							null for all objects with or without passwords
+     */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /**
+     * Specify IDs NOT to retrieve. If this is used in the same query as "in",
+     * 							it will be ignored
+     */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /**
+     * Use ID to return only children. Use 0 to return only top-level
+     * 							items
+     */
+    parent?: Maybe<Scalars['String']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    popular?: Maybe<PopularQuery>;
+    preview?: Maybe<PreviewQuery>;
+    recommended?: Maybe<RecommendedQuery>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Tag Slug */
+    tag?: Maybe<Scalars['String']>;
+    /** Use Tag ID */
+    tagId?: Maybe<Scalars['String']>;
+    /**
+     * Array of tag IDs, used to display objects from one tag OR
+     * 							another
+     */
+    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /**
+     * Array of tag slugs, used to display objects from one tag OR
+     * 							another
+     */
+    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /**
+     * Array of tag slugs, used to exclude objects in specified
+     * 							tags
+     */
+    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the EmailToTagConnection connection */
+export declare type EmailToTagConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default true */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Default false. If true, only the items connected to the source item will be returned. If false, all items will be returned regardless of connection to the source */
+    shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>;
+    /** Default false. If true, the connection will be output in a flat list instead of the hierarchical list. So child terms will be output in the same level as the parent terms */
+    shouldOutputInFlatList?: Maybe<Scalars['Boolean']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the TagToNugConnection connection */
+export declare type TagToNugConnectionWhereArgs = {
     /**
      * The user that's connected as the author of the object. Use the
      * 							userId for the author object.

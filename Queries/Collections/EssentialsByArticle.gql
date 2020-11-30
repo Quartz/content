@@ -17,5 +17,17 @@ query EssentialsByArticle(
 				}
 			}
 		}
+		guides {
+			nodes {
+				...GuideParts
+				essentials(
+					first: 1
+				) {
+					nodes {
+						...CollectionParts
+					}
+				}
+			}
+		}
 	}
 }
