@@ -1305,7 +1305,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "f96990770b5427ad5ec56836b5312220acb21a12697936a1ab972e5cd86b7b42"
+  public let operationIdentifier: String? = "67b5119549bc53d5ac66803b18c5f0d913e507cae092eb460bbb58c1957349d2"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
@@ -1420,7 +1420,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlePreview"
 
-  public let operationIdentifier: String? = "e92f6aa6938ce53398f193ba66069d7c864030aad9a838ac5b17831d96442751"
+  public let operationIdentifier: String? = "bc6f831dabffa4774dc928c9e4f6a6f5b16a9b0821ea4d1c310d5f0a0e9401f4"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
@@ -1942,7 +1942,7 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlesByObsession"
 
-  public let operationIdentifier: String? = "8f2a520532607af71b44f8a64ebaf44d65b2683b923f4b38595a291410c79059"
+  public let operationIdentifier: String? = "f2140ac83a3eea9ac20c8eb82d62535304537efa6117bade19381bd010edab6d"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + BulletinParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
@@ -4524,7 +4524,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "8ab4a2ef41be338a1455e34d938d29e49793fd5a4ad0a47fb9a3c46cc41890a8"
+  public let operationIdentifier: String? = "687be87a985daf1abc3641947ee69e96896d956a6a7c21d364c933329564da73"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition) }
 
@@ -14506,6 +14506,10 @@ public struct ObsessionParts: GraphQLFragment {
       id
       description
       hasEssentials
+      headerImage {
+        __typename
+        ...MediaParts
+      }
       link
       name
       shortDescription
@@ -14536,6 +14540,7 @@ public struct ObsessionParts: GraphQLFragment {
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
       GraphQLField("description", type: .scalar(String.self)),
       GraphQLField("hasEssentials", type: .scalar(Bool.self)),
+      GraphQLField("headerImage", type: .object(HeaderImage.selections)),
       GraphQLField("link", type: .scalar(String.self)),
       GraphQLField("name", type: .scalar(String.self)),
       GraphQLField("shortDescription", type: .scalar(String.self)),
@@ -14552,8 +14557,8 @@ public struct ObsessionParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, description: String? = nil, hasEssentials: Bool? = nil, link: String? = nil, name: String? = nil, shortDescription: String? = nil, slug: String? = nil, subtitle: String? = nil, featuredImage: FeaturedImage? = nil, sponsor: Sponsor? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Obsession", "id": id, "description": description, "hasEssentials": hasEssentials, "link": link, "name": name, "shortDescription": shortDescription, "slug": slug, "subtitle": subtitle, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "sponsor": sponsor.flatMap { (value: Sponsor) -> ResultMap in value.resultMap }])
+  public init(id: GraphQLID, description: String? = nil, hasEssentials: Bool? = nil, headerImage: HeaderImage? = nil, link: String? = nil, name: String? = nil, shortDescription: String? = nil, slug: String? = nil, subtitle: String? = nil, featuredImage: FeaturedImage? = nil, sponsor: Sponsor? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Obsession", "id": id, "description": description, "hasEssentials": hasEssentials, "headerImage": headerImage.flatMap { (value: HeaderImage) -> ResultMap in value.resultMap }, "link": link, "name": name, "shortDescription": shortDescription, "slug": slug, "subtitle": subtitle, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "sponsor": sponsor.flatMap { (value: Sponsor) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -14595,6 +14600,17 @@ public struct ObsessionParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "hasEssentials")
+    }
+  }
+
+  /// The header image for the term landing page.
+  @available(*, deprecated, message: "")
+  public var headerImage: HeaderImage? {
+    get {
+      return (resultMap["headerImage"] as? ResultMap).flatMap { HeaderImage(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "headerImage")
     }
   }
 
@@ -14672,6 +14688,58 @@ public struct ObsessionParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue?.resultMap, forKey: "sponsor")
+    }
+  }
+
+  public struct HeaderImage: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["MediaItem"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(MediaParts.self),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var mediaParts: MediaParts {
+        get {
+          return MediaParts(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
     }
   }
 

@@ -10,6 +10,9 @@ export declare type ObsessionPartsFragment = {
     shortDescription?: Types.Maybe<string>;
     slug?: Types.Maybe<string>;
     subtitle?: Types.Maybe<string>;
+    headerImage?: Types.Maybe<({
+        __typename?: 'MediaItem';
+    } & MediaPartsFragment)>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
