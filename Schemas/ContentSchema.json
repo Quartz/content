@@ -32622,6 +32622,18 @@
             "deprecationReason": ""
           },
           {
+            "name": "headerImage",
+            "description": "The header image for the term landing page.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MediaItem",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
             "name": "headerImages",
             "description": "Series images",
             "args": [],
@@ -37693,6 +37705,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": ""
+          },
+          {
+            "name": "headerImage",
+            "description": "The header image for the term landing page.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MediaItem",
               "ofType": null
             },
             "isDeprecated": true,
