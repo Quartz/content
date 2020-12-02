@@ -2,6 +2,9 @@ fragment ObsessionParts on Obsession {
 	id
 	description
 	hasEssentials
+	headerImage {
+		...MediaParts
+	}
 	link
 	name
 	shortDescription
