@@ -5,6 +5,9 @@ export const ObsessionPartsFragmentDoc = /*#__PURE__*/ gql `
   id
   description
   hasEssentials
+  headerImage {
+    ...MediaParts
+  }
   link
   name
   shortDescription

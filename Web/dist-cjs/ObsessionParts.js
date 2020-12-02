@@ -8,6 +8,9 @@ exports.ObsessionPartsFragmentDoc = client_1.gql `
   id
   description
   hasEssentials
+  headerImage {
+    ...MediaParts
+  }
   link
   name
   shortDescription
