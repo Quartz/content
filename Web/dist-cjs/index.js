@@ -40,6 +40,7 @@ __exportStar(require("./LatestArticles"), exports);
 __exportStar(require("./MediaParts"), exports);
 __exportStar(require("./MemberHome"), exports);
 __exportStar(require("./MemberVideo"), exports);
+__exportStar(require("./Nug"), exports);
 __exportStar(require("./NugParts"), exports);
 __exportStar(require("./NugsByTag"), exports);
 __exportStar(require("./ObsessionParts"), exports);
