@@ -27,6 +27,7 @@ export * from './LatestArticles';
 export * from './MediaParts';
 export * from './MemberHome';
 export * from './MemberVideo';
+export * from './Nug';
 export * from './NugParts';
 export * from './NugsByTag';
 export * from './ObsessionParts';

@@ -1,0 +1,13 @@
+query Nug(
+	$id: Int!
+) {
+	nugs(
+		where: {
+			id: $id
+		}
+	) {
+		nodes {
+			...NugParts
+		}
+	}
+}
