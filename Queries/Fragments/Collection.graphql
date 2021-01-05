@@ -1,7 +1,7 @@
 query Collection(
-	$id: ID!
+	$slug: String!
 ) {
-	collection(id: $id) {
+	collectionBy(slug: $slug) {
 		...CollectionParts
 	}
 }
