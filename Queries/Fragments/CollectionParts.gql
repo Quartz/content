@@ -1,6 +1,7 @@
 fragment CollectionParts on Collection {
 	id
 	title
+	dateGmt
 	featuredImage {
 		...MediaParts
 	}
