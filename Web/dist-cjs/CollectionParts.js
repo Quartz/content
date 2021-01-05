@@ -10,6 +10,9 @@ exports.CollectionPartsFragmentDoc = client_1.gql `
     fragment CollectionParts on Collection {
   id
   title
+  dateGmt
+  modifiedGmt
+  slug
   featuredImage {
     ...MediaParts
   }
