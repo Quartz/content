@@ -4528,7 +4528,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "687be87a985daf1abc3641947ee69e96896d956a6a7c21d364c933329564da73"
+  public let operationIdentifier: String? = "a1cd88570eaad1d72490673946df85e5084c7a34e1880d5fb2b9d579c2a2d645"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition) }
 
@@ -5058,7 +5058,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByGuide"
 
-  public let operationIdentifier: String? = "9bb66a7b48d5f0b72ec317ce51872019079ee22d2be8d5cd552d6177ddb6e69a"
+  public let operationIdentifier: String? = "327e5d082a32642cc126aba41a95757709606b9fef78d965d2a0cf9b335cba1f"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -5302,7 +5302,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByObsession"
 
-  public let operationIdentifier: String? = "b9bf3b370e0b516799bf5132355353702975773e8c54cc7bd2c318fa943fea9a"
+  public let operationIdentifier: String? = "f33eea087d706eb9af2423ca7d4a8eef5cd13f762063fbd225835027a079d01d"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -6532,7 +6532,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollection"
 
-  public let operationIdentifier: String? = "880bec07806bd78f8f0187d049012aa6350a3183d846bc0e58ac949ee7b26e62"
+  public let operationIdentifier: String? = "837ecfa32d510dc08800f0f0253f4f556603ef3e9709310de3c7201e853f2210"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -6681,7 +6681,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollectionPreview"
 
-  public let operationIdentifier: String? = "a1b3c74e90ed0b7164d5b1be05ea95a43b0a312e0fd2cf1685ac370ddafa5456"
+  public let operationIdentifier: String? = "abe60d0c446afc0f0153424486de844c6967ab2c3c84a9170e60da222d5e4064"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -12992,6 +12992,9 @@ public struct CollectionParts: GraphQLFragment {
       __typename
       id
       title
+      dateGmt
+      modifiedGmt
+      slug
       featuredImage {
         __typename
         ...MediaParts
@@ -13022,6 +13025,9 @@ public struct CollectionParts: GraphQLFragment {
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
       GraphQLField("title", type: .scalar(String.self)),
+      GraphQLField("dateGmt", type: .scalar(String.self)),
+      GraphQLField("modifiedGmt", type: .scalar(String.self)),
+      GraphQLField("slug", type: .scalar(String.self)),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
       GraphQLField("blocks", type: .list(.object(Block.selections))),
     ]
@@ -13033,8 +13039,8 @@ public struct CollectionParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, title: String? = nil, featuredImage: FeaturedImage? = nil, blocks: [Block?]? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "title": title, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }])
+  public init(id: GraphQLID, title: String? = nil, dateGmt: String? = nil, modifiedGmt: String? = nil, slug: String? = nil, featuredImage: FeaturedImage? = nil, blocks: [Block?]? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "title": title, "dateGmt": dateGmt, "modifiedGmt": modifiedGmt, "slug": slug, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }])
   }
 
   public var __typename: String {
@@ -13065,6 +13071,39 @@ public struct CollectionParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  /// The publishing date set in GMT.
+  @available(*, deprecated, message: "")
+  public var dateGmt: String? {
+    get {
+      return resultMap["dateGmt"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "dateGmt")
+    }
+  }
+
+  /// The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+  @available(*, deprecated, message: "")
+  public var modifiedGmt: String? {
+    get {
+      return resultMap["modifiedGmt"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "modifiedGmt")
+    }
+  }
+
+  /// The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+  @available(*, deprecated, message: "")
+  public var slug: String? {
+    get {
+      return resultMap["slug"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "slug")
     }
   }
 
