@@ -7,6 +7,9 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment CollectionParts on Collection {
   id
   title
+  dateGmt
+  modifiedGmt
+  slug
   featuredImage {
     ...MediaParts
   }
