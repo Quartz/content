@@ -1573,7 +1573,11 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
         nodes {
           __typename
           ...GuideParts
-          posts(after: $after, first: $perPage, where: {orderby: {field: DATE, order: ASC}}) {
+          posts(
+            after: $after
+            first: $perPage
+            where: {orderby: {field: DATE, order: ASC}}
+          ) {
             __typename
             nodes {
               __typename
@@ -1592,7 +1596,7 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlesByGuide"
 
-  public let operationIdentifier: String? = "f7776b4b4a65fdc2223131481d5cddb7c1ae7596ca0466c523df1976cefd942c"
+  public let operationIdentifier: String? = "463c2971ba318a83695bb5d10dc3ef30df2565ecea2517e423532d60aa219e4c"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
