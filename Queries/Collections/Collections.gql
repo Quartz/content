@@ -1,0 +1,11 @@
+query Collections($first: Int = 10, $after: String) {
+	collections(first: $first, after: $after) {
+		pageInfo {
+			endCursor
+		}
+		nodes {
+			...CollectionParts
+		}
+	}
+}
+
