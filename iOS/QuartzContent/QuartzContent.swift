@@ -6846,8 +6846,8 @@ public final class GuidesByTopicQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GuidesByTopic($topic: [String]!) {
-      topics(where: {slug: $topic}) {
+    query GuidesByTopic($slug: [String]!) {
+      topics(where: {slug: $slug}) {
         __typename
         nodes {
           __typename
@@ -6868,18 +6868,18 @@ public final class GuidesByTopicQuery: GraphQLQuery {
 
   public let operationName: String = "GuidesByTopic"
 
-  public let operationIdentifier: String? = "169a9e38ac93af8ea934278c891c7e689b1e266b4d862c6b00cdd1a2f1ff98e5"
+  public let operationIdentifier: String? = "79311241c1f24bec631d66f347109b50bd31f8b04de8db5cd26e4dfd798ff583"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
 
-  public var topic: [String?]
+  public var slug: [String?]
 
-  public init(topic: [String?]) {
-    self.topic = topic
+  public init(slug: [String?]) {
+    self.slug = slug
   }
 
   public var variables: GraphQLMap? {
-    return ["topic": topic]
+    return ["slug": slug]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -6887,7 +6887,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("topics", arguments: ["where": ["slug": GraphQLVariable("topic")]], type: .object(Topic.selections)),
+        GraphQLField("topics", arguments: ["where": ["slug": GraphQLVariable("slug")]], type: .object(Topic.selections)),
       ]
     }
 
