@@ -4500,7 +4500,7 @@ public final class CollectionQuery: GraphQLQuery {
 
   public let operationName: String = "Collection"
 
-  public let operationIdentifier: String? = "cad79210776febb7904e655762dfb4cf940c437b8a3c7baf740b98c0118a4ceb"
+  public let operationIdentifier: String? = "9af50b324b5a3a3dfe34c95148a01d72ddd592466ff727e3a005b924f75061ab"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -4619,7 +4619,7 @@ public final class CollectionsQuery: GraphQLQuery {
 
   public let operationName: String = "Collections"
 
-  public let operationIdentifier: String? = "4f8917251c189dce7ecb3a05c28c4256ac6d17e34799d03cb9f198dc236a6349"
+  public let operationIdentifier: String? = "f36ecf73fc72eb747f625a3788daa110bcd442d5099e7901ef241a29d0b2208a"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -4855,7 +4855,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "a1cd88570eaad1d72490673946df85e5084c7a34e1880d5fb2b9d579c2a2d645"
+  public let operationIdentifier: String? = "ccd534bcc852fe1d6e1371e8c0e211f3d70e839a186c93a7cf44d1d3413ece27"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition) }
 
@@ -5385,7 +5385,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByGuide"
 
-  public let operationIdentifier: String? = "327e5d082a32642cc126aba41a95757709606b9fef78d965d2a0cf9b335cba1f"
+  public let operationIdentifier: String? = "ac7d3b9b81b32fd88ad731a83748c4b2be7bb9d77a9078b594f5c1143ceb9e35"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -5629,7 +5629,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByObsession"
 
-  public let operationIdentifier: String? = "f33eea087d706eb9af2423ca7d4a8eef5cd13f762063fbd225835027a079d01d"
+  public let operationIdentifier: String? = "1edb66414490d10eb8cec79798b40725516f8a39abc83cc7cff1195ccacef4ac"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -7142,7 +7142,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollection"
 
-  public let operationIdentifier: String? = "837ecfa32d510dc08800f0f0253f4f556603ef3e9709310de3c7201e853f2210"
+  public let operationIdentifier: String? = "c27b040f34bc26a04517c1ef2ea045f2560e005c17599c0a67d8ec5ff161e84d"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -7291,7 +7291,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollectionPreview"
 
-  public let operationIdentifier: String? = "abe60d0c446afc0f0153424486de844c6967ab2c3c84a9170e60da222d5e4064"
+  public let operationIdentifier: String? = "e166720c214056baee825ab05f9e57d04f257bafdc5d5053569865bbb7937068"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -9749,7 +9749,7 @@ public final class NugQuery: GraphQLQuery {
 
   public let operationName: String = "Nug"
 
-  public let operationIdentifier: String? = "3b3a61672096c5d89838dd45e18ec38ee9165853640138859f5f9b321e703b7a"
+  public let operationIdentifier: String? = "bf27cff6e4652561da0240706dd1342af9aff54659c4da7ba6d36d4ffe142c85"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -9905,7 +9905,7 @@ public final class NugsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "NugsByTag"
 
-  public let operationIdentifier: String? = "5e0c29f20637be91b41bd6baf31a659272dbb65cb20d3b50978b15843a1d1497"
+  public let operationIdentifier: String? = "2ff396ddabd79c44c86961bc62a18cc665ee34a64027a5d2c53df8f2287c4192"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -14793,6 +14793,24 @@ public struct NugParts: GraphQLFragment {
       nugId
       slug
       title
+      tags {
+        __typename
+        nodes {
+          __typename
+          id
+          name
+          slug
+        }
+      }
+      topics {
+        __typename
+        nodes {
+          __typename
+          id
+          name
+          slug
+        }
+      }
     }
     """
 
@@ -14810,6 +14828,8 @@ public struct NugParts: GraphQLFragment {
       GraphQLField("nugId", type: .nonNull(.scalar(Int.self))),
       GraphQLField("slug", type: .scalar(String.self)),
       GraphQLField("title", type: .scalar(String.self)),
+      GraphQLField("tags", type: .object(Tag.selections)),
+      GraphQLField("topics", type: .object(Topic.selections)),
     ]
   }
 
@@ -14819,8 +14839,8 @@ public struct NugParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, blocks: [Block?]? = nil, dateGmt: String? = nil, emailLists: EmailList? = nil, link: String? = nil, modifiedGmt: String? = nil, nugId: Int, slug: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Nug", "id": id, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }, "dateGmt": dateGmt, "emailLists": emailLists.flatMap { (value: EmailList) -> ResultMap in value.resultMap }, "link": link, "modifiedGmt": modifiedGmt, "nugId": nugId, "slug": slug, "title": title])
+  public init(id: GraphQLID, blocks: [Block?]? = nil, dateGmt: String? = nil, emailLists: EmailList? = nil, link: String? = nil, modifiedGmt: String? = nil, nugId: Int, slug: String? = nil, title: String? = nil, tags: Tag? = nil, topics: Topic? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Nug", "id": id, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }, "dateGmt": dateGmt, "emailLists": emailLists.flatMap { (value: EmailList) -> ResultMap in value.resultMap }, "link": link, "modifiedGmt": modifiedGmt, "nugId": nugId, "slug": slug, "title": title, "tags": tags.flatMap { (value: Tag) -> ResultMap in value.resultMap }, "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -14928,6 +14948,28 @@ public struct NugParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  /// Connection between the nug type and the nug type
+  @available(*, deprecated, message: "")
+  public var tags: Tag? {
+    get {
+      return (resultMap["tags"] as? ResultMap).flatMap { Tag(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "tags")
+    }
+  }
+
+  /// Connection between the nug type and the nug type
+  @available(*, deprecated, message: "")
+  public var topics: Topic? {
+    get {
+      return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "topics")
     }
   }
 
@@ -15300,6 +15342,218 @@ public struct NugParts: GraphQLFragment {
         }
         set {
           resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+    }
+  }
+
+  public struct Tag: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["NugToTagConnection"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nodes: [Node?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "NugToTagConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    @available(*, deprecated, message: "")
+    public var nodes: [Node?]? {
+      get {
+        return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Tag"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("slug", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, name: String? = nil, slug: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Tag", "id": id, "name": name, "slug": slug])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The global ID for the post_tag
+      @available(*, deprecated, message: "")
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      /// The human friendly name of the object.
+      @available(*, deprecated, message: "")
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      /// An alphanumeric identifier for the object unique to its type.
+      @available(*, deprecated, message: "")
+      public var slug: String? {
+        get {
+          return resultMap["slug"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "slug")
+        }
+      }
+    }
+  }
+
+  public struct Topic: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["NugToTopicConnection"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nodes: [Node?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "NugToTopicConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    @available(*, deprecated, message: "")
+    public var nodes: [Node?]? {
+      get {
+        return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Topic"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("slug", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, name: String? = nil, slug: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Topic", "id": id, "name": name, "slug": slug])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The global ID for the topic
+      @available(*, deprecated, message: "")
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      /// The human friendly name of the object.
+      @available(*, deprecated, message: "")
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      /// An alphanumeric identifier for the object unique to its type.
+      @available(*, deprecated, message: "")
+      public var slug: String? {
+        get {
+          return resultMap["slug"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "slug")
         }
       }
     }
