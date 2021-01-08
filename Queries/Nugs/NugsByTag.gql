@@ -1,11 +1,11 @@
 query NugsByTag(
 	$perPage: Int!
-	$tag: [String]!
+	$slug: [String]!
 ) {
 	nugs(
 		first: $perPage
 		where: {
-			tagSlugIn: $tag
+			tagSlugIn: $slug
 		}
 	) {
 		nodes {
