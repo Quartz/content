@@ -36,6 +36,7 @@ __exportStar(require("./EssentialsByObsession"), exports);
 __exportStar(require("./GuideParts"), exports);
 __exportStar(require("./Guides"), exports);
 __exportStar(require("./GuidesBySlug"), exports);
+__exportStar(require("./GuidesByTopic"), exports);
 __exportStar(require("./HomeCollection"), exports);
 __exportStar(require("./HomeCollectionPreview"), exports);
 __exportStar(require("./LatestArticles"), exports);

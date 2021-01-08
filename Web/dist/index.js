@@ -24,6 +24,7 @@ export * from './EssentialsByObsession';
 export * from './GuideParts';
 export * from './Guides';
 export * from './GuidesBySlug';
+export * from './GuidesByTopic';
 export * from './HomeCollection';
 export * from './HomeCollectionPreview';
 export * from './LatestArticles';
