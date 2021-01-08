@@ -6842,6 +6842,289 @@ public final class GuidesBySlugQuery: GraphQLQuery {
   }
 }
 
+public final class GuidesByTopicQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GuidesByTopic($topic: [String]!) {
+      topics(where: {slug: $topic}) {
+        __typename
+        nodes {
+          __typename
+          id
+          name
+          slug
+          guides(first: 50) {
+            __typename
+            nodes {
+              __typename
+              ...GuideParts
+            }
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "GuidesByTopic"
+
+  public let operationIdentifier: String? = "169a9e38ac93af8ea934278c891c7e689b1e266b4d862c6b00cdd1a2f1ff98e5"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+
+  public var topic: [String?]
+
+  public init(topic: [String?]) {
+    self.topic = topic
+  }
+
+  public var variables: GraphQLMap? {
+    return ["topic": topic]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("topics", arguments: ["where": ["slug": GraphQLVariable("topic")]], type: .object(Topic.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(topics: Topic? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var topics: Topic? {
+      get {
+        return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "topics")
+      }
+    }
+
+    public struct Topic: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToTopicConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToTopicConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Topic"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("name", type: .scalar(String.self)),
+            GraphQLField("slug", type: .scalar(String.self)),
+            GraphQLField("guides", arguments: ["first": 50], type: .object(Guide.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, name: String? = nil, slug: String? = nil, guides: Guide? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Topic", "id": id, "name": name, "slug": slug, "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The global ID for the topic
+        @available(*, deprecated, message: "")
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        /// The human friendly name of the object.
+        @available(*, deprecated, message: "")
+        public var name: String? {
+          get {
+            return resultMap["name"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+
+        /// An alphanumeric identifier for the object unique to its type.
+        @available(*, deprecated, message: "")
+        public var slug: String? {
+          get {
+            return resultMap["slug"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "slug")
+          }
+        }
+
+        /// Connection between the Topic type and the Topic type
+        @available(*, deprecated, message: "")
+        public var guides: Guide? {
+          get {
+            return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "guides")
+          }
+        }
+
+        public struct Guide: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["TopicToGuideConnection"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("nodes", type: .list(.object(Node.selections))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(nodes: [Node?]? = nil) {
+            self.init(unsafeResultMap: ["__typename": "TopicToGuideConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The nodes of the connection, without the edges
+          @available(*, deprecated, message: "")
+          public var nodes: [Node?]? {
+            get {
+              return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+            }
+            set {
+              resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+            }
+          }
+
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Guide"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLFragmentSpread(GuideParts.self),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var fragments: Fragments {
+              get {
+                return Fragments(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+
+            public struct Fragments {
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var guideParts: GuideParts {
+                get {
+                  return GuideParts(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class HomeCollectionQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
