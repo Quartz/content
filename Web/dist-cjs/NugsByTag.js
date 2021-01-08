@@ -24,8 +24,8 @@ const client_1 = require("@apollo/client");
 const NugParts_1 = require("./NugParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.NugsByTagDocument = client_1.gql `
-    query NugsByTag($perPage: Int!, $tag: [String]!) {
-  nugs(first: $perPage, where: {tagSlugIn: $tag}) {
+    query NugsByTag($perPage: Int!, $slug: [String]!) {
+  nugs(first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...NugParts
     }
@@ -45,7 +45,7 @@ exports.NugsByTagDocument = client_1.gql `
  * const { data, loading, error } = useNugsByTagQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
- *      tag: // value for 'tag'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
