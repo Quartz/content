@@ -52,6 +52,24 @@ export declare type NugPartsFragment = {
             name?: Types.Maybe<string>;
         }>>>;
     }>;
+    tags?: Types.Maybe<{
+        __typename?: 'NugToTagConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<{
+            __typename?: 'Tag';
+            id: string;
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
+    topics?: Types.Maybe<{
+        __typename?: 'NugToTopicConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<{
+            __typename?: 'Topic';
+            id: string;
+            name?: Types.Maybe<string>;
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
 };
 export declare const NugPartsFragmentDoc: import("@apollo/client").DocumentNode;
 //# sourceMappingURL=NugParts.d.ts.map
