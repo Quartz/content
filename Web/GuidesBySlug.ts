@@ -18,7 +18,7 @@ export type GuidesBySlugQuery = { __typename?: 'RootQuery', guides?: Types.Maybe
 
 export const GuidesBySlugDocument = /*#__PURE__*/ gql`
     query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
-  guides(first: $perPage, where: {slug: $slugs}) {
+  guides(last: $perPage, where: {slug: $slugs}) {
     nodes {
       ...GuideParts
     }

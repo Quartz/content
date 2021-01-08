@@ -1,0 +1,22 @@
+query GuidesByTopic(
+	$slug: [String]!
+) {
+	topics(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			id
+			name
+			slug
+			guides(
+				first: 50
+			) {
+				nodes {
+					...GuideParts
+				}
+			}
+		}
+	}
+}

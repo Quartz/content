@@ -19,42 +19,48 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useNugsByTagLazyQuery = exports.useNugsByTagQuery = exports.NugsByTagDocument = void 0;
+exports.useGuidesByTopicLazyQuery = exports.useGuidesByTopicQuery = exports.GuidesByTopicDocument = void 0;
 const client_1 = require("@apollo/client");
-const NugParts_1 = require("./NugParts");
+const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
-exports.NugsByTagDocument = client_1.gql `
-    query NugsByTag($perPage: Int!, $slug: [String]!) {
-  nugs(first: $perPage, where: {tagSlugIn: $slug}) {
+exports.GuidesByTopicDocument = client_1.gql `
+    query GuidesByTopic($slug: [String]!) {
+  topics(where: {slug: $slug}) {
     nodes {
-      ...NugParts
+      id
+      name
+      slug
+      guides(first: 50) {
+        nodes {
+          ...GuideParts
+        }
+      }
     }
   }
 }
-    ${NugParts_1.NugPartsFragmentDoc}`;
+    ${GuideParts_1.GuidePartsFragmentDoc}`;
 /**
- * __useNugsByTagQuery__
+ * __useGuidesByTopicQuery__
  *
- * To run a query within a React component, call `useNugsByTagQuery` and pass it any options that fit your needs.
- * When your component renders, `useNugsByTagQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGuidesByTopicQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGuidesByTopicQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useNugsByTagQuery({
+ * const { data, loading, error } = useGuidesByTopicQuery({
  *   variables: {
- *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });
  */
-function useNugsByTagQuery(baseOptions) {
-    return Apollo.useQuery(exports.NugsByTagDocument, baseOptions);
+function useGuidesByTopicQuery(baseOptions) {
+    return Apollo.useQuery(exports.GuidesByTopicDocument, baseOptions);
 }
-exports.useNugsByTagQuery = useNugsByTagQuery;
-function useNugsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.NugsByTagDocument, baseOptions);
+exports.useGuidesByTopicQuery = useGuidesByTopicQuery;
+function useGuidesByTopicLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(exports.GuidesByTopicDocument, baseOptions);
 }
-exports.useNugsByTagLazyQuery = useNugsByTagLazyQuery;
-//# sourceMappingURL=NugsByTag.js.map
+exports.useGuidesByTopicLazyQuery = useGuidesByTopicLazyQuery;
+//# sourceMappingURL=GuidesByTopic.js.map

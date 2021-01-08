@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
 import * as Apollo from '@apollo/client';
 export const NugsByTagDocument = /*#__PURE__*/ gql `
-    query NugsByTag($perPage: Int!, $tag: [String]!) {
-  nugs(first: $perPage, where: {tagSlugIn: $tag}) {
+    query NugsByTag($perPage: Int!, $slug: [String]!) {
+  nugs(first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...NugParts
     }
@@ -23,7 +23,7 @@ export const NugsByTagDocument = /*#__PURE__*/ gql `
  * const { data, loading, error } = useNugsByTagQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
- *      tag: // value for 'tag'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
