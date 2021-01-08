@@ -6689,7 +6689,7 @@ public final class GuidesBySlugQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
-      guides(first: $perPage, where: {slug: $slugs}) {
+      guides(last: $perPage, where: {slug: $slugs}) {
         __typename
         nodes {
           __typename
@@ -6701,7 +6701,7 @@ public final class GuidesBySlugQuery: GraphQLQuery {
 
   public let operationName: String = "GuidesBySlug"
 
-  public let operationIdentifier: String? = "a5242afcda999203dfa1b958ffe840ac91be36d402e42874d48d9c453bf3ad76"
+  public let operationIdentifier: String? = "ab03322b37690af2403d1d3c2aaf0f007adf44d3aa1c2c8fe60b405a7db7892a"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
 
@@ -6722,7 +6722,7 @@ public final class GuidesBySlugQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("guides", arguments: ["first": GraphQLVariable("perPage"), "where": ["slug": GraphQLVariable("slugs")]], type: .object(Guide.selections)),
+        GraphQLField("guides", arguments: ["last": GraphQLVariable("perPage"), "where": ["slug": GraphQLVariable("slugs")]], type: .object(Guide.selections)),
       ]
     }
 
