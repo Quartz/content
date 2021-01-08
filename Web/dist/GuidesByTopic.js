@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export const GuidesByTopicDocument = /*#__PURE__*/ gql `
-    query GuidesByTopic($topic: [String]!) {
-  topics(where: {slug: $topic}) {
+    query GuidesByTopic($slug: [String]!) {
+  topics(where: {slug: $slug}) {
     nodes {
       id
       name
@@ -29,7 +29,7 @@ export const GuidesByTopicDocument = /*#__PURE__*/ gql `
  * @example
  * const { data, loading, error } = useGuidesByTopicQuery({
  *   variables: {
- *      topic: // value for 'topic'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
