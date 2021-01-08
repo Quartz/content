@@ -1,9 +1,9 @@
 query GuidesByTopic(
-	$topic: [String]!
+	$slug: [String]!
 ) {
 	topics(
 		where: {
-			slug: $topic
+			slug: $slug
 		}
 	) {
 		nodes {
