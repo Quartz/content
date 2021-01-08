@@ -3,7 +3,7 @@ query GuidesBySlug(
 	$slugs: [String]!
 ) {
 	guides(
-		first: $perPage
+		last: $perPage
 		where: {
 			slug: $slugs
 		}
