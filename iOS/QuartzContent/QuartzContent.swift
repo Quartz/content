@@ -9892,8 +9892,8 @@ public final class NugsByTagQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query NugsByTag($perPage: Int!, $tag: [String]!) {
-      nugs(first: $perPage, where: {tagSlugIn: $tag}) {
+    query NugsByTag($perPage: Int!, $slug: [String]!) {
+      nugs(first: $perPage, where: {tagSlugIn: $slug}) {
         __typename
         nodes {
           __typename
@@ -9905,20 +9905,20 @@ public final class NugsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "NugsByTag"
 
-  public let operationIdentifier: String? = "2090a2c92fd564ed980c03e7a2d24ab1200d38a24d33ff8fa717c8baa287e34e"
+  public let operationIdentifier: String? = "5e0c29f20637be91b41bd6baf31a659272dbb65cb20d3b50978b15843a1d1497"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
   public var perPage: Int
-  public var tag: [String?]
+  public var slug: [String?]
 
-  public init(perPage: Int, tag: [String?]) {
+  public init(perPage: Int, slug: [String?]) {
     self.perPage = perPage
-    self.tag = tag
+    self.slug = slug
   }
 
   public var variables: GraphQLMap? {
-    return ["perPage": perPage, "tag": tag]
+    return ["perPage": perPage, "slug": slug]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -9926,7 +9926,7 @@ public final class NugsByTagQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("nugs", arguments: ["first": GraphQLVariable("perPage"), "where": ["tagSlugIn": GraphQLVariable("tag")]], type: .object(Nug.selections)),
+        GraphQLField("nugs", arguments: ["first": GraphQLVariable("perPage"), "where": ["tagSlugIn": GraphQLVariable("slug")]], type: .object(Nug.selections)),
       ]
     }
 
