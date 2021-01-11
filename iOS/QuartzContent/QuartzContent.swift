@@ -60,6 +60,172 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
   }
 }
 
+/// Registered menu locations
+public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case about
+  case authorsWork
+  case caseStudiesCreative
+  case chartsAfrica
+  case chartsIndia
+  case chartsQuartz
+  case clientsCreative
+  case featuredQuartz
+  case featuresMarketingMembers
+  case featuresMembers
+  case featuresVideoMembers
+  case obsessions
+  case obsessionsAfrica
+  case obsessionsIndia
+  case obsessionsQuartz
+  case obsessionsQuartzy
+  case obsessionsWork
+  case playerVideo
+  case premiumMembers
+  case showsVideo
+  case topAfrica
+  case topIndia
+  case topQuartz
+  case topQuartzy
+  case topWork
+  case videosQuartz
+  case videosQuartzy
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "ABOUT": self = .about
+      case "AUTHORS_WORK": self = .authorsWork
+      case "CASE_STUDIES_CREATIVE": self = .caseStudiesCreative
+      case "CHARTS_AFRICA": self = .chartsAfrica
+      case "CHARTS_INDIA": self = .chartsIndia
+      case "CHARTS_QUARTZ": self = .chartsQuartz
+      case "CLIENTS_CREATIVE": self = .clientsCreative
+      case "FEATURED_QUARTZ": self = .featuredQuartz
+      case "FEATURES_MARKETING_MEMBERS": self = .featuresMarketingMembers
+      case "FEATURES_MEMBERS": self = .featuresMembers
+      case "FEATURES_VIDEO_MEMBERS": self = .featuresVideoMembers
+      case "OBSESSIONS": self = .obsessions
+      case "OBSESSIONS_AFRICA": self = .obsessionsAfrica
+      case "OBSESSIONS_INDIA": self = .obsessionsIndia
+      case "OBSESSIONS_QUARTZ": self = .obsessionsQuartz
+      case "OBSESSIONS_QUARTZY": self = .obsessionsQuartzy
+      case "OBSESSIONS_WORK": self = .obsessionsWork
+      case "PLAYER_VIDEO": self = .playerVideo
+      case "PREMIUM_MEMBERS": self = .premiumMembers
+      case "SHOWS_VIDEO": self = .showsVideo
+      case "TOP_AFRICA": self = .topAfrica
+      case "TOP_INDIA": self = .topIndia
+      case "TOP_QUARTZ": self = .topQuartz
+      case "TOP_QUARTZY": self = .topQuartzy
+      case "TOP_WORK": self = .topWork
+      case "VIDEOS_QUARTZ": self = .videosQuartz
+      case "VIDEOS_QUARTZY": self = .videosQuartzy
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .about: return "ABOUT"
+      case .authorsWork: return "AUTHORS_WORK"
+      case .caseStudiesCreative: return "CASE_STUDIES_CREATIVE"
+      case .chartsAfrica: return "CHARTS_AFRICA"
+      case .chartsIndia: return "CHARTS_INDIA"
+      case .chartsQuartz: return "CHARTS_QUARTZ"
+      case .clientsCreative: return "CLIENTS_CREATIVE"
+      case .featuredQuartz: return "FEATURED_QUARTZ"
+      case .featuresMarketingMembers: return "FEATURES_MARKETING_MEMBERS"
+      case .featuresMembers: return "FEATURES_MEMBERS"
+      case .featuresVideoMembers: return "FEATURES_VIDEO_MEMBERS"
+      case .obsessions: return "OBSESSIONS"
+      case .obsessionsAfrica: return "OBSESSIONS_AFRICA"
+      case .obsessionsIndia: return "OBSESSIONS_INDIA"
+      case .obsessionsQuartz: return "OBSESSIONS_QUARTZ"
+      case .obsessionsQuartzy: return "OBSESSIONS_QUARTZY"
+      case .obsessionsWork: return "OBSESSIONS_WORK"
+      case .playerVideo: return "PLAYER_VIDEO"
+      case .premiumMembers: return "PREMIUM_MEMBERS"
+      case .showsVideo: return "SHOWS_VIDEO"
+      case .topAfrica: return "TOP_AFRICA"
+      case .topIndia: return "TOP_INDIA"
+      case .topQuartz: return "TOP_QUARTZ"
+      case .topQuartzy: return "TOP_QUARTZY"
+      case .topWork: return "TOP_WORK"
+      case .videosQuartz: return "VIDEOS_QUARTZ"
+      case .videosQuartzy: return "VIDEOS_QUARTZY"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: MenuLocationEnum, rhs: MenuLocationEnum) -> Bool {
+    switch (lhs, rhs) {
+      case (.about, .about): return true
+      case (.authorsWork, .authorsWork): return true
+      case (.caseStudiesCreative, .caseStudiesCreative): return true
+      case (.chartsAfrica, .chartsAfrica): return true
+      case (.chartsIndia, .chartsIndia): return true
+      case (.chartsQuartz, .chartsQuartz): return true
+      case (.clientsCreative, .clientsCreative): return true
+      case (.featuredQuartz, .featuredQuartz): return true
+      case (.featuresMarketingMembers, .featuresMarketingMembers): return true
+      case (.featuresMembers, .featuresMembers): return true
+      case (.featuresVideoMembers, .featuresVideoMembers): return true
+      case (.obsessions, .obsessions): return true
+      case (.obsessionsAfrica, .obsessionsAfrica): return true
+      case (.obsessionsIndia, .obsessionsIndia): return true
+      case (.obsessionsQuartz, .obsessionsQuartz): return true
+      case (.obsessionsQuartzy, .obsessionsQuartzy): return true
+      case (.obsessionsWork, .obsessionsWork): return true
+      case (.playerVideo, .playerVideo): return true
+      case (.premiumMembers, .premiumMembers): return true
+      case (.showsVideo, .showsVideo): return true
+      case (.topAfrica, .topAfrica): return true
+      case (.topIndia, .topIndia): return true
+      case (.topQuartz, .topQuartz): return true
+      case (.topQuartzy, .topQuartzy): return true
+      case (.topWork, .topWork): return true
+      case (.videosQuartz, .videosQuartz): return true
+      case (.videosQuartzy, .videosQuartzy): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [MenuLocationEnum] {
+    return [
+      .about,
+      .authorsWork,
+      .caseStudiesCreative,
+      .chartsAfrica,
+      .chartsIndia,
+      .chartsQuartz,
+      .clientsCreative,
+      .featuredQuartz,
+      .featuresMarketingMembers,
+      .featuresMembers,
+      .featuresVideoMembers,
+      .obsessions,
+      .obsessionsAfrica,
+      .obsessionsIndia,
+      .obsessionsQuartz,
+      .obsessionsQuartzy,
+      .obsessionsWork,
+      .playerVideo,
+      .premiumMembers,
+      .showsVideo,
+      .topAfrica,
+      .topIndia,
+      .topQuartz,
+      .topQuartzy,
+      .topWork,
+      .videosQuartz,
+      .videosQuartzy,
+    ]
+  }
+}
+
 /// Allowed content block names
 public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
@@ -2446,6 +2612,164 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
               set {
                 resultMap.updateValue(newValue, forKey: "hasNextPage")
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class ArticlesByRecommendationQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query ArticlesByRecommendation($perPage: Int!, $postId: Int!) {
+      posts(first: $perPage, where: {recommended: {id: $postId}}) {
+        __typename
+        nodes {
+          __typename
+          ...ArticleTeaserParts
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "ArticlesByRecommendation"
+
+  public let operationIdentifier: String? = "e1883af60a63fe89eb4087ec78e38980a7a84c4d74c79230568983137209494b"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+
+  public var perPage: Int
+  public var postId: Int
+
+  public init(perPage: Int, postId: Int) {
+    self.perPage = perPage
+    self.postId = postId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["perPage": perPage, "postId": postId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("posts", arguments: ["first": GraphQLVariable("perPage"), "where": ["recommended": ["id": GraphQLVariable("postId")]]], type: .object(Post.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(posts: Post? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var posts: Post? {
+      get {
+        return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "posts")
+      }
+    }
+
+    public struct Post: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ArticleTeaserParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var articleTeaserParts: ArticleTeaserParts {
+            get {
+              return ArticleTeaserParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
             }
           }
         }
@@ -10046,6 +10370,436 @@ public final class NugsByTagQuery: GraphQLQuery {
   }
 }
 
+public final class ObsessionsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
+      menuItems(first: $perPage, where: {location: $location}) {
+        __typename
+        nodes {
+          __typename
+          id
+          connectedObject {
+            __typename
+            ... on Obsession {
+              ...ObsessionParts
+              posts(first: 1) {
+                __typename
+                nodes {
+                  __typename
+                  ...ArticleTeaserParts
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "Obsessions"
+
+  public let operationIdentifier: String? = "821647ee55e1c152d4586b2657a7576539408b9d96b3515f9734c10e44c4e6e2"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+
+  public var perPage: Int
+  public var location: MenuLocationEnum
+
+  public init(perPage: Int, location: MenuLocationEnum) {
+    self.perPage = perPage
+    self.location = location
+  }
+
+  public var variables: GraphQLMap? {
+    return ["perPage": perPage, "location": location]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("menuItems", arguments: ["first": GraphQLVariable("perPage"), "where": ["location": GraphQLVariable("location")]], type: .object(MenuItem.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(menuItems: MenuItem? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var menuItems: MenuItem? {
+      get {
+        return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "menuItems")
+      }
+    }
+
+    public struct MenuItem: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToMenuItemConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToMenuItemConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["MenuItem"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("connectedObject", type: .object(ConnectedObject.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, connectedObject: ConnectedObject? = nil) {
+          self.init(unsafeResultMap: ["__typename": "MenuItem", "id": id, "connectedObject": connectedObject.flatMap { (value: ConnectedObject) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// Relay ID of the menu item.
+        @available(*, deprecated, message: "")
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        /// The object connected to this menu item.
+        @available(*, deprecated, message: "")
+        public var connectedObject: ConnectedObject? {
+          get {
+            return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "connectedObject")
+          }
+        }
+
+        public struct ConnectedObject: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLTypeCase(
+                variants: ["Obsession": AsObsession.selections],
+                default: [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                ]
+              )
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public static func makePost() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Post"])
+          }
+
+          public static func makePage() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Page"])
+          }
+
+          public static func makeEmail() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Email"])
+          }
+
+          public static func makeChapter() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Chapter"])
+          }
+
+          public static func makePromotion() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Promotion"])
+          }
+
+          public static func makeBlogPost() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "BlogPost"])
+          }
+
+          public static func makeNug() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Nug"])
+          }
+
+          public static func makeCollection() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Collection"])
+          }
+
+          public static func makeCategory() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Category"])
+          }
+
+          public static func makeTag() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Tag"])
+          }
+
+          public static func makeEmailList() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailList"])
+          }
+
+          public static func makeTopic() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Topic"])
+          }
+
+          public static func makeShow() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+          }
+
+          public static func makeCoAuthor() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
+          }
+
+          public static func makeMenuItem() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var asObsession: AsObsession? {
+            get {
+              if !AsObsession.possibleTypes.contains(__typename) { return nil }
+              return AsObsession(unsafeResultMap: resultMap)
+            }
+            set {
+              guard let newValue = newValue else { return }
+              resultMap = newValue.resultMap
+            }
+          }
+
+          public struct AsObsession: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Obsession"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLFragmentSpread(ObsessionParts.self),
+                GraphQLField("posts", arguments: ["first": 1], type: .object(Post.selections)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// Connection between the obsession type and the obsession type
+            @available(*, deprecated, message: "")
+            public var posts: Post? {
+              get {
+                return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+              }
+              set {
+                resultMap.updateValue(newValue?.resultMap, forKey: "posts")
+              }
+            }
+
+            public var fragments: Fragments {
+              get {
+                return Fragments(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+
+            public struct Fragments {
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var obsessionParts: ObsessionParts {
+                get {
+                  return ObsessionParts(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+            }
+
+            public struct Post: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["ObsessionToPostConnection"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("nodes", type: .list(.object(Node.selections))),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(nodes: [Node?]? = nil) {
+                self.init(unsafeResultMap: ["__typename": "ObsessionToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              /// The nodes of the connection, without the edges
+              @available(*, deprecated, message: "")
+              public var nodes: [Node?]? {
+                get {
+                  return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+                }
+                set {
+                  resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+                }
+              }
+
+              public struct Node: GraphQLSelectionSet {
+                public static let possibleTypes: [String] = ["Post"]
+
+                public static var selections: [GraphQLSelection] {
+                  return [
+                    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                    GraphQLFragmentSpread(ArticleTeaserParts.self),
+                  ]
+                }
+
+                public private(set) var resultMap: ResultMap
+
+                public init(unsafeResultMap: ResultMap) {
+                  self.resultMap = unsafeResultMap
+                }
+
+                public var __typename: String {
+                  get {
+                    return resultMap["__typename"]! as! String
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "__typename")
+                  }
+                }
+
+                public var fragments: Fragments {
+                  get {
+                    return Fragments(unsafeResultMap: resultMap)
+                  }
+                  set {
+                    resultMap += newValue.resultMap
+                  }
+                }
+
+                public struct Fragments {
+                  public private(set) var resultMap: ResultMap
+
+                  public init(unsafeResultMap: ResultMap) {
+                    self.resultMap = unsafeResultMap
+                  }
+
+                  public var articleTeaserParts: ArticleTeaserParts {
+                    get {
+                      return ArticleTeaserParts(unsafeResultMap: resultMap)
+                    }
+                    set {
+                      resultMap += newValue.resultMap
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class PromotionsByTagQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -10264,6 +11018,155 @@ public final class PromotionsByTagQuery: GraphQLQuery {
               set {
                 resultMap += newValue.resultMap
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class TopicsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query Topics {
+      topics {
+        __typename
+        nodes {
+          __typename
+          ...TopicParts
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "Topics"
+
+  public let operationIdentifier: String? = "79d0625990884a43ecad782d28da2e29c869c3c1c93e2c7faae9e45ac693121e"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + TopicParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("topics", type: .object(Topic.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(topics: Topic? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var topics: Topic? {
+      get {
+        return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "topics")
+      }
+    }
+
+    public struct Topic: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToTopicConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToTopicConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      @available(*, deprecated, message: "")
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Topic"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(TopicParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var topicParts: TopicParts {
+            get {
+              return TopicParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
             }
           }
         }

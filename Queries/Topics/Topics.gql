@@ -1,0 +1,7 @@
+query Topics {
+	topics {
+		nodes {
+			...TopicParts
+		}
+	}
+}
