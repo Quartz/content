@@ -32,6 +32,20 @@ exports.NugPartsFragmentDoc = client_1.gql `
   nugId
   slug
   title
+  tags {
+    nodes {
+      id
+      name
+      slug
+    }
+  }
+  topics {
+    nodes {
+      id
+      name
+      slug
+    }
+  }
 }
     ${BlockParts_1.BlockPartsFragmentDoc}
 ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}

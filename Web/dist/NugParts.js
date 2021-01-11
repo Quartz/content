@@ -29,6 +29,20 @@ export const NugPartsFragmentDoc = /*#__PURE__*/ gql `
   nugId
   slug
   title
+  tags {
+    nodes {
+      id
+      name
+      slug
+    }
+  }
+  topics {
+    nodes {
+      id
+      name
+      slug
+    }
+  }
 }
     ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
