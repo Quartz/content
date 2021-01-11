@@ -7178,7 +7178,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
           id
           name
           slug
-          guides(last: $perPage, where: {orderby: TERM_ORDER}) {
+          guides(last: $perPage) {
             __typename
             nodes {
               __typename
@@ -7192,7 +7192,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
 
   public let operationName: String = "GuidesByTopic"
 
-  public let operationIdentifier: String? = "26fed1d5003e992572129b081787680c2150671c2b119e1d35218bb51bce5ffa"
+  public let operationIdentifier: String? = "db4591c6621f25a118a5b44456e25765427dcab6b1109ef4c813abf65ba8b97f"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
 
@@ -7287,7 +7287,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
             GraphQLField("name", type: .scalar(String.self)),
             GraphQLField("slug", type: .scalar(String.self)),
-            GraphQLField("guides", arguments: ["last": GraphQLVariable("perPage"), "where": ["orderby": "TERM_ORDER"]], type: .object(Guide.selections)),
+            GraphQLField("guides", arguments: ["last": GraphQLVariable("perPage")], type: .object(Guide.selections)),
           ]
         }
 
