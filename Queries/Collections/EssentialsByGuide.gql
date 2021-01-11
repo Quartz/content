@@ -1,11 +1,11 @@
 query EssentialsByGuide($slug: String!) {
-  guides(where: {slug: [$slug]}) {
-    nodes {
-      essentials(first: 1) {
-        nodes {
-          ...CollectionParts
-        }
-      }
-    }
-  }
+	guides(last: 1, where: {slug: [$slug]}) {
+		nodes {
+			essentials(first: 1) {
+				nodes {
+					...CollectionParts
+				}
+			}
+		}
+	}
 }

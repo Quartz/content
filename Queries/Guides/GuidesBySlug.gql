@@ -1,11 +1,11 @@
 query GuidesBySlug(
 	$perPage: Int!
-	$slugs: [String]!
+	$slug: [String]!
 ) {
 	guides(
 		last: $perPage
 		where: {
-			slug: $slugs
+			slug: $slug
 		}
 	) {
 		nodes {

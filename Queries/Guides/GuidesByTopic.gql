@@ -1,4 +1,5 @@
 query GuidesByTopic(
+	$perPage: Int = 50
 	$slug: [String]!
 ) {
 	topics(
@@ -11,7 +12,8 @@ query GuidesByTopic(
 			name
 			slug
 			guides(
-				first: 50
+				last: $perPage,
+				where: { orderby: TERM_ORDER }
 			) {
 				nodes {
 					...GuideParts

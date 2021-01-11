@@ -4,6 +4,7 @@ query ArticlesByGuide(
 	$slug: [String]
 ) {
 	guides(
+		last: 1,
 		where: {
 			slug: $slug
 		}
