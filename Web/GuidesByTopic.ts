@@ -5,6 +5,7 @@ import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export type GuidesByTopicQueryVariables = Types.Exact<{
+  perPage?: Types.Maybe<Types.Scalars['Int']>;
   slug: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
 
@@ -16,13 +17,13 @@ export type GuidesByTopicQuery = { __typename?: 'RootQuery', topics?: Types.Mayb
 
 
 export const GuidesByTopicDocument = /*#__PURE__*/ gql`
-    query GuidesByTopic($slug: [String]!) {
+    query GuidesByTopic($perPage: Int = 50, $slug: [String]!) {
   topics(where: {slug: $slug}) {
     nodes {
       id
       name
       slug
-      guides(first: 50) {
+      guides(last: $perPage) {
         nodes {
           ...GuideParts
         }
@@ -44,6 +45,7 @@ export const GuidesByTopicDocument = /*#__PURE__*/ gql`
  * @example
  * const { data, loading, error } = useGuidesByTopicQuery({
  *   variables: {
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });

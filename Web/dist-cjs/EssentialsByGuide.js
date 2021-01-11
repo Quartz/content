@@ -25,7 +25,7 @@ const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.EssentialsByGuideDocument = client_1.gql `
     query EssentialsByGuide($slug: String!) {
-  guides(where: {slug: [$slug]}) {
+  guides(last: 1, where: {slug: [$slug]}) {
     nodes {
       essentials(first: 1) {
         nodes {

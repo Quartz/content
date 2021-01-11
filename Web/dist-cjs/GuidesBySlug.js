@@ -24,8 +24,8 @@ const client_1 = require("@apollo/client");
 const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.GuidesBySlugDocument = client_1.gql `
-    query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
-  guides(last: $perPage, where: {slug: $slugs}) {
+    query GuidesBySlug($perPage: Int!, $slug: [String]!) {
+  guides(last: $perPage, where: {slug: $slug}) {
     nodes {
       ...GuideParts
     }
@@ -45,7 +45,7 @@ exports.GuidesBySlugDocument = client_1.gql `
  * const { data, loading, error } = useGuidesBySlugQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
- *      slugs: // value for 'slugs'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
