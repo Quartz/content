@@ -17,7 +17,7 @@ export type EssentialsByGuideQuery = { __typename?: 'RootQuery', guides?: Types.
 
 export const EssentialsByGuideDocument = /*#__PURE__*/ gql`
     query EssentialsByGuide($slug: String!) {
-  guides(where: {slug: [$slug]}) {
+  guides(last: 1, where: {slug: [$slug]}) {
     nodes {
       essentials(first: 1) {
         nodes {

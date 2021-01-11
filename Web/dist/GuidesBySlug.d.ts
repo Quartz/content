@@ -3,7 +3,7 @@ import type { GuidePartsFragment } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export declare type GuidesBySlugQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
-    slugs: Array<Types.Maybe<Types.Scalars['String']>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
 export declare type GuidesBySlugQuery = {
     __typename?: 'RootQuery';
@@ -28,17 +28,17 @@ export declare const GuidesBySlugDocument: Apollo.DocumentNode;
  * const { data, loading, error } = useGuidesBySlugQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
- *      slugs: // value for 'slugs'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
 export declare function useGuidesBySlugQuery(baseOptions: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>): Apollo.QueryResult<GuidesBySlugQuery, Types.Exact<{
     perPage: number;
-    slugs: (string | null)[];
+    slug: (string | null)[];
 }>>;
 export declare function useGuidesBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>): Apollo.QueryTuple<GuidesBySlugQuery, Types.Exact<{
     perPage: number;
-    slugs: (string | null)[];
+    slug: (string | null)[];
 }>>;
 export declare type GuidesBySlugQueryHookResult = ReturnType<typeof useGuidesBySlugQuery>;
 export declare type GuidesBySlugLazyQueryHookResult = ReturnType<typeof useGuidesBySlugLazyQuery>;

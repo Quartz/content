@@ -6,7 +6,7 @@ import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export type GuidesBySlugQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
-  slugs: Array<Types.Maybe<Types.Scalars['String']>>;
+  slug: Array<Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -17,8 +17,8 @@ export type GuidesBySlugQuery = { __typename?: 'RootQuery', guides?: Types.Maybe
 
 
 export const GuidesBySlugDocument = /*#__PURE__*/ gql`
-    query GuidesBySlug($perPage: Int!, $slugs: [String]!) {
-  guides(last: $perPage, where: {slug: $slugs}) {
+    query GuidesBySlug($perPage: Int!, $slug: [String]!) {
+  guides(last: $perPage, where: {slug: $slug}) {
     nodes {
       ...GuideParts
     }
@@ -39,7 +39,7 @@ export const GuidesBySlugDocument = /*#__PURE__*/ gql`
  * const { data, loading, error } = useGuidesBySlugQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
- *      slugs: // value for 'slugs'
+ *      slug: // value for 'slug'
  *   },
  * });
  */

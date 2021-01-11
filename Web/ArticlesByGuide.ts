@@ -24,7 +24,7 @@ export type ArticlesByGuideQuery = { __typename?: 'RootQuery', guides?: Types.Ma
 
 export const ArticlesByGuideDocument = /*#__PURE__*/ gql`
     query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
-  guides(where: {slug: $slug}) {
+  guides(last: 1, where: {slug: $slug}) {
     nodes {
       ...GuideParts
       posts(

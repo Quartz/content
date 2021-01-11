@@ -26,7 +26,7 @@ const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.ArticlesByGuideDocument = client_1.gql `
     query ArticlesByGuide($after: String = "", $perPage: Int, $slug: [String]) {
-  guides(where: {slug: $slug}) {
+  guides(last: 1, where: {slug: $slug}) {
     nodes {
       ...GuideParts
       posts(
