@@ -1,0 +1,28 @@
+query Obsessions(
+	$perPage: Int!
+	$location: MenuLocationEnum!
+){
+	menuItems(
+		first: $perPage
+		where: {
+			location: $location
+		}
+	) {
+		nodes {
+			id
+			connectedObject {
+				... on Obsession {
+					...ObsessionParts
+					posts(
+						first: 1
+					) {
+						nodes {
+							...ArticleTeaserParts
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
