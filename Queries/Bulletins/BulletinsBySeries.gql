@@ -1,0 +1,27 @@
+query BulletinsBySeries(
+	$after: String = ""
+	$perPage: Int
+	$slug: [String]
+) {
+	serieses(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...SeriesParts
+			posts:bulletins(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...BulletinParts
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}
