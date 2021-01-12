@@ -26,6 +26,7 @@ __exportStar(require("./ArticlesByTopic"), exports);
 __exportStar(require("./AuthorParts"), exports);
 __exportStar(require("./BlockParts"), exports);
 __exportStar(require("./BulletinParts"), exports);
+__exportStar(require("./BulletinsBySeries"), exports);
 __exportStar(require("./Collection"), exports);
 __exportStar(require("./CollectionParts"), exports);
 __exportStar(require("./Collections"), exports);
