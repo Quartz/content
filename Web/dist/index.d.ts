@@ -13,6 +13,7 @@ export * from './ArticlesByTopic';
 export * from './AuthorParts';
 export * from './BlockParts';
 export * from './BulletinParts';
+export * from './BulletinsBySeries';
 export * from './Collection';
 export * from './CollectionParts';
 export * from './Collections';
