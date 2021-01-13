@@ -9,6 +9,7 @@ const NugParts_1 = require("./NugParts");
 exports.CollectionPartsFragmentDoc = client_1.gql `
     fragment CollectionParts on Collection {
   id
+  collectionId
   title
   dateGmt
   modifiedGmt

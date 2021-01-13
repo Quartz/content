@@ -6,6 +6,7 @@ import type { NugPartsFragment } from './NugParts';
 export declare type CollectionPartsFragment = {
     __typename?: 'Collection';
     id: string;
+    collectionId: number;
     title?: Types.Maybe<string>;
     dateGmt?: Types.Maybe<string>;
     modifiedGmt?: Types.Maybe<string>;

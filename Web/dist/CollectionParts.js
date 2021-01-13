@@ -6,6 +6,7 @@ import { NugPartsFragmentDoc } from './NugParts';
 export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment CollectionParts on Collection {
   id
+  collectionId
   title
   dateGmt
   modifiedGmt

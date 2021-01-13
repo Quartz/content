@@ -9,7 +9,7 @@ import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { NugPartsFragmentDoc } from './NugParts';
-export type CollectionPartsFragment = { __typename?: 'Collection', id: string, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, featuredImage?: Types.Maybe<(
+export type CollectionPartsFragment = { __typename?: 'Collection', id: string, collectionId: number, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, blocks?: Types.Maybe<Array<Types.Maybe<(
@@ -29,6 +29,7 @@ export type CollectionPartsFragment = { __typename?: 'Collection', id: string, t
 export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
     fragment CollectionParts on Collection {
   id
+  collectionId
   title
   dateGmt
   modifiedGmt
