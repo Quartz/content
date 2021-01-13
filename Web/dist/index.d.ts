@@ -3,6 +3,7 @@ export * from './ArticleParts';
 export * from './ArticlePreview';
 export * from './ArticleTeaser';
 export * from './ArticleTeaserParts';
+export * from './ArticlesByAuthor';
 export * from './ArticlesByGuide';
 export * from './ArticlesByObsession';
 export * from './ArticlesByRecommendation';
