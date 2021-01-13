@@ -1,0 +1,27 @@
+query ArticlesByAuthor(
+	$after: String = ""
+	$perPage: Int!
+	$slug: [String]
+) {
+	authors:coAuthors(
+		where: {
+			name: $slug
+		}
+	) {
+		nodes {
+			...AuthorParts
+			posts(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...ArticleTeaserParts
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}
