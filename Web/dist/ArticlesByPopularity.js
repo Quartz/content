@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 export const PopularArticlesDocument = /*#__PURE__*/ gql `
-    query PopularArticles($edition: EditionName, $perPage: Int) {
-  posts(first: $perPage, where: {popular: {edition: $edition}}) {
+    query PopularArticles($after: String = "", $edition: EditionName, $perPage: Int) {
+  posts(first: $perPage, after: $after, where: {popular: {edition: $edition}}) {
     nodes {
       ...ArticleTeaserParts
     }
@@ -26,6 +26,7 @@ export const PopularArticlesDocument = /*#__PURE__*/ gql `
  * @example
  * const { data, loading, error } = usePopularArticlesQuery({
  *   variables: {
+ *      after: // value for 'after'
  *      edition: // value for 'edition'
  *      perPage: // value for 'perPage'
  *   },

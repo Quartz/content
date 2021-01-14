@@ -24,8 +24,8 @@ const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.PopularArticlesDocument = client_1.gql `
-    query PopularArticles($edition: EditionName, $perPage: Int) {
-  posts(first: $perPage, where: {popular: {edition: $edition}}) {
+    query PopularArticles($after: String = "", $edition: EditionName, $perPage: Int) {
+  posts(first: $perPage, after: $after, where: {popular: {edition: $edition}}) {
     nodes {
       ...ArticleTeaserParts
     }
@@ -48,6 +48,7 @@ exports.PopularArticlesDocument = client_1.gql `
  * @example
  * const { data, loading, error } = usePopularArticlesQuery({
  *   variables: {
+ *      after: // value for 'after'
  *      edition: // value for 'edition'
  *      perPage: // value for 'perPage'
  *   },

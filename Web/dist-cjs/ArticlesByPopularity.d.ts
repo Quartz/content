@@ -2,6 +2,7 @@ import type * as Types from './types';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type PopularArticlesQueryVariables = Types.Exact<{
+    after?: Types.Maybe<Types.Scalars['String']>;
     edition?: Types.Maybe<Types.EditionName>;
     perPage?: Types.Maybe<Types.Scalars['Int']>;
 }>;
@@ -32,16 +33,19 @@ export declare const PopularArticlesDocument: Apollo.DocumentNode;
  * @example
  * const { data, loading, error } = usePopularArticlesQuery({
  *   variables: {
+ *      after: // value for 'after'
  *      edition: // value for 'edition'
  *      perPage: // value for 'perPage'
  *   },
  * });
  */
 export declare function usePopularArticlesQuery(baseOptions?: Apollo.QueryHookOptions<PopularArticlesQuery, PopularArticlesQueryVariables>): Apollo.QueryResult<PopularArticlesQuery, Types.Exact<{
+    after?: string | null | undefined;
     edition?: "AFRICA" | "INDIA" | "QUARTZ" | "QUARTZY" | "WORK" | null | undefined;
     perPage?: number | null | undefined;
 }>>;
 export declare function usePopularArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PopularArticlesQuery, PopularArticlesQueryVariables>): Apollo.QueryTuple<PopularArticlesQuery, Types.Exact<{
+    after?: string | null | undefined;
     edition?: "AFRICA" | "INDIA" | "QUARTZ" | "QUARTZY" | "WORK" | null | undefined;
     perPage?: number | null | undefined;
 }>>;

@@ -2966,8 +2966,8 @@ public final class PopularArticlesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query PopularArticles($edition: EditionName, $perPage: Int) {
-      posts(first: $perPage, where: {popular: {edition: $edition}}) {
+    query PopularArticles($after: String = "", $edition: EditionName, $perPage: Int) {
+      posts(first: $perPage, after: $after, where: {popular: {edition: $edition}}) {
         __typename
         nodes {
           __typename
@@ -2984,20 +2984,22 @@ public final class PopularArticlesQuery: GraphQLQuery {
 
   public let operationName: String = "PopularArticles"
 
-  public let operationIdentifier: String? = "482e628c2e464bc49ec50b768014e834e225bf5fa077998c7f0fe72e5583dff5"
+  public let operationIdentifier: String? = "4f5d8b61a01501d41c8c7e4442b4a46c2751cb08b29def11a47a08092d63e1c7"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
+  public var after: String?
   public var edition: EditionName?
   public var perPage: Int?
 
-  public init(edition: EditionName? = nil, perPage: Int? = nil) {
+  public init(after: String? = nil, edition: EditionName? = nil, perPage: Int? = nil) {
+    self.after = after
     self.edition = edition
     self.perPage = perPage
   }
 
   public var variables: GraphQLMap? {
-    return ["edition": edition, "perPage": perPage]
+    return ["after": after, "edition": edition, "perPage": perPage]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -3005,7 +3007,7 @@ public final class PopularArticlesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("posts", arguments: ["first": GraphQLVariable("perPage"), "where": ["popular": ["edition": GraphQLVariable("edition")]]], type: .object(Post.selections)),
+        GraphQLField("posts", arguments: ["first": GraphQLVariable("perPage"), "after": GraphQLVariable("after"), "where": ["popular": ["edition": GraphQLVariable("edition")]]], type: .object(Post.selections)),
       ]
     }
 
