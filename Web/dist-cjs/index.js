@@ -16,6 +16,7 @@ __exportStar(require("./ArticleParts"), exports);
 __exportStar(require("./ArticlePreview"), exports);
 __exportStar(require("./ArticleTeaser"), exports);
 __exportStar(require("./ArticleTeaserParts"), exports);
+__exportStar(require("./ArticlesByAuthor"), exports);
 __exportStar(require("./ArticlesByGuide"), exports);
 __exportStar(require("./ArticlesByObsession"), exports);
 __exportStar(require("./ArticlesByRecommendation"), exports);
