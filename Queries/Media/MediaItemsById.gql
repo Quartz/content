@@ -1,0 +1,13 @@
+query MediaItemsById(
+	$ids: [ ID! ]
+) {
+	mediaItems(
+		where: {
+			in: $ids
+		}
+	) {
+		nodes {
+			...MediaParts
+		}
+	}
+}

@@ -38,6 +38,7 @@ export * from './GuidesByTopic';
 export * from './HomeCollection';
 export * from './HomeCollectionPreview';
 export * from './LatestArticles';
+export * from './MediaItemsById';
 export * from './MediaParts';
 export * from './MemberHome';
 export * from './MemberVideo';
