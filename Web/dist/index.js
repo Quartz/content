@@ -51,6 +51,7 @@ export * from './Obsessions';
 export * from './PageByUri';
 export * from './ProjectParts';
 export * from './PromotionParts';
+export * from './PromotionsByMenu';
 export * from './PromotionsByTag';
 export * from './SeriesParts';
 export * from './ShowParts';

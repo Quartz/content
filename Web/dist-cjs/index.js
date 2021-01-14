@@ -63,6 +63,7 @@ __exportStar(require("./Obsessions"), exports);
 __exportStar(require("./PageByUri"), exports);
 __exportStar(require("./ProjectParts"), exports);
 __exportStar(require("./PromotionParts"), exports);
+__exportStar(require("./PromotionsByMenu"), exports);
 __exportStar(require("./PromotionsByTag"), exports);
 __exportStar(require("./SeriesParts"), exports);
 __exportStar(require("./ShowParts"), exports);

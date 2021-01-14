@@ -7237,11 +7237,11 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
   }
 }
 
-public final class ContributorsQueryQuery: GraphQLQuery {
+public final class ContributorsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query ContributorsQuery($perPage: Int!) {
+    query Contributors($perPage: Int!) {
       menuItems(first: $perPage, where: {location: AUTHORS_WORK}) {
         __typename
         nodes {
@@ -7274,9 +7274,9 @@ public final class ContributorsQueryQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "ContributorsQuery"
+  public let operationName: String = "Contributors"
 
-  public let operationIdentifier: String? = "333a66e799c1fbd2397a959a203a750ac326e03d1893dc727f126caea6b1aba2"
+  public let operationIdentifier: String? = "4369883a5da5d58730f3b7359f3ea81b2022dc00004630cb11ecbfab341098ac"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition) }
 
@@ -12685,6 +12685,353 @@ public final class MenuItemsQuery: GraphQLQuery {
   }
 }
 
+public final class PromotionsByMenuQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query PromotionsByMenu($menuLocation: MenuLocationEnum!) {
+      menuItems(first: 50, where: {location: $menuLocation}) {
+        __typename
+        edges {
+          __typename
+          node {
+            __typename
+            connectedObject {
+              __typename
+              ... on Promotion {
+                ...PromotionParts
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "PromotionsByMenu"
+
+  public let operationIdentifier: String? = "208ebc0a756dace8be7d2ad39cc08cccb2539f6eac370bd947c62b1ccb8adbab"
+
+  public var queryDocument: String { return operationDefinition.appending("\n" + PromotionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+
+  public var menuLocation: MenuLocationEnum
+
+  public init(menuLocation: MenuLocationEnum) {
+    self.menuLocation = menuLocation
+  }
+
+  public var variables: GraphQLMap? {
+    return ["menuLocation": menuLocation]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("menuItems", arguments: ["first": 50, "where": ["location": GraphQLVariable("menuLocation")]], type: .object(MenuItem.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(menuItems: MenuItem? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the RootQuery type
+    @available(*, deprecated, message: "")
+    public var menuItems: MenuItem? {
+      get {
+        return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "menuItems")
+      }
+    }
+
+    public struct MenuItem: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToMenuItemConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("edges", type: .list(.object(Edge.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(edges: [Edge?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToMenuItemConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// Edges for the RootQueryToMenuItemConnection connection
+      @available(*, deprecated, message: "")
+      public var edges: [Edge?]? {
+        get {
+          return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+        }
+      }
+
+      public struct Edge: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["RootQueryToMenuItemConnectionEdge"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("node", type: .object(Node.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(node: Node? = nil) {
+          self.init(unsafeResultMap: ["__typename": "RootQueryToMenuItemConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The item at the end of the edge
+        @available(*, deprecated, message: "")
+        public var node: Node? {
+          get {
+            return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "node")
+          }
+        }
+
+        public struct Node: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["MenuItem"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("connectedObject", type: .object(ConnectedObject.selections)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(connectedObject: ConnectedObject? = nil) {
+            self.init(unsafeResultMap: ["__typename": "MenuItem", "connectedObject": connectedObject.flatMap { (value: ConnectedObject) -> ResultMap in value.resultMap }])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The object connected to this menu item.
+          @available(*, deprecated, message: "")
+          public var connectedObject: ConnectedObject? {
+            get {
+              return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "connectedObject")
+            }
+          }
+
+          public struct ConnectedObject: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLTypeCase(
+                  variants: ["Promotion": AsPromotion.selections],
+                  default: [
+                    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  ]
+                )
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public static func makePost() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Post"])
+            }
+
+            public static func makePage() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Page"])
+            }
+
+            public static func makeEmail() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Email"])
+            }
+
+            public static func makeChapter() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Chapter"])
+            }
+
+            public static func makeBlogPost() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "BlogPost"])
+            }
+
+            public static func makeNug() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Nug"])
+            }
+
+            public static func makeCollection() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Collection"])
+            }
+
+            public static func makeCategory() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Category"])
+            }
+
+            public static func makeTag() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Tag"])
+            }
+
+            public static func makeEmailList() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "EmailList"])
+            }
+
+            public static func makeObsession() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Obsession"])
+            }
+
+            public static func makeTopic() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Topic"])
+            }
+
+            public static func makeShow() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+            }
+
+            public static func makeCoAuthor() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
+            }
+
+            public static func makeMenuItem() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var asPromotion: AsPromotion? {
+              get {
+                if !AsPromotion.possibleTypes.contains(__typename) { return nil }
+                return AsPromotion(unsafeResultMap: resultMap)
+              }
+              set {
+                guard let newValue = newValue else { return }
+                resultMap = newValue.resultMap
+              }
+            }
+
+            public struct AsPromotion: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["Promotion"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLFragmentSpread(PromotionParts.self),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var fragments: Fragments {
+                get {
+                  return Fragments(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+
+              public struct Fragments {
+                public private(set) var resultMap: ResultMap
+
+                public init(unsafeResultMap: ResultMap) {
+                  self.resultMap = unsafeResultMap
+                }
+
+                public var promotionParts: PromotionParts {
+                  get {
+                    return PromotionParts(unsafeResultMap: resultMap)
+                  }
+                  set {
+                    resultMap += newValue.resultMap
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class NugQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -13923,215 +14270,6 @@ public final class TopicsQuery: GraphQLQuery {
               resultMap += newValue.resultMap
             }
           }
-        }
-      }
-    }
-  }
-}
-
-public struct PromotionParts: GraphQLFragment {
-  /// The raw GraphQL definition of this fragment.
-  public static let fragmentDefinition: String =
-    """
-    fragment PromotionParts on Promotion {
-      __typename
-      content
-      dateGmt
-      description: excerpt(format: RAW)
-      destination
-      featuredImage {
-        __typename
-        ...MediaParts
-      }
-      id
-      link
-      modified
-      title
-    }
-    """
-
-  public static let possibleTypes: [String] = ["Promotion"]
-
-  public static var selections: [GraphQLSelection] {
-    return [
-      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-      GraphQLField("content", type: .scalar(String.self)),
-      GraphQLField("dateGmt", type: .scalar(String.self)),
-      GraphQLField("excerpt", alias: "description", arguments: ["format": "RAW"], type: .scalar(String.self)),
-      GraphQLField("destination", type: .scalar(String.self)),
-      GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
-      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-      GraphQLField("link", type: .scalar(String.self)),
-      GraphQLField("modified", type: .scalar(String.self)),
-      GraphQLField("title", type: .scalar(String.self)),
-    ]
-  }
-
-  public private(set) var resultMap: ResultMap
-
-  public init(unsafeResultMap: ResultMap) {
-    self.resultMap = unsafeResultMap
-  }
-
-  public init(content: String? = nil, dateGmt: String? = nil, description: String? = nil, destination: String? = nil, featuredImage: FeaturedImage? = nil, id: GraphQLID, link: String? = nil, modified: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Promotion", "content": content, "dateGmt": dateGmt, "description": description, "destination": destination, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "id": id, "link": link, "modified": modified, "title": title])
-  }
-
-  public var __typename: String {
-    get {
-      return resultMap["__typename"]! as! String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "__typename")
-    }
-  }
-
-  /// The content of the post.
-  @available(*, deprecated, message: "")
-  public var content: String? {
-    get {
-      return resultMap["content"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "content")
-    }
-  }
-
-  /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
-  public var dateGmt: String? {
-    get {
-      return resultMap["dateGmt"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "dateGmt")
-    }
-  }
-
-  /// The excerpt of the post.
-  @available(*, deprecated, message: "")
-  public var description: String? {
-    get {
-      return resultMap["description"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "description")
-    }
-  }
-
-  /// Destination path or URL to promoted content
-  @available(*, deprecated, message: "")
-  public var destination: String? {
-    get {
-      return resultMap["destination"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "destination")
-    }
-  }
-
-  /// The featured image for the object
-  @available(*, deprecated, message: "")
-  public var featuredImage: FeaturedImage? {
-    get {
-      return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
-    }
-    set {
-      resultMap.updateValue(newValue?.resultMap, forKey: "featuredImage")
-    }
-  }
-
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
-  public var id: GraphQLID {
-    get {
-      return resultMap["id"]! as! GraphQLID
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "id")
-    }
-  }
-
-  /// The permalink of the post
-  @available(*, deprecated, message: "")
-  public var link: String? {
-    get {
-      return resultMap["link"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "link")
-    }
-  }
-
-  /// The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
-  @available(*, deprecated, message: "")
-  public var modified: String? {
-    get {
-      return resultMap["modified"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "modified")
-    }
-  }
-
-  /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
-  public var title: String? {
-    get {
-      return resultMap["title"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "title")
-    }
-  }
-
-  public struct FeaturedImage: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["MediaItem"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLFragmentSpread(MediaParts.self),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public var __typename: String {
-      get {
-        return resultMap["__typename"]! as! String
-      }
-      set {
-        resultMap.updateValue(newValue, forKey: "__typename")
-      }
-    }
-
-    public var fragments: Fragments {
-      get {
-        return Fragments(unsafeResultMap: resultMap)
-      }
-      set {
-        resultMap += newValue.resultMap
-      }
-    }
-
-    public struct Fragments {
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public var mediaParts: MediaParts {
-        get {
-          return MediaParts(unsafeResultMap: resultMap)
-        }
-        set {
-          resultMap += newValue.resultMap
         }
       }
     }
@@ -20527,6 +20665,215 @@ public struct ProjectParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "slug")
+    }
+  }
+}
+
+public struct PromotionParts: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment PromotionParts on Promotion {
+      __typename
+      content
+      dateGmt
+      description: excerpt(format: RAW)
+      destination
+      featuredImage {
+        __typename
+        ...MediaParts
+      }
+      id
+      link
+      modified
+      title
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Promotion"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("content", type: .scalar(String.self)),
+      GraphQLField("dateGmt", type: .scalar(String.self)),
+      GraphQLField("excerpt", alias: "description", arguments: ["format": "RAW"], type: .scalar(String.self)),
+      GraphQLField("destination", type: .scalar(String.self)),
+      GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("link", type: .scalar(String.self)),
+      GraphQLField("modified", type: .scalar(String.self)),
+      GraphQLField("title", type: .scalar(String.self)),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(content: String? = nil, dateGmt: String? = nil, description: String? = nil, destination: String? = nil, featuredImage: FeaturedImage? = nil, id: GraphQLID, link: String? = nil, modified: String? = nil, title: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Promotion", "content": content, "dateGmt": dateGmt, "description": description, "destination": destination, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "id": id, "link": link, "modified": modified, "title": title])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  /// The content of the post.
+  @available(*, deprecated, message: "")
+  public var content: String? {
+    get {
+      return resultMap["content"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "content")
+    }
+  }
+
+  /// The publishing date set in GMT.
+  @available(*, deprecated, message: "")
+  public var dateGmt: String? {
+    get {
+      return resultMap["dateGmt"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "dateGmt")
+    }
+  }
+
+  /// The excerpt of the post.
+  @available(*, deprecated, message: "")
+  public var description: String? {
+    get {
+      return resultMap["description"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "description")
+    }
+  }
+
+  /// Destination path or URL to promoted content
+  @available(*, deprecated, message: "")
+  public var destination: String? {
+    get {
+      return resultMap["destination"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "destination")
+    }
+  }
+
+  /// The featured image for the object
+  @available(*, deprecated, message: "")
+  public var featuredImage: FeaturedImage? {
+    get {
+      return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "featuredImage")
+    }
+  }
+
+  /// The globally unique ID for the object
+  @available(*, deprecated, message: "")
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  /// The permalink of the post
+  @available(*, deprecated, message: "")
+  public var link: String? {
+    get {
+      return resultMap["link"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "link")
+    }
+  }
+
+  /// The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+  @available(*, deprecated, message: "")
+  public var modified: String? {
+    get {
+      return resultMap["modified"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "modified")
+    }
+  }
+
+  /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+  @available(*, deprecated, message: "")
+  public var title: String? {
+    get {
+      return resultMap["title"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  public struct FeaturedImage: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["MediaItem"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(MediaParts.self),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var mediaParts: MediaParts {
+        get {
+          return MediaParts(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
     }
   }
 }
