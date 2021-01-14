@@ -1,0 +1,11 @@
+query PageByUri(
+	$slug: String!
+) {
+	pageBy(
+		uri: $slug
+	) {
+		id
+		content
+		title
+	}
+}

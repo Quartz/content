@@ -1,0 +1,15 @@
+query MenuItems(
+	$perPage: Int!
+	$slug: MenuLocationEnum!
+) {
+	menuItems(
+		where: {
+			location: $slug
+		}
+		first: $perPage
+	) {
+		nodes {
+			...MenuItemParts
+		}
+	}
+}

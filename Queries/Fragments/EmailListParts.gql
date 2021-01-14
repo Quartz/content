@@ -1,0 +1,14 @@
+fragment EmailListParts on EmailList {
+	id
+	description
+	featuredImage {
+		...MediaParts
+	}
+	isPrivate: private
+	link
+	listId
+	name
+	slug
+	summary
+	subtitle
+}

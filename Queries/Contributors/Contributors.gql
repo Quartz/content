@@ -1,0 +1,30 @@
+query ContributorsQuery(
+	$perPage: Int!
+) {
+	menuItems(
+		first: $perPage
+		where: {
+			location: AUTHORS_WORK
+		}
+	) {
+		nodes {
+			id
+			connectedObject {
+				... on CoAuthor {
+					posts(first: 1) {
+						nodes {
+							...ArticleTeaserParts
+							authors:coAuthors {
+								edges {
+									node {
+										...AuthorParts
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

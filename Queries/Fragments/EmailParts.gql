@@ -1,0 +1,14 @@
+fragment EmailParts on Email {
+	id
+	dateGmt
+	emailId
+	featuredImage {
+		...MediaParts
+	}
+	segment
+	socialImage {
+		...MediaParts
+	}
+	subject
+	title
+}

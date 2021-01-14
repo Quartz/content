@@ -1,0 +1,11 @@
+fragment MenuItemParts on MenuItem {
+	id
+	connectedObject {
+		... on Post {
+			...ArticleTeaserParts
+		}
+		... on Promotion {
+			...PromotionParts
+		}
+	}
+}
