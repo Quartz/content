@@ -2,10 +2,10 @@ import type * as Types from './types';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { AuthorPartsFragment } from './AuthorParts';
 import * as Apollo from '@apollo/client';
-export declare type ContributorsQueryQueryVariables = Types.Exact<{
+export declare type ContributorsQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
 }>;
-export declare type ContributorsQueryQuery = {
+export declare type ContributorsQuery = {
     __typename?: 'RootQuery';
     menuItems?: Types.Maybe<{
         __typename?: 'RootQueryToMenuItemConnection';
@@ -63,30 +63,30 @@ export declare type ContributorsQueryQuery = {
         }>>>;
     }>;
 };
-export declare const ContributorsQueryDocument: Apollo.DocumentNode;
+export declare const ContributorsDocument: Apollo.DocumentNode;
 /**
- * __useContributorsQueryQuery__
+ * __useContributorsQuery__
  *
- * To run a query within a React component, call `useContributorsQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useContributorsQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useContributorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContributorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useContributorsQueryQuery({
+ * const { data, loading, error } = useContributorsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
  *   },
  * });
  */
-export declare function useContributorsQueryQuery(baseOptions: Apollo.QueryHookOptions<ContributorsQueryQuery, ContributorsQueryQueryVariables>): Apollo.QueryResult<ContributorsQueryQuery, Types.Exact<{
+export declare function useContributorsQuery(baseOptions: Apollo.QueryHookOptions<ContributorsQuery, ContributorsQueryVariables>): Apollo.QueryResult<ContributorsQuery, Types.Exact<{
     perPage: number;
 }>>;
-export declare function useContributorsQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContributorsQueryQuery, ContributorsQueryQueryVariables>): Apollo.QueryTuple<ContributorsQueryQuery, Types.Exact<{
+export declare function useContributorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContributorsQuery, ContributorsQueryVariables>): Apollo.QueryTuple<ContributorsQuery, Types.Exact<{
     perPage: number;
 }>>;
-export declare type ContributorsQueryQueryHookResult = ReturnType<typeof useContributorsQueryQuery>;
-export declare type ContributorsQueryLazyQueryHookResult = ReturnType<typeof useContributorsQueryLazyQuery>;
-export declare type ContributorsQueryQueryResult = Apollo.QueryResult<ContributorsQueryQuery, ContributorsQueryQueryVariables>;
+export declare type ContributorsQueryHookResult = ReturnType<typeof useContributorsQuery>;
+export declare type ContributorsLazyQueryHookResult = ReturnType<typeof useContributorsLazyQuery>;
+export declare type ContributorsQueryResult = Apollo.QueryResult<ContributorsQuery, ContributorsQueryVariables>;
 //# sourceMappingURL=Contributors.d.ts.map

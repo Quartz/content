@@ -6,12 +6,12 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
 import * as Apollo from '@apollo/client';
-export type ContributorsQueryQueryVariables = Types.Exact<{
+export type ContributorsQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
 }>;
 
 
-export type ContributorsQueryQuery = { __typename?: 'RootQuery', menuItems?: Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'MenuItem', id: string, connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor', posts?: Types.Maybe<{ __typename?: 'CoAuthorToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ContributorsQuery = { __typename?: 'RootQuery', menuItems?: Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'MenuItem', id: string, connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor', posts?: Types.Maybe<{ __typename?: 'CoAuthorToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
             { __typename?: 'Post', authors?: Types.Maybe<{ __typename?: 'PostToCoAuthorConnection', edges?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'PostToCoAuthorConnectionEdge', node?: Types.Maybe<(
                   { __typename?: 'CoAuthor' }
                   & AuthorPartsFragment
@@ -20,8 +20,8 @@ export type ContributorsQueryQuery = { __typename?: 'RootQuery', menuItems?: Typ
           )>>> }> } | { __typename?: 'MenuItem' }> }>>> }> };
 
 
-export const ContributorsQueryDocument = /*#__PURE__*/ gql`
-    query ContributorsQuery($perPage: Int!) {
+export const ContributorsDocument = /*#__PURE__*/ gql`
+    query Contributors($perPage: Int!) {
   menuItems(first: $perPage, where: {location: AUTHORS_WORK}) {
     nodes {
       id
@@ -48,27 +48,27 @@ export const ContributorsQueryDocument = /*#__PURE__*/ gql`
 ${AuthorPartsFragmentDoc}`;
 
 /**
- * __useContributorsQueryQuery__
+ * __useContributorsQuery__
  *
- * To run a query within a React component, call `useContributorsQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useContributorsQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useContributorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContributorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useContributorsQueryQuery({
+ * const { data, loading, error } = useContributorsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
  *   },
  * });
  */
-export function useContributorsQueryQuery(baseOptions: Apollo.QueryHookOptions<ContributorsQueryQuery, ContributorsQueryQueryVariables>) {
-        return Apollo.useQuery<ContributorsQueryQuery, ContributorsQueryQueryVariables>(ContributorsQueryDocument, baseOptions);
+export function useContributorsQuery(baseOptions: Apollo.QueryHookOptions<ContributorsQuery, ContributorsQueryVariables>) {
+        return Apollo.useQuery<ContributorsQuery, ContributorsQueryVariables>(ContributorsDocument, baseOptions);
       }
-export function useContributorsQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContributorsQueryQuery, ContributorsQueryQueryVariables>) {
-          return Apollo.useLazyQuery<ContributorsQueryQuery, ContributorsQueryQueryVariables>(ContributorsQueryDocument, baseOptions);
+export function useContributorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContributorsQuery, ContributorsQueryVariables>) {
+          return Apollo.useLazyQuery<ContributorsQuery, ContributorsQueryVariables>(ContributorsDocument, baseOptions);
         }
-export type ContributorsQueryQueryHookResult = ReturnType<typeof useContributorsQueryQuery>;
-export type ContributorsQueryLazyQueryHookResult = ReturnType<typeof useContributorsQueryLazyQuery>;
-export type ContributorsQueryQueryResult = Apollo.QueryResult<ContributorsQueryQuery, ContributorsQueryQueryVariables>;
+export type ContributorsQueryHookResult = ReturnType<typeof useContributorsQuery>;
+export type ContributorsLazyQueryHookResult = ReturnType<typeof useContributorsLazyQuery>;
+export type ContributorsQueryResult = Apollo.QueryResult<ContributorsQuery, ContributorsQueryVariables>;

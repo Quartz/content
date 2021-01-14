@@ -19,13 +19,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useContributorsQueryLazyQuery = exports.useContributorsQueryQuery = exports.ContributorsQueryDocument = void 0;
+exports.useContributorsLazyQuery = exports.useContributorsQuery = exports.ContributorsDocument = void 0;
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const AuthorParts_1 = require("./AuthorParts");
 const Apollo = __importStar(require("@apollo/client"));
-exports.ContributorsQueryDocument = client_1.gql `
-    query ContributorsQuery($perPage: Int!) {
+exports.ContributorsDocument = client_1.gql `
+    query Contributors($perPage: Int!) {
   menuItems(first: $perPage, where: {location: AUTHORS_WORK}) {
     nodes {
       id
@@ -51,27 +51,27 @@ exports.ContributorsQueryDocument = client_1.gql `
     ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}
 ${AuthorParts_1.AuthorPartsFragmentDoc}`;
 /**
- * __useContributorsQueryQuery__
+ * __useContributorsQuery__
  *
- * To run a query within a React component, call `useContributorsQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useContributorsQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useContributorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContributorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useContributorsQueryQuery({
+ * const { data, loading, error } = useContributorsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
  *   },
  * });
  */
-function useContributorsQueryQuery(baseOptions) {
-    return Apollo.useQuery(exports.ContributorsQueryDocument, baseOptions);
+function useContributorsQuery(baseOptions) {
+    return Apollo.useQuery(exports.ContributorsDocument, baseOptions);
 }
-exports.useContributorsQueryQuery = useContributorsQueryQuery;
-function useContributorsQueryLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ContributorsQueryDocument, baseOptions);
+exports.useContributorsQuery = useContributorsQuery;
+function useContributorsLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(exports.ContributorsDocument, baseOptions);
 }
-exports.useContributorsQueryLazyQuery = useContributorsQueryLazyQuery;
+exports.useContributorsLazyQuery = useContributorsLazyQuery;
 //# sourceMappingURL=Contributors.js.map

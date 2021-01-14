@@ -1,4 +1,4 @@
-query ContributorsQuery(
+query Contributors(
 	$perPage: Int!
 ) {
 	menuItems(
