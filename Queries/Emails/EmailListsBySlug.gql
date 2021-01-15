@@ -1,0 +1,18 @@
+query EmailListsBySlug(
+	$slug: [String]!
+) {
+	emailLists(
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...EmailListParts
+			emails(first: 1) {
+				nodes {
+					emailId
+				}
+			}
+		}
+	}
+}

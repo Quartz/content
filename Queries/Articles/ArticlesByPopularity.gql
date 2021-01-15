@@ -1,0 +1,23 @@
+query PopularArticles(
+	$after: String = ""
+	$edition: EditionName
+	$perPage: Int
+) {
+	posts(
+		first: $perPage
+		after: $after
+		where: {
+			popular: {
+				edition: $edition
+			}
+		}
+	) {
+		nodes {
+			...ArticleTeaserParts
+		}
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+	}
+}

@@ -1,0 +1,18 @@
+query PromotionsByMenu( $menuLocation: MenuLocationEnum! ) {
+	menuItems(
+		first: 50
+		where: {
+			location: $menuLocation
+		}
+	) {
+		edges {
+			node {
+				connectedObject {
+					...on Promotion {
+						...PromotionParts
+					}
+				}
+			}
+		}
+	}
+}

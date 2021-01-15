@@ -1,0 +1,15 @@
+query EmailById(
+	$id: ID!
+) {
+	email(
+		id: $id
+	) {
+		...EmailParts
+		html
+		emailLists {
+			nodes {
+				...EmailListParts
+			}
+		}
+	}
+}
