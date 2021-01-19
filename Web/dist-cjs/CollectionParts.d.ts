@@ -25,8 +25,6 @@ export declare type CollectionPartsFragment = {
         } & MediaPartsFragment) | {
             __typename?: 'Revision';
         } | {
-            __typename?: 'Push';
-        } | {
             __typename?: 'Email';
         } | {
             __typename?: 'Card';

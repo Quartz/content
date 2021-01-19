@@ -14,7 +14,7 @@ export type NugPartsFragment = { __typename?: 'Nug', id: string, dateGmt?: Types
     ) | { __typename?: 'Page' } | (
       { __typename?: 'MediaItem' }
       & MediaPartsFragment
-    ) | { __typename?: 'Revision' } | { __typename?: 'Push' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }
+    ) | { __typename?: 'Revision' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }
     & BlockPartsFragment
   )>>>, emailLists?: Types.Maybe<{ __typename?: 'NugToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', emailListId?: Types.Maybe<number>, listId?: Types.Maybe<number>, name?: Types.Maybe<string> }>>> }>, tags?: Types.Maybe<{ __typename?: 'NugToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', id: string, name?: Types.Maybe<string>, slug?: Types.Maybe<string> }>>> }>, topics?: Types.Maybe<{ __typename?: 'NugToTopicConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Topic', id: string, name?: Types.Maybe<string>, slug?: Types.Maybe<string> }>>> }> };
 

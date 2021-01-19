@@ -19,7 +19,7 @@ export type CollectionPartsFragment = { __typename?: 'Collection', id: string, c
     ) | { __typename?: 'Page' } | (
       { __typename?: 'MediaItem' }
       & MediaPartsFragment
-    ) | { __typename?: 'Revision' } | { __typename?: 'Push' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | (
+    ) | { __typename?: 'Revision' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | (
       { __typename?: 'Nug' }
       & NugPartsFragment
     ) | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }

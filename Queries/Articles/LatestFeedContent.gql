@@ -1,0 +1,24 @@
+query LatestFeedContent(
+	$after: String = ""
+	$perPage: Int
+) {
+	feedContent( after: $after, first: $perPage ) {
+		nodes {
+			...on Post {
+				...ArticleTeaserParts
+			}
+			...on Email {
+				...EmailParts
+				link
+				emailLists {
+					nodes {
+						slug
+					}
+				}
+			}
+		}
+		pageInfo {
+			endCursor
+		}
+	}
+}
