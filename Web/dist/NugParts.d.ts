@@ -22,8 +22,6 @@ export declare type NugPartsFragment = {
         } & MediaPartsFragment) | {
             __typename?: 'Revision';
         } | {
-            __typename?: 'Push';
-        } | {
             __typename?: 'Email';
         } | {
             __typename?: 'Card';
