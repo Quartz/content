@@ -9,7 +9,7 @@ export type EssentialsByGuideQueryVariables = Types.Exact<{
 }>;
 
 
-export type EssentialsByGuideQuery = { __typename?: 'RootQuery', guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Guide', essentials?: Types.Maybe<{ __typename?: 'GuideToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type EssentialsByGuideQuery = { __typename?: 'RootQuery', guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Guide', id: string, essentials?: Types.Maybe<{ __typename?: 'GuideToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Collection' }
           & CollectionPartsFragment
         )>>> }> }>>> }> };
@@ -19,6 +19,7 @@ export const EssentialsByGuideDocument = /*#__PURE__*/ gql`
     query EssentialsByGuide($slug: String!) {
   guides(last: 1, where: {slug: [$slug]}) {
     nodes {
+      id
       essentials(first: 1) {
         nodes {
           ...CollectionParts

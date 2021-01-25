@@ -7228,6 +7228,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
         __typename
         nodes {
           __typename
+          id
           essentials(first: 1) {
             __typename
             nodes {
@@ -7242,7 +7243,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByGuide"
 
-  public let operationIdentifier: String? = "9e0f91cc357044cf39d495bb52140ab61c5e27f200fc16d68bf5596622e23a15"
+  public let operationIdentifier: String? = "05912e6c567f5290d56d6f8bbb4a7ac773fead5619a4c7b9b0016b012564c011"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -7332,6 +7333,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
             GraphQLField("essentials", arguments: ["first": 1], type: .object(Essential.selections)),
           ]
         }
@@ -7342,8 +7344,8 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(essentials: Essential? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Guide", "essentials": essentials.flatMap { (value: Essential) -> ResultMap in value.resultMap }])
+        public init(id: GraphQLID, essentials: Essential? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Guide", "id": id, "essentials": essentials.flatMap { (value: Essential) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -7352,6 +7354,17 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The global ID for the guide
+        @available(*, deprecated, message: "")
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
           }
         }
 
@@ -7468,10 +7481,11 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query EssentialsByObsession($slug: String!) {
-      obsessions(where: {slug: [$slug]}) {
+      obsessions(last: 1, where: {slug: [$slug]}) {
         __typename
         nodes {
           __typename
+          id
           essentials(first: 1) {
             __typename
             nodes {
@@ -7486,7 +7500,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByObsession"
 
-  public let operationIdentifier: String? = "41281fef93d8f7a2dd133e9f21cdcb332328338bd0075171fdd017737e1713a5"
+  public let operationIdentifier: String? = "14bbf91e155331b49c008e5ac1316423362ce931928f37751013f19393244a74"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -7505,7 +7519,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("obsessions", arguments: ["where": ["slug": [GraphQLVariable("slug")]]], type: .object(Obsession.selections)),
+        GraphQLField("obsessions", arguments: ["last": 1, "where": ["slug": [GraphQLVariable("slug")]]], type: .object(Obsession.selections)),
       ]
     }
 
@@ -7576,6 +7590,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
             GraphQLField("essentials", arguments: ["first": 1], type: .object(Essential.selections)),
           ]
         }
@@ -7586,8 +7601,8 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(essentials: Essential? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Obsession", "essentials": essentials.flatMap { (value: Essential) -> ResultMap in value.resultMap }])
+        public init(id: GraphQLID, essentials: Essential? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Obsession", "id": id, "essentials": essentials.flatMap { (value: Essential) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -7596,6 +7611,17 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The global ID for the obsession
+        @available(*, deprecated, message: "")
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
           }
         }
 

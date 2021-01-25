@@ -27,6 +27,7 @@ exports.EssentialsByGuideDocument = client_1.gql `
     query EssentialsByGuide($slug: String!) {
   guides(last: 1, where: {slug: [$slug]}) {
     nodes {
+      id
       essentials(first: 1) {
         nodes {
           ...CollectionParts

@@ -9,7 +9,7 @@ export type EssentialsByObsessionQueryVariables = Types.Exact<{
 }>;
 
 
-export type EssentialsByObsessionQuery = { __typename?: 'RootQuery', obsessions?: Types.Maybe<{ __typename?: 'RootQueryToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Obsession', essentials?: Types.Maybe<{ __typename?: 'ObsessionToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type EssentialsByObsessionQuery = { __typename?: 'RootQuery', obsessions?: Types.Maybe<{ __typename?: 'RootQueryToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Obsession', id: string, essentials?: Types.Maybe<{ __typename?: 'ObsessionToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Collection' }
           & CollectionPartsFragment
         )>>> }> }>>> }> };
@@ -17,8 +17,9 @@ export type EssentialsByObsessionQuery = { __typename?: 'RootQuery', obsessions?
 
 export const EssentialsByObsessionDocument = /*#__PURE__*/ gql`
     query EssentialsByObsession($slug: String!) {
-  obsessions(where: {slug: [$slug]}) {
+  obsessions(last: 1, where: {slug: [$slug]}) {
     nodes {
+      id
       essentials(first: 1) {
         nodes {
           ...CollectionParts

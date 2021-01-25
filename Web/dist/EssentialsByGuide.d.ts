@@ -10,6 +10,7 @@ export declare type EssentialsByGuideQuery = {
         __typename?: 'RootQueryToGuideConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Guide';
+            id: string;
             essentials?: Types.Maybe<{
                 __typename?: 'GuideToCollectionConnection';
                 nodes?: Types.Maybe<Array<Types.Maybe<({
