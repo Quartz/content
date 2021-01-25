@@ -3,8 +3,9 @@ import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export const EssentialsByObsessionDocument = /*#__PURE__*/ gql `
     query EssentialsByObsession($slug: String!) {
-  obsessions(where: {slug: [$slug]}) {
+  obsessions(last: 1, where: {slug: [$slug]}) {
     nodes {
+      id
       essentials(first: 1) {
         nodes {
           ...CollectionParts

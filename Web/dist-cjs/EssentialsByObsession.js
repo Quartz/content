@@ -25,8 +25,9 @@ const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.EssentialsByObsessionDocument = client_1.gql `
     query EssentialsByObsession($slug: String!) {
-  obsessions(where: {slug: [$slug]}) {
+  obsessions(last: 1, where: {slug: [$slug]}) {
     nodes {
+      id
       essentials(first: 1) {
         nodes {
           ...CollectionParts

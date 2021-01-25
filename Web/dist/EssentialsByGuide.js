@@ -5,6 +5,7 @@ export const EssentialsByGuideDocument = /*#__PURE__*/ gql `
     query EssentialsByGuide($slug: String!) {
   guides(last: 1, where: {slug: [$slug]}) {
     nodes {
+      id
       essentials(first: 1) {
         nodes {
           ...CollectionParts

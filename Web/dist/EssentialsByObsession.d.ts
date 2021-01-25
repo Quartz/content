@@ -10,6 +10,7 @@ export declare type EssentialsByObsessionQuery = {
         __typename?: 'RootQueryToObsessionConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'Obsession';
+            id: string;
             essentials?: Types.Maybe<{
                 __typename?: 'ObsessionToCollectionConnection';
                 nodes?: Types.Maybe<Array<Types.Maybe<({
