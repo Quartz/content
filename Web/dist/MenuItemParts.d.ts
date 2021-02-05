@@ -33,6 +33,8 @@ export declare type MenuItemPartsFragment = {
     } | {
         __typename?: 'Show';
     } | {
+        __typename?: 'EmailSegments';
+    } | {
         __typename?: 'CoAuthor';
     } | {
         __typename?: 'MenuItem';

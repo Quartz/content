@@ -25,15 +25,11 @@ export declare type ContentBySearchTermQuery = {
         } | {
             __typename?: 'Email';
         } | {
-            __typename?: 'Card';
-        } | {
             __typename?: 'Chapter';
         } | {
             __typename?: 'Promotion';
         } | {
             __typename?: 'Collection';
-        } | {
-            __typename?: 'Stack';
         } | {
             __typename?: 'Bulletin';
         }>>>;

@@ -15,7 +15,7 @@ export declare type ShowPartsFragment = {
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
     headerImages?: Types.Maybe<Array<Types.Maybe<{
-        __typename?: 'ShowHeaderImages';
+        __typename?: 'HeaderImage';
         layer?: Types.Maybe<number>;
         size?: Types.Maybe<string>;
         image?: Types.Maybe<({
@@ -23,7 +23,7 @@ export declare type ShowPartsFragment = {
         } & MediaPartsFragment)>;
     }>>>;
     headerVideos?: Types.Maybe<Array<Types.Maybe<{
-        __typename?: 'ShowHeaderVideos';
+        __typename?: 'HeaderVideo';
         size?: Types.Maybe<string>;
         mp4?: Types.Maybe<({
             __typename?: 'MediaItem';

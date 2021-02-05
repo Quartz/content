@@ -2658,7 +2658,7 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
           }
 
           public struct Node: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Card", "Chapter", "Promotion", "Collection", "Stack", "Bulletin"]
+            public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Chapter", "Promotion", "Collection", "Bulletin"]
 
             public static var selections: [GraphQLSelection] {
               return [
@@ -2689,20 +2689,12 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
               return Node(unsafeResultMap: ["__typename": "Email"])
             }
 
-            public static func makeCard() -> Node {
-              return Node(unsafeResultMap: ["__typename": "Card"])
-            }
-
             public static func makeChapter() -> Node {
               return Node(unsafeResultMap: ["__typename": "Chapter"])
             }
 
             public static func makeCollection() -> Node {
               return Node(unsafeResultMap: ["__typename": "Collection"])
-            }
-
-            public static func makeStack() -> Node {
-              return Node(unsafeResultMap: ["__typename": "Stack"])
             }
 
             public var __typename: String {
@@ -5009,7 +5001,7 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
       }
 
       public struct Node: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Card", "Chapter", "Promotion", "Collection", "Stack", "Bulletin"]
+        public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Chapter", "Promotion", "Collection", "Bulletin"]
 
         public static var selections: [GraphQLSelection] {
           return [
@@ -5040,10 +5032,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
           return Node(unsafeResultMap: ["__typename": "Email"])
         }
 
-        public static func makeCard() -> Node {
-          return Node(unsafeResultMap: ["__typename": "Card"])
-        }
-
         public static func makeChapter() -> Node {
           return Node(unsafeResultMap: ["__typename": "Chapter"])
         }
@@ -5054,10 +5042,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
 
         public static func makeCollection() -> Node {
           return Node(unsafeResultMap: ["__typename": "Collection"])
-        }
-
-        public static func makeStack() -> Node {
-          return Node(unsafeResultMap: ["__typename": "Stack"])
         }
 
         public static func makeBulletin() -> Node {
@@ -5416,7 +5400,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "06aaa3b93135b37d5cad5a43ba58d85a048b3e959bf3ace1ac566e5069a25d2c"
+  public let operationIdentifier: String? = "1ee42ff055da1f17f19c23ba453fa470589969cf8fd567da8f31b684e220974c"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition) }
 
@@ -5515,7 +5499,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
       }
 
       public struct Node: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Card", "Chapter", "Promotion", "Collection", "Stack", "Bulletin"]
+        public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Chapter", "Promotion", "Collection", "Bulletin"]
 
         public static var selections: [GraphQLSelection] {
           return [
@@ -5542,10 +5526,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
           return Node(unsafeResultMap: ["__typename": "MediaItem"])
         }
 
-        public static func makeCard() -> Node {
-          return Node(unsafeResultMap: ["__typename": "Card"])
-        }
-
         public static func makeChapter() -> Node {
           return Node(unsafeResultMap: ["__typename": "Chapter"])
         }
@@ -5556,10 +5536,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
         public static func makeCollection() -> Node {
           return Node(unsafeResultMap: ["__typename": "Collection"])
-        }
-
-        public static func makeStack() -> Node {
-          return Node(unsafeResultMap: ["__typename": "Stack"])
         }
 
         public static func makeBulletin() -> Node {
@@ -7909,7 +7885,7 @@ public final class ContributorsQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -7982,6 +7958,10 @@ public final class ContributorsQuery: GraphQLQuery {
 
           public static func makeShow() -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+          }
+
+          public static func makeEmailSegments() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
           }
 
           public static func makeMenuItem() -> ConnectedObject {
@@ -8815,7 +8795,7 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "5aad3f92fa286c9ec68f6485426032e31d49640c98186a2a2f4b5259775b1f11"
+  public let operationIdentifier: String? = "aa461e9a602d62e213b99f1e404f07cd802dd9b688b36381068e93c99c191f6b"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
 
@@ -9316,7 +9296,7 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "fcc2a6355f718854920d408b7bdf4292d21b19bc5c807ece71774fdb8b42808a"
+  public let operationIdentifier: String? = "95be4d2e6507c8a9bea6a8555c0f3ac1b1a0cd7ef1cafa820b13217fe1f718b5"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + EmailListParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition) }
 
@@ -11067,7 +11047,7 @@ public final class MemberHomeQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -11136,6 +11116,10 @@ public final class MemberHomeQuery: GraphQLQuery {
 
           public static func makeShow() -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+          }
+
+          public static func makeEmailSegments() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -11686,7 +11670,7 @@ public final class MemberVideoQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -11755,6 +11739,10 @@ public final class MemberVideoQuery: GraphQLQuery {
 
           public static func makeShow() -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+          }
+
+          public static func makeEmailSegments() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -12176,7 +12164,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -12246,6 +12234,10 @@ public final class VideoHubQuery: GraphQLQuery {
 
           public static func makeShow() -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+          }
+
+          public static func makeEmailSegments() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -12825,7 +12817,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -12894,6 +12886,10 @@ public final class VideoHubQuery: GraphQLQuery {
 
           public static func makeTopic() -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "Topic"])
+          }
+
+          public static func makeEmailSegments() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -13527,7 +13523,7 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
           }
 
           public struct ConnectedObject: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
             public static var selections: [GraphQLSelection] {
               return [
@@ -13596,6 +13592,10 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
 
             public static func makeShow() -> ConnectedObject {
               return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+            }
+
+            public static func makeEmailSegments() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
             }
 
             public static func makeCoAuthor() -> ConnectedObject {
@@ -14167,7 +14167,7 @@ public final class ObsessionsQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -14236,6 +14236,10 @@ public final class ObsessionsQuery: GraphQLQuery {
 
           public static func makeShow() -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+          }
+
+          public static func makeEmailSegments() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -18315,7 +18319,7 @@ public struct CollectionParts: GraphQLFragment {
     }
 
     public struct Connection: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Revision", "Email", "Card", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Stack", "Bulletin"]
+      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Revision", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -18346,10 +18350,6 @@ public struct CollectionParts: GraphQLFragment {
         return Connection(unsafeResultMap: ["__typename": "Email"])
       }
 
-      public static func makeCard() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Card"])
-      }
-
       public static func makeChapter() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Chapter"])
       }
@@ -18364,10 +18364,6 @@ public struct CollectionParts: GraphQLFragment {
 
       public static func makeCollection() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Collection"])
-      }
-
-      public static func makeStack() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Stack"])
       }
 
       public static func makeBulletin() -> Connection {
@@ -18815,6 +18811,8 @@ public struct EmailParts: GraphQLFragment {
         __typename
         ...MediaParts
       }
+      seoTitle
+      socialDescription
       subject
       title
     }
@@ -18831,6 +18829,8 @@ public struct EmailParts: GraphQLFragment {
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
       GraphQLField("segment", type: .scalar(String.self)),
       GraphQLField("socialImage", type: .object(SocialImage.selections)),
+      GraphQLField("seoTitle", type: .scalar(String.self)),
+      GraphQLField("socialDescription", type: .scalar(String.self)),
       GraphQLField("subject", type: .scalar(String.self)),
       GraphQLField("title", type: .scalar(String.self)),
     ]
@@ -18842,8 +18842,8 @@ public struct EmailParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, segment: String? = nil, socialImage: SocialImage? = nil, subject: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "subject": subject, "title": title])
+  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, subject: String? = nil, title: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "subject": subject, "title": title])
   }
 
   public var __typename: String {
@@ -18899,7 +18899,7 @@ public struct EmailParts: GraphQLFragment {
     }
   }
 
-  /// Slug that the segment belongs to
+  /// The segment group the email belongs to, if it exists
   @available(*, deprecated, message: "")
   public var segment: String? {
     get {
@@ -18918,6 +18918,28 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue?.resultMap, forKey: "socialImage")
+    }
+  }
+
+  /// SEO title
+  @available(*, deprecated, message: "")
+  public var seoTitle: String? {
+    get {
+      return resultMap["seoTitle"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "seoTitle")
+    }
+  }
+
+  /// OpenGraph (meta) description
+  @available(*, deprecated, message: "")
+  public var socialDescription: String? {
+    get {
+      return resultMap["socialDescription"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "socialDescription")
     }
   }
 
@@ -19385,7 +19407,7 @@ public struct GuideParts: GraphQLFragment {
   }
 
   public struct HeaderImage: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["HeaderImages"]
+    public static let possibleTypes: [String] = ["HeaderImage"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -19403,7 +19425,7 @@ public struct GuideParts: GraphQLFragment {
     }
 
     public init(layer: Int? = nil, size: String? = nil, image: Image? = nil) {
-      self.init(unsafeResultMap: ["__typename": "HeaderImages", "layer": layer, "size": size, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+      self.init(unsafeResultMap: ["__typename": "HeaderImage", "layer": layer, "size": size, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
     }
 
     public var __typename: String {
@@ -19415,7 +19437,7 @@ public struct GuideParts: GraphQLFragment {
       }
     }
 
-    /// Series image layer
+    /// Header image layer
     @available(*, deprecated, message: "")
     public var layer: Int? {
       get {
@@ -19426,7 +19448,7 @@ public struct GuideParts: GraphQLFragment {
       }
     }
 
-    /// Series image size
+    /// Header image size
     @available(*, deprecated, message: "")
     public var size: String? {
       get {
@@ -19437,7 +19459,7 @@ public struct GuideParts: GraphQLFragment {
       }
     }
 
-    /// Series image
+    /// Header image
     @available(*, deprecated, message: "")
     public var image: Image? {
       get {
@@ -19758,7 +19780,7 @@ public struct MenuItemParts: GraphQLFragment {
   }
 
   public struct ConnectedObject: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "CoAuthor", "MenuItem"]
+    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -19823,6 +19845,10 @@ public struct MenuItemParts: GraphQLFragment {
 
     public static func makeShow() -> ConnectedObject {
       return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
+    }
+
+    public static func makeEmailSegments() -> ConnectedObject {
+      return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
     }
 
     public static func makeCoAuthor() -> ConnectedObject {
@@ -20249,7 +20275,7 @@ public struct NugParts: GraphQLFragment {
     }
 
     public struct Connection: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Revision", "Email", "Card", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Stack", "Bulletin"]
+      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Revision", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -20280,10 +20306,6 @@ public struct NugParts: GraphQLFragment {
         return Connection(unsafeResultMap: ["__typename": "Email"])
       }
 
-      public static func makeCard() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Card"])
-      }
-
       public static func makeChapter() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Chapter"])
       }
@@ -20302,10 +20324,6 @@ public struct NugParts: GraphQLFragment {
 
       public static func makeCollection() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Collection"])
-      }
-
-      public static func makeStack() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Stack"])
       }
 
       public static func makeBulletin() -> Connection {
@@ -21654,7 +21672,7 @@ public struct SeriesParts: GraphQLFragment {
     }
   }
 
-  /// Email list ID associated with series
+  /// Email list ID associated with term (deprecated)
   @available(*, deprecated, message: "")
   public var emailListId: Int? {
     get {
@@ -21861,7 +21879,7 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   public struct HeaderImage: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["HeaderImages"]
+    public static let possibleTypes: [String] = ["HeaderImage"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -21879,7 +21897,7 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     public init(layer: Int? = nil, size: String? = nil, image: Image? = nil) {
-      self.init(unsafeResultMap: ["__typename": "HeaderImages", "layer": layer, "size": size, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+      self.init(unsafeResultMap: ["__typename": "HeaderImage", "layer": layer, "size": size, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
     }
 
     public var __typename: String {
@@ -21891,7 +21909,7 @@ public struct SeriesParts: GraphQLFragment {
       }
     }
 
-    /// Series image layer
+    /// Header image layer
     @available(*, deprecated, message: "")
     public var layer: Int? {
       get {
@@ -21902,7 +21920,7 @@ public struct SeriesParts: GraphQLFragment {
       }
     }
 
-    /// Series image size
+    /// Header image size
     @available(*, deprecated, message: "")
     public var size: String? {
       get {
@@ -21913,7 +21931,7 @@ public struct SeriesParts: GraphQLFragment {
       }
     }
 
-    /// Series image
+    /// Header image
     @available(*, deprecated, message: "")
     public var image: Image? {
       get {
@@ -21978,7 +21996,7 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   public struct HeaderVideo: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["HeaderVideos"]
+    public static let possibleTypes: [String] = ["HeaderVideo"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -21997,7 +22015,7 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     public init(size: String? = nil, mp4: Mp4? = nil, webm: Webm? = nil, poster: Poster? = nil) {
-      self.init(unsafeResultMap: ["__typename": "HeaderVideos", "size": size, "mp4": mp4.flatMap { (value: Mp4) -> ResultMap in value.resultMap }, "webm": webm.flatMap { (value: Webm) -> ResultMap in value.resultMap }, "poster": poster.flatMap { (value: Poster) -> ResultMap in value.resultMap }])
+      self.init(unsafeResultMap: ["__typename": "HeaderVideo", "size": size, "mp4": mp4.flatMap { (value: Mp4) -> ResultMap in value.resultMap }, "webm": webm.flatMap { (value: Webm) -> ResultMap in value.resultMap }, "poster": poster.flatMap { (value: Poster) -> ResultMap in value.resultMap }])
     }
 
     public var __typename: String {
@@ -22354,7 +22372,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// Show theme colors
+  /// Series theme colors
   @available(*, deprecated, message: "")
   public var colors: [String?]? {
     get {
@@ -22398,7 +22416,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// Show images
+  /// Series images
   @available(*, deprecated, message: "")
   public var headerImages: [HeaderImage?]? {
     get {
@@ -22409,7 +22427,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// Show header videos
+  /// Series header videos
   @available(*, deprecated, message: "")
   public var headerVideos: [HeaderVideo?]? {
     get {
@@ -22550,7 +22568,7 @@ public struct ShowParts: GraphQLFragment {
   }
 
   public struct HeaderImage: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["ShowHeaderImages"]
+    public static let possibleTypes: [String] = ["HeaderImage"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -22568,7 +22586,7 @@ public struct ShowParts: GraphQLFragment {
     }
 
     public init(layer: Int? = nil, size: String? = nil, image: Image? = nil) {
-      self.init(unsafeResultMap: ["__typename": "ShowHeaderImages", "layer": layer, "size": size, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+      self.init(unsafeResultMap: ["__typename": "HeaderImage", "layer": layer, "size": size, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
     }
 
     public var __typename: String {
@@ -22580,7 +22598,7 @@ public struct ShowParts: GraphQLFragment {
       }
     }
 
-    /// Series image layer
+    /// Header image layer
     @available(*, deprecated, message: "")
     public var layer: Int? {
       get {
@@ -22591,7 +22609,7 @@ public struct ShowParts: GraphQLFragment {
       }
     }
 
-    /// Series image size
+    /// Header image size
     @available(*, deprecated, message: "")
     public var size: String? {
       get {
@@ -22602,7 +22620,7 @@ public struct ShowParts: GraphQLFragment {
       }
     }
 
-    /// Series image
+    /// Header image
     @available(*, deprecated, message: "")
     public var image: Image? {
       get {
@@ -22667,7 +22685,7 @@ public struct ShowParts: GraphQLFragment {
   }
 
   public struct HeaderVideo: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["ShowHeaderVideos"]
+    public static let possibleTypes: [String] = ["HeaderVideo"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -22686,7 +22704,7 @@ public struct ShowParts: GraphQLFragment {
     }
 
     public init(size: String? = nil, mp4: Mp4? = nil, webm: Webm? = nil, poster: Poster? = nil) {
-      self.init(unsafeResultMap: ["__typename": "ShowHeaderVideos", "size": size, "mp4": mp4.flatMap { (value: Mp4) -> ResultMap in value.resultMap }, "webm": webm.flatMap { (value: Webm) -> ResultMap in value.resultMap }, "poster": poster.flatMap { (value: Poster) -> ResultMap in value.resultMap }])
+      self.init(unsafeResultMap: ["__typename": "HeaderVideo", "size": size, "mp4": mp4.flatMap { (value: Mp4) -> ResultMap in value.resultMap }, "webm": webm.flatMap { (value: Webm) -> ResultMap in value.resultMap }, "poster": poster.flatMap { (value: Poster) -> ResultMap in value.resultMap }])
     }
 
     public var __typename: String {

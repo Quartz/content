@@ -24,8 +24,6 @@ export declare type NugPartsFragment = {
         } | {
             __typename?: 'Email';
         } | {
-            __typename?: 'Card';
-        } | {
             __typename?: 'Chapter';
         } | {
             __typename?: 'Promotion';
@@ -35,8 +33,6 @@ export declare type NugPartsFragment = {
             __typename?: 'Nug';
         } | {
             __typename?: 'Collection';
-        } | {
-            __typename?: 'Stack';
         } | {
             __typename?: 'Bulletin';
         }>>>;

@@ -20,7 +20,7 @@ export declare type GuidePartsFragment = {
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
     headerImages?: Types.Maybe<Array<Types.Maybe<{
-        __typename?: 'HeaderImages';
+        __typename?: 'HeaderImage';
         layer?: Types.Maybe<number>;
         size?: Types.Maybe<string>;
         image?: Types.Maybe<({

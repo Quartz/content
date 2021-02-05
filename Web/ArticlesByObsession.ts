@@ -21,10 +21,10 @@ export type ArticlesByObsessionQuery = { __typename?: 'RootQuery', obsessions?: 
       { __typename?: 'Obsession', posts?: Types.Maybe<{ __typename?: 'ObsessionToContentUnionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment
-        ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | (
+        ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | (
           { __typename?: 'Promotion' }
           & PromotionPartsFragment
-        ) | { __typename?: 'Collection' } | { __typename?: 'Stack' } | (
+        ) | { __typename?: 'Collection' } | (
           { __typename?: 'Bulletin' }
           & BulletinPartsFragment
         )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> }

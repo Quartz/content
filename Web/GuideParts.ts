@@ -9,7 +9,7 @@ export type GuidePartsFragment = { __typename?: 'Guide', id: string, guideId?: T
   )>, socialImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
-  )>, headerImages?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'HeaderImages', layer?: Types.Maybe<number>, size?: Types.Maybe<string>, image?: Types.Maybe<(
+  )>, headerImages?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'HeaderImage', layer?: Types.Maybe<number>, size?: Types.Maybe<string>, image?: Types.Maybe<(
       { __typename?: 'MediaItem' }
       & MediaPartsFragment
     )> }>>> };

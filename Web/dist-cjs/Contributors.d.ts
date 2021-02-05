@@ -41,6 +41,8 @@ export declare type ContributorsQuery = {
             } | {
                 __typename?: 'Show';
             } | {
+                __typename?: 'EmailSegments';
+            } | {
                 __typename?: 'CoAuthor';
                 posts?: Types.Maybe<{
                     __typename?: 'CoAuthorToPostConnection';

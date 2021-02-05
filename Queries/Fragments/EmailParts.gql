@@ -9,6 +9,8 @@ fragment EmailParts on Email {
 	socialImage {
 		...MediaParts
 	}
+	seoTitle
+	socialDescription
 	subject
 	title
 }
