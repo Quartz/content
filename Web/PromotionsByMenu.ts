@@ -12,7 +12,7 @@ export type PromotionsByMenuQueryVariables = Types.Exact<{
 export type PromotionsByMenuQuery = { __typename?: 'RootQuery', menuItems?: Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnection', edges?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'RootQueryToMenuItemConnectionEdge', node?: Types.Maybe<{ __typename?: 'MenuItem', connectedObject?: Types.Maybe<{ __typename?: 'Post' } | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | (
           { __typename?: 'Promotion' }
           & PromotionPartsFragment
-        ) | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }> }>>> }> };
+        ) | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegments' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }> }>>> }> };
 
 
 export const PromotionsByMenuDocument = /*#__PURE__*/ gql`

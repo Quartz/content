@@ -14,7 +14,7 @@ export type ContentBySearchTermQueryVariables = Types.Exact<{
 export type ContentBySearchTermQuery = { __typename?: 'RootQuery', content?: Types.Maybe<{ __typename?: 'RootQueryToContentUnionConnection', pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }>, nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post', trackingUrls?: Types.Maybe<Array<Types.Maybe<string>>> }
       & ArticleTeaserPartsFragment
-    ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Card' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Stack' } | { __typename?: 'Bulletin' }>>> }> };
+    ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Bulletin' }>>> }> };
 
 
 export const ContentBySearchTermDocument = /*#__PURE__*/ gql`

@@ -26,15 +26,11 @@ export declare type ArticlesByObsessionQuery = {
                 } | {
                     __typename?: 'Email';
                 } | {
-                    __typename?: 'Card';
-                } | {
                     __typename?: 'Chapter';
                 } | ({
                     __typename?: 'Promotion';
                 } & PromotionPartsFragment) | {
                     __typename?: 'Collection';
-                } | {
-                    __typename?: 'Stack';
                 } | ({
                     __typename?: 'Bulletin';
                 } & BulletinPartsFragment)>>>;

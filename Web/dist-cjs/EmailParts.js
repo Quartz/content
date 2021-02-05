@@ -15,6 +15,8 @@ exports.EmailPartsFragmentDoc = client_1.gql `
   socialImage {
     ...MediaParts
   }
+  seoTitle
+  socialDescription
   subject
   title
 }

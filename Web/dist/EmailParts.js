@@ -12,6 +12,8 @@ export const EmailPartsFragmentDoc = /*#__PURE__*/ gql `
   socialImage {
     ...MediaParts
   }
+  seoTitle
+  socialDescription
   subject
   title
 }
