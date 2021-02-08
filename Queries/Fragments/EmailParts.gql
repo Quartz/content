@@ -1,5 +1,8 @@
 fragment EmailParts on Email {
 	id
+	blocks {
+		...BlockParts
+	}
 	dateGmt
 	emailId
 	featuredImage {
