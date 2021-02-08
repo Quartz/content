@@ -1,8 +1,12 @@
 import { gql } from '@apollo/client';
+import { BlockPartsFragmentDoc } from './BlockParts';
 import { MediaPartsFragmentDoc } from './MediaParts';
 export const EmailPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment EmailParts on Email {
   id
+  blocks {
+    ...BlockParts
+  }
   dateGmt
   emailId
   featuredImage {
@@ -17,5 +21,6 @@ export const EmailPartsFragmentDoc = /*#__PURE__*/ gql `
   subject
   title
 }
-    ${MediaPartsFragmentDoc}`;
+    ${BlockPartsFragmentDoc}
+${MediaPartsFragmentDoc}`;
 //# sourceMappingURL=EmailParts.js.map
