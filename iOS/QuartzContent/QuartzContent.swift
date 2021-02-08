@@ -5400,9 +5400,9 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "1ee42ff055da1f17f19c23ba453fa470589969cf8fd567da8f31b684e220974c"
+  public let operationIdentifier: String? = "0b7957bc7fb44432884b50ddf83140f9c5482507cfd78d55c6bb9130b496ab18"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition) }
 
   public var after: String?
   public var perPage: Int?
@@ -8795,9 +8795,9 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "aa461e9a602d62e213b99f1e404f07cd802dd9b688b36381068e93c99c191f6b"
+  public let operationIdentifier: String? = "c27cad00a6417414dce93306f509fc16f2fa4cdd4e1fb8b9b395696c4995f6a6"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
 
   public var id: GraphQLID
 
@@ -9296,9 +9296,9 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "95be4d2e6507c8a9bea6a8555c0f3ac1b1a0cd7ef1cafa820b13217fe1f718b5"
+  public let operationIdentifier: String? = "603226298ba5bc9182fad2b861fe52948f12e74fd6df99ca67811e91e0a3e5f9"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + EmailListParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending("\n" + EmailListParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition) }
 
   public var after: String?
   public var perPage: Int?
@@ -17326,7 +17326,7 @@ public struct AuthorParts: GraphQLFragment {
     }
   }
 
-  /// Author email address
+  /// The user_email of the author
   @available(*, deprecated, message: "")
   public var email: String? {
     get {
@@ -18800,6 +18800,10 @@ public struct EmailParts: GraphQLFragment {
     fragment EmailParts on Email {
       __typename
       id
+      blocks {
+        __typename
+        ...BlockParts
+      }
       dateGmt
       emailId
       featuredImage {
@@ -18824,6 +18828,7 @@ public struct EmailParts: GraphQLFragment {
     return [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("blocks", type: .list(.object(Block.selections))),
       GraphQLField("dateGmt", type: .scalar(String.self)),
       GraphQLField("emailId", type: .nonNull(.scalar(Int.self))),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
@@ -18842,8 +18847,8 @@ public struct EmailParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, subject: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "subject": subject, "title": title])
+  public init(id: GraphQLID, blocks: [Block?]? = nil, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, subject: String? = nil, title: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "subject": subject, "title": title])
   }
 
   public var __typename: String {
@@ -18863,6 +18868,17 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  /// Structured / parsed post content described as a shallow tree of block elements
+  @available(*, deprecated, message: "")
+  public var blocks: [Block?]? {
+    get {
+      return (resultMap["blocks"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Block?] in value.map { (value: ResultMap?) -> Block? in value.flatMap { (value: ResultMap) -> Block in Block(unsafeResultMap: value) } } }
+    }
+    set {
+      resultMap.updateValue(newValue.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }, forKey: "blocks")
     }
   }
 
@@ -18962,6 +18978,58 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  public struct Block: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Block"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(BlockParts.self),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var blockParts: BlockParts {
+        get {
+          return BlockParts(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
     }
   }
 
@@ -19192,7 +19260,7 @@ public struct GuideParts: GraphQLFragment {
     }
   }
 
-  /// The number of objects connected to this term.
+  /// The number of objects connected to the object
   @available(*, deprecated, message: "")
   public var count: Int? {
     get {
@@ -21264,7 +21332,7 @@ public struct ProjectParts: GraphQLFragment {
     }
   }
 
-  /// The number of objects connected to this term.
+  /// The number of objects connected to the object
   @available(*, deprecated, message: "")
   public var count: Int? {
     get {
@@ -21650,7 +21718,7 @@ public struct SeriesParts: GraphQLFragment {
     }
   }
 
-  /// The number of objects connected to this term.
+  /// The number of objects connected to the object
   @available(*, deprecated, message: "")
   public var count: Int? {
     get {
@@ -22383,7 +22451,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// The number of objects connected to this term.
+  /// The number of objects connected to the object
   @available(*, deprecated, message: "")
   public var count: Int? {
     get {
@@ -23027,7 +23095,7 @@ public struct TagParts: GraphQLFragment {
     }
   }
 
-  /// The number of objects connected to this term.
+  /// The number of objects connected to the object
   @available(*, deprecated, message: "")
   public var count: Int? {
     get {
