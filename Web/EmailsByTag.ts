@@ -7,30 +7,37 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export type EmailsByTagQueryVariables = Types.Exact<{
+  after?: Types.Maybe<Types.Scalars['String']>;
+  perPage?: Types.Maybe<Types.Scalars['Int']>;
   slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
 }>;
 
 
 export type EmailsByTagQuery = { __typename?: 'RootQuery', emails?: Types.Maybe<{ __typename?: 'RootQueryToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Email', html?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Email', html?: Types.Maybe<string>, link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'EmailList' }
           & EmailListPartsFragment
         )>>> }> }
       & EmailPartsFragment
-    )>>> }> };
+    )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> };
 
 
 export const EmailsByTagDocument = /*#__PURE__*/ gql`
-    query EmailsByTag($slug: [String]) {
-  emails(where: {tagSlugIn: $slug}) {
+    query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
+  emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailParts
       html
+      link
       emailLists {
         nodes {
           ...EmailListParts
         }
       }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 }
@@ -49,6 +56,8 @@ ${EmailListPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEmailsByTagQuery({
  *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });

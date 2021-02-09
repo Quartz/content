@@ -181,6 +181,7 @@ export declare type PostObjectsConnectionOrderbyEnum =
 export declare type OrderEnum = 'ASC' | 'DESC';
 /** Get popular posts */
 export declare type PopularQuery = {
+    /** Editorial edition */
     edition?: Maybe<EditionName>;
 };
 /** Get a preview of a post */
@@ -192,6 +193,7 @@ export declare type PreviewQuery = {
 };
 /** Get recommended posts related to a given post */
 export declare type RecommendedQuery = {
+    /** Post database ID */
     id?: Maybe<Scalars['Int']>;
 };
 /** The status of the object. */
