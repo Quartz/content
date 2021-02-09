@@ -3,8 +3,8 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export const EmailsByTagDocument = /*#__PURE__*/ gql `
-    query EmailsByTag($tags: [String]) {
-  emails(where: {tagSlugIn: $tags}) {
+    query EmailsByTag($slug: [String]) {
+  emails(where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailParts
       html
@@ -30,7 +30,7 @@ ${EmailListPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEmailsByTagQuery({
  *   variables: {
- *      tags: // value for 'tags'
+ *      slug: // value for 'slug'
  *   },
  * });
  */

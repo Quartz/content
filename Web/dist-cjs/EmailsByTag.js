@@ -25,8 +25,8 @@ const EmailParts_1 = require("./EmailParts");
 const EmailListParts_1 = require("./EmailListParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.EmailsByTagDocument = client_1.gql `
-    query EmailsByTag($tags: [String]) {
-  emails(where: {tagSlugIn: $tags}) {
+    query EmailsByTag($slug: [String]) {
+  emails(where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailParts
       html
@@ -52,7 +52,7 @@ ${EmailListParts_1.EmailListPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEmailsByTagQuery({
  *   variables: {
- *      tags: // value for 'tags'
+ *      slug: // value for 'slug'
  *   },
  * });
  */

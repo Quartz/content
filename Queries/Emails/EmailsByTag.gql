@@ -1,9 +1,9 @@
 query EmailsByTag(
-	$tags: [String]
+	$slug: [String]
 ) {
 	emails(
 		where:{
-      tagSlugIn: $tags
+      tagSlugIn: $slug
     }
 	) {
 		nodes {

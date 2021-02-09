@@ -3,7 +3,7 @@ import type { EmailPartsFragment } from './EmailParts';
 import type { EmailListPartsFragment } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export declare type EmailsByTagQueryVariables = Types.Exact<{
-    tags?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+    slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
 }>;
 export declare type EmailsByTagQuery = {
     __typename?: 'RootQuery';
@@ -34,15 +34,15 @@ export declare const EmailsByTagDocument: Apollo.DocumentNode;
  * @example
  * const { data, loading, error } = useEmailsByTagQuery({
  *   variables: {
- *      tags: // value for 'tags'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
 export declare function useEmailsByTagQuery(baseOptions?: Apollo.QueryHookOptions<EmailsByTagQuery, EmailsByTagQueryVariables>): Apollo.QueryResult<EmailsByTagQuery, Types.Exact<{
-    tags?: (string | null)[] | null | undefined;
+    slug?: (string | null)[] | null | undefined;
 }>>;
 export declare function useEmailsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailsByTagQuery, EmailsByTagQueryVariables>): Apollo.QueryTuple<EmailsByTagQuery, Types.Exact<{
-    tags?: (string | null)[] | null | undefined;
+    slug?: (string | null)[] | null | undefined;
 }>>;
 export declare type EmailsByTagQueryHookResult = ReturnType<typeof useEmailsByTagQuery>;
 export declare type EmailsByTagLazyQueryHookResult = ReturnType<typeof useEmailsByTagLazyQuery>;
