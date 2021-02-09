@@ -9615,13 +9615,14 @@ public final class EmailsByTagQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query EmailsByTag($slug: [String]) {
-      emails(where: {tagSlugIn: $slug}) {
+    query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
+      emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
         __typename
         nodes {
           __typename
           ...EmailParts
           html
+          link
           emailLists {
             __typename
             nodes {
@@ -9630,24 +9631,33 @@ public final class EmailsByTagQuery: GraphQLQuery {
             }
           }
         }
+        pageInfo {
+          __typename
+          endCursor
+          hasNextPage
+        }
       }
     }
     """
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "3632861deaae8e19c2df2232fbe9b3d4d756e17ba8038c19e05be67634ad39d3"
+  public let operationIdentifier: String? = "24a1d5a7b5ef25c1ea989a6e2cc477ed54ecfaae26d3824cda9d4fa0aafb82ab"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
 
+  public var after: String?
+  public var perPage: Int?
   public var slug: [String?]?
 
-  public init(slug: [String?]? = nil) {
+  public init(after: String? = nil, perPage: Int? = nil, slug: [String?]? = nil) {
+    self.after = after
+    self.perPage = perPage
     self.slug = slug
   }
 
   public var variables: GraphQLMap? {
-    return ["slug": slug]
+    return ["after": after, "perPage": perPage, "slug": slug]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -9655,7 +9665,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("emails", arguments: ["where": ["tagSlugIn": GraphQLVariable("slug")]], type: .object(Email.selections)),
+        GraphQLField("emails", arguments: ["after": GraphQLVariable("after"), "first": GraphQLVariable("perPage"), "where": ["tagSlugIn": GraphQLVariable("slug")]], type: .object(Email.selections)),
       ]
     }
 
@@ -9687,6 +9697,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("nodes", type: .list(.object(Node.selections))),
+          GraphQLField("pageInfo", type: .object(PageInfo.selections)),
         ]
       }
 
@@ -9696,8 +9707,8 @@ public final class EmailsByTagQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToEmailConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      public init(nodes: [Node?]? = nil, pageInfo: PageInfo? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToEmailConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -9720,6 +9731,17 @@ public final class EmailsByTagQuery: GraphQLQuery {
         }
       }
 
+      /// Information about pagination in a connection.
+      @available(*, deprecated, message: "")
+      public var pageInfo: PageInfo? {
+        get {
+          return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "pageInfo")
+        }
+      }
+
       public struct Node: GraphQLSelectionSet {
         public static let possibleTypes: [String] = ["Email"]
 
@@ -9728,6 +9750,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLFragmentSpread(EmailParts.self),
             GraphQLField("html", type: .scalar(String.self)),
+            GraphQLField("link", type: .scalar(String.self)),
             GraphQLField("emailLists", type: .object(EmailList.selections)),
           ]
         }
@@ -9755,6 +9778,17 @@ public final class EmailsByTagQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "html")
+          }
+        }
+
+        /// The permalink of the post
+        @available(*, deprecated, message: "")
+        public var link: String? {
+          get {
+            return resultMap["link"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "link")
           }
         }
 
@@ -9885,6 +9919,59 @@ public final class EmailsByTagQuery: GraphQLQuery {
                 }
               }
             }
+          }
+        }
+      }
+
+      public struct PageInfo: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["WPPageInfo"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("endCursor", type: .scalar(String.self)),
+            GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(endCursor: String? = nil, hasNextPage: Bool) {
+          self.init(unsafeResultMap: ["__typename": "WPPageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// When paginating forwards, the cursor to continue.
+        @available(*, deprecated, message: "")
+        public var endCursor: String? {
+          get {
+            return resultMap["endCursor"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "endCursor")
+          }
+        }
+
+        /// When paginating forwards, are there more items?
+        @available(*, deprecated, message: "")
+        public var hasNextPage: Bool {
+          get {
+            return resultMap["hasNextPage"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "hasNextPage")
           }
         }
       }

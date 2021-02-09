@@ -3,16 +3,21 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export const EmailsByTagDocument = /*#__PURE__*/ gql `
-    query EmailsByTag($slug: [String]) {
-  emails(where: {tagSlugIn: $slug}) {
+    query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
+  emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailParts
       html
+      link
       emailLists {
         nodes {
           ...EmailListParts
         }
       }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 }
@@ -30,6 +35,8 @@ ${EmailListPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEmailsByTagQuery({
  *   variables: {
+ *      after: // value for 'after'
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });

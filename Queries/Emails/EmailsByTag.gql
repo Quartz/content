@@ -1,19 +1,28 @@
 query EmailsByTag(
+	$after: String = ""
+	$perPage: Int = 10
 	$slug: [String]
 ) {
 	emails(
+		after: $after
+		first: $perPage
 		where:{
-      tagSlugIn: $slug
-    }
+			tagSlugIn: $slug
+		}
 	) {
 		nodes {
 			...EmailParts
 			html
+			link
 			emailLists {
 				nodes {
 				...EmailListParts
 				}
 			}
+		}
+		pageInfo {
+			endCursor
+			hasNextPage
 		}
 	}
 }

@@ -310,6 +310,7 @@ export type OrderEnum =
 
 /** Get popular posts */
 export type PopularQuery = {
+  /** Editorial edition */
   edition?: Maybe<EditionName>;
 };
 
@@ -323,6 +324,7 @@ export type PreviewQuery = {
 
 /** Get recommended posts related to a given post */
 export type RecommendedQuery = {
+  /** Post database ID */
   id?: Maybe<Scalars['Int']>;
 };
 
