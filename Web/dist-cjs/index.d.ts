@@ -27,6 +27,7 @@ export * from './EmailListParts';
 export * from './EmailListsBySlug';
 export * from './EmailParts';
 export * from './EmailsByList';
+export * from './EmailsByTag';
 export * from './EssentialsByArticle';
 export * from './EssentialsByGuide';
 export * from './EssentialsByObsession';
