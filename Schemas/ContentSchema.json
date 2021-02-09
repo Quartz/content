@@ -7255,7 +7255,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -7265,7 +7265,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -7275,7 +7275,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -8324,13 +8324,13 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "popularQuery",
+        "name": "PopularQuery",
         "description": "Get popular posts",
         "fields": null,
         "inputFields": [
           {
             "name": "edition",
-            "description": null,
+            "description": "Editorial edition",
             "type": {
               "kind": "ENUM",
               "name": "EditionName",
@@ -8345,7 +8345,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "previewQuery",
+        "name": "PreviewQuery",
         "description": "Get a preview of a post",
         "fields": null,
         "inputFields": [
@@ -8376,13 +8376,13 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "recommendedQuery",
+        "name": "RecommendedQuery",
         "description": "Get recommended posts related to a given post",
         "fields": null,
         "inputFields": [
           {
             "name": "id",
-            "description": null,
+            "description": "Post database ID",
             "type": {
               "kind": "SCALAR",
               "name": "Int",
@@ -10010,7 +10010,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -10020,7 +10020,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -10030,7 +10030,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -14660,7 +14660,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -14670,7 +14670,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -14680,7 +14680,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -15155,7 +15155,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -15165,7 +15165,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -15175,7 +15175,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -19903,7 +19903,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -19913,7 +19913,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -19923,7 +19923,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -21103,7 +21103,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -21113,7 +21113,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -21123,7 +21123,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -21598,7 +21598,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -21608,7 +21608,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -21618,7 +21618,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -22093,7 +22093,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -22103,7 +22103,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -22113,7 +22113,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -22588,7 +22588,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -22598,7 +22598,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -22608,7 +22608,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -24015,7 +24015,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -24025,7 +24025,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -24035,7 +24035,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -26015,7 +26015,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -26025,7 +26025,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -26035,7 +26035,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -26510,7 +26510,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -26520,7 +26520,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -26530,7 +26530,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -29299,7 +29299,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -29309,7 +29309,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -29319,7 +29319,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -30836,7 +30836,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -30846,7 +30846,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -30856,7 +30856,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -31331,7 +31331,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -31341,7 +31341,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -31351,7 +31351,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -31826,7 +31826,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -31836,7 +31836,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -31846,7 +31846,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -32912,7 +32912,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -32922,7 +32922,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -32932,7 +32932,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -33758,7 +33758,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -33768,7 +33768,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -33778,7 +33778,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -34253,7 +34253,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -34263,7 +34263,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -34273,7 +34273,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -34748,7 +34748,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -34758,7 +34758,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -34768,7 +34768,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -36806,7 +36806,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -36816,7 +36816,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -36826,7 +36826,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -38161,7 +38161,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -38171,7 +38171,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -38181,7 +38181,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -39548,7 +39548,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -39558,7 +39558,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -39568,7 +39568,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -40043,7 +40043,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -40053,7 +40053,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -40063,7 +40063,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -41363,7 +41363,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -41373,7 +41373,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -41383,7 +41383,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -41858,7 +41858,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -41868,7 +41868,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -41878,7 +41878,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -42732,7 +42732,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -42742,7 +42742,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -42752,7 +42752,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -43227,7 +43227,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -43237,7 +43237,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -43247,7 +43247,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -44025,7 +44025,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -44035,7 +44035,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -44045,7 +44045,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -44520,7 +44520,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -44530,7 +44530,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -44540,7 +44540,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -45318,7 +45318,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -45328,7 +45328,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -45338,7 +45338,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -45813,7 +45813,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -45823,7 +45823,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -45833,7 +45833,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -46674,7 +46674,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -46684,7 +46684,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -46694,7 +46694,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -47169,7 +47169,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -47179,7 +47179,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -47189,7 +47189,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -47664,7 +47664,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -47674,7 +47674,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -47684,7 +47684,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -48462,7 +48462,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -48472,7 +48472,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -48482,7 +48482,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -48957,7 +48957,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -48967,7 +48967,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -48977,7 +48977,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -50154,7 +50154,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -50164,7 +50164,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -50174,7 +50174,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -50649,7 +50649,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -50659,7 +50659,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -50669,7 +50669,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -54434,7 +54434,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -54444,7 +54444,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -54454,7 +54454,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -54929,7 +54929,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -54939,7 +54939,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -54949,7 +54949,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -55875,7 +55875,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -55885,7 +55885,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -55895,7 +55895,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -56370,7 +56370,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -56380,7 +56380,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -56390,7 +56390,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -56865,7 +56865,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -56875,7 +56875,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -56885,7 +56885,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -57360,7 +57360,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -57370,7 +57370,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -57380,7 +57380,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -57855,7 +57855,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -57865,7 +57865,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -57875,7 +57875,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -58350,7 +58350,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -58360,7 +58360,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -58370,7 +58370,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -58845,7 +58845,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -58855,7 +58855,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -58865,7 +58865,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -64844,7 +64844,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -64854,7 +64854,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -64864,7 +64864,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -65339,7 +65339,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -65349,7 +65349,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -65359,7 +65359,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -66185,7 +66185,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -66195,7 +66195,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -66205,7 +66205,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -67031,7 +67031,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -67041,7 +67041,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -67051,7 +67051,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -68339,7 +68339,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -68349,7 +68349,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -68359,7 +68359,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -69887,7 +69887,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -69897,7 +69897,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -69907,7 +69907,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -71485,7 +71485,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -71495,7 +71495,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -71505,7 +71505,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -72331,7 +72331,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -72341,7 +72341,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -72351,7 +72351,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -72826,7 +72826,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -72836,7 +72836,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -72846,7 +72846,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -73672,7 +73672,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -73682,7 +73682,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -73692,7 +73692,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -74167,7 +74167,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "popularQuery",
+              "name": "PopularQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -74177,7 +74177,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "previewQuery",
+              "name": "PreviewQuery",
               "ofType": null
             },
             "defaultValue": null
@@ -74187,7 +74187,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "recommendedQuery",
+              "name": "RecommendedQuery",
               "ofType": null
             },
             "defaultValue": null
