@@ -7,7 +7,7 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export type EmailsByTagQueryVariables = Types.Exact<{
-  tags?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
 }>;
 
 
@@ -21,8 +21,8 @@ export type EmailsByTagQuery = { __typename?: 'RootQuery', emails?: Types.Maybe<
 
 
 export const EmailsByTagDocument = /*#__PURE__*/ gql`
-    query EmailsByTag($tags: [String]) {
-  emails(where: {tagSlugIn: $tags}) {
+    query EmailsByTag($slug: [String]) {
+  emails(where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailParts
       html
@@ -49,7 +49,7 @@ ${EmailListPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEmailsByTagQuery({
  *   variables: {
- *      tags: // value for 'tags'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
