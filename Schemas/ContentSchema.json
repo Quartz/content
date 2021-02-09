@@ -13915,7 +13915,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -14063,7 +14063,7 @@
           },
           {
             "name": "name",
-            "description": "The display_name of the author",
+            "description": "The human friendly name of the object.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -14261,7 +14261,7 @@
           },
           {
             "name": "slug",
-            "description": "The user_nicename of the author",
+            "description": "An alphanumeric identifier for the object unique to its type.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -19062,7 +19062,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -20400,7 +20400,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -25402,7 +25402,7 @@
         "fields": [
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -28657,7 +28657,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -30001,7 +30001,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -32422,7 +32422,7 @@
         "fields": [
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -36116,7 +36116,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -40777,7 +40777,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -42182,7 +42182,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -43535,7 +43535,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -44828,7 +44828,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -46184,7 +46184,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -47972,7 +47972,7 @@
           },
           {
             "name": "count",
-            "description": "The number of objects connected to this term.",
+            "description": "The number of objects connected to the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
