@@ -1,0 +1,19 @@
+query EmailsByTag(
+	$tags: [String]
+) {
+	emails(
+		where:{
+      tagSlugIn: $tags
+    }
+	) {
+		nodes {
+			...EmailParts
+			html
+			emailLists {
+				nodes {
+				...EmailListParts
+				}
+			}
+		}
+	}
+}

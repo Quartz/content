@@ -1,0 +1,43 @@
+import { gql } from '@apollo/client';
+import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailListPartsFragmentDoc } from './EmailListParts';
+import * as Apollo from '@apollo/client';
+export const EmailsByTagDocument = /*#__PURE__*/ gql `
+    query EmailsByTag($tags: [String]) {
+  emails(where: {tagSlugIn: $tags}) {
+    nodes {
+      ...EmailParts
+      html
+      emailLists {
+        nodes {
+          ...EmailListParts
+        }
+      }
+    }
+  }
+}
+    ${EmailPartsFragmentDoc}
+${EmailListPartsFragmentDoc}`;
+/**
+ * __useEmailsByTagQuery__
+ *
+ * To run a query within a React component, call `useEmailsByTagQuery` and pass it any options that fit your needs.
+ * When your component renders, `useEmailsByTagQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useEmailsByTagQuery({
+ *   variables: {
+ *      tags: // value for 'tags'
+ *   },
+ * });
+ */
+export function useEmailsByTagQuery(baseOptions) {
+    return Apollo.useQuery(EmailsByTagDocument, baseOptions);
+}
+export function useEmailsByTagLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(EmailsByTagDocument, baseOptions);
+}
+//# sourceMappingURL=EmailsByTag.js.map
