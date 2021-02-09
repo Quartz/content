@@ -9615,8 +9615,8 @@ public final class EmailsByTagQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query EmailsByTag($tags: [String]) {
-      emails(where: {tagSlugIn: $tags}) {
+    query EmailsByTag($slug: [String]) {
+      emails(where: {tagSlugIn: $slug}) {
         __typename
         nodes {
           __typename
@@ -9636,18 +9636,18 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "db66b81b635a5da948abc984494cb96c7f7a4bc2db28a7985d394cddb3afaca7"
+  public let operationIdentifier: String? = "3632861deaae8e19c2df2232fbe9b3d4d756e17ba8038c19e05be67634ad39d3"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
 
-  public var tags: [String?]?
+  public var slug: [String?]?
 
-  public init(tags: [String?]? = nil) {
-    self.tags = tags
+  public init(slug: [String?]? = nil) {
+    self.slug = slug
   }
 
   public var variables: GraphQLMap? {
-    return ["tags": tags]
+    return ["slug": slug]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -9655,7 +9655,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("emails", arguments: ["where": ["tagSlugIn": GraphQLVariable("tags")]], type: .object(Email.selections)),
+        GraphQLField("emails", arguments: ["where": ["tagSlugIn": GraphQLVariable("slug")]], type: .object(Email.selections)),
       ]
     }
 
