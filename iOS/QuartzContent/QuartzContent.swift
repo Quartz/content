@@ -4837,8 +4837,7 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         nodes {
           __typename
           ... on Post {
-            trackingUrls
-            ...ArticleTeaserParts
+            ...SearchParts
           }
         }
       }
@@ -4847,9 +4846,9 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
 
   public let operationName: String = "ContentBySearchTerm"
 
-  public let operationIdentifier: String? = "44dc6236bcf170f638f62c36977b652eeef80e3089b750256068e44f716f9ad7"
+  public let operationIdentifier: String? = "da1a051a5f30c24fb6a401ac0a248509007bb843365d604d7b5868fd8e9a9b3c"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending("\n" + SearchParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
   public var after: String?
   public var limit: Int?
@@ -5074,8 +5073,7 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("trackingUrls", type: .list(.scalar(String.self))),
-              GraphQLFragmentSpread(ArticleTeaserParts.self),
+              GraphQLFragmentSpread(SearchParts.self),
             ]
           }
 
@@ -5091,17 +5089,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          /// List of tracking urls
-          @available(*, deprecated, message: "")
-          public var trackingUrls: [String?]? {
-            get {
-              return resultMap["trackingUrls"] as? [String?]
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "trackingUrls")
             }
           }
 
@@ -5121,9 +5108,9 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public var articleTeaserParts: ArticleTeaserParts {
+            public var searchParts: SearchParts {
               get {
-                return ArticleTeaserParts(unsafeResultMap: resultMap)
+                return SearchParts(unsafeResultMap: resultMap)
               }
               set {
                 resultMap += newValue.resultMap
@@ -7885,7 +7872,7 @@ public final class ContributorsQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -7960,8 +7947,8 @@ public final class ContributorsQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
           }
 
-          public static func makeEmailSegments() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+          public static func makeEmailSegment() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
           public static func makeMenuItem() -> ConnectedObject {
@@ -11415,7 +11402,7 @@ public final class MemberHomeQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -11486,8 +11473,8 @@ public final class MemberHomeQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
           }
 
-          public static func makeEmailSegments() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+          public static func makeEmailSegment() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -12038,7 +12025,7 @@ public final class MemberVideoQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -12109,8 +12096,8 @@ public final class MemberVideoQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
           }
 
-          public static func makeEmailSegments() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+          public static func makeEmailSegment() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -12532,7 +12519,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -12604,8 +12591,8 @@ public final class VideoHubQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
           }
 
-          public static func makeEmailSegments() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+          public static func makeEmailSegment() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -13185,7 +13172,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -13256,8 +13243,8 @@ public final class VideoHubQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "Topic"])
           }
 
-          public static func makeEmailSegments() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+          public static func makeEmailSegment() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -13891,7 +13878,7 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
           }
 
           public struct ConnectedObject: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
             public static var selections: [GraphQLSelection] {
               return [
@@ -13962,8 +13949,8 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
               return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
             }
 
-            public static func makeEmailSegments() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+            public static func makeEmailSegment() -> ConnectedObject {
+              return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
             }
 
             public static func makeCoAuthor() -> ConnectedObject {
@@ -14535,7 +14522,7 @@ public final class ObsessionsQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -14606,8 +14593,8 @@ public final class ObsessionsQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
           }
 
-          public static func makeEmailSegments() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+          public static func makeEmailSegment() -> ConnectedObject {
+            return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
           public static func makeCoAuthor() -> ConnectedObject {
@@ -20148,7 +20135,7 @@ public struct MenuItemParts: GraphQLFragment {
   }
 
   public struct ConnectedObject: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegments", "CoAuthor", "MenuItem"]
+    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -20215,8 +20202,8 @@ public struct MenuItemParts: GraphQLFragment {
       return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
     }
 
-    public static func makeEmailSegments() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegments"])
+    public static func makeEmailSegment() -> ConnectedObject {
+      return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
     }
 
     public static func makeCoAuthor() -> ConnectedObject {
@@ -21902,6 +21889,304 @@ public struct PromotionParts: GraphQLFragment {
         }
         set {
           resultMap += newValue.resultMap
+        }
+      }
+    }
+  }
+}
+
+public struct SearchParts: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment SearchParts on Post {
+      __typename
+      guides {
+        __typename
+        nodes {
+          __typename
+          ...GuideParts
+        }
+      }
+      serieses {
+        __typename
+        nodes {
+          __typename
+          ...SeriesParts
+        }
+      }
+      trackingUrls
+      ...ArticleTeaserParts
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Post"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("guides", type: .object(Guide.selections)),
+      GraphQLField("serieses", type: .object(Seriese.selections)),
+      GraphQLField("trackingUrls", type: .list(.scalar(String.self))),
+      GraphQLFragmentSpread(ArticleTeaserParts.self),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  /// Connection between the post type and the post type
+  @available(*, deprecated, message: "")
+  public var guides: Guide? {
+    get {
+      return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "guides")
+    }
+  }
+
+  /// Connection between the post type and the post type
+  @available(*, deprecated, message: "")
+  public var serieses: Seriese? {
+    get {
+      return (resultMap["serieses"] as? ResultMap).flatMap { Seriese(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "serieses")
+    }
+  }
+
+  /// List of tracking urls
+  @available(*, deprecated, message: "")
+  public var trackingUrls: [String?]? {
+    get {
+      return resultMap["trackingUrls"] as? [String?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "trackingUrls")
+    }
+  }
+
+  public var fragments: Fragments {
+    get {
+      return Fragments(unsafeResultMap: resultMap)
+    }
+    set {
+      resultMap += newValue.resultMap
+    }
+  }
+
+  public struct Fragments {
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var articleTeaserParts: ArticleTeaserParts {
+      get {
+        return ArticleTeaserParts(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+  }
+
+  public struct Guide: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["PostToGuideConnection"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nodes: [Node?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "PostToGuideConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    @available(*, deprecated, message: "")
+    public var nodes: [Node?]? {
+      get {
+        return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Guide"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(GuideParts.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var guideParts: GuideParts {
+          get {
+            return GuideParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+
+  public struct Seriese: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["PostToSeriesConnection"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nodes: [Node?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "PostToSeriesConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    @available(*, deprecated, message: "")
+    public var nodes: [Node?]? {
+      get {
+        return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Series"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(SeriesParts.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var seriesParts: SeriesParts {
+          get {
+            return SeriesParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
         }
       }
     }
