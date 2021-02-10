@@ -2,7 +2,9 @@ fragment EmailListParts on EmailList {
 	id
 	description
 	featuredImage {
-		...MediaParts
+		node {
+			...MediaParts
+		}
 	}
 	isPrivate: private
 	link

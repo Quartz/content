@@ -3,7 +3,9 @@ fragment EmailParts on Email {
 	dateGmt
 	emailId
 	featuredImage {
-		...MediaParts
+		node {
+			...MediaParts
+		}
 	}
 	segment
 	socialImage {

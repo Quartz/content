@@ -6,7 +6,9 @@ fragment CollectionParts on Collection {
 	modifiedGmt
 	slug
 	featuredImage {
-		...MediaParts
+		node {
+			...MediaParts
+		}
 	}
 	blocks {
 		...BlockParts

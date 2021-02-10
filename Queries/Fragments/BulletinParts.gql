@@ -4,7 +4,9 @@ fragment BulletinParts on Bulletin {
 	title
 	dateGmt
 	featuredImage {
-		...MediaParts
+		node {
+			...MediaParts
+		}
 	}
 	bulletin {
 		sponsor {

@@ -26,7 +26,9 @@ fragment ArticleTeaserParts on Post {
 		}
 	}
 	featuredImage {
-		...MediaParts
+		node {
+			...MediaParts
+		}
 	}
 	id
 	kicker

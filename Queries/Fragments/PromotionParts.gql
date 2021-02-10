@@ -4,7 +4,9 @@ fragment PromotionParts on Promotion {
 	description:excerpt(format: RAW)
 	destination
 	featuredImage {
-		...MediaParts
+		node {
+			...MediaParts
+		}
 	}
 	id
 	link
