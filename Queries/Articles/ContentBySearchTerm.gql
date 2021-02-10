@@ -16,7 +16,7 @@ query ContentBySearchTerm(
 		}
 		nodes {
 			... on Post {
-				SearchParts
+				...SearchParts
 			}
 		}
 	}
