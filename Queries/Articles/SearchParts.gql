@@ -4,7 +4,7 @@ fragment SearchParts on Post {
 			...GuideParts
 		}
 	}
-	series {
+	serieses {
 		nodes {
 			...SeriesParts
 		}
