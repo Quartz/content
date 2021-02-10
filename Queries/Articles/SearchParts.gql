@@ -1,16 +1,12 @@
 fragment SearchParts on Post {
 	guides {
-		edges {
-			node {
-				...GuideParts
-			}
+		nodes {
+			...GuideParts
 		}
 	}
 	series {
-		edges {
-			node {
-				...SeriesParts
-			}
+		nodes {
+			...SeriesParts
 		}
 	}
 	trackingUrls
