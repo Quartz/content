@@ -1,0 +1,18 @@
+fragment SearchParts on Post {
+	guides {
+		edges {
+			node {
+				...GuideParts
+			}
+		}
+	}
+	series {
+		edges {
+			node {
+				...SeriesParts
+			}
+		}
+	}
+	trackingUrls
+	...ArticleTeaserParts
+}

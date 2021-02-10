@@ -16,8 +16,7 @@ query ContentBySearchTerm(
 		}
 		nodes {
 			... on Post {
-				trackingUrls
-				...ArticleTeaserParts
+				SearchParts
 			}
 		}
 	}
