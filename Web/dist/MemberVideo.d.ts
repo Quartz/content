@@ -47,7 +47,7 @@ export declare type MemberVideoQuery = {
             } | {
                 __typename?: 'Show';
             } | {
-                __typename?: 'EmailSegments';
+                __typename?: 'EmailSegment';
             } | {
                 __typename?: 'CoAuthor';
             } | {

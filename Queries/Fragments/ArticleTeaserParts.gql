@@ -28,10 +28,20 @@ fragment ArticleTeaserParts on Post {
 	featuredImage {
 		...MediaParts
 	}
+	guides {
+		nodes {
+			name
+		}
+	}
 	id
 	kicker
 	link
 	postId
+	serieses {
+		nodes {
+			name
+		}
+	}
 	title
 	trailerVideo {
 		...VideoParts

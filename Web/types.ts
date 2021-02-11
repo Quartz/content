@@ -375,7 +375,7 @@ export type TaxonomyEnum =
   | 'COAUTHOR'
   | 'EDITION'
   | 'EMAILLIST'
-  | 'EMAILSEGMENTS'
+  | 'EMAILSEGMENT'
   | 'FLAG'
   | 'GUIDE'
   | 'LOCATION'
@@ -2689,8 +2689,8 @@ export type TopicToPostConnectionWhereArgs = {
 
 
 
-/** Arguments for filtering the EmailToEmailSegmentsConnection connection */
-export type EmailToEmailSegmentsConnectionWhereArgs = {
+/** Arguments for filtering the EmailToEmailSegmentConnection connection */
+export type EmailToEmailSegmentConnectionWhereArgs = {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
   cacheDomain?: Maybe<Scalars['String']>;
   /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
@@ -2738,8 +2738,8 @@ export type EmailToEmailSegmentsConnectionWhereArgs = {
 
 
 
-/** Arguments for filtering the EmailSegmentsToEmailConnection connection */
-export type EmailSegmentsToEmailConnectionWhereArgs = {
+/** Arguments for filtering the EmailSegmentToEmailConnection connection */
+export type EmailSegmentToEmailConnectionWhereArgs = {
   /**
    * The user that's connected as the author of the object. Use the
    * 							userId for the author object.
@@ -7847,6 +7847,54 @@ export type RootQueryToEditionConnectionWhereArgs = {
 
 /** Arguments for filtering the RootQueryToEmailListConnection connection */
 export type RootQueryToEmailListConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: Maybe<Scalars['Boolean']>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default true */
+  hideEmpty?: Maybe<Scalars['Boolean']>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>;
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>;
+  /** Default false. If true, only the items connected to the source item will be returned. If false, all items will be returned regardless of connection to the source */
+  shouldOnlyIncludeConnectedItems?: Maybe<Scalars['Boolean']>;
+  /** Default false. If true, the connection will be output in a flat list instead of the hierarchical list. So child terms will be output in the same level as the parent terms */
+  shouldOutputInFlatList?: Maybe<Scalars['Boolean']>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+
+
+
+/** Arguments for filtering the RootQueryToEmailSegmentConnection connection */
+export type RootQueryToEmailSegmentConnectionWhereArgs = {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
   cacheDomain?: Maybe<Scalars['String']>;
   /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */

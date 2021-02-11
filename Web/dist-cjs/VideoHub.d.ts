@@ -46,7 +46,7 @@ export declare type VideoHubQuery = {
             } | {
                 __typename?: 'Show';
             } | {
-                __typename?: 'EmailSegments';
+                __typename?: 'EmailSegment';
             } | {
                 __typename?: 'CoAuthor';
             } | {
@@ -111,7 +111,7 @@ export declare type VideoHubQuery = {
                     } & ArticleTeaserPartsFragment)>>>;
                 }>;
             } & ShowPartsFragment) | {
-                __typename?: 'EmailSegments';
+                __typename?: 'EmailSegment';
             } | {
                 __typename?: 'CoAuthor';
             } | {

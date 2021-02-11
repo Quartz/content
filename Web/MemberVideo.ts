@@ -15,7 +15,7 @@ export type MemberVideoQuery = { __typename?: 'RootQuery', features?: Types.Mayb
             & ArticleTeaserPartsFragment
           )>>> }> }
         & TagPartsFragment
-      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegments' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }> };
+      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }> };
 
 
 export const MemberVideoDocument = /*#__PURE__*/ gql`

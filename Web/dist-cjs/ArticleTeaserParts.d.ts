@@ -43,6 +43,20 @@ export declare type ArticleTeaserPartsFragment = {
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
+    guides?: Types.Maybe<{
+        __typename?: 'PostToGuideConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<{
+            __typename?: 'Guide';
+            name?: Types.Maybe<string>;
+        }>>>;
+    }>;
+    serieses?: Types.Maybe<{
+        __typename?: 'PostToSeriesConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<{
+            __typename?: 'Series';
+            name?: Types.Maybe<string>;
+        }>>>;
+    }>;
     trailerVideo?: Types.Maybe<({
         __typename?: 'VideoData';
     } & VideoPartsFragment)>;
