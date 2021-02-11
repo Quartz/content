@@ -35,10 +35,20 @@ exports.ArticleTeaserPartsFragmentDoc = client_1.gql `
   featuredImage {
     ...MediaParts
   }
+  guides {
+    nodes {
+      name
+    }
+  }
   id
   kicker
   link
   postId
+  serieses {
+    nodes {
+      name
+    }
+  }
   title
   trailerVideo {
     ...VideoParts

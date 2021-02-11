@@ -17,7 +17,7 @@ export type MemberHomeQuery = { __typename?: 'RootQuery', features?: Types.Maybe
             & ArticleTeaserPartsFragment
           )>>> }> }
         & TagPartsFragment
-      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegments' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }>, guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      ) | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }>, guides?: Types.Maybe<{ __typename?: 'RootQueryToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Guide', posts?: Types.Maybe<{ __typename?: 'GuideToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post' }
           & ArticleTeaserPartsFragment

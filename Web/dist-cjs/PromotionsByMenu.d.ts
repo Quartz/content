@@ -41,7 +41,7 @@ export declare type PromotionsByMenuQuery = {
                 } | {
                     __typename?: 'Show';
                 } | {
-                    __typename?: 'EmailSegments';
+                    __typename?: 'EmailSegment';
                 } | {
                     __typename?: 'CoAuthor';
                 } | {

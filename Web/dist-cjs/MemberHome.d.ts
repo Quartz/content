@@ -48,7 +48,7 @@ export declare type MemberHomeQuery = {
             } | {
                 __typename?: 'Show';
             } | {
-                __typename?: 'EmailSegments';
+                __typename?: 'EmailSegment';
             } | {
                 __typename?: 'CoAuthor';
             } | {
