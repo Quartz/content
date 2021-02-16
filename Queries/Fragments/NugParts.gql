@@ -15,6 +15,7 @@ fragment NugParts on Nug {
 	emailLists {
 		nodes {
 			emailListId
+			slug
 			listId
 			name
 		}
