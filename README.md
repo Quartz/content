@@ -31,7 +31,7 @@ We’re using GitHub Releases (tags) for versioning. Click on “Releases”, th
 ### In React projects
 
 ```sh
-npm i --save Quartz/content#0.0.8 # we’re using GitHub Releases (tags) for versioning
+npm i --save Quartz/content#0.1.0 # we’re using GitHub Releases (tags) for versioning
 ```
 
 Hooks are automatically generated for each operation (query or mutation).
