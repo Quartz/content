@@ -6185,7 +6185,7 @@ public final class CollectionQuery: GraphQLQuery {
 
   public let operationName: String = "Collection"
 
-  public let operationIdentifier: String? = "54db1129b2dc793905ee33a3437c15ab44b921fee697db650bfb15b7a73b6600"
+  public let operationIdentifier: String? = "16c805133c25a42f5485a3bc146e1a0864a9539a82ca36647fa985ccf7530cc0"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -6304,7 +6304,7 @@ public final class CollectionsQuery: GraphQLQuery {
 
   public let operationName: String = "Collections"
 
-  public let operationIdentifier: String? = "f5d1f47b5b4c66b76b349a258be0b19590007af2e6b2509a65441c8d4e0c97bd"
+  public let operationIdentifier: String? = "a24df9320e2478f5d422f8a87c01b5cab4406e3f4e3d81f8d85c2f0d06671531"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -6536,7 +6536,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "fab44f4400c7d8249c699649daecd77b5a62ce338dcb77f42c3f06bb3b7377d2"
+  public let operationIdentifier: String? = "7e00de25e6870250feff73c4327667cf0988d61ecd78fa61fcd59bfd32926415"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition) }
 
@@ -7057,7 +7057,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByGuide"
 
-  public let operationIdentifier: String? = "146ec8b2955ce6b01e6e7d6c7689f2105755b6c4d4a94d2753f1f3d971178a61"
+  public let operationIdentifier: String? = "ce1d311fb3c386f21aca4f9727e52ae69c23199a969b74524b2ff7c779655976"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -7309,7 +7309,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByObsession"
 
-  public let operationIdentifier: String? = "bee1fbbd28a412d027d25a979bd2f5c75639a5021bf991827b8ce0c002365d08"
+  public let operationIdentifier: String? = "f58f1278810fb0d209a97b2275ff5e9cf516a8228252dfe3e3dcb13358df51e2"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -10549,7 +10549,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollection"
 
-  public let operationIdentifier: String? = "853a3bd5c45f17185ab645f724d6d9a07a1caea6663180631d010b27319bd83e"
+  public let operationIdentifier: String? = "d3d63beceff44a5637e4582c62a213794abbf2caa91d20becd77b5b7085e1689"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -10696,7 +10696,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollectionPreview"
 
-  public let operationIdentifier: String? = "441d8badc5aa70f273faebc9486a4de5d689ee1d1d3032f086a23301830c7836"
+  public let operationIdentifier: String? = "166d15a56c6ad1e75e555ec7c69b98ef635f5990131fcfbb6d51f0fdf41c45e0"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
 
@@ -13776,7 +13776,7 @@ public final class NugQuery: GraphQLQuery {
 
   public let operationName: String = "Nug"
 
-  public let operationIdentifier: String? = "52c1f94343a93e474df02b4cbe7683a5067119dead863305ca4f743b394d770b"
+  public let operationIdentifier: String? = "06823633a0997128be39d413711a862f510eb750353f9780f1388d7b3e6ef563"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -13930,7 +13930,7 @@ public final class NugsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "NugsByTag"
 
-  public let operationIdentifier: String? = "1dbd6dffab4ecbd6918dc04da5e8b8b0647af0fcf59cd48bc9754f2d36f156f1"
+  public let operationIdentifier: String? = "a70edc918abb42ddc8d0cfe4ff598b1e24ae3a14fc740bb9c176665219dcc110"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
 
@@ -20096,6 +20096,7 @@ public struct NugParts: GraphQLFragment {
         nodes {
           __typename
           emailListId
+          slug
           listId
           name
         }
@@ -20572,6 +20573,7 @@ public struct NugParts: GraphQLFragment {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("emailListId", type: .scalar(Int.self)),
+          GraphQLField("slug", type: .scalar(String.self)),
           GraphQLField("listId", type: .scalar(Int.self)),
           GraphQLField("name", type: .scalar(String.self)),
         ]
@@ -20583,8 +20585,8 @@ public struct NugParts: GraphQLFragment {
         self.resultMap = unsafeResultMap
       }
 
-      public init(emailListId: Int? = nil, listId: Int? = nil, name: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "EmailList", "emailListId": emailListId, "listId": listId, "name": name])
+      public init(emailListId: Int? = nil, slug: String? = nil, listId: Int? = nil, name: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "EmailList", "emailListId": emailListId, "slug": slug, "listId": listId, "name": name])
       }
 
       public var __typename: String {
@@ -20604,6 +20606,16 @@ public struct NugParts: GraphQLFragment {
         }
         set {
           resultMap.updateValue(newValue, forKey: "emailListId")
+        }
+      }
+
+      /// An alphanumeric identifier for the object unique to its type.
+      public var slug: String? {
+        get {
+          return resultMap["slug"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "slug")
         }
       }
 
