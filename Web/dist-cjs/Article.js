@@ -24,9 +24,11 @@ const client_1 = require("@apollo/client");
 const ArticleParts_1 = require("./ArticleParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.ArticleDocument = client_1.gql `
-    query Article($id: ID!) {
-  post(id: $id) {
-    ...ArticleParts
+    query Article($id: Int!) {
+  posts(where: {id: $id}) {
+    nodes {
+      ...ArticleParts
+    }
   }
 }
     ${ArticleParts_1.ArticlePartsFragmentDoc}`;
