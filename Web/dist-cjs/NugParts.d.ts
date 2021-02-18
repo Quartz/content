@@ -40,6 +40,7 @@ export declare type NugPartsFragment = {
         nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'EmailList';
             emailListId?: Types.Maybe<number>;
+            slug?: Types.Maybe<string>;
             listId?: Types.Maybe<number>;
             name?: Types.Maybe<string>;
         }>>>;
