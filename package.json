@@ -15,7 +15,7 @@
     "build": "rm -r Web && mkdir Web && graphql-codegen && autobarrel Web && tsc && tsc -p tsconfig-cjs.json"
   },
   "devDependencies": {
-    "@apollo/client": "^3.2.5",
+    "@apollo/client": "^3.3.11",
     "@graphql-codegen/cli": "^1.19.1",
     "@graphql-codegen/near-operation-file-preset": "^1.17.12",
     "@graphql-codegen/typescript": "^1.17.11",
