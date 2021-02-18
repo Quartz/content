@@ -51,8 +51,6 @@ export declare type ObsessionsQuery = {
                 __typename?: 'EmailSegment';
             } | {
                 __typename?: 'CoAuthor';
-            } | {
-                __typename?: 'MenuItem';
             }>;
         }>>>;
     }>;

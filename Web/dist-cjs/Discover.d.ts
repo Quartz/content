@@ -14,7 +14,7 @@ export declare type DiscoverQuery = {
         } & ArticleTeaserPartsFragment)>>>;
     }>;
     trendingPosts?: Types.Maybe<{
-        __typename?: 'RootQueryToPostConnection';
+        __typename?: 'RootQueryToTrendingPostsConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment)>>>;

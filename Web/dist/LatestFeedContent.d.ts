@@ -9,7 +9,7 @@ export declare type LatestFeedContentQueryVariables = Types.Exact<{
 export declare type LatestFeedContentQuery = {
     __typename?: 'RootQuery';
     feedContent?: Types.Maybe<{
-        __typename?: 'RootQueryToContentUnionConnection';
+        __typename?: 'RootQueryToFeedContentConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment) | {

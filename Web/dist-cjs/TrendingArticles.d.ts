@@ -7,7 +7,7 @@ export declare type TrendingArticlesQueryVariables = Types.Exact<{
 export declare type TrendingArticlesQuery = {
     __typename?: 'RootQuery';
     trendingPosts?: Types.Maybe<{
-        __typename?: 'RootQueryToPostConnection';
+        __typename?: 'RootQueryToTrendingPostsConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment)>>>;

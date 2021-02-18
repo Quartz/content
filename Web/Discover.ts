@@ -14,7 +14,7 @@ export type DiscoverQueryVariables = Types.Exact<{
 export type DiscoverQuery = { __typename?: 'RootQuery', latest?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
-    )>>> }>, trendingPosts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+    )>>> }>, trendingPosts?: Types.Maybe<{ __typename?: 'RootQueryToTrendingPostsConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     )>>> }>, topics?: Types.Maybe<{ __typename?: 'RootQueryToTopicConnection', nodes?: Types.Maybe<Array<Types.Maybe<(

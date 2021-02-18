@@ -18,7 +18,7 @@ export type ObsessionsQuery = { __typename?: 'RootQuery', menuItems?: Types.Mayb
             & ArticleTeaserPartsFragment
           )>>> }> }
         & ObsessionPartsFragment
-      ) | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }> };
+      ) | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' }> }>>> }> };
 
 
 export const ObsessionsDocument = /*#__PURE__*/ gql`

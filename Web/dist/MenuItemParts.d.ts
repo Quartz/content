@@ -36,8 +36,6 @@ export declare type MenuItemPartsFragment = {
         __typename?: 'EmailSegment';
     } | {
         __typename?: 'CoAuthor';
-    } | {
-        __typename?: 'MenuItem';
     }>;
 };
 export declare const MenuItemPartsFragmentDoc: import("@apollo/client").DocumentNode;

@@ -12,7 +12,7 @@ export type LatestFeedContentQueryVariables = Types.Exact<{
 }>;
 
 
-export type LatestFeedContentQuery = { __typename?: 'RootQuery', feedContent?: Types.Maybe<{ __typename?: 'RootQueryToContentUnionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type LatestFeedContentQuery = { __typename?: 'RootQuery', feedContent?: Types.Maybe<{ __typename?: 'RootQueryToFeedContentConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | (
