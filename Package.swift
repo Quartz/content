@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
 	name: "QuartzContent",
+	platforms: [.macOS(.v10_14), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)],
 	products: [
 		.library(name: "QuartzContent", targets: ["QuartzContent"])
 	],
