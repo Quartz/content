@@ -2,9 +2,11 @@ import { gql } from '@apollo/client';
 import { ArticlePartsFragmentDoc } from './ArticleParts';
 import * as Apollo from '@apollo/client';
 export const ArticleDocument = /*#__PURE__*/ gql `
-    query Article($id: ID!) {
-  post(id: $id) {
-    ...ArticleParts
+    query Article($id: Int!) {
+  posts(where: {id: $id}) {
+    nodes {
+      ...ArticleParts
+    }
   }
 }
     ${ArticlePartsFragmentDoc}`;

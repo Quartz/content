@@ -1401,23 +1401,26 @@ public final class ArticleQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Article($id: ID!) {
-      post(id: $id) {
+    query Article($id: Int!) {
+      posts(where: {id: $id}) {
         __typename
-        ...ArticleParts
+        nodes {
+          __typename
+          ...ArticleParts
+        }
       }
     }
     """
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "4872f0c3089660ba0b274b2ef31d64943f7e2196c97cbefa4736e0d3b52a749e"
+  public let operationIdentifier: String? = "e7f7636f075bfbce8745b929440e554d11f493081841c14f15139e97030f9f65"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
 
-  public var id: GraphQLID
+  public var id: Int
 
-  public init(id: GraphQLID) {
+  public init(id: Int) {
     self.id = id
   }
 
@@ -1430,7 +1433,7 @@ public final class ArticleQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("post", arguments: ["id": GraphQLVariable("id")], type: .object(Post.selections)),
+        GraphQLField("posts", arguments: ["where": ["id": GraphQLVariable("id")]], type: .object(Post.selections)),
       ]
     }
 
@@ -1440,27 +1443,27 @@ public final class ArticleQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(post: Post? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "post": post.flatMap { (value: Post) -> ResultMap in value.resultMap }])
+    public init(posts: Post? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// An object of the post Type.
-    public var post: Post? {
+    /// Connection between the RootQuery type and the post type
+    public var posts: Post? {
       get {
-        return (resultMap["post"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+        return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "post")
+        resultMap.updateValue(newValue?.resultMap, forKey: "posts")
       }
     }
 
     public struct Post: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post"]
+      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
 
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(ArticleParts.self),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
         ]
       }
 
@@ -1468,6 +1471,10 @@ public final class ArticleQuery: GraphQLQuery {
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -1479,28 +1486,64 @@ public final class ArticleQuery: GraphQLQuery {
         }
       }
 
-      public var fragments: Fragments {
+      /// The nodes of the connection, without the edges
+      public var nodes: [Node?]? {
         get {
-          return Fragments(unsafeResultMap: resultMap)
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap += newValue.resultMap
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
-      public struct Fragments {
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ArticleParts.self),
+          ]
+        }
+
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public var articleParts: ArticleParts {
+        public var __typename: String {
           get {
-            return ArticleParts(unsafeResultMap: resultMap)
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var articleParts: ArticleParts {
+            get {
+              return ArticleParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }
