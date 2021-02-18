@@ -59,8 +59,6 @@ export declare type ContributorsQuery = {
                         }>;
                     } & ArticleTeaserPartsFragment)>>>;
                 }>;
-            } | {
-                __typename?: 'MenuItem';
             }>;
         }>>>;
     }>;

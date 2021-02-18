@@ -15,7 +15,7 @@ export type VideoHubQuery = { __typename?: 'RootQuery', featuredVideoPlayer?: Ty
             & ShowPartsFragment
           )>>> }> }
         & ArticleTeaserPartsFragment
-      ) | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }>, latest?: Types.Maybe<{ __typename?: 'RootQueryToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', posts?: Types.Maybe<{ __typename?: 'TagToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      ) | { __typename?: 'Page' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | { __typename?: 'Nug' } | { __typename?: 'Collection' } | { __typename?: 'Category' } | { __typename?: 'Tag' } | { __typename?: 'EmailList' } | { __typename?: 'Obsession' } | { __typename?: 'Topic' } | { __typename?: 'Show' } | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' }> }>>> }>, latest?: Types.Maybe<{ __typename?: 'RootQueryToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', posts?: Types.Maybe<{ __typename?: 'TagToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Post', shows?: Types.Maybe<{ __typename?: 'PostToShowConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
               { __typename?: 'Show' }
               & ShowPartsFragment
@@ -27,7 +27,7 @@ export type VideoHubQuery = { __typename?: 'RootQuery', featuredVideoPlayer?: Ty
             & ArticleTeaserPartsFragment
           )>>> }> }
         & ShowPartsFragment
-      ) | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' } | { __typename?: 'MenuItem' }> }>>> }>, allShows?: Types.Maybe<{ __typename?: 'RootQueryToShowConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      ) | { __typename?: 'EmailSegment' } | { __typename?: 'CoAuthor' }> }>>> }>, allShows?: Types.Maybe<{ __typename?: 'RootQueryToShowConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Show' }
       & ShowPartsFragment
     )>>> }> };

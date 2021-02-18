@@ -7,7 +7,7 @@ import * as Apollo from '@apollo/client';
 export type TrendingArticlesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type TrendingArticlesQuery = { __typename?: 'RootQuery', trendingPosts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type TrendingArticlesQuery = { __typename?: 'RootQuery', trendingPosts?: Types.Maybe<{ __typename?: 'RootQueryToTrendingPostsConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     )>>> }> };

@@ -17,7 +17,7 @@ export type ContributorsQuery = { __typename?: 'RootQuery', menuItems?: Types.Ma
                   & AuthorPartsFragment
                 )> }>>> }> }
             & ArticleTeaserPartsFragment
-          )>>> }> } | { __typename?: 'MenuItem' }> }>>> }> };
+          )>>> }> }> }>>> }> };
 
 
 export const ContributorsDocument = /*#__PURE__*/ gql`

@@ -50,8 +50,6 @@ export declare type MemberVideoQuery = {
                 __typename?: 'EmailSegment';
             } | {
                 __typename?: 'CoAuthor';
-            } | {
-                __typename?: 'MenuItem';
             }>;
         }>>>;
     }>;
