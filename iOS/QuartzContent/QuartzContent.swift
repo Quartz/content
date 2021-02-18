@@ -1413,7 +1413,21 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "4872f0c3089660ba0b274b2ef31d64943f7e2196c97cbefa4736e0d3b52a749e"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + GuideParts.fragmentDefinition)
+    document.append("\n" + ObsessionParts.fragmentDefinition)
+    document.append("\n" + ProjectParts.fragmentDefinition)
+    document.append("\n" + SeriesParts.fragmentDefinition)
+    document.append("\n" + ShowParts.fragmentDefinition)
+    return document
+  }
 
   public var id: GraphQLID
 
@@ -1527,7 +1541,21 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "b9bcd87a4b1037814dc2f65d29ae53bbc209e3980b5ff55322965be857c45780"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition).appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + ProjectParts.fragmentDefinition).appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + GuideParts.fragmentDefinition)
+    document.append("\n" + ObsessionParts.fragmentDefinition)
+    document.append("\n" + ProjectParts.fragmentDefinition)
+    document.append("\n" + SeriesParts.fragmentDefinition)
+    document.append("\n" + ShowParts.fragmentDefinition)
+    return document
+  }
 
   public var id: Int
   public var time: Int
@@ -1697,7 +1725,14 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "22f7d93b62a6ad6b56d66ae1bb0b179030882bdc698a097925e13efd6e0e4e93"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + AuthorParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + AuthorParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int
@@ -2036,7 +2071,14 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "ca20d1ded2af32f0a6deaa325ea4f5d0c47e72cc780dcace03e57fc25ef0972d"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + GuideParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -2379,7 +2421,16 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "8bdb841736eb76be0aa3674735f0d81ea9d959d46483734e8cb9fd996c62fea6"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + BulletinParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ObsessionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + BulletinParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -2894,7 +2945,13 @@ public final class PopularArticlesQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "273f70ecabffa3230cde1a4093a4218a1335c5435fe0357499a35863c3468d76"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var edition: EditionName?
@@ -3114,7 +3171,13 @@ public final class ArticlesByRecommendationQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "b17538311b750797ff3b806cb023acfef59373ccd535c59d81af6e3209091bf4"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
   public var postId: Int
@@ -3282,7 +3345,14 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "6e6a7d2f94f5ca128ee9c0980a656696c6fca9fa233004692ef2c1d392a40521"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + SeriesParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -3617,7 +3687,14 @@ public final class ArticlesByShowQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "e0708db8d931ea05c1e4d8453ef988ff60eff8312de8ef51aa7d42329cdbfc26"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ShowParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ShowParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -3952,7 +4029,14 @@ public final class ArticlesByTagQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "2df723f236ac0e9085ea8bfa1b16018d92d4d2324482c738d136fca930495e9a"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + TagParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + TagParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -4287,7 +4371,14 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "0887665aea8b3eff2bbf06486f6954b120768b42d20984ea450d4ad74803ec25"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + TopicParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + TopicParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -4607,7 +4698,13 @@ public final class ArticleTeaserQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "18cae84868009ae10673ff3445dd4b24f0657c594463ff8b307a9d5731a9fda0"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var id: GraphQLID
 
@@ -4729,7 +4826,13 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "cc42857c863ee885ce213cea0bcc11f5959eed0b57a16341429a95e8c5e85f48"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var limit: Int?
@@ -5034,7 +5137,13 @@ public final class LatestArticlesQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "c54fd939ada6dbb7804315b7daa6173f86a7a243ce061fb892bf8bb9837ebb78"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var edition: EditionName?
@@ -5271,7 +5380,14 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "6bdb4b4da5a1365e6ee5bc464a62dcb6dd709e8ebfdc59401c609c9125a20b6a"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + EmailParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -5708,7 +5824,13 @@ public final class TrendingArticlesQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "085b1185921156039bd421c74940bf535c2007145c00131ba20fd94aa9366334"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -5867,7 +5989,13 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "af7e977e318fe200c3138249b2b5bba5974b87bbf74144beb96c6f82e984ef74"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + SeriesParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BulletinParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + SeriesParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BulletinParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -6187,7 +6315,16 @@ public final class CollectionQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "54db1129b2dc793905ee33a3437c15ab44b921fee697db650bfb15b7a73b6600"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
 
   public var slug: String
 
@@ -6306,7 +6443,16 @@ public final class CollectionsQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "f5d1f47b5b4c66b76b349a258be0b19590007af2e6b2509a65441c8d4e0c97bd"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
 
   public var first: Int?
   public var after: String?
@@ -6538,7 +6684,18 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "fab44f4400c7d8249c699649daecd77b5a62ce338dcb77f42c3f06bb3b7377d2"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ObsessionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + GuideParts.fragmentDefinition)
+    return document
+  }
 
   public var id: GraphQLID
 
@@ -7059,7 +7216,16 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "146ec8b2955ce6b01e6e7d6c7689f2105755b6c4d4a94d2753f1f3d971178a61"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
 
   public var slug: String
 
@@ -7311,7 +7477,16 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "bee1fbbd28a412d027d25a979bd2f5c75639a5021bf991827b8ce0c002365d08"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
 
   public var slug: String
 
@@ -7578,7 +7753,14 @@ public final class ContributorsQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "fd61c1f0aeb69de18575f62dfcbfa0ed8e8231e79b3956141b6b0c30436ea232"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + AuthorParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
 
@@ -8137,7 +8319,14 @@ public final class DiscoverQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "fb790d70c6822622a6f1cc4ddf0920f0338a1efdc37f9381c9553403a7998ccc"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + TopicParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + TopicParts.fragmentDefinition)
+    return document
+  }
 
   public var topics: [String?]
 
@@ -8605,7 +8794,13 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "aa461e9a602d62e213b99f1e404f07cd802dd9b688b36381068e93c99c191f6b"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + EmailListParts.fragmentDefinition)
+    return document
+  }
 
   public var id: GraphQLID
 
@@ -8840,7 +9035,12 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "b0ffff6ac86dc1e0c63311fb43adf1185476b9488f4304c8f14028b272cd0989"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + EmailListParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + EmailListParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    return document
+  }
 
   public var slug: [String?]
 
@@ -9098,7 +9298,13 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "95be4d2e6507c8a9bea6a8555c0f3ac1b1a0cd7ef1cafa820b13217fe1f718b5"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + EmailListParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + EmailListParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + EmailParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -9437,7 +9643,13 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "24a1d5a7b5ef25c1ea989a6e2cc477ed54ecfaae26d3824cda9d4fa0aafb82ab"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + EmailParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + EmailListParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + EmailListParts.fragmentDefinition)
+    return document
+  }
 
   public var after: String?
   public var perPage: Int?
@@ -9794,7 +10006,14 @@ public final class GuidesQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "5f579d5f49e54c3a90685d7bcad3abcf880b597fd2282a5bb6fffa13b425c739"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + GuideParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var before: String?
   public var perPage: Int?
@@ -10117,7 +10336,12 @@ public final class GuidesBySlugQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "a4a9fb61f48400180f8b5c735fddc1d8fb35c29f542c44e874f7c084a043b7fe"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + GuideParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
   public var slug: [String?]
@@ -10282,7 +10506,12 @@ public final class GuidesByTopicQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "db4591c6621f25a118a5b44456e25765427dcab6b1109ef4c813abf65ba8b97f"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + GuideParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + GuideParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int?
   public var slug: [String?]
@@ -10551,7 +10780,16 @@ public final class HomeCollectionQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "853a3bd5c45f17185ab645f724d6d9a07a1caea6663180631d010b27319bd83e"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -10698,7 +10936,16 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "441d8badc5aa70f273faebc9486a4de5d689ee1d1d3032f086a23301830c7836"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + CollectionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + NugParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
 
   public var id: Int
   public var time: Int
@@ -10856,7 +11103,11 @@ public final class MediaItemsByIdQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "6fd52e8aadc645d582f9c60da461d50b11c7c4367fd7b0f179b7e840af4dfd27"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + MediaParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + MediaParts.fragmentDefinition)
+    return document
+  }
 
   public var ids: [GraphQLID]?
 
@@ -11037,7 +11288,15 @@ public final class MemberHomeQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "e16a0365c57a489b2ec65ca7c7d9588e1a00223fb2f2fcee5dc8ee80144fe01f"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + TagParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + GuideParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + TagParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + GuideParts.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -11659,7 +11918,14 @@ public final class MemberVideoQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "9c539d9b119bc6c90add83de28a26b0091299c7732921e88204a911f3c29701a"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + TagParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + TagParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -12120,7 +12386,14 @@ public final class VideoHubQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "844e6ba58504ef7c5161a080684afb5987b98bc97c2e79c163efa4266a97ba60"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + ShowParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + ShowParts.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -13278,7 +13551,15 @@ public final class MenuItemsQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "f61b19dc560e505f73744c1a83c15f8ae6753cf6ddefdf2c188d12303294129f"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + MenuItemParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + MenuItemParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
   public var slug: MenuLocationEnum
@@ -13442,7 +13723,12 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "208ebc0a756dace8be7d2ad39cc08cccb2539f6eac370bd947c62b1ccb8adbab"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + PromotionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + PromotionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    return document
+  }
 
   public var menuLocation: MenuLocationEnum
 
@@ -13778,7 +14064,15 @@ public final class NugQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "52c1f94343a93e474df02b4cbe7683a5067119dead863305ca4f743b394d770b"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var id: Int
 
@@ -13932,7 +14226,15 @@ public final class NugsByTagQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "1dbd6dffab4ecbd6918dc04da5e8b8b0647af0fcf59cd48bc9754f2d36f156f1"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + NugParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
   public var slug: [String?]
@@ -14101,7 +14403,14 @@ public final class ObsessionsQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "de6f770c54710b38f456ee219785e5fd469d2a7087578409be27ad319f95ca11"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ObsessionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
   public var location: MenuLocationEnum
@@ -14639,7 +14948,13 @@ public final class PromotionsByTagQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "5a3a1e3e00e3bce150c8ae2a81e61b5f70ab20a3819e1ab4a29077f9c7c5ce6f"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + PromotionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + PromotionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    return document
+  }
 
   public var perPage: Int
   public var slug: [String?]
@@ -14858,7 +15173,12 @@ public final class TopicsQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "79d0625990884a43ecad782d28da2e29c869c3c1c93e2c7faae9e45ac693121e"
 
-  public var queryDocument: String { return operationDefinition.appending("\n" + TopicParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + TopicParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
