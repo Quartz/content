@@ -63,131 +63,83 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
 /// Registered menu locations
 public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
-  case about
   case authorsWork
   case caseStudiesCreative
-  case chartsAfrica
-  case chartsIndia
-  case chartsQuartz
   case clientsCreative
   case featuredQuartz
   case featuresMarketingMembers
   case featuresMembers
   case featuresVideoMembers
-  case obsessions
   case obsessionsAfrica
   case obsessionsIndia
   case obsessionsQuartz
-  case obsessionsQuartzy
   case obsessionsWork
   case playerVideo
   case premiumMembers
   case showsVideo
-  case topAfrica
-  case topIndia
-  case topQuartz
-  case topQuartzy
   case topWork
-  case videosQuartz
-  case videosQuartzy
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "ABOUT": self = .about
       case "AUTHORS_WORK": self = .authorsWork
       case "CASE_STUDIES_CREATIVE": self = .caseStudiesCreative
-      case "CHARTS_AFRICA": self = .chartsAfrica
-      case "CHARTS_INDIA": self = .chartsIndia
-      case "CHARTS_QUARTZ": self = .chartsQuartz
       case "CLIENTS_CREATIVE": self = .clientsCreative
       case "FEATURED_QUARTZ": self = .featuredQuartz
       case "FEATURES_MARKETING_MEMBERS": self = .featuresMarketingMembers
       case "FEATURES_MEMBERS": self = .featuresMembers
       case "FEATURES_VIDEO_MEMBERS": self = .featuresVideoMembers
-      case "OBSESSIONS": self = .obsessions
       case "OBSESSIONS_AFRICA": self = .obsessionsAfrica
       case "OBSESSIONS_INDIA": self = .obsessionsIndia
       case "OBSESSIONS_QUARTZ": self = .obsessionsQuartz
-      case "OBSESSIONS_QUARTZY": self = .obsessionsQuartzy
       case "OBSESSIONS_WORK": self = .obsessionsWork
       case "PLAYER_VIDEO": self = .playerVideo
       case "PREMIUM_MEMBERS": self = .premiumMembers
       case "SHOWS_VIDEO": self = .showsVideo
-      case "TOP_AFRICA": self = .topAfrica
-      case "TOP_INDIA": self = .topIndia
-      case "TOP_QUARTZ": self = .topQuartz
-      case "TOP_QUARTZY": self = .topQuartzy
       case "TOP_WORK": self = .topWork
-      case "VIDEOS_QUARTZ": self = .videosQuartz
-      case "VIDEOS_QUARTZY": self = .videosQuartzy
       default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .about: return "ABOUT"
       case .authorsWork: return "AUTHORS_WORK"
       case .caseStudiesCreative: return "CASE_STUDIES_CREATIVE"
-      case .chartsAfrica: return "CHARTS_AFRICA"
-      case .chartsIndia: return "CHARTS_INDIA"
-      case .chartsQuartz: return "CHARTS_QUARTZ"
       case .clientsCreative: return "CLIENTS_CREATIVE"
       case .featuredQuartz: return "FEATURED_QUARTZ"
       case .featuresMarketingMembers: return "FEATURES_MARKETING_MEMBERS"
       case .featuresMembers: return "FEATURES_MEMBERS"
       case .featuresVideoMembers: return "FEATURES_VIDEO_MEMBERS"
-      case .obsessions: return "OBSESSIONS"
       case .obsessionsAfrica: return "OBSESSIONS_AFRICA"
       case .obsessionsIndia: return "OBSESSIONS_INDIA"
       case .obsessionsQuartz: return "OBSESSIONS_QUARTZ"
-      case .obsessionsQuartzy: return "OBSESSIONS_QUARTZY"
       case .obsessionsWork: return "OBSESSIONS_WORK"
       case .playerVideo: return "PLAYER_VIDEO"
       case .premiumMembers: return "PREMIUM_MEMBERS"
       case .showsVideo: return "SHOWS_VIDEO"
-      case .topAfrica: return "TOP_AFRICA"
-      case .topIndia: return "TOP_INDIA"
-      case .topQuartz: return "TOP_QUARTZ"
-      case .topQuartzy: return "TOP_QUARTZY"
       case .topWork: return "TOP_WORK"
-      case .videosQuartz: return "VIDEOS_QUARTZ"
-      case .videosQuartzy: return "VIDEOS_QUARTZY"
       case .__unknown(let value): return value
     }
   }
 
   public static func == (lhs: MenuLocationEnum, rhs: MenuLocationEnum) -> Bool {
     switch (lhs, rhs) {
-      case (.about, .about): return true
       case (.authorsWork, .authorsWork): return true
       case (.caseStudiesCreative, .caseStudiesCreative): return true
-      case (.chartsAfrica, .chartsAfrica): return true
-      case (.chartsIndia, .chartsIndia): return true
-      case (.chartsQuartz, .chartsQuartz): return true
       case (.clientsCreative, .clientsCreative): return true
       case (.featuredQuartz, .featuredQuartz): return true
       case (.featuresMarketingMembers, .featuresMarketingMembers): return true
       case (.featuresMembers, .featuresMembers): return true
       case (.featuresVideoMembers, .featuresVideoMembers): return true
-      case (.obsessions, .obsessions): return true
       case (.obsessionsAfrica, .obsessionsAfrica): return true
       case (.obsessionsIndia, .obsessionsIndia): return true
       case (.obsessionsQuartz, .obsessionsQuartz): return true
-      case (.obsessionsQuartzy, .obsessionsQuartzy): return true
       case (.obsessionsWork, .obsessionsWork): return true
       case (.playerVideo, .playerVideo): return true
       case (.premiumMembers, .premiumMembers): return true
       case (.showsVideo, .showsVideo): return true
-      case (.topAfrica, .topAfrica): return true
-      case (.topIndia, .topIndia): return true
-      case (.topQuartz, .topQuartz): return true
-      case (.topQuartzy, .topQuartzy): return true
       case (.topWork, .topWork): return true
-      case (.videosQuartz, .videosQuartz): return true
-      case (.videosQuartzy, .videosQuartzy): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -195,33 +147,21 @@ public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterabl
 
   public static var allCases: [MenuLocationEnum] {
     return [
-      .about,
       .authorsWork,
       .caseStudiesCreative,
-      .chartsAfrica,
-      .chartsIndia,
-      .chartsQuartz,
       .clientsCreative,
       .featuredQuartz,
       .featuresMarketingMembers,
       .featuresMembers,
       .featuresVideoMembers,
-      .obsessions,
       .obsessionsAfrica,
       .obsessionsIndia,
       .obsessionsQuartz,
-      .obsessionsQuartzy,
       .obsessionsWork,
       .playerVideo,
       .premiumMembers,
       .showsVideo,
-      .topAfrica,
-      .topIndia,
-      .topQuartz,
-      .topQuartzy,
       .topWork,
-      .videosQuartz,
-      .videosQuartzy,
     ]
   }
 }
@@ -1504,8 +1444,7 @@ public final class ArticleQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "post": post.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// A 0bject
-    @available(*, deprecated, message: "")
+    /// An object of the post Type.
     public var post: Post? {
       get {
         return (resultMap["post"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -1623,8 +1562,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the post type
     public var posts: Post? {
       get {
         return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -1664,7 +1602,6 @@ public final class ArticlePreviewQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -1795,8 +1732,7 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "authors": authors.flatMap { (value: Author) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the coAuthor type
     public var authors: Author? {
       get {
         return (resultMap["authors"] as? ResultMap).flatMap { Author(unsafeResultMap: $0) }
@@ -1836,7 +1772,6 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -1872,8 +1807,7 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the coAuthor type and the coAuthor type
-        @available(*, deprecated, message: "")
+        /// Connection between the coAuthor type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -1940,7 +1874,6 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -1951,7 +1884,6 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -2044,7 +1976,6 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -2055,7 +1986,6 @@ public final class ArticlesByAuthorQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -2141,8 +2071,7 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the guide type
     public var guides: Guide? {
       get {
         return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -2182,7 +2111,6 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -2218,8 +2146,7 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the guide type and the guide type
-        @available(*, deprecated, message: "")
+        /// Connection between the guide type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -2286,7 +2213,6 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -2297,7 +2223,6 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -2390,7 +2315,6 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -2401,7 +2325,6 @@ public final class ArticlesByGuideQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -2491,8 +2414,7 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "obsessions": obsessions.flatMap { (value: Obsession) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the obsession type
     public var obsessions: Obsession? {
       get {
         return (resultMap["obsessions"] as? ResultMap).flatMap { Obsession(unsafeResultMap: $0) }
@@ -2532,7 +2454,6 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -2568,8 +2489,7 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the Obsession type and the Obsession type
-        @available(*, deprecated, message: "")
+        /// Connection between the Obsession type and the ContentUnion type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -2636,7 +2556,6 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -2647,7 +2566,6 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -2927,7 +2845,6 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -2938,7 +2855,6 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -3013,8 +2929,7 @@ public final class PopularArticlesQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the post type
     public var posts: Post? {
       get {
         return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -3055,7 +2970,6 @@ public final class PopularArticlesQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -3066,7 +2980,6 @@ public final class PopularArticlesQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -3159,7 +3072,6 @@ public final class PopularArticlesQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var endCursor: String? {
           get {
             return resultMap["endCursor"] as? String
@@ -3170,7 +3082,6 @@ public final class PopularArticlesQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, are there more items?
-        @available(*, deprecated, message: "")
         public var hasNextPage: Bool {
           get {
             return resultMap["hasNextPage"]! as! Bool
@@ -3236,8 +3147,7 @@ public final class ArticlesByRecommendationQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the post type
     public var posts: Post? {
       get {
         return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -3277,7 +3187,6 @@ public final class ArticlesByRecommendationQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -3408,8 +3317,7 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "serieses": serieses.flatMap { (value: Seriese) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the series type
     public var serieses: Seriese? {
       get {
         return (resultMap["serieses"] as? ResultMap).flatMap { Seriese(unsafeResultMap: $0) }
@@ -3449,7 +3357,6 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -3485,8 +3392,7 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the series type and the series type
-        @available(*, deprecated, message: "")
+        /// Connection between the series type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -3553,7 +3459,6 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -3564,7 +3469,6 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -3657,7 +3561,6 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -3668,7 +3571,6 @@ public final class ArticlesBySeriesQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -3750,8 +3652,7 @@ public final class ArticlesByShowQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "shows": shows.flatMap { (value: Show) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the show type
     public var shows: Show? {
       get {
         return (resultMap["shows"] as? ResultMap).flatMap { Show(unsafeResultMap: $0) }
@@ -3791,7 +3692,6 @@ public final class ArticlesByShowQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -3827,8 +3727,7 @@ public final class ArticlesByShowQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the show type and the show type
-        @available(*, deprecated, message: "")
+        /// Connection between the show type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -3895,7 +3794,6 @@ public final class ArticlesByShowQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -3906,7 +3804,6 @@ public final class ArticlesByShowQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -3999,7 +3896,6 @@ public final class ArticlesByShowQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -4010,7 +3906,6 @@ public final class ArticlesByShowQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -4092,8 +3987,7 @@ public final class ArticlesByTagQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "tags": tags.flatMap { (value: Tag) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the tag type
     public var tags: Tag? {
       get {
         return (resultMap["tags"] as? ResultMap).flatMap { Tag(unsafeResultMap: $0) }
@@ -4133,7 +4027,6 @@ public final class ArticlesByTagQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -4169,8 +4062,7 @@ public final class ArticlesByTagQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the tag type and the tag type
-        @available(*, deprecated, message: "")
+        /// Connection between the tag type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -4237,7 +4129,6 @@ public final class ArticlesByTagQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -4248,7 +4139,6 @@ public final class ArticlesByTagQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -4341,7 +4231,6 @@ public final class ArticlesByTagQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -4352,7 +4241,6 @@ public final class ArticlesByTagQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -4434,8 +4322,7 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the topic type
     public var topics: Topic? {
       get {
         return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
@@ -4475,7 +4362,6 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -4511,8 +4397,7 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the topic type and the topic type
-        @available(*, deprecated, message: "")
+        /// Connection between the topic type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -4579,7 +4464,6 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -4590,7 +4474,6 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -4683,7 +4566,6 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -4694,7 +4576,6 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -4757,8 +4638,7 @@ public final class ArticleTeaserQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "post": post.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// A 0bject
-    @available(*, deprecated, message: "")
+    /// An object of the post Type.
     public var post: Post? {
       get {
         return (resultMap["post"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -4884,8 +4764,7 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "content": content.flatMap { (value: Content) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the ContentUnion type
     public var content: Content? {
       get {
         return (resultMap["content"] as? ResultMap).flatMap { Content(unsafeResultMap: $0) }
@@ -4926,7 +4805,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -4937,7 +4815,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -4978,7 +4855,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var endCursor: String? {
           get {
             return resultMap["endCursor"] as? String
@@ -4989,7 +4865,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, are there more items?
-        @available(*, deprecated, message: "")
         public var hasNextPage: Bool {
           get {
             return resultMap["hasNextPage"]! as! Bool
@@ -5095,7 +4970,6 @@ public final class ContentBySearchTermQuery: GraphQLQuery {
           }
 
           /// List of tracking urls
-          @available(*, deprecated, message: "")
           public var trackingUrls: [String?]? {
             get {
               return resultMap["trackingUrls"] as? [String?]
@@ -5195,8 +5069,7 @@ public final class LatestArticlesQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the post type
     public var posts: Post? {
       get {
         return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -5237,7 +5110,6 @@ public final class LatestArticlesQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -5248,7 +5120,6 @@ public final class LatestArticlesQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -5341,7 +5212,6 @@ public final class LatestArticlesQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var endCursor: String? {
           get {
             return resultMap["endCursor"] as? String
@@ -5352,7 +5222,6 @@ public final class LatestArticlesQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, are there more items?
-        @available(*, deprecated, message: "")
         public var hasNextPage: Bool {
           get {
             return resultMap["hasNextPage"]! as! Bool
@@ -5435,8 +5304,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "feedContent": feedContent.flatMap { (value: FeedContent) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the ContentUnion type
     public var feedContent: FeedContent? {
       get {
         return (resultMap["feedContent"] as? ResultMap).flatMap { FeedContent(unsafeResultMap: $0) }
@@ -5447,7 +5315,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
     }
 
     public struct FeedContent: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["RootQueryToContentUnionConnection"]
+      public static let possibleTypes: [String] = ["RootQueryToFeedContentConnection"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -5464,7 +5332,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
       }
 
       public init(nodes: [Node?]? = nil, pageInfo: PageInfo? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToContentUnionConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
+        self.init(unsafeResultMap: ["__typename": "RootQueryToFeedContentConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.flatMap { (value: PageInfo) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -5477,7 +5345,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -5488,7 +5355,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -5653,7 +5519,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
           }
 
           /// The permalink of the post
-          @available(*, deprecated, message: "")
           public var link: String? {
             get {
               return resultMap["link"] as? String
@@ -5663,8 +5528,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
             }
           }
 
-          /// Connection between the email type and the email type
-          @available(*, deprecated, message: "")
+          /// Connection between the email type and the emailList type
           public var emailLists: EmailList? {
             get {
               return (resultMap["emailLists"] as? ResultMap).flatMap { EmailList(unsafeResultMap: $0) }
@@ -5730,7 +5594,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
             }
 
             /// The nodes of the connection, without the edges
-            @available(*, deprecated, message: "")
             public var nodes: [Node?]? {
               get {
                 return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -5770,7 +5633,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
               }
 
               /// An alphanumeric identifier for the object unique to its type.
-              @available(*, deprecated, message: "")
               public var slug: String? {
                 get {
                   return resultMap["slug"] as? String
@@ -5814,7 +5676,6 @@ public final class LatestFeedContentQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var endCursor: String? {
           get {
             return resultMap["endCursor"] as? String
@@ -5871,8 +5732,7 @@ public final class TrendingArticlesQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "trendingPosts": trendingPosts.flatMap { (value: TrendingPost) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the Post type
     public var trendingPosts: TrendingPost? {
       get {
         return (resultMap["trendingPosts"] as? ResultMap).flatMap { TrendingPost(unsafeResultMap: $0) }
@@ -5883,7 +5743,7 @@ public final class TrendingArticlesQuery: GraphQLQuery {
     }
 
     public struct TrendingPost: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
+      public static let possibleTypes: [String] = ["RootQueryToTrendingPostsConnection"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -5899,7 +5759,7 @@ public final class TrendingArticlesQuery: GraphQLQuery {
       }
 
       public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+        self.init(unsafeResultMap: ["__typename": "RootQueryToTrendingPostsConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -5912,7 +5772,6 @@ public final class TrendingArticlesQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -6043,8 +5902,7 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "serieses": serieses.flatMap { (value: Seriese) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the series type
     public var serieses: Seriese? {
       get {
         return (resultMap["serieses"] as? ResultMap).flatMap { Seriese(unsafeResultMap: $0) }
@@ -6084,7 +5942,6 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -6120,8 +5977,7 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the series type and the series type
-        @available(*, deprecated, message: "")
+        /// Connection between the series type and the bulletin type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -6188,7 +6044,6 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -6199,7 +6054,6 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -6292,7 +6146,6 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -6303,7 +6156,6 @@ public final class BulletinsBySeriesQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -6367,7 +6219,7 @@ public final class CollectionQuery: GraphQLQuery {
     }
 
     /// A collection object
-    @available(*, deprecated, message: "")
+    @available(*, deprecated, message: "Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)")
     public var collectionBy: CollectionBy? {
       get {
         return (resultMap["collectionBy"] as? ResultMap).flatMap { CollectionBy(unsafeResultMap: $0) }
@@ -6487,8 +6339,7 @@ public final class CollectionsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "collections": collections.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the collection type
     public var collections: Collection? {
       get {
         return (resultMap["collections"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
@@ -6529,7 +6380,6 @@ public final class CollectionsQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -6540,7 +6390,6 @@ public final class CollectionsQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -6580,7 +6429,6 @@ public final class CollectionsQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var endCursor: String? {
           get {
             return resultMap["endCursor"] as? String
@@ -6721,8 +6569,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "post": post.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// A 0bject
-    @available(*, deprecated, message: "")
+    /// An object of the post Type.
     public var post: Post? {
       get {
         return (resultMap["post"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -6763,8 +6610,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
       }
 
-      /// The globally unique ID for the object
-      @available(*, deprecated, message: "")
+      /// The globally unique identifier of the post object.
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -6774,8 +6620,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
       }
 
-      /// Connection between the post type and the post type
-      @available(*, deprecated, message: "")
+      /// Connection between the post type and the obsession type
       public var obsessions: Obsession? {
         get {
           return (resultMap["obsessions"] as? ResultMap).flatMap { Obsession(unsafeResultMap: $0) }
@@ -6785,8 +6630,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
       }
 
-      /// Connection between the post type and the post type
-      @available(*, deprecated, message: "")
+      /// Connection between the post type and the guide type
       public var guides: Guide? {
         get {
           return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -6826,7 +6670,6 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
 
         /// The nodes of the connection, without the edges
-        @available(*, deprecated, message: "")
         public var nodes: [Node?]? {
           get {
             return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -6862,8 +6705,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
             }
           }
 
-          /// Connection between the Obsession type and the Obsession type
-          @available(*, deprecated, message: "")
+          /// Connection between the Obsession type and the Collection type
           public var essentials: Essential? {
             get {
               return (resultMap["essentials"] as? ResultMap).flatMap { Essential(unsafeResultMap: $0) }
@@ -6929,7 +6771,6 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
             }
 
             /// The nodes of the connection, without the edges
-            @available(*, deprecated, message: "")
             public var nodes: [Node?]? {
               get {
                 return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7024,7 +6865,6 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
 
         /// The nodes of the connection, without the edges
-        @available(*, deprecated, message: "")
         public var nodes: [Node?]? {
           get {
             return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7060,8 +6900,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
             }
           }
 
-          /// Connection between the Guide type and the Guide type
-          @available(*, deprecated, message: "")
+          /// Connection between the Guide type and the Collection type
           public var essentials: Essential? {
             get {
               return (resultMap["essentials"] as? ResultMap).flatMap { Essential(unsafeResultMap: $0) }
@@ -7127,7 +6966,6 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
             }
 
             /// The nodes of the connection, without the edges
-            @available(*, deprecated, message: "")
             public var nodes: [Node?]? {
               get {
                 return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7252,8 +7090,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the guide type
     public var guides: Guide? {
       get {
         return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -7293,7 +7130,6 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7333,8 +7169,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           }
         }
 
-        /// The global ID for the guide
-        @available(*, deprecated, message: "")
+        /// The globally unique ID for the object
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -7344,8 +7179,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the Guide type and the Guide type
-        @available(*, deprecated, message: "")
+        /// Connection between the Guide type and the Collection type
         public var essentials: Essential? {
           get {
             return (resultMap["essentials"] as? ResultMap).flatMap { Essential(unsafeResultMap: $0) }
@@ -7385,7 +7219,6 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7509,8 +7342,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "obsessions": obsessions.flatMap { (value: Obsession) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the obsession type
     public var obsessions: Obsession? {
       get {
         return (resultMap["obsessions"] as? ResultMap).flatMap { Obsession(unsafeResultMap: $0) }
@@ -7550,7 +7382,6 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7590,8 +7421,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           }
         }
 
-        /// The global ID for the obsession
-        @available(*, deprecated, message: "")
+        /// The globally unique ID for the object
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -7601,8 +7431,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the Obsession type and the Obsession type
-        @available(*, deprecated, message: "")
+        /// Connection between the Obsession type and the Collection type
         public var essentials: Essential? {
           get {
             return (resultMap["essentials"] as? ResultMap).flatMap { Essential(unsafeResultMap: $0) }
@@ -7642,7 +7471,6 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7781,8 +7609,7 @@ public final class ContributorsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var menuItems: MenuItem? {
       get {
         return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
@@ -7822,7 +7649,6 @@ public final class ContributorsQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -7862,8 +7688,7 @@ public final class ContributorsQuery: GraphQLQuery {
           }
         }
 
-        /// Relay ID of the menu item.
-        @available(*, deprecated, message: "")
+        /// The globally unique identifier of the nav menu item object.
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -7874,7 +7699,7 @@ public final class ContributorsQuery: GraphQLQuery {
         }
 
         /// The object connected to this menu item.
-        @available(*, deprecated, message: "")
+        @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
         public var connectedObject: ConnectedObject? {
           get {
             return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -7885,7 +7710,7 @@ public final class ContributorsQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -7964,10 +7789,6 @@ public final class ContributorsQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
           }
 
-          public static func makeMenuItem() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
-          }
-
           public static func makeCoAuthor(posts: AsCoAuthor.Post? = nil) -> ConnectedObject {
             return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor", "posts": posts.flatMap { (value: AsCoAuthor.Post) -> ResultMap in value.resultMap }])
           }
@@ -8021,8 +7842,7 @@ public final class ContributorsQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the coAuthor type and the coAuthor type
-            @available(*, deprecated, message: "")
+            /// Connection between the coAuthor type and the post type
             public var posts: Post? {
               get {
                 return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -8062,7 +7882,6 @@ public final class ContributorsQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -8098,8 +7917,7 @@ public final class ContributorsQuery: GraphQLQuery {
                   }
                 }
 
-                /// Connection between the post type and the post type
-                @available(*, deprecated, message: "")
+                /// Connection between the post type and the coAuthor type
                 public var authors: Author? {
                   get {
                     return (resultMap["authors"] as? ResultMap).flatMap { Author(unsafeResultMap: $0) }
@@ -8165,7 +7983,6 @@ public final class ContributorsQuery: GraphQLQuery {
                   }
 
                   /// Edges for the PostToCoAuthorConnection connection
-                  @available(*, deprecated, message: "")
                   public var edges: [Edge?]? {
                     get {
                       return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
@@ -8205,7 +8022,6 @@ public final class ContributorsQuery: GraphQLQuery {
                     }
 
                     /// The item at the end of the edge
-                    @available(*, deprecated, message: "")
                     public var node: Node? {
                       get {
                         return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
@@ -8354,8 +8170,7 @@ public final class DiscoverQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "latest": latest.flatMap { (value: Latest) -> ResultMap in value.resultMap }, "trendingPosts": trendingPosts.flatMap { (value: TrendingPost) -> ResultMap in value.resultMap }, "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the post type
     public var latest: Latest? {
       get {
         return (resultMap["latest"] as? ResultMap).flatMap { Latest(unsafeResultMap: $0) }
@@ -8365,8 +8180,7 @@ public final class DiscoverQuery: GraphQLQuery {
       }
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the Post type
     public var trendingPosts: TrendingPost? {
       get {
         return (resultMap["trendingPosts"] as? ResultMap).flatMap { TrendingPost(unsafeResultMap: $0) }
@@ -8376,8 +8190,7 @@ public final class DiscoverQuery: GraphQLQuery {
       }
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the topic type
     public var topics: Topic? {
       get {
         return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
@@ -8417,7 +8230,6 @@ public final class DiscoverQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -8481,7 +8293,7 @@ public final class DiscoverQuery: GraphQLQuery {
     }
 
     public struct TrendingPost: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
+      public static let possibleTypes: [String] = ["RootQueryToTrendingPostsConnection"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -8497,7 +8309,7 @@ public final class DiscoverQuery: GraphQLQuery {
       }
 
       public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+        self.init(unsafeResultMap: ["__typename": "RootQueryToTrendingPostsConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -8510,7 +8322,6 @@ public final class DiscoverQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -8603,7 +8414,6 @@ public final class DiscoverQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -8639,8 +8449,7 @@ public final class DiscoverQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the topic type and the topic type
-        @available(*, deprecated, message: "")
+        /// Connection between the topic type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -8706,7 +8515,6 @@ public final class DiscoverQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -8828,8 +8636,7 @@ public final class EmailByIdQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "email": email.flatMap { (value: Email) -> ResultMap in value.resultMap }])
     }
 
-    /// A 0bject
-    @available(*, deprecated, message: "")
+    /// An object of the email Type.
     public var email: Email? {
       get {
         return (resultMap["email"] as? ResultMap).flatMap { Email(unsafeResultMap: $0) }
@@ -8867,7 +8674,6 @@ public final class EmailByIdQuery: GraphQLQuery {
       }
 
       /// The id for the list in Sendgrid
-      @available(*, deprecated, message: "")
       public var html: String? {
         get {
           return resultMap["html"] as? String
@@ -8877,8 +8683,7 @@ public final class EmailByIdQuery: GraphQLQuery {
         }
       }
 
-      /// Connection between the email type and the email type
-      @available(*, deprecated, message: "")
+      /// Connection between the email type and the emailList type
       public var emailLists: EmailList? {
         get {
           return (resultMap["emailLists"] as? ResultMap).flatMap { EmailList(unsafeResultMap: $0) }
@@ -8944,7 +8749,6 @@ public final class EmailByIdQuery: GraphQLQuery {
         }
 
         /// The nodes of the connection, without the edges
-        @available(*, deprecated, message: "")
         public var nodes: [Node?]? {
           get {
             return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9067,8 +8871,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "emailLists": emailLists.flatMap { (value: EmailList) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the emailList type
     public var emailLists: EmailList? {
       get {
         return (resultMap["emailLists"] as? ResultMap).flatMap { EmailList(unsafeResultMap: $0) }
@@ -9108,7 +8911,6 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9144,8 +8946,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the emailList type and the emailList type
-        @available(*, deprecated, message: "")
+        /// Connection between the emailList type and the email type
         public var emails: Email? {
           get {
             return (resultMap["emails"] as? ResultMap).flatMap { Email(unsafeResultMap: $0) }
@@ -9211,7 +9012,6 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9251,7 +9051,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
             }
 
             /// The id field matches the WP_Post-&gt;ID field.
-            @available(*, deprecated, message: "")
+            @available(*, deprecated, message: "Deprecated in favor of the databaseId field")
             public var emailId: Int {
               get {
                 return resultMap["emailId"]! as! Int
@@ -9335,8 +9135,7 @@ public final class EmailsByListQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "emailLists": emailLists.flatMap { (value: EmailList) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the emailList type
     public var emailLists: EmailList? {
       get {
         return (resultMap["emailLists"] as? ResultMap).flatMap { EmailList(unsafeResultMap: $0) }
@@ -9376,7 +9175,6 @@ public final class EmailsByListQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9412,8 +9210,7 @@ public final class EmailsByListQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the emailList type and the emailList type
-        @available(*, deprecated, message: "")
+        /// Connection between the emailList type and the email type
         public var emails: Email? {
           get {
             return (resultMap["emails"] as? ResultMap).flatMap { Email(unsafeResultMap: $0) }
@@ -9480,7 +9277,6 @@ public final class EmailsByListQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9491,7 +9287,6 @@ public final class EmailsByListQuery: GraphQLQuery {
           }
 
           /// Information about pagination in a connection.
-          @available(*, deprecated, message: "")
           public var pageInfo: PageInfo? {
             get {
               return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -9584,7 +9379,6 @@ public final class EmailsByListQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, the cursor to continue.
-            @available(*, deprecated, message: "")
             public var endCursor: String? {
               get {
                 return resultMap["endCursor"] as? String
@@ -9595,7 +9389,6 @@ public final class EmailsByListQuery: GraphQLQuery {
             }
 
             /// When paginating forwards, are there more items?
-            @available(*, deprecated, message: "")
             public var hasNextPage: Bool {
               get {
                 return resultMap["hasNextPage"]! as! Bool
@@ -9679,8 +9472,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "emails": emails.flatMap { (value: Email) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the email type
     public var emails: Email? {
       get {
         return (resultMap["emails"] as? ResultMap).flatMap { Email(unsafeResultMap: $0) }
@@ -9721,7 +9513,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9732,7 +9523,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -9771,7 +9561,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
         }
 
         /// The id for the list in Sendgrid
-        @available(*, deprecated, message: "")
         public var html: String? {
           get {
             return resultMap["html"] as? String
@@ -9782,7 +9571,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
         }
 
         /// The permalink of the post
-        @available(*, deprecated, message: "")
         public var link: String? {
           get {
             return resultMap["link"] as? String
@@ -9792,8 +9580,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the email type and the email type
-        @available(*, deprecated, message: "")
+        /// Connection between the email type and the emailList type
         public var emailLists: EmailList? {
           get {
             return (resultMap["emailLists"] as? ResultMap).flatMap { EmailList(unsafeResultMap: $0) }
@@ -9859,7 +9646,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -9954,7 +9740,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var endCursor: String? {
           get {
             return resultMap["endCursor"] as? String
@@ -9965,7 +9750,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
         }
 
         /// When paginating forwards, are there more items?
-        @available(*, deprecated, message: "")
         public var hasNextPage: Bool {
           get {
             return resultMap["hasNextPage"]! as! Bool
@@ -10045,8 +9829,7 @@ public final class GuidesQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the guide type
     public var guides: Guide? {
       get {
         return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -10087,7 +9870,6 @@ public final class GuidesQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -10098,7 +9880,6 @@ public final class GuidesQuery: GraphQLQuery {
       }
 
       /// Information about pagination in a connection.
-      @available(*, deprecated, message: "")
       public var pageInfo: PageInfo? {
         get {
           return (resultMap["pageInfo"] as? ResultMap).flatMap { PageInfo(unsafeResultMap: $0) }
@@ -10134,8 +9915,7 @@ public final class GuidesQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the guide type and the guide type
-        @available(*, deprecated, message: "")
+        /// Connection between the guide type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -10201,7 +9981,6 @@ public final class GuidesQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -10296,7 +10075,6 @@ public final class GuidesQuery: GraphQLQuery {
         }
 
         /// When paginating backwards, are there more items?
-        @available(*, deprecated, message: "")
         public var hasPreviousPage: Bool {
           get {
             return resultMap["hasPreviousPage"]! as! Bool
@@ -10307,7 +10085,6 @@ public final class GuidesQuery: GraphQLQuery {
         }
 
         /// When paginating backwards, the cursor to continue.
-        @available(*, deprecated, message: "")
         public var startCursor: String? {
           get {
             return resultMap["startCursor"] as? String
@@ -10373,8 +10150,7 @@ public final class GuidesBySlugQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the guide type
     public var guides: Guide? {
       get {
         return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -10414,7 +10190,6 @@ public final class GuidesBySlugQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -10540,8 +10315,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the topic type
     public var topics: Topic? {
       get {
         return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
@@ -10581,7 +10355,6 @@ public final class GuidesByTopicQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -10623,8 +10396,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
           }
         }
 
-        /// The global ID for the topic
-        @available(*, deprecated, message: "")
+        /// The globally unique ID for the object
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -10635,7 +10407,6 @@ public final class GuidesByTopicQuery: GraphQLQuery {
         }
 
         /// The human friendly name of the object.
-        @available(*, deprecated, message: "")
         public var name: String? {
           get {
             return resultMap["name"] as? String
@@ -10646,7 +10417,6 @@ public final class GuidesByTopicQuery: GraphQLQuery {
         }
 
         /// An alphanumeric identifier for the object unique to its type.
-        @available(*, deprecated, message: "")
         public var slug: String? {
           get {
             return resultMap["slug"] as? String
@@ -10656,8 +10426,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the Topic type and the Topic type
-        @available(*, deprecated, message: "")
+        /// Connection between the Topic type and the Guide type
         public var guides: Guide? {
           get {
             return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -10697,7 +10466,6 @@ public final class GuidesByTopicQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -10807,8 +10575,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "collections": collections.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the collection type
     public var collections: Collection? {
       get {
         return (resultMap["collections"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
@@ -10848,7 +10615,6 @@ public final class HomeCollectionQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -10967,8 +10733,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "collections": collections.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the collection type
     public var collections: Collection? {
       get {
         return (resultMap["collections"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
@@ -11008,7 +10773,6 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -11123,8 +10887,7 @@ public final class MediaItemsByIdQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "mediaItems": mediaItems.flatMap { (value: MediaItem) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the mediaItem type
     public var mediaItems: MediaItem? {
       get {
         return (resultMap["mediaItems"] as? ResultMap).flatMap { MediaItem(unsafeResultMap: $0) }
@@ -11164,7 +10927,6 @@ public final class MediaItemsByIdQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -11300,8 +11062,7 @@ public final class MemberHomeQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "features": features.flatMap { (value: Feature) -> ResultMap in value.resultMap }, "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var features: Feature? {
       get {
         return (resultMap["features"] as? ResultMap).flatMap { Feature(unsafeResultMap: $0) }
@@ -11311,8 +11072,7 @@ public final class MemberHomeQuery: GraphQLQuery {
       }
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the guide type
     public var guides: Guide? {
       get {
         return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -11352,7 +11112,6 @@ public final class MemberHomeQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -11392,8 +11151,7 @@ public final class MemberHomeQuery: GraphQLQuery {
           }
         }
 
-        /// Relay ID of the menu item.
-        @available(*, deprecated, message: "")
+        /// The globally unique identifier of the nav menu item object.
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -11404,7 +11162,7 @@ public final class MemberHomeQuery: GraphQLQuery {
         }
 
         /// The object connected to this menu item.
-        @available(*, deprecated, message: "")
+        @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
         public var connectedObject: ConnectedObject? {
           get {
             return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -11415,7 +11173,7 @@ public final class MemberHomeQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -11494,10 +11252,6 @@ public final class MemberHomeQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
           }
 
-          public static func makeMenuItem() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
-          }
-
           public var __typename: String {
             get {
               return resultMap["__typename"]! as! String
@@ -11544,8 +11298,7 @@ public final class MemberHomeQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the tag type and the tag type
-            @available(*, deprecated, message: "")
+            /// Connection between the tag type and the post type
             public var posts: Post? {
               get {
                 return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -11611,7 +11364,6 @@ public final class MemberHomeQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -11708,7 +11460,6 @@ public final class MemberHomeQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -11744,8 +11495,7 @@ public final class MemberHomeQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the guide type and the guide type
-        @available(*, deprecated, message: "")
+        /// Connection between the guide type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -11811,7 +11561,6 @@ public final class MemberHomeQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -11934,8 +11683,7 @@ public final class MemberVideoQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "features": features.flatMap { (value: Feature) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var features: Feature? {
       get {
         return (resultMap["features"] as? ResultMap).flatMap { Feature(unsafeResultMap: $0) }
@@ -11975,7 +11723,6 @@ public final class MemberVideoQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -12015,8 +11762,7 @@ public final class MemberVideoQuery: GraphQLQuery {
           }
         }
 
-        /// Relay ID of the menu item.
-        @available(*, deprecated, message: "")
+        /// The globally unique identifier of the nav menu item object.
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -12027,7 +11773,7 @@ public final class MemberVideoQuery: GraphQLQuery {
         }
 
         /// The object connected to this menu item.
-        @available(*, deprecated, message: "")
+        @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
         public var connectedObject: ConnectedObject? {
           get {
             return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -12038,7 +11784,7 @@ public final class MemberVideoQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -12117,10 +11863,6 @@ public final class MemberVideoQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
           }
 
-          public static func makeMenuItem() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
-          }
-
           public var __typename: String {
             get {
               return resultMap["__typename"]! as! String
@@ -12167,8 +11909,7 @@ public final class MemberVideoQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the tag type and the tag type
-            @available(*, deprecated, message: "")
+            /// Connection between the tag type and the post type
             public var posts: Post? {
               get {
                 return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -12234,7 +11975,6 @@ public final class MemberVideoQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -12407,8 +12147,7 @@ public final class VideoHubQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "featuredVideoPlayer": featuredVideoPlayer.flatMap { (value: FeaturedVideoPlayer) -> ResultMap in value.resultMap }, "latest": latest.flatMap { (value: Latest) -> ResultMap in value.resultMap }, "featuredShows": featuredShows.flatMap { (value: FeaturedShow) -> ResultMap in value.resultMap }, "allShows": allShows.flatMap { (value: AllShow) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var featuredVideoPlayer: FeaturedVideoPlayer? {
       get {
         return (resultMap["featuredVideoPlayer"] as? ResultMap).flatMap { FeaturedVideoPlayer(unsafeResultMap: $0) }
@@ -12418,8 +12157,7 @@ public final class VideoHubQuery: GraphQLQuery {
       }
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the tag type
     public var latest: Latest? {
       get {
         return (resultMap["latest"] as? ResultMap).flatMap { Latest(unsafeResultMap: $0) }
@@ -12429,8 +12167,7 @@ public final class VideoHubQuery: GraphQLQuery {
       }
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var featuredShows: FeaturedShow? {
       get {
         return (resultMap["featuredShows"] as? ResultMap).flatMap { FeaturedShow(unsafeResultMap: $0) }
@@ -12440,8 +12177,7 @@ public final class VideoHubQuery: GraphQLQuery {
       }
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the show type
     public var allShows: AllShow? {
       get {
         return (resultMap["allShows"] as? ResultMap).flatMap { AllShow(unsafeResultMap: $0) }
@@ -12481,7 +12217,6 @@ public final class VideoHubQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -12521,7 +12256,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         /// The object connected to this menu item.
-        @available(*, deprecated, message: "")
+        @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
         public var connectedObject: ConnectedObject? {
           get {
             return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -12532,7 +12267,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -12612,10 +12347,6 @@ public final class VideoHubQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
           }
 
-          public static func makeMenuItem() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
-          }
-
           public var __typename: String {
             get {
               return resultMap["__typename"]! as! String
@@ -12690,8 +12421,7 @@ public final class VideoHubQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the post type and the post type
-            @available(*, deprecated, message: "")
+            /// Connection between the post type and the show type
             public var shows: Show? {
               get {
                 return (resultMap["shows"] as? ResultMap).flatMap { Show(unsafeResultMap: $0) }
@@ -12757,7 +12487,6 @@ public final class VideoHubQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -12854,7 +12583,6 @@ public final class VideoHubQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -12893,8 +12621,7 @@ public final class VideoHubQuery: GraphQLQuery {
           }
         }
 
-        /// Connection between the tag type and the tag type
-        @available(*, deprecated, message: "")
+        /// Connection between the tag type and the post type
         public var posts: Post? {
           get {
             return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -12934,7 +12661,6 @@ public final class VideoHubQuery: GraphQLQuery {
           }
 
           /// The nodes of the connection, without the edges
-          @available(*, deprecated, message: "")
           public var nodes: [Node?]? {
             get {
               return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -12970,8 +12696,7 @@ public final class VideoHubQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the post type and the post type
-            @available(*, deprecated, message: "")
+            /// Connection between the post type and the show type
             public var shows: Show? {
               get {
                 return (resultMap["shows"] as? ResultMap).flatMap { Show(unsafeResultMap: $0) }
@@ -13037,7 +12762,6 @@ public final class VideoHubQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -13134,7 +12858,6 @@ public final class VideoHubQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -13174,7 +12897,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         /// The object connected to this menu item.
-        @available(*, deprecated, message: "")
+        @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
         public var connectedObject: ConnectedObject? {
           get {
             return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -13185,7 +12908,7 @@ public final class VideoHubQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -13264,10 +12987,6 @@ public final class VideoHubQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
           }
 
-          public static func makeMenuItem() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
-          }
-
           public var __typename: String {
             get {
               return resultMap["__typename"]! as! String
@@ -13314,8 +13033,7 @@ public final class VideoHubQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the show type and the show type
-            @available(*, deprecated, message: "")
+            /// Connection between the show type and the post type
             public var posts: Post? {
               get {
                 return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -13381,7 +13099,6 @@ public final class VideoHubQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -13478,7 +13195,6 @@ public final class VideoHubQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -13595,8 +13311,7 @@ public final class MenuItemsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var menuItems: MenuItem? {
       get {
         return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
@@ -13636,7 +13351,6 @@ public final class MenuItemsQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -13759,8 +13473,7 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var menuItems: MenuItem? {
       get {
         return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
@@ -13800,7 +13513,6 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
       }
 
       /// Edges for the RootQueryToMenuItemConnection connection
-      @available(*, deprecated, message: "")
       public var edges: [Edge?]? {
         get {
           return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
@@ -13840,7 +13552,6 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
         }
 
         /// The item at the end of the edge
-        @available(*, deprecated, message: "")
         public var node: Node? {
           get {
             return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
@@ -13880,7 +13591,7 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
           }
 
           /// The object connected to this menu item.
-          @available(*, deprecated, message: "")
+          @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
           public var connectedObject: ConnectedObject? {
             get {
               return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -13891,7 +13602,7 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
           }
 
           public struct ConnectedObject: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
             public static var selections: [GraphQLSelection] {
               return [
@@ -13968,10 +13679,6 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
 
             public static func makeCoAuthor() -> ConnectedObject {
               return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
-            }
-
-            public static func makeMenuItem() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
             }
 
             public var __typename: String {
@@ -14102,8 +13809,7 @@ public final class NugQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "nugs": nugs.flatMap { (value: Nug) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the nug type
     public var nugs: Nug? {
       get {
         return (resultMap["nugs"] as? ResultMap).flatMap { Nug(unsafeResultMap: $0) }
@@ -14143,7 +13849,6 @@ public final class NugQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -14260,8 +13965,7 @@ public final class NugsByTagQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "nugs": nugs.flatMap { (value: Nug) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the nug type
     public var nugs: Nug? {
       get {
         return (resultMap["nugs"] as? ResultMap).flatMap { Nug(unsafeResultMap: $0) }
@@ -14301,7 +14005,6 @@ public final class NugsByTagQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -14431,8 +14134,7 @@ public final class ObsessionsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the MenuItem type
     public var menuItems: MenuItem? {
       get {
         return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
@@ -14472,7 +14174,6 @@ public final class ObsessionsQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -14512,8 +14213,7 @@ public final class ObsessionsQuery: GraphQLQuery {
           }
         }
 
-        /// Relay ID of the menu item.
-        @available(*, deprecated, message: "")
+        /// The globally unique identifier of the nav menu item object.
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -14524,7 +14224,7 @@ public final class ObsessionsQuery: GraphQLQuery {
         }
 
         /// The object connected to this menu item.
-        @available(*, deprecated, message: "")
+        @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
         public var connectedObject: ConnectedObject? {
           get {
             return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -14535,7 +14235,7 @@ public final class ObsessionsQuery: GraphQLQuery {
         }
 
         public struct ConnectedObject: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+          public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
           public static var selections: [GraphQLSelection] {
             return [
@@ -14614,10 +14314,6 @@ public final class ObsessionsQuery: GraphQLQuery {
             return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
           }
 
-          public static func makeMenuItem() -> ConnectedObject {
-            return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
-          }
-
           public var __typename: String {
             get {
               return resultMap["__typename"]! as! String
@@ -14664,8 +14360,7 @@ public final class ObsessionsQuery: GraphQLQuery {
               }
             }
 
-            /// Connection between the obsession type and the obsession type
-            @available(*, deprecated, message: "")
+            /// Connection between the obsession type and the post type
             public var posts: Post? {
               get {
                 return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
@@ -14731,7 +14426,6 @@ public final class ObsessionsQuery: GraphQLQuery {
               }
 
               /// The nodes of the connection, without the edges
-              @available(*, deprecated, message: "")
               public var nodes: [Node?]? {
                 get {
                   return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -14848,7 +14542,7 @@ public final class PageByUriQuery: GraphQLQuery {
     }
 
     /// A page object
-    @available(*, deprecated, message: "")
+    @available(*, deprecated, message: "Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)")
     public var pageBy: PageBy? {
       get {
         return (resultMap["pageBy"] as? ResultMap).flatMap { PageBy(unsafeResultMap: $0) }
@@ -14889,8 +14583,7 @@ public final class PageByUriQuery: GraphQLQuery {
         }
       }
 
-      /// The globally unique ID for the object
-      @available(*, deprecated, message: "")
+      /// The globally unique identifier of the page object.
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -14901,7 +14594,6 @@ public final class PageByUriQuery: GraphQLQuery {
       }
 
       /// The content of the post.
-      @available(*, deprecated, message: "")
       public var content: String? {
         get {
           return resultMap["content"] as? String
@@ -14912,7 +14604,6 @@ public final class PageByUriQuery: GraphQLQuery {
       }
 
       /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-      @available(*, deprecated, message: "")
       public var title: String? {
         get {
           return resultMap["title"] as? String
@@ -14981,8 +14672,7 @@ public final class PromotionsByTagQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "promotions": promotions.flatMap { (value: Promotion) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the promotion type
     public var promotions: Promotion? {
       get {
         return (resultMap["promotions"] as? ResultMap).flatMap { Promotion(unsafeResultMap: $0) }
@@ -15022,7 +14712,6 @@ public final class PromotionsByTagQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -15059,7 +14748,6 @@ public final class PromotionsByTagQuery: GraphQLQuery {
         }
 
         /// Structured / parsed post content described as a shallow tree of block elements
-        @available(*, deprecated, message: "")
         public var blocks: [Block?]? {
           get {
             return (resultMap["blocks"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Block?] in value.map { (value: ResultMap?) -> Block? in value.flatMap { (value: ResultMap) -> Block in Block(unsafeResultMap: value) } } }
@@ -15194,8 +14882,7 @@ public final class TopicsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "RootQuery", "topics": topics.flatMap { (value: Topic) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the RootQuery type
-    @available(*, deprecated, message: "")
+    /// Connection between the RootQuery type and the topic type
     public var topics: Topic? {
       get {
         return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
@@ -15235,7 +14922,6 @@ public final class TopicsQuery: GraphQLQuery {
       }
 
       /// The nodes of the connection, without the edges
-      @available(*, deprecated, message: "")
       public var nodes: [Node?]? {
         get {
           return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -15462,8 +15148,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the coAuthor type
   public var authors: Author? {
     get {
       return (resultMap["authors"] as? ResultMap).flatMap { Author(unsafeResultMap: $0) }
@@ -15474,7 +15159,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Structured / parsed post content described as a shallow tree of block elements
-  @available(*, deprecated, message: "")
   public var blocks: [Block?]? {
     get {
       return (resultMap["blocks"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Block?] in value.map { (value: ResultMap?) -> Block? in value.flatMap { (value: ResultMap) -> Block in Block(unsafeResultMap: value) } } }
@@ -15485,7 +15169,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// URL to use with canonical meta tag
-  @available(*, deprecated, message: "")
   public var canonicalUrl: String? {
     get {
       return resultMap["canonicalUrl"] as? String
@@ -15496,7 +15179,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Contextual classifications for anti-targeting
-  @available(*, deprecated, message: "")
   public var classifications: [String?]? {
     get {
       return resultMap["classifications"] as? [String?]
@@ -15507,7 +15189,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// The excerpt of the post.
-  @available(*, deprecated, message: "")
   public var excerpt: String? {
     get {
       return resultMap["excerpt"] as? String
@@ -15518,7 +15199,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// &quot;T-shirt&quot; size of featured image
-  @available(*, deprecated, message: "")
   public var featuredImageSize: String? {
     get {
       return resultMap["featuredImageSize"] as? String
@@ -15528,8 +15208,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the flag type
   public var flags: Flag? {
     get {
       return (resultMap["flags"] as? ResultMap).flatMap { Flag(unsafeResultMap: $0) }
@@ -15540,7 +15219,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Article footnotes
-  @available(*, deprecated, message: "")
   public var footnotes: [String?]? {
     get {
       return resultMap["footnotes"] as? [String?]
@@ -15550,8 +15228,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the guide type
   public var guides: Guide? {
     get {
       return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -15562,7 +15239,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Interactive Source
-  @available(*, deprecated, message: "")
   public var interactiveSource: String? {
     get {
       return resultMap["interactiveSource"] as? String
@@ -15573,7 +15249,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Flag to show header for interactive posts
-  @available(*, deprecated, message: "")
   public var interactiveShowHeader: Bool? {
     get {
       return resultMap["interactiveShowHeader"] as? Bool
@@ -15583,8 +15258,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the location type
   public var locations: Location? {
     get {
       return (resultMap["locations"] as? ResultMap).flatMap { Location(unsafeResultMap: $0) }
@@ -15595,7 +15269,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// This post counts towards and can display the metered paywall
-  @available(*, deprecated, message: "")
   public var metered: Bool? {
     get {
       return resultMap["metered"] as? Bool
@@ -15606,7 +15279,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
-  @available(*, deprecated, message: "")
   public var modifiedGmt: String? {
     get {
       return resultMap["modifiedGmt"] as? String
@@ -15616,8 +15288,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the obsession type
   public var obsessions: Obsession? {
     get {
       return (resultMap["obsessions"] as? ResultMap).flatMap { Obsession(unsafeResultMap: $0) }
@@ -15628,7 +15299,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Show the paywall for this post
-  @available(*, deprecated, message: "")
   public var paywalled: Bool? {
     get {
       return resultMap["paywalled"] as? Bool
@@ -15638,8 +15308,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the project type
   public var projects: Project? {
     get {
       return (resultMap["projects"] as? ResultMap).flatMap { Project(unsafeResultMap: $0) }
@@ -15650,7 +15319,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Article recommendations
-  @available(*, deprecated, message: "")
   public var readNext: [String?]? {
     get {
       return resultMap["readNext"] as? [String?]
@@ -15660,8 +15328,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the series type
   public var serieses: Seriese? {
     get {
       return (resultMap["serieses"] as? ResultMap).flatMap { Seriese(unsafeResultMap: $0) }
@@ -15671,8 +15338,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the show type
   public var shows: Show? {
     get {
       return (resultMap["shows"] as? ResultMap).flatMap { Show(unsafeResultMap: $0) }
@@ -15683,7 +15349,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -15694,7 +15359,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// SEO title
-  @available(*, deprecated, message: "")
   public var seoTitle: String? {
     get {
       return resultMap["seoTitle"] as? String
@@ -15705,7 +15369,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// OpenGraph (meta) description
-  @available(*, deprecated, message: "")
   public var socialDescription: String? {
     get {
       return resultMap["socialDescription"] as? String
@@ -15716,7 +15379,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Social image url
-  @available(*, deprecated, message: "")
   public var socialImage: String? {
     get {
       return resultMap["socialImage"] as? String
@@ -15727,7 +15389,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// OpenGraph (meta) title
-  @available(*, deprecated, message: "")
   public var socialTitle: String? {
     get {
       return resultMap["socialTitle"] as? String
@@ -15738,7 +15399,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Article type
-  @available(*, deprecated, message: "")
   public var subtype: String? {
     get {
       return resultMap["subtype"] as? String
@@ -15749,7 +15409,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// Suppress ads on this article page
-  @available(*, deprecated, message: "")
   public var suppressAds: Bool? {
     get {
       return resultMap["suppressAds"] as? Bool
@@ -15759,8 +15418,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the tag type
   public var tags: Tag? {
     get {
       return (resultMap["tags"] as? ResultMap).flatMap { Tag(unsafeResultMap: $0) }
@@ -15770,8 +15428,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the topic type
   public var topics: Topic? {
     get {
       return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
@@ -15782,7 +15439,6 @@ public struct ArticleParts: GraphQLFragment {
   }
 
   /// List of tracking urls
-  @available(*, deprecated, message: "")
   public var trackingUrls: [String?]? {
     get {
       return resultMap["trackingUrls"] as? [String?]
@@ -15848,7 +15504,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -15997,7 +15652,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16038,7 +15692,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -16049,7 +15702,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// An alphanumeric identifier for the object unique to its type.
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -16091,7 +15743,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16184,7 +15835,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16224,7 +15874,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -16266,7 +15915,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16359,7 +16007,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16456,7 +16103,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16549,7 +16195,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16642,7 +16287,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16683,8 +16327,7 @@ public struct ArticleParts: GraphQLFragment {
         }
       }
 
-      /// The global ID for the post_tag
-      @available(*, deprecated, message: "")
+      /// The globally unique ID for the object
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -16695,7 +16338,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -16706,7 +16348,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// An alphanumeric identifier for the object unique to its type.
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -16748,7 +16389,6 @@ public struct ArticleParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -16789,8 +16429,7 @@ public struct ArticleParts: GraphQLFragment {
         }
       }
 
-      /// The global ID for the topic
-      @available(*, deprecated, message: "")
+      /// The globally unique ID for the object
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -16801,7 +16440,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -16812,7 +16450,6 @@ public struct ArticleParts: GraphQLFragment {
       }
 
       /// An alphanumeric identifier for the object unique to its type.
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -16938,7 +16575,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// Bulletin data
-  @available(*, deprecated, message: "")
   public var bulletin: Bulletin? {
     get {
       return (resultMap["bulletin"] as? ResultMap).flatMap { Bulletin(unsafeResultMap: $0) }
@@ -16949,7 +16585,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
   public var dateGmt: String? {
     get {
       return resultMap["dateGmt"] as? String
@@ -16959,8 +16594,7 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the edition type
   public var editions: Edition? {
     get {
       return (resultMap["editions"] as? ResultMap).flatMap { Edition(unsafeResultMap: $0) }
@@ -16970,8 +16604,7 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
   }
 
-  /// The featured image for the object
-  @available(*, deprecated, message: "")
+  /// Featured image (direct node access)
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -16981,8 +16614,7 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the guide type
   public var guides: Guide? {
     get {
       return (resultMap["guides"] as? ResultMap).flatMap { Guide(unsafeResultMap: $0) }
@@ -16992,8 +16624,7 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the post object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -17004,7 +16635,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// Article kicker
-  @available(*, deprecated, message: "")
   public var kicker: String? {
     get {
       return resultMap["kicker"] as? String
@@ -17015,7 +16645,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// The permalink of the post
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -17026,7 +16655,7 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of the databaseId field")
   public var postId: Int {
     get {
       return resultMap["postId"]! as! Int
@@ -17036,8 +16665,7 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the post type and the post type
-  @available(*, deprecated, message: "")
+  /// Connection between the post type and the series type
   public var serieses: Seriese? {
     get {
       return (resultMap["serieses"] as? ResultMap).flatMap { Seriese(unsafeResultMap: $0) }
@@ -17048,7 +16676,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -17059,7 +16686,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// Trailer video data
-  @available(*, deprecated, message: "")
   public var trailerVideo: TrailerVideo? {
     get {
       return (resultMap["trailerVideo"] as? ResultMap).flatMap { TrailerVideo(unsafeResultMap: $0) }
@@ -17070,7 +16696,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
   }
 
   /// Video data
-  @available(*, deprecated, message: "")
   public var video: Video? {
     get {
       return (resultMap["video"] as? ResultMap).flatMap { Video(unsafeResultMap: $0) }
@@ -17112,7 +16737,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
 
     /// Bulletin campaign data
-    @available(*, deprecated, message: "")
     public var campaign: Campaign? {
       get {
         return (resultMap["campaign"] as? ResultMap).flatMap { Campaign(unsafeResultMap: $0) }
@@ -17123,7 +16747,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
 
     /// Bulletin sponsor data
-    @available(*, deprecated, message: "")
     public var sponsor: Sponsor? {
       get {
         return (resultMap["sponsor"] as? ResultMap).flatMap { Sponsor(unsafeResultMap: $0) }
@@ -17134,7 +16757,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
 
     /// Bulletin client tracking URLs, a.k.a. third-party pixels
-    @available(*, deprecated, message: "")
     public var clientTracking: ClientTracking? {
       get {
         return (resultMap["clientTracking"] as? ResultMap).flatMap { ClientTracking(unsafeResultMap: $0) }
@@ -17177,7 +16799,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign ID
-      @available(*, deprecated, message: "")
       public var id: String? {
         get {
           return resultMap["id"] as? String
@@ -17188,7 +16809,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign header image
-      @available(*, deprecated, message: "")
       public var logo: String? {
         get {
           return resultMap["logo"] as? String
@@ -17199,7 +16819,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign name
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -17210,7 +16829,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign slug
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -17254,7 +16872,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign attribution
-      @available(*, deprecated, message: "")
       public var attribution: String? {
         get {
           return resultMap["attribution"] as? String
@@ -17265,7 +16882,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign ID
-      @available(*, deprecated, message: "")
       public var id: String? {
         get {
           return resultMap["id"] as? String
@@ -17276,7 +16892,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign slug
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -17287,7 +16902,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign name
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -17330,7 +16944,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Client tracking URLs for use inside an bulletin context
-      @available(*, deprecated, message: "")
       public var article: [String?]? {
         get {
           return resultMap["article"] as? [String?]
@@ -17341,7 +16954,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Client tracking URLs for use outside an bulletin context
-      @available(*, deprecated, message: "")
       public var elsewhere: [String?]? {
         get {
           return resultMap["elsewhere"] as? [String?]
@@ -17352,7 +16964,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign header image link
-      @available(*, deprecated, message: "")
       public var logo: String? {
         get {
           return resultMap["logo"] as? String
@@ -17394,7 +17005,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -17435,7 +17045,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -17446,7 +17055,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// An alphanumeric identifier for the object unique to its type.
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -17540,7 +17148,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -17580,7 +17187,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -17622,7 +17228,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -17662,7 +17267,6 @@ public struct ArticleTeaserParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -17864,7 +17468,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Author profile image
-  @available(*, deprecated, message: "")
   public var avatar: String? {
     get {
       return resultMap["avatar"] as? String
@@ -17875,7 +17478,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Author bio
-  @available(*, deprecated, message: "")
   public var bio: String? {
     get {
       return resultMap["bio"] as? String
@@ -17886,7 +17488,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Former staff
-  @available(*, deprecated, message: "")
   public var emeritus: Bool? {
     get {
       return resultMap["emeritus"] as? Bool
@@ -17896,8 +17497,7 @@ public struct AuthorParts: GraphQLFragment {
     }
   }
 
-  /// Author email address
-  @available(*, deprecated, message: "")
+  /// The user_email of the author
   public var email: String? {
     get {
       return resultMap["email"] as? String
@@ -17908,7 +17508,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Facebook URL
-  @available(*, deprecated, message: "")
   public var facebook: String? {
     get {
       return resultMap["facebook"] as? String
@@ -17919,7 +17518,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// The first_name of the author
-  @available(*, deprecated, message: "")
   public var firstName: String? {
     get {
       return resultMap["firstName"] as? String
@@ -17929,8 +17527,7 @@ public struct AuthorParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the author
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -17941,7 +17538,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Instagram URL
-  @available(*, deprecated, message: "")
   public var instagram: String? {
     get {
       return resultMap["instagram"] as? String
@@ -17952,7 +17548,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// The last_name of the author
-  @available(*, deprecated, message: "")
   public var lastName: String? {
     get {
       return resultMap["lastName"] as? String
@@ -17963,7 +17558,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// LinkedIn URL
-  @available(*, deprecated, message: "")
   public var linkedin: String? {
     get {
       return resultMap["linkedin"] as? String
@@ -17974,7 +17568,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -17985,7 +17578,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Organization the user belongs to
-  @available(*, deprecated, message: "")
   public var organization: String? {
     get {
       return resultMap["organization"] as? String
@@ -17996,7 +17588,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// PGP fingerprint
-  @available(*, deprecated, message: "")
   public var pgp: String? {
     get {
       return resultMap["pgp"] as? String
@@ -18007,7 +17598,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Description of the author in 42 characters or less
-  @available(*, deprecated, message: "")
   public var shortBio: String? {
     get {
       return resultMap["shortBio"] as? String
@@ -18018,7 +17608,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Job title
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -18029,7 +17618,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Twitter URL
-  @available(*, deprecated, message: "")
   public var twitter: String? {
     get {
       return resultMap["twitter"] as? String
@@ -18040,7 +17628,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// The type of the author
-  @available(*, deprecated, message: "")
   public var type: String? {
     get {
       return resultMap["type"] as? String
@@ -18051,7 +17638,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// The user_url of the author
-  @available(*, deprecated, message: "")
   public var url: String? {
     get {
       return resultMap["url"] as? String
@@ -18062,7 +17648,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// The user_login of the author
-  @available(*, deprecated, message: "")
   public var username: String? {
     get {
       return resultMap["username"] as? String
@@ -18073,7 +17658,6 @@ public struct AuthorParts: GraphQLFragment {
   }
 
   /// Personal URL
-  @available(*, deprecated, message: "")
   public var website: String? {
     get {
       return resultMap["website"] as? String
@@ -18135,7 +17719,6 @@ public struct BlockParts: GraphQLFragment {
   }
 
   /// Content block attributes
-  @available(*, deprecated, message: "")
   public var attributes: [Attribute?]? {
     get {
       return (resultMap["attributes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Attribute?] in value.map { (value: ResultMap?) -> Attribute? in value.flatMap { (value: ResultMap) -> Attribute in Attribute(unsafeResultMap: value) } } }
@@ -18146,7 +17729,6 @@ public struct BlockParts: GraphQLFragment {
   }
 
   /// Relay ID of the block, encoding parent post ID and index
-  @available(*, deprecated, message: "")
   public var id: GraphQLID? {
     get {
       return resultMap["id"] as? GraphQLID
@@ -18157,7 +17739,6 @@ public struct BlockParts: GraphQLFragment {
   }
 
   /// Content block inner HTML
-  @available(*, deprecated, message: "")
   public var innerHtml: String? {
     get {
       return resultMap["innerHtml"] as? String
@@ -18168,7 +17749,6 @@ public struct BlockParts: GraphQLFragment {
   }
 
   /// Content block tag name (suggested)
-  @available(*, deprecated, message: "")
   public var tagName: String? {
     get {
       return resultMap["tagName"] as? String
@@ -18179,7 +17759,6 @@ public struct BlockParts: GraphQLFragment {
   }
 
   /// Content block name
-  @available(*, deprecated, message: "")
   public var type: BlockNameEnum? {
     get {
       return resultMap["type"] as? BlockNameEnum
@@ -18220,7 +17799,6 @@ public struct BlockParts: GraphQLFragment {
     }
 
     /// Attribute name
-    @available(*, deprecated, message: "")
     public var name: String? {
       get {
         return resultMap["name"] as? String
@@ -18231,7 +17809,6 @@ public struct BlockParts: GraphQLFragment {
     }
 
     /// Attribute value
-    @available(*, deprecated, message: "")
     public var value: String? {
       get {
         return resultMap["value"] as? String
@@ -18308,7 +17885,6 @@ public struct BulletinParts: GraphQLFragment {
   }
 
   /// The permalink of the post
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -18319,7 +17895,6 @@ public struct BulletinParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -18330,7 +17905,6 @@ public struct BulletinParts: GraphQLFragment {
   }
 
   /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
   public var dateGmt: String? {
     get {
       return resultMap["dateGmt"] as? String
@@ -18340,8 +17914,7 @@ public struct BulletinParts: GraphQLFragment {
     }
   }
 
-  /// The featured image for the object
-  @available(*, deprecated, message: "")
+  /// Featured image (direct node access)
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -18352,7 +17925,6 @@ public struct BulletinParts: GraphQLFragment {
   }
 
   /// Bulletin data
-  @available(*, deprecated, message: "")
   public var bulletin: Bulletin? {
     get {
       return (resultMap["bulletin"] as? ResultMap).flatMap { Bulletin(unsafeResultMap: $0) }
@@ -18446,7 +18018,6 @@ public struct BulletinParts: GraphQLFragment {
     }
 
     /// Bulletin sponsor data
-    @available(*, deprecated, message: "")
     public var sponsor: Sponsor? {
       get {
         return (resultMap["sponsor"] as? ResultMap).flatMap { Sponsor(unsafeResultMap: $0) }
@@ -18457,7 +18028,6 @@ public struct BulletinParts: GraphQLFragment {
     }
 
     /// Bulletin campaign data
-    @available(*, deprecated, message: "")
     public var campaign: Campaign? {
       get {
         return (resultMap["campaign"] as? ResultMap).flatMap { Campaign(unsafeResultMap: $0) }
@@ -18468,7 +18038,6 @@ public struct BulletinParts: GraphQLFragment {
     }
 
     /// Bulletin client tracking URLs, a.k.a. third-party pixels
-    @available(*, deprecated, message: "")
     public var clientTracking: ClientTracking? {
       get {
         return (resultMap["clientTracking"] as? ResultMap).flatMap { ClientTracking(unsafeResultMap: $0) }
@@ -18508,7 +18077,6 @@ public struct BulletinParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign name
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -18549,7 +18117,6 @@ public struct BulletinParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign ID
-      @available(*, deprecated, message: "")
       public var id: String? {
         get {
           return resultMap["id"] as? String
@@ -18591,7 +18158,6 @@ public struct BulletinParts: GraphQLFragment {
       }
 
       /// Client tracking URLs for use inside an bulletin context
-      @available(*, deprecated, message: "")
       public var article: [String?]? {
         get {
           return resultMap["article"] as? [String?]
@@ -18602,7 +18168,6 @@ public struct BulletinParts: GraphQLFragment {
       }
 
       /// Client tracking URLs for use outside an bulletin context
-      @available(*, deprecated, message: "")
       public var elsewhere: [String?]? {
         get {
           return resultMap["elsewhere"] as? [String?]
@@ -18685,8 +18250,7 @@ public struct CollectionParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the collection object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -18697,7 +18261,7 @@ public struct CollectionParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of the databaseId field")
   public var collectionId: Int {
     get {
       return resultMap["collectionId"]! as! Int
@@ -18708,7 +18272,6 @@ public struct CollectionParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -18719,7 +18282,6 @@ public struct CollectionParts: GraphQLFragment {
   }
 
   /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
   public var dateGmt: String? {
     get {
       return resultMap["dateGmt"] as? String
@@ -18730,7 +18292,6 @@ public struct CollectionParts: GraphQLFragment {
   }
 
   /// The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
-  @available(*, deprecated, message: "")
   public var modifiedGmt: String? {
     get {
       return resultMap["modifiedGmt"] as? String
@@ -18741,7 +18302,6 @@ public struct CollectionParts: GraphQLFragment {
   }
 
   /// The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -18751,8 +18311,7 @@ public struct CollectionParts: GraphQLFragment {
     }
   }
 
-  /// The featured image for the object
-  @available(*, deprecated, message: "")
+  /// Featured image (direct node access)
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -18763,7 +18322,6 @@ public struct CollectionParts: GraphQLFragment {
   }
 
   /// Structured / parsed post content described as a shallow tree of block elements
-  @available(*, deprecated, message: "")
   public var blocks: [Block?]? {
     get {
       return (resultMap["blocks"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Block?] in value.map { (value: ResultMap?) -> Block? in value.flatMap { (value: ResultMap) -> Block in Block(unsafeResultMap: value) } } }
@@ -18852,7 +18410,6 @@ public struct CollectionParts: GraphQLFragment {
     }
 
     /// Objects connected to this block
-    @available(*, deprecated, message: "")
     public var connections: [Connection?]? {
       get {
         return (resultMap["connections"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Connection?] in value.map { (value: ResultMap?) -> Connection? in value.flatMap { (value: ResultMap) -> Connection in Connection(unsafeResultMap: value) } } }
@@ -18889,7 +18446,7 @@ public struct CollectionParts: GraphQLFragment {
     }
 
     public struct Connection: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Revision", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
+      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -18910,10 +18467,6 @@ public struct CollectionParts: GraphQLFragment {
 
       public static func makePage() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Page"])
-      }
-
-      public static func makeRevision() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Revision"])
       }
 
       public static func makeEmail() -> Connection {
@@ -19200,8 +18753,7 @@ public struct EmailListParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the qz_email_list
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -19212,7 +18764,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -19223,7 +18774,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -19234,7 +18784,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// Determines if the email is publicly visible or not.
-  @available(*, deprecated, message: "")
   public var isPrivate: Bool? {
     get {
       return resultMap["isPrivate"] as? Bool
@@ -19245,7 +18794,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -19256,7 +18804,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// The id for the list in Sendgrid.
-  @available(*, deprecated, message: "")
   public var listId: Int? {
     get {
       return resultMap["listId"] as? Int
@@ -19267,7 +18814,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -19278,7 +18824,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -19289,7 +18834,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// A summary of what this list is for.
-  @available(*, deprecated, message: "")
   public var summary: String? {
     get {
       return resultMap["summary"] as? String
@@ -19300,7 +18844,6 @@ public struct EmailListParts: GraphQLFragment {
   }
 
   /// Used to describe the delivery time.
-  @available(*, deprecated, message: "")
   public var subtitle: String? {
     get {
       return resultMap["subtitle"] as? String
@@ -19425,8 +18968,7 @@ public struct EmailParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the qz_email object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -19437,7 +18979,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
   public var dateGmt: String? {
     get {
       return resultMap["dateGmt"] as? String
@@ -19448,7 +18989,7 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of the databaseId field")
   public var emailId: Int {
     get {
       return resultMap["emailId"]! as! Int
@@ -19458,8 +18999,7 @@ public struct EmailParts: GraphQLFragment {
     }
   }
 
-  /// The featured image for the object
-  @available(*, deprecated, message: "")
+  /// Featured image (direct node access)
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -19470,7 +19010,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// The segment group the email belongs to, if it exists
-  @available(*, deprecated, message: "")
   public var segment: String? {
     get {
       return resultMap["segment"] as? String
@@ -19481,7 +19020,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// The social image for this email.
-  @available(*, deprecated, message: "")
   public var socialImage: SocialImage? {
     get {
       return (resultMap["socialImage"] as? ResultMap).flatMap { SocialImage(unsafeResultMap: $0) }
@@ -19492,7 +19030,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// SEO title
-  @available(*, deprecated, message: "")
   public var seoTitle: String? {
     get {
       return resultMap["seoTitle"] as? String
@@ -19503,7 +19040,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// OpenGraph (meta) description
-  @available(*, deprecated, message: "")
   public var socialDescription: String? {
     get {
       return resultMap["socialDescription"] as? String
@@ -19514,7 +19050,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// Email subject line
-  @available(*, deprecated, message: "")
   public var subject: String? {
     get {
       return resultMap["subject"] as? String
@@ -19525,7 +19060,6 @@ public struct EmailParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -19718,8 +19252,7 @@ public struct GuideParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the guide
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -19730,7 +19263,7 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of databaseId")
   public var guideId: Int? {
     get {
       return resultMap["guideId"] as? Int
@@ -19741,7 +19274,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// Denotes whether there is an essentials collection associated with this term
-  @available(*, deprecated, message: "")
   public var hasEssentials: Bool? {
     get {
       return resultMap["hasEssentials"] as? Bool
@@ -19752,7 +19284,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -19763,7 +19294,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The number of objects connected to the object
-  @available(*, deprecated, message: "")
   public var count: Int? {
     get {
       return resultMap["count"] as? Int
@@ -19774,7 +19304,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -19785,7 +19314,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -19796,7 +19324,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -19807,7 +19334,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -19818,7 +19344,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -19828,8 +19353,7 @@ public struct GuideParts: GraphQLFragment {
     }
   }
 
-  /// The social image for this series.
-  @available(*, deprecated, message: "")
+  /// The social image for this term.
   public var socialImage: SocialImage? {
     get {
       return (resultMap["socialImage"] as? ResultMap).flatMap { SocialImage(unsafeResultMap: $0) }
@@ -19840,7 +19364,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// Title of series on social media.
-  @available(*, deprecated, message: "")
   public var socialTitle: String? {
     get {
       return resultMap["socialTitle"] as? String
@@ -19851,7 +19374,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// Series theme colors
-  @available(*, deprecated, message: "")
   public var colors: [String?]? {
     get {
       return resultMap["colors"] as? [String?]
@@ -19862,7 +19384,6 @@ public struct GuideParts: GraphQLFragment {
   }
 
   /// Series images
-  @available(*, deprecated, message: "")
   public var headerImages: [HeaderImage?]? {
     get {
       return (resultMap["headerImages"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [HeaderImage?] in value.map { (value: ResultMap?) -> HeaderImage? in value.flatMap { (value: ResultMap) -> HeaderImage in HeaderImage(unsafeResultMap: value) } } }
@@ -20008,7 +19529,6 @@ public struct GuideParts: GraphQLFragment {
     }
 
     /// Header image layer
-    @available(*, deprecated, message: "")
     public var layer: Int? {
       get {
         return resultMap["layer"] as? Int
@@ -20019,7 +19539,6 @@ public struct GuideParts: GraphQLFragment {
     }
 
     /// Header image size
-    @available(*, deprecated, message: "")
     public var size: String? {
       get {
         return resultMap["size"] as? String
@@ -20030,7 +19549,6 @@ public struct GuideParts: GraphQLFragment {
     }
 
     /// Header image
-    @available(*, deprecated, message: "")
     public var image: Image? {
       get {
         return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
@@ -20149,7 +19667,6 @@ public struct MediaParts: GraphQLFragment {
   }
 
   /// Alternative text to display when resource is not displayed
-  @available(*, deprecated, message: "")
   public var altText: String? {
     get {
       return resultMap["altText"] as? String
@@ -20160,7 +19677,6 @@ public struct MediaParts: GraphQLFragment {
   }
 
   /// The caption for the resource
-  @available(*, deprecated, message: "")
   public var caption: String? {
     get {
       return resultMap["caption"] as? String
@@ -20171,7 +19687,6 @@ public struct MediaParts: GraphQLFragment {
   }
 
   /// Media credit / source
-  @available(*, deprecated, message: "")
   public var credit: String? {
     get {
       return resultMap["credit"] as? String
@@ -20181,8 +19696,7 @@ public struct MediaParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the attachment object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -20193,7 +19707,6 @@ public struct MediaParts: GraphQLFragment {
   }
 
   /// Details about the mediaItem
-  @available(*, deprecated, message: "")
   public var mediaDetails: MediaDetail? {
     get {
       return (resultMap["mediaDetails"] as? ResultMap).flatMap { MediaDetail(unsafeResultMap: $0) }
@@ -20204,7 +19717,6 @@ public struct MediaParts: GraphQLFragment {
   }
 
   /// Url of the mediaItem
-  @available(*, deprecated, message: "")
   public var sourceUrl: String? {
     get {
       return resultMap["sourceUrl"] as? String
@@ -20215,7 +19727,6 @@ public struct MediaParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -20256,7 +19767,6 @@ public struct MediaParts: GraphQLFragment {
     }
 
     /// The height of the mediaItem
-    @available(*, deprecated, message: "")
     public var height: Int? {
       get {
         return resultMap["height"] as? Int
@@ -20267,7 +19777,6 @@ public struct MediaParts: GraphQLFragment {
     }
 
     /// The width of the mediaItem
-    @available(*, deprecated, message: "")
     public var width: Int? {
       get {
         return resultMap["width"] as? Int
@@ -20327,8 +19836,7 @@ public struct MenuItemParts: GraphQLFragment {
     }
   }
 
-  /// Relay ID of the menu item.
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the nav menu item object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -20339,7 +19847,7 @@ public struct MenuItemParts: GraphQLFragment {
   }
 
   /// The object connected to this menu item.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
   public var connectedObject: ConnectedObject? {
     get {
       return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
@@ -20350,7 +19858,7 @@ public struct MenuItemParts: GraphQLFragment {
   }
 
   public struct ConnectedObject: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor", "MenuItem"]
+    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
 
     public static var selections: [GraphQLSelection] {
       return [
@@ -20423,10 +19931,6 @@ public struct MenuItemParts: GraphQLFragment {
 
     public static func makeCoAuthor() -> ConnectedObject {
       return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
-    }
-
-    public static func makeMenuItem() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "MenuItem"])
     }
 
     public var __typename: String {
@@ -20660,8 +20164,7 @@ public struct NugParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the nug object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -20672,7 +20175,6 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// Structured / parsed post content described as a shallow tree of block elements
-  @available(*, deprecated, message: "")
   public var blocks: [Block?]? {
     get {
       return (resultMap["blocks"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Block?] in value.map { (value: ResultMap?) -> Block? in value.flatMap { (value: ResultMap) -> Block in Block(unsafeResultMap: value) } } }
@@ -20683,7 +20185,6 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
   public var dateGmt: String? {
     get {
       return resultMap["dateGmt"] as? String
@@ -20693,8 +20194,7 @@ public struct NugParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the nug type and the nug type
-  @available(*, deprecated, message: "")
+  /// Connection between the nug type and the emailList type
   public var emailLists: EmailList? {
     get {
       return (resultMap["emailLists"] as? ResultMap).flatMap { EmailList(unsafeResultMap: $0) }
@@ -20705,7 +20205,6 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// The permalink of the post
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -20716,7 +20215,6 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
-  @available(*, deprecated, message: "")
   public var modifiedGmt: String? {
     get {
       return resultMap["modifiedGmt"] as? String
@@ -20727,7 +20225,7 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of the databaseId field")
   public var nugId: Int {
     get {
       return resultMap["nugId"]! as! Int
@@ -20738,7 +20236,6 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -20749,7 +20246,6 @@ public struct NugParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -20759,8 +20255,7 @@ public struct NugParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the nug type and the nug type
-  @available(*, deprecated, message: "")
+  /// Connection between the nug type and the tag type
   public var tags: Tag? {
     get {
       return (resultMap["tags"] as? ResultMap).flatMap { Tag(unsafeResultMap: $0) }
@@ -20770,8 +20265,7 @@ public struct NugParts: GraphQLFragment {
     }
   }
 
-  /// Connection between the nug type and the nug type
-  @available(*, deprecated, message: "")
+  /// Connection between the nug type and the topic type
   public var topics: Topic? {
     get {
       return (resultMap["topics"] as? ResultMap).flatMap { Topic(unsafeResultMap: $0) }
@@ -20808,7 +20302,6 @@ public struct NugParts: GraphQLFragment {
     }
 
     /// Objects connected to this block
-    @available(*, deprecated, message: "")
     public var connections: [Connection?]? {
       get {
         return (resultMap["connections"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Connection?] in value.map { (value: ResultMap?) -> Connection? in value.flatMap { (value: ResultMap) -> Connection in Connection(unsafeResultMap: value) } } }
@@ -20845,7 +20338,7 @@ public struct NugParts: GraphQLFragment {
     }
 
     public struct Connection: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Revision", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
+      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -20866,10 +20359,6 @@ public struct NugParts: GraphQLFragment {
 
       public static func makePage() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Page"])
-      }
-
-      public static func makeRevision() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Revision"])
       }
 
       public static func makeEmail() -> Connection {
@@ -21067,7 +20556,6 @@ public struct NugParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -21109,7 +20597,7 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// The id field matches the WP_Post-&gt;ID field.
-      @available(*, deprecated, message: "")
+      @available(*, deprecated, message: "Deprecated in favor of databaseId")
       public var emailListId: Int? {
         get {
           return resultMap["emailListId"] as? Int
@@ -21120,7 +20608,6 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// The id for the list in Sendgrid.
-      @available(*, deprecated, message: "")
       public var listId: Int? {
         get {
           return resultMap["listId"] as? Int
@@ -21131,7 +20618,6 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -21173,7 +20659,6 @@ public struct NugParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -21214,8 +20699,7 @@ public struct NugParts: GraphQLFragment {
         }
       }
 
-      /// The global ID for the post_tag
-      @available(*, deprecated, message: "")
+      /// The globally unique ID for the object
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -21226,7 +20710,6 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -21237,7 +20720,6 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// An alphanumeric identifier for the object unique to its type.
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -21279,7 +20761,6 @@ public struct NugParts: GraphQLFragment {
     }
 
     /// The nodes of the connection, without the edges
-    @available(*, deprecated, message: "")
     public var nodes: [Node?]? {
       get {
         return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
@@ -21320,8 +20801,7 @@ public struct NugParts: GraphQLFragment {
         }
       }
 
-      /// The global ID for the topic
-      @available(*, deprecated, message: "")
+      /// The globally unique ID for the object
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -21332,7 +20812,6 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// The human friendly name of the object.
-      @available(*, deprecated, message: "")
       public var name: String? {
         get {
           return resultMap["name"] as? String
@@ -21343,7 +20822,6 @@ public struct NugParts: GraphQLFragment {
       }
 
       /// An alphanumeric identifier for the object unique to its type.
-      @available(*, deprecated, message: "")
       public var slug: String? {
         get {
           return resultMap["slug"] as? String
@@ -21429,8 +20907,7 @@ public struct ObsessionParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the obsession
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -21441,7 +20918,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -21452,7 +20928,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// Denotes whether there is an essentials collection associated with this term
-  @available(*, deprecated, message: "")
   public var hasEssentials: Bool? {
     get {
       return resultMap["hasEssentials"] as? Bool
@@ -21463,7 +20938,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The header image for the term landing page.
-  @available(*, deprecated, message: "")
   public var headerImage: HeaderImage? {
     get {
       return (resultMap["headerImage"] as? ResultMap).flatMap { HeaderImage(unsafeResultMap: $0) }
@@ -21474,7 +20948,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -21485,7 +20958,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -21496,7 +20968,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -21507,7 +20978,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -21518,7 +20988,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// Details in 53 characters or less.
-  @available(*, deprecated, message: "")
   public var subtitle: String? {
     get {
       return resultMap["subtitle"] as? String
@@ -21529,7 +20998,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -21540,7 +21008,6 @@ public struct ObsessionParts: GraphQLFragment {
   }
 
   /// The sponsor.
-  @available(*, deprecated, message: "")
   public var sponsor: Sponsor? {
     get {
       return (resultMap["sponsor"] as? ResultMap).flatMap { Sponsor(unsafeResultMap: $0) }
@@ -21685,7 +21152,6 @@ public struct ObsessionParts: GraphQLFragment {
     }
 
     /// Sponsor/campaign name
-    @available(*, deprecated, message: "")
     public var name: String? {
       get {
         return resultMap["name"] as? String
@@ -21696,7 +21162,6 @@ public struct ObsessionParts: GraphQLFragment {
     }
 
     /// Bulletin campaign data
-    @available(*, deprecated, message: "")
     public var campaign: Campaign? {
       get {
         return (resultMap["campaign"] as? ResultMap).flatMap { Campaign(unsafeResultMap: $0) }
@@ -21738,7 +21203,6 @@ public struct ObsessionParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign ID
-      @available(*, deprecated, message: "")
       public var id: String? {
         get {
           return resultMap["id"] as? String
@@ -21749,7 +21213,6 @@ public struct ObsessionParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign header image
-      @available(*, deprecated, message: "")
       public var logo: String? {
         get {
           return resultMap["logo"] as? String
@@ -21760,7 +21223,6 @@ public struct ObsessionParts: GraphQLFragment {
       }
 
       /// Sponsor/campaign header image link
-      @available(*, deprecated, message: "")
       public var logoLink: String? {
         get {
           return resultMap["logoLink"] as? String
@@ -21823,8 +21285,7 @@ public struct ProjectParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the project
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -21835,7 +21296,6 @@ public struct ProjectParts: GraphQLFragment {
   }
 
   /// The number of objects connected to the object
-  @available(*, deprecated, message: "")
   public var count: Int? {
     get {
       return resultMap["count"] as? Int
@@ -21846,7 +21306,6 @@ public struct ProjectParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -21857,7 +21316,6 @@ public struct ProjectParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -21868,7 +21326,6 @@ public struct ProjectParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -21879,7 +21336,6 @@ public struct ProjectParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -21890,7 +21346,6 @@ public struct ProjectParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -21959,7 +21414,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// The content of the post.
-  @available(*, deprecated, message: "")
   public var content: String? {
     get {
       return resultMap["content"] as? String
@@ -21970,7 +21424,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// The publishing date set in GMT.
-  @available(*, deprecated, message: "")
   public var dateGmt: String? {
     get {
       return resultMap["dateGmt"] as? String
@@ -21981,7 +21434,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// The excerpt of the post.
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -21992,7 +21444,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// Destination path or URL to promoted content
-  @available(*, deprecated, message: "")
   public var destination: String? {
     get {
       return resultMap["destination"] as? String
@@ -22002,8 +21453,7 @@ public struct PromotionParts: GraphQLFragment {
     }
   }
 
-  /// The featured image for the object
-  @available(*, deprecated, message: "")
+  /// Featured image (direct node access)
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -22013,8 +21463,7 @@ public struct PromotionParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
-  @available(*, deprecated, message: "")
+  /// The globally unique identifier of the promotion object.
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -22025,7 +21474,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// The permalink of the post
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -22036,7 +21484,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
-  @available(*, deprecated, message: "")
   public var modified: String? {
     get {
       return resultMap["modified"] as? String
@@ -22047,7 +21494,6 @@ public struct PromotionParts: GraphQLFragment {
   }
 
   /// The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-  @available(*, deprecated, message: "")
   public var title: String? {
     get {
       return resultMap["title"] as? String
@@ -22210,7 +21656,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Series theme colors
-  @available(*, deprecated, message: "")
   public var colors: [String?]? {
     get {
       return resultMap["colors"] as? [String?]
@@ -22221,7 +21666,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// The number of objects connected to the object
-  @available(*, deprecated, message: "")
   public var count: Int? {
     get {
       return resultMap["count"] as? Int
@@ -22232,7 +21676,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -22243,7 +21686,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Email list ID associated with term (deprecated)
-  @available(*, deprecated, message: "")
   public var emailListId: Int? {
     get {
       return resultMap["emailListId"] as? Int
@@ -22254,7 +21696,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Whether the series has ended.
-  @available(*, deprecated, message: "")
   public var ended: Bool? {
     get {
       return resultMap["ended"] as? Bool
@@ -22265,7 +21706,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -22276,7 +21716,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Series images
-  @available(*, deprecated, message: "")
   public var headerImages: [HeaderImage?]? {
     get {
       return (resultMap["headerImages"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [HeaderImage?] in value.map { (value: ResultMap?) -> HeaderImage? in value.flatMap { (value: ResultMap) -> HeaderImage in HeaderImage(unsafeResultMap: value) } } }
@@ -22287,7 +21726,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Series header videos
-  @available(*, deprecated, message: "")
   public var headerVideos: [HeaderVideo?]? {
     get {
       return (resultMap["headerVideos"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [HeaderVideo?] in value.map { (value: ResultMap?) -> HeaderVideo? in value.flatMap { (value: ResultMap) -> HeaderVideo in HeaderVideo(unsafeResultMap: value) } } }
@@ -22297,8 +21735,7 @@ public struct SeriesParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the series
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -22309,7 +21746,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -22320,7 +21756,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -22331,7 +21766,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Custom order for posts
-  @available(*, deprecated, message: "")
   public var postOrder: [Int?]? {
     get {
       return resultMap["postOrder"] as? [Int?]
@@ -22342,7 +21776,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -22353,7 +21786,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Whether to show the series TOC on article pages.
-  @available(*, deprecated, message: "")
   public var showToc: Bool? {
     get {
       return resultMap["showToc"] as? Bool
@@ -22364,7 +21796,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -22374,8 +21805,7 @@ public struct SeriesParts: GraphQLFragment {
     }
   }
 
-  /// The social image for this series.
-  @available(*, deprecated, message: "")
+  /// The social image for this term.
   public var socialImage: SocialImage? {
     get {
       return (resultMap["socialImage"] as? ResultMap).flatMap { SocialImage(unsafeResultMap: $0) }
@@ -22386,7 +21816,6 @@ public struct SeriesParts: GraphQLFragment {
   }
 
   /// Title of series on social media.
-  @available(*, deprecated, message: "")
   public var socialTitle: String? {
     get {
       return resultMap["socialTitle"] as? String
@@ -22480,7 +21909,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Header image layer
-    @available(*, deprecated, message: "")
     public var layer: Int? {
       get {
         return resultMap["layer"] as? Int
@@ -22491,7 +21919,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Header image size
-    @available(*, deprecated, message: "")
     public var size: String? {
       get {
         return resultMap["size"] as? String
@@ -22502,7 +21929,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Header image
-    @available(*, deprecated, message: "")
     public var image: Image? {
       get {
         return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
@@ -22598,7 +22024,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Series video size
-    @available(*, deprecated, message: "")
     public var size: String? {
       get {
         return resultMap["size"] as? String
@@ -22609,7 +22034,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Series header video mp4
-    @available(*, deprecated, message: "")
     public var mp4: Mp4? {
       get {
         return (resultMap["mp4"] as? ResultMap).flatMap { Mp4(unsafeResultMap: $0) }
@@ -22620,7 +22044,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Series header video webm
-    @available(*, deprecated, message: "")
     public var webm: Webm? {
       get {
         return (resultMap["webm"] as? ResultMap).flatMap { Webm(unsafeResultMap: $0) }
@@ -22631,7 +22054,6 @@ public struct SeriesParts: GraphQLFragment {
     }
 
     /// Series header video poster image
-    @available(*, deprecated, message: "")
     public var poster: Poster? {
       get {
         return (resultMap["poster"] as? ResultMap).flatMap { Poster(unsafeResultMap: $0) }
@@ -22943,7 +22365,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// Series theme colors
-  @available(*, deprecated, message: "")
   public var colors: [String?]? {
     get {
       return resultMap["colors"] as? [String?]
@@ -22954,7 +22375,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// The number of objects connected to the object
-  @available(*, deprecated, message: "")
   public var count: Int? {
     get {
       return resultMap["count"] as? Int
@@ -22965,7 +22385,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -22976,7 +22395,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -22987,7 +22405,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// Series images
-  @available(*, deprecated, message: "")
   public var headerImages: [HeaderImage?]? {
     get {
       return (resultMap["headerImages"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [HeaderImage?] in value.map { (value: ResultMap?) -> HeaderImage? in value.flatMap { (value: ResultMap) -> HeaderImage in HeaderImage(unsafeResultMap: value) } } }
@@ -22998,7 +22415,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// Series header videos
-  @available(*, deprecated, message: "")
   public var headerVideos: [HeaderVideo?]? {
     get {
       return (resultMap["headerVideos"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [HeaderVideo?] in value.map { (value: ResultMap?) -> HeaderVideo? in value.flatMap { (value: ResultMap) -> HeaderVideo in HeaderVideo(unsafeResultMap: value) } } }
@@ -23008,8 +22424,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the show
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -23020,7 +22435,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -23031,7 +22445,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -23042,7 +22455,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// Custom order for posts
-  @available(*, deprecated, message: "")
   public var postOrder: [Int?]? {
     get {
       return resultMap["postOrder"] as? [Int?]
@@ -23053,7 +22465,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -23064,7 +22475,6 @@ public struct ShowParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -23074,8 +22484,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// The social image for this series.
-  @available(*, deprecated, message: "")
+  /// The social image for this term.
   public var socialImage: SocialImage? {
     get {
       return (resultMap["socialImage"] as? ResultMap).flatMap { SocialImage(unsafeResultMap: $0) }
@@ -23169,7 +22578,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Header image layer
-    @available(*, deprecated, message: "")
     public var layer: Int? {
       get {
         return resultMap["layer"] as? Int
@@ -23180,7 +22588,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Header image size
-    @available(*, deprecated, message: "")
     public var size: String? {
       get {
         return resultMap["size"] as? String
@@ -23191,7 +22598,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Header image
-    @available(*, deprecated, message: "")
     public var image: Image? {
       get {
         return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
@@ -23287,7 +22693,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Series video size
-    @available(*, deprecated, message: "")
     public var size: String? {
       get {
         return resultMap["size"] as? String
@@ -23298,7 +22703,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Series header video mp4
-    @available(*, deprecated, message: "")
     public var mp4: Mp4? {
       get {
         return (resultMap["mp4"] as? ResultMap).flatMap { Mp4(unsafeResultMap: $0) }
@@ -23309,7 +22713,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Series header video webm
-    @available(*, deprecated, message: "")
     public var webm: Webm? {
       get {
         return (resultMap["webm"] as? ResultMap).flatMap { Webm(unsafeResultMap: $0) }
@@ -23320,7 +22723,6 @@ public struct ShowParts: GraphQLFragment {
     }
 
     /// Series header video poster image
-    @available(*, deprecated, message: "")
     public var poster: Poster? {
       get {
         return (resultMap["poster"] as? ResultMap).flatMap { Poster(unsafeResultMap: $0) }
@@ -23598,7 +23000,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The number of objects connected to the object
-  @available(*, deprecated, message: "")
   public var count: Int? {
     get {
       return resultMap["count"] as? Int
@@ -23609,7 +23010,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -23620,7 +23020,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -23630,8 +23029,7 @@ public struct TagParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the post_tag
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -23642,7 +23040,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -23653,7 +23050,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -23664,7 +23060,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -23675,7 +23070,6 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -23686,7 +23080,7 @@ public struct TagParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of databaseId")
   public var tagId: Int? {
     get {
       return resultMap["tagId"] as? Int
@@ -23805,7 +23199,6 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// The description of the object
-  @available(*, deprecated, message: "")
   public var description: String? {
     get {
       return resultMap["description"] as? String
@@ -23816,7 +23209,6 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// The featured image for this term.
-  @available(*, deprecated, message: "")
   public var featuredImage: FeaturedImage? {
     get {
       return (resultMap["featuredImage"] as? ResultMap).flatMap { FeaturedImage(unsafeResultMap: $0) }
@@ -23826,8 +23218,7 @@ public struct TopicParts: GraphQLFragment {
     }
   }
 
-  /// The global ID for the topic
-  @available(*, deprecated, message: "")
+  /// The globally unique ID for the object
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -23838,7 +23229,6 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// The link to the term
-  @available(*, deprecated, message: "")
   public var link: String? {
     get {
       return resultMap["link"] as? String
@@ -23849,7 +23239,6 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// The human friendly name of the object.
-  @available(*, deprecated, message: "")
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -23860,7 +23249,6 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// The short description for this term.
-  @available(*, deprecated, message: "")
   public var shortDescription: String? {
     get {
       return resultMap["shortDescription"] as? String
@@ -23871,7 +23259,6 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// An alphanumeric identifier for the object unique to its type.
-  @available(*, deprecated, message: "")
   public var slug: String? {
     get {
       return resultMap["slug"] as? String
@@ -23882,7 +23269,7 @@ public struct TopicParts: GraphQLFragment {
   }
 
   /// The id field matches the WP_Post-&gt;ID field.
-  @available(*, deprecated, message: "")
+  @available(*, deprecated, message: "Deprecated in favor of databaseId")
   public var topicId: Int? {
     get {
       return resultMap["topicId"] as? Int
@@ -23994,7 +23381,6 @@ public struct VideoParts: GraphQLFragment {
   }
 
   /// YouTube video ID
-  @available(*, deprecated, message: "")
   public var id: String? {
     get {
       return resultMap["id"] as? String
@@ -24005,7 +23391,6 @@ public struct VideoParts: GraphQLFragment {
   }
 
   /// Length of video in seconds
-  @available(*, deprecated, message: "")
   public var duration: Int? {
     get {
       return resultMap["duration"] as? Int
@@ -24016,7 +23401,6 @@ public struct VideoParts: GraphQLFragment {
   }
 
   /// Episode number
-  @available(*, deprecated, message: "")
   public var episode: Int? {
     get {
       return resultMap["episode"] as? Int
@@ -24027,7 +23411,6 @@ public struct VideoParts: GraphQLFragment {
   }
 
   /// YouTube playlist ID
-  @available(*, deprecated, message: "")
   public var playlistId: String? {
     get {
       return resultMap["playlistId"] as? String
@@ -24038,7 +23421,6 @@ public struct VideoParts: GraphQLFragment {
   }
 
   /// Season number
-  @available(*, deprecated, message: "")
   public var season: Int? {
     get {
       return resultMap["season"] as? Int
@@ -24049,7 +23431,6 @@ public struct VideoParts: GraphQLFragment {
   }
 
   /// The type of video: youtube or vimeo
-  @available(*, deprecated, message: "")
   public var type: String? {
     get {
       return resultMap["type"] as? String
