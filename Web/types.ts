@@ -6563,6 +6563,55 @@ export type RootQueryToContentUnionConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
+export type ContentNodeIdTypeEnum = 
+  /** Identify a resource by the Database ID. */
+  | 'DATABASE_ID'
+  /** Identify a resource by the (hashed) Global ID. */
+  | 'ID'
+  /** Identify a resource by the URI. */
+  | 'URI';
+
+/** Arguments for filtering the RootQueryToContentNodeConnection connection */
+export type RootQueryToContentNodeConnectionWhereArgs = {
+  /** The Types of content to filter */
+  contentTypes?: Maybe<Array<Maybe<ContentTypeEnum>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: Maybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: Maybe<Scalars['Boolean']>;
+  /** Specific ID of the object */
+  id?: Maybe<Scalars['Int']>;
+  /** Array of IDs for the objects to retrieve */
+  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: Maybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: Maybe<Scalars['String']>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: Maybe<Scalars['ID']>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Show posts with a specific password. */
+  password?: Maybe<Scalars['String']>;
+  /** Show Posts based on a keyword search */
+  search?: Maybe<Scalars['String']>;
+  stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+  status?: Maybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: Maybe<Scalars['String']>;
+};
+
+
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type EditionIdType = 
   /** The Database ID for the node */
   | 'DATABASE_ID'
@@ -10209,15 +10258,6 @@ export type UpdateUserInput = {
 
 
 
-/** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type ContentNodeIdTypeEnum = 
-  /** Identify a resource by the Database ID. */
-  | 'DATABASE_ID'
-  /** Identify a resource by the (hashed) Global ID. */
-  | 'ID'
-  /** Identify a resource by the URI. */
-  | 'URI';
-
 /** The Type of Identifier used to fetch a single Content Type node. To be used along with the "id" field. Default is "ID". */
 export type ContentTypeIdTypeEnum = 
   /** The globally unique ID */
@@ -11237,46 +11277,6 @@ export type RootQueryToCommentConnectionWhereArgs = {
 
 
 
-
-
-
-/** Arguments for filtering the RootQueryToContentNodeConnection connection */
-export type RootQueryToContentNodeConnectionWhereArgs = {
-  /** The Types of content to filter */
-  contentTypes?: Maybe<Array<Maybe<ContentTypeEnum>>>;
-  /** Filter the connection based on dates */
-  dateQuery?: Maybe<DateQueryInput>;
-  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-  hasPassword?: Maybe<Scalars['Boolean']>;
-  /** Specific ID of the object */
-  id?: Maybe<Scalars['Int']>;
-  /** Array of IDs for the objects to retrieve */
-  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** Get objects with a specific mimeType property */
-  mimeType?: Maybe<MimeTypeEnum>;
-  /** Slug / post_name of the object */
-  name?: Maybe<Scalars['String']>;
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** What paramater to use to order the objects by. */
-  orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-  /** Use ID to return only children. Use 0 to return only top-level items */
-  parent?: Maybe<Scalars['ID']>;
-  /** Specify objects whose parent is in an array */
-  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** Show posts with a specific password. */
-  password?: Maybe<Scalars['String']>;
-  /** Show Posts based on a keyword search */
-  search?: Maybe<Scalars['String']>;
-  stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-  status?: Maybe<PostStatusEnum>;
-  /** Title of the object */
-  title?: Maybe<Scalars['String']>;
-};
 
 
 

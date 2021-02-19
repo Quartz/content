@@ -23,6 +23,7 @@ exports.NugPartsFragmentDoc = client_1.gql `
   emailLists {
     nodes {
       emailListId
+      slug
       listId
       name
     }
