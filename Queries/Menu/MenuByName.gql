@@ -1,6 +1,6 @@
-query MenuByName( $menuName: String! ) {
+query MenuByName( $id: ID! ) {
 	menu(
-		id: $menuName
+		id: $id
 		idType: NAME
 	) {
 		id
