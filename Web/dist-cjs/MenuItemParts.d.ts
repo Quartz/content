@@ -4,38 +4,41 @@ import type { PromotionPartsFragment } from './PromotionParts';
 export declare type MenuItemPartsFragment = {
     __typename?: 'MenuItem';
     id: string;
-    connectedObject?: Types.Maybe<({
-        __typename?: 'Post';
-    } & ArticleTeaserPartsFragment) | {
-        __typename?: 'Page';
-    } | {
-        __typename?: 'Email';
-    } | {
-        __typename?: 'Chapter';
-    } | ({
-        __typename?: 'Promotion';
-    } & PromotionPartsFragment) | {
-        __typename?: 'BlogPost';
-    } | {
-        __typename?: 'Nug';
-    } | {
-        __typename?: 'Collection';
-    } | {
-        __typename?: 'Category';
-    } | {
-        __typename?: 'Tag';
-    } | {
-        __typename?: 'EmailList';
-    } | {
-        __typename?: 'Obsession';
-    } | {
-        __typename?: 'Topic';
-    } | {
-        __typename?: 'Show';
-    } | {
-        __typename?: 'EmailSegment';
-    } | {
-        __typename?: 'CoAuthor';
+    connectedNode?: Types.Maybe<{
+        __typename?: 'MenuItemToMenuItemLinkableConnectionEdge';
+        node?: Types.Maybe<{
+            __typename?: 'BlogPost';
+        } | ({
+            __typename?: 'Post';
+        } & ArticleTeaserPartsFragment) | {
+            __typename?: 'Category';
+        } | {
+            __typename?: 'CoAuthor';
+        } | {
+            __typename?: 'Chapter';
+        } | {
+            __typename?: 'Tag';
+        } | {
+            __typename?: 'Collection';
+        } | {
+            __typename?: 'Email';
+        } | {
+            __typename?: 'EmailList';
+        } | {
+            __typename?: 'Nug';
+        } | {
+            __typename?: 'Topic';
+        } | {
+            __typename?: 'EmailSegment';
+        } | ({
+            __typename?: 'Promotion';
+        } & PromotionPartsFragment) | {
+            __typename?: 'Obsession';
+        } | {
+            __typename?: 'Page';
+        } | {
+            __typename?: 'Show';
+        }>;
     }>;
 };
 export declare const MenuItemPartsFragmentDoc: import("@apollo/client").DocumentNode;

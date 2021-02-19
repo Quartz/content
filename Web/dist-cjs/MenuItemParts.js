@@ -7,12 +7,14 @@ const PromotionParts_1 = require("./PromotionParts");
 exports.MenuItemPartsFragmentDoc = client_1.gql `
     fragment MenuItemParts on MenuItem {
   id
-  connectedObject {
-    ... on Post {
-      ...ArticleTeaserParts
-    }
-    ... on Promotion {
-      ...PromotionParts
+  connectedNode {
+    node {
+      ... on Post {
+        ...ArticleTeaserParts
+      }
+      ... on Promotion {
+        ...PromotionParts
+      }
     }
   }
 }
