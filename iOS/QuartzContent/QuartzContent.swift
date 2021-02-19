@@ -13263,8 +13263,8 @@ public final class MenuByNameQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query MenuByName($menuName: String!) {
-      menu(id: $menuName, idType: NAME) {
+    query MenuByName($id: ID!) {
+      menu(id: $id, idType: NAME) {
         __typename
         id
         menuItems {
@@ -13280,18 +13280,18 @@ public final class MenuByNameQuery: GraphQLQuery {
 
   public let operationName: String = "MenuByName"
 
-  public let operationIdentifier: String? = "19442ee7f2ac24a154feab044d7a8678ad11edd795c40f7f6b762fbb1417e7a9"
+  public let operationIdentifier: String? = "92f9c50f5f4b5c457b8439dbd3f4f9a58057d9d11f542489008098d693ae951e"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + MenuItemParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
-  public var menuName: String
+  public var id: GraphQLID
 
-  public init(menuName: String) {
-    self.menuName = menuName
+  public init(id: GraphQLID) {
+    self.id = id
   }
 
   public var variables: GraphQLMap? {
-    return ["menuName": menuName]
+    return ["id": id]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -13299,7 +13299,7 @@ public final class MenuByNameQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("menu", arguments: ["id": GraphQLVariable("menuName"), "idType": "NAME"], type: .object(Menu.selections)),
+        GraphQLField("menu", arguments: ["id": GraphQLVariable("id"), "idType": "NAME"], type: .object(Menu.selections)),
       ]
     }
 
