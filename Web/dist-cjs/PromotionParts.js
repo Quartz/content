@@ -7,7 +7,7 @@ exports.PromotionPartsFragmentDoc = client_1.gql `
     fragment PromotionParts on Promotion {
   content
   dateGmt
-  description: excerpt(format: RAW)
+  description: excerpt
   destination
   featuredImage {
     ...MediaParts
