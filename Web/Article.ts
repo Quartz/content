@@ -5,20 +5,22 @@ import { gql } from '@apollo/client';
 import { ArticlePartsFragmentDoc } from './ArticleParts';
 import * as Apollo from '@apollo/client';
 export type ArticleQueryVariables = Types.Exact<{
-  id: Types.Scalars['ID'];
+  id: Types.Scalars['Int'];
 }>;
 
 
-export type ArticleQuery = { __typename?: 'RootQuery', post?: Types.Maybe<(
-    { __typename?: 'Post' }
-    & ArticlePartsFragment
-  )> };
+export type ArticleQuery = { __typename?: 'RootQuery', posts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Post' }
+      & ArticlePartsFragment
+    )>>> }> };
 
 
 export const ArticleDocument = /*#__PURE__*/ gql`
-    query Article($id: ID!) {
-  post(id: $id) {
-    ...ArticleParts
+    query Article($id: Int!) {
+  posts(where: {id: $id}) {
+    nodes {
+      ...ArticleParts
+    }
   }
 }
     ${ArticlePartsFragmentDoc}`;

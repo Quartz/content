@@ -928,23 +928,120 @@
             "deprecationReason": null
           },
           {
-            "name": "contentBy",
-            "description": "Get an object in the content union by its object (WordPress) ID.",
+            "name": "contentNode",
+            "description": "A node used to manage content",
             "args": [
               {
-                "name": "objectId",
-                "description": "Object / WordPress ID",
+                "name": "id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "idType",
+                "description": "Type of unique identifier to fetch a content node by. Default is Global ID",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "ContentNodeIdTypeEnum",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "contentType",
+                "description": "The content type the node is used for. Required when idType is set to \"name\" or \"slug\"",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "ContentTypeEnum",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "asPreview",
+                "description": "Whether to return the node as a preview instance",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
               }
             ],
             "type": {
-              "kind": "UNION",
-              "name": "ContentUnion",
+              "kind": "INTERFACE",
+              "name": "ContentNode",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "contentNodes",
+            "description": "Connection between the RootQuery type and the ContentNode type",
+            "args": [
+              {
+                "name": "first",
+                "description": "The number of items to return after the referenced \"after\" cursor",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": "Cursor used along with the \"first\" argument to reference where in the dataset to get data",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Cursor used along with the \"last\" argument to reference where in the dataset to get data",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "where",
+                "description": "Arguments for filtering the connection",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "RootQueryToContentNodeConnectionWhereArgs",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RootQueryToContentNodeConnection",
               "ofType": null
             },
             "isDeprecated": false,
@@ -77912,6 +78009,348 @@
             "type": {
               "kind": "UNION",
               "name": "ContentUnion",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ContentNodeIdTypeEnum",
+        "description": "The Type of Identifier used to fetch a single resource. Default is ID.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "DATABASE_ID",
+            "description": "Identify a resource by the Database ID.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ID",
+            "description": "Identify a resource by the (hashed) Global ID.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "URI",
+            "description": "Identify a resource by the URI.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "RootQueryToContentNodeConnectionWhereArgs",
+        "description": "Arguments for filtering the RootQueryToContentNodeConnection connection",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "contentTypes",
+            "description": "The Types of content to filter",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ContentTypeEnum",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "dateQuery",
+            "description": "Filter the connection based on dates",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateQueryInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "hasPassword",
+            "description": "True for objects with passwords; False for objects without passwords; null for all objects with or without passwords",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "id",
+            "description": "Specific ID of the object",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "in",
+            "description": "Array of IDs for the objects to retrieve",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "mimeType",
+            "description": "Get objects with a specific mimeType property",
+            "type": {
+              "kind": "ENUM",
+              "name": "MimeTypeEnum",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "name",
+            "description": "Slug / post_name of the object",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "nameIn",
+            "description": "Specify objects to retrieve. Use slugs",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "notIn",
+            "description": "Specify IDs NOT to retrieve. If this is used in the same query as \"in\", it will be ignored",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "orderby",
+            "description": "What paramater to use to order the objects by.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "PostObjectsConnectionOrderbyInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "parent",
+            "description": "Use ID to return only children. Use 0 to return only top-level items",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "parentIn",
+            "description": "Specify objects whose parent is in an array",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "parentNotIn",
+            "description": "Specify posts whose parent is not in an array",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "password",
+            "description": "Show posts with a specific password.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "search",
+            "description": "Show Posts based on a keyword search",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "stati",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PostStatusEnum",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "status",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "PostStatusEnum",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "title",
+            "description": "Title of the object",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RootQueryToContentNodeConnection",
+        "description": "Connection between the RootQuery type and the ContentNode type",
+        "fields": [
+          {
+            "name": "edges",
+            "description": "Edges for the RootQueryToContentNodeConnection connection",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "RootQueryToContentNodeConnectionEdge",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nodes",
+            "description": "The nodes of the connection, without the edges",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "ContentNode",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageInfo",
+            "description": "Information about pagination in a connection.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "WPPageInfo",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RootQueryToContentNodeConnectionEdge",
+        "description": "An edge in a connection",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ContentNode",
               "ofType": null
             },
             "isDeprecated": false,

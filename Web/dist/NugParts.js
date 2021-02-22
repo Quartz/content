@@ -20,6 +20,7 @@ export const NugPartsFragmentDoc = /*#__PURE__*/ gql `
   emailLists {
     nodes {
       emailListId
+      slug
       listId
       name
     }

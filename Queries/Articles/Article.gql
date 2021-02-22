@@ -1,9 +1,13 @@
 query Article(
-	$id: ID!
+	$id: Int!
 ) {
-	post(
-		id: $id
+	posts(
+		where: {
+			id: $id
+		}
 	) {
-		...ArticleParts
+		nodes {
+			...ArticleParts
+		}
 	}
 }
