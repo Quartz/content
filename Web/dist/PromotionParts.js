@@ -4,7 +4,7 @@ export const PromotionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment PromotionParts on Promotion {
   content
   dateGmt
-  description: excerpt(format: RAW)
+  description: excerpt
   destination
   featuredImage {
     ...MediaParts
