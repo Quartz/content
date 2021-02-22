@@ -928,6 +928,29 @@
             "deprecationReason": null
           },
           {
+            "name": "contentBy",
+            "description": "Get an object in the content union by its object (WordPress) ID.",
+            "args": [
+              {
+                "name": "objectId",
+                "description": "Object / WordPress ID",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "UNION",
+              "name": "ContentUnion",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentNode",
             "description": "A node used to manage content",
             "args": [
@@ -17608,6 +17631,18 @@
             "deprecationReason": null
           },
           {
+            "name": "menuOrder",
+            "description": "DEPRECATED",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "metered",
             "description": "This post counts towards and can display the metered paywall",
             "args": [],
@@ -31923,6 +31958,18 @@
         "description": "The email type",
         "fields": [
           {
+            "name": "author",
+            "description": "DEPRECATED",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "blocks",
             "description": "Structured / parsed post content described as a shallow tree of block elements",
             "args": [],
@@ -31932,6 +31979,22 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "Block",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "cards",
+            "description": "DEPRECATED",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Post",
                 "ofType": null
               }
             },
