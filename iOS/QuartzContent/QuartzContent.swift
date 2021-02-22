@@ -13302,37 +13302,39 @@ public final class VideoHubQuery: GraphQLQuery {
   }
 }
 
-public final class MenuItemsQuery: GraphQLQuery {
+public final class MenuByNameQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query MenuItems($perPage: Int!, $slug: MenuLocationEnum!) {
-      menuItems(where: {location: $slug}, first: $perPage) {
+    query MenuByName($id: ID!) {
+      menu(id: $id, idType: NAME) {
         __typename
-        nodes {
+        id
+        menuItems {
           __typename
-          ...MenuItemParts
+          nodes {
+            __typename
+            ...MenuItemParts
+          }
         }
       }
     }
     """
 
-  public let operationName: String = "MenuItems"
+  public let operationName: String = "MenuByName"
 
-  public let operationIdentifier: String? = "f61b19dc560e505f73744c1a83c15f8ae6753cf6ddefdf2c188d12303294129f"
+  public let operationIdentifier: String? = "92f9c50f5f4b5c457b8439dbd3f4f9a58057d9d11f542489008098d693ae951e"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + MenuItemParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
-  public var perPage: Int
-  public var slug: MenuLocationEnum
+  public var id: GraphQLID
 
-  public init(perPage: Int, slug: MenuLocationEnum) {
-    self.perPage = perPage
-    self.slug = slug
+  public init(id: GraphQLID) {
+    self.id = id
   }
 
   public var variables: GraphQLMap? {
-    return ["perPage": perPage, "slug": slug]
+    return ["id": id]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -13340,7 +13342,7 @@ public final class MenuItemsQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("menuItems", arguments: ["where": ["location": GraphQLVariable("slug")], "first": GraphQLVariable("perPage")], type: .object(MenuItem.selections)),
+        GraphQLField("menu", arguments: ["id": GraphQLVariable("id"), "idType": "NAME"], type: .object(Menu.selections)),
       ]
     }
 
@@ -13350,27 +13352,28 @@ public final class MenuItemsQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(menuItems: MenuItem? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
+    public init(menu: Menu? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "menu": menu.flatMap { (value: Menu) -> ResultMap in value.resultMap }])
     }
 
-    /// Connection between the RootQuery type and the MenuItem type
-    public var menuItems: MenuItem? {
+    /// A WordPress navigation menu
+    public var menu: Menu? {
       get {
-        return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
+        return (resultMap["menu"] as? ResultMap).flatMap { Menu(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "menuItems")
+        resultMap.updateValue(newValue?.resultMap, forKey: "menu")
       }
     }
 
-    public struct MenuItem: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["RootQueryToMenuItemConnection"]
+    public struct Menu: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Menu"]
 
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("nodes", type: .list(.object(Node.selections))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("menuItems", type: .object(MenuItem.selections)),
         ]
       }
 
@@ -13380,8 +13383,8 @@ public final class MenuItemsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToMenuItemConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      public init(id: GraphQLID, menuItems: MenuItem? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Menu", "id": id, "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -13393,23 +13396,33 @@ public final class MenuItemsQuery: GraphQLQuery {
         }
       }
 
-      /// The nodes of the connection, without the edges
-      public var nodes: [Node?]? {
+      /// The globally unique identifier of the nav menu object.
+      public var id: GraphQLID {
         get {
-          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+          return resultMap["id"]! as! GraphQLID
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+          resultMap.updateValue(newValue, forKey: "id")
         }
       }
 
-      public struct Node: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["MenuItem"]
+      /// Connection between the Menu type and the MenuItem type
+      public var menuItems: MenuItem? {
+        get {
+          return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "menuItems")
+        }
+      }
+
+      public struct MenuItem: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["MenuToMenuItemConnection"]
 
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLFragmentSpread(MenuItemParts.self),
+            GraphQLField("nodes", type: .list(.object(Node.selections))),
           ]
         }
 
@@ -13417,6 +13430,10 @@ public final class MenuItemsQuery: GraphQLQuery {
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
+        }
+
+        public init(nodes: [Node?]? = nil) {
+          self.init(unsafeResultMap: ["__typename": "MenuToMenuItemConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
         }
 
         public var __typename: String {
@@ -13428,179 +13445,13 @@ public final class MenuItemsQuery: GraphQLQuery {
           }
         }
 
-        public var fragments: Fragments {
+        /// The nodes of the connection, without the edges
+        public var nodes: [Node?]? {
           get {
-            return Fragments(unsafeResultMap: resultMap)
+            return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
           }
           set {
-            resultMap += newValue.resultMap
-          }
-        }
-
-        public struct Fragments {
-          public private(set) var resultMap: ResultMap
-
-          public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
-          }
-
-          public var menuItemParts: MenuItemParts {
-            get {
-              return MenuItemParts(unsafeResultMap: resultMap)
-            }
-            set {
-              resultMap += newValue.resultMap
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class PromotionsByMenuQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query PromotionsByMenu($menuLocation: MenuLocationEnum!) {
-      menuItems(first: 50, where: {location: $menuLocation}) {
-        __typename
-        edges {
-          __typename
-          node {
-            __typename
-            connectedObject {
-              __typename
-              ... on Promotion {
-                ...PromotionParts
-              }
-            }
-          }
-        }
-      }
-    }
-    """
-
-  public let operationName: String = "PromotionsByMenu"
-
-  public let operationIdentifier: String? = "208ebc0a756dace8be7d2ad39cc08cccb2539f6eac370bd947c62b1ccb8adbab"
-
-  public var queryDocument: String { return operationDefinition.appending("\n" + PromotionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition) }
-
-  public var menuLocation: MenuLocationEnum
-
-  public init(menuLocation: MenuLocationEnum) {
-    self.menuLocation = menuLocation
-  }
-
-  public var variables: GraphQLMap? {
-    return ["menuLocation": menuLocation]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["RootQuery"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("menuItems", arguments: ["first": 50, "where": ["location": GraphQLVariable("menuLocation")]], type: .object(MenuItem.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(menuItems: MenuItem? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "menuItems": menuItems.flatMap { (value: MenuItem) -> ResultMap in value.resultMap }])
-    }
-
-    /// Connection between the RootQuery type and the MenuItem type
-    public var menuItems: MenuItem? {
-      get {
-        return (resultMap["menuItems"] as? ResultMap).flatMap { MenuItem(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "menuItems")
-      }
-    }
-
-    public struct MenuItem: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["RootQueryToMenuItemConnection"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("edges", type: .list(.object(Edge.selections))),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(edges: [Edge?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToMenuItemConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      /// Edges for the RootQueryToMenuItemConnection connection
-      public var edges: [Edge?]? {
-        get {
-          return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
-        }
-        set {
-          resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
-        }
-      }
-
-      public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["RootQueryToMenuItemConnectionEdge"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("node", type: .object(Node.selections)),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(node: Node? = nil) {
-          self.init(unsafeResultMap: ["__typename": "RootQueryToMenuItemConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// The item at the end of the edge
-        public var node: Node? {
-          get {
-            return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
-          }
-          set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
           }
         }
 
@@ -13610,7 +13461,7 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("connectedObject", type: .object(ConnectedObject.selections)),
+              GraphQLFragmentSpread(MenuItemParts.self),
             ]
           }
 
@@ -13618,10 +13469,6 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
-          }
-
-          public init(connectedObject: ConnectedObject? = nil) {
-            self.init(unsafeResultMap: ["__typename": "MenuItem", "connectedObject": connectedObject.flatMap { (value: ConnectedObject) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -13633,166 +13480,28 @@ public final class PromotionsByMenuQuery: GraphQLQuery {
             }
           }
 
-          /// The object connected to this menu item.
-          @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
-          public var connectedObject: ConnectedObject? {
+          public var fragments: Fragments {
             get {
-              return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
+              return Fragments(unsafeResultMap: resultMap)
             }
             set {
-              resultMap.updateValue(newValue?.resultMap, forKey: "connectedObject")
+              resultMap += newValue.resultMap
             }
           }
 
-          public struct ConnectedObject: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
-
-            public static var selections: [GraphQLSelection] {
-              return [
-                GraphQLTypeCase(
-                  variants: ["Promotion": AsPromotion.selections],
-                  default: [
-                    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                  ]
-                )
-              ]
-            }
-
+          public struct Fragments {
             public private(set) var resultMap: ResultMap
 
             public init(unsafeResultMap: ResultMap) {
               self.resultMap = unsafeResultMap
             }
 
-            public static func makePost() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Post"])
-            }
-
-            public static func makePage() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Page"])
-            }
-
-            public static func makeEmail() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Email"])
-            }
-
-            public static func makeChapter() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Chapter"])
-            }
-
-            public static func makeBlogPost() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "BlogPost"])
-            }
-
-            public static func makeNug() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Nug"])
-            }
-
-            public static func makeCollection() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Collection"])
-            }
-
-            public static func makeCategory() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Category"])
-            }
-
-            public static func makeTag() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Tag"])
-            }
-
-            public static func makeEmailList() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "EmailList"])
-            }
-
-            public static func makeObsession() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Obsession"])
-            }
-
-            public static func makeTopic() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Topic"])
-            }
-
-            public static func makeShow() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
-            }
-
-            public static func makeEmailSegment() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
-            }
-
-            public static func makeCoAuthor() -> ConnectedObject {
-              return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
-            }
-
-            public var __typename: String {
+            public var menuItemParts: MenuItemParts {
               get {
-                return resultMap["__typename"]! as! String
+                return MenuItemParts(unsafeResultMap: resultMap)
               }
               set {
-                resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            public var asPromotion: AsPromotion? {
-              get {
-                if !AsPromotion.possibleTypes.contains(__typename) { return nil }
-                return AsPromotion(unsafeResultMap: resultMap)
-              }
-              set {
-                guard let newValue = newValue else { return }
-                resultMap = newValue.resultMap
-              }
-            }
-
-            public struct AsPromotion: GraphQLSelectionSet {
-              public static let possibleTypes: [String] = ["Promotion"]
-
-              public static var selections: [GraphQLSelection] {
-                return [
-                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                  GraphQLFragmentSpread(PromotionParts.self),
-                ]
-              }
-
-              public private(set) var resultMap: ResultMap
-
-              public init(unsafeResultMap: ResultMap) {
-                self.resultMap = unsafeResultMap
-              }
-
-              public var __typename: String {
-                get {
-                  return resultMap["__typename"]! as! String
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "__typename")
-                }
-              }
-
-              public var fragments: Fragments {
-                get {
-                  return Fragments(unsafeResultMap: resultMap)
-                }
-                set {
-                  resultMap += newValue.resultMap
-                }
-              }
-
-              public struct Fragments {
-                public private(set) var resultMap: ResultMap
-
-                public init(unsafeResultMap: ResultMap) {
-                  self.resultMap = unsafeResultMap
-                }
-
-                public var promotionParts: PromotionParts {
-                  get {
-                    return PromotionParts(unsafeResultMap: resultMap)
-                  }
-                  set {
-                    resultMap += newValue.resultMap
-                  }
-                }
+                resultMap += newValue.resultMap
               }
             }
           }
@@ -19838,13 +19547,16 @@ public struct MenuItemParts: GraphQLFragment {
     fragment MenuItemParts on MenuItem {
       __typename
       id
-      connectedObject {
+      connectedNode {
         __typename
-        ... on Post {
-          ...ArticleTeaserParts
-        }
-        ... on Promotion {
-          ...PromotionParts
+        node {
+          __typename
+          ... on Post {
+            ...ArticleTeaserParts
+          }
+          ... on Promotion {
+            ...PromotionParts
+          }
         }
       }
     }
@@ -19856,7 +19568,7 @@ public struct MenuItemParts: GraphQLFragment {
     return [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-      GraphQLField("connectedObject", type: .object(ConnectedObject.selections)),
+      GraphQLField("connectedNode", type: .object(ConnectedNode.selections)),
     ]
   }
 
@@ -19866,8 +19578,8 @@ public struct MenuItemParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, connectedObject: ConnectedObject? = nil) {
-    self.init(unsafeResultMap: ["__typename": "MenuItem", "id": id, "connectedObject": connectedObject.flatMap { (value: ConnectedObject) -> ResultMap in value.resultMap }])
+  public init(id: GraphQLID, connectedNode: ConnectedNode? = nil) {
+    self.init(unsafeResultMap: ["__typename": "MenuItem", "id": id, "connectedNode": connectedNode.flatMap { (value: ConnectedNode) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -19889,28 +19601,23 @@ public struct MenuItemParts: GraphQLFragment {
     }
   }
 
-  /// The object connected to this menu item.
-  @available(*, deprecated, message: "Deprecated in favor of the connectedNode field")
-  public var connectedObject: ConnectedObject? {
+  /// Connection from MenuItem to it&#039;s connected node
+  public var connectedNode: ConnectedNode? {
     get {
-      return (resultMap["connectedObject"] as? ResultMap).flatMap { ConnectedObject(unsafeResultMap: $0) }
+      return (resultMap["connectedNode"] as? ResultMap).flatMap { ConnectedNode(unsafeResultMap: $0) }
     }
     set {
-      resultMap.updateValue(newValue?.resultMap, forKey: "connectedObject")
+      resultMap.updateValue(newValue?.resultMap, forKey: "connectedNode")
     }
   }
 
-  public struct ConnectedObject: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Post", "Page", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Category", "Tag", "EmailList", "Obsession", "Topic", "Show", "EmailSegment", "CoAuthor"]
+  public struct ConnectedNode: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["MenuItemToMenuItemLinkableConnectionEdge"]
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLTypeCase(
-          variants: ["Post": AsPost.selections, "Promotion": AsPromotion.selections],
-          default: [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          ]
-        )
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("node", type: .object(Node.selections)),
       ]
     }
 
@@ -19920,60 +19627,8 @@ public struct MenuItemParts: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public static func makePage() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Page"])
-    }
-
-    public static func makeEmail() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Email"])
-    }
-
-    public static func makeChapter() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Chapter"])
-    }
-
-    public static func makeBlogPost() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "BlogPost"])
-    }
-
-    public static func makeNug() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Nug"])
-    }
-
-    public static func makeCollection() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Collection"])
-    }
-
-    public static func makeCategory() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Category"])
-    }
-
-    public static func makeTag() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Tag"])
-    }
-
-    public static func makeEmailList() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "EmailList"])
-    }
-
-    public static func makeObsession() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Obsession"])
-    }
-
-    public static func makeTopic() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Topic"])
-    }
-
-    public static func makeShow() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "Show"])
-    }
-
-    public static func makeEmailSegment() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "EmailSegment"])
-    }
-
-    public static func makeCoAuthor() -> ConnectedObject {
-      return ConnectedObject(unsafeResultMap: ["__typename": "CoAuthor"])
+    public init(node: Node? = nil) {
+      self.init(unsafeResultMap: ["__typename": "MenuItemToMenuItemLinkableConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
     }
 
     public var __typename: String {
@@ -19985,24 +19640,27 @@ public struct MenuItemParts: GraphQLFragment {
       }
     }
 
-    public var asPost: AsPost? {
+    /// The nodes of the connection, without the edges
+    public var node: Node? {
       get {
-        if !AsPost.possibleTypes.contains(__typename) { return nil }
-        return AsPost(unsafeResultMap: resultMap)
+        return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
       }
       set {
-        guard let newValue = newValue else { return }
-        resultMap = newValue.resultMap
+        resultMap.updateValue(newValue?.resultMap, forKey: "node")
       }
     }
 
-    public struct AsPost: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post"]
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["BlogPost", "Post", "Category", "CoAuthor", "Chapter", "Tag", "Collection", "Email", "EmailList", "Nug", "Topic", "EmailSegment", "Promotion", "Obsession", "Page", "Show"]
 
       public static var selections: [GraphQLSelection] {
         return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(ArticleTeaserParts.self),
+          GraphQLTypeCase(
+            variants: ["Post": AsPost.selections, "Promotion": AsPromotion.selections],
+            default: [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            ]
+          )
         ]
       }
 
@@ -20010,6 +19668,62 @@ public struct MenuItemParts: GraphQLFragment {
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
+      }
+
+      public static func makeBlogPost() -> Node {
+        return Node(unsafeResultMap: ["__typename": "BlogPost"])
+      }
+
+      public static func makeCategory() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Category"])
+      }
+
+      public static func makeCoAuthor() -> Node {
+        return Node(unsafeResultMap: ["__typename": "CoAuthor"])
+      }
+
+      public static func makeChapter() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Chapter"])
+      }
+
+      public static func makeTag() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Tag"])
+      }
+
+      public static func makeCollection() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Collection"])
+      }
+
+      public static func makeEmail() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Email"])
+      }
+
+      public static func makeEmailList() -> Node {
+        return Node(unsafeResultMap: ["__typename": "EmailList"])
+      }
+
+      public static func makeNug() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Nug"])
+      }
+
+      public static func makeTopic() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Topic"])
+      }
+
+      public static func makeEmailSegment() -> Node {
+        return Node(unsafeResultMap: ["__typename": "EmailSegment"])
+      }
+
+      public static func makeObsession() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Obsession"])
+      }
+
+      public static func makePage() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Page"])
+      }
+
+      public static func makeShow() -> Node {
+        return Node(unsafeResultMap: ["__typename": "Show"])
       }
 
       public var __typename: String {
@@ -20021,91 +19735,128 @@ public struct MenuItemParts: GraphQLFragment {
         }
       }
 
-      public var fragments: Fragments {
+      public var asPost: AsPost? {
         get {
-          return Fragments(unsafeResultMap: resultMap)
+          if !AsPost.possibleTypes.contains(__typename) { return nil }
+          return AsPost(unsafeResultMap: resultMap)
         }
         set {
-          resultMap += newValue.resultMap
+          guard let newValue = newValue else { return }
+          resultMap = newValue.resultMap
         }
       }
 
-      public struct Fragments {
+      public struct AsPost: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ArticleTeaserParts.self),
+          ]
+        }
+
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public var articleTeaserParts: ArticleTeaserParts {
+        public var __typename: String {
           get {
-            return ArticleTeaserParts(unsafeResultMap: resultMap)
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
           }
         }
-      }
-    }
 
-    public var asPromotion: AsPromotion? {
-      get {
-        if !AsPromotion.possibleTypes.contains(__typename) { return nil }
-        return AsPromotion(unsafeResultMap: resultMap)
-      }
-      set {
-        guard let newValue = newValue else { return }
-        resultMap = newValue.resultMap
-      }
-    }
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
 
-    public struct AsPromotion: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Promotion"]
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
 
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(PromotionParts.self),
-        ]
+          public var articleTeaserParts: ArticleTeaserParts {
+            get {
+              return ArticleTeaserParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
       }
 
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public var __typename: String {
+      public var asPromotion: AsPromotion? {
         get {
-          return resultMap["__typename"]! as! String
+          if !AsPromotion.possibleTypes.contains(__typename) { return nil }
+          return AsPromotion(unsafeResultMap: resultMap)
         }
         set {
-          resultMap.updateValue(newValue, forKey: "__typename")
+          guard let newValue = newValue else { return }
+          resultMap = newValue.resultMap
         }
       }
 
-      public var fragments: Fragments {
-        get {
-          return Fragments(unsafeResultMap: resultMap)
-        }
-        set {
-          resultMap += newValue.resultMap
-        }
-      }
+      public struct AsPromotion: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Promotion"]
 
-      public struct Fragments {
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(PromotionParts.self),
+          ]
+        }
+
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public var promotionParts: PromotionParts {
+        public var __typename: String {
           get {
-            return PromotionParts(unsafeResultMap: resultMap)
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var promotionParts: PromotionParts {
+            get {
+              return PromotionParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }
