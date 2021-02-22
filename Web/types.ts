@@ -7100,6 +7100,7 @@ export type MenuLocationEnum =
   | 'OBSESSIONS_WORK'
   | 'PLAYER_VIDEO'
   | 'PREMIUM_MEMBERS'
+  | 'RELATED_MBB'
   | 'SHOWS_VIDEO'
   | 'TOP_WORK';
 
