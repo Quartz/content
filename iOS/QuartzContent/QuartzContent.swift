@@ -2420,7 +2420,7 @@ public final class ArticlesByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlesByObsession"
 
-  public let operationIdentifier: String? = "8bdb841736eb76be0aa3674735f0d81ea9d959d46483734e8cb9fd996c62fea6"
+  public let operationIdentifier: String? = "2cb7fcc2074b7949cc4e0a8fd30c55654f164cc6d11257c540dabfb8f8354c49"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + ObsessionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + BulletinParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
@@ -13323,7 +13323,7 @@ public final class MenuByNameQuery: GraphQLQuery {
 
   public let operationName: String = "MenuByName"
 
-  public let operationIdentifier: String? = "92f9c50f5f4b5c457b8439dbd3f4f9a58057d9d11f542489008098d693ae951e"
+  public let operationIdentifier: String? = "7fa2248672c72d5b9da8b28c64622c4beee87dafb9766cee36005f311dc257c0"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + MenuItemParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
@@ -14389,7 +14389,7 @@ public final class PromotionsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "PromotionsByTag"
 
-  public let operationIdentifier: String? = "5a3a1e3e00e3bce150c8ae2a81e61b5f70ab20a3819e1ab4a29077f9c7c5ce6f"
+  public let operationIdentifier: String? = "24ac22d960d83b76894b97c628adb3576dcedd9b1b004d1e4f3e0b0314e9fdba"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + PromotionParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + BlockParts.fragmentDefinition) }
 
@@ -21170,7 +21170,7 @@ public struct PromotionParts: GraphQLFragment {
       __typename
       content
       dateGmt
-      description: excerpt(format: RAW)
+      description: excerpt
       destination
       featuredImage {
         __typename
@@ -21190,7 +21190,7 @@ public struct PromotionParts: GraphQLFragment {
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("content", type: .scalar(String.self)),
       GraphQLField("dateGmt", type: .scalar(String.self)),
-      GraphQLField("excerpt", alias: "description", arguments: ["format": "RAW"], type: .scalar(String.self)),
+      GraphQLField("excerpt", alias: "description", type: .scalar(String.self)),
       GraphQLField("destination", type: .scalar(String.self)),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
