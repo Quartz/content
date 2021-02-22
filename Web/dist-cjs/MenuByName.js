@@ -19,42 +19,44 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useMenuItemsLazyQuery = exports.useMenuItemsQuery = exports.MenuItemsDocument = void 0;
+exports.useMenuByNameLazyQuery = exports.useMenuByNameQuery = exports.MenuByNameDocument = void 0;
 const client_1 = require("@apollo/client");
 const MenuItemParts_1 = require("./MenuItemParts");
 const Apollo = __importStar(require("@apollo/client"));
-exports.MenuItemsDocument = client_1.gql `
-    query MenuItems($perPage: Int!, $slug: MenuLocationEnum!) {
-  menuItems(where: {location: $slug}, first: $perPage) {
-    nodes {
-      ...MenuItemParts
+exports.MenuByNameDocument = client_1.gql `
+    query MenuByName($id: ID!) {
+  menu(id: $id, idType: NAME) {
+    id
+    menuItems {
+      nodes {
+        ...MenuItemParts
+      }
     }
   }
 }
     ${MenuItemParts_1.MenuItemPartsFragmentDoc}`;
 /**
- * __useMenuItemsQuery__
+ * __useMenuByNameQuery__
  *
- * To run a query within a React component, call `useMenuItemsQuery` and pass it any options that fit your needs.
- * When your component renders, `useMenuItemsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useMenuByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMenuByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useMenuItemsQuery({
+ * const { data, loading, error } = useMenuByNameQuery({
  *   variables: {
- *      perPage: // value for 'perPage'
- *      slug: // value for 'slug'
+ *      id: // value for 'id'
  *   },
  * });
  */
-function useMenuItemsQuery(baseOptions) {
-    return Apollo.useQuery(exports.MenuItemsDocument, baseOptions);
+function useMenuByNameQuery(baseOptions) {
+    return Apollo.useQuery(exports.MenuByNameDocument, baseOptions);
 }
-exports.useMenuItemsQuery = useMenuItemsQuery;
-function useMenuItemsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MenuItemsDocument, baseOptions);
+exports.useMenuByNameQuery = useMenuByNameQuery;
+function useMenuByNameLazyQuery(baseOptions) {
+    return Apollo.useLazyQuery(exports.MenuByNameDocument, baseOptions);
 }
-exports.useMenuItemsLazyQuery = useMenuItemsLazyQuery;
-//# sourceMappingURL=MenuItems.js.map
+exports.useMenuByNameLazyQuery = useMenuByNameLazyQuery;
+//# sourceMappingURL=MenuByName.js.map

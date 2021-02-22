@@ -1,0 +1,13 @@
+query MenuByName( $id: ID! ) {
+	menu(
+		id: $id
+		idType: NAME
+	) {
+		id
+		menuItems {
+			nodes {
+				...MenuItemParts
+			}
+		}
+	}
+}

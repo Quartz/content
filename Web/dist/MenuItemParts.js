@@ -4,12 +4,14 @@ import { PromotionPartsFragmentDoc } from './PromotionParts';
 export const MenuItemPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment MenuItemParts on MenuItem {
   id
-  connectedObject {
-    ... on Post {
-      ...ArticleTeaserParts
-    }
-    ... on Promotion {
-      ...PromotionParts
+  connectedNode {
+    node {
+      ... on Post {
+        ...ArticleTeaserParts
+      }
+      ... on Promotion {
+        ...PromotionParts
+      }
     }
   }
 }
