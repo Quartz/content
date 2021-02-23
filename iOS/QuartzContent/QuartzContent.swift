@@ -13306,11 +13306,11 @@ public final class MenuByNameQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query MenuByName($id: ID!) {
+    query MenuByName($id: ID!, $first: Int = 10) {
       menu(id: $id, idType: NAME) {
         __typename
         id
-        menuItems {
+        menuItems(first: $first) {
           __typename
           nodes {
             __typename
@@ -13323,18 +13323,20 @@ public final class MenuByNameQuery: GraphQLQuery {
 
   public let operationName: String = "MenuByName"
 
-  public let operationIdentifier: String? = "7fa2248672c72d5b9da8b28c64622c4beee87dafb9766cee36005f311dc257c0"
+  public let operationIdentifier: String? = "69e1e12430b67d8d1aeedc4c7b0930f0f1d78a1905a44396d787de00eafae4cf"
 
   public var queryDocument: String { return operationDefinition.appending("\n" + MenuItemParts.fragmentDefinition).appending("\n" + ArticleTeaserParts.fragmentDefinition).appending("\n" + MediaParts.fragmentDefinition).appending("\n" + VideoParts.fragmentDefinition).appending("\n" + PromotionParts.fragmentDefinition) }
 
   public var id: GraphQLID
+  public var first: Int?
 
-  public init(id: GraphQLID) {
+  public init(id: GraphQLID, first: Int? = nil) {
     self.id = id
+    self.first = first
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id]
+    return ["id": id, "first": first]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -13373,7 +13375,7 @@ public final class MenuByNameQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("menuItems", type: .object(MenuItem.selections)),
+          GraphQLField("menuItems", arguments: ["first": GraphQLVariable("first")], type: .object(MenuItem.selections)),
         ]
       }
 
