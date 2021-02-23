@@ -12,6 +12,7 @@ exports.MediaPartsFragmentDoc = client_1.gql `
     height
     width
   }
+  mediaItemUrl
   sourceUrl
   title
 }

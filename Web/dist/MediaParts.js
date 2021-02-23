@@ -9,6 +9,7 @@ export const MediaPartsFragmentDoc = /*#__PURE__*/ gql `
     height
     width
   }
+  mediaItemUrl
   sourceUrl
   title
 }
