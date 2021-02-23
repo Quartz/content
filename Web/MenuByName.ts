@@ -6,6 +6,7 @@ import { MenuItemPartsFragmentDoc } from './MenuItemParts';
 import * as Apollo from '@apollo/client';
 export type MenuByNameQueryVariables = Types.Exact<{
   id: Types.Scalars['ID'];
+  first?: Types.Maybe<Types.Scalars['Int']>;
 }>;
 
 
@@ -16,10 +17,10 @@ export type MenuByNameQuery = { __typename?: 'RootQuery', menu?: Types.Maybe<{ _
 
 
 export const MenuByNameDocument = /*#__PURE__*/ gql`
-    query MenuByName($id: ID!) {
+    query MenuByName($id: ID!, $first: Int = 10) {
   menu(id: $id, idType: NAME) {
     id
-    menuItems {
+    menuItems(first: $first) {
       nodes {
         ...MenuItemParts
       }
@@ -41,6 +42,7 @@ export const MenuByNameDocument = /*#__PURE__*/ gql`
  * const { data, loading, error } = useMenuByNameQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      first: // value for 'first'
  *   },
  * });
  */

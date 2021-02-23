@@ -1,10 +1,10 @@
-query MenuByName( $id: ID! ) {
+query MenuByName( $id: ID!, $first: Int = 10 ) {
 	menu(
 		id: $id
 		idType: NAME
 	) {
 		id
-		menuItems {
+		menuItems( first: $first ) {
 			nodes {
 				...MenuItemParts
 			}
