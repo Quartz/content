@@ -5,6 +5,7 @@ export declare type MediaPartsFragment = {
     caption?: Types.Maybe<string>;
     credit?: Types.Maybe<string>;
     id: string;
+    mediaItemUrl?: Types.Maybe<string>;
     sourceUrl?: Types.Maybe<string>;
     title?: Types.Maybe<string>;
     mediaDetails?: Types.Maybe<{
