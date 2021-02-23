@@ -3,6 +3,7 @@ import type { MenuItemPartsFragment } from './MenuItemParts';
 import * as Apollo from '@apollo/client';
 export declare type MenuByNameQueryVariables = Types.Exact<{
     id: Types.Scalars['ID'];
+    first?: Types.Maybe<Types.Scalars['Int']>;
 }>;
 export declare type MenuByNameQuery = {
     __typename?: 'RootQuery';
@@ -31,14 +32,17 @@ export declare const MenuByNameDocument: Apollo.DocumentNode;
  * const { data, loading, error } = useMenuByNameQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      first: // value for 'first'
  *   },
  * });
  */
 export declare function useMenuByNameQuery(baseOptions: Apollo.QueryHookOptions<MenuByNameQuery, MenuByNameQueryVariables>): Apollo.QueryResult<MenuByNameQuery, Types.Exact<{
     id: string;
+    first?: number | null | undefined;
 }>>;
 export declare function useMenuByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MenuByNameQuery, MenuByNameQueryVariables>): Apollo.QueryTuple<MenuByNameQuery, Types.Exact<{
     id: string;
+    first?: number | null | undefined;
 }>>;
 export declare type MenuByNameQueryHookResult = ReturnType<typeof useMenuByNameQuery>;
 export declare type MenuByNameLazyQueryHookResult = ReturnType<typeof useMenuByNameLazyQuery>;

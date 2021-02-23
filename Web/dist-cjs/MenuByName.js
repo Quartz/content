@@ -24,10 +24,10 @@ const client_1 = require("@apollo/client");
 const MenuItemParts_1 = require("./MenuItemParts");
 const Apollo = __importStar(require("@apollo/client"));
 exports.MenuByNameDocument = client_1.gql `
-    query MenuByName($id: ID!) {
+    query MenuByName($id: ID!, $first: Int = 10) {
   menu(id: $id, idType: NAME) {
     id
-    menuItems {
+    menuItems(first: $first) {
       nodes {
         ...MenuItemParts
       }
@@ -48,6 +48,7 @@ exports.MenuByNameDocument = client_1.gql `
  * const { data, loading, error } = useMenuByNameQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      first: // value for 'first'
  *   },
  * });
  */
