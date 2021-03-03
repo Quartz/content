@@ -19,6 +19,9 @@ fragment CollectionParts on Collection {
 			}
 			... on Nug {
 				...NugParts
+			},
+			... on Bulletin {
+				...BulletinParts
 			}
 		}
 	}
