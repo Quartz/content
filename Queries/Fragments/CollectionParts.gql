@@ -1,5 +1,24 @@
 fragment CollectionParts on Collection {
 	id
+	bulletin {
+		campaign {
+			id
+			logo
+			name
+			slug
+		}
+		sponsor {
+			attribution
+			id
+			slug
+			name
+		}
+		clientTracking {
+			article
+			elsewhere
+			logo
+		}
+	}
 	collectionId
 	title
 	dateGmt
@@ -19,9 +38,6 @@ fragment CollectionParts on Collection {
 			}
 			... on Nug {
 				...NugParts
-			},
-			... on Bulletin {
-				...BulletinParts
 			}
 		}
 	}
