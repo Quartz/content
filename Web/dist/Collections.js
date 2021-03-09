@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const CollectionsDocument = /*#__PURE__*/ gql `
     query Collections($first: Int = 10, $after: String) {
   collections(first: $first, after: $after) {
@@ -31,9 +32,11 @@ export const CollectionsDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useCollectionsQuery(baseOptions) {
-    return Apollo.useQuery(CollectionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(CollectionsDocument, options);
 }
 export function useCollectionsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(CollectionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(CollectionsDocument, options);
 }
 //# sourceMappingURL=Collections.js.map

@@ -23,6 +23,7 @@ exports.useEssentialsByObsessionLazyQuery = exports.useEssentialsByObsessionQuer
 const client_1 = require("@apollo/client");
 const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.EssentialsByObsessionDocument = client_1.gql `
     query EssentialsByObsession($slug: String!) {
   obsessions(last: 1, where: {slug: [$slug]}) {
@@ -54,11 +55,13 @@ exports.EssentialsByObsessionDocument = client_1.gql `
  * });
  */
 function useEssentialsByObsessionQuery(baseOptions) {
-    return Apollo.useQuery(exports.EssentialsByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.EssentialsByObsessionDocument, options);
 }
 exports.useEssentialsByObsessionQuery = useEssentialsByObsessionQuery;
 function useEssentialsByObsessionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.EssentialsByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.EssentialsByObsessionDocument, options);
 }
 exports.useEssentialsByObsessionLazyQuery = useEssentialsByObsessionLazyQuery;
 //# sourceMappingURL=EssentialsByObsession.js.map

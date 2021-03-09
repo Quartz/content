@@ -5,7 +5,7 @@ import * as Apollo from '@apollo/client';
 export declare type ArticlesByGuideQueryVariables = Types.Exact<{
     after?: Types.Maybe<Types.Scalars['String']>;
     perPage?: Types.Maybe<Types.Scalars['Int']>;
-    slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+    slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 export declare type ArticlesByGuideQuery = {
     __typename?: 'RootQuery';
@@ -47,14 +47,14 @@ export declare const ArticlesByGuideDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useArticlesByGuideQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>): Apollo.QueryResult<ArticlesByGuideQuery, Types.Exact<{
-    after?: string | null | undefined;
-    perPage?: number | null | undefined;
-    slug?: (string | null)[] | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
+    slug?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
 }>>;
 export declare function useArticlesByGuideLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>): Apollo.QueryTuple<ArticlesByGuideQuery, Types.Exact<{
-    after?: string | null | undefined;
-    perPage?: number | null | undefined;
-    slug?: (string | null)[] | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
+    slug?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
 }>>;
 export declare type ArticlesByGuideQueryHookResult = ReturnType<typeof useArticlesByGuideQuery>;
 export declare type ArticlesByGuideLazyQueryHookResult = ReturnType<typeof useArticlesByGuideLazyQuery>;

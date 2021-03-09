@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const NugDocument = /*#__PURE__*/ gql `
     query Nug($id: Int!) {
   nugs(where: {id: $id}) {
@@ -27,9 +28,11 @@ export const NugDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useNugQuery(baseOptions) {
-    return Apollo.useQuery(NugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(NugDocument, options);
 }
 export function useNugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(NugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(NugDocument, options);
 }
 //# sourceMappingURL=Nug.js.map

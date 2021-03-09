@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql `
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
@@ -29,9 +30,11 @@ export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useHomeCollectionPreviewQuery(baseOptions) {
-    return Apollo.useQuery(HomeCollectionPreviewDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(HomeCollectionPreviewDocument, options);
 }
 export function useHomeCollectionPreviewLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(HomeCollectionPreviewDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(HomeCollectionPreviewDocument, options);
 }
 //# sourceMappingURL=HomeCollectionPreview.js.map

@@ -6,10 +6,11 @@ import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticlesByGuideQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
-  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -65,10 +66,12 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useArticlesByGuideQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>) {
-        return Apollo.useQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, options);
       }
 export function useArticlesByGuideLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>) {
-          return Apollo.useLazyQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticlesByGuideQuery, ArticlesByGuideQueryVariables>(ArticlesByGuideDocument, options);
         }
 export type ArticlesByGuideQueryHookResult = ReturnType<typeof useArticlesByGuideQuery>;
 export type ArticlesByGuideLazyQueryHookResult = ReturnType<typeof useArticlesByGuideLazyQuery>;

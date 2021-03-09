@@ -4,8 +4,9 @@ import type { EmailListPartsFragment } from './EmailListParts';
 import { gql } from '@apollo/client';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type EmailListsBySlugQueryVariables = Types.Exact<{
-  slug: Array<Types.Maybe<Types.Scalars['String']>>;
+  slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
@@ -47,10 +48,12 @@ export const EmailListsBySlugDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useEmailListsBySlugQuery(baseOptions: Apollo.QueryHookOptions<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>) {
-        return Apollo.useQuery<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>(EmailListsBySlugDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>(EmailListsBySlugDocument, options);
       }
 export function useEmailListsBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>) {
-          return Apollo.useLazyQuery<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>(EmailListsBySlugDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>(EmailListsBySlugDocument, options);
         }
 export type EmailListsBySlugQueryHookResult = ReturnType<typeof useEmailListsBySlugQuery>;
 export type EmailListsBySlugLazyQueryHookResult = ReturnType<typeof useEmailListsBySlugLazyQuery>;

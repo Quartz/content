@@ -23,6 +23,7 @@ exports.useNugsByTagLazyQuery = exports.useNugsByTagQuery = exports.NugsByTagDoc
 const client_1 = require("@apollo/client");
 const NugParts_1 = require("./NugParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.NugsByTagDocument = client_1.gql `
     query NugsByTag($perPage: Int!, $slug: [String]!) {
   nugs(first: $perPage, where: {tagSlugIn: $slug}) {
@@ -50,11 +51,13 @@ exports.NugsByTagDocument = client_1.gql `
  * });
  */
 function useNugsByTagQuery(baseOptions) {
-    return Apollo.useQuery(exports.NugsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.NugsByTagDocument, options);
 }
 exports.useNugsByTagQuery = useNugsByTagQuery;
 function useNugsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.NugsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.NugsByTagDocument, options);
 }
 exports.useNugsByTagLazyQuery = useNugsByTagLazyQuery;
 //# sourceMappingURL=NugsByTag.js.map

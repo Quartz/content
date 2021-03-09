@@ -23,6 +23,7 @@ exports.useNugLazyQuery = exports.useNugQuery = exports.NugDocument = void 0;
 const client_1 = require("@apollo/client");
 const NugParts_1 = require("./NugParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.NugDocument = client_1.gql `
     query Nug($id: Int!) {
   nugs(where: {id: $id}) {
@@ -49,11 +50,13 @@ exports.NugDocument = client_1.gql `
  * });
  */
 function useNugQuery(baseOptions) {
-    return Apollo.useQuery(exports.NugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.NugDocument, options);
 }
 exports.useNugQuery = useNugQuery;
 function useNugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.NugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.NugDocument, options);
 }
 exports.useNugLazyQuery = useNugLazyQuery;
 //# sourceMappingURL=Nug.js.map

@@ -23,6 +23,7 @@ exports.useArticleTeaserLazyQuery = exports.useArticleTeaserQuery = exports.Arti
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ArticleTeaserDocument = client_1.gql `
     query ArticleTeaser($id: ID!) {
   post(id: $id) {
@@ -47,11 +48,13 @@ exports.ArticleTeaserDocument = client_1.gql `
  * });
  */
 function useArticleTeaserQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticleTeaserDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ArticleTeaserDocument, options);
 }
 exports.useArticleTeaserQuery = useArticleTeaserQuery;
 function useArticleTeaserLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticleTeaserDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ArticleTeaserDocument, options);
 }
 exports.useArticleTeaserLazyQuery = useArticleTeaserLazyQuery;
 //# sourceMappingURL=ArticleTeaser.js.map

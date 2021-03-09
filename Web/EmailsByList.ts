@@ -6,11 +6,12 @@ import { gql } from '@apollo/client';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type EmailsByListQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
-  slug: Array<Types.Maybe<Types.Scalars['String']>>;
-  tags?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
+  tags?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -63,10 +64,12 @@ ${EmailPartsFragmentDoc}`;
  * });
  */
 export function useEmailsByListQuery(baseOptions: Apollo.QueryHookOptions<EmailsByListQuery, EmailsByListQueryVariables>) {
-        return Apollo.useQuery<EmailsByListQuery, EmailsByListQueryVariables>(EmailsByListDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EmailsByListQuery, EmailsByListQueryVariables>(EmailsByListDocument, options);
       }
 export function useEmailsByListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailsByListQuery, EmailsByListQueryVariables>) {
-          return Apollo.useLazyQuery<EmailsByListQuery, EmailsByListQueryVariables>(EmailsByListDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EmailsByListQuery, EmailsByListQueryVariables>(EmailsByListDocument, options);
         }
 export type EmailsByListQueryHookResult = ReturnType<typeof useEmailsByListQuery>;
 export type EmailsByListLazyQueryHookResult = ReturnType<typeof useEmailsByListLazyQuery>;

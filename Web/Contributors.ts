@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ContributorsQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
 }>;
@@ -64,10 +65,12 @@ ${AuthorPartsFragmentDoc}`;
  * });
  */
 export function useContributorsQuery(baseOptions: Apollo.QueryHookOptions<ContributorsQuery, ContributorsQueryVariables>) {
-        return Apollo.useQuery<ContributorsQuery, ContributorsQueryVariables>(ContributorsDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ContributorsQuery, ContributorsQueryVariables>(ContributorsDocument, options);
       }
 export function useContributorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContributorsQuery, ContributorsQueryVariables>) {
-          return Apollo.useLazyQuery<ContributorsQuery, ContributorsQueryVariables>(ContributorsDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ContributorsQuery, ContributorsQueryVariables>(ContributorsDocument, options);
         }
 export type ContributorsQueryHookResult = ReturnType<typeof useContributorsQuery>;
 export type ContributorsLazyQueryHookResult = ReturnType<typeof useContributorsLazyQuery>;

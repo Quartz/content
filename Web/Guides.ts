@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type GuidesQueryVariables = Types.Exact<{
   before?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
@@ -61,10 +62,12 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useGuidesQuery(baseOptions?: Apollo.QueryHookOptions<GuidesQuery, GuidesQueryVariables>) {
-        return Apollo.useQuery<GuidesQuery, GuidesQueryVariables>(GuidesDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GuidesQuery, GuidesQueryVariables>(GuidesDocument, options);
       }
 export function useGuidesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesQuery, GuidesQueryVariables>) {
-          return Apollo.useLazyQuery<GuidesQuery, GuidesQueryVariables>(GuidesDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GuidesQuery, GuidesQueryVariables>(GuidesDocument, options);
         }
 export type GuidesQueryHookResult = ReturnType<typeof useGuidesQuery>;
 export type GuidesLazyQueryHookResult = ReturnType<typeof useGuidesLazyQuery>;

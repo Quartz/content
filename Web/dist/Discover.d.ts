@@ -3,7 +3,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { TopicPartsFragment } from './TopicParts';
 import * as Apollo from '@apollo/client';
 export declare type DiscoverQueryVariables = Types.Exact<{
-    topics: Array<Types.Maybe<Types.Scalars['String']>>;
+    topics: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type DiscoverQuery = {
     __typename?: 'RootQuery';
@@ -50,10 +50,10 @@ export declare const DiscoverDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useDiscoverQuery(baseOptions: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>): Apollo.QueryResult<DiscoverQuery, Types.Exact<{
-    topics: (string | null)[];
+    topics: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>): Apollo.QueryTuple<DiscoverQuery, Types.Exact<{
-    topics: (string | null)[];
+    topics: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type DiscoverQueryHookResult = ReturnType<typeof useDiscoverQuery>;
 export declare type DiscoverLazyQueryHookResult = ReturnType<typeof useDiscoverLazyQuery>;

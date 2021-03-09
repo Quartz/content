@@ -23,6 +23,7 @@ exports.useCollectionLazyQuery = exports.useCollectionQuery = exports.Collection
 const client_1 = require("@apollo/client");
 const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.CollectionDocument = client_1.gql `
     query Collection($slug: String!) {
   collectionBy(slug: $slug) {
@@ -47,11 +48,13 @@ exports.CollectionDocument = client_1.gql `
  * });
  */
 function useCollectionQuery(baseOptions) {
-    return Apollo.useQuery(exports.CollectionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.CollectionDocument, options);
 }
 exports.useCollectionQuery = useCollectionQuery;
 function useCollectionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.CollectionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.CollectionDocument, options);
 }
 exports.useCollectionLazyQuery = useCollectionLazyQuery;
 //# sourceMappingURL=Collection.js.map

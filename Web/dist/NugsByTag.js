@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const NugsByTagDocument = /*#__PURE__*/ gql `
     query NugsByTag($perPage: Int!, $slug: [String]!) {
   nugs(first: $perPage, where: {tagSlugIn: $slug}) {
@@ -28,9 +29,11 @@ export const NugsByTagDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useNugsByTagQuery(baseOptions) {
-    return Apollo.useQuery(NugsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(NugsByTagDocument, options);
 }
 export function useNugsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(NugsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(NugsByTagDocument, options);
 }
 //# sourceMappingURL=NugsByTag.js.map

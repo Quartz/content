@@ -55,13 +55,13 @@ export declare const ContentBySearchTermDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useContentBySearchTermQuery(baseOptions: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>): Apollo.QueryResult<ContentBySearchTermQuery, Types.Exact<{
-    after?: string | null | undefined;
-    limit?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    limit?: Types.Maybe<number> | undefined;
     search: string;
 }>>;
 export declare function useContentBySearchTermLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>): Apollo.QueryTuple<ContentBySearchTermQuery, Types.Exact<{
-    after?: string | null | undefined;
-    limit?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    limit?: Types.Maybe<number> | undefined;
     search: string;
 }>>;
 export declare type ContentBySearchTermQueryHookResult = ReturnType<typeof useContentBySearchTermQuery>;

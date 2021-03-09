@@ -26,6 +26,7 @@ const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const BulletinParts_1 = require("./BulletinParts");
 const PromotionParts_1 = require("./PromotionParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ArticlesByObsessionDocument = client_1.gql `
     query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
   obsessions(where: {slug: $slug}) {
@@ -74,11 +75,13 @@ ${PromotionParts_1.PromotionPartsFragmentDoc}`;
  * });
  */
 function useArticlesByObsessionQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ArticlesByObsessionDocument, options);
 }
 exports.useArticlesByObsessionQuery = useArticlesByObsessionQuery;
 function useArticlesByObsessionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ArticlesByObsessionDocument, options);
 }
 exports.useArticlesByObsessionLazyQuery = useArticlesByObsessionLazyQuery;
 //# sourceMappingURL=ArticlesByObsession.js.map

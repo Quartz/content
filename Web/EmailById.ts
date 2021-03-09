@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type EmailByIdQueryVariables = Types.Exact<{
   id: Types.Scalars['ID'];
 }>;
@@ -52,10 +53,12 @@ ${EmailListPartsFragmentDoc}`;
  * });
  */
 export function useEmailByIdQuery(baseOptions: Apollo.QueryHookOptions<EmailByIdQuery, EmailByIdQueryVariables>) {
-        return Apollo.useQuery<EmailByIdQuery, EmailByIdQueryVariables>(EmailByIdDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EmailByIdQuery, EmailByIdQueryVariables>(EmailByIdDocument, options);
       }
 export function useEmailByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailByIdQuery, EmailByIdQueryVariables>) {
-          return Apollo.useLazyQuery<EmailByIdQuery, EmailByIdQueryVariables>(EmailByIdDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EmailByIdQuery, EmailByIdQueryVariables>(EmailByIdDocument, options);
         }
 export type EmailByIdQueryHookResult = ReturnType<typeof useEmailByIdQuery>;
 export type EmailByIdLazyQueryHookResult = ReturnType<typeof useEmailByIdLazyQuery>;

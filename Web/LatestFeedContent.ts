@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type LatestFeedContentQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
@@ -64,10 +65,12 @@ ${EmailPartsFragmentDoc}`;
  * });
  */
 export function useLatestFeedContentQuery(baseOptions?: Apollo.QueryHookOptions<LatestFeedContentQuery, LatestFeedContentQueryVariables>) {
-        return Apollo.useQuery<LatestFeedContentQuery, LatestFeedContentQueryVariables>(LatestFeedContentDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LatestFeedContentQuery, LatestFeedContentQueryVariables>(LatestFeedContentDocument, options);
       }
 export function useLatestFeedContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestFeedContentQuery, LatestFeedContentQueryVariables>) {
-          return Apollo.useLazyQuery<LatestFeedContentQuery, LatestFeedContentQueryVariables>(LatestFeedContentDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LatestFeedContentQuery, LatestFeedContentQueryVariables>(LatestFeedContentDocument, options);
         }
 export type LatestFeedContentQueryHookResult = ReturnType<typeof useLatestFeedContentQuery>;
 export type LatestFeedContentLazyQueryHookResult = ReturnType<typeof useLatestFeedContentLazyQuery>;

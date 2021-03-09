@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const LatestArticlesDocument = /*#__PURE__*/ gql `
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
@@ -33,9 +34,11 @@ export const LatestArticlesDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useLatestArticlesQuery(baseOptions) {
-    return Apollo.useQuery(LatestArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(LatestArticlesDocument, options);
 }
 export function useLatestArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(LatestArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(LatestArticlesDocument, options);
 }
 //# sourceMappingURL=LatestArticles.js.map

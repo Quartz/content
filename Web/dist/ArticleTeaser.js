@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ArticleTeaserDocument = /*#__PURE__*/ gql `
     query ArticleTeaser($id: ID!) {
   post(id: $id) {
@@ -25,9 +26,11 @@ export const ArticleTeaserDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useArticleTeaserQuery(baseOptions) {
-    return Apollo.useQuery(ArticleTeaserDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ArticleTeaserDocument, options);
 }
 export function useArticleTeaserLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ArticleTeaserDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ArticleTeaserDocument, options);
 }
 //# sourceMappingURL=ArticleTeaser.js.map

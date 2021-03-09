@@ -23,6 +23,7 @@ exports.useTopicsLazyQuery = exports.useTopicsQuery = exports.TopicsDocument = v
 const client_1 = require("@apollo/client");
 const TopicParts_1 = require("./TopicParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.TopicsDocument = client_1.gql `
     query Topics {
   topics {
@@ -48,11 +49,13 @@ exports.TopicsDocument = client_1.gql `
  * });
  */
 function useTopicsQuery(baseOptions) {
-    return Apollo.useQuery(exports.TopicsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.TopicsDocument, options);
 }
 exports.useTopicsQuery = useTopicsQuery;
 function useTopicsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.TopicsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.TopicsDocument, options);
 }
 exports.useTopicsLazyQuery = useTopicsLazyQuery;
 //# sourceMappingURL=Topics.js.map

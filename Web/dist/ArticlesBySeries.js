@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { SeriesPartsFragmentDoc } from './SeriesParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ArticlesBySeriesDocument = /*#__PURE__*/ gql `
     query ArticlesBySeries($after: String = "", $perPage: Int, $slug: [String]) {
   serieses(where: {slug: $slug}) {
@@ -40,9 +41,11 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useArticlesBySeriesQuery(baseOptions) {
-    return Apollo.useQuery(ArticlesBySeriesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ArticlesBySeriesDocument, options);
 }
 export function useArticlesBySeriesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ArticlesBySeriesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ArticlesBySeriesDocument, options);
 }
 //# sourceMappingURL=ArticlesBySeries.js.map

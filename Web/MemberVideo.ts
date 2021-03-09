@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { TagPartsFragmentDoc } from './TagParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type MemberVideoQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
@@ -55,10 +56,12 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useMemberVideoQuery(baseOptions?: Apollo.QueryHookOptions<MemberVideoQuery, MemberVideoQueryVariables>) {
-        return Apollo.useQuery<MemberVideoQuery, MemberVideoQueryVariables>(MemberVideoDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MemberVideoQuery, MemberVideoQueryVariables>(MemberVideoDocument, options);
       }
 export function useMemberVideoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MemberVideoQuery, MemberVideoQueryVariables>) {
-          return Apollo.useLazyQuery<MemberVideoQuery, MemberVideoQueryVariables>(MemberVideoDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MemberVideoQuery, MemberVideoQueryVariables>(MemberVideoDocument, options);
         }
 export type MemberVideoQueryHookResult = ReturnType<typeof useMemberVideoQuery>;
 export type MemberVideoLazyQueryHookResult = ReturnType<typeof useMemberVideoLazyQuery>;

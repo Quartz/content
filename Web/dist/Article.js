@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticlePartsFragmentDoc } from './ArticleParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ArticleDocument = /*#__PURE__*/ gql `
     query Article($id: Int!) {
   posts(where: {id: $id}) {
@@ -27,9 +28,11 @@ export const ArticleDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useArticleQuery(baseOptions) {
-    return Apollo.useQuery(ArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ArticleDocument, options);
 }
 export function useArticleLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ArticleDocument, options);
 }
 //# sourceMappingURL=Article.js.map

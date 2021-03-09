@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ObsessionsDocument = /*#__PURE__*/ gql `
     query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
   menuItems(first: $perPage, where: {location: $location}) {
@@ -40,9 +41,11 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useObsessionsQuery(baseOptions) {
-    return Apollo.useQuery(ObsessionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ObsessionsDocument, options);
 }
 export function useObsessionsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ObsessionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ObsessionsDocument, options);
 }
 //# sourceMappingURL=Obsessions.js.map

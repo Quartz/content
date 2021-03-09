@@ -4,7 +4,7 @@ import type { BlockPartsFragment } from './BlockParts';
 import * as Apollo from '@apollo/client';
 export declare type PromotionsByTagQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
-    slug: Array<Types.Maybe<Types.Scalars['String']>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type PromotionsByTagQuery = {
     __typename?: 'RootQuery';
@@ -38,11 +38,11 @@ export declare const PromotionsByTagDocument: Apollo.DocumentNode;
  */
 export declare function usePromotionsByTagQuery(baseOptions: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>): Apollo.QueryResult<PromotionsByTagQuery, Types.Exact<{
     perPage: number;
-    slug: (string | null)[];
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function usePromotionsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>): Apollo.QueryTuple<PromotionsByTagQuery, Types.Exact<{
     perPage: number;
-    slug: (string | null)[];
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type PromotionsByTagQueryHookResult = ReturnType<typeof usePromotionsByTagQuery>;
 export declare type PromotionsByTagLazyQueryHookResult = ReturnType<typeof usePromotionsByTagLazyQuery>;

@@ -3,7 +3,7 @@ import type { GuidePartsFragment } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export declare type GuidesByTopicQueryVariables = Types.Exact<{
     perPage?: Types.Maybe<Types.Scalars['Int']>;
-    slug: Array<Types.Maybe<Types.Scalars['String']>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type GuidesByTopicQuery = {
     __typename?: 'RootQuery';
@@ -42,12 +42,12 @@ export declare const GuidesByTopicDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useGuidesByTopicQuery(baseOptions: Apollo.QueryHookOptions<GuidesByTopicQuery, GuidesByTopicQueryVariables>): Apollo.QueryResult<GuidesByTopicQuery, Types.Exact<{
-    perPage?: number | null | undefined;
-    slug: (string | null)[];
+    perPage?: Types.Maybe<number> | undefined;
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useGuidesByTopicLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesByTopicQuery, GuidesByTopicQueryVariables>): Apollo.QueryTuple<GuidesByTopicQuery, Types.Exact<{
-    perPage?: number | null | undefined;
-    slug: (string | null)[];
+    perPage?: Types.Maybe<number> | undefined;
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type GuidesByTopicQueryHookResult = ReturnType<typeof useGuidesByTopicQuery>;
 export declare type GuidesByTopicLazyQueryHookResult = ReturnType<typeof useGuidesByTopicLazyQuery>;

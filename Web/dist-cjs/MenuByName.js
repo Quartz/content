@@ -23,6 +23,7 @@ exports.useMenuByNameLazyQuery = exports.useMenuByNameQuery = exports.MenuByName
 const client_1 = require("@apollo/client");
 const MenuItemParts_1 = require("./MenuItemParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.MenuByNameDocument = client_1.gql `
     query MenuByName($id: ID!, $first: Int = 10) {
   menu(id: $id, idType: NAME) {
@@ -53,11 +54,13 @@ exports.MenuByNameDocument = client_1.gql `
  * });
  */
 function useMenuByNameQuery(baseOptions) {
-    return Apollo.useQuery(exports.MenuByNameDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.MenuByNameDocument, options);
 }
 exports.useMenuByNameQuery = useMenuByNameQuery;
 function useMenuByNameLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MenuByNameDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.MenuByNameDocument, options);
 }
 exports.useMenuByNameLazyQuery = useMenuByNameLazyQuery;
 //# sourceMappingURL=MenuByName.js.map

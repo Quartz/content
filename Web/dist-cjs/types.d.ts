@@ -4,6 +4,12 @@ export declare type Exact<T extends {
 }> = {
     [K in keyof T]: T[K];
 };
+export declare type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+    [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export declare type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+    [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export declare type Scalars = {
     ID: string;
@@ -6161,7 +6167,7 @@ export declare type MenuNodeIdTypeEnum =
 /** Identify a menu node by it's name */
  | 'NAME';
 /** Registered menu locations */
-export declare type MenuLocationEnum = 'AUTHORS_WORK' | 'CASE_STUDIES_CREATIVE' | 'CLIENTS_CREATIVE' | 'FEATURED_QUARTZ' | 'FEATURES_MARKETING_MEMBERS' | 'FEATURES_MEMBERS' | 'FEATURES_VIDEO_MEMBERS' | 'OBSESSIONS_AFRICA' | 'OBSESSIONS_INDIA' | 'OBSESSIONS_QUARTZ' | 'OBSESSIONS_WORK' | 'PLAYER_VIDEO' | 'PREMIUM_MEMBERS' | 'SHOWS_VIDEO' | 'TOP_WORK';
+export declare type MenuLocationEnum = 'AUTHORS_WORK' | 'CASE_STUDIES_CREATIVE' | 'CLIENTS_CREATIVE' | 'FEATURED_QUARTZ' | 'FEATURES_MARKETING_MEMBERS' | 'FEATURES_MEMBERS' | 'FEATURES_VIDEO_MEMBERS' | 'OBSESSIONS_AFRICA' | 'OBSESSIONS_INDIA' | 'OBSESSIONS_QUARTZ' | 'OBSESSIONS_WORK' | 'PLAYER_VIDEO' | 'PREMIUM_MEMBERS' | 'RELATED_MBB' | 'SHOWS_VIDEO' | 'TOP_WORK';
 /** Arguments for filtering the MenuToMenuItemConnection connection */
 export declare type MenuToMenuItemConnectionWhereArgs = {
     /** The ID of the object */
@@ -9606,8 +9612,6 @@ export declare type TimezoneEnum =
  | 'AUSTRALIA_BRISBANE'
 /** Broken Hill */
  | 'AUSTRALIA_BROKEN_HILL'
-/** Currie */
- | 'AUSTRALIA_CURRIE'
 /** Darwin */
  | 'AUSTRALIA_DARWIN'
 /** Eucla */

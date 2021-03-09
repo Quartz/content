@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { ShowPartsFragmentDoc } from './ShowParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type VideoHubQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
@@ -102,10 +103,12 @@ ${ShowPartsFragmentDoc}`;
  * });
  */
 export function useVideoHubQuery(baseOptions?: Apollo.QueryHookOptions<VideoHubQuery, VideoHubQueryVariables>) {
-        return Apollo.useQuery<VideoHubQuery, VideoHubQueryVariables>(VideoHubDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<VideoHubQuery, VideoHubQueryVariables>(VideoHubDocument, options);
       }
 export function useVideoHubLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoHubQuery, VideoHubQueryVariables>) {
-          return Apollo.useLazyQuery<VideoHubQuery, VideoHubQueryVariables>(VideoHubDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<VideoHubQuery, VideoHubQueryVariables>(VideoHubDocument, options);
         }
 export type VideoHubQueryHookResult = ReturnType<typeof useVideoHubQuery>;
 export type VideoHubLazyQueryHookResult = ReturnType<typeof useVideoHubLazyQuery>;

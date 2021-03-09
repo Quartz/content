@@ -25,6 +25,7 @@ const ObsessionParts_1 = require("./ObsessionParts");
 const CollectionParts_1 = require("./CollectionParts");
 const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.EssentialsByArticleDocument = client_1.gql `
     query EssentialsByArticle($id: ID!) {
   post(id: $id) {
@@ -71,11 +72,13 @@ ${GuideParts_1.GuidePartsFragmentDoc}`;
  * });
  */
 function useEssentialsByArticleQuery(baseOptions) {
-    return Apollo.useQuery(exports.EssentialsByArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.EssentialsByArticleDocument, options);
 }
 exports.useEssentialsByArticleQuery = useEssentialsByArticleQuery;
 function useEssentialsByArticleLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.EssentialsByArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.EssentialsByArticleDocument, options);
 }
 exports.useEssentialsByArticleLazyQuery = useEssentialsByArticleLazyQuery;
 //# sourceMappingURL=EssentialsByArticle.js.map

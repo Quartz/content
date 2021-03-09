@@ -23,6 +23,7 @@ exports.useLatestArticlesLazyQuery = exports.useLatestArticlesQuery = exports.La
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.LatestArticlesDocument = client_1.gql `
     query LatestArticles($after: String = "", $edition: EditionName, $postsPerPage: Int) {
   posts(after: $after, first: $postsPerPage, where: {edition: $edition}) {
@@ -55,11 +56,13 @@ exports.LatestArticlesDocument = client_1.gql `
  * });
  */
 function useLatestArticlesQuery(baseOptions) {
-    return Apollo.useQuery(exports.LatestArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.LatestArticlesDocument, options);
 }
 exports.useLatestArticlesQuery = useLatestArticlesQuery;
 function useLatestArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.LatestArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.LatestArticlesDocument, options);
 }
 exports.useLatestArticlesLazyQuery = useLatestArticlesLazyQuery;
 //# sourceMappingURL=LatestArticles.js.map

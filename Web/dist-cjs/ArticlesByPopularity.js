@@ -23,6 +23,7 @@ exports.usePopularArticlesLazyQuery = exports.usePopularArticlesQuery = exports.
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.PopularArticlesDocument = client_1.gql `
     query PopularArticles($after: String = "", $edition: EditionName, $perPage: Int) {
   posts(first: $perPage, after: $after, where: {popular: {edition: $edition}}) {
@@ -55,11 +56,13 @@ exports.PopularArticlesDocument = client_1.gql `
  * });
  */
 function usePopularArticlesQuery(baseOptions) {
-    return Apollo.useQuery(exports.PopularArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.PopularArticlesDocument, options);
 }
 exports.usePopularArticlesQuery = usePopularArticlesQuery;
 function usePopularArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.PopularArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.PopularArticlesDocument, options);
 }
 exports.usePopularArticlesLazyQuery = usePopularArticlesLazyQuery;
 //# sourceMappingURL=ArticlesByPopularity.js.map

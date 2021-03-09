@@ -4,6 +4,7 @@ import type { NugPartsFragment } from './NugParts';
 import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type NugQueryVariables = Types.Exact<{
   id: Types.Scalars['Int'];
 }>;
@@ -42,10 +43,12 @@ export const NugDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useNugQuery(baseOptions: Apollo.QueryHookOptions<NugQuery, NugQueryVariables>) {
-        return Apollo.useQuery<NugQuery, NugQueryVariables>(NugDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<NugQuery, NugQueryVariables>(NugDocument, options);
       }
 export function useNugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NugQuery, NugQueryVariables>) {
-          return Apollo.useLazyQuery<NugQuery, NugQueryVariables>(NugDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<NugQuery, NugQueryVariables>(NugDocument, options);
         }
 export type NugQueryHookResult = ReturnType<typeof useNugQuery>;
 export type NugLazyQueryHookResult = ReturnType<typeof useNugLazyQuery>;

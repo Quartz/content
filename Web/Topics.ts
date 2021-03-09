@@ -4,6 +4,7 @@ import type { TopicPartsFragment } from './TopicParts';
 import { gql } from '@apollo/client';
 import { TopicPartsFragmentDoc } from './TopicParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type TopicsQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
@@ -39,10 +40,12 @@ export const TopicsDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useTopicsQuery(baseOptions?: Apollo.QueryHookOptions<TopicsQuery, TopicsQueryVariables>) {
-        return Apollo.useQuery<TopicsQuery, TopicsQueryVariables>(TopicsDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TopicsQuery, TopicsQueryVariables>(TopicsDocument, options);
       }
 export function useTopicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TopicsQuery, TopicsQueryVariables>) {
-          return Apollo.useLazyQuery<TopicsQuery, TopicsQueryVariables>(TopicsDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TopicsQuery, TopicsQueryVariables>(TopicsDocument, options);
         }
 export type TopicsQueryHookResult = ReturnType<typeof useTopicsQuery>;
 export type TopicsLazyQueryHookResult = ReturnType<typeof useTopicsLazyQuery>;

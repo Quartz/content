@@ -4,6 +4,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type PopularArticlesQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   edition?: Types.Maybe<Types.EditionName>;
@@ -50,10 +51,12 @@ export const PopularArticlesDocument = /*#__PURE__*/ gql`
  * });
  */
 export function usePopularArticlesQuery(baseOptions?: Apollo.QueryHookOptions<PopularArticlesQuery, PopularArticlesQueryVariables>) {
-        return Apollo.useQuery<PopularArticlesQuery, PopularArticlesQueryVariables>(PopularArticlesDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PopularArticlesQuery, PopularArticlesQueryVariables>(PopularArticlesDocument, options);
       }
 export function usePopularArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PopularArticlesQuery, PopularArticlesQueryVariables>) {
-          return Apollo.useLazyQuery<PopularArticlesQuery, PopularArticlesQueryVariables>(PopularArticlesDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PopularArticlesQuery, PopularArticlesQueryVariables>(PopularArticlesDocument, options);
         }
 export type PopularArticlesQueryHookResult = ReturnType<typeof usePopularArticlesQuery>;
 export type PopularArticlesLazyQueryHookResult = ReturnType<typeof usePopularArticlesLazyQuery>;

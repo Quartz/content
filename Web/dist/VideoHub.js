@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { ShowPartsFragmentDoc } from './ShowParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const VideoHubDocument = /*#__PURE__*/ gql `
     query VideoHub {
   featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
@@ -70,9 +71,11 @@ ${ShowPartsFragmentDoc}`;
  * });
  */
 export function useVideoHubQuery(baseOptions) {
-    return Apollo.useQuery(VideoHubDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(VideoHubDocument, options);
 }
 export function useVideoHubLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(VideoHubDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(VideoHubDocument, options);
 }
 //# sourceMappingURL=VideoHub.js.map

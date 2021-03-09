@@ -8,6 +8,7 @@ import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type EssentialsByArticleQueryVariables = Types.Exact<{
   id: Types.Scalars['ID'];
 }>;
@@ -75,10 +76,12 @@ ${GuidePartsFragmentDoc}`;
  * });
  */
 export function useEssentialsByArticleQuery(baseOptions: Apollo.QueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>) {
-        return Apollo.useQuery<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>(EssentialsByArticleDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>(EssentialsByArticleDocument, options);
       }
 export function useEssentialsByArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>) {
-          return Apollo.useLazyQuery<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>(EssentialsByArticleDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EssentialsByArticleQuery, EssentialsByArticleQueryVariables>(EssentialsByArticleDocument, options);
         }
 export type EssentialsByArticleQueryHookResult = ReturnType<typeof useEssentialsByArticleQuery>;
 export type EssentialsByArticleLazyQueryHookResult = ReturnType<typeof useEssentialsByArticleLazyQuery>;

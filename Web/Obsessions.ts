@@ -6,6 +6,7 @@ import { gql } from '@apollo/client';
 import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ObsessionsQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
   location: Types.MenuLocationEnum;
@@ -60,10 +61,12 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useObsessionsQuery(baseOptions: Apollo.QueryHookOptions<ObsessionsQuery, ObsessionsQueryVariables>) {
-        return Apollo.useQuery<ObsessionsQuery, ObsessionsQueryVariables>(ObsessionsDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ObsessionsQuery, ObsessionsQueryVariables>(ObsessionsDocument, options);
       }
 export function useObsessionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ObsessionsQuery, ObsessionsQueryVariables>) {
-          return Apollo.useLazyQuery<ObsessionsQuery, ObsessionsQueryVariables>(ObsessionsDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ObsessionsQuery, ObsessionsQueryVariables>(ObsessionsDocument, options);
         }
 export type ObsessionsQueryHookResult = ReturnType<typeof useObsessionsQuery>;
 export type ObsessionsLazyQueryHookResult = ReturnType<typeof useObsessionsLazyQuery>;

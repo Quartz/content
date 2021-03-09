@@ -2,7 +2,7 @@ import type * as Types from './types';
 import type { EmailListPartsFragment } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export declare type EmailListsBySlugQueryVariables = Types.Exact<{
-    slug: Array<Types.Maybe<Types.Scalars['String']>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type EmailListsBySlugQuery = {
     __typename?: 'RootQuery';
@@ -38,10 +38,10 @@ export declare const EmailListsBySlugDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useEmailListsBySlugQuery(baseOptions: Apollo.QueryHookOptions<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>): Apollo.QueryResult<EmailListsBySlugQuery, Types.Exact<{
-    slug: (string | null)[];
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useEmailListsBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>): Apollo.QueryTuple<EmailListsBySlugQuery, Types.Exact<{
-    slug: (string | null)[];
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type EmailListsBySlugQueryHookResult = ReturnType<typeof useEmailListsBySlugQuery>;
 export declare type EmailListsBySlugLazyQueryHookResult = ReturnType<typeof useEmailListsBySlugLazyQuery>;

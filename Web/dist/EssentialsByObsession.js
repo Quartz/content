@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const EssentialsByObsessionDocument = /*#__PURE__*/ gql `
     query EssentialsByObsession($slug: String!) {
   obsessions(last: 1, where: {slug: [$slug]}) {
@@ -32,9 +33,11 @@ export const EssentialsByObsessionDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useEssentialsByObsessionQuery(baseOptions) {
-    return Apollo.useQuery(EssentialsByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(EssentialsByObsessionDocument, options);
 }
 export function useEssentialsByObsessionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(EssentialsByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(EssentialsByObsessionDocument, options);
 }
 //# sourceMappingURL=EssentialsByObsession.js.map

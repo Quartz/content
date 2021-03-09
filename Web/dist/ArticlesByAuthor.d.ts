@@ -5,7 +5,7 @@ import * as Apollo from '@apollo/client';
 export declare type ArticlesByAuthorQueryVariables = Types.Exact<{
     after?: Types.Maybe<Types.Scalars['String']>;
     perPage: Types.Scalars['Int'];
-    slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+    slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 export declare type ArticlesByAuthorQuery = {
     __typename?: 'RootQuery';
@@ -47,14 +47,14 @@ export declare const ArticlesByAuthorDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useArticlesByAuthorQuery(baseOptions: Apollo.QueryHookOptions<ArticlesByAuthorQuery, ArticlesByAuthorQueryVariables>): Apollo.QueryResult<ArticlesByAuthorQuery, Types.Exact<{
-    after?: string | null | undefined;
+    after?: Types.Maybe<string> | undefined;
     perPage: number;
-    slug?: (string | null)[] | null | undefined;
+    slug?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
 }>>;
 export declare function useArticlesByAuthorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByAuthorQuery, ArticlesByAuthorQueryVariables>): Apollo.QueryTuple<ArticlesByAuthorQuery, Types.Exact<{
-    after?: string | null | undefined;
+    after?: Types.Maybe<string> | undefined;
     perPage: number;
-    slug?: (string | null)[] | null | undefined;
+    slug?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
 }>>;
 export declare type ArticlesByAuthorQueryHookResult = ReturnType<typeof useArticlesByAuthorQuery>;
 export declare type ArticlesByAuthorLazyQueryHookResult = ReturnType<typeof useArticlesByAuthorLazyQuery>;

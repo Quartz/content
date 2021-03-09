@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const EmailParts_1 = require("./EmailParts");
 const EmailListParts_1 = require("./EmailListParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.EmailsByTagDocument = client_1.gql `
     query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
@@ -64,11 +65,13 @@ ${EmailListParts_1.EmailListPartsFragmentDoc}`;
  * });
  */
 function useEmailsByTagQuery(baseOptions) {
-    return Apollo.useQuery(exports.EmailsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.EmailsByTagDocument, options);
 }
 exports.useEmailsByTagQuery = useEmailsByTagQuery;
 function useEmailsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.EmailsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.EmailsByTagDocument, options);
 }
 exports.useEmailsByTagLazyQuery = useEmailsByTagLazyQuery;
 //# sourceMappingURL=EmailsByTag.js.map

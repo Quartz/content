@@ -4,6 +4,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticlesByRecommendationQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
   postId: Types.Scalars['Int'];
@@ -44,10 +45,12 @@ export const ArticlesByRecommendationDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useArticlesByRecommendationQuery(baseOptions: Apollo.QueryHookOptions<ArticlesByRecommendationQuery, ArticlesByRecommendationQueryVariables>) {
-        return Apollo.useQuery<ArticlesByRecommendationQuery, ArticlesByRecommendationQueryVariables>(ArticlesByRecommendationDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticlesByRecommendationQuery, ArticlesByRecommendationQueryVariables>(ArticlesByRecommendationDocument, options);
       }
 export function useArticlesByRecommendationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByRecommendationQuery, ArticlesByRecommendationQueryVariables>) {
-          return Apollo.useLazyQuery<ArticlesByRecommendationQuery, ArticlesByRecommendationQueryVariables>(ArticlesByRecommendationDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticlesByRecommendationQuery, ArticlesByRecommendationQueryVariables>(ArticlesByRecommendationDocument, options);
         }
 export type ArticlesByRecommendationQueryHookResult = ReturnType<typeof useArticlesByRecommendationQuery>;
 export type ArticlesByRecommendationLazyQueryHookResult = ReturnType<typeof useArticlesByRecommendationLazyQuery>;

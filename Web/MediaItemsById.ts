@@ -4,8 +4,9 @@ import type { MediaPartsFragment } from './MediaParts';
 import { gql } from '@apollo/client';
 import { MediaPartsFragmentDoc } from './MediaParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type MediaItemsByIdQueryVariables = Types.Exact<{
-  ids?: Types.Maybe<Array<Types.Scalars['ID']>>;
+  ids?: Types.Maybe<Array<Types.Scalars['ID']> | Types.Scalars['ID']>;
 }>;
 
 
@@ -42,10 +43,12 @@ export const MediaItemsByIdDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useMediaItemsByIdQuery(baseOptions?: Apollo.QueryHookOptions<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>) {
-        return Apollo.useQuery<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>(MediaItemsByIdDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>(MediaItemsByIdDocument, options);
       }
 export function useMediaItemsByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>) {
-          return Apollo.useLazyQuery<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>(MediaItemsByIdDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>(MediaItemsByIdDocument, options);
         }
 export type MediaItemsByIdQueryHookResult = ReturnType<typeof useMediaItemsByIdQuery>;
 export type MediaItemsByIdLazyQueryHookResult = ReturnType<typeof useMediaItemsByIdLazyQuery>;

@@ -23,6 +23,7 @@ exports.useGuidesBySlugLazyQuery = exports.useGuidesBySlugQuery = exports.Guides
 const client_1 = require("@apollo/client");
 const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.GuidesBySlugDocument = client_1.gql `
     query GuidesBySlug($perPage: Int!, $slug: [String]!) {
   guides(last: $perPage, where: {slug: $slug}) {
@@ -50,11 +51,13 @@ exports.GuidesBySlugDocument = client_1.gql `
  * });
  */
 function useGuidesBySlugQuery(baseOptions) {
-    return Apollo.useQuery(exports.GuidesBySlugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.GuidesBySlugDocument, options);
 }
 exports.useGuidesBySlugQuery = useGuidesBySlugQuery;
 function useGuidesBySlugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.GuidesBySlugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.GuidesBySlugDocument, options);
 }
 exports.useGuidesBySlugLazyQuery = useGuidesBySlugLazyQuery;
 //# sourceMappingURL=GuidesBySlug.js.map

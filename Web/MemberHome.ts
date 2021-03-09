@@ -8,6 +8,7 @@ import { TagPartsFragmentDoc } from './TagParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type MemberHomeQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
@@ -74,10 +75,12 @@ ${GuidePartsFragmentDoc}`;
  * });
  */
 export function useMemberHomeQuery(baseOptions?: Apollo.QueryHookOptions<MemberHomeQuery, MemberHomeQueryVariables>) {
-        return Apollo.useQuery<MemberHomeQuery, MemberHomeQueryVariables>(MemberHomeDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MemberHomeQuery, MemberHomeQueryVariables>(MemberHomeDocument, options);
       }
 export function useMemberHomeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MemberHomeQuery, MemberHomeQueryVariables>) {
-          return Apollo.useLazyQuery<MemberHomeQuery, MemberHomeQueryVariables>(MemberHomeDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MemberHomeQuery, MemberHomeQueryVariables>(MemberHomeDocument, options);
         }
 export type MemberHomeQueryHookResult = ReturnType<typeof useMemberHomeQuery>;
 export type MemberHomeLazyQueryHookResult = ReturnType<typeof useMemberHomeLazyQuery>;

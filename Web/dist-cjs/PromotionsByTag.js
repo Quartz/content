@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const PromotionParts_1 = require("./PromotionParts");
 const BlockParts_1 = require("./BlockParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.PromotionsByTagDocument = client_1.gql `
     query PromotionsByTag($perPage: Int!, $slug: [String]!) {
   promotions(first: $perPage, where: {tagSlugIn: $slug}) {
@@ -55,11 +56,13 @@ ${BlockParts_1.BlockPartsFragmentDoc}`;
  * });
  */
 function usePromotionsByTagQuery(baseOptions) {
-    return Apollo.useQuery(exports.PromotionsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.PromotionsByTagDocument, options);
 }
 exports.usePromotionsByTagQuery = usePromotionsByTagQuery;
 function usePromotionsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.PromotionsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.PromotionsByTagDocument, options);
 }
 exports.usePromotionsByTagLazyQuery = usePromotionsByTagLazyQuery;
 //# sourceMappingURL=PromotionsByTag.js.map

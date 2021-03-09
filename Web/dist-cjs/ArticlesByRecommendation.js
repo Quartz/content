@@ -23,6 +23,7 @@ exports.useArticlesByRecommendationLazyQuery = exports.useArticlesByRecommendati
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ArticlesByRecommendationDocument = client_1.gql `
     query ArticlesByRecommendation($perPage: Int!, $postId: Int!) {
   posts(first: $perPage, where: {recommended: {id: $postId}}) {
@@ -50,11 +51,13 @@ exports.ArticlesByRecommendationDocument = client_1.gql `
  * });
  */
 function useArticlesByRecommendationQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByRecommendationDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ArticlesByRecommendationDocument, options);
 }
 exports.useArticlesByRecommendationQuery = useArticlesByRecommendationQuery;
 function useArticlesByRecommendationLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByRecommendationDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ArticlesByRecommendationDocument, options);
 }
 exports.useArticlesByRecommendationLazyQuery = useArticlesByRecommendationLazyQuery;
 //# sourceMappingURL=ArticlesByRecommendation.js.map

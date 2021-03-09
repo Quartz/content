@@ -38,11 +38,11 @@ export declare const MenuByNameDocument: Apollo.DocumentNode;
  */
 export declare function useMenuByNameQuery(baseOptions: Apollo.QueryHookOptions<MenuByNameQuery, MenuByNameQueryVariables>): Apollo.QueryResult<MenuByNameQuery, Types.Exact<{
     id: string;
-    first?: number | null | undefined;
+    first?: Types.Maybe<number> | undefined;
 }>>;
 export declare function useMenuByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MenuByNameQuery, MenuByNameQueryVariables>): Apollo.QueryTuple<MenuByNameQuery, Types.Exact<{
     id: string;
-    first?: number | null | undefined;
+    first?: Types.Maybe<number> | undefined;
 }>>;
 export declare type MenuByNameQueryHookResult = ReturnType<typeof useMenuByNameQuery>;
 export declare type MenuByNameLazyQueryHookResult = ReturnType<typeof useMenuByNameLazyQuery>;

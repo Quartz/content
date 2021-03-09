@@ -23,6 +23,7 @@ exports.useArticleLazyQuery = exports.useArticleQuery = exports.ArticleDocument 
 const client_1 = require("@apollo/client");
 const ArticleParts_1 = require("./ArticleParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ArticleDocument = client_1.gql `
     query Article($id: Int!) {
   posts(where: {id: $id}) {
@@ -49,11 +50,13 @@ exports.ArticleDocument = client_1.gql `
  * });
  */
 function useArticleQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ArticleDocument, options);
 }
 exports.useArticleQuery = useArticleQuery;
 function useArticleLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ArticleDocument, options);
 }
 exports.useArticleLazyQuery = useArticleLazyQuery;
 //# sourceMappingURL=Article.js.map

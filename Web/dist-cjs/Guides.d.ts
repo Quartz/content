@@ -47,14 +47,14 @@ export declare const GuidesDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useGuidesQuery(baseOptions?: Apollo.QueryHookOptions<GuidesQuery, GuidesQueryVariables>): Apollo.QueryResult<GuidesQuery, Types.Exact<{
-    before?: string | null | undefined;
-    perPage?: number | null | undefined;
-    postsPerGuide?: number | null | undefined;
+    before?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
+    postsPerGuide?: Types.Maybe<number> | undefined;
 }>>;
 export declare function useGuidesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesQuery, GuidesQueryVariables>): Apollo.QueryTuple<GuidesQuery, Types.Exact<{
-    before?: string | null | undefined;
-    perPage?: number | null | undefined;
-    postsPerGuide?: number | null | undefined;
+    before?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
+    postsPerGuide?: Types.Maybe<number> | undefined;
 }>>;
 export declare type GuidesQueryHookResult = ReturnType<typeof useGuidesQuery>;
 export declare type GuidesLazyQueryHookResult = ReturnType<typeof useGuidesLazyQuery>;

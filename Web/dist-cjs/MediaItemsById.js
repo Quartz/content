@@ -23,6 +23,7 @@ exports.useMediaItemsByIdLazyQuery = exports.useMediaItemsByIdQuery = exports.Me
 const client_1 = require("@apollo/client");
 const MediaParts_1 = require("./MediaParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.MediaItemsByIdDocument = client_1.gql `
     query MediaItemsById($ids: [ID!]) {
   mediaItems(where: {in: $ids}) {
@@ -49,11 +50,13 @@ exports.MediaItemsByIdDocument = client_1.gql `
  * });
  */
 function useMediaItemsByIdQuery(baseOptions) {
-    return Apollo.useQuery(exports.MediaItemsByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.MediaItemsByIdDocument, options);
 }
 exports.useMediaItemsByIdQuery = useMediaItemsByIdQuery;
 function useMediaItemsByIdLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MediaItemsByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.MediaItemsByIdDocument, options);
 }
 exports.useMediaItemsByIdLazyQuery = useMediaItemsByIdLazyQuery;
 //# sourceMappingURL=MediaItemsById.js.map

@@ -6,8 +6,9 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { TopicPartsFragmentDoc } from './TopicParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type DiscoverQueryVariables = Types.Exact<{
-  topics: Array<Types.Maybe<Types.Scalars['String']>>;
+  topics: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
@@ -69,10 +70,12 @@ ${TopicPartsFragmentDoc}`;
  * });
  */
 export function useDiscoverQuery(baseOptions: Apollo.QueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
-        return Apollo.useQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, options);
       }
 export function useDiscoverLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DiscoverQuery, DiscoverQueryVariables>) {
-          return Apollo.useLazyQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<DiscoverQuery, DiscoverQueryVariables>(DiscoverDocument, options);
         }
 export type DiscoverQueryHookResult = ReturnType<typeof useDiscoverQuery>;
 export type DiscoverLazyQueryHookResult = ReturnType<typeof useDiscoverLazyQuery>;

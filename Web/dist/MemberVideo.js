@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { TagPartsFragmentDoc } from './TagParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const MemberVideoDocument = /*#__PURE__*/ gql `
     query MemberVideo {
   features: menuItems(first: 3, where: {location: FEATURES_VIDEO_MEMBERS}) {
@@ -38,9 +39,11 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useMemberVideoQuery(baseOptions) {
-    return Apollo.useQuery(MemberVideoDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(MemberVideoDocument, options);
 }
 export function useMemberVideoLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(MemberVideoDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(MemberVideoDocument, options);
 }
 //# sourceMappingURL=MemberVideo.js.map

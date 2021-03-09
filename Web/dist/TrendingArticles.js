@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const TrendingArticlesDocument = /*#__PURE__*/ gql `
     query TrendingArticles {
   trendingPosts {
@@ -26,9 +27,11 @@ export const TrendingArticlesDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useTrendingArticlesQuery(baseOptions) {
-    return Apollo.useQuery(TrendingArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(TrendingArticlesDocument, options);
 }
 export function useTrendingArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(TrendingArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(TrendingArticlesDocument, options);
 }
 //# sourceMappingURL=TrendingArticles.js.map

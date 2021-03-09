@@ -3,7 +3,7 @@ import type { NugPartsFragment } from './NugParts';
 import * as Apollo from '@apollo/client';
 export declare type NugsByTagQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
-    slug: Array<Types.Maybe<Types.Scalars['String']>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type NugsByTagQuery = {
     __typename?: 'RootQuery';
@@ -34,11 +34,11 @@ export declare const NugsByTagDocument: Apollo.DocumentNode;
  */
 export declare function useNugsByTagQuery(baseOptions: Apollo.QueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>): Apollo.QueryResult<NugsByTagQuery, Types.Exact<{
     perPage: number;
-    slug: (string | null)[];
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useNugsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NugsByTagQuery, NugsByTagQueryVariables>): Apollo.QueryTuple<NugsByTagQuery, Types.Exact<{
     perPage: number;
-    slug: (string | null)[];
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type NugsByTagQueryHookResult = ReturnType<typeof useNugsByTagQuery>;
 export declare type NugsByTagLazyQueryHookResult = ReturnType<typeof useNugsByTagLazyQuery>;

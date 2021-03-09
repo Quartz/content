@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const GuideParts_1 = require("./GuideParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.GuidesDocument = client_1.gql `
     query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
   guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
@@ -62,11 +63,13 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 function useGuidesQuery(baseOptions) {
-    return Apollo.useQuery(exports.GuidesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.GuidesDocument, options);
 }
 exports.useGuidesQuery = useGuidesQuery;
 function useGuidesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.GuidesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.GuidesDocument, options);
 }
 exports.useGuidesLazyQuery = useGuidesLazyQuery;
 //# sourceMappingURL=Guides.js.map

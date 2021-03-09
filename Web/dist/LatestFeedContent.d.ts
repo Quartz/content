@@ -60,12 +60,12 @@ export declare const LatestFeedContentDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useLatestFeedContentQuery(baseOptions?: Apollo.QueryHookOptions<LatestFeedContentQuery, LatestFeedContentQueryVariables>): Apollo.QueryResult<LatestFeedContentQuery, Types.Exact<{
-    after?: string | null | undefined;
-    perPage?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
 }>>;
 export declare function useLatestFeedContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestFeedContentQuery, LatestFeedContentQueryVariables>): Apollo.QueryTuple<LatestFeedContentQuery, Types.Exact<{
-    after?: string | null | undefined;
-    perPage?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
 }>>;
 export declare type LatestFeedContentQueryHookResult = ReturnType<typeof useLatestFeedContentQuery>;
 export declare type LatestFeedContentLazyQueryHookResult = ReturnType<typeof useLatestFeedContentLazyQuery>;

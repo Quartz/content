@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const LatestFeedContentDocument = /*#__PURE__*/ gql `
     query LatestFeedContent($after: String = "", $perPage: Int) {
   feedContent(after: $after, first: $perPage) {
@@ -44,9 +45,11 @@ ${EmailPartsFragmentDoc}`;
  * });
  */
 export function useLatestFeedContentQuery(baseOptions) {
-    return Apollo.useQuery(LatestFeedContentDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(LatestFeedContentDocument, options);
 }
 export function useLatestFeedContentLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(LatestFeedContentDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(LatestFeedContentDocument, options);
 }
 //# sourceMappingURL=LatestFeedContent.js.map

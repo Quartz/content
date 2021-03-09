@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const EmailByIdDocument = /*#__PURE__*/ gql `
     query EmailById($id: ID!) {
   email(id: $id) {
@@ -33,9 +34,11 @@ ${EmailListPartsFragmentDoc}`;
  * });
  */
 export function useEmailByIdQuery(baseOptions) {
-    return Apollo.useQuery(EmailByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(EmailByIdDocument, options);
 }
 export function useEmailByIdLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(EmailByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(EmailByIdDocument, options);
 }
 //# sourceMappingURL=EmailById.js.map

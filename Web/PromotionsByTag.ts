@@ -6,9 +6,10 @@ import { gql } from '@apollo/client';
 import { PromotionPartsFragmentDoc } from './PromotionParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type PromotionsByTagQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
-  slug: Array<Types.Maybe<Types.Scalars['String']>>;
+  slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
@@ -53,10 +54,12 @@ ${BlockPartsFragmentDoc}`;
  * });
  */
 export function usePromotionsByTagQuery(baseOptions: Apollo.QueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>) {
-        return Apollo.useQuery<PromotionsByTagQuery, PromotionsByTagQueryVariables>(PromotionsByTagDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PromotionsByTagQuery, PromotionsByTagQueryVariables>(PromotionsByTagDocument, options);
       }
 export function usePromotionsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PromotionsByTagQuery, PromotionsByTagQueryVariables>) {
-          return Apollo.useLazyQuery<PromotionsByTagQuery, PromotionsByTagQueryVariables>(PromotionsByTagDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PromotionsByTagQuery, PromotionsByTagQueryVariables>(PromotionsByTagDocument, options);
         }
 export type PromotionsByTagQueryHookResult = ReturnType<typeof usePromotionsByTagQuery>;
 export type PromotionsByTagLazyQueryHookResult = ReturnType<typeof usePromotionsByTagLazyQuery>;

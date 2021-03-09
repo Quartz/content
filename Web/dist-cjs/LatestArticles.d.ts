@@ -40,14 +40,14 @@ export declare const LatestArticlesDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useLatestArticlesQuery(baseOptions?: Apollo.QueryHookOptions<LatestArticlesQuery, LatestArticlesQueryVariables>): Apollo.QueryResult<LatestArticlesQuery, Types.Exact<{
-    after?: string | null | undefined;
-    edition?: "AFRICA" | "INDIA" | "QUARTZ" | "QUARTZY" | "WORK" | null | undefined;
-    postsPerPage?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    edition?: Types.Maybe<Types.EditionName> | undefined;
+    postsPerPage?: Types.Maybe<number> | undefined;
 }>>;
 export declare function useLatestArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestArticlesQuery, LatestArticlesQueryVariables>): Apollo.QueryTuple<LatestArticlesQuery, Types.Exact<{
-    after?: string | null | undefined;
-    edition?: "AFRICA" | "INDIA" | "QUARTZ" | "QUARTZY" | "WORK" | null | undefined;
-    postsPerPage?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    edition?: Types.Maybe<Types.EditionName> | undefined;
+    postsPerPage?: Types.Maybe<number> | undefined;
 }>>;
 export declare type LatestArticlesQueryHookResult = ReturnType<typeof useLatestArticlesQuery>;
 export declare type LatestArticlesLazyQueryHookResult = ReturnType<typeof useLatestArticlesLazyQuery>;
