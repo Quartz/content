@@ -30314,6 +30314,18 @@
             "deprecationReason": null
           },
           {
+            "name": "bulletin",
+            "description": "Bulletin data",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BulletinData",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "collectionId",
             "description": "The id field matches the WP_Post-&gt;ID field.",
             "args": [],
@@ -81622,6 +81634,12 @@
             "deprecationReason": null
           },
           {
+            "name": "RELATED_MBB",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "SHOWS_VIDEO",
             "description": null,
             "isDeprecated": false,
@@ -106892,12 +106910,6 @@
           {
             "name": "AUSTRALIA_BROKEN_HILL",
             "description": "Broken Hill",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "AUSTRALIA_CURRIE",
-            "description": "Currie",
             "isDeprecated": false,
             "deprecationReason": null
           },
