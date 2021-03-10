@@ -13,9 +13,7 @@ query EssentialsByArticle(
 		obsessions {
 			nodes {
 				...ObsessionParts
-				essentials(
-					first: 1
-				) {
+				essentials {
 					nodes {
 						...CollectionParts
 					}
@@ -25,9 +23,7 @@ query EssentialsByArticle(
 		guides {
 			nodes {
 				...GuideParts
-				essentials(
-					first: 1
-				) {
+				essentials {
 					nodes {
 						...CollectionParts
 					}
