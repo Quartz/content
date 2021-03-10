@@ -1,5 +1,5 @@
 query CollectionById(
-	$id: Int!
+	$id: ID!
 ) {
 	collectionBy(id: $id) {
 		...CollectionParts
