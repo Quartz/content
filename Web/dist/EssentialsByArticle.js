@@ -3,6 +3,7 @@ import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const EssentialsByArticleDocument = /*#__PURE__*/ gql `
     query EssentialsByArticle($id: ID!) {
   post(id: $id) {
@@ -49,9 +50,11 @@ ${GuidePartsFragmentDoc}`;
  * });
  */
 export function useEssentialsByArticleQuery(baseOptions) {
-    return Apollo.useQuery(EssentialsByArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(EssentialsByArticleDocument, options);
 }
 export function useEssentialsByArticleLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(EssentialsByArticleDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(EssentialsByArticleDocument, options);
 }
 //# sourceMappingURL=EssentialsByArticle.js.map

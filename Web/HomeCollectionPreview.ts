@@ -4,6 +4,7 @@ import type { CollectionPartsFragment } from './CollectionParts';
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type HomeCollectionPreviewQueryVariables = Types.Exact<{
   id: Types.Scalars['Int'];
   time: Types.Scalars['Int'];
@@ -46,10 +47,12 @@ export const HomeCollectionPreviewDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useHomeCollectionPreviewQuery(baseOptions: Apollo.QueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>) {
-        return Apollo.useQuery<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>(HomeCollectionPreviewDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>(HomeCollectionPreviewDocument, options);
       }
 export function useHomeCollectionPreviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>) {
-          return Apollo.useLazyQuery<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>(HomeCollectionPreviewDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HomeCollectionPreviewQuery, HomeCollectionPreviewQueryVariables>(HomeCollectionPreviewDocument, options);
         }
 export type HomeCollectionPreviewQueryHookResult = ReturnType<typeof useHomeCollectionPreviewQuery>;
 export type HomeCollectionPreviewLazyQueryHookResult = ReturnType<typeof useHomeCollectionPreviewLazyQuery>;

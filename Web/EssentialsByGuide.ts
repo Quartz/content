@@ -4,6 +4,7 @@ import type { CollectionPartsFragment } from './CollectionParts';
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type EssentialsByGuideQueryVariables = Types.Exact<{
   slug: Types.Scalars['String'];
 }>;
@@ -47,10 +48,12 @@ export const EssentialsByGuideDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useEssentialsByGuideQuery(baseOptions: Apollo.QueryHookOptions<EssentialsByGuideQuery, EssentialsByGuideQueryVariables>) {
-        return Apollo.useQuery<EssentialsByGuideQuery, EssentialsByGuideQueryVariables>(EssentialsByGuideDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EssentialsByGuideQuery, EssentialsByGuideQueryVariables>(EssentialsByGuideDocument, options);
       }
 export function useEssentialsByGuideLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EssentialsByGuideQuery, EssentialsByGuideQueryVariables>) {
-          return Apollo.useLazyQuery<EssentialsByGuideQuery, EssentialsByGuideQueryVariables>(EssentialsByGuideDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EssentialsByGuideQuery, EssentialsByGuideQueryVariables>(EssentialsByGuideDocument, options);
         }
 export type EssentialsByGuideQueryHookResult = ReturnType<typeof useEssentialsByGuideQuery>;
 export type EssentialsByGuideLazyQueryHookResult = ReturnType<typeof useEssentialsByGuideLazyQuery>;

@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const EmailListsBySlugDocument = /*#__PURE__*/ gql `
     query EmailListsBySlug($slug: [String]!) {
   emailLists(where: {slug: $slug}) {
@@ -32,9 +33,11 @@ export const EmailListsBySlugDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useEmailListsBySlugQuery(baseOptions) {
-    return Apollo.useQuery(EmailListsBySlugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(EmailListsBySlugDocument, options);
 }
 export function useEmailListsBySlugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(EmailListsBySlugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(EmailListsBySlugDocument, options);
 }
 //# sourceMappingURL=EmailListsBySlug.js.map

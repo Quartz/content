@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const CollectionDocument = /*#__PURE__*/ gql `
     query Collection($slug: String!) {
   collectionBy(slug: $slug) {
@@ -25,9 +26,11 @@ export const CollectionDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useCollectionQuery(baseOptions) {
-    return Apollo.useQuery(CollectionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(CollectionDocument, options);
 }
 export function useCollectionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(CollectionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(CollectionDocument, options);
 }
 //# sourceMappingURL=Collection.js.map

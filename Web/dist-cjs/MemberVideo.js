@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const TagParts_1 = require("./TagParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.MemberVideoDocument = client_1.gql `
     query MemberVideo {
   features: menuItems(first: 3, where: {location: FEATURES_VIDEO_MEMBERS}) {
@@ -60,11 +61,13 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 function useMemberVideoQuery(baseOptions) {
-    return Apollo.useQuery(exports.MemberVideoDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.MemberVideoDocument, options);
 }
 exports.useMemberVideoQuery = useMemberVideoQuery;
 function useMemberVideoLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MemberVideoDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.MemberVideoDocument, options);
 }
 exports.useMemberVideoLazyQuery = useMemberVideoLazyQuery;
 //# sourceMappingURL=MemberVideo.js.map

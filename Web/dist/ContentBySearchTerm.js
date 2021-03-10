@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ContentBySearchTermDocument = /*#__PURE__*/ gql `
     query ContentBySearchTerm($after: String = "", $limit: Int = 10, $search: String!) {
   content(after: $after, first: $limit, where: {search: $search}) {
@@ -36,9 +37,11 @@ export const ContentBySearchTermDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useContentBySearchTermQuery(baseOptions) {
-    return Apollo.useQuery(ContentBySearchTermDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ContentBySearchTermDocument, options);
 }
 export function useContentBySearchTermLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ContentBySearchTermDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ContentBySearchTermDocument, options);
 }
 //# sourceMappingURL=ContentBySearchTerm.js.map

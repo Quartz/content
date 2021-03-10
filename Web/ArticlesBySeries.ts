@@ -6,10 +6,11 @@ import { gql } from '@apollo/client';
 import { SeriesPartsFragmentDoc } from './SeriesParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticlesBySeriesQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
-  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -61,10 +62,12 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useArticlesBySeriesQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>) {
-        return Apollo.useQuery<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>(ArticlesBySeriesDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>(ArticlesBySeriesDocument, options);
       }
 export function useArticlesBySeriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>) {
-          return Apollo.useLazyQuery<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>(ArticlesBySeriesDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticlesBySeriesQuery, ArticlesBySeriesQueryVariables>(ArticlesBySeriesDocument, options);
         }
 export type ArticlesBySeriesQueryHookResult = ReturnType<typeof useArticlesBySeriesQuery>;
 export type ArticlesBySeriesLazyQueryHookResult = ReturnType<typeof useArticlesBySeriesLazyQuery>;

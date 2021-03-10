@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { TopicPartsFragmentDoc } from './TopicParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const DiscoverDocument = /*#__PURE__*/ gql `
     query Discover($topics: [String]!) {
   latest: posts(first: 5) {
@@ -44,9 +45,11 @@ ${TopicPartsFragmentDoc}`;
  * });
  */
 export function useDiscoverQuery(baseOptions) {
-    return Apollo.useQuery(DiscoverDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(DiscoverDocument, options);
 }
 export function useDiscoverLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(DiscoverDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(DiscoverDocument, options);
 }
 //# sourceMappingURL=Discover.js.map

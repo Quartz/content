@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const EmailParts_1 = require("./EmailParts");
 const EmailListParts_1 = require("./EmailListParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.EmailByIdDocument = client_1.gql `
     query EmailById($id: ID!) {
   email(id: $id) {
@@ -55,11 +56,13 @@ ${EmailListParts_1.EmailListPartsFragmentDoc}`;
  * });
  */
 function useEmailByIdQuery(baseOptions) {
-    return Apollo.useQuery(exports.EmailByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.EmailByIdDocument, options);
 }
 exports.useEmailByIdQuery = useEmailByIdQuery;
 function useEmailByIdLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.EmailByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.EmailByIdDocument, options);
 }
 exports.useEmailByIdLazyQuery = useEmailByIdLazyQuery;
 //# sourceMappingURL=EmailById.js.map

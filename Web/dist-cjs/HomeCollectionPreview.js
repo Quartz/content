@@ -23,6 +23,7 @@ exports.useHomeCollectionPreviewLazyQuery = exports.useHomeCollectionPreviewQuer
 const client_1 = require("@apollo/client");
 const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.HomeCollectionPreviewDocument = client_1.gql `
     query HomeCollectionPreview($id: Int!, $time: Int!, $token: String!) {
   collections(where: {id: $id, preview: {time: $time, token: $token}}) {
@@ -51,11 +52,13 @@ exports.HomeCollectionPreviewDocument = client_1.gql `
  * });
  */
 function useHomeCollectionPreviewQuery(baseOptions) {
-    return Apollo.useQuery(exports.HomeCollectionPreviewDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.HomeCollectionPreviewDocument, options);
 }
 exports.useHomeCollectionPreviewQuery = useHomeCollectionPreviewQuery;
 function useHomeCollectionPreviewLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.HomeCollectionPreviewDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.HomeCollectionPreviewDocument, options);
 }
 exports.useHomeCollectionPreviewLazyQuery = useHomeCollectionPreviewLazyQuery;
 //# sourceMappingURL=HomeCollectionPreview.js.map

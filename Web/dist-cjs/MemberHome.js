@@ -25,6 +25,7 @@ const TagParts_1 = require("./TagParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.MemberHomeDocument = client_1.gql `
     query MemberHome {
   features: menuItems(first: 3, where: {location: FEATURES_MEMBERS}) {
@@ -72,11 +73,13 @@ ${GuideParts_1.GuidePartsFragmentDoc}`;
  * });
  */
 function useMemberHomeQuery(baseOptions) {
-    return Apollo.useQuery(exports.MemberHomeDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.MemberHomeDocument, options);
 }
 exports.useMemberHomeQuery = useMemberHomeQuery;
 function useMemberHomeLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.MemberHomeDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.MemberHomeDocument, options);
 }
 exports.useMemberHomeLazyQuery = useMemberHomeLazyQuery;
 //# sourceMappingURL=MemberHome.js.map

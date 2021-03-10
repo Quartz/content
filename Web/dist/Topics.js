@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { TopicPartsFragmentDoc } from './TopicParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const TopicsDocument = /*#__PURE__*/ gql `
     query Topics {
   topics {
@@ -26,9 +27,11 @@ export const TopicsDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useTopicsQuery(baseOptions) {
-    return Apollo.useQuery(TopicsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(TopicsDocument, options);
 }
 export function useTopicsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(TopicsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(TopicsDocument, options);
 }
 //# sourceMappingURL=Topics.js.map

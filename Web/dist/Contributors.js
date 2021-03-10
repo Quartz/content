@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ContributorsDocument = /*#__PURE__*/ gql `
     query Contributors($perPage: Int!) {
   menuItems(first: $perPage, where: {location: AUTHORS_WORK}) {
@@ -45,9 +46,11 @@ ${AuthorPartsFragmentDoc}`;
  * });
  */
 export function useContributorsQuery(baseOptions) {
-    return Apollo.useQuery(ContributorsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ContributorsDocument, options);
 }
 export function useContributorsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ContributorsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ContributorsDocument, options);
 }
 //# sourceMappingURL=Contributors.js.map

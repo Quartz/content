@@ -35,7 +35,7 @@ struct Codegen: ParsableCommand {
 
 		let options = ApolloSchemaOptions(
 			schemaFileName: URL(fileURLWithPath: schema).deletingPathExtension().lastPathComponent,
-			endpointURL: endpoint,
+			downloadMethod: .introspection(endpointURL: endpoint),
 			outputFolderURL: URL(fileURLWithPath: schema, relativeTo: Codegen.parentURL).deletingLastPathComponent()
 		)
 		try ApolloSchemaDownloader.run(with: cliFolderURL, options: options)

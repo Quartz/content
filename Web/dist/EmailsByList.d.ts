@@ -5,8 +5,8 @@ import * as Apollo from '@apollo/client';
 export declare type EmailsByListQueryVariables = Types.Exact<{
     after?: Types.Maybe<Types.Scalars['String']>;
     perPage?: Types.Maybe<Types.Scalars['Int']>;
-    slug: Array<Types.Maybe<Types.Scalars['String']>>;
-    tags?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
+    tags?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 export declare type EmailsByListQuery = {
     __typename?: 'RootQuery';
@@ -49,16 +49,16 @@ export declare const EmailsByListDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useEmailsByListQuery(baseOptions: Apollo.QueryHookOptions<EmailsByListQuery, EmailsByListQueryVariables>): Apollo.QueryResult<EmailsByListQuery, Types.Exact<{
-    after?: string | null | undefined;
-    perPage?: number | null | undefined;
-    slug: (string | null)[];
-    tags?: (string | null)[] | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
+    tags?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
 }>>;
 export declare function useEmailsByListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailsByListQuery, EmailsByListQueryVariables>): Apollo.QueryTuple<EmailsByListQuery, Types.Exact<{
-    after?: string | null | undefined;
-    perPage?: number | null | undefined;
-    slug: (string | null)[];
-    tags?: (string | null)[] | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
+    tags?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
 }>>;
 export declare type EmailsByListQueryHookResult = ReturnType<typeof useEmailsByListQuery>;
 export declare type EmailsByListLazyQueryHookResult = ReturnType<typeof useEmailsByListLazyQuery>;

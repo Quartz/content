@@ -23,6 +23,7 @@ exports.useEmailListsBySlugLazyQuery = exports.useEmailListsBySlugQuery = export
 const client_1 = require("@apollo/client");
 const EmailListParts_1 = require("./EmailListParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.EmailListsBySlugDocument = client_1.gql `
     query EmailListsBySlug($slug: [String]!) {
   emailLists(where: {slug: $slug}) {
@@ -54,11 +55,13 @@ exports.EmailListsBySlugDocument = client_1.gql `
  * });
  */
 function useEmailListsBySlugQuery(baseOptions) {
-    return Apollo.useQuery(exports.EmailListsBySlugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.EmailListsBySlugDocument, options);
 }
 exports.useEmailListsBySlugQuery = useEmailListsBySlugQuery;
 function useEmailListsBySlugLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.EmailListsBySlugDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.EmailListsBySlugDocument, options);
 }
 exports.useEmailListsBySlugLazyQuery = useEmailListsBySlugLazyQuery;
 //# sourceMappingURL=EmailListsBySlug.js.map

@@ -23,6 +23,7 @@ exports.useTrendingArticlesLazyQuery = exports.useTrendingArticlesQuery = export
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.TrendingArticlesDocument = client_1.gql `
     query TrendingArticles {
   trendingPosts {
@@ -48,11 +49,13 @@ exports.TrendingArticlesDocument = client_1.gql `
  * });
  */
 function useTrendingArticlesQuery(baseOptions) {
-    return Apollo.useQuery(exports.TrendingArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.TrendingArticlesDocument, options);
 }
 exports.useTrendingArticlesQuery = useTrendingArticlesQuery;
 function useTrendingArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.TrendingArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.TrendingArticlesDocument, options);
 }
 exports.useTrendingArticlesLazyQuery = useTrendingArticlesLazyQuery;
 //# sourceMappingURL=TrendingArticles.js.map

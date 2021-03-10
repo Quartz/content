@@ -23,6 +23,7 @@ exports.useArticlePreviewLazyQuery = exports.useArticlePreviewQuery = exports.Ar
 const client_1 = require("@apollo/client");
 const ArticleParts_1 = require("./ArticleParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ArticlePreviewDocument = client_1.gql `
     query ArticlePreview($id: Int!, $time: Int!, $token: String!) {
   posts(where: {id: $id, preview: {time: $time, token: $token}}) {
@@ -51,11 +52,13 @@ exports.ArticlePreviewDocument = client_1.gql `
  * });
  */
 function useArticlePreviewQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlePreviewDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ArticlePreviewDocument, options);
 }
 exports.useArticlePreviewQuery = useArticlePreviewQuery;
 function useArticlePreviewLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlePreviewDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ArticlePreviewDocument, options);
 }
 exports.useArticlePreviewLazyQuery = useArticlePreviewLazyQuery;
 //# sourceMappingURL=ArticlePreview.js.map

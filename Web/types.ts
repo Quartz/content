@@ -1,5 +1,7 @@
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -10,8 +12,11 @@ export type Scalars = {
 };
 
 
+
+
+
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type BlogPostIdType = 
+export type BlogPostIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -110,17 +115,17 @@ export type DateInput = {
 };
 
 /** The column to use when filtering by date */
-export type PostObjectsConnectionDateColumnEnum = 
+export type PostObjectsConnectionDateColumnEnum =
   | 'DATE'
   | 'MODIFIED';
 
 /** The logical relation between each item in the array when there are more than one. */
-export type RelationEnum = 
+export type RelationEnum =
   | 'AND'
   | 'OR';
 
 /** The MimeType of the object */
-export type MimeTypeEnum = 
+export type MimeTypeEnum =
   | 'APPLICATION_JAVA'
   | 'APPLICATION_MSWORD'
   | 'APPLICATION_OCTET_STREAM'
@@ -218,7 +223,7 @@ export type PostObjectsConnectionOrderbyInput = {
 };
 
 /** Field to order the connection by */
-export type PostObjectsConnectionOrderbyEnum = 
+export type PostObjectsConnectionOrderbyEnum =
   /** Order by author */
   | 'AUTHOR'
   /** Order by the number of comments it has acquired */
@@ -243,12 +248,12 @@ export type PostObjectsConnectionOrderbyEnum =
   | 'TITLE';
 
 /** The cardinality of the connection order */
-export type OrderEnum = 
+export type OrderEnum =
   | 'ASC'
   | 'DESC';
 
 /** The status of the object. */
-export type PostStatusEnum = 
+export type PostStatusEnum =
   /** Objects with the auto-draft status */
   | 'AUTO_DRAFT'
   /** Objects with the draft status */
@@ -292,7 +297,7 @@ export type PostStatusEnum =
 
 
 /** What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are judged in that order. Default is the value of the 'avatar_rating' option */
-export type AvatarRatingEnum = 
+export type AvatarRatingEnum =
   | 'G'
   | 'PG'
   | 'R'
@@ -362,7 +367,7 @@ export type UserToBulletinConnectionWhereArgs = {
 
 
 /** The format of post field data. */
-export type PostObjectFieldFormatEnum = 
+export type PostObjectFieldFormatEnum =
   /** Provide the field value directly from database */
   | 'RAW'
   /** Apply the default WordPress rendering */
@@ -515,7 +520,7 @@ export type MediaItemToCommentConnectionWhereArgs = {
 };
 
 /** Allowed Content Types */
-export type ContentTypeEnum = 
+export type ContentTypeEnum =
   /** The Type of Content object */
   | 'ATTACHMENT'
   /** The Type of Content object */
@@ -534,7 +539,7 @@ export type ContentTypeEnum =
   | 'QZ_EMAIL';
 
 /** Options for ordering the connection */
-export type CommentsConnectionOrderbyEnum = 
+export type CommentsConnectionOrderbyEnum =
   | 'COMMENT_AGENT'
   | 'COMMENT_APPROVED'
   | 'COMMENT_AUTHOR'
@@ -692,7 +697,7 @@ export type CommentToCommentConnectionWhereArgs = {
 
 
 /** The size of the media item object. */
-export type MediaItemSizeEnum = 
+export type MediaItemSizeEnum =
   /** MediaItem with the full size */
   | 'FULL'
   /** MediaItem with the large size */
@@ -763,7 +768,7 @@ export type PostToCategoryConnectionWhereArgs = {
 };
 
 /** Options for ordering the connection by */
-export type TermObjectsConnectionOrderbyEnum = 
+export type TermObjectsConnectionOrderbyEnum =
   | 'COUNT'
   | 'DESCRIPTION'
   | 'NAME'
@@ -3173,7 +3178,7 @@ export type PageToTermNodeConnectionWhereArgs = {
 };
 
 /** Allowed taxonomies */
-export type TaxonomyEnum = 
+export type TaxonomyEnum =
   | 'CATEGORY'
   | 'COAUTHOR'
   | 'EDITION'
@@ -5136,7 +5141,7 @@ export type PostToTopicConnectionWhereArgs = {
 
 
 /** Allowed content block names */
-export type BlockNameEnum = 
+export type BlockNameEnum =
   | 'BLOCKQUOTE'
   | 'CORE_ARCHIVES'
   | 'CORE_AUDIO'
@@ -6241,7 +6246,7 @@ export type RootQueryToBlogPostConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type BulletinIdType = 
+export type BulletinIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -6354,7 +6359,7 @@ export type RootQueryToCategoryConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type CategoryIdType = 
+export type CategoryIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6367,7 +6372,7 @@ export type CategoryIdType =
   | 'URI';
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type ChapterIdType = 
+export type ChapterIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -6428,7 +6433,7 @@ export type RootQueryToChapterConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type CoAuthorIdType = 
+export type CoAuthorIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6485,7 +6490,7 @@ export type RootQueryToCoAuthorConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type CollectionIdType = 
+export type CollectionIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -6563,7 +6568,7 @@ export type RootQueryToContentUnionConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type ContentNodeIdTypeEnum = 
+export type ContentNodeIdTypeEnum =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -6612,7 +6617,7 @@ export type RootQueryToContentNodeConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type EditionIdType = 
+export type EditionIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6669,7 +6674,7 @@ export type RootQueryToEditionConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type EmailIdType = 
+export type EmailIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -6680,7 +6685,7 @@ export type EmailIdType =
   | 'SLUG';
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type EmailListIdType = 
+export type EmailListIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6737,7 +6742,7 @@ export type RootQueryToEmailListConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type EmailSegmentIdType = 
+export type EmailSegmentIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6846,7 +6851,7 @@ export type RootQueryToEmailConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type FlagIdType = 
+export type FlagIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6903,7 +6908,7 @@ export type RootQueryToFlagConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type GuideIdType = 
+export type GuideIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -6960,7 +6965,7 @@ export type RootQueryToGuideConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type LocationIdType = 
+export type LocationIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7017,7 +7022,7 @@ export type RootQueryToLocationConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type MediaItemIdType = 
+export type MediaItemIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -7076,7 +7081,7 @@ export type RootQueryToMediaItemConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
-export type MenuNodeIdTypeEnum = 
+export type MenuNodeIdTypeEnum =
   /** Identify a menu node by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a menu node by the (hashed) Global ID. */
@@ -7086,7 +7091,7 @@ export type MenuNodeIdTypeEnum =
 
 
 /** Registered menu locations */
-export type MenuLocationEnum = 
+export type MenuLocationEnum =
   | 'AUTHORS_WORK'
   | 'CASE_STUDIES_CREATIVE'
   | 'CLIENTS_CREATIVE'
@@ -7100,6 +7105,7 @@ export type MenuLocationEnum =
   | 'OBSESSIONS_WORK'
   | 'PLAYER_VIDEO'
   | 'PREMIUM_MEMBERS'
+  | 'RELATED_MBB'
   | 'SHOWS_VIDEO'
   | 'TOP_WORK';
 
@@ -7136,7 +7142,7 @@ export type MenuItemToMenuItemConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
-export type MenuItemNodeIdTypeEnum = 
+export type MenuItemNodeIdTypeEnum =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -7169,7 +7175,7 @@ export type RootQueryToMenuConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type NugIdType = 
+export type NugIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -7230,7 +7236,7 @@ export type RootQueryToNugConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type ObsessionIdType = 
+export type ObsessionIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7287,7 +7293,7 @@ export type RootQueryToObsessionConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type PageIdType = 
+export type PageIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -7342,7 +7348,7 @@ export type RootQueryToPageConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type PostIdType = 
+export type PostIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -7353,7 +7359,7 @@ export type PostIdType =
   | 'SLUG';
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type PostFormatIdType = 
+export type PostFormatIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7478,7 +7484,7 @@ export type RootQueryToPostConnectionWhereArgs = {
 };
 
 /** Quartz edition */
-export type EditionName = 
+export type EditionName =
   | 'AFRICA'
   | 'INDIA'
   | 'QUARTZ'
@@ -7500,7 +7506,7 @@ export type RecommendedQuery = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type ProjectIdType = 
+export type ProjectIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7557,7 +7563,7 @@ export type RootQueryToProjectConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type PromotionIdType = 
+export type PromotionIdType =
   /** Identify a resource by the Database ID. */
   | 'DATABASE_ID'
   /** Identify a resource by the (hashed) Global ID. */
@@ -7618,7 +7624,7 @@ export type RootQueryToPromotionConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type SeriesIdType = 
+export type SeriesIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7675,7 +7681,7 @@ export type RootQueryToSeriesConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type ShowIdType = 
+export type ShowIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7732,7 +7738,7 @@ export type RootQueryToShowConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type TagIdType = 
+export type TagIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7789,7 +7795,7 @@ export type RootQueryToTagConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type TopicIdType = 
+export type TopicIdType =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -7848,7 +7854,7 @@ export type RootQueryToTopicConnectionWhereArgs = {
 
 
 /** The Type of Identifier used to fetch a single User node. To be used along with the "id" field. Default is "ID". */
-export type UserNodeIdTypeEnum = 
+export type UserNodeIdTypeEnum =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The Email of the User */
@@ -7903,7 +7909,7 @@ export type UsersConnectionOrderbyInput = {
 };
 
 /** Field to order the connection by */
-export type UsersConnectionOrderbyEnum = 
+export type UsersConnectionOrderbyEnum =
   /** Order by display name */
   | 'DISPLAY_NAME'
   /** Order by email address */
@@ -7922,7 +7928,7 @@ export type UsersConnectionOrderbyEnum =
   | 'URL';
 
 /** Names of available user roles */
-export type UserRoleEnum = 
+export type UserRoleEnum =
   | 'ADMINISTRATOR'
   | 'AUTHOR'
   | 'BUSINESS'
@@ -7933,7 +7939,7 @@ export type UserRoleEnum =
   | 'VIP_SUPPORT__INACTIVE_';
 
 /** Names of available user roles */
-export type UsersConnectionSearchColumnEnum = 
+export type UsersConnectionSearchColumnEnum =
   | 'ADMINISTRATOR'
   | 'AUTHOR'
   | 'BUSINESS'
@@ -8850,7 +8856,7 @@ export type CreateMediaItemInput = {
 };
 
 /** The status of the media item object. */
-export type MediaItemStatusEnum = 
+export type MediaItemStatusEnum =
   /** Objects with the auto-draft status */
   | 'AUTO_DRAFT'
   /** Objects with the inherit status */
@@ -10259,21 +10265,21 @@ export type UpdateUserInput = {
 
 
 /** The Type of Identifier used to fetch a single Content Type node. To be used along with the "id" field. Default is "ID". */
-export type ContentTypeIdTypeEnum = 
+export type ContentTypeIdTypeEnum =
   /** The globally unique ID */
   | 'ID'
   /** The name of the content type. */
   | 'NAME';
 
 /** The Type of Identifier used to fetch a single Taxonomy node. To be used along with the "id" field. Default is "ID". */
-export type TaxonomyIdTypeEnum = 
+export type TaxonomyIdTypeEnum =
   /** The globally unique ID */
   | 'ID'
   /** The name of the taxonomy */
   | 'NAME';
 
 /** The Type of Identifier used to fetch a single resource. Default is "ID". To be used along with the "id" field. */
-export type TermNodeIdTypeEnum = 
+export type TermNodeIdTypeEnum =
   /** The Database ID for the node */
   | 'DATABASE_ID'
   /** The hashed Global ID */
@@ -10286,7 +10292,7 @@ export type TermNodeIdTypeEnum =
   | 'URI';
 
 /** Available timezones */
-export type TimezoneEnum = 
+export type TimezoneEnum =
   /** Abidjan */
   | 'AFRICA_ABIDJAN'
   /** Accra */
@@ -10901,8 +10907,6 @@ export type TimezoneEnum =
   | 'AUSTRALIA_BRISBANE'
   /** Broken Hill */
   | 'AUSTRALIA_BROKEN_HILL'
-  /** Currie */
-  | 'AUSTRALIA_CURRIE'
   /** Darwin */
   | 'AUSTRALIA_DARWIN'
   /** Eucla */

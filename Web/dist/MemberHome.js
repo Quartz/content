@@ -3,6 +3,7 @@ import { TagPartsFragmentDoc } from './TagParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const MemberHomeDocument = /*#__PURE__*/ gql `
     query MemberHome {
   features: menuItems(first: 3, where: {location: FEATURES_MEMBERS}) {
@@ -50,9 +51,11 @@ ${GuidePartsFragmentDoc}`;
  * });
  */
 export function useMemberHomeQuery(baseOptions) {
-    return Apollo.useQuery(MemberHomeDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(MemberHomeDocument, options);
 }
 export function useMemberHomeLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(MemberHomeDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(MemberHomeDocument, options);
 }
 //# sourceMappingURL=MemberHome.js.map

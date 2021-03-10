@@ -4,6 +4,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ContentBySearchTermQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   limit?: Types.Maybe<Types.Scalars['Int']>;
@@ -53,10 +54,12 @@ export const ContentBySearchTermDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useContentBySearchTermQuery(baseOptions: Apollo.QueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {
-        return Apollo.useQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, options);
       }
 export function useContentBySearchTermLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>) {
-          return Apollo.useLazyQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ContentBySearchTermQuery, ContentBySearchTermQueryVariables>(ContentBySearchTermDocument, options);
         }
 export type ContentBySearchTermQueryHookResult = ReturnType<typeof useContentBySearchTermQuery>;
 export type ContentBySearchTermLazyQueryHookResult = ReturnType<typeof useContentBySearchTermLazyQuery>;

@@ -6,10 +6,11 @@ import { gql } from '@apollo/client';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type EmailsByTagQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
-  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -63,10 +64,12 @@ ${EmailListPartsFragmentDoc}`;
  * });
  */
 export function useEmailsByTagQuery(baseOptions?: Apollo.QueryHookOptions<EmailsByTagQuery, EmailsByTagQueryVariables>) {
-        return Apollo.useQuery<EmailsByTagQuery, EmailsByTagQueryVariables>(EmailsByTagDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EmailsByTagQuery, EmailsByTagQueryVariables>(EmailsByTagDocument, options);
       }
 export function useEmailsByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailsByTagQuery, EmailsByTagQueryVariables>) {
-          return Apollo.useLazyQuery<EmailsByTagQuery, EmailsByTagQueryVariables>(EmailsByTagDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EmailsByTagQuery, EmailsByTagQueryVariables>(EmailsByTagDocument, options);
         }
 export type EmailsByTagQueryHookResult = ReturnType<typeof useEmailsByTagQuery>;
 export type EmailsByTagLazyQueryHookResult = ReturnType<typeof useEmailsByTagLazyQuery>;

@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { MediaPartsFragmentDoc } from './MediaParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const MediaItemsByIdDocument = /*#__PURE__*/ gql `
     query MediaItemsById($ids: [ID!]) {
   mediaItems(where: {in: $ids}) {
@@ -27,9 +28,11 @@ export const MediaItemsByIdDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useMediaItemsByIdQuery(baseOptions) {
-    return Apollo.useQuery(MediaItemsByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(MediaItemsByIdDocument, options);
 }
 export function useMediaItemsByIdLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(MediaItemsByIdDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(MediaItemsByIdDocument, options);
 }
 //# sourceMappingURL=MediaItemsById.js.map

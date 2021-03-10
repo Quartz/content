@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { MenuItemPartsFragmentDoc } from './MenuItemParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const MenuByNameDocument = /*#__PURE__*/ gql `
     query MenuByName($id: ID!, $first: Int = 10) {
   menu(id: $id, idType: NAME) {
@@ -31,9 +32,11 @@ export const MenuByNameDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useMenuByNameQuery(baseOptions) {
-    return Apollo.useQuery(MenuByNameDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(MenuByNameDocument, options);
 }
 export function useMenuByNameLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(MenuByNameDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(MenuByNameDocument, options);
 }
 //# sourceMappingURL=MenuByName.js.map

@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { PromotionPartsFragmentDoc } from './PromotionParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const PromotionsByTagDocument = /*#__PURE__*/ gql `
     query PromotionsByTag($perPage: Int!, $slug: [String]!) {
   promotions(first: $perPage, where: {tagSlugIn: $slug}) {
@@ -33,9 +34,11 @@ ${BlockPartsFragmentDoc}`;
  * });
  */
 export function usePromotionsByTagQuery(baseOptions) {
-    return Apollo.useQuery(PromotionsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(PromotionsByTagDocument, options);
 }
 export function usePromotionsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(PromotionsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(PromotionsByTagDocument, options);
 }
 //# sourceMappingURL=PromotionsByTag.js.map

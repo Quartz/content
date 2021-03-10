@@ -23,6 +23,7 @@ exports.useContentBySearchTermLazyQuery = exports.useContentBySearchTermQuery = 
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ContentBySearchTermDocument = client_1.gql `
     query ContentBySearchTerm($after: String = "", $limit: Int = 10, $search: String!) {
   content(after: $after, first: $limit, where: {search: $search}) {
@@ -58,11 +59,13 @@ exports.ContentBySearchTermDocument = client_1.gql `
  * });
  */
 function useContentBySearchTermQuery(baseOptions) {
-    return Apollo.useQuery(exports.ContentBySearchTermDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ContentBySearchTermDocument, options);
 }
 exports.useContentBySearchTermQuery = useContentBySearchTermQuery;
 function useContentBySearchTermLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ContentBySearchTermDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ContentBySearchTermDocument, options);
 }
 exports.useContentBySearchTermLazyQuery = useContentBySearchTermLazyQuery;
 //# sourceMappingURL=ContentBySearchTerm.js.map

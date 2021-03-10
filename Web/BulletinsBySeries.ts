@@ -6,10 +6,11 @@ import { gql } from '@apollo/client';
 import { SeriesPartsFragmentDoc } from './SeriesParts';
 import { BulletinPartsFragmentDoc } from './BulletinParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type BulletinsBySeriesQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
-  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -61,10 +62,12 @@ ${BulletinPartsFragmentDoc}`;
  * });
  */
 export function useBulletinsBySeriesQuery(baseOptions?: Apollo.QueryHookOptions<BulletinsBySeriesQuery, BulletinsBySeriesQueryVariables>) {
-        return Apollo.useQuery<BulletinsBySeriesQuery, BulletinsBySeriesQueryVariables>(BulletinsBySeriesDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BulletinsBySeriesQuery, BulletinsBySeriesQueryVariables>(BulletinsBySeriesDocument, options);
       }
 export function useBulletinsBySeriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BulletinsBySeriesQuery, BulletinsBySeriesQueryVariables>) {
-          return Apollo.useLazyQuery<BulletinsBySeriesQuery, BulletinsBySeriesQueryVariables>(BulletinsBySeriesDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BulletinsBySeriesQuery, BulletinsBySeriesQueryVariables>(BulletinsBySeriesDocument, options);
         }
 export type BulletinsBySeriesQueryHookResult = ReturnType<typeof useBulletinsBySeriesQuery>;
 export type BulletinsBySeriesLazyQueryHookResult = ReturnType<typeof useBulletinsBySeriesLazyQuery>;

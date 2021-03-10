@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const SeriesParts_1 = require("./SeriesParts");
 const BulletinParts_1 = require("./BulletinParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.BulletinsBySeriesDocument = client_1.gql `
     query BulletinsBySeries($after: String = "", $perPage: Int, $slug: [String]) {
   serieses(where: {slug: $slug}) {
@@ -62,11 +63,13 @@ ${BulletinParts_1.BulletinPartsFragmentDoc}`;
  * });
  */
 function useBulletinsBySeriesQuery(baseOptions) {
-    return Apollo.useQuery(exports.BulletinsBySeriesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.BulletinsBySeriesDocument, options);
 }
 exports.useBulletinsBySeriesQuery = useBulletinsBySeriesQuery;
 function useBulletinsBySeriesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.BulletinsBySeriesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.BulletinsBySeriesDocument, options);
 }
 exports.useBulletinsBySeriesLazyQuery = useBulletinsBySeriesLazyQuery;
 //# sourceMappingURL=BulletinsBySeries.js.map

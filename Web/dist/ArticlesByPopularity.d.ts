@@ -40,14 +40,14 @@ export declare const PopularArticlesDocument: Apollo.DocumentNode;
  * });
  */
 export declare function usePopularArticlesQuery(baseOptions?: Apollo.QueryHookOptions<PopularArticlesQuery, PopularArticlesQueryVariables>): Apollo.QueryResult<PopularArticlesQuery, Types.Exact<{
-    after?: string | null | undefined;
-    edition?: "AFRICA" | "INDIA" | "QUARTZ" | "QUARTZY" | "WORK" | null | undefined;
-    perPage?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    edition?: Types.Maybe<Types.EditionName> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
 }>>;
 export declare function usePopularArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PopularArticlesQuery, PopularArticlesQueryVariables>): Apollo.QueryTuple<PopularArticlesQuery, Types.Exact<{
-    after?: string | null | undefined;
-    edition?: "AFRICA" | "INDIA" | "QUARTZ" | "QUARTZY" | "WORK" | null | undefined;
-    perPage?: number | null | undefined;
+    after?: Types.Maybe<string> | undefined;
+    edition?: Types.Maybe<Types.EditionName> | undefined;
+    perPage?: Types.Maybe<number> | undefined;
 }>>;
 export declare type PopularArticlesQueryHookResult = ReturnType<typeof usePopularArticlesQuery>;
 export declare type PopularArticlesLazyQueryHookResult = ReturnType<typeof usePopularArticlesLazyQuery>;

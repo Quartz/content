@@ -2,7 +2,7 @@ import type * as Types from './types';
 import type { MediaPartsFragment } from './MediaParts';
 import * as Apollo from '@apollo/client';
 export declare type MediaItemsByIdQueryVariables = Types.Exact<{
-    ids?: Types.Maybe<Array<Types.Scalars['ID']>>;
+    ids?: Types.Maybe<Array<Types.Scalars['ID']> | Types.Scalars['ID']>;
 }>;
 export declare type MediaItemsByIdQuery = {
     __typename?: 'RootQuery';
@@ -31,10 +31,10 @@ export declare const MediaItemsByIdDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useMediaItemsByIdQuery(baseOptions?: Apollo.QueryHookOptions<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>): Apollo.QueryResult<MediaItemsByIdQuery, Types.Exact<{
-    ids?: string[] | null | undefined;
+    ids?: Types.Maybe<string | string[]> | undefined;
 }>>;
 export declare function useMediaItemsByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MediaItemsByIdQuery, MediaItemsByIdQueryVariables>): Apollo.QueryTuple<MediaItemsByIdQuery, Types.Exact<{
-    ids?: string[] | null | undefined;
+    ids?: Types.Maybe<string | string[]> | undefined;
 }>>;
 export declare type MediaItemsByIdQueryHookResult = ReturnType<typeof useMediaItemsByIdQuery>;
 export declare type MediaItemsByIdLazyQueryHookResult = ReturnType<typeof useMediaItemsByIdLazyQuery>;

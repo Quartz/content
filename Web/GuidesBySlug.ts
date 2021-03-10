@@ -4,9 +4,10 @@ import type { GuidePartsFragment } from './GuideParts';
 import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type GuidesBySlugQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
-  slug: Array<Types.Maybe<Types.Scalars['String']>>;
+  slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
@@ -44,10 +45,12 @@ export const GuidesBySlugDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useGuidesBySlugQuery(baseOptions: Apollo.QueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>) {
-        return Apollo.useQuery<GuidesBySlugQuery, GuidesBySlugQueryVariables>(GuidesBySlugDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GuidesBySlugQuery, GuidesBySlugQueryVariables>(GuidesBySlugDocument, options);
       }
 export function useGuidesBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesBySlugQuery, GuidesBySlugQueryVariables>) {
-          return Apollo.useLazyQuery<GuidesBySlugQuery, GuidesBySlugQueryVariables>(GuidesBySlugDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GuidesBySlugQuery, GuidesBySlugQueryVariables>(GuidesBySlugDocument, options);
         }
 export type GuidesBySlugQueryHookResult = ReturnType<typeof useGuidesBySlugQuery>;
 export type GuidesBySlugLazyQueryHookResult = ReturnType<typeof useGuidesBySlugLazyQuery>;

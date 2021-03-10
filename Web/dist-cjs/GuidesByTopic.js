@@ -23,6 +23,7 @@ exports.useGuidesByTopicLazyQuery = exports.useGuidesByTopicQuery = exports.Guid
 const client_1 = require("@apollo/client");
 const GuideParts_1 = require("./GuideParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.GuidesByTopicDocument = client_1.gql `
     query GuidesByTopic($perPage: Int = 50, $slug: [String]!) {
   topics(where: {slug: $slug}) {
@@ -57,11 +58,13 @@ exports.GuidesByTopicDocument = client_1.gql `
  * });
  */
 function useGuidesByTopicQuery(baseOptions) {
-    return Apollo.useQuery(exports.GuidesByTopicDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.GuidesByTopicDocument, options);
 }
 exports.useGuidesByTopicQuery = useGuidesByTopicQuery;
 function useGuidesByTopicLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.GuidesByTopicDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.GuidesByTopicDocument, options);
 }
 exports.useGuidesByTopicLazyQuery = useGuidesByTopicLazyQuery;
 //# sourceMappingURL=GuidesByTopic.js.map

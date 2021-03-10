@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const EssentialsByGuideDocument = /*#__PURE__*/ gql `
     query EssentialsByGuide($slug: String!) {
   guides(last: 1, where: {slug: [$slug]}) {
@@ -32,9 +33,11 @@ export const EssentialsByGuideDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useEssentialsByGuideQuery(baseOptions) {
-    return Apollo.useQuery(EssentialsByGuideDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(EssentialsByGuideDocument, options);
 }
 export function useEssentialsByGuideLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(EssentialsByGuideDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(EssentialsByGuideDocument, options);
 }
 //# sourceMappingURL=EssentialsByGuide.js.map

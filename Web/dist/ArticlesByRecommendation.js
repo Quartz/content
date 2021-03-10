@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ArticlesByRecommendationDocument = /*#__PURE__*/ gql `
     query ArticlesByRecommendation($perPage: Int!, $postId: Int!) {
   posts(first: $perPage, where: {recommended: {id: $postId}}) {
@@ -28,9 +29,11 @@ export const ArticlesByRecommendationDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useArticlesByRecommendationQuery(baseOptions) {
-    return Apollo.useQuery(ArticlesByRecommendationDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ArticlesByRecommendationDocument, options);
 }
 export function useArticlesByRecommendationLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ArticlesByRecommendationDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ArticlesByRecommendationDocument, options);
 }
 //# sourceMappingURL=ArticlesByRecommendation.js.map

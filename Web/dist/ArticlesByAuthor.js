@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ArticlesByAuthorDocument = /*#__PURE__*/ gql `
     query ArticlesByAuthor($after: String = "", $perPage: Int!, $slug: [String]) {
   authors: coAuthors(where: {name: $slug}) {
@@ -40,9 +41,11 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useArticlesByAuthorQuery(baseOptions) {
-    return Apollo.useQuery(ArticlesByAuthorDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ArticlesByAuthorDocument, options);
 }
 export function useArticlesByAuthorLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ArticlesByAuthorDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ArticlesByAuthorDocument, options);
 }
 //# sourceMappingURL=ArticlesByAuthor.js.map

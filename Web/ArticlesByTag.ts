@@ -6,10 +6,11 @@ import { gql } from '@apollo/client';
 import { TagPartsFragmentDoc } from './TagParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticlesByTagQueryVariables = Types.Exact<{
   after?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
-  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>>>;
+  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -61,10 +62,12 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 export function useArticlesByTagQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesByTagQuery, ArticlesByTagQueryVariables>) {
-        return Apollo.useQuery<ArticlesByTagQuery, ArticlesByTagQueryVariables>(ArticlesByTagDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticlesByTagQuery, ArticlesByTagQueryVariables>(ArticlesByTagDocument, options);
       }
 export function useArticlesByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesByTagQuery, ArticlesByTagQueryVariables>) {
-          return Apollo.useLazyQuery<ArticlesByTagQuery, ArticlesByTagQueryVariables>(ArticlesByTagDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticlesByTagQuery, ArticlesByTagQueryVariables>(ArticlesByTagDocument, options);
         }
 export type ArticlesByTagQueryHookResult = ReturnType<typeof useArticlesByTagQuery>;
 export type ArticlesByTagLazyQueryHookResult = ReturnType<typeof useArticlesByTagLazyQuery>;

@@ -37,12 +37,12 @@ export declare const CollectionsDocument: Apollo.DocumentNode;
  * });
  */
 export declare function useCollectionsQuery(baseOptions?: Apollo.QueryHookOptions<CollectionsQuery, CollectionsQueryVariables>): Apollo.QueryResult<CollectionsQuery, Types.Exact<{
-    first?: number | null | undefined;
-    after?: string | null | undefined;
+    first?: Types.Maybe<number> | undefined;
+    after?: Types.Maybe<string> | undefined;
 }>>;
 export declare function useCollectionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CollectionsQuery, CollectionsQueryVariables>): Apollo.QueryTuple<CollectionsQuery, Types.Exact<{
-    first?: number | null | undefined;
-    after?: string | null | undefined;
+    first?: Types.Maybe<number> | undefined;
+    after?: Types.Maybe<string> | undefined;
 }>>;
 export declare type CollectionsQueryHookResult = ReturnType<typeof useCollectionsQuery>;
 export declare type CollectionsLazyQueryHookResult = ReturnType<typeof useCollectionsLazyQuery>;

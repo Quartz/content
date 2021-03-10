@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const PopularArticlesDocument = /*#__PURE__*/ gql `
     query PopularArticles($after: String = "", $edition: EditionName, $perPage: Int) {
   posts(first: $perPage, after: $after, where: {popular: {edition: $edition}}) {
@@ -33,9 +34,11 @@ export const PopularArticlesDocument = /*#__PURE__*/ gql `
  * });
  */
 export function usePopularArticlesQuery(baseOptions) {
-    return Apollo.useQuery(PopularArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(PopularArticlesDocument, options);
 }
 export function usePopularArticlesLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(PopularArticlesDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(PopularArticlesDocument, options);
 }
 //# sourceMappingURL=ArticlesByPopularity.js.map

@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const EmailsByTagDocument = /*#__PURE__*/ gql `
     query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
@@ -42,9 +43,11 @@ ${EmailListPartsFragmentDoc}`;
  * });
  */
 export function useEmailsByTagQuery(baseOptions) {
-    return Apollo.useQuery(EmailsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(EmailsByTagDocument, options);
 }
 export function useEmailsByTagLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(EmailsByTagDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(EmailsByTagDocument, options);
 }
 //# sourceMappingURL=EmailsByTag.js.map

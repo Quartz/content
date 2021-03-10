@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const ShowParts_1 = require("./ShowParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.VideoHubDocument = client_1.gql `
     query VideoHub {
   featuredVideoPlayer: menuItems(where: {location: PLAYER_VIDEO}) {
@@ -92,11 +93,13 @@ ${ShowParts_1.ShowPartsFragmentDoc}`;
  * });
  */
 function useVideoHubQuery(baseOptions) {
-    return Apollo.useQuery(exports.VideoHubDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.VideoHubDocument, options);
 }
 exports.useVideoHubQuery = useVideoHubQuery;
 function useVideoHubLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.VideoHubDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.VideoHubDocument, options);
 }
 exports.useVideoHubLazyQuery = useVideoHubLazyQuery;
 //# sourceMappingURL=VideoHub.js.map

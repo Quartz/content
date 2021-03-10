@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const PageByUriDocument = /*#__PURE__*/ gql `
     query PageByUri($slug: String!) {
   pageBy(uri: $slug) {
@@ -26,9 +27,11 @@ export const PageByUriDocument = /*#__PURE__*/ gql `
  * });
  */
 export function usePageByUriQuery(baseOptions) {
-    return Apollo.useQuery(PageByUriDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(PageByUriDocument, options);
 }
 export function usePageByUriLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(PageByUriDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(PageByUriDocument, options);
 }
 //# sourceMappingURL=PageByUri.js.map

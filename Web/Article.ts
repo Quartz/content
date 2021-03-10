@@ -4,6 +4,7 @@ import type { ArticlePartsFragment } from './ArticleParts';
 import { gql } from '@apollo/client';
 import { ArticlePartsFragmentDoc } from './ArticleParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticleQueryVariables = Types.Exact<{
   id: Types.Scalars['Int'];
 }>;
@@ -42,10 +43,12 @@ export const ArticleDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useArticleQuery(baseOptions: Apollo.QueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
-        return Apollo.useQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, options);
       }
 export function useArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
-          return Apollo.useLazyQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, options);
         }
 export type ArticleQueryHookResult = ReturnType<typeof useArticleQuery>;
 export type ArticleLazyQueryHookResult = ReturnType<typeof useArticleLazyQuery>;

@@ -4,6 +4,7 @@ import type { ArticlePartsFragment } from './ArticleParts';
 import { gql } from '@apollo/client';
 import { ArticlePartsFragmentDoc } from './ArticleParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticlePreviewQueryVariables = Types.Exact<{
   id: Types.Scalars['Int'];
   time: Types.Scalars['Int'];
@@ -46,10 +47,12 @@ export const ArticlePreviewDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useArticlePreviewQuery(baseOptions: Apollo.QueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {
-        return Apollo.useQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, options);
       }
 export function useArticlePreviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlePreviewQuery, ArticlePreviewQueryVariables>) {
-          return Apollo.useLazyQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticlePreviewQuery, ArticlePreviewQueryVariables>(ArticlePreviewDocument, options);
         }
 export type ArticlePreviewQueryHookResult = ReturnType<typeof useArticlePreviewQuery>;
 export type ArticlePreviewLazyQueryHookResult = ReturnType<typeof useArticlePreviewLazyQuery>;

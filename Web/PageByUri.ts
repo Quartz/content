@@ -2,6 +2,7 @@ import type * as Types from './types';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type PageByUriQueryVariables = Types.Exact<{
   slug: Types.Scalars['String'];
 }>;
@@ -37,10 +38,12 @@ export const PageByUriDocument = /*#__PURE__*/ gql`
  * });
  */
 export function usePageByUriQuery(baseOptions: Apollo.QueryHookOptions<PageByUriQuery, PageByUriQueryVariables>) {
-        return Apollo.useQuery<PageByUriQuery, PageByUriQueryVariables>(PageByUriDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PageByUriQuery, PageByUriQueryVariables>(PageByUriDocument, options);
       }
 export function usePageByUriLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PageByUriQuery, PageByUriQueryVariables>) {
-          return Apollo.useLazyQuery<PageByUriQuery, PageByUriQueryVariables>(PageByUriDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PageByUriQuery, PageByUriQueryVariables>(PageByUriDocument, options);
         }
 export type PageByUriQueryHookResult = ReturnType<typeof usePageByUriQuery>;
 export type PageByUriLazyQueryHookResult = ReturnType<typeof usePageByUriLazyQuery>;

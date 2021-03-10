@@ -4,6 +4,7 @@ import type { MenuItemPartsFragment } from './MenuItemParts';
 import { gql } from '@apollo/client';
 import { MenuItemPartsFragmentDoc } from './MenuItemParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type MenuByNameQueryVariables = Types.Exact<{
   id: Types.Scalars['ID'];
   first?: Types.Maybe<Types.Scalars['Int']>;
@@ -47,10 +48,12 @@ export const MenuByNameDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useMenuByNameQuery(baseOptions: Apollo.QueryHookOptions<MenuByNameQuery, MenuByNameQueryVariables>) {
-        return Apollo.useQuery<MenuByNameQuery, MenuByNameQueryVariables>(MenuByNameDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MenuByNameQuery, MenuByNameQueryVariables>(MenuByNameDocument, options);
       }
 export function useMenuByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MenuByNameQuery, MenuByNameQueryVariables>) {
-          return Apollo.useLazyQuery<MenuByNameQuery, MenuByNameQueryVariables>(MenuByNameDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MenuByNameQuery, MenuByNameQueryVariables>(MenuByNameDocument, options);
         }
 export type MenuByNameQueryHookResult = ReturnType<typeof useMenuByNameQuery>;
 export type MenuByNameLazyQueryHookResult = ReturnType<typeof useMenuByNameLazyQuery>;

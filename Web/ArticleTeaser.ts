@@ -4,6 +4,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type ArticleTeaserQueryVariables = Types.Exact<{
   id: Types.Scalars['ID'];
 }>;
@@ -40,10 +41,12 @@ export const ArticleTeaserDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useArticleTeaserQuery(baseOptions: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {
-        return Apollo.useQuery<ArticleTeaserQuery, ArticleTeaserQueryVariables>(ArticleTeaserDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ArticleTeaserQuery, ArticleTeaserQueryVariables>(ArticleTeaserDocument, options);
       }
 export function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>) {
-          return Apollo.useLazyQuery<ArticleTeaserQuery, ArticleTeaserQueryVariables>(ArticleTeaserDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ArticleTeaserQuery, ArticleTeaserQueryVariables>(ArticleTeaserDocument, options);
         }
 export type ArticleTeaserQueryHookResult = ReturnType<typeof useArticleTeaserQuery>;
 export type ArticleTeaserLazyQueryHookResult = ReturnType<typeof useArticleTeaserLazyQuery>;

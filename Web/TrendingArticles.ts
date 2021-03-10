@@ -4,6 +4,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type TrendingArticlesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
@@ -39,10 +40,12 @@ export const TrendingArticlesDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useTrendingArticlesQuery(baseOptions?: Apollo.QueryHookOptions<TrendingArticlesQuery, TrendingArticlesQueryVariables>) {
-        return Apollo.useQuery<TrendingArticlesQuery, TrendingArticlesQueryVariables>(TrendingArticlesDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TrendingArticlesQuery, TrendingArticlesQueryVariables>(TrendingArticlesDocument, options);
       }
 export function useTrendingArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TrendingArticlesQuery, TrendingArticlesQueryVariables>) {
-          return Apollo.useLazyQuery<TrendingArticlesQuery, TrendingArticlesQueryVariables>(TrendingArticlesDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TrendingArticlesQuery, TrendingArticlesQueryVariables>(TrendingArticlesDocument, options);
         }
 export type TrendingArticlesQueryHookResult = ReturnType<typeof useTrendingArticlesQuery>;
 export type TrendingArticlesLazyQueryHookResult = ReturnType<typeof useTrendingArticlesLazyQuery>;

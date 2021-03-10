@@ -4,6 +4,7 @@ import type { CollectionPartsFragment } from './CollectionParts';
 import { gql } from '@apollo/client';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions =  {}
 export type CollectionQueryVariables = Types.Exact<{
   slug: Types.Scalars['String'];
 }>;
@@ -40,10 +41,12 @@ export const CollectionDocument = /*#__PURE__*/ gql`
  * });
  */
 export function useCollectionQuery(baseOptions: Apollo.QueryHookOptions<CollectionQuery, CollectionQueryVariables>) {
-        return Apollo.useQuery<CollectionQuery, CollectionQueryVariables>(CollectionDocument, baseOptions);
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CollectionQuery, CollectionQueryVariables>(CollectionDocument, options);
       }
 export function useCollectionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CollectionQuery, CollectionQueryVariables>) {
-          return Apollo.useLazyQuery<CollectionQuery, CollectionQueryVariables>(CollectionDocument, baseOptions);
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CollectionQuery, CollectionQueryVariables>(CollectionDocument, options);
         }
 export type CollectionQueryHookResult = ReturnType<typeof useCollectionQuery>;
 export type CollectionLazyQueryHookResult = ReturnType<typeof useCollectionLazyQuery>;

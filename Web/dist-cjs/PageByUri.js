@@ -22,6 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.usePageByUriLazyQuery = exports.usePageByUriQuery = exports.PageByUriDocument = void 0;
 const client_1 = require("@apollo/client");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.PageByUriDocument = client_1.gql `
     query PageByUri($slug: String!) {
   pageBy(uri: $slug) {
@@ -48,11 +49,13 @@ exports.PageByUriDocument = client_1.gql `
  * });
  */
 function usePageByUriQuery(baseOptions) {
-    return Apollo.useQuery(exports.PageByUriDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.PageByUriDocument, options);
 }
 exports.usePageByUriQuery = usePageByUriQuery;
 function usePageByUriLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.PageByUriDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.PageByUriDocument, options);
 }
 exports.usePageByUriLazyQuery = usePageByUriLazyQuery;
 //# sourceMappingURL=PageByUri.js.map

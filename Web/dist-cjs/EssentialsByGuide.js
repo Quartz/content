@@ -23,6 +23,7 @@ exports.useEssentialsByGuideLazyQuery = exports.useEssentialsByGuideQuery = expo
 const client_1 = require("@apollo/client");
 const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.EssentialsByGuideDocument = client_1.gql `
     query EssentialsByGuide($slug: String!) {
   guides(last: 1, where: {slug: [$slug]}) {
@@ -54,11 +55,13 @@ exports.EssentialsByGuideDocument = client_1.gql `
  * });
  */
 function useEssentialsByGuideQuery(baseOptions) {
-    return Apollo.useQuery(exports.EssentialsByGuideDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.EssentialsByGuideDocument, options);
 }
 exports.useEssentialsByGuideQuery = useEssentialsByGuideQuery;
 function useEssentialsByGuideLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.EssentialsByGuideDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.EssentialsByGuideDocument, options);
 }
 exports.useEssentialsByGuideLazyQuery = useEssentialsByGuideLazyQuery;
 //# sourceMappingURL=EssentialsByGuide.js.map

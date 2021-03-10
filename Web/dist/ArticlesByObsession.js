@@ -4,6 +4,7 @@ import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { BulletinPartsFragmentDoc } from './BulletinParts';
 import { PromotionPartsFragmentDoc } from './PromotionParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const ArticlesByObsessionDocument = /*#__PURE__*/ gql `
     query ArticlesByObsession($after: String = "", $perPage: Int = 10, $slug: [String]!) {
   obsessions(where: {slug: $slug}) {
@@ -52,9 +53,11 @@ ${PromotionPartsFragmentDoc}`;
  * });
  */
 export function useArticlesByObsessionQuery(baseOptions) {
-    return Apollo.useQuery(ArticlesByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(ArticlesByObsessionDocument, options);
 }
 export function useArticlesByObsessionLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(ArticlesByObsessionDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(ArticlesByObsessionDocument, options);
 }
 //# sourceMappingURL=ArticlesByObsession.js.map

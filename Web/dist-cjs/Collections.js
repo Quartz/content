@@ -23,6 +23,7 @@ exports.useCollectionsLazyQuery = exports.useCollectionsQuery = exports.Collecti
 const client_1 = require("@apollo/client");
 const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.CollectionsDocument = client_1.gql `
     query Collections($first: Int = 10, $after: String) {
   collections(first: $first, after: $after) {
@@ -53,11 +54,13 @@ exports.CollectionsDocument = client_1.gql `
  * });
  */
 function useCollectionsQuery(baseOptions) {
-    return Apollo.useQuery(exports.CollectionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.CollectionsDocument, options);
 }
 exports.useCollectionsQuery = useCollectionsQuery;
 function useCollectionsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.CollectionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.CollectionsDocument, options);
 }
 exports.useCollectionsLazyQuery = useCollectionsLazyQuery;
 //# sourceMappingURL=Collections.js.map

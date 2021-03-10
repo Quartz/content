@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const TopicParts_1 = require("./TopicParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ArticlesByTopicDocument = client_1.gql `
     query ArticlesByTopic($after: String = "", $perPage: Int, $slug: [String]) {
   topics(where: {slug: $slug}) {
@@ -62,11 +63,13 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 function useArticlesByTopicQuery(baseOptions) {
-    return Apollo.useQuery(exports.ArticlesByTopicDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ArticlesByTopicDocument, options);
 }
 exports.useArticlesByTopicQuery = useArticlesByTopicQuery;
 function useArticlesByTopicLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ArticlesByTopicDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ArticlesByTopicDocument, options);
 }
 exports.useArticlesByTopicLazyQuery = useArticlesByTopicLazyQuery;
 //# sourceMappingURL=ArticlesByTopic.js.map

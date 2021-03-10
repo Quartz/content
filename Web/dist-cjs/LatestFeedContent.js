@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const EmailParts_1 = require("./EmailParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.LatestFeedContentDocument = client_1.gql `
     query LatestFeedContent($after: String = "", $perPage: Int) {
   feedContent(after: $after, first: $perPage) {
@@ -66,11 +67,13 @@ ${EmailParts_1.EmailPartsFragmentDoc}`;
  * });
  */
 function useLatestFeedContentQuery(baseOptions) {
-    return Apollo.useQuery(exports.LatestFeedContentDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.LatestFeedContentDocument, options);
 }
 exports.useLatestFeedContentQuery = useLatestFeedContentQuery;
 function useLatestFeedContentLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.LatestFeedContentDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.LatestFeedContentDocument, options);
 }
 exports.useLatestFeedContentLazyQuery = useLatestFeedContentLazyQuery;
 //# sourceMappingURL=LatestFeedContent.js.map

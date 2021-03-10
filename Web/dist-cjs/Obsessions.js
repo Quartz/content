@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const ObsessionParts_1 = require("./ObsessionParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ObsessionsDocument = client_1.gql `
     query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
   menuItems(first: $perPage, where: {location: $location}) {
@@ -62,11 +63,13 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  * });
  */
 function useObsessionsQuery(baseOptions) {
-    return Apollo.useQuery(exports.ObsessionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ObsessionsDocument, options);
 }
 exports.useObsessionsQuery = useObsessionsQuery;
 function useObsessionsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ObsessionsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ObsessionsDocument, options);
 }
 exports.useObsessionsLazyQuery = useObsessionsLazyQuery;
 //# sourceMappingURL=Obsessions.js.map

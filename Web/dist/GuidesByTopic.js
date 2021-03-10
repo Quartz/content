@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
+const defaultOptions = {};
 export const GuidesByTopicDocument = /*#__PURE__*/ gql `
     query GuidesByTopic($perPage: Int = 50, $slug: [String]!) {
   topics(where: {slug: $slug}) {
@@ -35,9 +36,11 @@ export const GuidesByTopicDocument = /*#__PURE__*/ gql `
  * });
  */
 export function useGuidesByTopicQuery(baseOptions) {
-    return Apollo.useQuery(GuidesByTopicDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(GuidesByTopicDocument, options);
 }
 export function useGuidesByTopicLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(GuidesByTopicDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(GuidesByTopicDocument, options);
 }
 //# sourceMappingURL=GuidesByTopic.js.map

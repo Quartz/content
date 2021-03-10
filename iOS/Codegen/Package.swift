@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
 	name: "Codegen",
-	platforms: [.macOS(.v10_12)],
+	platforms: [.macOS(.v10_14)],
 	products: [
 		.library(name: "Codegen", targets: ["Codegen"])
 	],
@@ -11,7 +11,7 @@ let package = Package(
 		.package(
 			name: "Apollo",
 			url: "https://github.com/apollographql/apollo-ios",
-			.exact("0.39.0")
+			.exact("0.42.0")
 		),
 		.package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.0")
 	],

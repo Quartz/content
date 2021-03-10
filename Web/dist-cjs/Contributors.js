@@ -24,6 +24,7 @@ const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const AuthorParts_1 = require("./AuthorParts");
 const Apollo = __importStar(require("@apollo/client"));
+const defaultOptions = {};
 exports.ContributorsDocument = client_1.gql `
     query Contributors($perPage: Int!) {
   menuItems(first: $perPage, where: {location: AUTHORS_WORK}) {
@@ -67,11 +68,13 @@ ${AuthorParts_1.AuthorPartsFragmentDoc}`;
  * });
  */
 function useContributorsQuery(baseOptions) {
-    return Apollo.useQuery(exports.ContributorsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useQuery(exports.ContributorsDocument, options);
 }
 exports.useContributorsQuery = useContributorsQuery;
 function useContributorsLazyQuery(baseOptions) {
-    return Apollo.useLazyQuery(exports.ContributorsDocument, baseOptions);
+    const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
+    return Apollo.useLazyQuery(exports.ContributorsDocument, options);
 }
 exports.useContributorsLazyQuery = useContributorsLazyQuery;
 //# sourceMappingURL=Contributors.js.map
