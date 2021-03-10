@@ -1,6 +1,6 @@
 import type * as Types from './types';
-import type { ObsessionPartsFragment } from './ObsessionParts';
 import type { CollectionPartsFragment } from './CollectionParts';
+import type { ObsessionPartsFragment } from './ObsessionParts';
 import type { GuidePartsFragment } from './GuideParts';
 import * as Apollo from '@apollo/client';
 export declare type EssentialsByArticleQueryVariables = Types.Exact<{
@@ -11,6 +11,12 @@ export declare type EssentialsByArticleQuery = {
     post?: Types.Maybe<{
         __typename?: 'Post';
         id: string;
+        essentials?: Types.Maybe<{
+            __typename?: 'PostToCollectionConnection';
+            nodes?: Types.Maybe<Array<Types.Maybe<({
+                __typename?: 'Collection';
+            } & CollectionPartsFragment)>>>;
+        }>;
         obsessions?: Types.Maybe<{
             __typename?: 'PostToObsessionConnection';
             nodes?: Types.Maybe<Array<Types.Maybe<({

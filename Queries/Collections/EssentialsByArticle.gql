@@ -5,6 +5,11 @@ query EssentialsByArticle(
 		id: $id
 	) {
 		id
+		essentials(first: 3) {
+			nodes {
+				...CollectionParts
+			}
+		}
 		obsessions {
 			nodes {
 				...ObsessionParts

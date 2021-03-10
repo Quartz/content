@@ -6696,6 +6696,13 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
       post(id: $id) {
         __typename
         id
+        essentials(first: 3) {
+          __typename
+          nodes {
+            __typename
+            ...CollectionParts
+          }
+        }
         obsessions {
           __typename
           nodes {
@@ -6730,17 +6737,17 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "5a4c2e9c406ed5ec24a6188211062b943c9b255a72fb136345874e1c053ed95b"
+  public let operationIdentifier: String? = "76005909acf6935ee67a66a985c0923384701a055a2ce8d89234a6c06db0f9cd"
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + ObsessionParts.fragmentDefinition)
-    document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + BlockParts.fragmentDefinition)
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + ObsessionParts.fragmentDefinition)
     document.append("\n" + GuideParts.fragmentDefinition)
     return document
   }
@@ -6791,6 +6798,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("essentials", arguments: ["first": 3], type: .object(Essential.selections)),
           GraphQLField("obsessions", type: .object(Obsession.selections)),
           GraphQLField("guides", type: .object(Guide.selections)),
         ]
@@ -6802,8 +6810,8 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, obsessions: Obsession? = nil, guides: Guide? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Post", "id": id, "obsessions": obsessions.flatMap { (value: Obsession) -> ResultMap in value.resultMap }, "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
+      public init(id: GraphQLID, essentials: Essential? = nil, obsessions: Obsession? = nil, guides: Guide? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Post", "id": id, "essentials": essentials.flatMap { (value: Essential) -> ResultMap in value.resultMap }, "obsessions": obsessions.flatMap { (value: Obsession) -> ResultMap in value.resultMap }, "guides": guides.flatMap { (value: Guide) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -6825,6 +6833,16 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
       }
 
+      /// Connection between the Post type and the Collection type
+      public var essentials: Essential? {
+        get {
+          return (resultMap["essentials"] as? ResultMap).flatMap { Essential(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "essentials")
+        }
+      }
+
       /// Connection between the post type and the obsession type
       public var obsessions: Obsession? {
         get {
@@ -6842,6 +6860,98 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "guides")
+        }
+      }
+
+      public struct Essential: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["PostToCollectionConnection"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("nodes", type: .list(.object(Node.selections))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(nodes: [Node?]? = nil) {
+          self.init(unsafeResultMap: ["__typename": "PostToCollectionConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The nodes of the connection, without the edges
+        public var nodes: [Node?]? {
+          get {
+            return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+          }
+          set {
+            resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+          }
+        }
+
+        public struct Node: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Collection"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLFragmentSpread(CollectionParts.self),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+
+          public struct Fragments {
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var collectionParts: CollectionParts {
+              get {
+                return CollectionParts(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+          }
         }
       }
 
