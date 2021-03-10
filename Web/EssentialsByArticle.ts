@@ -1,11 +1,11 @@
 import type * as Types from './types';
 
-import type { ObsessionPartsFragment } from './ObsessionParts';
 import type { CollectionPartsFragment } from './CollectionParts';
+import type { ObsessionPartsFragment } from './ObsessionParts';
 import type { GuidePartsFragment } from './GuideParts';
 import { gql } from '@apollo/client';
-import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
+import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
@@ -14,7 +14,10 @@ export type EssentialsByArticleQueryVariables = Types.Exact<{
 }>;
 
 
-export type EssentialsByArticleQuery = { __typename?: 'RootQuery', post?: Types.Maybe<{ __typename?: 'Post', id: string, obsessions?: Types.Maybe<{ __typename?: 'PostToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type EssentialsByArticleQuery = { __typename?: 'RootQuery', post?: Types.Maybe<{ __typename?: 'Post', id: string, essentials?: Types.Maybe<{ __typename?: 'PostToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+        { __typename?: 'Collection' }
+        & CollectionPartsFragment
+      )>>> }>, obsessions?: Types.Maybe<{ __typename?: 'PostToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
         { __typename?: 'Obsession', essentials?: Types.Maybe<{ __typename?: 'ObsessionToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
             { __typename?: 'Collection' }
             & CollectionPartsFragment
@@ -33,6 +36,11 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql`
     query EssentialsByArticle($id: ID!) {
   post(id: $id) {
     id
+    essentials(first: 3) {
+      nodes {
+        ...CollectionParts
+      }
+    }
     obsessions {
       nodes {
         ...ObsessionParts
@@ -55,8 +63,8 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql`
     }
   }
 }
-    ${ObsessionPartsFragmentDoc}
-${CollectionPartsFragmentDoc}
+    ${CollectionPartsFragmentDoc}
+${ObsessionPartsFragmentDoc}
 ${GuidePartsFragmentDoc}`;
 
 /**

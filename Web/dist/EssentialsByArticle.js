@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
-import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { CollectionPartsFragmentDoc } from './CollectionParts';
+import { ObsessionPartsFragmentDoc } from './ObsessionParts';
 import { GuidePartsFragmentDoc } from './GuideParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
@@ -8,6 +8,11 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql `
     query EssentialsByArticle($id: ID!) {
   post(id: $id) {
     id
+    essentials(first: 3) {
+      nodes {
+        ...CollectionParts
+      }
+    }
     obsessions {
       nodes {
         ...ObsessionParts
@@ -30,8 +35,8 @@ export const EssentialsByArticleDocument = /*#__PURE__*/ gql `
     }
   }
 }
-    ${ObsessionPartsFragmentDoc}
-${CollectionPartsFragmentDoc}
+    ${CollectionPartsFragmentDoc}
+${ObsessionPartsFragmentDoc}
 ${GuidePartsFragmentDoc}`;
 /**
  * __useEssentialsByArticleQuery__
