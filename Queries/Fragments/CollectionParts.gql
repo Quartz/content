@@ -1,28 +1,5 @@
 fragment CollectionParts on Collection {
 	id
-	bulletin {
-      campaign {
-        attribution
-        id
-        logo
-        logoLink
-        name
-        slug
-      }
-      clientTracking {
-        article
-        elsewhere
-        logo
-      }
-      sponsor {
-        attribution
-        id
-        logo
-        logoLink
-        name
-        slug
-      }
-    }
 	collectionId
 	title
 	dateGmt

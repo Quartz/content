@@ -13,9 +13,12 @@ query EssentialsByArticle(
 		obsessions {
 			nodes {
 				...ObsessionParts
-				essentials {
+				essentials(
+					first: 1
+				) {
 					nodes {
 						...CollectionParts
+						...BulletinDataParts
 					}
 				}
 			}
@@ -23,9 +26,12 @@ query EssentialsByArticle(
 		guides {
 			nodes {
 				...GuideParts
-				essentials {
+				essentials(
+					first: 1
+				) {
 					nodes {
 						...CollectionParts
+						...BulletinDataParts
 					}
 				}
 			}
