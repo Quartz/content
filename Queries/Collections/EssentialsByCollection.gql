@@ -1,0 +1,10 @@
+query EssentialsByCollection(
+	$id: ID!
+) {
+	collection(id: $id, idType: ID) {
+		...CollectionParts
+		bulletin {
+			...BulletinDataParts
+		}
+	}
+}

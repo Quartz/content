@@ -6468,6 +6468,126 @@ public final class CollectionQuery: GraphQLQuery {
   }
 }
 
+public final class CollectionByIdQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query CollectionById($id: ID!) {
+      collection(id: $id, idType: ID) {
+        __typename
+        ...CollectionParts
+      }
+    }
+    """
+
+  public let operationName: String = "CollectionById"
+
+  public let operationIdentifier: String? = "690565ad7137c894652a7728a5b84f9eebd3dd732d97c607ed710f7cd1629a15"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    return document
+  }
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collection", arguments: ["id": GraphQLVariable("id"), "idType": "ID"], type: .object(Collection.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collection: Collection? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "collection": collection.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
+    }
+
+    /// An object of the collection Type.
+    public var collection: Collection? {
+      get {
+        return (resultMap["collection"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "collection")
+      }
+    }
+
+    public struct Collection: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Collection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(CollectionParts.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var collectionParts: CollectionParts {
+          get {
+            return CollectionParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class CollectionsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -7340,6 +7460,194 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class EssentialsByCollectionQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query EssentialsByCollection($id: ID!) {
+      collection(id: $id, idType: ID) {
+        __typename
+        ...CollectionParts
+        bulletin {
+          __typename
+          ...BulletinDataParts
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "EssentialsByCollection"
+
+  public let operationIdentifier: String? = "3b594751cfd0c62f7467226b98c6a7302e37999c69b0166777a0d422f06c9853"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CollectionParts.fragmentDefinition)
+    document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
+    document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + BulletinDataParts.fragmentDefinition)
+    return document
+  }
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["RootQuery"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collection", arguments: ["id": GraphQLVariable("id"), "idType": "ID"], type: .object(Collection.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collection: Collection? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "collection": collection.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
+    }
+
+    /// An object of the collection Type.
+    public var collection: Collection? {
+      get {
+        return (resultMap["collection"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "collection")
+      }
+    }
+
+    public struct Collection: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Collection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(CollectionParts.self),
+          GraphQLField("bulletin", type: .object(Bulletin.selections)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// Bulletin data
+      public var bulletin: Bulletin? {
+        get {
+          return (resultMap["bulletin"] as? ResultMap).flatMap { Bulletin(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "bulletin")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var collectionParts: CollectionParts {
+          get {
+            return CollectionParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+
+      public struct Bulletin: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["BulletinData"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(BulletinDataParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var bulletinDataParts: BulletinDataParts {
+            get {
+              return BulletinDataParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
             }
           }
         }
@@ -17999,6 +18307,352 @@ public struct BlockParts: GraphQLFragment {
       }
       set {
         resultMap.updateValue(newValue, forKey: "value")
+      }
+    }
+  }
+}
+
+public struct BulletinDataParts: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment BulletinDataParts on BulletinData {
+      __typename
+      campaign {
+        __typename
+        attribution
+        id
+        logo
+        logoLink
+        name
+        slug
+      }
+      clientTracking {
+        __typename
+        article
+        elsewhere
+        logo
+      }
+      sponsor {
+        __typename
+        attribution
+        id
+        logo
+        logoLink
+        name
+        slug
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["BulletinData"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("campaign", type: .object(Campaign.selections)),
+      GraphQLField("clientTracking", type: .object(ClientTracking.selections)),
+      GraphQLField("sponsor", type: .object(Sponsor.selections)),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(campaign: Campaign? = nil, clientTracking: ClientTracking? = nil, sponsor: Sponsor? = nil) {
+    self.init(unsafeResultMap: ["__typename": "BulletinData", "campaign": campaign.flatMap { (value: Campaign) -> ResultMap in value.resultMap }, "clientTracking": clientTracking.flatMap { (value: ClientTracking) -> ResultMap in value.resultMap }, "sponsor": sponsor.flatMap { (value: Sponsor) -> ResultMap in value.resultMap }])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  /// Bulletin campaign data
+  public var campaign: Campaign? {
+    get {
+      return (resultMap["campaign"] as? ResultMap).flatMap { Campaign(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "campaign")
+    }
+  }
+
+  /// Bulletin client tracking URLs, a.k.a. third-party pixels
+  public var clientTracking: ClientTracking? {
+    get {
+      return (resultMap["clientTracking"] as? ResultMap).flatMap { ClientTracking(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "clientTracking")
+    }
+  }
+
+  /// Bulletin sponsor data
+  public var sponsor: Sponsor? {
+    get {
+      return (resultMap["sponsor"] as? ResultMap).flatMap { Sponsor(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "sponsor")
+    }
+  }
+
+  public struct Campaign: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["CampaignData"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("attribution", type: .scalar(String.self)),
+        GraphQLField("id", type: .scalar(String.self)),
+        GraphQLField("logo", type: .scalar(String.self)),
+        GraphQLField("logoLink", type: .scalar(String.self)),
+        GraphQLField("name", type: .scalar(String.self)),
+        GraphQLField("slug", type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(attribution: String? = nil, id: String? = nil, logo: String? = nil, logoLink: String? = nil, name: String? = nil, slug: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "CampaignData", "attribution": attribution, "id": id, "logo": logo, "logoLink": logoLink, "name": name, "slug": slug])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// Sponsor/campaign attribution
+    public var attribution: String? {
+      get {
+        return resultMap["attribution"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "attribution")
+      }
+    }
+
+    /// Sponsor/campaign ID
+    public var id: String? {
+      get {
+        return resultMap["id"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "id")
+      }
+    }
+
+    /// Sponsor/campaign header image
+    public var logo: String? {
+      get {
+        return resultMap["logo"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "logo")
+      }
+    }
+
+    /// Sponsor/campaign header image link
+    public var logoLink: String? {
+      get {
+        return resultMap["logoLink"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "logoLink")
+      }
+    }
+
+    /// Sponsor/campaign name
+    public var name: String? {
+      get {
+        return resultMap["name"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "name")
+      }
+    }
+
+    /// Sponsor/campaign slug
+    public var slug: String? {
+      get {
+        return resultMap["slug"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "slug")
+      }
+    }
+  }
+
+  public struct ClientTracking: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["ClientTrackingData"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("article", type: .list(.scalar(String.self))),
+        GraphQLField("elsewhere", type: .list(.scalar(String.self))),
+        GraphQLField("logo", type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(article: [String?]? = nil, elsewhere: [String?]? = nil, logo: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "ClientTrackingData", "article": article, "elsewhere": elsewhere, "logo": logo])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// Client tracking URLs for use inside an bulletin context
+    public var article: [String?]? {
+      get {
+        return resultMap["article"] as? [String?]
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "article")
+      }
+    }
+
+    /// Client tracking URLs for use outside an bulletin context
+    public var elsewhere: [String?]? {
+      get {
+        return resultMap["elsewhere"] as? [String?]
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "elsewhere")
+      }
+    }
+
+    /// Sponsor/campaign header image link
+    public var logo: String? {
+      get {
+        return resultMap["logo"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "logo")
+      }
+    }
+  }
+
+  public struct Sponsor: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["CampaignData"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("attribution", type: .scalar(String.self)),
+        GraphQLField("id", type: .scalar(String.self)),
+        GraphQLField("logo", type: .scalar(String.self)),
+        GraphQLField("logoLink", type: .scalar(String.self)),
+        GraphQLField("name", type: .scalar(String.self)),
+        GraphQLField("slug", type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(attribution: String? = nil, id: String? = nil, logo: String? = nil, logoLink: String? = nil, name: String? = nil, slug: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "CampaignData", "attribution": attribution, "id": id, "logo": logo, "logoLink": logoLink, "name": name, "slug": slug])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// Sponsor/campaign attribution
+    public var attribution: String? {
+      get {
+        return resultMap["attribution"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "attribution")
+      }
+    }
+
+    /// Sponsor/campaign ID
+    public var id: String? {
+      get {
+        return resultMap["id"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "id")
+      }
+    }
+
+    /// Sponsor/campaign header image
+    public var logo: String? {
+      get {
+        return resultMap["logo"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "logo")
+      }
+    }
+
+    /// Sponsor/campaign header image link
+    public var logoLink: String? {
+      get {
+        return resultMap["logoLink"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "logoLink")
+      }
+    }
+
+    /// Sponsor/campaign name
+    public var name: String? {
+      get {
+        return resultMap["name"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "name")
+      }
+    }
+
+    /// Sponsor/campaign slug
+    public var slug: String? {
+      get {
+        return resultMap["slug"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "slug")
       }
     }
   }
