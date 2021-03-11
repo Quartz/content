@@ -1,7 +1,7 @@
 query CollectionById(
 	$id: ID!
 ) {
-	collectionBy(id: $id) {
+	collection(id: $id) {
 		...CollectionParts
 	}
 }
