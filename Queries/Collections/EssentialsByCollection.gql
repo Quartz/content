@@ -3,6 +3,8 @@ query EssentialsByCollection(
 ) {
 	collection(id: $id, idType: ID) {
 		...CollectionParts
-		...BulletinDataParts
+		bulletin {
+			...BulletinDataParts
+		}
 	}
 }
