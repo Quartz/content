@@ -3,6 +3,7 @@ fragment CollectionParts on Collection {
 	collectionId
 	title
 	dateGmt
+	excerpt
 	modifiedGmt
 	slug
 	featuredImage {
