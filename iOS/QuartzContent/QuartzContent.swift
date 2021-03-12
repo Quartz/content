@@ -6361,7 +6361,7 @@ public final class CollectionQuery: GraphQLQuery {
 
   public let operationName: String = "Collection"
 
-  public let operationIdentifier: String? = "9a9be924990ace303ca64dfecf466f41d40dc76735f42bd828015bdc8f6cc5a8"
+  public let operationIdentifier: String? = "c22740e4dc96ed851d5f90e6cb3311c60dd92532ad562cd805e9398b4c7ab7f3"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -6482,7 +6482,7 @@ public final class CollectionByIdQuery: GraphQLQuery {
 
   public let operationName: String = "CollectionById"
 
-  public let operationIdentifier: String? = "690565ad7137c894652a7728a5b84f9eebd3dd732d97c607ed710f7cd1629a15"
+  public let operationIdentifier: String? = "c2df6ec25b855546a68b06d2ac64d324d87fec218c14023093fd413a1dba9296"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -6609,7 +6609,7 @@ public final class CollectionsQuery: GraphQLQuery {
 
   public let operationName: String = "Collections"
 
-  public let operationIdentifier: String? = "0b16cce4bdb043c4f331a9e93b7e416afa1bdc5a0d9c2c820df197e3896d1ad2"
+  public let operationIdentifier: String? = "8cce508324c5f3eb40d2cba36fc92292b21b6185b17b3570b1915b6bf715aa18"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -6857,7 +6857,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "76005909acf6935ee67a66a985c0923384701a055a2ce8d89234a6c06db0f9cd"
+  public let operationIdentifier: String? = "ec6cd1d2ccbe5ac69bdaacd32772c52253c5fc19b241e8a66110ea5da5c9acdd"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7486,7 +7486,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByCollection"
 
-  public let operationIdentifier: String? = "3b594751cfd0c62f7467226b98c6a7302e37999c69b0166777a0d422f06c9853"
+  public let operationIdentifier: String? = "2e0a94e67d2b384985aea330787e6c16df9d6abf98cf06114dc7c916bfc6cb0a"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7680,7 +7680,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByGuide"
 
-  public let operationIdentifier: String? = "edf986123566ad4d17e503a3af16c325087841578357cff51f79e4c8c505ebe4"
+  public let operationIdentifier: String? = "fea72ec62fecdd017b1021aa88daf998cfc7d76a21bad6dd8cf53f1934cb6a95"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7941,7 +7941,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByObsession"
 
-  public let operationIdentifier: String? = "648d5bd56e2200a967de8aa0baeb762bf7a19c56a4f853a4615e79873938cde0"
+  public let operationIdentifier: String? = "6bf04cba95c037783fd6e5ec082428c68206395260f36e9ba107ff7344ccdce2"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -11244,7 +11244,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollection"
 
-  public let operationIdentifier: String? = "0a6e0416154ea7dc70f87d76638bf2381f06dd2e1865df2fd94bd96ca8b8a957"
+  public let operationIdentifier: String? = "e4a5bb02d0f71aae377432d998ae97f5f13a066a75cd7ed9023fd27d085daf9a"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -11400,7 +11400,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollectionPreview"
 
-  public let operationIdentifier: String? = "cef0e898a155ebee9c0782886f89049880cc55b09a5ff1a3ed6208f4fb4b61c2"
+  public let operationIdentifier: String? = "77fb4c92d12552783e34c71e73ce08308dc57e914a18f7211f21ce03c1d5e978"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -19028,6 +19028,7 @@ public struct CollectionParts: GraphQLFragment {
       collectionId
       title
       dateGmt
+      excerpt
       modifiedGmt
       slug
       featuredImage {
@@ -19062,6 +19063,7 @@ public struct CollectionParts: GraphQLFragment {
       GraphQLField("collectionId", type: .nonNull(.scalar(Int.self))),
       GraphQLField("title", type: .scalar(String.self)),
       GraphQLField("dateGmt", type: .scalar(String.self)),
+      GraphQLField("excerpt", type: .scalar(String.self)),
       GraphQLField("modifiedGmt", type: .scalar(String.self)),
       GraphQLField("slug", type: .scalar(String.self)),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
@@ -19075,8 +19077,8 @@ public struct CollectionParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, collectionId: Int, title: String? = nil, dateGmt: String? = nil, modifiedGmt: String? = nil, slug: String? = nil, featuredImage: FeaturedImage? = nil, blocks: [Block?]? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "collectionId": collectionId, "title": title, "dateGmt": dateGmt, "modifiedGmt": modifiedGmt, "slug": slug, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }])
+  public init(id: GraphQLID, collectionId: Int, title: String? = nil, dateGmt: String? = nil, excerpt: String? = nil, modifiedGmt: String? = nil, slug: String? = nil, featuredImage: FeaturedImage? = nil, blocks: [Block?]? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "collectionId": collectionId, "title": title, "dateGmt": dateGmt, "excerpt": excerpt, "modifiedGmt": modifiedGmt, "slug": slug, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "blocks": blocks.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }])
   }
 
   public var __typename: String {
@@ -19126,6 +19128,16 @@ public struct CollectionParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "dateGmt")
+    }
+  }
+
+  /// The excerpt of the post.
+  public var excerpt: String? {
+    get {
+      return resultMap["excerpt"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "excerpt")
     }
   }
 
