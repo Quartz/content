@@ -9,6 +9,7 @@ export declare type CollectionPartsFragment = {
     collectionId: number;
     title?: Types.Maybe<string>;
     dateGmt?: Types.Maybe<string>;
+    excerpt?: Types.Maybe<string>;
     modifiedGmt?: Types.Maybe<string>;
     slug?: Types.Maybe<string>;
     featuredImage?: Types.Maybe<({

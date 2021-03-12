@@ -9,6 +9,7 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
   collectionId
   title
   dateGmt
+  excerpt
   modifiedGmt
   slug
   featuredImage {
