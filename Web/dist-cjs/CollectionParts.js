@@ -12,6 +12,7 @@ exports.CollectionPartsFragmentDoc = client_1.gql `
   collectionId
   title
   dateGmt
+  excerpt
   modifiedGmt
   slug
   featuredImage {
