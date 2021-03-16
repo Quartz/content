@@ -1,7 +1,7 @@
 query EssentialsByCollection(
-	$id: ID!
+	$collectionId: Int!
 ) {
-	collection(id: $id, idType: ID) {
+	collection(collectionId: $collectionId, idType: Int) {
 		...CollectionParts
 		bulletin {
 			...BulletinDataParts
