@@ -7472,8 +7472,8 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query EssentialsByCollection($id: ID!) {
-      collection(id: $id, idType: ID) {
+    query EssentialsByCollection($collectionId: ID!) {
+      collection(collectionId: $collectionId, idType: ID) {
         __typename
         ...CollectionParts
         bulletin {
@@ -7486,7 +7486,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByCollection"
 
-  public let operationIdentifier: String? = "2e0a94e67d2b384985aea330787e6c16df9d6abf98cf06114dc7c916bfc6cb0a"
+  public let operationIdentifier: String? = "4b8c31c08821b34f38b92e0e3db5aaf82e875dbba86caac533405fb07a84a218"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7500,14 +7500,14 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
     return document
   }
 
-  public var id: GraphQLID
+  public var collectionId: GraphQLID
 
-  public init(id: GraphQLID) {
-    self.id = id
+  public init(collectionId: GraphQLID) {
+    self.collectionId = collectionId
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id]
+    return ["collectionId": collectionId]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -7515,7 +7515,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("collection", arguments: ["id": GraphQLVariable("id"), "idType": "ID"], type: .object(Collection.selections)),
+        GraphQLField("collection", arguments: ["collectionId": GraphQLVariable("collectionId"), "idType": "ID"], type: .object(Collection.selections)),
       ]
     }
 

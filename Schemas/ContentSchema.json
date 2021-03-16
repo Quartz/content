@@ -16670,6 +16670,22 @@
             "deprecationReason": null
           },
           {
+            "name": "brandSafety",
+            "description": "Brand safety terms (proprietary IDs)",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "bulletin",
             "description": "Bulletin data",
             "args": [],
