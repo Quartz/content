@@ -4,8 +4,8 @@ import { BulletinDataPartsFragmentDoc } from './BulletinDataParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const EssentialsByCollectionDocument = /*#__PURE__*/ gql `
-    query EssentialsByCollection($id: ID!) {
-  collection(id: $id, idType: ID) {
+    query EssentialsByCollection($collectionId: Int!) {
+  collectionBy(collectionId: $collectionId) {
     ...CollectionParts
     bulletin {
       ...BulletinDataParts
@@ -26,7 +26,7 @@ ${BulletinDataPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEssentialsByCollectionQuery({
  *   variables: {
- *      id: // value for 'id'
+ *      collectionId: // value for 'collectionId'
  *   },
  * });
  */

@@ -26,8 +26,8 @@ const BulletinDataParts_1 = require("./BulletinDataParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.EssentialsByCollectionDocument = client_1.gql `
-    query EssentialsByCollection($id: ID!) {
-  collection(id: $id, idType: ID) {
+    query EssentialsByCollection($collectionId: Int!) {
+  collectionBy(collectionId: $collectionId) {
     ...CollectionParts
     bulletin {
       ...BulletinDataParts
@@ -48,7 +48,7 @@ ${BulletinDataParts_1.BulletinDataPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEssentialsByCollectionQuery({
  *   variables: {
- *      id: // value for 'id'
+ *      collectionId: // value for 'collectionId'
  *   },
  * });
  */

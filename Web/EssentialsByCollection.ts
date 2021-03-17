@@ -8,11 +8,11 @@ import { BulletinDataPartsFragmentDoc } from './BulletinDataParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type EssentialsByCollectionQueryVariables = Types.Exact<{
-  id: Types.Scalars['ID'];
+  collectionId: Types.Scalars['Int'];
 }>;
 
 
-export type EssentialsByCollectionQuery = { __typename?: 'RootQuery', collection?: Types.Maybe<(
+export type EssentialsByCollectionQuery = { __typename?: 'RootQuery', collectionBy?: Types.Maybe<(
     { __typename?: 'Collection', bulletin?: Types.Maybe<(
       { __typename?: 'BulletinData' }
       & BulletinDataPartsFragment
@@ -22,8 +22,8 @@ export type EssentialsByCollectionQuery = { __typename?: 'RootQuery', collection
 
 
 export const EssentialsByCollectionDocument = /*#__PURE__*/ gql`
-    query EssentialsByCollection($id: ID!) {
-  collection(id: $id, idType: ID) {
+    query EssentialsByCollection($collectionId: Int!) {
+  collectionBy(collectionId: $collectionId) {
     ...CollectionParts
     bulletin {
       ...BulletinDataParts
@@ -45,7 +45,7 @@ ${BulletinDataPartsFragmentDoc}`;
  * @example
  * const { data, loading, error } = useEssentialsByCollectionQuery({
  *   variables: {
- *      id: // value for 'id'
+ *      collectionId: // value for 'collectionId'
  *   },
  * });
  */
