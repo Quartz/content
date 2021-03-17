@@ -1,5 +1,5 @@
 query EssentialsByCollection(
-	$collectionId: ID!
+	$collectionId: Int!
 ) {
 	collectionBy(collectionId: $collectionId) {
 		...CollectionParts
