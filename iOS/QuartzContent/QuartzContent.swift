@@ -7472,8 +7472,8 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query EssentialsByCollection($collectionId: ID!) {
-      collection(collectionId: $collectionId, idType: ID) {
+    query EssentialsByCollection($collectionId: Int!) {
+      collectionBy(collectionId: $collectionId) {
         __typename
         ...CollectionParts
         bulletin {
@@ -7486,7 +7486,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByCollection"
 
-  public let operationIdentifier: String? = "4b8c31c08821b34f38b92e0e3db5aaf82e875dbba86caac533405fb07a84a218"
+  public let operationIdentifier: String? = "40cf6cfbf41f6a1a498c3830cf4fa8065f0b49564171c2b21a3de204670dcee3"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7500,9 +7500,9 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
     return document
   }
 
-  public var collectionId: GraphQLID
+  public var collectionId: Int
 
-  public init(collectionId: GraphQLID) {
+  public init(collectionId: Int) {
     self.collectionId = collectionId
   }
 
@@ -7515,7 +7515,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("collection", arguments: ["collectionId": GraphQLVariable("collectionId"), "idType": "ID"], type: .object(Collection.selections)),
+        GraphQLField("collectionBy", arguments: ["collectionId": GraphQLVariable("collectionId")], type: .object(CollectionBy.selections)),
       ]
     }
 
@@ -7525,21 +7525,22 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(collection: Collection? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "collection": collection.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
+    public init(collectionBy: CollectionBy? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "collectionBy": collectionBy.flatMap { (value: CollectionBy) -> ResultMap in value.resultMap }])
     }
 
-    /// An object of the collection Type.
-    public var collection: Collection? {
+    /// A collection object
+    @available(*, deprecated, message: "Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)")
+    public var collectionBy: CollectionBy? {
       get {
-        return (resultMap["collection"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
+        return (resultMap["collectionBy"] as? ResultMap).flatMap { CollectionBy(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "collection")
+        resultMap.updateValue(newValue?.resultMap, forKey: "collectionBy")
       }
     }
 
-    public struct Collection: GraphQLSelectionSet {
+    public struct CollectionBy: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["Collection"]
 
       public static var selections: [GraphQLSelection] {

@@ -3,11 +3,11 @@ import type { CollectionPartsFragment } from './CollectionParts';
 import type { BulletinDataPartsFragment } from './BulletinDataParts';
 import * as Apollo from '@apollo/client';
 export declare type EssentialsByCollectionQueryVariables = Types.Exact<{
-    id: Types.Scalars['ID'];
+    collectionId: Types.Scalars['Int'];
 }>;
 export declare type EssentialsByCollectionQuery = {
     __typename?: 'RootQuery';
-    collection?: Types.Maybe<({
+    collectionBy?: Types.Maybe<({
         __typename?: 'Collection';
         bulletin?: Types.Maybe<({
             __typename?: 'BulletinData';
@@ -27,15 +27,15 @@ export declare const EssentialsByCollectionDocument: Apollo.DocumentNode;
  * @example
  * const { data, loading, error } = useEssentialsByCollectionQuery({
  *   variables: {
- *      id: // value for 'id'
+ *      collectionId: // value for 'collectionId'
  *   },
  * });
  */
 export declare function useEssentialsByCollectionQuery(baseOptions: Apollo.QueryHookOptions<EssentialsByCollectionQuery, EssentialsByCollectionQueryVariables>): Apollo.QueryResult<EssentialsByCollectionQuery, Types.Exact<{
-    id: string;
+    collectionId: number;
 }>>;
 export declare function useEssentialsByCollectionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EssentialsByCollectionQuery, EssentialsByCollectionQueryVariables>): Apollo.QueryTuple<EssentialsByCollectionQuery, Types.Exact<{
-    id: string;
+    collectionId: number;
 }>>;
 export declare type EssentialsByCollectionQueryHookResult = ReturnType<typeof useEssentialsByCollectionQuery>;
 export declare type EssentialsByCollectionLazyQueryHookResult = ReturnType<typeof useEssentialsByCollectionLazyQuery>;
