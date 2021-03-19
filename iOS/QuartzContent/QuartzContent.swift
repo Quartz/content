@@ -1419,7 +1419,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "4f803f3c199b51c4881d3c30bf038da2dc47b111ba8401b9ba4acb1c51523e8d"
+  public let operationIdentifier: String? = "b0b2555206951faf93c293d4958b7f2f9d16f7a770e80dcfdb01b19385eb92b0"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -1587,7 +1587,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlePreview"
 
-  public let operationIdentifier: String? = "751c37c1d8ecea32967aa6f98b3702bc41559992a795c7d871d7105a2934d057"
+  public let operationIdentifier: String? = "e864c5625ea4f3db63ed2ac3d3a0d813470d6fb6b96f21080790616cb861f636"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -15497,8 +15497,8 @@ public struct ArticleParts: GraphQLFragment {
         __typename
         ...BlockParts
       }
+      brandSafety
       canonicalUrl
-      classifications
       excerpt
       featuredImageSize
       flags {
@@ -15595,8 +15595,8 @@ public struct ArticleParts: GraphQLFragment {
       GraphQLFragmentSpread(ArticleTeaserParts.self),
       GraphQLField("coAuthors", alias: "authors", type: .object(Author.selections)),
       GraphQLField("blocks", type: .list(.object(Block.selections))),
+      GraphQLField("brandSafety", type: .list(.scalar(Int.self))),
       GraphQLField("canonicalUrl", type: .scalar(String.self)),
-      GraphQLField("classifications", type: .list(.scalar(String.self))),
       GraphQLField("excerpt", type: .scalar(String.self)),
       GraphQLField("featuredImageSize", type: .scalar(String.self)),
       GraphQLField("flags", type: .object(Flag.selections)),
@@ -15661,6 +15661,16 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
+  /// Brand safety terms (proprietary IDs)
+  public var brandSafety: [Int?]? {
+    get {
+      return resultMap["brandSafety"] as? [Int?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "brandSafety")
+    }
+  }
+
   /// URL to use with canonical meta tag
   public var canonicalUrl: String? {
     get {
@@ -15668,16 +15678,6 @@ public struct ArticleParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "canonicalUrl")
-    }
-  }
-
-  /// Contextual classifications for anti-targeting
-  public var classifications: [String?]? {
-    get {
-      return resultMap["classifications"] as? [String?]
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "classifications")
     }
   }
 
