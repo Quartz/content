@@ -18,8 +18,8 @@ export const ArticlePartsFragmentDoc = /*#__PURE__*/ gql `
   blocks {
     ...BlockParts
   }
+  brandSafety
   canonicalUrl
-  classifications
   excerpt
   featuredImageSize
   flags {

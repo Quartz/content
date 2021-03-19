@@ -21,8 +21,8 @@ exports.ArticlePartsFragmentDoc = client_1.gql `
   blocks {
     ...BlockParts
   }
+  brandSafety
   canonicalUrl
-  classifications
   excerpt
   featuredImageSize
   flags {
