@@ -28,11 +28,6 @@ fragment BulletinTeaserParts on Bulletin {
 	featuredImage {
 		...MediaParts
 	}
-	guides {
-		nodes {
-			name
-		}
-	}
 	id
 	kicker
 	link
