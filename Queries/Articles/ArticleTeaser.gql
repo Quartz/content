@@ -1,4 +1,4 @@
-query ArticleOrBulletinTeaser($id: ID!) {
+query ArticleOrBulletinTeaser($id: Int!) {
 	posts(
 		where: {
 			id: $id
