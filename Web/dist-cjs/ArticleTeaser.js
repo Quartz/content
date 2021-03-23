@@ -19,42 +19,44 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useArticleTeaserLazyQuery = exports.useArticleTeaserQuery = exports.ArticleTeaserDocument = void 0;
+exports.useArticleOrBulletinTeaserLazyQuery = exports.useArticleOrBulletinTeaserQuery = exports.ArticleOrBulletinTeaserDocument = void 0;
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
-exports.ArticleTeaserDocument = client_1.gql `
-    query ArticleTeaser($id: ID!) {
-  post(id: $id) {
-    ...ArticleTeaserParts
+exports.ArticleOrBulletinTeaserDocument = client_1.gql `
+    query ArticleOrBulletinTeaser($id: Int!) {
+  posts(where: {id: $id}) {
+    nodes {
+      ...ArticleTeaserParts
+    }
   }
 }
     ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
 /**
- * __useArticleTeaserQuery__
+ * __useArticleOrBulletinTeaserQuery__
  *
- * To run a query within a React component, call `useArticleTeaserQuery` and pass it any options that fit your needs.
- * When your component renders, `useArticleTeaserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useArticleOrBulletinTeaserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticleOrBulletinTeaserQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useArticleTeaserQuery({
+ * const { data, loading, error } = useArticleOrBulletinTeaserQuery({
  *   variables: {
  *      id: // value for 'id'
  *   },
  * });
  */
-function useArticleTeaserQuery(baseOptions) {
+function useArticleOrBulletinTeaserQuery(baseOptions) {
     const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
-    return Apollo.useQuery(exports.ArticleTeaserDocument, options);
+    return Apollo.useQuery(exports.ArticleOrBulletinTeaserDocument, options);
 }
-exports.useArticleTeaserQuery = useArticleTeaserQuery;
-function useArticleTeaserLazyQuery(baseOptions) {
+exports.useArticleOrBulletinTeaserQuery = useArticleOrBulletinTeaserQuery;
+function useArticleOrBulletinTeaserLazyQuery(baseOptions) {
     const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
-    return Apollo.useLazyQuery(exports.ArticleTeaserDocument, options);
+    return Apollo.useLazyQuery(exports.ArticleOrBulletinTeaserDocument, options);
 }
-exports.useArticleTeaserLazyQuery = useArticleTeaserLazyQuery;
+exports.useArticleOrBulletinTeaserLazyQuery = useArticleOrBulletinTeaserLazyQuery;
 //# sourceMappingURL=ArticleTeaser.js.map
