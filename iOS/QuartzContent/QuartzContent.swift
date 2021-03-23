@@ -4734,7 +4734,7 @@ public final class ArticleOrBulletinTeaserQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query ArticleOrBulletinTeaser($id: ID!) {
+    query ArticleOrBulletinTeaser($id: Int!) {
       posts(where: {id: $id}) {
         __typename
         nodes {
@@ -4747,7 +4747,7 @@ public final class ArticleOrBulletinTeaserQuery: GraphQLQuery {
 
   public let operationName: String = "ArticleOrBulletinTeaser"
 
-  public let operationIdentifier: String? = "470daaff068c731790656b6cac1ae069d0268adcdf23fee47362888096cca985"
+  public let operationIdentifier: String? = "17850762add6815beb6b319e1dcab2455f65f2cbb45edc7fe6cf025d6f4e8c77"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -4757,9 +4757,9 @@ public final class ArticleOrBulletinTeaserQuery: GraphQLQuery {
     return document
   }
 
-  public var id: GraphQLID
+  public var id: Int
 
-  public init(id: GraphQLID) {
+  public init(id: Int) {
     self.id = id
   }
 
