@@ -4730,21 +4730,24 @@ public final class ArticlesByTopicQuery: GraphQLQuery {
   }
 }
 
-public final class ArticleTeaserQuery: GraphQLQuery {
+public final class ArticleOrBulletinTeaserQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query ArticleTeaser($id: ID!) {
-      post(id: $id) {
+    query ArticleOrBulletinTeaser($id: Int!) {
+      posts(where: {id: $id}) {
         __typename
-        ...ArticleTeaserParts
+        nodes {
+          __typename
+          ...ArticleTeaserParts
+        }
       }
     }
     """
 
-  public let operationName: String = "ArticleTeaser"
+  public let operationName: String = "ArticleOrBulletinTeaser"
 
-  public let operationIdentifier: String? = "093052fae205909a591a777e79a61c0698062226e3e39a4478a195d826468aa6"
+  public let operationIdentifier: String? = "17850762add6815beb6b319e1dcab2455f65f2cbb45edc7fe6cf025d6f4e8c77"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -4754,9 +4757,9 @@ public final class ArticleTeaserQuery: GraphQLQuery {
     return document
   }
 
-  public var id: GraphQLID
+  public var id: Int
 
-  public init(id: GraphQLID) {
+  public init(id: Int) {
     self.id = id
   }
 
@@ -4769,7 +4772,7 @@ public final class ArticleTeaserQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("post", arguments: ["id": GraphQLVariable("id")], type: .object(Post.selections)),
+        GraphQLField("posts", arguments: ["where": ["id": GraphQLVariable("id")]], type: .object(Post.selections)),
       ]
     }
 
@@ -4779,27 +4782,27 @@ public final class ArticleTeaserQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(post: Post? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "post": post.flatMap { (value: Post) -> ResultMap in value.resultMap }])
+    public init(posts: Post? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
-    /// An object of the post Type.
-    public var post: Post? {
+    /// Connection between the RootQuery type and the post type
+    public var posts: Post? {
       get {
-        return (resultMap["post"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
+        return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "post")
+        resultMap.updateValue(newValue?.resultMap, forKey: "posts")
       }
     }
 
     public struct Post: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Post"]
+      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
 
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(ArticleTeaserParts.self),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
         ]
       }
 
@@ -4807,6 +4810,10 @@ public final class ArticleTeaserQuery: GraphQLQuery {
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -4818,28 +4825,64 @@ public final class ArticleTeaserQuery: GraphQLQuery {
         }
       }
 
-      public var fragments: Fragments {
+      /// The nodes of the connection, without the edges
+      public var nodes: [Node?]? {
         get {
-          return Fragments(unsafeResultMap: resultMap)
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap += newValue.resultMap
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
-      public struct Fragments {
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Post"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ArticleTeaserParts.self),
+          ]
+        }
+
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public var articleTeaserParts: ArticleTeaserParts {
+        public var __typename: String {
           get {
-            return ArticleTeaserParts(unsafeResultMap: resultMap)
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var articleTeaserParts: ArticleTeaserParts {
+            get {
+              return ArticleTeaserParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }

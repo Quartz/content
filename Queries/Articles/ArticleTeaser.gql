@@ -1,5 +1,11 @@
-query ArticleTeaser($id: ID!) {
-	post(id: $id) {
-		...ArticleTeaserParts
+query ArticleOrBulletinTeaser($id: Int!) {
+	posts(
+		where: {
+			id: $id
+		}
+	) {
+		nodes {
+			...ArticleTeaserParts
+		}
 	}
 }

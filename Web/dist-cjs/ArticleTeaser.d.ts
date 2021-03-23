@@ -1,39 +1,42 @@
 import type * as Types from './types';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
-export declare type ArticleTeaserQueryVariables = Types.Exact<{
-    id: Types.Scalars['ID'];
+export declare type ArticleOrBulletinTeaserQueryVariables = Types.Exact<{
+    id: Types.Scalars['Int'];
 }>;
-export declare type ArticleTeaserQuery = {
+export declare type ArticleOrBulletinTeaserQuery = {
     __typename?: 'RootQuery';
-    post?: Types.Maybe<({
-        __typename?: 'Post';
-    } & ArticleTeaserPartsFragment)>;
+    posts?: Types.Maybe<{
+        __typename?: 'RootQueryToPostConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<({
+            __typename?: 'Post';
+        } & ArticleTeaserPartsFragment)>>>;
+    }>;
 };
-export declare const ArticleTeaserDocument: Apollo.DocumentNode;
+export declare const ArticleOrBulletinTeaserDocument: Apollo.DocumentNode;
 /**
- * __useArticleTeaserQuery__
+ * __useArticleOrBulletinTeaserQuery__
  *
- * To run a query within a React component, call `useArticleTeaserQuery` and pass it any options that fit your needs.
- * When your component renders, `useArticleTeaserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useArticleOrBulletinTeaserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useArticleOrBulletinTeaserQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useArticleTeaserQuery({
+ * const { data, loading, error } = useArticleOrBulletinTeaserQuery({
  *   variables: {
  *      id: // value for 'id'
  *   },
  * });
  */
-export declare function useArticleTeaserQuery(baseOptions: Apollo.QueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>): Apollo.QueryResult<ArticleTeaserQuery, Types.Exact<{
-    id: string;
+export declare function useArticleOrBulletinTeaserQuery(baseOptions: Apollo.QueryHookOptions<ArticleOrBulletinTeaserQuery, ArticleOrBulletinTeaserQueryVariables>): Apollo.QueryResult<ArticleOrBulletinTeaserQuery, Types.Exact<{
+    id: number;
 }>>;
-export declare function useArticleTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleTeaserQuery, ArticleTeaserQueryVariables>): Apollo.QueryTuple<ArticleTeaserQuery, Types.Exact<{
-    id: string;
+export declare function useArticleOrBulletinTeaserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleOrBulletinTeaserQuery, ArticleOrBulletinTeaserQueryVariables>): Apollo.QueryTuple<ArticleOrBulletinTeaserQuery, Types.Exact<{
+    id: number;
 }>>;
-export declare type ArticleTeaserQueryHookResult = ReturnType<typeof useArticleTeaserQuery>;
-export declare type ArticleTeaserLazyQueryHookResult = ReturnType<typeof useArticleTeaserLazyQuery>;
-export declare type ArticleTeaserQueryResult = Apollo.QueryResult<ArticleTeaserQuery, ArticleTeaserQueryVariables>;
+export declare type ArticleOrBulletinTeaserQueryHookResult = ReturnType<typeof useArticleOrBulletinTeaserQuery>;
+export declare type ArticleOrBulletinTeaserLazyQueryHookResult = ReturnType<typeof useArticleOrBulletinTeaserLazyQuery>;
+export declare type ArticleOrBulletinTeaserQueryResult = Apollo.QueryResult<ArticleOrBulletinTeaserQuery, ArticleOrBulletinTeaserQueryVariables>;
 //# sourceMappingURL=ArticleTeaser.d.ts.map
