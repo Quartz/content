@@ -1,4 +1,23 @@
-fragment ArticleTeaserParts on Post {
+fragment BulletinTeaserParts on Bulletin {
+	bulletin {
+		campaign {
+			id
+			logo
+			name
+			slug
+		}
+		sponsor {
+			attribution
+			id
+			slug
+			name
+		}
+		clientTracking {
+			article
+			elsewhere
+			logo
+		}
+	}
 	dateGmt
 	editions {
 		nodes {
@@ -31,3 +50,4 @@ fragment ArticleTeaserParts on Post {
 		...VideoParts
 	}
 }
+
