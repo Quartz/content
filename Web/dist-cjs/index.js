@@ -54,6 +54,7 @@ __exportStar(require("./GuidesByTopic"), exports);
 __exportStar(require("./HomeCollection"), exports);
 __exportStar(require("./HomeCollectionPreview"), exports);
 __exportStar(require("./LatestArticles"), exports);
+__exportStar(require("./LatestEmailByList"), exports);
 __exportStar(require("./LatestFeedContent"), exports);
 __exportStar(require("./MediaItemsById"), exports);
 __exportStar(require("./MediaParts"), exports);
