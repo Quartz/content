@@ -1,5 +1,5 @@
 query LatestEmailByList(
-    $slug: String 
+    $slug: [String] 
 ) {
   emailLists(where: {slug: $slug}) {
     nodes {
