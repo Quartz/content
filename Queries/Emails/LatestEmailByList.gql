@@ -1,7 +1,7 @@
 query LatestEmailByList(
-    $slug: [String] 
+    $slug: [String]
 ) {
-  emailLists(where: {slug: $slug}) {
+  emailLists:latestEmailLists(where: {slug: $slug}) {
     nodes {
       emails(first: 1) {
         nodes {
