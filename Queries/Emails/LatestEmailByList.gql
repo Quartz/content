@@ -2,14 +2,13 @@ query LatestEmailByList(
     $slug: [String]
 ) {
   emailLists(where: {slug: $slug}) {
-    edges {
-      node {
-        emails(first: 1) {
-          nodes {
+    nodes {
+      id
+      emails(first: 1) {
+        nodes {
             html
             link
-            ...EmailParts
-          }
+          ...EmailParts
         }
       }
     }
