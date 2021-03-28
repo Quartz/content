@@ -1,7 +1,0 @@
-query TrendingArticles {
-	trendingPosts{
-		nodes {
-			...ArticleTeaserParts
-		}
-	}
-}
