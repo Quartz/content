@@ -3,8 +3,8 @@ import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const EmailListsBySlugDocument = /*#__PURE__*/ gql `
-    query EmailListsBySlug($slug: [String]!) {
-  emailLists(first: 1, where: {slug: $slug}) {
+    query EmailListsBySlug($perPage: Int = 10, $slug: [String]!) {
+  emailLists(first: $perPage, where: {slug: $slug}) {
     nodes {
       ...EmailListParts
       emails(first: 1) {
@@ -29,6 +29,7 @@ export const EmailListsBySlugDocument = /*#__PURE__*/ gql `
  * @example
  * const { data, loading, error } = useEmailListsBySlugQuery({
  *   variables: {
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });

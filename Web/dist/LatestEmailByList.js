@@ -3,8 +3,8 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const LatestEmailByListDocument = /*#__PURE__*/ gql `
-    query LatestEmailByList($slug: [String]!) {
-  emailLists(first: 1, where: {slug: $slug}) {
+    query LatestEmailByList($perPage: Int = 1, $slug: [String]!) {
+  emailLists(first: $perPage, where: {slug: $slug}) {
     nodes {
       id
       emails(first: 1) {
@@ -29,6 +29,7 @@ export const LatestEmailByListDocument = /*#__PURE__*/ gql `
  * @example
  * const { data, loading, error } = useLatestEmailByListQuery({
  *   variables: {
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });

@@ -2,6 +2,7 @@ import type * as Types from './types';
 import type { EmailListPartsFragment } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export declare type EmailListsBySlugQueryVariables = Types.Exact<{
+    perPage?: Types.Maybe<Types.Scalars['Int']>;
     slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type EmailListsBySlugQuery = {
@@ -34,14 +35,17 @@ export declare const EmailListsBySlugDocument: Apollo.DocumentNode;
  * @example
  * const { data, loading, error } = useEmailListsBySlugQuery({
  *   variables: {
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });
  */
 export declare function useEmailListsBySlugQuery(baseOptions: Apollo.QueryHookOptions<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>): Apollo.QueryResult<EmailListsBySlugQuery, Types.Exact<{
+    perPage?: Types.Maybe<number> | undefined;
     slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useEmailListsBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmailListsBySlugQuery, EmailListsBySlugQueryVariables>): Apollo.QueryTuple<EmailListsBySlugQuery, Types.Exact<{
+    perPage?: Types.Maybe<number> | undefined;
     slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type EmailListsBySlugQueryHookResult = ReturnType<typeof useEmailListsBySlugQuery>;
