@@ -1419,7 +1419,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "4f803f3c199b51c4881d3c30bf038da2dc47b111ba8401b9ba4acb1c51523e8d"
+  public let operationIdentifier: String? = "642e855f3ddc2ac3e1d49091016a5052125d30db9b598ee4ebfaf13ddc52e22b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -1587,7 +1587,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlePreview"
 
-  public let operationIdentifier: String? = "751c37c1d8ecea32967aa6f98b3702bc41559992a795c7d871d7105a2934d057"
+  public let operationIdentifier: String? = "a5900738d4a6cdda855d588f65bfdf875fbb898fad96ad0c193dc75152b43211"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -15506,6 +15506,7 @@ public struct ArticleParts: GraphQLFragment {
         __typename
         ...BlockParts
       }
+      brandSafety
       canonicalUrl
       classifications
       excerpt
@@ -15604,6 +15605,7 @@ public struct ArticleParts: GraphQLFragment {
       GraphQLFragmentSpread(ArticleTeaserParts.self),
       GraphQLField("coAuthors", alias: "authors", type: .object(Author.selections)),
       GraphQLField("blocks", type: .list(.object(Block.selections))),
+      GraphQLField("brandSafety", type: .list(.scalar(Int.self))),
       GraphQLField("canonicalUrl", type: .scalar(String.self)),
       GraphQLField("classifications", type: .list(.scalar(String.self))),
       GraphQLField("excerpt", type: .scalar(String.self)),
@@ -15667,6 +15669,16 @@ public struct ArticleParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }, forKey: "blocks")
+    }
+  }
+
+  /// Brand safety terms (proprietary IDs)
+  public var brandSafety: [Int?]? {
+    get {
+      return resultMap["brandSafety"] as? [Int?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "brandSafety")
     }
   }
 
