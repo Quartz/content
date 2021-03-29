@@ -4,11 +4,12 @@ import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const EmailListsBySlugDocument = /*#__PURE__*/ gql `
     query EmailListsBySlug($slug: [String]!) {
-  emailLists(where: {slug: $slug}) {
+  emailLists(first: 1, where: {slug: $slug}) {
     nodes {
       ...EmailListParts
       emails(first: 1) {
         nodes {
+          id
           emailId
         }
       }

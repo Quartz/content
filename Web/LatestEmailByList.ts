@@ -6,24 +6,24 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type LatestEmailByListQueryVariables = Types.Exact<{
-  slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
+  slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
-export type LatestEmailByListQuery = { __typename?: 'RootQuery', emailLists?: Types.Maybe<{ __typename?: 'RootQueryToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', emails?: Types.Maybe<{ __typename?: 'EmailListToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
-          { __typename?: 'Email', html?: Types.Maybe<string>, link?: Types.Maybe<string> }
+export type LatestEmailByListQuery = { __typename?: 'RootQuery', emailLists?: Types.Maybe<{ __typename?: 'RootQueryToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', id: string, emails?: Types.Maybe<{ __typename?: 'EmailListToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+          { __typename?: 'Email', html?: Types.Maybe<string> }
           & EmailPartsFragment
         )>>> }> }>>> }> };
 
 
 export const LatestEmailByListDocument = /*#__PURE__*/ gql`
-    query LatestEmailByList($slug: [String]) {
-  emailLists(where: {slug: $slug}) {
+    query LatestEmailByList($slug: [String]!) {
+  emailLists(first: 1, where: {slug: $slug}) {
     nodes {
+      id
       emails(first: 1) {
         nodes {
           html
-          link
           ...EmailParts
         }
       }
@@ -48,7 +48,7 @@ export const LatestEmailByListDocument = /*#__PURE__*/ gql`
  *   },
  * });
  */
-export function useLatestEmailByListQuery(baseOptions?: Apollo.QueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>) {
+export function useLatestEmailByListQuery(baseOptions: Apollo.QueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<LatestEmailByListQuery, LatestEmailByListQueryVariables>(LatestEmailByListDocument, options);
       }

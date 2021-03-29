@@ -5,6 +5,7 @@ fragment EmailParts on Email {
 	featuredImage {
 		...MediaParts
 	}
+	link
 	segment
 	socialImage {
 		...MediaParts

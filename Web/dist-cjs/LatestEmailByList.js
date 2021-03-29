@@ -25,13 +25,13 @@ const EmailParts_1 = require("./EmailParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.LatestEmailByListDocument = client_1.gql `
-    query LatestEmailByList($slug: [String]) {
-  emailLists(where: {slug: $slug}) {
+    query LatestEmailByList($slug: [String]!) {
+  emailLists(first: 1, where: {slug: $slug}) {
     nodes {
+      id
       emails(first: 1) {
         nodes {
           html
-          link
           ...EmailParts
         }
       }

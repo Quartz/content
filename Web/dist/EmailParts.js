@@ -8,6 +8,7 @@ export const EmailPartsFragmentDoc = /*#__PURE__*/ gql `
   featuredImage {
     ...MediaParts
   }
+  link
   segment
   socialImage {
     ...MediaParts

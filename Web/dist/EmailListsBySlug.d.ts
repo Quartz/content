@@ -14,6 +14,7 @@ export declare type EmailListsBySlugQuery = {
                 __typename?: 'EmailListToEmailConnection';
                 nodes?: Types.Maybe<Array<Types.Maybe<{
                     __typename?: 'Email';
+                    id: string;
                     emailId: number;
                 }>>>;
             }>;
