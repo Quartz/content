@@ -1,8 +1,9 @@
 query EmailListsBySlug(
+	$perPage: Int = 10
 	$slug: [String]!
 ) {
 	emailLists(
-		first: 1
+		first: $perPage
 		where: {
 			slug: $slug
 		}

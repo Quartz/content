@@ -1,8 +1,9 @@
 query LatestEmailByList(
+	$perPage: Int = 1
 	$slug: [String]!
 ) {
 	emailLists(
-		first: 1
+		first: $perPage
 		where: {
 			slug: $slug
 		}
