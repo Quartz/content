@@ -26,11 +26,12 @@ const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.EmailListsBySlugDocument = client_1.gql `
     query EmailListsBySlug($slug: [String]!) {
-  emailLists(where: {slug: $slug}) {
+  emailLists(first: 1, where: {slug: $slug}) {
     nodes {
       ...EmailListParts
       emails(first: 1) {
         nodes {
+          id
           emailId
         }
       }

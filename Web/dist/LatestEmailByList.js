@@ -3,13 +3,13 @@ import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const LatestEmailByListDocument = /*#__PURE__*/ gql `
-    query LatestEmailByList($slug: [String]) {
-  emailLists(where: {slug: $slug}) {
+    query LatestEmailByList($slug: [String]!) {
+  emailLists(first: 1, where: {slug: $slug}) {
     nodes {
+      id
       emails(first: 1) {
         nodes {
           html
-          link
           ...EmailParts
         }
       }

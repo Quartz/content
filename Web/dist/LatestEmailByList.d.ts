@@ -2,7 +2,7 @@ import type * as Types from './types';
 import type { EmailPartsFragment } from './EmailParts';
 import * as Apollo from '@apollo/client';
 export declare type LatestEmailByListQueryVariables = Types.Exact<{
-    slug?: Types.Maybe<Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>>;
+    slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type LatestEmailByListQuery = {
     __typename?: 'RootQuery';
@@ -10,12 +10,12 @@ export declare type LatestEmailByListQuery = {
         __typename?: 'RootQueryToEmailListConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<{
             __typename?: 'EmailList';
+            id: string;
             emails?: Types.Maybe<{
                 __typename?: 'EmailListToEmailConnection';
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Email';
                     html?: Types.Maybe<string>;
-                    link?: Types.Maybe<string>;
                 } & EmailPartsFragment)>>>;
             }>;
         }>>>;
@@ -38,11 +38,11 @@ export declare const LatestEmailByListDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useLatestEmailByListQuery(baseOptions?: Apollo.QueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>): Apollo.QueryResult<LatestEmailByListQuery, Types.Exact<{
-    slug?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
+export declare function useLatestEmailByListQuery(baseOptions: Apollo.QueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>): Apollo.QueryResult<LatestEmailByListQuery, Types.Exact<{
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useLatestEmailByListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>): Apollo.QueryTuple<LatestEmailByListQuery, Types.Exact<{
-    slug?: Types.Maybe<Types.Maybe<string> | Types.Maybe<string>[]> | undefined;
+    slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type LatestEmailByListQueryHookResult = ReturnType<typeof useLatestEmailByListQuery>;
 export declare type LatestEmailByListLazyQueryHookResult = ReturnType<typeof useLatestEmailByListLazyQuery>;

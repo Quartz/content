@@ -5,6 +5,7 @@ export declare type EmailPartsFragment = {
     id: string;
     dateGmt?: Types.Maybe<string>;
     emailId: number;
+    link?: Types.Maybe<string>;
     segment?: Types.Maybe<string>;
     seoTitle?: Types.Maybe<string>;
     socialDescription?: Types.Maybe<string>;

@@ -11,6 +11,7 @@ exports.EmailPartsFragmentDoc = client_1.gql `
   featuredImage {
     ...MediaParts
   }
+  link
   segment
   socialImage {
     ...MediaParts
