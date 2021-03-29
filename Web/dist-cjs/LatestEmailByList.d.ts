@@ -2,6 +2,7 @@ import type * as Types from './types';
 import type { EmailPartsFragment } from './EmailParts';
 import * as Apollo from '@apollo/client';
 export declare type LatestEmailByListQueryVariables = Types.Exact<{
+    perPage?: Types.Maybe<Types.Scalars['Int']>;
     slug: Array<Types.Maybe<Types.Scalars['String']>> | Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type LatestEmailByListQuery = {
@@ -34,14 +35,17 @@ export declare const LatestEmailByListDocument: Apollo.DocumentNode;
  * @example
  * const { data, loading, error } = useLatestEmailByListQuery({
  *   variables: {
+ *      perPage: // value for 'perPage'
  *      slug: // value for 'slug'
  *   },
  * });
  */
 export declare function useLatestEmailByListQuery(baseOptions: Apollo.QueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>): Apollo.QueryResult<LatestEmailByListQuery, Types.Exact<{
+    perPage?: Types.Maybe<number> | undefined;
     slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare function useLatestEmailByListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestEmailByListQuery, LatestEmailByListQueryVariables>): Apollo.QueryTuple<LatestEmailByListQuery, Types.Exact<{
+    perPage?: Types.Maybe<number> | undefined;
     slug: Types.Maybe<string> | Types.Maybe<string>[];
 }>>;
 export declare type LatestEmailByListQueryHookResult = ReturnType<typeof useLatestEmailByListQuery>;

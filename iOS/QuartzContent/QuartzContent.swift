@@ -9208,8 +9208,8 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query EmailListsBySlug($slug: [String]!) {
-      emailLists(first: 1, where: {slug: $slug}) {
+    query EmailListsBySlug($perPage: Int = 10, $slug: [String]!) {
+      emailLists(first: $perPage, where: {slug: $slug}) {
         __typename
         nodes {
           __typename
@@ -9229,7 +9229,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
   public let operationName: String = "EmailListsBySlug"
 
-  public let operationIdentifier: String? = "394dde48f3bf5aeb7a3c28809cead301df11272206d53bc47539d2d09492ac0f"
+  public let operationIdentifier: String? = "60454d2288d9e20de944c3ba154302289ac51c899e6c27255f33d4caffa1bd8b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9238,14 +9238,16 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
     return document
   }
 
+  public var perPage: Int?
   public var slug: [String?]
 
-  public init(slug: [String?]) {
+  public init(perPage: Int? = nil, slug: [String?]) {
+    self.perPage = perPage
     self.slug = slug
   }
 
   public var variables: GraphQLMap? {
-    return ["slug": slug]
+    return ["perPage": perPage, "slug": slug]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -9253,7 +9255,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("emailLists", arguments: ["first": 1, "where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
+        GraphQLField("emailLists", arguments: ["first": GraphQLVariable("perPage"), "where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
       ]
     }
 
@@ -10186,8 +10188,8 @@ public final class LatestEmailByListQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query LatestEmailByList($slug: [String]!) {
-      emailLists(first: 1, where: {slug: $slug}) {
+    query LatestEmailByList($perPage: Int = 1, $slug: [String]!) {
+      emailLists(first: $perPage, where: {slug: $slug}) {
         __typename
         nodes {
           __typename
@@ -10207,7 +10209,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
   public let operationName: String = "LatestEmailByList"
 
-  public let operationIdentifier: String? = "977de6a7dc3d217fb2b2236c52e156c1e2bf94a2f756fbe483856ca0cb606009"
+  public let operationIdentifier: String? = "d10a60789a3ee26b22cde89577bc5fc3214ddcdd500514d858bf2a8612b5cb86"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10216,14 +10218,16 @@ public final class LatestEmailByListQuery: GraphQLQuery {
     return document
   }
 
+  public var perPage: Int?
   public var slug: [String?]
 
-  public init(slug: [String?]) {
+  public init(perPage: Int? = nil, slug: [String?]) {
+    self.perPage = perPage
     self.slug = slug
   }
 
   public var variables: GraphQLMap? {
-    return ["slug": slug]
+    return ["perPage": perPage, "slug": slug]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -10231,7 +10235,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("emailLists", arguments: ["first": 1, "where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
+        GraphQLField("emailLists", arguments: ["first": GraphQLVariable("perPage"), "where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
       ]
     }
 
