@@ -5469,7 +5469,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "71d0ce950c43007b63348b08eed0c85a3fb7aa46fd4ad4b1c220eef10a774542"
+  public let operationIdentifier: String? = "ffbe916ba6fcb995b2ad0598fc9572be9613746f97643acbbce662aa17156a92"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9302,7 +9302,7 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "6e1fc2bb228c7208733bc9fa46d73ac49a7dfcd0d498835b924df4ef98a59915"
+  public let operationIdentifier: String? = "9b8f14112d47766d5c8a7bf7a1428e1fc62d7cfd6531fd9842e4d744a309cc61"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9524,7 +9524,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query EmailListsBySlug($slug: [String]!) {
-      emailLists(where: {slug: $slug}) {
+      emailLists(first: 1, where: {slug: $slug}) {
         __typename
         nodes {
           __typename
@@ -9533,6 +9533,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
             __typename
             nodes {
               __typename
+              id
               emailId
             }
           }
@@ -9543,7 +9544,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
   public let operationName: String = "EmailListsBySlug"
 
-  public let operationIdentifier: String? = "496a19aa6118a9bc17099b0c64fbea73a00c7c92e7b4f4faf887e613f9736bea"
+  public let operationIdentifier: String? = "394dde48f3bf5aeb7a3c28809cead301df11272206d53bc47539d2d09492ac0f"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9567,7 +9568,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("emailLists", arguments: ["where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
+        GraphQLField("emailLists", arguments: ["first": 1, "where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
       ]
     }
 
@@ -9737,6 +9738,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
             public static var selections: [GraphQLSelection] {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
                 GraphQLField("emailId", type: .nonNull(.scalar(Int.self))),
               ]
             }
@@ -9747,8 +9749,8 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(emailId: Int) {
-              self.init(unsafeResultMap: ["__typename": "Email", "emailId": emailId])
+            public init(id: GraphQLID, emailId: Int) {
+              self.init(unsafeResultMap: ["__typename": "Email", "id": id, "emailId": emailId])
             }
 
             public var __typename: String {
@@ -9757,6 +9759,16 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// The globally unique identifier of the qz_email object.
+            public var id: GraphQLID {
+              get {
+                return resultMap["id"]! as! GraphQLID
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "id")
               }
             }
 
@@ -9806,7 +9818,7 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "47c2555d54743a19106f7564743f6a5d0e9fd57dd4c932e4e8767dbc871388b5"
+  public let operationIdentifier: String? = "a19fa885094ab8b3d37cfdb4feffe7e62b12a571081739a55025216a2ba85edd"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10151,7 +10163,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "fcfed67528029dd536e5e3e0c0151bf1e7ecdaa4e0379dce530b64f83fe92e7a"
+  public let operationIdentifier: String? = "d1d1e10661bd1a7266bc9b84fb19cc8e80dfe8f6c10c75bcdfe3a325116898bd"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10489,17 +10501,17 @@ public final class LatestEmailByListQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query LatestEmailByList($slug: [String]) {
-      emailLists(where: {slug: $slug}) {
+    query LatestEmailByList($slug: [String]!) {
+      emailLists(first: 1, where: {slug: $slug}) {
         __typename
         nodes {
           __typename
+          id
           emails(first: 1) {
             __typename
             nodes {
               __typename
               html
-              link
               ...EmailParts
             }
           }
@@ -10510,7 +10522,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
   public let operationName: String = "LatestEmailByList"
 
-  public let operationIdentifier: String? = "dfee3499561552d3e06ab00e44e88db01ad14f29a5b284af785bc084b9fd98cb"
+  public let operationIdentifier: String? = "977de6a7dc3d217fb2b2236c52e156c1e2bf94a2f756fbe483856ca0cb606009"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10519,9 +10531,9 @@ public final class LatestEmailByListQuery: GraphQLQuery {
     return document
   }
 
-  public var slug: [String?]?
+  public var slug: [String?]
 
-  public init(slug: [String?]? = nil) {
+  public init(slug: [String?]) {
     self.slug = slug
   }
 
@@ -10534,7 +10546,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("emailLists", arguments: ["where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
+        GraphQLField("emailLists", arguments: ["first": 1, "where": ["slug": GraphQLVariable("slug")]], type: .object(EmailList.selections)),
       ]
     }
 
@@ -10603,6 +10615,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
             GraphQLField("emails", arguments: ["first": 1], type: .object(Email.selections)),
           ]
         }
@@ -10613,8 +10626,8 @@ public final class LatestEmailByListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(emails: Email? = nil) {
-          self.init(unsafeResultMap: ["__typename": "EmailList", "emails": emails.flatMap { (value: Email) -> ResultMap in value.resultMap }])
+        public init(id: GraphQLID, emails: Email? = nil) {
+          self.init(unsafeResultMap: ["__typename": "EmailList", "id": id, "emails": emails.flatMap { (value: Email) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -10623,6 +10636,16 @@ public final class LatestEmailByListQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The globally unique ID for the object
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
           }
         }
 
@@ -10682,7 +10705,6 @@ public final class LatestEmailByListQuery: GraphQLQuery {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("html", type: .scalar(String.self)),
-                GraphQLField("link", type: .scalar(String.self)),
                 GraphQLFragmentSpread(EmailParts.self),
               ]
             }
@@ -10709,16 +10731,6 @@ public final class LatestEmailByListQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "html")
-              }
-            }
-
-            /// The permalink of the post
-            public var link: String? {
-              get {
-                return resultMap["link"] as? String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "link")
               }
             }
 
@@ -20082,6 +20094,7 @@ public struct EmailParts: GraphQLFragment {
         __typename
         ...MediaParts
       }
+      link
       segment
       socialImage {
         __typename
@@ -20103,6 +20116,7 @@ public struct EmailParts: GraphQLFragment {
       GraphQLField("dateGmt", type: .scalar(String.self)),
       GraphQLField("emailId", type: .nonNull(.scalar(Int.self))),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
+      GraphQLField("link", type: .scalar(String.self)),
       GraphQLField("segment", type: .scalar(String.self)),
       GraphQLField("socialImage", type: .object(SocialImage.selections)),
       GraphQLField("seoTitle", type: .scalar(String.self)),
@@ -20118,8 +20132,8 @@ public struct EmailParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, subject: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "subject": subject, "title": title])
+  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, subject: String? = nil, title: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "subject": subject, "title": title])
   }
 
   public var __typename: String {
@@ -20169,6 +20183,16 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue?.resultMap, forKey: "featuredImage")
+    }
+  }
+
+  /// The permalink of the post
+  public var link: String? {
+    get {
+      return resultMap["link"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "link")
     }
   }
 
