@@ -8,6 +8,7 @@ fragment ArticleParts on Post {
 	blocks {
 		...BlockParts
 	}
+	brandSafety
 	canonicalUrl
 	classifications
 	excerpt
