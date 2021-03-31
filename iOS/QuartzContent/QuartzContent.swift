@@ -15696,7 +15696,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Contextual classifications for anti-targeting
+  /// Deprecated, use brandSafety instead
   public var classifications: [String?]? {
     get {
       return resultMap["classifications"] as? [String?]
