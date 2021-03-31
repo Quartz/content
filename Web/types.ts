@@ -7489,7 +7489,6 @@ export type RootQueryToPostConnectionWhereArgs = {
 export type EditionName =
   | 'AFRICA'
   | 'INDIA'
-  | 'JAPAN'
   | 'QUARTZ'
   | 'QUARTZY'
   | 'WORK';
