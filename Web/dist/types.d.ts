@@ -6508,7 +6508,7 @@ export declare type RootQueryToPostConnectionWhereArgs = {
     title?: Maybe<Scalars['String']>;
 };
 /** Quartz edition */
-export declare type EditionName = 'AFRICA' | 'INDIA' | 'QUARTZ' | 'QUARTZY' | 'WORK';
+export declare type EditionName = 'AFRICA' | 'INDIA' | 'JAPAN' | 'QUARTZ' | 'QUARTZY' | 'WORK';
 /** Get popular posts */
 export declare type PopularQuery = {
     /** Editorial edition */

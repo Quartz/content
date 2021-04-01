@@ -9,6 +9,7 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
   public typealias RawValue = String
   case africa
   case india
+  case japan
   case quartz
   case quartzy
   case work
@@ -19,6 +20,7 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
     switch rawValue {
       case "AFRICA": self = .africa
       case "INDIA": self = .india
+      case "JAPAN": self = .japan
       case "QUARTZ": self = .quartz
       case "QUARTZY": self = .quartzy
       case "WORK": self = .work
@@ -30,6 +32,7 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
     switch self {
       case .africa: return "AFRICA"
       case .india: return "INDIA"
+      case .japan: return "JAPAN"
       case .quartz: return "QUARTZ"
       case .quartzy: return "QUARTZY"
       case .work: return "WORK"
@@ -41,6 +44,7 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
     switch (lhs, rhs) {
       case (.africa, .africa): return true
       case (.india, .india): return true
+      case (.japan, .japan): return true
       case (.quartz, .quartz): return true
       case (.quartzy, .quartzy): return true
       case (.work, .work): return true
@@ -53,6 +57,7 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
     return [
       .africa,
       .india,
+      .japan,
       .quartz,
       .quartzy,
       .work,
@@ -15696,7 +15701,7 @@ public struct ArticleParts: GraphQLFragment {
     }
   }
 
-  /// Contextual classifications for anti-targeting
+  /// Deprecated, use brandSafety instead
   public var classifications: [String?]? {
     get {
       return resultMap["classifications"] as? [String?]

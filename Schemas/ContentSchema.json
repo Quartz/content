@@ -9824,7 +9824,7 @@
           },
           {
             "name": "classifications",
-            "description": "Contextual classifications for anti-targeting",
+            "description": "Deprecated, use brandSafety instead",
             "args": [],
             "type": {
               "kind": "LIST",
@@ -16774,7 +16774,7 @@
           },
           {
             "name": "classifications",
-            "description": "Contextual classifications for anti-targeting",
+            "description": "Deprecated, use brandSafety instead",
             "args": [],
             "type": {
               "kind": "LIST",
@@ -84838,6 +84838,12 @@
           },
           {
             "name": "INDIA",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "JAPAN",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
