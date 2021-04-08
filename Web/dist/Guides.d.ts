@@ -6,6 +6,7 @@ export declare type GuidesQueryVariables = Types.Exact<{
     before?: Types.Maybe<Types.Scalars['String']>;
     perPage?: Types.Maybe<Types.Scalars['Int']>;
     postsPerGuide?: Types.Maybe<Types.Scalars['Int']>;
+    search?: Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type GuidesQuery = {
     __typename?: 'RootQuery';
@@ -43,6 +44,7 @@ export declare const GuidesDocument: Apollo.DocumentNode;
  *      before: // value for 'before'
  *      perPage: // value for 'perPage'
  *      postsPerGuide: // value for 'postsPerGuide'
+ *      search: // value for 'search'
  *   },
  * });
  */
@@ -50,11 +52,13 @@ export declare function useGuidesQuery(baseOptions?: Apollo.QueryHookOptions<Gui
     before?: Types.Maybe<string> | undefined;
     perPage?: Types.Maybe<number> | undefined;
     postsPerGuide?: Types.Maybe<number> | undefined;
+    search?: Types.Maybe<string> | undefined;
 }>>;
 export declare function useGuidesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GuidesQuery, GuidesQueryVariables>): Apollo.QueryTuple<GuidesQuery, Types.Exact<{
     before?: Types.Maybe<string> | undefined;
     perPage?: Types.Maybe<number> | undefined;
     postsPerGuide?: Types.Maybe<number> | undefined;
+    search?: Types.Maybe<string> | undefined;
 }>>;
 export declare type GuidesQueryHookResult = ReturnType<typeof useGuidesQuery>;
 export declare type GuidesLazyQueryHookResult = ReturnType<typeof useGuidesLazyQuery>;

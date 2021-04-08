@@ -4,8 +4,12 @@ import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const GuidesDocument = /*#__PURE__*/ gql `
-    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
-  guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
+    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1, $search: String) {
+  guides(
+    before: $before
+    last: $perPage
+    where: {search: $search, orderby: TERM_ID}
+  ) {
     nodes {
       ...GuideParts
       posts(last: $postsPerGuide) {
@@ -37,6 +41,7 @@ ${ArticleTeaserPartsFragmentDoc}`;
  *      before: // value for 'before'
  *      perPage: // value for 'perPage'
  *      postsPerGuide: // value for 'postsPerGuide'
+ *      search: // value for 'search'
  *   },
  * });
  */
