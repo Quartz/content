@@ -11,6 +11,7 @@ export type GuidesQueryVariables = Types.Exact<{
   before?: Types.Maybe<Types.Scalars['String']>;
   perPage?: Types.Maybe<Types.Scalars['Int']>;
   postsPerGuide?: Types.Maybe<Types.Scalars['Int']>;
+  search?: Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
@@ -24,8 +25,12 @@ export type GuidesQuery = { __typename?: 'RootQuery', guides?: Types.Maybe<{ __t
 
 
 export const GuidesDocument = /*#__PURE__*/ gql`
-    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
-  guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
+    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1, $search: String) {
+  guides(
+    before: $before
+    last: $perPage
+    where: {search: $search, orderby: TERM_ID}
+  ) {
     nodes {
       ...GuideParts
       posts(last: $postsPerGuide) {
@@ -58,6 +63,7 @@ ${ArticleTeaserPartsFragmentDoc}`;
  *      before: // value for 'before'
  *      perPage: // value for 'perPage'
  *      postsPerGuide: // value for 'postsPerGuide'
+ *      search: // value for 'search'
  *   },
  * });
  */

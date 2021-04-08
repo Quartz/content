@@ -26,8 +26,12 @@ const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.GuidesDocument = client_1.gql `
-    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
-  guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
+    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1, $search: String) {
+  guides(
+    before: $before
+    last: $perPage
+    where: {search: $search, orderby: TERM_ID}
+  ) {
     nodes {
       ...GuideParts
       posts(last: $postsPerGuide) {
@@ -59,6 +63,7 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  *      before: // value for 'before'
  *      perPage: // value for 'perPage'
  *      postsPerGuide: // value for 'postsPerGuide'
+ *      search: // value for 'search'
  *   },
  * });
  */

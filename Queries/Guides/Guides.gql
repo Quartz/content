@@ -1,12 +1,14 @@
 query Guides(
 	$before: String = "",
 	$perPage: Int = 10,
-	$postsPerGuide: Int = 1
+	$postsPerGuide: Int = 1,
+	$search: String
 ) {
 	guides(
 		before: $before,
 		last: $perPage,
 		where: {
+			search: $search,
 			orderby: TERM_ID
 		}
 	) {
