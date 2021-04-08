@@ -10464,8 +10464,12 @@ public final class GuidesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1) {
-      guides(before: $before, last: $perPage, where: {orderby: TERM_ID}) {
+    query Guides($before: String = "", $perPage: Int = 10, $postsPerGuide: Int = 1, $search: String) {
+      guides(
+        before: $before
+        last: $perPage
+        where: {search: $search, orderby: TERM_ID}
+      ) {
         __typename
         nodes {
           __typename
@@ -10489,7 +10493,7 @@ public final class GuidesQuery: GraphQLQuery {
 
   public let operationName: String = "Guides"
 
-  public let operationIdentifier: String? = "6f9d952556ea56b6a9cda3ecf3b9dd2c85a5345873a0c1d875984533755cb28b"
+  public let operationIdentifier: String? = "970c32a8c8a5cd681c9c09e8e9847597635a47acfa025ed384a1772f87fe8d45"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10503,15 +10507,17 @@ public final class GuidesQuery: GraphQLQuery {
   public var before: String?
   public var perPage: Int?
   public var postsPerGuide: Int?
+  public var search: String?
 
-  public init(before: String? = nil, perPage: Int? = nil, postsPerGuide: Int? = nil) {
+  public init(before: String? = nil, perPage: Int? = nil, postsPerGuide: Int? = nil, search: String? = nil) {
     self.before = before
     self.perPage = perPage
     self.postsPerGuide = postsPerGuide
+    self.search = search
   }
 
   public var variables: GraphQLMap? {
-    return ["before": before, "perPage": perPage, "postsPerGuide": postsPerGuide]
+    return ["before": before, "perPage": perPage, "postsPerGuide": postsPerGuide, "search": search]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -10519,7 +10525,7 @@ public final class GuidesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("guides", arguments: ["before": GraphQLVariable("before"), "last": GraphQLVariable("perPage"), "where": ["orderby": "TERM_ID"]], type: .object(Guide.selections)),
+        GraphQLField("guides", arguments: ["before": GraphQLVariable("before"), "last": GraphQLVariable("perPage"), "where": ["search": GraphQLVariable("search"), "orderby": "TERM_ID"]], type: .object(Guide.selections)),
       ]
     }
 
