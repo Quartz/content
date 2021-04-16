@@ -18,7 +18,7 @@ import { ProjectPartsFragmentDoc } from './ProjectParts';
 import { SeriesPartsFragmentDoc } from './SeriesParts';
 import { ShowPartsFragmentDoc } from './ShowParts';
 export type ArticlePartsFragment = (
-  { __typename?: 'Post', brandSafety?: Types.Maybe<Array<Types.Maybe<number>>>, canonicalUrl?: Types.Maybe<string>, classifications?: Types.Maybe<Array<Types.Maybe<string>>>, excerpt?: Types.Maybe<string>, featuredImageSize?: Types.Maybe<string>, footnotes?: Types.Maybe<Array<Types.Maybe<string>>>, interactiveSource?: Types.Maybe<string>, interactiveShowHeader?: Types.Maybe<boolean>, metered?: Types.Maybe<boolean>, modifiedGmt?: Types.Maybe<string>, paywalled?: Types.Maybe<boolean>, readNext?: Types.Maybe<Array<Types.Maybe<string>>>, slug?: Types.Maybe<string>, seoTitle?: Types.Maybe<string>, socialDescription?: Types.Maybe<string>, socialImage?: Types.Maybe<string>, socialTitle?: Types.Maybe<string>, subtype?: Types.Maybe<string>, suppressAds?: Types.Maybe<boolean>, trackingUrls?: Types.Maybe<Array<Types.Maybe<string>>>, authors?: Types.Maybe<{ __typename?: 'PostToCoAuthorConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+  { __typename?: 'Post', brandSafety?: Types.Maybe<Array<Types.Maybe<number>>>, canonicalUrl?: Types.Maybe<string>, excerpt?: Types.Maybe<string>, featuredImageSize?: Types.Maybe<string>, footnotes?: Types.Maybe<Array<Types.Maybe<string>>>, interactiveSource?: Types.Maybe<string>, interactiveShowHeader?: Types.Maybe<boolean>, metered?: Types.Maybe<boolean>, modifiedGmt?: Types.Maybe<string>, paywalled?: Types.Maybe<boolean>, readNext?: Types.Maybe<Array<Types.Maybe<string>>>, slug?: Types.Maybe<string>, seoTitle?: Types.Maybe<string>, socialDescription?: Types.Maybe<string>, socialImage?: Types.Maybe<string>, socialTitle?: Types.Maybe<string>, subtype?: Types.Maybe<string>, suppressAds?: Types.Maybe<boolean>, trackingUrls?: Types.Maybe<Array<Types.Maybe<string>>>, authors?: Types.Maybe<{ __typename?: 'PostToCoAuthorConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'CoAuthor' }
       & AuthorPartsFragment
     )>>> }>, blocks?: Types.Maybe<Array<Types.Maybe<(
@@ -56,7 +56,6 @@ export const ArticlePartsFragmentDoc = /*#__PURE__*/ gql`
   }
   brandSafety
   canonicalUrl
-  classifications
   excerpt
   featuredImageSize
   flags {

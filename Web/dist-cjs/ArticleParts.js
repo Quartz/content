@@ -23,7 +23,6 @@ exports.ArticlePartsFragmentDoc = client_1.gql `
   }
   brandSafety
   canonicalUrl
-  classifications
   excerpt
   featuredImageSize
   flags {

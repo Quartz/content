@@ -11,7 +11,6 @@ export declare type ArticlePartsFragment = ({
     __typename?: 'Post';
     brandSafety?: Types.Maybe<Array<Types.Maybe<number>>>;
     canonicalUrl?: Types.Maybe<string>;
-    classifications?: Types.Maybe<Array<Types.Maybe<string>>>;
     excerpt?: Types.Maybe<string>;
     featuredImageSize?: Types.Maybe<string>;
     footnotes?: Types.Maybe<Array<Types.Maybe<string>>>;
