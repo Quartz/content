@@ -1424,7 +1424,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "642e855f3ddc2ac3e1d49091016a5052125d30db9b598ee4ebfaf13ddc52e22b"
+  public let operationIdentifier: String? = "b0b2555206951faf93c293d4958b7f2f9d16f7a770e80dcfdb01b19385eb92b0"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -1592,7 +1592,7 @@ public final class ArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "ArticlePreview"
 
-  public let operationIdentifier: String? = "a5900738d4a6cdda855d588f65bfdf875fbb898fad96ad0c193dc75152b43211"
+  public let operationIdentifier: String? = "e864c5625ea4f3db63ed2ac3d3a0d813470d6fb6b96f21080790616cb861f636"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -15523,7 +15523,6 @@ public struct ArticleParts: GraphQLFragment {
       }
       brandSafety
       canonicalUrl
-      classifications
       excerpt
       featuredImageSize
       flags {
@@ -15622,7 +15621,6 @@ public struct ArticleParts: GraphQLFragment {
       GraphQLField("blocks", type: .list(.object(Block.selections))),
       GraphQLField("brandSafety", type: .list(.scalar(Int.self))),
       GraphQLField("canonicalUrl", type: .scalar(String.self)),
-      GraphQLField("classifications", type: .list(.scalar(String.self))),
       GraphQLField("excerpt", type: .scalar(String.self)),
       GraphQLField("featuredImageSize", type: .scalar(String.self)),
       GraphQLField("flags", type: .object(Flag.selections)),
@@ -15704,16 +15702,6 @@ public struct ArticleParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "canonicalUrl")
-    }
-  }
-
-  /// Deprecated, use brandSafety instead
-  public var classifications: [String?]? {
-    get {
-      return resultMap["classifications"] as? [String?]
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "classifications")
     }
   }
 

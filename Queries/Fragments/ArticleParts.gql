@@ -10,7 +10,6 @@ fragment ArticleParts on Post {
 	}
 	brandSafety
 	canonicalUrl
-	classifications
 	excerpt
 	featuredImageSize
 	flags {
