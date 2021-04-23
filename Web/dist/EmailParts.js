@@ -15,6 +15,7 @@ export const EmailPartsFragmentDoc = /*#__PURE__*/ gql `
   }
   seoTitle
   socialDescription
+  socialTitle
   subject
   title
 }

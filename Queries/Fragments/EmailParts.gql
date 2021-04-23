@@ -12,6 +12,7 @@ fragment EmailParts on Email {
 	}
 	seoTitle
 	socialDescription
+	socialTitle
 	subject
 	title
 }

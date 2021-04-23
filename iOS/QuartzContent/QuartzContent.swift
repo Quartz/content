@@ -71,10 +71,12 @@ public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterabl
   case authorsWork
   case caseStudiesCreative
   case clientsCreative
+  case displayCreative
   case featuredQuartz
   case featuresMarketingMembers
   case featuresMembers
   case featuresVideoMembers
+  case insightsCreative
   case obsessionsAfrica
   case obsessionsIndia
   case obsessionsQuartz
@@ -92,10 +94,12 @@ public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterabl
       case "AUTHORS_WORK": self = .authorsWork
       case "CASE_STUDIES_CREATIVE": self = .caseStudiesCreative
       case "CLIENTS_CREATIVE": self = .clientsCreative
+      case "DISPLAY_CREATIVE": self = .displayCreative
       case "FEATURED_QUARTZ": self = .featuredQuartz
       case "FEATURES_MARKETING_MEMBERS": self = .featuresMarketingMembers
       case "FEATURES_MEMBERS": self = .featuresMembers
       case "FEATURES_VIDEO_MEMBERS": self = .featuresVideoMembers
+      case "INSIGHTS_CREATIVE": self = .insightsCreative
       case "OBSESSIONS_AFRICA": self = .obsessionsAfrica
       case "OBSESSIONS_INDIA": self = .obsessionsIndia
       case "OBSESSIONS_QUARTZ": self = .obsessionsQuartz
@@ -114,10 +118,12 @@ public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterabl
       case .authorsWork: return "AUTHORS_WORK"
       case .caseStudiesCreative: return "CASE_STUDIES_CREATIVE"
       case .clientsCreative: return "CLIENTS_CREATIVE"
+      case .displayCreative: return "DISPLAY_CREATIVE"
       case .featuredQuartz: return "FEATURED_QUARTZ"
       case .featuresMarketingMembers: return "FEATURES_MARKETING_MEMBERS"
       case .featuresMembers: return "FEATURES_MEMBERS"
       case .featuresVideoMembers: return "FEATURES_VIDEO_MEMBERS"
+      case .insightsCreative: return "INSIGHTS_CREATIVE"
       case .obsessionsAfrica: return "OBSESSIONS_AFRICA"
       case .obsessionsIndia: return "OBSESSIONS_INDIA"
       case .obsessionsQuartz: return "OBSESSIONS_QUARTZ"
@@ -136,10 +142,12 @@ public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterabl
       case (.authorsWork, .authorsWork): return true
       case (.caseStudiesCreative, .caseStudiesCreative): return true
       case (.clientsCreative, .clientsCreative): return true
+      case (.displayCreative, .displayCreative): return true
       case (.featuredQuartz, .featuredQuartz): return true
       case (.featuresMarketingMembers, .featuresMarketingMembers): return true
       case (.featuresMembers, .featuresMembers): return true
       case (.featuresVideoMembers, .featuresVideoMembers): return true
+      case (.insightsCreative, .insightsCreative): return true
       case (.obsessionsAfrica, .obsessionsAfrica): return true
       case (.obsessionsIndia, .obsessionsIndia): return true
       case (.obsessionsQuartz, .obsessionsQuartz): return true
@@ -159,10 +167,12 @@ public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterabl
       .authorsWork,
       .caseStudiesCreative,
       .clientsCreative,
+      .displayCreative,
       .featuredQuartz,
       .featuresMarketingMembers,
       .featuresMembers,
       .featuresVideoMembers,
+      .insightsCreative,
       .obsessionsAfrica,
       .obsessionsIndia,
       .obsessionsQuartz,
@@ -5312,7 +5322,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "ffbe916ba6fcb995b2ad0598fc9572be9613746f97643acbbce662aa17156a92"
+  public let operationIdentifier: String? = "1aeb0d796c967376cf2e03f4323ac24209926dbc11a8d2fa01cfd319de0158f1"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -8992,7 +9002,7 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "9b8f14112d47766d5c8a7bf7a1428e1fc62d7cfd6531fd9842e4d744a309cc61"
+  public let operationIdentifier: String? = "980cfc28f5696e57ffb5d6762718de4665e90e702bc0b7938cf13f4005b910fc"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9510,7 +9520,7 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "a19fa885094ab8b3d37cfdb4feffe7e62b12a571081739a55025216a2ba85edd"
+  public let operationIdentifier: String? = "0579a8e6c3d5c2584eeec0e71323c03e23dbfed3144413b7be785d3584476184"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9855,7 +9865,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "d1d1e10661bd1a7266bc9b84fb19cc8e80dfe8f6c10c75bcdfe3a325116898bd"
+  public let operationIdentifier: String? = "2667c8b3112f0b5977dc3c89fe03f461187b469d4d19ce089d733a17caaa512f"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10214,7 +10224,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
   public let operationName: String = "LatestEmailByList"
 
-  public let operationIdentifier: String? = "d10a60789a3ee26b22cde89577bc5fc3214ddcdd500514d858bf2a8612b5cb86"
+  public let operationIdentifier: String? = "0a9c88300953ba4efa846bbf275f0b827cf79b241cd3aace086ff9119fa1869b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -19802,6 +19812,7 @@ public struct EmailParts: GraphQLFragment {
       }
       seoTitle
       socialDescription
+      socialTitle
       subject
       title
     }
@@ -19821,6 +19832,7 @@ public struct EmailParts: GraphQLFragment {
       GraphQLField("socialImage", type: .object(SocialImage.selections)),
       GraphQLField("seoTitle", type: .scalar(String.self)),
       GraphQLField("socialDescription", type: .scalar(String.self)),
+      GraphQLField("socialTitle", type: .scalar(String.self)),
       GraphQLField("subject", type: .scalar(String.self)),
       GraphQLField("title", type: .scalar(String.self)),
     ]
@@ -19832,8 +19844,8 @@ public struct EmailParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, subject: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "subject": subject, "title": title])
+  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title])
   }
 
   public var __typename: String {
@@ -19933,6 +19945,16 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "socialDescription")
+    }
+  }
+
+  /// OpenGraph (meta) title
+  public var socialTitle: String? {
+    get {
+      return resultMap["socialTitle"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "socialTitle")
     }
   }
 

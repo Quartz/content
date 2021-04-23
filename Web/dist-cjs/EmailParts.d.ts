@@ -9,6 +9,7 @@ export declare type EmailPartsFragment = {
     segment?: Types.Maybe<string>;
     seoTitle?: Types.Maybe<string>;
     socialDescription?: Types.Maybe<string>;
+    socialTitle?: Types.Maybe<string>;
     subject?: Types.Maybe<string>;
     title?: Types.Maybe<string>;
     featuredImage?: Types.Maybe<({

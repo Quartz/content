@@ -18,6 +18,7 @@ exports.EmailPartsFragmentDoc = client_1.gql `
   }
   seoTitle
   socialDescription
+  socialTitle
   subject
   title
 }
