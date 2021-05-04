@@ -1,0 +1,34 @@
+query EmailsByAuthor(
+	$after: String = ""
+	$perPage: Int = 10
+	$slug: [String]
+) {
+	authors:coAuthors(
+		where:{
+			name: $slug
+		}
+	) {
+		nodes {
+			...AuthorParts
+			emails(
+				after: $after
+				first: $perPage
+			) {
+				nodes {
+					...EmailParts
+					html
+					link
+					emailLists {
+						nodes {
+						...EmailListParts
+						}
+					}
+				}
+				pageInfo {
+					endCursor
+					hasNextPage
+				}
+			}
+		}
+	}
+}
