@@ -1491,6 +1491,47 @@ export declare type TagToEmailConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Arguments for filtering the EmailToCoAuthorConnection connection */
+export declare type EmailToCoAuthorConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
 /** Arguments for filtering the EmailToEmailListConnection connection */
 export declare type EmailToEmailListConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
@@ -2995,6 +3036,53 @@ export declare type CoAuthorToContentNodeConnectionWhereArgs = {
     search?: Maybe<Scalars['String']>;
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
     status?: Maybe<PostStatusEnum>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the CoAuthorToEmailConnection connection */
+export declare type CoAuthorToEmailConnectionWhereArgs = {
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Tag Slug */
+    tag?: Maybe<Scalars['String']>;
+    /** Use Tag ID */
+    tagId?: Maybe<Scalars['String']>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag slugs, used to display objects from one tag OR another */
+    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of tag slugs, used to exclude objects in specified tags */
+    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
@@ -7559,6 +7647,8 @@ export declare type CreateEditionInput = {
 /** Input for the createEmail mutation */
 export declare type CreateEmailInput = {
     clientMutationId?: Maybe<Scalars['String']>;
+    /** Set connections between the email and coAuthors */
+    coAuthors?: Maybe<EmailCoAuthorsInput>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
     /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
@@ -7579,6 +7669,23 @@ export declare type CreateEmailInput = {
     tags?: Maybe<EmailTagsInput>;
     /** The title of the object */
     title?: Maybe<Scalars['String']>;
+};
+/** Set relationships between the email to coAuthors */
+export declare type EmailCoAuthorsInput = {
+    /** If true, this will append the coAuthor to existing related coAuthors. If false, this will replace existing relationships. Default true. */
+    append?: Maybe<Scalars['Boolean']>;
+    nodes?: Maybe<Array<Maybe<EmailCoAuthorsNodeInput>>>;
+};
+/** List of coAuthors to connect the email to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export declare type EmailCoAuthorsNodeInput = {
+    /** The description of the coAuthor. This field is used to set a description of the coAuthor if a new one is created during the mutation. */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the coAuthor. If present, this will be used to connect to the email. If no existing coAuthor exists with this ID, no connection will be made. */
+    id?: Maybe<Scalars['ID']>;
+    /** The name of the coAuthor. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+    name?: Maybe<Scalars['String']>;
+    /** The slug of the coAuthor. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+    slug?: Maybe<Scalars['String']>;
 };
 /** Set relationships between the email to emailLists */
 export declare type EmailEmailListsInput = {
@@ -8703,6 +8810,8 @@ export declare type UpdateCommentInput = {
 /** Input for the updateEmail mutation */
 export declare type UpdateEmailInput = {
     clientMutationId?: Maybe<Scalars['String']>;
+    /** Set connections between the email and coAuthors */
+    coAuthors?: Maybe<EmailCoAuthorsInput>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
     /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */

@@ -1,1 +1,1 @@
-{"version":3,"file":"EmailParts.js","sourceRoot":"","sources":["../EmailParts.ts"],"names":[],"mappings":";;;AAGA,2CAAqC;AACrC,6CAAqD;AASxC,QAAA,qBAAqB,GAAiB,YAAG,CAAA;;;;;;;;;;;;;;;;;;;MAmBhD,kCAAqB,EAAE,CAAC"}
+{"version":3,"file":"EmailParts.js","sourceRoot":"","sources":["../EmailParts.ts"],"names":[],"mappings":";;;AAIA,2CAAqC;AACrC,+CAAuD;AACvD,6CAAqD;AAYxC,QAAA,qBAAqB,GAAiB,YAAG,CAAA;;;;;;;;;;;;;;;;;;;;;;;;MAwBhD,oCAAsB;EAC1B,kCAAqB,EAAE,CAAC"}

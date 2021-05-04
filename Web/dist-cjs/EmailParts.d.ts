@@ -1,4 +1,5 @@
 import type * as Types from './types';
+import type { AuthorPartsFragment } from './AuthorParts';
 import type { MediaPartsFragment } from './MediaParts';
 export declare type EmailPartsFragment = {
     __typename?: 'Email';
@@ -12,6 +13,12 @@ export declare type EmailPartsFragment = {
     socialTitle?: Types.Maybe<string>;
     subject?: Types.Maybe<string>;
     title?: Types.Maybe<string>;
+    authors?: Types.Maybe<{
+        __typename?: 'EmailToCoAuthorConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<({
+            __typename?: 'CoAuthor';
+        } & AuthorPartsFragment)>>>;
+    }>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
