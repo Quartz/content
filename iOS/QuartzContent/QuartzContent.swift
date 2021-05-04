@@ -5322,7 +5322,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "1aeb0d796c967376cf2e03f4323ac24209926dbc11a8d2fa01cfd319de0158f1"
+  public let operationIdentifier: String? = "69ff229658502697fd505e136fa280cb6c15dedca18a185200897e1e2dc63df3"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -5330,6 +5330,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     return document
   }
 
@@ -9002,11 +9003,12 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "980cfc28f5696e57ffb5d6762718de4665e90e702bc0b7938cf13f4005b910fc"
+  public let operationIdentifier: String? = "932ab1011da6322bd733c654247ba936e0459acebd0713251e75e5ada5bfd85d"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + EmailListParts.fragmentDefinition)
     return document
@@ -9520,13 +9522,14 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "0579a8e6c3d5c2584eeec0e71323c03e23dbfed3144413b7be785d3584476184"
+  public let operationIdentifier: String? = "1460878adc6b2e680e50351286307ceba1612f9cfa8b7e19a1c962917d958f85"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + EmailListParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     return document
   }
 
@@ -9865,11 +9868,12 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "2667c8b3112f0b5977dc3c89fe03f461187b469d4d19ce089d733a17caaa512f"
+  public let operationIdentifier: String? = "27e32bef3de60b6d3e034174885057b421a29f2d1e4945717f6ab4d4d6ae8b31"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + EmailListParts.fragmentDefinition)
     return document
@@ -10224,11 +10228,12 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
   public let operationName: String = "LatestEmailByList"
 
-  public let operationIdentifier: String? = "0a9c88300953ba4efa846bbf275f0b827cf79b241cd3aace086ff9119fa1869b"
+  public let operationIdentifier: String? = "0341e804f1b169fd356161fbf53719d32381b5003f020a6968a4c2a362621799"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     return document
   }
@@ -19798,6 +19803,13 @@ public struct EmailParts: GraphQLFragment {
     fragment EmailParts on Email {
       __typename
       id
+      authors: coAuthors {
+        __typename
+        nodes {
+          __typename
+          ...AuthorParts
+        }
+      }
       dateGmt
       emailId
       featuredImage {
@@ -19824,6 +19836,7 @@ public struct EmailParts: GraphQLFragment {
     return [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("coAuthors", alias: "authors", type: .object(Author.selections)),
       GraphQLField("dateGmt", type: .scalar(String.self)),
       GraphQLField("emailId", type: .nonNull(.scalar(Int.self))),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
@@ -19844,8 +19857,8 @@ public struct EmailParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title])
+  public init(id: GraphQLID, authors: Author? = nil, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "authors": authors.flatMap { (value: Author) -> ResultMap in value.resultMap }, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title])
   }
 
   public var __typename: String {
@@ -19864,6 +19877,16 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  /// Connection between the email type and the coAuthor type
+  public var authors: Author? {
+    get {
+      return (resultMap["authors"] as? ResultMap).flatMap { Author(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "authors")
     }
   }
 
@@ -19975,6 +19998,102 @@ public struct EmailParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  public struct Author: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["EmailToCoAuthorConnection"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nodes: [Node?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "EmailToCoAuthorConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    public var nodes: [Node?]? {
+      get {
+        return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CoAuthor"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(AuthorParts.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(avatar: String? = nil, bio: String? = nil, emeritus: Bool? = nil, email: String? = nil, facebook: String? = nil, firstName: String? = nil, id: GraphQLID, instagram: String? = nil, lastName: String? = nil, linkedin: String? = nil, name: String? = nil, organization: String? = nil, pgp: String? = nil, shortBio: String? = nil, title: String? = nil, twitter: String? = nil, type: String? = nil, url: String? = nil, username: String? = nil, website: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "CoAuthor", "avatar": avatar, "bio": bio, "emeritus": emeritus, "email": email, "facebook": facebook, "firstName": firstName, "id": id, "instagram": instagram, "lastName": lastName, "linkedin": linkedin, "name": name, "organization": organization, "pgp": pgp, "shortBio": shortBio, "title": title, "twitter": twitter, "type": type, "url": url, "username": username, "website": website])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var authorParts: AuthorParts {
+          get {
+            return AuthorParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
     }
   }
 
