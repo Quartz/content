@@ -18,7 +18,6 @@ export declare type EmailsByAuthorQuery = {
                 __typename?: 'CoAuthorToEmailConnection';
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Email';
-                    html?: Types.Maybe<string>;
                     link?: Types.Maybe<string>;
                     emailLists?: Types.Maybe<{
                         __typename?: 'EmailToEmailListConnection';

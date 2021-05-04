@@ -18,7 +18,7 @@ export type EmailsByAuthorQueryVariables = Types.Exact<{
 
 export type EmailsByAuthorQuery = { __typename?: 'RootQuery', authors?: Types.Maybe<{ __typename?: 'RootQueryToCoAuthorConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'CoAuthor', emails?: Types.Maybe<{ __typename?: 'CoAuthorToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
-          { __typename?: 'Email', html?: Types.Maybe<string>, link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+          { __typename?: 'Email', link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
               { __typename?: 'EmailList' }
               & EmailListPartsFragment
             )>>> }> }
@@ -36,7 +36,6 @@ export const EmailsByAuthorDocument = /*#__PURE__*/ gql`
       emails(after: $after, first: $perPage) {
         nodes {
           ...EmailParts
-          html
           link
           emailLists {
             nodes {

@@ -34,7 +34,6 @@ exports.EmailsByAuthorDocument = client_1.gql `
       emails(after: $after, first: $perPage) {
         nodes {
           ...EmailParts
-          html
           link
           emailLists {
             nodes {

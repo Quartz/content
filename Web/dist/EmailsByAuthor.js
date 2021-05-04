@@ -12,7 +12,6 @@ export const EmailsByAuthorDocument = /*#__PURE__*/ gql `
       emails(after: $after, first: $perPage) {
         nodes {
           ...EmailParts
-          html
           link
           emailLists {
             nodes {
