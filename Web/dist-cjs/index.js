@@ -40,6 +40,7 @@ __exportStar(require("./EmailById"), exports);
 __exportStar(require("./EmailListParts"), exports);
 __exportStar(require("./EmailListsBySlug"), exports);
 __exportStar(require("./EmailParts"), exports);
+__exportStar(require("./EmailsByAuthor"), exports);
 __exportStar(require("./EmailsByList"), exports);
 __exportStar(require("./EmailsByTag"), exports);
 __exportStar(require("./EssentialsByArticle"), exports);
