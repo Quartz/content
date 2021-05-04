@@ -1,10 +1,5 @@
 fragment EmailParts on Email {
 	id
-	authors:coAuthors {
-		nodes{
-		...AuthorParts
-		}
-	}
 	dateGmt
 	emailId
 	featuredImage {
