@@ -16,7 +16,6 @@ query EmailsByAuthor(
 			) {
 				nodes {
 					...EmailParts
-					html
 					link
 					emailLists {
 						nodes {
