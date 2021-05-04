@@ -9506,7 +9506,6 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
             nodes {
               __typename
               ...EmailParts
-              html
               link
               emailLists {
                 __typename
@@ -9529,7 +9528,7 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByAuthor"
 
-  public let operationIdentifier: String? = "521cf3437b25119f204865d66aad1e9352f72aa1b383b53b31da27551d715ad2"
+  public let operationIdentifier: String? = "91e11a12df9f8ed53c810ba1589de278d3aebf1644451fc7971542a1dd41449a"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9741,7 +9740,6 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLFragmentSpread(EmailParts.self),
-                GraphQLField("html", type: .scalar(String.self)),
                 GraphQLField("link", type: .scalar(String.self)),
                 GraphQLField("emailLists", type: .object(EmailList.selections)),
               ]
@@ -9759,16 +9757,6 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            /// The id for the list in Sendgrid
-            public var html: String? {
-              get {
-                return resultMap["html"] as? String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "html")
               }
             }
 
