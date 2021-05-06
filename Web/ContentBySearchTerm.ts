@@ -12,7 +12,7 @@ export type ContentBySearchTermQueryVariables = Types.Exact<{
 }>;
 
 
-export type ContentBySearchTermQuery = { __typename?: 'RootQuery', content?: Types.Maybe<{ __typename?: 'RootQueryToContentUnionConnection', pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }>, nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ContentBySearchTermQuery = { __typename?: 'RootQuery', content?: Types.Maybe<{ __typename?: 'RootQueryToContentConnection', pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }>, nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post', trackingUrls?: Types.Maybe<Array<Types.Maybe<string>>> }
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Bulletin' }>>> }> };

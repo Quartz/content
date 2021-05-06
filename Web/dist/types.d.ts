@@ -18,16 +18,11 @@ export declare type Scalars = {
     Int: number;
     Float: number;
 };
-/** The Type of Identifier used to fetch a single resource. Default is ID. */
-export declare type BlogPostIdType = 
-/** Identify a resource by the Database ID. */
-'DATABASE_ID'
-/** Identify a resource by the (hashed) Global ID. */
- | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
-/** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+/** Arguments for filtering the RootQueryToContentUnionConnection connection */
+export declare type RootQueryToContentUnionConnectionWhereArgs = {
+    /** Author slug */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Arguments for filtering the ContentTypeToContentNodeConnection connection */
 export declare type ContentTypeToContentNodeConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -524,8 +519,8 @@ export declare type MediaItemSizeEnum =
  | 'MEDIUM_LARGE'
 /** MediaItem with the thumbnail size */
  | 'THUMBNAIL';
-/** Arguments for filtering the PostToCategoryConnection connection */
-export declare type PostToCategoryConnectionWhereArgs = {
+/** Arguments for filtering the PageToCoAuthorConnection connection */
+export declare type PageToCoAuthorConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -567,186 +562,6 @@ export declare type PostToCategoryConnectionWhereArgs = {
 };
 /** Options for ordering the connection by */
 export declare type TermObjectsConnectionOrderbyEnum = 'COUNT' | 'DESCRIPTION' | 'NAME' | 'SLUG' | 'TERM_GROUP' | 'TERM_ID' | 'TERM_ORDER';
-/** Arguments for filtering the CategoryToCategoryConnection connection */
-export declare type CategoryToCategoryConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the CategoryToContentNodeConnection connection */
-export declare type CategoryToContentNodeConnectionWhereArgs = {
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the CategoryToPostConnection connection */
-export declare type CategoryToPostConnectionWhereArgs = {
-    /** The user that's connected as the author of the object. Use the userId for the author object. */
-    author?: Maybe<Scalars['Int']>;
-    /** Find objects connected to author(s) in the array of author's userIds */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Find objects connected to the author by the author's nicename */
-    authorName?: Maybe<Scalars['String']>;
-    /** Find objects NOT connected to author(s) in the array of author's userIds */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Category ID */
-    categoryId?: Maybe<Scalars['Int']>;
-    /** Array of category IDs, used to display objects from one category OR another */
-    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Use Category Slug */
-    categoryName?: Maybe<Scalars['String']>;
-    /** Array of category IDs, used to display objects from one category OR another */
-    categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Tag Slug */
-    tag?: Maybe<Scalars['String']>;
-    /** Use Tag ID */
-    tagId?: Maybe<Scalars['String']>;
-    /** Array of tag IDs, used to display objects from one tag OR another */
-    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of tag IDs, used to display objects from one tag OR another */
-    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of tag slugs, used to display objects from one tag OR another */
-    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of tag slugs, used to exclude objects in specified tags */
-    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the PostToCoAuthorConnection connection */
-export declare type PostToCoAuthorConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
 /** Arguments for filtering the CoAuthorToBulletinConnection connection */
 export declare type CoAuthorToBulletinConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -1218,6 +1033,47 @@ export declare type TagToBlogPostConnectionWhereArgs = {
     tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the BlogPostToTagConnection connection */
+export declare type BlogPostToTagConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 /** Arguments for filtering the TagToBulletinConnection connection */
 export declare type TagToBulletinConnectionWhereArgs = {
@@ -2628,196 +2484,6 @@ export declare type ObsessionToBulletinConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PageToCoAuthorConnection connection */
-export declare type PageToCoAuthorConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the PageToCommentConnection connection */
-export declare type PageToCommentConnectionWhereArgs = {
-    /** Comment author email address. */
-    authorEmail?: Maybe<Scalars['String']>;
-    /** Array of author IDs to include comments for. */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of author IDs to exclude comments for. */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Comment author URL. */
-    authorUrl?: Maybe<Scalars['String']>;
-    /** Array of comment IDs to include. */
-    commentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
-    commentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Include comments of a given type. */
-    commentType?: Maybe<Scalars['String']>;
-    /** Include comments from a given array of comment types. */
-    commentTypeIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Exclude comments from a given array of comment types. */
-    commentTypeNotIn?: Maybe<Scalars['String']>;
-    /** Content object author ID to limit results by. */
-    contentAuthor?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of author IDs to retrieve comments for. */
-    contentAuthorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of author IDs *not* to retrieve comments for. */
-    contentAuthorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Limit results to those affiliated with a given content object ID. */
-    contentId?: Maybe<Scalars['ID']>;
-    /** Array of content object IDs to include affiliated comments for. */
-    contentIdIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of content object IDs to exclude affiliated comments for. */
-    contentIdNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Content object name to retrieve affiliated comments for. */
-    contentName?: Maybe<Scalars['String']>;
-    /** Content Object parent ID to retrieve affiliated comments for. */
-    contentParent?: Maybe<Scalars['Int']>;
-    /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
-    contentStatus?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
-    contentType?: Maybe<Array<Maybe<ContentTypeEnum>>>;
-    /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
-    includeUnapproved?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Karma score to retrieve matching comments for. */
-    karma?: Maybe<Scalars['Int']>;
-    /** The cardinality of the order of the connection */
-    order?: Maybe<OrderEnum>;
-    /** Field to order the comments by. */
-    orderby?: Maybe<CommentsConnectionOrderbyEnum>;
-    /** Parent ID of comment to retrieve children of. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Array of parent IDs of comments to retrieve children for. */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of parent IDs of comments *not* to retrieve children for. */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Search term(s) to retrieve matching comments for. */
-    search?: Maybe<Scalars['String']>;
-    /** Comment status to limit results by. */
-    status?: Maybe<Scalars['String']>;
-    /** Include comments for a specific user ID. */
-    userId?: Maybe<Scalars['ID']>;
-};
-/** Arguments for filtering the pageToRevisionConnection connection */
-export declare type PageToRevisionConnectionWhereArgs = {
-    /** The user that's connected as the author of the object. Use the userId for the author object. */
-    author?: Maybe<Scalars['Int']>;
-    /** Find objects connected to author(s) in the array of author's userIds */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Find objects connected to the author by the author's nicename */
-    authorName?: Maybe<Scalars['String']>;
-    /** Find objects NOT connected to author(s) in the array of author's userIds */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the PageToTermNodeConnection connection */
-export declare type PageToTermNodeConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** The Taxonomy to filter terms by */
-    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Allowed taxonomies */
-export declare type TaxonomyEnum = 'CATEGORY' | 'COAUTHOR' | 'EDITION' | 'EMAILLIST' | 'EMAILSEGMENT' | 'FLAG' | 'GUIDE' | 'LOCATION' | 'OBSESSION' | 'POSTFORMAT' | 'PROJECT' | 'SERIES' | 'SHOW' | 'TAG' | 'TOPIC';
 /** Arguments for filtering the ObsessionToContentNodeConnection connection */
 export declare type ObsessionToContentNodeConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -3192,8 +2858,8 @@ export declare type CoAuthorToPostConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PostToCommentConnection connection */
-export declare type PostToCommentConnectionWhereArgs = {
+/** Arguments for filtering the PageToCommentConnection connection */
+export declare type PageToCommentConnectionWhereArgs = {
     /** Comment author email address. */
     authorEmail?: Maybe<Scalars['String']>;
     /** Array of author IDs to include comments for. */
@@ -3253,8 +2919,139 @@ export declare type PostToCommentConnectionWhereArgs = {
     /** Include comments for a specific user ID. */
     userId?: Maybe<Scalars['ID']>;
 };
-/** Arguments for filtering the PostToEditionConnection connection */
-export declare type PostToEditionConnectionWhereArgs = {
+/** Arguments for filtering the pageToRevisionConnection connection */
+export declare type PageToRevisionConnectionWhereArgs = {
+    /** The user that's connected as the author of the object. Use the userId for the author object. */
+    author?: Maybe<Scalars['Int']>;
+    /** Find objects connected to author(s) in the array of author's userIds */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Find objects connected to the author by the author's nicename */
+    authorName?: Maybe<Scalars['String']>;
+    /** Find objects NOT connected to author(s) in the array of author's userIds */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the PageToTermNodeConnection connection */
+export declare type PageToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Allowed taxonomies */
+export declare type TaxonomyEnum = 'CATEGORY' | 'COAUTHOR' | 'EDITION' | 'EMAILLIST' | 'EMAILSEGMENT' | 'FLAG' | 'GUIDE' | 'LOCATION' | 'OBSESSION' | 'POSTFORMAT' | 'PROJECT' | 'SERIES' | 'SHOW' | 'TAG' | 'TOPIC';
+/** Allowed content block names */
+export declare type BlockNameEnum = 'BLOCKQUOTE' | 'CORE_ARCHIVES' | 'CORE_AUDIO' | 'CORE_BLOCK' | 'CORE_BUTTON' | 'CORE_CATEGORIES' | 'CORE_CODE' | 'CORE_COLUMN' | 'CORE_COLUMNS' | 'CORE_COVER_IMAGE' | 'CORE_EMBED' | 'CORE_EMBED_ANIMOTO' | 'CORE_EMBED_CLOUDUP' | 'CORE_EMBED_COLLEGEHUMOR' | 'CORE_EMBED_DAILYMOTION' | 'CORE_EMBED_FACEBOOK' | 'CORE_EMBED_FLICKR' | 'CORE_EMBED_FUNNYORDIE' | 'CORE_EMBED_HULU' | 'CORE_EMBED_IMGUR' | 'CORE_EMBED_INSTAGRAM' | 'CORE_EMBED_ISSUU' | 'CORE_EMBED_KICKSTARTER' | 'CORE_EMBED_MEETUP_COM' | 'CORE_EMBED_MIXCLOUD' | 'CORE_EMBED_PHOTOBUCKET' | 'CORE_EMBED_POLLDADDY' | 'CORE_EMBED_REDDIT' | 'CORE_EMBED_REVERBNATION' | 'CORE_EMBED_SCREENCAST' | 'CORE_EMBED_SCRIBD' | 'CORE_EMBED_SLIDESHARE' | 'CORE_EMBED_SMUGMUG' | 'CORE_EMBED_SOUNDCLOUD' | 'CORE_EMBED_SPEAKER' | 'CORE_EMBED_SPOTIFY' | 'CORE_EMBED_TED' | 'CORE_EMBED_TUMBLR' | 'CORE_EMBED_TWITTER' | 'CORE_EMBED_VIDEOPRESS' | 'CORE_EMBED_VIMEO' | 'CORE_EMBED_WORDPRESS' | 'CORE_EMBED_WORDPRESS_TV' | 'CORE_EMBED_YOUTUBE' | 'CORE_FILE' | 'CORE_FREEFORM' | 'CORE_GALLERY' | 'CORE_HEADING' | 'CORE_HTML' | 'CORE_IMAGE' | 'CORE_LATEST_COMMENTS' | 'CORE_LATEST_POSTS' | 'CORE_LIST' | 'CORE_MORE' | 'CORE_NEXTPAGE' | 'CORE_PARAGRAPH' | 'CORE_PREFORMATTED' | 'CORE_PULLQUOTE' | 'CORE_QUOTE' | 'CORE_SEPARATOR' | 'CORE_SHORTCODE' | 'CORE_SPACER' | 'CORE_SUBHEAD' | 'CORE_TABLE' | 'CORE_TEXT_COLUMNS' | 'CORE_VERSE' | 'CORE_VIDEO' | 'EL' | 'EMBED_ANIMOTO' | 'EMBED_API_CROWDSIGNAL_COM_OEMBED' | 'EMBED_GFYCAT' | 'EMBED_IMGUR' | 'EMBED_MEETUP' | 'EMBED_SCREENCAST' | 'EMBED_SMUGMUG' | 'EMBED_DATAWRAPPER' | 'EMBED_ATLAS' | 'EMBED_AUDIO' | 'EMBED_CLOUDUP' | 'EMBED_CODEPEN_IO_API_OEMBED' | 'EMBED_EMBED_GETTYIMAGES_COM_OEMBED_' | 'EMBED_SPOTIFY' | 'EMBED_FACEBOOK_ALTERNATE' | 'EMBED_FACEBOOK_ALTERNATE_VIDEO' | 'EMBED_FACEBOOK_PHOTO' | 'EMBED_FACEBOOK_VIDEO' | 'EMBED_WISTIA' | 'EMBED_FLICKR' | 'EMBED_GITHUB_GIST' | 'EMBED_GOOGLEPLUS' | 'EMBED_INSTAGRAM' | 'EMBED_INLINE_PDFS' | 'EMBED_ISSUU' | 'EMBED_ICLOUD' | 'EMBED_MEDIUM' | 'EMBED_QZ_OBJECT' | 'EMBED_ODESLI_CO_OEMBED' | 'EMBED_PINTEREST' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM' | 'EMBED_TWITTER' | 'EMBED_FACEBOOK' | 'EMBED_VINE' | 'EMBED_AMAZON' | 'EMBED_SERVICES_CARTO_COM_OEMBED' | 'EMBED_SKETCHFAB' | 'EMBED_SOUNDCLOUD' | 'EMBED_SPEAKERDECK' | 'EMBED_VIDEO' | 'EMBED_VIMEO' | 'EMBED_WORDPRESS_TV' | 'EMBED_WPCOM_VIMEO_EMBED_URL' | 'EMBED_WPCOM_YOUTUBE_EMBED_CRAZY_URL' | 'EMBED_DAILYMOTION' | 'EMBED_DOCUMENTCLOUD' | 'EMBED_WWW_HOUZZ_COM_OEMBED' | 'EMBED_KICKSTARTER' | 'EMBED_LOOM' | 'EMBED_MIXCLOUD' | 'EMBED_REDDIT' | 'EMBED_REVERBNATION' | 'EMBED_SCRIBD' | 'EMBED_SLIDESHARE' | 'EMBED_SOMEECARDS' | 'EMBED_TED' | 'EMBED_WWW_TED_COM_TALKS_OEMBED_JSON' | 'EMBED_TIKTOK' | 'EMBED_TUMBLR' | 'EMBED_YOUTUBE' | 'FIGURE' | 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6' | 'HR' | 'IMG' | 'OL' | 'P' | 'PRE' | 'QZ_ITEM' | 'QZ_POST_TOUT' | 'QZ_TAXONOMY_TERM' | 'QZ_WIFY_ANSWER' | 'SAFE_COMMENT' | 'SHORTCODE_ANSWER' | 'SHORTCODE_ARCHIVEORG' | 'SHORTCODE_ARCHIVEORG_BOOK' | 'SHORTCODE_ARCHIVES' | 'SHORTCODE_AUDIO' | 'SHORTCODE_BANDCAMP' | 'SHORTCODE_BRIGHTCOVE' | 'SHORTCODE_CAPTION' | 'SHORTCODE_CPI_BROADBAND_MAP' | 'SHORTCODE_CROWDSIGNAL' | 'SHORTCODE_DAILYMOTION' | 'SHORTCODE_DAILYMOTION_CHANNEL' | 'SHORTCODE_EMBED' | 'SHORTCODE_ENDMATTER' | 'SHORTCODE_EXPLANATION' | 'SHORTCODE_FACEBOOK' | 'SHORTCODE_FLICKR' | 'SHORTCODE_GALLERY' | 'SHORTCODE_GEO_LOCATION' | 'SHORTCODE_GETTY' | 'SHORTCODE_GIST' | 'SHORTCODE_GOOGLEAPPS' | 'SHORTCODE_GOOGLEMAPS' | 'SHORTCODE_GOOGLEPLUS' | 'SHORTCODE_GRAVATAR' | 'SHORTCODE_GRAVATAR_PROFILE' | 'SHORTCODE_HOUZZ' | 'SHORTCODE_HULU' | 'SHORTCODE_INSTAGRAM' | 'SHORTCODE_KICKSTARTER' | 'SHORTCODE_LATEX' | 'SHORTCODE_MAILCHIMP_SUBSCRIBER_POPUP' | 'SHORTCODE_MEDIUM' | 'SHORTCODE_MIXCLOUD' | 'SHORTCODE_PLAYLIST' | 'SHORTCODE_POLLDADDY' | 'SHORTCODE_PRESENTATION' | 'SHORTCODE_PROMO_LINK' | 'SHORTCODE_PULLQUOTE' | 'SHORTCODE_QUARTZY_AD' | 'SHORTCODE_QUARTZY_PS' | 'SHORTCODE_QUESTION' | 'SHORTCODE_QUIZ' | 'SHORTCODE_QZ_ATLAS' | 'SHORTCODE_QZ_DAILY_BRIEF' | 'SHORTCODE_QZ_DATAWRAPPER' | 'SHORTCODE_QZ_FACEBOOK_POST' | 'SHORTCODE_QZ_FACEBOOK_VIDEO' | 'SHORTCODE_QZ_FURTHER_READING' | 'SHORTCODE_QZ_GUIDE_PROMO' | 'SHORTCODE_QZ_IFRAME' | 'SHORTCODE_QZ_INLINE_AD' | 'SHORTCODE_QZ_INTERACTIVE' | 'SHORTCODE_QZ_RELATED_STACK' | 'SHORTCODE_QZ_SECTION_DIVIDER' | 'SHORTCODE_QZ_TIPS' | 'SHORTCODE_QZ_TOPIC_UPDATE' | 'SHORTCODE_RECIPE' | 'SHORTCODE_RECIPE_DIRECTIONS' | 'SHORTCODE_RECIPE_IMAGE' | 'SHORTCODE_RECIPE_INGREDIENTS' | 'SHORTCODE_RECIPE_NOTES' | 'SHORTCODE_RECIPE_NUTRITION' | 'SHORTCODE_SCRIBD' | 'SHORTCODE_SERIES_RECIRC' | 'SHORTCODE_SIMPLE_PAYMENT' | 'SHORTCODE_SITEMAP' | 'SHORTCODE_SLIDE' | 'SHORTCODE_SLIDESHARE' | 'SHORTCODE_SLIDESHOW' | 'SHORTCODE_SOUNDCLOUD' | 'SHORTCODE_SPOTIFY' | 'SHORTCODE_STORIFY' | 'SHORTCODE_TED' | 'SHORTCODE_TWEET' | 'SHORTCODE_TWITCH' | 'SHORTCODE_TWITCHTV' | 'SHORTCODE_TWITTER_TIMELINE' | 'SHORTCODE_UNTAPPD_MENU' | 'SHORTCODE_UPCOMINGEVENTS' | 'SHORTCODE_USTREAM' | 'SHORTCODE_USTREAMSOCIAL' | 'SHORTCODE_VIDEO' | 'SHORTCODE_VIDEOPRESS' | 'SHORTCODE_VIMEO' | 'SHORTCODE_VINE' | 'SHORTCODE_VR' | 'SHORTCODE_WPVIDEO' | 'SHORTCODE_WP_CAPTION' | 'SHORTCODE_WRONG' | 'SHORTCODE_WUFOO' | 'SHORTCODE_YOUTUBE' | 'TABLE' | 'UL';
+/** Arguments for filtering the BulletinToCoAuthorConnection connection */
+export declare type BulletinToCoAuthorConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the BulletinToEditionConnection connection */
+export declare type BulletinToEditionConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -3447,8 +3244,8 @@ export declare type EditionToPostConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PostToFlagConnection connection */
-export declare type PostToFlagConnectionWhereArgs = {
+/** Arguments for filtering the BulletinToFlagConnection connection */
+export declare type BulletinToFlagConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -3641,49 +3438,8 @@ export declare type FlagToPostConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PostToGuideConnection connection */
-export declare type PostToGuideConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the PostToLocationConnection connection */
-export declare type PostToLocationConnectionWhereArgs = {
+/** Arguments for filtering the BulletinToLocationConnection connection */
+export declare type BulletinToLocationConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -3876,8 +3632,8 @@ export declare type LocationToPostConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PostToObsessionConnection connection */
-export declare type PostToObsessionConnectionWhereArgs = {
+/** Arguments for filtering the BulletinToObsessionConnection connection */
+export declare type BulletinToObsessionConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -3917,8 +3673,8 @@ export declare type PostToObsessionConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
-/** Arguments for filtering the PostToPostFormatConnection connection */
-export declare type PostToPostFormatConnectionWhereArgs = {
+/** Arguments for filtering the BulletinToProjectConnection connection */
+export declare type BulletinToProjectConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -3958,43 +3714,8 @@ export declare type PostToPostFormatConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
-/** Arguments for filtering the PostFormatToContentNodeConnection connection */
-export declare type PostFormatToContentNodeConnectionWhereArgs = {
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the PostFormatToPostConnection connection */
-export declare type PostFormatToPostConnectionWhereArgs = {
+/** Arguments for filtering the bulletinToRevisionConnection connection */
+export declare type BulletinToRevisionConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
     author?: Maybe<Scalars['Int']>;
     /** Find objects connected to author(s) in the array of author's userIds */
@@ -4003,14 +3724,6 @@ export declare type PostFormatToPostConnectionWhereArgs = {
     authorName?: Maybe<Scalars['String']>;
     /** Find objects NOT connected to author(s) in the array of author's userIds */
     authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Category ID */
-    categoryId?: Maybe<Scalars['Int']>;
-    /** Array of category IDs, used to display objects from one category OR another */
-    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Use Category Slug */
-    categoryName?: Maybe<Scalars['String']>;
-    /** Array of category IDs, used to display objects from one category OR another */
-    categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -4056,112 +3769,8 @@ export declare type PostFormatToPostConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PostToProjectConnection connection */
-export declare type PostToProjectConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the postToRevisionConnection connection */
-export declare type PostToRevisionConnectionWhereArgs = {
-    /** The user that's connected as the author of the object. Use the userId for the author object. */
-    author?: Maybe<Scalars['Int']>;
-    /** Find objects connected to author(s) in the array of author's userIds */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Find objects connected to the author by the author's nicename */
-    authorName?: Maybe<Scalars['String']>;
-    /** Find objects NOT connected to author(s) in the array of author's userIds */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Category ID */
-    categoryId?: Maybe<Scalars['Int']>;
-    /** Array of category IDs, used to display objects from one category OR another */
-    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Use Category Slug */
-    categoryName?: Maybe<Scalars['String']>;
-    /** Array of category IDs, used to display objects from one category OR another */
-    categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Tag Slug */
-    tag?: Maybe<Scalars['String']>;
-    /** Use Tag ID */
-    tagId?: Maybe<Scalars['String']>;
-    /** Array of tag IDs, used to display objects from one tag OR another */
-    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of tag IDs, used to display objects from one tag OR another */
-    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of tag slugs, used to display objects from one tag OR another */
-    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of tag slugs, used to exclude objects in specified tags */
-    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the PostToSeriesConnection connection */
-export declare type PostToSeriesConnectionWhereArgs = {
+/** Arguments for filtering the BulletinToSeriesConnection connection */
+export declare type BulletinToSeriesConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -4354,8 +3963,8 @@ export declare type SeriesToPostConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the PostToShowConnection connection */
-export declare type PostToShowConnectionWhereArgs = {
+/** Arguments for filtering the BulletinToShowConnection connection */
+export declare type BulletinToShowConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -4547,516 +4156,6 @@ export declare type ShowToPostConnectionWhereArgs = {
     tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the PostToTagConnection connection */
-export declare type PostToTagConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the PostToTermNodeConnection connection */
-export declare type PostToTermNodeConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** The Taxonomy to filter terms by */
-    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the PostToTopicConnection connection */
-export declare type PostToTopicConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Allowed content block names */
-export declare type BlockNameEnum = 'BLOCKQUOTE' | 'CORE_ARCHIVES' | 'CORE_AUDIO' | 'CORE_BLOCK' | 'CORE_BUTTON' | 'CORE_CATEGORIES' | 'CORE_CODE' | 'CORE_COLUMN' | 'CORE_COLUMNS' | 'CORE_COVER_IMAGE' | 'CORE_EMBED' | 'CORE_EMBED_ANIMOTO' | 'CORE_EMBED_CLOUDUP' | 'CORE_EMBED_COLLEGEHUMOR' | 'CORE_EMBED_DAILYMOTION' | 'CORE_EMBED_FACEBOOK' | 'CORE_EMBED_FLICKR' | 'CORE_EMBED_FUNNYORDIE' | 'CORE_EMBED_HULU' | 'CORE_EMBED_IMGUR' | 'CORE_EMBED_INSTAGRAM' | 'CORE_EMBED_ISSUU' | 'CORE_EMBED_KICKSTARTER' | 'CORE_EMBED_MEETUP_COM' | 'CORE_EMBED_MIXCLOUD' | 'CORE_EMBED_PHOTOBUCKET' | 'CORE_EMBED_POLLDADDY' | 'CORE_EMBED_REDDIT' | 'CORE_EMBED_REVERBNATION' | 'CORE_EMBED_SCREENCAST' | 'CORE_EMBED_SCRIBD' | 'CORE_EMBED_SLIDESHARE' | 'CORE_EMBED_SMUGMUG' | 'CORE_EMBED_SOUNDCLOUD' | 'CORE_EMBED_SPEAKER' | 'CORE_EMBED_SPOTIFY' | 'CORE_EMBED_TED' | 'CORE_EMBED_TUMBLR' | 'CORE_EMBED_TWITTER' | 'CORE_EMBED_VIDEOPRESS' | 'CORE_EMBED_VIMEO' | 'CORE_EMBED_WORDPRESS' | 'CORE_EMBED_WORDPRESS_TV' | 'CORE_EMBED_YOUTUBE' | 'CORE_FILE' | 'CORE_FREEFORM' | 'CORE_GALLERY' | 'CORE_HEADING' | 'CORE_HTML' | 'CORE_IMAGE' | 'CORE_LATEST_COMMENTS' | 'CORE_LATEST_POSTS' | 'CORE_LIST' | 'CORE_MORE' | 'CORE_NEXTPAGE' | 'CORE_PARAGRAPH' | 'CORE_PREFORMATTED' | 'CORE_PULLQUOTE' | 'CORE_QUOTE' | 'CORE_SEPARATOR' | 'CORE_SHORTCODE' | 'CORE_SPACER' | 'CORE_SUBHEAD' | 'CORE_TABLE' | 'CORE_TEXT_COLUMNS' | 'CORE_VERSE' | 'CORE_VIDEO' | 'EL' | 'EMBED_ANIMOTO' | 'EMBED_API_CROWDSIGNAL_COM_OEMBED' | 'EMBED_GFYCAT' | 'EMBED_IMGUR' | 'EMBED_MEETUP' | 'EMBED_SCREENCAST' | 'EMBED_SMUGMUG' | 'EMBED_DATAWRAPPER' | 'EMBED_ATLAS' | 'EMBED_AUDIO' | 'EMBED_CLOUDUP' | 'EMBED_CODEPEN_IO_API_OEMBED' | 'EMBED_EMBED_GETTYIMAGES_COM_OEMBED_' | 'EMBED_SPOTIFY' | 'EMBED_FACEBOOK_ALTERNATE' | 'EMBED_FACEBOOK_ALTERNATE_VIDEO' | 'EMBED_FACEBOOK_PHOTO' | 'EMBED_FACEBOOK_VIDEO' | 'EMBED_WISTIA' | 'EMBED_FLICKR' | 'EMBED_GITHUB_GIST' | 'EMBED_GOOGLEPLUS' | 'EMBED_INSTAGRAM' | 'EMBED_INLINE_PDFS' | 'EMBED_ISSUU' | 'EMBED_ICLOUD' | 'EMBED_MEDIUM' | 'EMBED_QZ_OBJECT' | 'EMBED_ODESLI_CO_OEMBED' | 'EMBED_PINTEREST' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM' | 'EMBED_TWITTER' | 'EMBED_FACEBOOK' | 'EMBED_VINE' | 'EMBED_AMAZON' | 'EMBED_SERVICES_CARTO_COM_OEMBED' | 'EMBED_SKETCHFAB' | 'EMBED_SOUNDCLOUD' | 'EMBED_SPEAKERDECK' | 'EMBED_VIDEO' | 'EMBED_VIMEO' | 'EMBED_WORDPRESS_TV' | 'EMBED_WPCOM_VIMEO_EMBED_URL' | 'EMBED_WPCOM_YOUTUBE_EMBED_CRAZY_URL' | 'EMBED_DAILYMOTION' | 'EMBED_DOCUMENTCLOUD' | 'EMBED_WWW_HOUZZ_COM_OEMBED' | 'EMBED_KICKSTARTER' | 'EMBED_LOOM' | 'EMBED_MIXCLOUD' | 'EMBED_REDDIT' | 'EMBED_REVERBNATION' | 'EMBED_SCRIBD' | 'EMBED_SLIDESHARE' | 'EMBED_SOMEECARDS' | 'EMBED_TED' | 'EMBED_WWW_TED_COM_TALKS_OEMBED_JSON' | 'EMBED_TIKTOK' | 'EMBED_TUMBLR' | 'EMBED_YOUTUBE' | 'FIGURE' | 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6' | 'HR' | 'IMG' | 'OL' | 'P' | 'PRE' | 'QZ_ITEM' | 'QZ_POST_TOUT' | 'QZ_TAXONOMY_TERM' | 'QZ_WIFY_ANSWER' | 'SAFE_COMMENT' | 'SHORTCODE_ANSWER' | 'SHORTCODE_ARCHIVEORG' | 'SHORTCODE_ARCHIVEORG_BOOK' | 'SHORTCODE_ARCHIVES' | 'SHORTCODE_AUDIO' | 'SHORTCODE_BANDCAMP' | 'SHORTCODE_BRIGHTCOVE' | 'SHORTCODE_CAPTION' | 'SHORTCODE_CPI_BROADBAND_MAP' | 'SHORTCODE_CROWDSIGNAL' | 'SHORTCODE_DAILYMOTION' | 'SHORTCODE_DAILYMOTION_CHANNEL' | 'SHORTCODE_EMBED' | 'SHORTCODE_ENDMATTER' | 'SHORTCODE_EXPLANATION' | 'SHORTCODE_FACEBOOK' | 'SHORTCODE_FLICKR' | 'SHORTCODE_GALLERY' | 'SHORTCODE_GEO_LOCATION' | 'SHORTCODE_GETTY' | 'SHORTCODE_GIST' | 'SHORTCODE_GOOGLEAPPS' | 'SHORTCODE_GOOGLEMAPS' | 'SHORTCODE_GOOGLEPLUS' | 'SHORTCODE_GRAVATAR' | 'SHORTCODE_GRAVATAR_PROFILE' | 'SHORTCODE_HOUZZ' | 'SHORTCODE_HULU' | 'SHORTCODE_INSTAGRAM' | 'SHORTCODE_KICKSTARTER' | 'SHORTCODE_LATEX' | 'SHORTCODE_MAILCHIMP_SUBSCRIBER_POPUP' | 'SHORTCODE_MEDIUM' | 'SHORTCODE_MIXCLOUD' | 'SHORTCODE_PLAYLIST' | 'SHORTCODE_POLLDADDY' | 'SHORTCODE_PRESENTATION' | 'SHORTCODE_PROMO_LINK' | 'SHORTCODE_PULLQUOTE' | 'SHORTCODE_QUARTZY_AD' | 'SHORTCODE_QUARTZY_PS' | 'SHORTCODE_QUESTION' | 'SHORTCODE_QUIZ' | 'SHORTCODE_QZ_ATLAS' | 'SHORTCODE_QZ_DAILY_BRIEF' | 'SHORTCODE_QZ_DATAWRAPPER' | 'SHORTCODE_QZ_FACEBOOK_POST' | 'SHORTCODE_QZ_FACEBOOK_VIDEO' | 'SHORTCODE_QZ_FURTHER_READING' | 'SHORTCODE_QZ_GUIDE_PROMO' | 'SHORTCODE_QZ_IFRAME' | 'SHORTCODE_QZ_INLINE_AD' | 'SHORTCODE_QZ_INTERACTIVE' | 'SHORTCODE_QZ_RELATED_STACK' | 'SHORTCODE_QZ_SECTION_DIVIDER' | 'SHORTCODE_QZ_TIPS' | 'SHORTCODE_QZ_TOPIC_UPDATE' | 'SHORTCODE_RECIPE' | 'SHORTCODE_RECIPE_DIRECTIONS' | 'SHORTCODE_RECIPE_IMAGE' | 'SHORTCODE_RECIPE_INGREDIENTS' | 'SHORTCODE_RECIPE_NOTES' | 'SHORTCODE_RECIPE_NUTRITION' | 'SHORTCODE_SCRIBD' | 'SHORTCODE_SERIES_RECIRC' | 'SHORTCODE_SIMPLE_PAYMENT' | 'SHORTCODE_SITEMAP' | 'SHORTCODE_SLIDE' | 'SHORTCODE_SLIDESHARE' | 'SHORTCODE_SLIDESHOW' | 'SHORTCODE_SOUNDCLOUD' | 'SHORTCODE_SPOTIFY' | 'SHORTCODE_STORIFY' | 'SHORTCODE_TED' | 'SHORTCODE_TWEET' | 'SHORTCODE_TWITCH' | 'SHORTCODE_TWITCHTV' | 'SHORTCODE_TWITTER_TIMELINE' | 'SHORTCODE_UNTAPPD_MENU' | 'SHORTCODE_UPCOMINGEVENTS' | 'SHORTCODE_USTREAM' | 'SHORTCODE_USTREAMSOCIAL' | 'SHORTCODE_VIDEO' | 'SHORTCODE_VIDEOPRESS' | 'SHORTCODE_VIMEO' | 'SHORTCODE_VINE' | 'SHORTCODE_VR' | 'SHORTCODE_WPVIDEO' | 'SHORTCODE_WP_CAPTION' | 'SHORTCODE_WRONG' | 'SHORTCODE_WUFOO' | 'SHORTCODE_YOUTUBE' | 'TABLE' | 'UL';
-/** Arguments for filtering the BulletinToCoAuthorConnection connection */
-export declare type BulletinToCoAuthorConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the BulletinToEditionConnection connection */
-export declare type BulletinToEditionConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the BulletinToFlagConnection connection */
-export declare type BulletinToFlagConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the BulletinToLocationConnection connection */
-export declare type BulletinToLocationConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the BulletinToObsessionConnection connection */
-export declare type BulletinToObsessionConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the BulletinToProjectConnection connection */
-export declare type BulletinToProjectConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the bulletinToRevisionConnection connection */
-export declare type BulletinToRevisionConnectionWhereArgs = {
-    /** The user that's connected as the author of the object. Use the userId for the author object. */
-    author?: Maybe<Scalars['Int']>;
-    /** Find objects connected to author(s) in the array of author's userIds */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Find objects connected to the author by the author's nicename */
-    authorName?: Maybe<Scalars['String']>;
-    /** Find objects NOT connected to author(s) in the array of author's userIds */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Tag Slug */
-    tag?: Maybe<Scalars['String']>;
-    /** Use Tag ID */
-    tagId?: Maybe<Scalars['String']>;
-    /** Array of tag IDs, used to display objects from one tag OR another */
-    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of tag IDs, used to display objects from one tag OR another */
-    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of tag slugs, used to display objects from one tag OR another */
-    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of tag slugs, used to exclude objects in specified tags */
-    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the BulletinToSeriesConnection connection */
-export declare type BulletinToSeriesConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-};
-/** Arguments for filtering the BulletinToShowConnection connection */
-export declare type BulletinToShowConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 /** Arguments for filtering the BulletinToTagConnection connection */
 export declare type BulletinToTagConnectionWhereArgs = {
@@ -5385,8 +4484,8 @@ export declare type UserToContentRevisionUnionConnectionWhereArgs = {
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the BlogPostToTagConnection connection */
-export declare type BlogPostToTagConnectionWhereArgs = {
+/** Arguments for filtering the PostToCategoryConnection connection */
+export declare type PostToCategoryConnectionWhereArgs = {
     /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
     cacheDomain?: Maybe<Scalars['String']>;
     /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -5426,6 +4525,912 @@ export declare type BlogPostToTagConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
+/** Arguments for filtering the CategoryToCategoryConnection connection */
+export declare type CategoryToCategoryConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the CategoryToContentNodeConnection connection */
+export declare type CategoryToContentNodeConnectionWhereArgs = {
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the CategoryToPostConnection connection */
+export declare type CategoryToPostConnectionWhereArgs = {
+    /** The user that's connected as the author of the object. Use the userId for the author object. */
+    author?: Maybe<Scalars['Int']>;
+    /** Find objects connected to author(s) in the array of author's userIds */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Find objects connected to the author by the author's nicename */
+    authorName?: Maybe<Scalars['String']>;
+    /** Find objects NOT connected to author(s) in the array of author's userIds */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Category ID */
+    categoryId?: Maybe<Scalars['Int']>;
+    /** Array of category IDs, used to display objects from one category OR another */
+    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Use Category Slug */
+    categoryName?: Maybe<Scalars['String']>;
+    /** Array of category IDs, used to display objects from one category OR another */
+    categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Tag Slug */
+    tag?: Maybe<Scalars['String']>;
+    /** Use Tag ID */
+    tagId?: Maybe<Scalars['String']>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag slugs, used to display objects from one tag OR another */
+    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of tag slugs, used to exclude objects in specified tags */
+    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the PostToCoAuthorConnection connection */
+export declare type PostToCoAuthorConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToCommentConnection connection */
+export declare type PostToCommentConnectionWhereArgs = {
+    /** Comment author email address. */
+    authorEmail?: Maybe<Scalars['String']>;
+    /** Array of author IDs to include comments for. */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of author IDs to exclude comments for. */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Comment author URL. */
+    authorUrl?: Maybe<Scalars['String']>;
+    /** Array of comment IDs to include. */
+    commentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
+    commentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Include comments of a given type. */
+    commentType?: Maybe<Scalars['String']>;
+    /** Include comments from a given array of comment types. */
+    commentTypeIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Exclude comments from a given array of comment types. */
+    commentTypeNotIn?: Maybe<Scalars['String']>;
+    /** Content object author ID to limit results by. */
+    contentAuthor?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of author IDs to retrieve comments for. */
+    contentAuthorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of author IDs *not* to retrieve comments for. */
+    contentAuthorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Limit results to those affiliated with a given content object ID. */
+    contentId?: Maybe<Scalars['ID']>;
+    /** Array of content object IDs to include affiliated comments for. */
+    contentIdIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of content object IDs to exclude affiliated comments for. */
+    contentIdNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Content object name to retrieve affiliated comments for. */
+    contentName?: Maybe<Scalars['String']>;
+    /** Content Object parent ID to retrieve affiliated comments for. */
+    contentParent?: Maybe<Scalars['Int']>;
+    /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
+    contentStatus?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
+    contentType?: Maybe<Array<Maybe<ContentTypeEnum>>>;
+    /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
+    includeUnapproved?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Karma score to retrieve matching comments for. */
+    karma?: Maybe<Scalars['Int']>;
+    /** The cardinality of the order of the connection */
+    order?: Maybe<OrderEnum>;
+    /** Field to order the comments by. */
+    orderby?: Maybe<CommentsConnectionOrderbyEnum>;
+    /** Parent ID of comment to retrieve children of. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Array of parent IDs of comments to retrieve children for. */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of parent IDs of comments *not* to retrieve children for. */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Search term(s) to retrieve matching comments for. */
+    search?: Maybe<Scalars['String']>;
+    /** Comment status to limit results by. */
+    status?: Maybe<Scalars['String']>;
+    /** Include comments for a specific user ID. */
+    userId?: Maybe<Scalars['ID']>;
+};
+/** Arguments for filtering the PostToEditionConnection connection */
+export declare type PostToEditionConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToFlagConnection connection */
+export declare type PostToFlagConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToGuideConnection connection */
+export declare type PostToGuideConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToLocationConnection connection */
+export declare type PostToLocationConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToObsessionConnection connection */
+export declare type PostToObsessionConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToPostFormatConnection connection */
+export declare type PostToPostFormatConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostFormatToContentNodeConnection connection */
+export declare type PostFormatToContentNodeConnectionWhereArgs = {
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the PostFormatToPostConnection connection */
+export declare type PostFormatToPostConnectionWhereArgs = {
+    /** The user that's connected as the author of the object. Use the userId for the author object. */
+    author?: Maybe<Scalars['Int']>;
+    /** Find objects connected to author(s) in the array of author's userIds */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Find objects connected to the author by the author's nicename */
+    authorName?: Maybe<Scalars['String']>;
+    /** Find objects NOT connected to author(s) in the array of author's userIds */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Category ID */
+    categoryId?: Maybe<Scalars['Int']>;
+    /** Array of category IDs, used to display objects from one category OR another */
+    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Use Category Slug */
+    categoryName?: Maybe<Scalars['String']>;
+    /** Array of category IDs, used to display objects from one category OR another */
+    categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Tag Slug */
+    tag?: Maybe<Scalars['String']>;
+    /** Use Tag ID */
+    tagId?: Maybe<Scalars['String']>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag slugs, used to display objects from one tag OR another */
+    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of tag slugs, used to exclude objects in specified tags */
+    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the PostToProjectConnection connection */
+export declare type PostToProjectConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the postToRevisionConnection connection */
+export declare type PostToRevisionConnectionWhereArgs = {
+    /** The user that's connected as the author of the object. Use the userId for the author object. */
+    author?: Maybe<Scalars['Int']>;
+    /** Find objects connected to author(s) in the array of author's userIds */
+    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Find objects connected to the author by the author's nicename */
+    authorName?: Maybe<Scalars['String']>;
+    /** Find objects NOT connected to author(s) in the array of author's userIds */
+    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Category ID */
+    categoryId?: Maybe<Scalars['Int']>;
+    /** Array of category IDs, used to display objects from one category OR another */
+    categoryIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Use Category Slug */
+    categoryName?: Maybe<Scalars['String']>;
+    /** Array of category IDs, used to display objects from one category OR another */
+    categoryNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Filter the connection based on dates */
+    dateQuery?: Maybe<DateQueryInput>;
+    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+    hasPassword?: Maybe<Scalars['Boolean']>;
+    /** Specific ID of the object */
+    id?: Maybe<Scalars['Int']>;
+    /** Array of IDs for the objects to retrieve */
+    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Get objects with a specific mimeType property */
+    mimeType?: Maybe<MimeTypeEnum>;
+    /** Slug / post_name of the object */
+    name?: Maybe<Scalars['String']>;
+    /** Specify objects to retrieve. Use slugs */
+    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** What paramater to use to order the objects by. */
+    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+    /** Use ID to return only children. Use 0 to return only top-level items */
+    parent?: Maybe<Scalars['ID']>;
+    /** Specify objects whose parent is in an array */
+    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Specify posts whose parent is not in an array */
+    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Show posts with a specific password. */
+    password?: Maybe<Scalars['String']>;
+    /** Show Posts based on a keyword search */
+    search?: Maybe<Scalars['String']>;
+    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    status?: Maybe<PostStatusEnum>;
+    /** Tag Slug */
+    tag?: Maybe<Scalars['String']>;
+    /** Use Tag ID */
+    tagId?: Maybe<Scalars['String']>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag IDs, used to display objects from one tag OR another */
+    tagNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of tag slugs, used to display objects from one tag OR another */
+    tagSlugAnd?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of tag slugs, used to exclude objects in specified tags */
+    tagSlugIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Title of the object */
+    title?: Maybe<Scalars['String']>;
+};
+/** Arguments for filtering the PostToSeriesConnection connection */
+export declare type PostToSeriesConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToShowConnection connection */
+export declare type PostToShowConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToTagConnection connection */
+export declare type PostToTagConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToTermNodeConnection connection */
+export declare type PostToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the PostToTopicConnection connection */
+export declare type PostToTopicConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export declare type BlogPostIdType = 
+/** Identify a resource by the Database ID. */
+'DATABASE_ID'
+/** Identify a resource by the (hashed) Global ID. */
+ | 'ID'
+/** Identify a resource by the URI. */
+ | 'URI'
+/** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+ | 'SLUG';
 /** Arguments for filtering the RootQueryToBlogPostConnection connection */
 export declare type RootQueryToBlogPostConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -5766,8 +5771,8 @@ export declare type PreviewQuery = {
     /** Validation token */
     token?: Maybe<Scalars['String']>;
 };
-/** Arguments for filtering the RootQueryToContentUnionConnection connection */
-export declare type RootQueryToContentUnionConnectionWhereArgs = {
+/** Arguments for filtering the RootQueryToContentConnection connection */
+export declare type RootQueryToContentConnectionWhereArgs = {
     /** Search terms */
     search?: Maybe<Scalars['String']>;
 };
