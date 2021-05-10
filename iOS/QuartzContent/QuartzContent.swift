@@ -4748,6 +4748,13 @@ public final class ContentByAuthorQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query ContentByAuthor($slug: String!, $perPage: Int! = 10, $after: String = "") {
+      authors: coAuthors(where: {name: [$slug]}) {
+        __typename
+        nodes {
+          __typename
+          ...AuthorParts
+        }
+      }
       authorContent(after: $after, first: $perPage, where: {slug: $slug}) {
         __typename
         nodes {
@@ -4770,10 +4777,11 @@ public final class ContentByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "ContentByAuthor"
 
-  public let operationIdentifier: String? = "10f2218008f956412b02b0a60d7850d33085204d54aa1670d9b2c37fd7f8a12d"
+  public let operationIdentifier: String? = "96145676003c58e798605f83e514b08f4833c72cf853feb1981d63cba9412087"
 
   public var queryDocument: String {
     var document: String = operationDefinition
+    document.append("\n" + AuthorParts.fragmentDefinition)
     document.append("\n" + EmailParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
@@ -4800,6 +4808,7 @@ public final class ContentByAuthorQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
+        GraphQLField("coAuthors", alias: "authors", arguments: ["where": ["name": [GraphQLVariable("slug")]]], type: .object(Author.selections)),
         GraphQLField("authorContent", arguments: ["after": GraphQLVariable("after"), "first": GraphQLVariable("perPage"), "where": ["slug": GraphQLVariable("slug")]], type: .object(AuthorContent.selections)),
       ]
     }
@@ -4810,8 +4819,18 @@ public final class ContentByAuthorQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(authorContent: AuthorContent? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "authorContent": authorContent.flatMap { (value: AuthorContent) -> ResultMap in value.resultMap }])
+    public init(authors: Author? = nil, authorContent: AuthorContent? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "authors": authors.flatMap { (value: Author) -> ResultMap in value.resultMap }, "authorContent": authorContent.flatMap { (value: AuthorContent) -> ResultMap in value.resultMap }])
+    }
+
+    /// Connection between the RootQuery type and the coAuthor type
+    public var authors: Author? {
+      get {
+        return (resultMap["authors"] as? ResultMap).flatMap { Author(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "authors")
+      }
     }
 
     /// Connection between the RootQuery type and the ContentUnion type
@@ -4821,6 +4840,102 @@ public final class ContentByAuthorQuery: GraphQLQuery {
       }
       set {
         resultMap.updateValue(newValue?.resultMap, forKey: "authorContent")
+      }
+    }
+
+    public struct Author: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RootQueryToCoAuthorConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToCoAuthorConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The nodes of the connection, without the edges
+      public var nodes: [Node?]? {
+        get {
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+        }
+      }
+
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["CoAuthor"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(AuthorParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(avatar: String? = nil, bio: String? = nil, emeritus: Bool? = nil, email: String? = nil, facebook: String? = nil, firstName: String? = nil, id: GraphQLID, instagram: String? = nil, lastName: String? = nil, linkedin: String? = nil, name: String? = nil, organization: String? = nil, pgp: String? = nil, shortBio: String? = nil, title: String? = nil, twitter: String? = nil, type: String? = nil, url: String? = nil, username: String? = nil, website: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "CoAuthor", "avatar": avatar, "bio": bio, "emeritus": emeritus, "email": email, "facebook": facebook, "firstName": firstName, "id": id, "instagram": instagram, "lastName": lastName, "linkedin": linkedin, "name": name, "organization": organization, "pgp": pgp, "shortBio": shortBio, "title": title, "twitter": twitter, "type": type, "url": url, "username": username, "website": website])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var authorParts: AuthorParts {
+            get {
+              return AuthorParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
       }
     }
 
