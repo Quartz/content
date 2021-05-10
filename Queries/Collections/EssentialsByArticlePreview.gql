@@ -1,0 +1,48 @@
+query EssentialsByArticlePreview(
+	$id: Int!
+	$time: Int!
+	$token: String!
+) {
+	posts(
+		where: {
+			id: $id
+			preview: {
+				time: $time
+				token: $token
+			}
+		}
+	) {
+		nodes {
+			id
+			essentials(first: 3) {
+				nodes {
+					...CollectionParts
+				}
+			}
+			obsessions {
+				nodes {
+					...ObsessionParts
+					essentials(
+						first: 1
+					) {
+						nodes {
+							...CollectionParts
+						}
+					}
+				}
+			}
+			guides {
+				nodes {
+					...GuideParts
+					essentials(
+						first: 1
+					) {
+						nodes {
+							...CollectionParts
+						}
+					}
+				}
+			}
+		}
+	}
+}
