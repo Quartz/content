@@ -32,6 +32,7 @@ export * from './EmailsByAuthor';
 export * from './EmailsByList';
 export * from './EmailsByTag';
 export * from './EssentialsByArticle';
+export * from './EssentialsByArticlePreview';
 export * from './EssentialsByCollection';
 export * from './EssentialsByGuide';
 export * from './EssentialsByObsession';

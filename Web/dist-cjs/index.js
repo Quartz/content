@@ -45,6 +45,7 @@ __exportStar(require("./EmailsByAuthor"), exports);
 __exportStar(require("./EmailsByList"), exports);
 __exportStar(require("./EmailsByTag"), exports);
 __exportStar(require("./EssentialsByArticle"), exports);
+__exportStar(require("./EssentialsByArticlePreview"), exports);
 __exportStar(require("./EssentialsByCollection"), exports);
 __exportStar(require("./EssentialsByGuide"), exports);
 __exportStar(require("./EssentialsByObsession"), exports);
