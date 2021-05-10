@@ -1,4 +1,5 @@
 import type * as Types from './types';
+import type { AuthorPartsFragment } from './AuthorParts';
 import type { EmailPartsFragment } from './EmailParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
@@ -9,6 +10,12 @@ export declare type ContentByAuthorQueryVariables = Types.Exact<{
 }>;
 export declare type ContentByAuthorQuery = {
     __typename?: 'RootQuery';
+    authors?: Types.Maybe<{
+        __typename?: 'RootQueryToCoAuthorConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<({
+            __typename?: 'CoAuthor';
+        } & AuthorPartsFragment)>>>;
+    }>;
     authorContent?: Types.Maybe<{
         __typename?: 'RootQueryToContentUnionConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({

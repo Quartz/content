@@ -1,8 +1,10 @@
 import type * as Types from './types';
 
+import type { AuthorPartsFragment } from './AuthorParts';
 import type { EmailPartsFragment } from './EmailParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
+import { AuthorPartsFragmentDoc } from './AuthorParts';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
@@ -14,7 +16,10 @@ export type ContentByAuthorQueryVariables = Types.Exact<{
 }>;
 
 
-export type ContentByAuthorQuery = { __typename?: 'RootQuery', authorContent?: Types.Maybe<{ __typename?: 'RootQueryToContentUnionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type ContentByAuthorQuery = { __typename?: 'RootQuery', authors?: Types.Maybe<{ __typename?: 'RootQueryToCoAuthorConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'CoAuthor' }
+      & AuthorPartsFragment
+    )>>> }>, authorContent?: Types.Maybe<{ __typename?: 'RootQueryToContentUnionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | (
@@ -25,6 +30,11 @@ export type ContentByAuthorQuery = { __typename?: 'RootQuery', authorContent?: T
 
 export const ContentByAuthorDocument = /*#__PURE__*/ gql`
     query ContentByAuthor($slug: String!, $perPage: Int! = 10, $after: String = "") {
+  authors: coAuthors(where: {name: [$slug]}) {
+    nodes {
+      ...AuthorParts
+    }
+  }
   authorContent(after: $after, first: $perPage, where: {slug: $slug}) {
     nodes {
       ... on Email {
@@ -40,7 +50,8 @@ export const ContentByAuthorDocument = /*#__PURE__*/ gql`
     }
   }
 }
-    ${EmailPartsFragmentDoc}
+    ${AuthorPartsFragmentDoc}
+${EmailPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}`;
 
 /**
