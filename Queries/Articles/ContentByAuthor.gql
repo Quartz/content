@@ -1,0 +1,41 @@
+query ContentByAuthor(
+	$slug: String!
+	$perPage: Int! = 10
+	$after: String = ""
+) {
+	authors:coAuthors(
+		where: {
+			name: [$slug]
+		}
+	) {
+		 nodes {
+			...AuthorParts
+		}
+	}
+	authorContent(
+		after: $after
+		first: $perPage
+		where: {
+			slug: $slug
+		}
+	) {
+		nodes {
+			...on Email {
+				...EmailParts
+				link
+				emailLists {
+					nodes {
+						slug
+					}
+				}
+			}
+			...on Post {
+				...ArticleTeaserParts
+			}
+		}
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+	}
+}

@@ -6,18 +6,18 @@ export declare type MenuItemPartsFragment = {
     id: string;
     connectedNode?: Types.Maybe<{
         __typename?: 'MenuItemToMenuItemLinkableConnectionEdge';
-        node?: Types.Maybe<{
-            __typename?: 'BlogPost';
-        } | ({
+        node?: Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment) | {
-            __typename?: 'Category';
+            __typename?: 'Page';
         } | {
             __typename?: 'CoAuthor';
         } | {
             __typename?: 'Chapter';
         } | {
             __typename?: 'Tag';
+        } | {
+            __typename?: 'BlogPost';
         } | {
             __typename?: 'Collection';
         } | {
@@ -35,9 +35,9 @@ export declare type MenuItemPartsFragment = {
         } & PromotionPartsFragment) | {
             __typename?: 'Obsession';
         } | {
-            __typename?: 'Page';
-        } | {
             __typename?: 'Show';
+        } | {
+            __typename?: 'Category';
         }>;
     }>;
 };

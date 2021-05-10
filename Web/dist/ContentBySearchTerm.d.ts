@@ -9,7 +9,7 @@ export declare type ContentBySearchTermQueryVariables = Types.Exact<{
 export declare type ContentBySearchTermQuery = {
     __typename?: 'RootQuery';
     content?: Types.Maybe<{
-        __typename?: 'RootQueryToContentUnionConnection';
+        __typename?: 'RootQueryToContentConnection';
         pageInfo?: Types.Maybe<{
             __typename?: 'WPPageInfo';
             endCursor?: Types.Maybe<string>;
