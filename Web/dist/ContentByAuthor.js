@@ -15,6 +15,12 @@ export const ContentByAuthorDocument = /*#__PURE__*/ gql `
     nodes {
       ... on Email {
         ...EmailParts
+        link
+        emailLists {
+          nodes {
+            slug
+          }
+        }
       }
       ... on Post {
         ...ArticleTeaserParts

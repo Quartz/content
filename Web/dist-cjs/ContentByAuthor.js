@@ -37,6 +37,12 @@ exports.ContentByAuthorDocument = client_1.gql `
     nodes {
       ... on Email {
         ...EmailParts
+        link
+        emailLists {
+          nodes {
+            slug
+          }
+        }
       }
       ... on Post {
         ...ArticleTeaserParts
