@@ -3,7 +3,16 @@ query ContentByAuthor(
 	$perPage: Int! = 10
 	$after: String = ""
 ) {
-  authorContent(
+	authors:coAuthors(
+		where: {
+			name: [$slug]
+		}
+	) {
+		 nodes {
+			...AuthorParts
+		}
+	}
+	authorContent(
 		after: $after
 		first: $perPage
 		where: {
