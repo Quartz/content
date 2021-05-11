@@ -1,4 +1,4 @@
-query TagContent(
+query ContentByTag(
 	$slug: String!
 	$perPage: Int = 10
 	$after: String
