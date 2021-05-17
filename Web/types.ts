@@ -7857,6 +7857,14 @@ export type TagIdType =
   /** The URI for the node */
   | 'URI';
 
+/** Arguments for filtering the RootQueryToTagContentConnection connection */
+export type RootQueryToTagContentConnectionWhereArgs = {
+  /** Tag slug */
+  slug?: Maybe<Scalars['String']>;
+};
+
+
+
 /** Arguments for filtering the RootQueryToTagConnection connection */
 export type RootQueryToTagConnectionWhereArgs = {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */

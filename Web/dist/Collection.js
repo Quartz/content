@@ -3,9 +3,13 @@ import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const CollectionDocument = /*#__PURE__*/ gql `
-    query Collection($slug: String!) {
-  collectionBy(slug: $slug) {
-    ...CollectionParts
+    query Collection($id: Int!, $previewTime: Int, $previewToken: String) {
+  collections(
+    where: {id: $id, preview: {time: $previewTime, token: $previewToken}}
+  ) {
+    nodes {
+      ...CollectionParts
+    }
   }
 }
     ${CollectionPartsFragmentDoc}`;
@@ -21,7 +25,9 @@ export const CollectionDocument = /*#__PURE__*/ gql `
  * @example
  * const { data, loading, error } = useCollectionQuery({
  *   variables: {
- *      slug: // value for 'slug'
+ *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */

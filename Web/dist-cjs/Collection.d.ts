@@ -2,13 +2,18 @@ import type * as Types from './types';
 import type { CollectionPartsFragment } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 export declare type CollectionQueryVariables = Types.Exact<{
-    slug: Types.Scalars['String'];
+    id: Types.Scalars['Int'];
+    previewTime?: Types.Maybe<Types.Scalars['Int']>;
+    previewToken?: Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type CollectionQuery = {
     __typename?: 'RootQuery';
-    collectionBy?: Types.Maybe<({
-        __typename?: 'Collection';
-    } & CollectionPartsFragment)>;
+    collections?: Types.Maybe<{
+        __typename?: 'RootQueryToCollectionConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<({
+            __typename?: 'Collection';
+        } & CollectionPartsFragment)>>>;
+    }>;
 };
 export declare const CollectionDocument: Apollo.DocumentNode;
 /**
@@ -23,15 +28,21 @@ export declare const CollectionDocument: Apollo.DocumentNode;
  * @example
  * const { data, loading, error } = useCollectionQuery({
  *   variables: {
- *      slug: // value for 'slug'
+ *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */
 export declare function useCollectionQuery(baseOptions: Apollo.QueryHookOptions<CollectionQuery, CollectionQueryVariables>): Apollo.QueryResult<CollectionQuery, Types.Exact<{
-    slug: string;
+    id: number;
+    previewTime?: Types.Maybe<number> | undefined;
+    previewToken?: Types.Maybe<string> | undefined;
 }>>;
 export declare function useCollectionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CollectionQuery, CollectionQueryVariables>): Apollo.QueryTuple<CollectionQuery, Types.Exact<{
-    slug: string;
+    id: number;
+    previewTime?: Types.Maybe<number> | undefined;
+    previewToken?: Types.Maybe<string> | undefined;
 }>>;
 export declare type CollectionQueryHookResult = ReturnType<typeof useCollectionQuery>;
 export declare type CollectionLazyQueryHookResult = ReturnType<typeof useCollectionLazyQuery>;

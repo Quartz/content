@@ -1,7 +1,6 @@
 // created by autobarrel, do not modify directly
 export * from './Article';
 export * from './ArticleParts';
-export * from './ArticlePreview';
 export * from './ArticleTeaser';
 export * from './ArticleTeaserParts';
 export * from './ArticlesByAuthor';
@@ -18,7 +17,6 @@ export * from './BulletinDataParts';
 export * from './BulletinParts';
 export * from './BulletinsBySeries';
 export * from './Collection';
-export * from './CollectionById';
 export * from './CollectionParts';
 export * from './Collections';
 export * from './ContentByAuthor';
