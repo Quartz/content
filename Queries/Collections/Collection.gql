@@ -1,7 +1,17 @@
 query Collection(
-	$slug: String!
+	$id: Int!,
+	$previewTime: Int,
+	$previewToken: String,
 ) {
-	collectionBy(slug: $slug) {
-		...CollectionParts
+	collections(
+		where: {
+			id: $id,
+			preview: { time: $previewTime, token: $previewToken }
+		}
+	) {
+		nodes {
+			...CollectionParts
+		}
 	}
 }
+
