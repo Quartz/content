@@ -6,20 +6,26 @@ import { CollectionPartsFragmentDoc } from './CollectionParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type CollectionQueryVariables = Types.Exact<{
-  slug: Types.Scalars['String'];
+  id: Types.Scalars['Int'];
+  previewTime?: Types.Maybe<Types.Scalars['Int']>;
+  previewToken?: Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
-export type CollectionQuery = { __typename?: 'RootQuery', collectionBy?: Types.Maybe<(
-    { __typename?: 'Collection' }
-    & CollectionPartsFragment
-  )> };
+export type CollectionQuery = { __typename?: 'RootQuery', collections?: Types.Maybe<{ __typename?: 'RootQueryToCollectionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Collection' }
+      & CollectionPartsFragment
+    )>>> }> };
 
 
 export const CollectionDocument = /*#__PURE__*/ gql`
-    query Collection($slug: String!) {
-  collectionBy(slug: $slug) {
-    ...CollectionParts
+    query Collection($id: Int!, $previewTime: Int, $previewToken: String) {
+  collections(
+    where: {id: $id, preview: {time: $previewTime, token: $previewToken}}
+  ) {
+    nodes {
+      ...CollectionParts
+    }
   }
 }
     ${CollectionPartsFragmentDoc}`;
@@ -36,7 +42,9 @@ export const CollectionDocument = /*#__PURE__*/ gql`
  * @example
  * const { data, loading, error } = useCollectionQuery({
  *   variables: {
- *      slug: // value for 'slug'
+ *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */

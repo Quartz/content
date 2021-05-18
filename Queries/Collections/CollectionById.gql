@@ -1,8 +1,0 @@
-query CollectionById(
-	$id: ID!
-
-) {
-	collection(id: $id, idType: ID) {
-		...CollectionParts
-	}
-}

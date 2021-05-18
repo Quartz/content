@@ -3,6 +3,8 @@ import type { ArticlePartsFragment } from './ArticleParts';
 import * as Apollo from '@apollo/client';
 export declare type ArticleQueryVariables = Types.Exact<{
     id: Types.Scalars['Int'];
+    previewTime?: Types.Maybe<Types.Scalars['Int']>;
+    previewToken?: Types.Maybe<Types.Scalars['String']>;
 }>;
 export declare type ArticleQuery = {
     __typename?: 'RootQuery';
@@ -27,14 +29,20 @@ export declare const ArticleDocument: Apollo.DocumentNode;
  * const { data, loading, error } = useArticleQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */
 export declare function useArticleQuery(baseOptions: Apollo.QueryHookOptions<ArticleQuery, ArticleQueryVariables>): Apollo.QueryResult<ArticleQuery, Types.Exact<{
     id: number;
+    previewTime?: Types.Maybe<number> | undefined;
+    previewToken?: Types.Maybe<string> | undefined;
 }>>;
 export declare function useArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleQuery, ArticleQueryVariables>): Apollo.QueryTuple<ArticleQuery, Types.Exact<{
     id: number;
+    previewTime?: Types.Maybe<number> | undefined;
+    previewToken?: Types.Maybe<string> | undefined;
 }>>;
 export declare type ArticleQueryHookResult = ReturnType<typeof useArticleQuery>;
 export declare type ArticleLazyQueryHookResult = ReturnType<typeof useArticleLazyQuery>;

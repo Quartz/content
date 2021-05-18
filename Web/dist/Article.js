@@ -3,8 +3,8 @@ import { ArticlePartsFragmentDoc } from './ArticleParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const ArticleDocument = /*#__PURE__*/ gql `
-    query Article($id: Int!) {
-  posts(where: {id: $id}) {
+    query Article($id: Int!, $previewTime: Int, $previewToken: String) {
+  posts(where: {id: $id, preview: {time: $previewTime, token: $previewToken}}) {
     nodes {
       ...ArticleParts
     }
@@ -24,6 +24,8 @@ export const ArticleDocument = /*#__PURE__*/ gql `
  * const { data, loading, error } = useArticleQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */

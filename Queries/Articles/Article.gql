@@ -1,9 +1,15 @@
 query Article(
-	$id: Int!
+	$id: Int!,
+	$previewTime: Int,
+	$previewToken: String,
 ) {
 	posts(
 		where: {
 			id: $id
+			preview: {
+				time: $previewTime
+				token: $previewToken
+			}
 		}
 	) {
 		nodes {

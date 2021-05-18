@@ -1421,8 +1421,8 @@ public final class ArticleQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Article($id: Int!) {
-      posts(where: {id: $id}) {
+    query Article($id: Int!, $previewTime: Int, $previewToken: String) {
+      posts(where: {id: $id, preview: {time: $previewTime, token: $previewToken}}) {
         __typename
         nodes {
           __typename
@@ -1434,7 +1434,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "b0b2555206951faf93c293d4958b7f2f9d16f7a770e80dcfdb01b19385eb92b0"
+  public let operationIdentifier: String? = "a85f4f7c82c8ab548329cf75f9498824b66efc95e80bff989b1018855df64200"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -1453,13 +1453,17 @@ public final class ArticleQuery: GraphQLQuery {
   }
 
   public var id: Int
+  public var previewTime: Int?
+  public var previewToken: String?
 
-  public init(id: Int) {
+  public init(id: Int, previewTime: Int? = nil, previewToken: String? = nil) {
     self.id = id
+    self.previewTime = previewTime
+    self.previewToken = previewToken
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id]
+    return ["id": id, "previewTime": previewTime, "previewToken": previewToken]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -1467,179 +1471,7 @@ public final class ArticleQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("posts", arguments: ["where": ["id": GraphQLVariable("id")]], type: .object(Post.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(posts: Post? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
-    }
-
-    /// Connection between the RootQuery type and the post type
-    public var posts: Post? {
-      get {
-        return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "posts")
-      }
-    }
-
-    public struct Post: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("nodes", type: .list(.object(Node.selections))),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "RootQueryToPostConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      /// The nodes of the connection, without the edges
-      public var nodes: [Node?]? {
-        get {
-          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
-        }
-        set {
-          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
-        }
-      }
-
-      public struct Node: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["Post"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLFragmentSpread(ArticleParts.self),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        public var fragments: Fragments {
-          get {
-            return Fragments(unsafeResultMap: resultMap)
-          }
-          set {
-            resultMap += newValue.resultMap
-          }
-        }
-
-        public struct Fragments {
-          public private(set) var resultMap: ResultMap
-
-          public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
-          }
-
-          public var articleParts: ArticleParts {
-            get {
-              return ArticleParts(unsafeResultMap: resultMap)
-            }
-            set {
-              resultMap += newValue.resultMap
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class ArticlePreviewQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query ArticlePreview($id: Int!, $time: Int!, $token: String!) {
-      posts(where: {id: $id, preview: {time: $time, token: $token}}) {
-        __typename
-        nodes {
-          __typename
-          ...ArticleParts
-        }
-      }
-    }
-    """
-
-  public let operationName: String = "ArticlePreview"
-
-  public let operationIdentifier: String? = "e864c5625ea4f3db63ed2ac3d3a0d813470d6fb6b96f21080790616cb861f636"
-
-  public var queryDocument: String {
-    var document: String = operationDefinition
-    document.append("\n" + ArticleParts.fragmentDefinition)
-    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
-    document.append("\n" + MediaParts.fragmentDefinition)
-    document.append("\n" + VideoParts.fragmentDefinition)
-    document.append("\n" + AuthorParts.fragmentDefinition)
-    document.append("\n" + BlockParts.fragmentDefinition)
-    document.append("\n" + GuideParts.fragmentDefinition)
-    document.append("\n" + ObsessionParts.fragmentDefinition)
-    document.append("\n" + ProjectParts.fragmentDefinition)
-    document.append("\n" + SeriesParts.fragmentDefinition)
-    document.append("\n" + ShowParts.fragmentDefinition)
-    return document
-  }
-
-  public var id: Int
-  public var time: Int
-  public var token: String
-
-  public init(id: Int, time: Int, token: String) {
-    self.id = id
-    self.time = time
-    self.token = token
-  }
-
-  public var variables: GraphQLMap? {
-    return ["id": id, "time": time, "token": token]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["RootQuery"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("posts", arguments: ["where": ["id": GraphQLVariable("id"), "preview": ["time": GraphQLVariable("time"), "token": GraphQLVariable("token")]]], type: .object(Post.selections)),
+        GraphQLField("posts", arguments: ["where": ["id": GraphQLVariable("id"), "preview": ["time": GraphQLVariable("previewTime"), "token": GraphQLVariable("previewToken")]]], type: .object(Post.selections)),
       ]
     }
 
@@ -6684,17 +6516,22 @@ public final class CollectionQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Collection($slug: String!) {
-      collectionBy(slug: $slug) {
+    query Collection($id: Int!, $previewTime: Int, $previewToken: String) {
+      collections(
+        where: {id: $id, preview: {time: $previewTime, token: $previewToken}}
+      ) {
         __typename
-        ...CollectionParts
+        nodes {
+          __typename
+          ...CollectionParts
+        }
       }
     }
     """
 
   public let operationName: String = "Collection"
 
-  public let operationIdentifier: String? = "c22740e4dc96ed851d5f90e6cb3311c60dd92532ad562cd805e9398b4c7ab7f3"
+  public let operationIdentifier: String? = "14f003ba8de1f99a88780929b11896073c974d9f6ba1befb18749061554aacb2"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -6707,135 +6544,18 @@ public final class CollectionQuery: GraphQLQuery {
     return document
   }
 
-  public var slug: String
+  public var id: Int
+  public var previewTime: Int?
+  public var previewToken: String?
 
-  public init(slug: String) {
-    self.slug = slug
-  }
-
-  public var variables: GraphQLMap? {
-    return ["slug": slug]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["RootQuery"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("collectionBy", arguments: ["slug": GraphQLVariable("slug")], type: .object(CollectionBy.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(collectionBy: CollectionBy? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "collectionBy": collectionBy.flatMap { (value: CollectionBy) -> ResultMap in value.resultMap }])
-    }
-
-    /// A collection object
-    @available(*, deprecated, message: "Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)")
-    public var collectionBy: CollectionBy? {
-      get {
-        return (resultMap["collectionBy"] as? ResultMap).flatMap { CollectionBy(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "collectionBy")
-      }
-    }
-
-    public struct CollectionBy: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Collection"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(CollectionParts.self),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var fragments: Fragments {
-        get {
-          return Fragments(unsafeResultMap: resultMap)
-        }
-        set {
-          resultMap += newValue.resultMap
-        }
-      }
-
-      public struct Fragments {
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public var collectionParts: CollectionParts {
-          get {
-            return CollectionParts(unsafeResultMap: resultMap)
-          }
-          set {
-            resultMap += newValue.resultMap
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class CollectionByIdQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query CollectionById($id: ID!) {
-      collection(id: $id, idType: ID) {
-        __typename
-        ...CollectionParts
-      }
-    }
-    """
-
-  public let operationName: String = "CollectionById"
-
-  public let operationIdentifier: String? = "c2df6ec25b855546a68b06d2ac64d324d87fec218c14023093fd413a1dba9296"
-
-  public var queryDocument: String {
-    var document: String = operationDefinition
-    document.append("\n" + CollectionParts.fragmentDefinition)
-    document.append("\n" + MediaParts.fragmentDefinition)
-    document.append("\n" + BlockParts.fragmentDefinition)
-    document.append("\n" + ArticleTeaserParts.fragmentDefinition)
-    document.append("\n" + VideoParts.fragmentDefinition)
-    document.append("\n" + NugParts.fragmentDefinition)
-    return document
-  }
-
-  public var id: GraphQLID
-
-  public init(id: GraphQLID) {
+  public init(id: Int, previewTime: Int? = nil, previewToken: String? = nil) {
     self.id = id
+    self.previewTime = previewTime
+    self.previewToken = previewToken
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id]
+    return ["id": id, "previewTime": previewTime, "previewToken": previewToken]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -6843,7 +6563,7 @@ public final class CollectionByIdQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("collection", arguments: ["id": GraphQLVariable("id"), "idType": "ID"], type: .object(Collection.selections)),
+        GraphQLField("collections", arguments: ["where": ["id": GraphQLVariable("id"), "preview": ["time": GraphQLVariable("previewTime"), "token": GraphQLVariable("previewToken")]]], type: .object(Collection.selections)),
       ]
     }
 
@@ -6853,27 +6573,27 @@ public final class CollectionByIdQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(collection: Collection? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "collection": collection.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
+    public init(collections: Collection? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "collections": collections.flatMap { (value: Collection) -> ResultMap in value.resultMap }])
     }
 
-    /// An object of the collection Type.
-    public var collection: Collection? {
+    /// Connection between the RootQuery type and the collection type
+    public var collections: Collection? {
       get {
-        return (resultMap["collection"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
+        return (resultMap["collections"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "collection")
+        resultMap.updateValue(newValue?.resultMap, forKey: "collections")
       }
     }
 
     public struct Collection: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Collection"]
+      public static let possibleTypes: [String] = ["RootQueryToCollectionConnection"]
 
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(CollectionParts.self),
+          GraphQLField("nodes", type: .list(.object(Node.selections))),
         ]
       }
 
@@ -6881,6 +6601,10 @@ public final class CollectionByIdQuery: GraphQLQuery {
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
+      }
+
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "RootQueryToCollectionConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -6892,28 +6616,64 @@ public final class CollectionByIdQuery: GraphQLQuery {
         }
       }
 
-      public var fragments: Fragments {
+      /// The nodes of the connection, without the edges
+      public var nodes: [Node?]? {
         get {
-          return Fragments(unsafeResultMap: resultMap)
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap += newValue.resultMap
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
-      public struct Fragments {
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Collection"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(CollectionParts.self),
+          ]
+        }
+
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public var collectionParts: CollectionParts {
+        public var __typename: String {
           get {
-            return CollectionParts(unsafeResultMap: resultMap)
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var collectionParts: CollectionParts {
+            get {
+              return CollectionParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }

@@ -25,9 +25,13 @@ const CollectionParts_1 = require("./CollectionParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.CollectionDocument = client_1.gql `
-    query Collection($slug: String!) {
-  collectionBy(slug: $slug) {
-    ...CollectionParts
+    query Collection($id: Int!, $previewTime: Int, $previewToken: String) {
+  collections(
+    where: {id: $id, preview: {time: $previewTime, token: $previewToken}}
+  ) {
+    nodes {
+      ...CollectionParts
+    }
   }
 }
     ${CollectionParts_1.CollectionPartsFragmentDoc}`;
@@ -43,7 +47,9 @@ exports.CollectionDocument = client_1.gql `
  * @example
  * const { data, loading, error } = useCollectionQuery({
  *   variables: {
- *      slug: // value for 'slug'
+ *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */

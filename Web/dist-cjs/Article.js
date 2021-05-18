@@ -25,8 +25,8 @@ const ArticleParts_1 = require("./ArticleParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.ArticleDocument = client_1.gql `
-    query Article($id: Int!) {
-  posts(where: {id: $id}) {
+    query Article($id: Int!, $previewTime: Int, $previewToken: String) {
+  posts(where: {id: $id, preview: {time: $previewTime, token: $previewToken}}) {
     nodes {
       ...ArticleParts
     }
@@ -46,6 +46,8 @@ exports.ArticleDocument = client_1.gql `
  * const { data, loading, error } = useArticleQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      previewTime: // value for 'previewTime'
+ *      previewToken: // value for 'previewToken'
  *   },
  * });
  */
