@@ -26,14 +26,14 @@ const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.ObsessionsDocument = client_1.gql `
-    query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
+    query Obsessions($perPage: Int!, $postsPerPage: Int = 1, $location: MenuLocationEnum!) {
   menuItems(first: $perPage, where: {location: $location}) {
     nodes {
       id
       connectedObject {
         ... on Obsession {
           ...ObsessionParts
-          posts(first: 1) {
+          posts(first: $postsPerPage) {
             nodes {
               ...ArticleTeaserParts
             }
@@ -58,6 +58,7 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  * const { data, loading, error } = useObsessionsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
+ *      postsPerPage: // value for 'postsPerPage'
  *      location: // value for 'location'
  *   },
  * });
