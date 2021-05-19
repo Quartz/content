@@ -1,6 +1,7 @@
 query Obsessions(
-	$perPage: Int!
-	$location: MenuLocationEnum!
+	$perPage: Int!,
+	$postsPerPage: Int = 1,
+	$location: MenuLocationEnum!,
 ){
 	menuItems(
 		first: $perPage
@@ -14,7 +15,7 @@ query Obsessions(
 				... on Obsession {
 					...ObsessionParts
 					posts(
-						first: 1
+						first: $postsPerPage
 					) {
 						nodes {
 							...ArticleTeaserParts
