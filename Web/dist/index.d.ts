@@ -20,6 +20,7 @@ export * from './CollectionParts';
 export * from './Collections';
 export * from './ContentByAuthor';
 export * from './ContentBySearchTerm';
+export * from './ContentByTag';
 export * from './Contributors';
 export * from './Discover';
 export * from './EmailById';

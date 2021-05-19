@@ -26,7 +26,6 @@ export declare type ContentByAuthorQuery = {
             __typename?: 'MediaItem';
         } | ({
             __typename?: 'Email';
-            link?: Types.Maybe<string>;
             emailLists?: Types.Maybe<{
                 __typename?: 'EmailToEmailListConnection';
                 nodes?: Types.Maybe<Array<Types.Maybe<{

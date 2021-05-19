@@ -33,6 +33,7 @@ __exportStar(require("./CollectionParts"), exports);
 __exportStar(require("./Collections"), exports);
 __exportStar(require("./ContentByAuthor"), exports);
 __exportStar(require("./ContentBySearchTerm"), exports);
+__exportStar(require("./ContentByTag"), exports);
 __exportStar(require("./Contributors"), exports);
 __exportStar(require("./Discover"), exports);
 __exportStar(require("./EmailById"), exports);

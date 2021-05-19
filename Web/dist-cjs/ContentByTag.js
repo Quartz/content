@@ -19,21 +19,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useContentByAuthorLazyQuery = exports.useContentByAuthorQuery = exports.ContentByAuthorDocument = void 0;
+exports.useContentByTagLazyQuery = exports.useContentByTagQuery = exports.ContentByTagDocument = void 0;
 const client_1 = require("@apollo/client");
-const AuthorParts_1 = require("./AuthorParts");
+const TagParts_1 = require("./TagParts");
 const EmailParts_1 = require("./EmailParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
-exports.ContentByAuthorDocument = client_1.gql `
-    query ContentByAuthor($slug: String!, $perPage: Int! = 10, $after: String = "") {
-  authors: coAuthors(where: {name: [$slug]}) {
+exports.ContentByTagDocument = client_1.gql `
+    query ContentByTag($slug: String!, $perPage: Int = 10, $after: String) {
+  tags(where: {slug: [$slug]}) {
     nodes {
-      ...AuthorParts
+      ...TagParts
     }
   }
-  authorContent(after: $after, first: $perPage, where: {slug: $slug}) {
+  tagContent(after: $after, first: $perPage, where: {slug: $slug}) {
     nodes {
       ... on Email {
         ...EmailParts
@@ -53,20 +53,20 @@ exports.ContentByAuthorDocument = client_1.gql `
     }
   }
 }
-    ${AuthorParts_1.AuthorPartsFragmentDoc}
+    ${TagParts_1.TagPartsFragmentDoc}
 ${EmailParts_1.EmailPartsFragmentDoc}
 ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
 /**
- * __useContentByAuthorQuery__
+ * __useContentByTagQuery__
  *
- * To run a query within a React component, call `useContentByAuthorQuery` and pass it any options that fit your needs.
- * When your component renders, `useContentByAuthorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useContentByTagQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContentByTagQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useContentByAuthorQuery({
+ * const { data, loading, error } = useContentByTagQuery({
  *   variables: {
  *      slug: // value for 'slug'
  *      perPage: // value for 'perPage'
@@ -74,14 +74,14 @@ ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
  *   },
  * });
  */
-function useContentByAuthorQuery(baseOptions) {
+function useContentByTagQuery(baseOptions) {
     const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
-    return Apollo.useQuery(exports.ContentByAuthorDocument, options);
+    return Apollo.useQuery(exports.ContentByTagDocument, options);
 }
-exports.useContentByAuthorQuery = useContentByAuthorQuery;
-function useContentByAuthorLazyQuery(baseOptions) {
+exports.useContentByTagQuery = useContentByTagQuery;
+function useContentByTagLazyQuery(baseOptions) {
     const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
-    return Apollo.useLazyQuery(exports.ContentByAuthorDocument, options);
+    return Apollo.useLazyQuery(exports.ContentByTagDocument, options);
 }
-exports.useContentByAuthorLazyQuery = useContentByAuthorLazyQuery;
-//# sourceMappingURL=ContentByAuthor.js.map
+exports.useContentByTagLazyQuery = useContentByTagLazyQuery;
+//# sourceMappingURL=ContentByTag.js.map
