@@ -4,6 +4,7 @@ import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type ObsessionsQueryVariables = Types.Exact<{
     perPage: Types.Scalars['Int'];
+    postsPerPage?: Types.Maybe<Types.Scalars['Int']>;
     location: Types.MenuLocationEnum;
 }>;
 export declare type ObsessionsQuery = {
@@ -69,16 +70,19 @@ export declare const ObsessionsDocument: Apollo.DocumentNode;
  * const { data, loading, error } = useObsessionsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
+ *      postsPerPage: // value for 'postsPerPage'
  *      location: // value for 'location'
  *   },
  * });
  */
 export declare function useObsessionsQuery(baseOptions: Apollo.QueryHookOptions<ObsessionsQuery, ObsessionsQueryVariables>): Apollo.QueryResult<ObsessionsQuery, Types.Exact<{
     perPage: number;
+    postsPerPage?: Types.Maybe<number> | undefined;
     location: Types.MenuLocationEnum;
 }>>;
 export declare function useObsessionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ObsessionsQuery, ObsessionsQueryVariables>): Apollo.QueryTuple<ObsessionsQuery, Types.Exact<{
     perPage: number;
+    postsPerPage?: Types.Maybe<number> | undefined;
     location: Types.MenuLocationEnum;
 }>>;
 export declare type ObsessionsQueryHookResult = ReturnType<typeof useObsessionsQuery>;

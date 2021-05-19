@@ -4,14 +4,14 @@ import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const ObsessionsDocument = /*#__PURE__*/ gql `
-    query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
+    query Obsessions($perPage: Int!, $postsPerPage: Int = 1, $location: MenuLocationEnum!) {
   menuItems(first: $perPage, where: {location: $location}) {
     nodes {
       id
       connectedObject {
         ... on Obsession {
           ...ObsessionParts
-          posts(first: 1) {
+          posts(first: $postsPerPage) {
             nodes {
               ...ArticleTeaserParts
             }
@@ -36,6 +36,7 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * const { data, loading, error } = useObsessionsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
+ *      postsPerPage: // value for 'postsPerPage'
  *      location: // value for 'location'
  *   },
  * });

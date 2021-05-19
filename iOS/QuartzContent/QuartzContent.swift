@@ -16665,7 +16665,7 @@ public final class ObsessionsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
+    query Obsessions($perPage: Int!, $postsPerPage: Int = 1, $location: MenuLocationEnum!) {
       menuItems(first: $perPage, where: {location: $location}) {
         __typename
         nodes {
@@ -16675,7 +16675,7 @@ public final class ObsessionsQuery: GraphQLQuery {
             __typename
             ... on Obsession {
               ...ObsessionParts
-              posts(first: 1) {
+              posts(first: $postsPerPage) {
                 __typename
                 nodes {
                   __typename
@@ -16691,7 +16691,7 @@ public final class ObsessionsQuery: GraphQLQuery {
 
   public let operationName: String = "Obsessions"
 
-  public let operationIdentifier: String? = "63be24fcd14e7bcf6e98d516018b95ccfe1fdf27e9a87408b4ddc0508cd7e9de"
+  public let operationIdentifier: String? = "73d707f845ef76052bd7cbe55a6bc5c8f87b4d1b3f74dc8255faba08f116639b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -16703,15 +16703,17 @@ public final class ObsessionsQuery: GraphQLQuery {
   }
 
   public var perPage: Int
+  public var postsPerPage: Int?
   public var location: MenuLocationEnum
 
-  public init(perPage: Int, location: MenuLocationEnum) {
+  public init(perPage: Int, postsPerPage: Int? = nil, location: MenuLocationEnum) {
     self.perPage = perPage
+    self.postsPerPage = postsPerPage
     self.location = location
   }
 
   public var variables: GraphQLMap? {
-    return ["perPage": perPage, "location": location]
+    return ["perPage": perPage, "postsPerPage": postsPerPage, "location": location]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -16940,7 +16942,7 @@ public final class ObsessionsQuery: GraphQLQuery {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLFragmentSpread(ObsessionParts.self),
-                GraphQLField("posts", arguments: ["first": 1], type: .object(Post.selections)),
+                GraphQLField("posts", arguments: ["first": GraphQLVariable("postsPerPage")], type: .object(Post.selections)),
               ]
             }
 

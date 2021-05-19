@@ -9,6 +9,7 @@ import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type ObsessionsQueryVariables = Types.Exact<{
   perPage: Types.Scalars['Int'];
+  postsPerPage?: Types.Maybe<Types.Scalars['Int']>;
   location: Types.MenuLocationEnum;
 }>;
 
@@ -23,14 +24,14 @@ export type ObsessionsQuery = { __typename?: 'RootQuery', menuItems?: Types.Mayb
 
 
 export const ObsessionsDocument = /*#__PURE__*/ gql`
-    query Obsessions($perPage: Int!, $location: MenuLocationEnum!) {
+    query Obsessions($perPage: Int!, $postsPerPage: Int = 1, $location: MenuLocationEnum!) {
   menuItems(first: $perPage, where: {location: $location}) {
     nodes {
       id
       connectedObject {
         ... on Obsession {
           ...ObsessionParts
-          posts(first: 1) {
+          posts(first: $postsPerPage) {
             nodes {
               ...ArticleTeaserParts
             }
@@ -56,6 +57,7 @@ ${ArticleTeaserPartsFragmentDoc}`;
  * const { data, loading, error } = useObsessionsQuery({
  *   variables: {
  *      perPage: // value for 'perPage'
+ *      postsPerPage: // value for 'postsPerPage'
  *      location: // value for 'location'
  *   },
  * });
