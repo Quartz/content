@@ -1,23 +1,23 @@
 import type * as Types from './types';
-import type { AuthorPartsFragment } from './AuthorParts';
+import type { TagPartsFragment } from './TagParts';
 import type { EmailPartsFragment } from './EmailParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
-export declare type ContentByAuthorQueryVariables = Types.Exact<{
+export declare type ContentByTagQueryVariables = Types.Exact<{
     slug: Types.Scalars['String'];
-    perPage?: Types.Scalars['Int'];
+    perPage?: Types.Maybe<Types.Scalars['Int']>;
     after?: Types.Maybe<Types.Scalars['String']>;
 }>;
-export declare type ContentByAuthorQuery = {
+export declare type ContentByTagQuery = {
     __typename?: 'RootQuery';
-    authors?: Types.Maybe<{
-        __typename?: 'RootQueryToCoAuthorConnection';
+    tags?: Types.Maybe<{
+        __typename?: 'RootQueryToTagConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
-            __typename?: 'CoAuthor';
-        } & AuthorPartsFragment)>>>;
+            __typename?: 'Tag';
+        } & TagPartsFragment)>>>;
     }>;
-    authorContent?: Types.Maybe<{
-        __typename?: 'RootQueryToContentUnionConnection';
+    tagContent?: Types.Maybe<{
+        __typename?: 'RootQueryToTagContentConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
         } & ArticleTeaserPartsFragment) | {
@@ -49,18 +49,18 @@ export declare type ContentByAuthorQuery = {
         }>;
     }>;
 };
-export declare const ContentByAuthorDocument: Apollo.DocumentNode;
+export declare const ContentByTagDocument: Apollo.DocumentNode;
 /**
- * __useContentByAuthorQuery__
+ * __useContentByTagQuery__
  *
- * To run a query within a React component, call `useContentByAuthorQuery` and pass it any options that fit your needs.
- * When your component renders, `useContentByAuthorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useContentByTagQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContentByTagQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useContentByAuthorQuery({
+ * const { data, loading, error } = useContentByTagQuery({
  *   variables: {
  *      slug: // value for 'slug'
  *      perPage: // value for 'perPage'
@@ -68,17 +68,17 @@ export declare const ContentByAuthorDocument: Apollo.DocumentNode;
  *   },
  * });
  */
-export declare function useContentByAuthorQuery(baseOptions: Apollo.QueryHookOptions<ContentByAuthorQuery, ContentByAuthorQueryVariables>): Apollo.QueryResult<ContentByAuthorQuery, Types.Exact<{
+export declare function useContentByTagQuery(baseOptions: Apollo.QueryHookOptions<ContentByTagQuery, ContentByTagQueryVariables>): Apollo.QueryResult<ContentByTagQuery, Types.Exact<{
     slug: string;
-    perPage?: number | undefined;
+    perPage?: Types.Maybe<number> | undefined;
     after?: Types.Maybe<string> | undefined;
 }>>;
-export declare function useContentByAuthorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContentByAuthorQuery, ContentByAuthorQueryVariables>): Apollo.QueryTuple<ContentByAuthorQuery, Types.Exact<{
+export declare function useContentByTagLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContentByTagQuery, ContentByTagQueryVariables>): Apollo.QueryTuple<ContentByTagQuery, Types.Exact<{
     slug: string;
-    perPage?: number | undefined;
+    perPage?: Types.Maybe<number> | undefined;
     after?: Types.Maybe<string> | undefined;
 }>>;
-export declare type ContentByAuthorQueryHookResult = ReturnType<typeof useContentByAuthorQuery>;
-export declare type ContentByAuthorLazyQueryHookResult = ReturnType<typeof useContentByAuthorLazyQuery>;
-export declare type ContentByAuthorQueryResult = Apollo.QueryResult<ContentByAuthorQuery, ContentByAuthorQueryVariables>;
-//# sourceMappingURL=ContentByAuthor.d.ts.map
+export declare type ContentByTagQueryHookResult = ReturnType<typeof useContentByTagQuery>;
+export declare type ContentByTagLazyQueryHookResult = ReturnType<typeof useContentByTagLazyQuery>;
+export declare type ContentByTagQueryResult = Apollo.QueryResult<ContentByTagQuery, ContentByTagQueryVariables>;
+//# sourceMappingURL=ContentByTag.d.ts.map

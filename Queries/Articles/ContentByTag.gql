@@ -1,18 +1,18 @@
-query ContentByAuthor(
+query ContentByTag(
 	$slug: String!
-	$perPage: Int! = 10
-	$after: String = ""
+	$perPage: Int = 10
+	$after: String
 ) {
-	authors:coAuthors(
+	tags(
 		where: {
-			name: [$slug]
+			slug: [$slug]
 		}
 	) {
-		 nodes {
-			...AuthorParts
+		nodes {
+			...TagParts
 		}
 	}
-	authorContent(
+	tagContent(
 		after: $after
 		first: $perPage
 		where: {

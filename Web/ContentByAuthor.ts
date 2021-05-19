@@ -23,7 +23,7 @@ export type ContentByAuthorQuery = { __typename?: 'RootQuery', authors?: Types.M
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | (
-      { __typename?: 'Email', link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', slug?: Types.Maybe<string> }>>> }> }
+      { __typename?: 'Email', emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', slug?: Types.Maybe<string> }>>> }> }
       & EmailPartsFragment
     ) | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Bulletin' }>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> };
 
@@ -39,7 +39,6 @@ export const ContentByAuthorDocument = /*#__PURE__*/ gql`
     nodes {
       ... on Email {
         ...EmailParts
-        link
         emailLists {
           nodes {
             slug
