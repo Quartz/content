@@ -7,6 +7,7 @@ export const EmailByIdDocument = /*#__PURE__*/ gql `
     query EmailById($id: ID!) {
   email(id: $id) {
     ...EmailParts
+    disablePaywall
     html
     emailLists {
       nodes {

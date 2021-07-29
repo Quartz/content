@@ -9,6 +9,7 @@ export declare type EmailByIdQuery = {
     __typename?: 'RootQuery';
     email?: Types.Maybe<({
         __typename?: 'Email';
+        disablePaywall?: Types.Maybe<boolean>;
         html?: Types.Maybe<string>;
         emailLists?: Types.Maybe<{
             __typename?: 'EmailToEmailListConnection';
