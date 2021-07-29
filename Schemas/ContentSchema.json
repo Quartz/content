@@ -20565,6 +20565,18 @@
             "deprecationReason": null
           },
           {
+            "name": "linked",
+            "description": "The linked_account of the author",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "linkedin",
             "description": "LinkedIn URL",
             "args": [],
@@ -31753,6 +31765,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "disablePaywall",
+            "description": "Whether the paywall for this email should be disabled",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "isDeprecated": false,

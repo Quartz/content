@@ -29,6 +29,7 @@ exports.EmailByIdDocument = client_1.gql `
     query EmailById($id: ID!) {
   email(id: $id) {
     ...EmailParts
+    disablePaywall
     html
     emailLists {
       nodes {
