@@ -10607,6 +10607,7 @@ public final class EmailByIdQuery: GraphQLQuery {
       email(id: $id) {
         __typename
         ...EmailParts
+        disablePaywall
         html
         emailLists {
           __typename
@@ -10621,7 +10622,7 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "980cfc28f5696e57ffb5d6762718de4665e90e702bc0b7938cf13f4005b910fc"
+  public let operationIdentifier: String? = "d18f49f4ab20265b007eec3716f9edfde94f28df481db244b3d385957cbb0738"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10677,6 +10678,7 @@ public final class EmailByIdQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLFragmentSpread(EmailParts.self),
+          GraphQLField("disablePaywall", type: .scalar(Bool.self)),
           GraphQLField("html", type: .scalar(String.self)),
           GraphQLField("emailLists", type: .object(EmailList.selections)),
         ]
@@ -10694,6 +10696,16 @@ public final class EmailByIdQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// Whether the paywall for this email should be disabled
+      public var disablePaywall: Bool? {
+        get {
+          return resultMap["disablePaywall"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "disablePaywall")
         }
       }
 
