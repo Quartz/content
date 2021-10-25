@@ -286,7 +286,9 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case embedMedium
   case embedQzObject
   case embedOdesliCoOembed
+  case embedOembedSmartframeIo_
   case embedPinterest
+  case embedMegaphoneEpisode
   case embedPublicApiWordpressComOembed_1_0_
   case embedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom
   case embedTwitter
@@ -362,7 +364,6 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeGravatar
   case shortcodeGravatarProfile
   case shortcodeHouzz
-  case shortcodeHulu
   case shortcodeInstagram
   case shortcodeKickstarter
   case shortcodeLatex
@@ -378,6 +379,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeQuartzyPs
   case shortcodeQuestion
   case shortcodeQuiz
+  case shortcodeQuizWrapper
   case shortcodeQzAtlas
   case shortcodeQzDailyBrief
   case shortcodeQzDatawrapper
@@ -405,6 +407,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeSlide
   case shortcodeSlideshare
   case shortcodeSlideshow
+  case shortcodeSmartframe
   case shortcodeSoundcloud
   case shortcodeSpotify
   case shortcodeStorify
@@ -531,7 +534,9 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "EMBED_MEDIUM": self = .embedMedium
       case "EMBED_QZ_OBJECT": self = .embedQzObject
       case "EMBED_ODESLI_CO_OEMBED": self = .embedOdesliCoOembed
+      case "EMBED_OEMBED_SMARTFRAME_IO_": self = .embedOembedSmartframeIo_
       case "EMBED_PINTEREST": self = .embedPinterest
+      case "EMBED_MEGAPHONE_EPISODE": self = .embedMegaphoneEpisode
       case "EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_": self = .embedPublicApiWordpressComOembed_1_0_
       case "EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM": self = .embedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom
       case "EMBED_TWITTER": self = .embedTwitter
@@ -607,7 +612,6 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_GRAVATAR": self = .shortcodeGravatar
       case "SHORTCODE_GRAVATAR_PROFILE": self = .shortcodeGravatarProfile
       case "SHORTCODE_HOUZZ": self = .shortcodeHouzz
-      case "SHORTCODE_HULU": self = .shortcodeHulu
       case "SHORTCODE_INSTAGRAM": self = .shortcodeInstagram
       case "SHORTCODE_KICKSTARTER": self = .shortcodeKickstarter
       case "SHORTCODE_LATEX": self = .shortcodeLatex
@@ -623,6 +627,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_QUARTZY_PS": self = .shortcodeQuartzyPs
       case "SHORTCODE_QUESTION": self = .shortcodeQuestion
       case "SHORTCODE_QUIZ": self = .shortcodeQuiz
+      case "SHORTCODE_QUIZ_WRAPPER": self = .shortcodeQuizWrapper
       case "SHORTCODE_QZ_ATLAS": self = .shortcodeQzAtlas
       case "SHORTCODE_QZ_DAILY_BRIEF": self = .shortcodeQzDailyBrief
       case "SHORTCODE_QZ_DATAWRAPPER": self = .shortcodeQzDatawrapper
@@ -650,6 +655,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_SLIDE": self = .shortcodeSlide
       case "SHORTCODE_SLIDESHARE": self = .shortcodeSlideshare
       case "SHORTCODE_SLIDESHOW": self = .shortcodeSlideshow
+      case "SHORTCODE_SMARTFRAME": self = .shortcodeSmartframe
       case "SHORTCODE_SOUNDCLOUD": self = .shortcodeSoundcloud
       case "SHORTCODE_SPOTIFY": self = .shortcodeSpotify
       case "SHORTCODE_STORIFY": self = .shortcodeStorify
@@ -777,7 +783,9 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .embedMedium: return "EMBED_MEDIUM"
       case .embedQzObject: return "EMBED_QZ_OBJECT"
       case .embedOdesliCoOembed: return "EMBED_ODESLI_CO_OEMBED"
+      case .embedOembedSmartframeIo_: return "EMBED_OEMBED_SMARTFRAME_IO_"
       case .embedPinterest: return "EMBED_PINTEREST"
+      case .embedMegaphoneEpisode: return "EMBED_MEGAPHONE_EPISODE"
       case .embedPublicApiWordpressComOembed_1_0_: return "EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_"
       case .embedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom: return "EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM"
       case .embedTwitter: return "EMBED_TWITTER"
@@ -853,7 +861,6 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeGravatar: return "SHORTCODE_GRAVATAR"
       case .shortcodeGravatarProfile: return "SHORTCODE_GRAVATAR_PROFILE"
       case .shortcodeHouzz: return "SHORTCODE_HOUZZ"
-      case .shortcodeHulu: return "SHORTCODE_HULU"
       case .shortcodeInstagram: return "SHORTCODE_INSTAGRAM"
       case .shortcodeKickstarter: return "SHORTCODE_KICKSTARTER"
       case .shortcodeLatex: return "SHORTCODE_LATEX"
@@ -869,6 +876,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeQuartzyPs: return "SHORTCODE_QUARTZY_PS"
       case .shortcodeQuestion: return "SHORTCODE_QUESTION"
       case .shortcodeQuiz: return "SHORTCODE_QUIZ"
+      case .shortcodeQuizWrapper: return "SHORTCODE_QUIZ_WRAPPER"
       case .shortcodeQzAtlas: return "SHORTCODE_QZ_ATLAS"
       case .shortcodeQzDailyBrief: return "SHORTCODE_QZ_DAILY_BRIEF"
       case .shortcodeQzDatawrapper: return "SHORTCODE_QZ_DATAWRAPPER"
@@ -896,6 +904,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeSlide: return "SHORTCODE_SLIDE"
       case .shortcodeSlideshare: return "SHORTCODE_SLIDESHARE"
       case .shortcodeSlideshow: return "SHORTCODE_SLIDESHOW"
+      case .shortcodeSmartframe: return "SHORTCODE_SMARTFRAME"
       case .shortcodeSoundcloud: return "SHORTCODE_SOUNDCLOUD"
       case .shortcodeSpotify: return "SHORTCODE_SPOTIFY"
       case .shortcodeStorify: return "SHORTCODE_STORIFY"
@@ -1023,7 +1032,9 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.embedMedium, .embedMedium): return true
       case (.embedQzObject, .embedQzObject): return true
       case (.embedOdesliCoOembed, .embedOdesliCoOembed): return true
+      case (.embedOembedSmartframeIo_, .embedOembedSmartframeIo_): return true
       case (.embedPinterest, .embedPinterest): return true
+      case (.embedMegaphoneEpisode, .embedMegaphoneEpisode): return true
       case (.embedPublicApiWordpressComOembed_1_0_, .embedPublicApiWordpressComOembed_1_0_): return true
       case (.embedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom, .embedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom): return true
       case (.embedTwitter, .embedTwitter): return true
@@ -1099,7 +1110,6 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeGravatar, .shortcodeGravatar): return true
       case (.shortcodeGravatarProfile, .shortcodeGravatarProfile): return true
       case (.shortcodeHouzz, .shortcodeHouzz): return true
-      case (.shortcodeHulu, .shortcodeHulu): return true
       case (.shortcodeInstagram, .shortcodeInstagram): return true
       case (.shortcodeKickstarter, .shortcodeKickstarter): return true
       case (.shortcodeLatex, .shortcodeLatex): return true
@@ -1115,6 +1125,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeQuartzyPs, .shortcodeQuartzyPs): return true
       case (.shortcodeQuestion, .shortcodeQuestion): return true
       case (.shortcodeQuiz, .shortcodeQuiz): return true
+      case (.shortcodeQuizWrapper, .shortcodeQuizWrapper): return true
       case (.shortcodeQzAtlas, .shortcodeQzAtlas): return true
       case (.shortcodeQzDailyBrief, .shortcodeQzDailyBrief): return true
       case (.shortcodeQzDatawrapper, .shortcodeQzDatawrapper): return true
@@ -1142,6 +1153,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeSlide, .shortcodeSlide): return true
       case (.shortcodeSlideshare, .shortcodeSlideshare): return true
       case (.shortcodeSlideshow, .shortcodeSlideshow): return true
+      case (.shortcodeSmartframe, .shortcodeSmartframe): return true
       case (.shortcodeSoundcloud, .shortcodeSoundcloud): return true
       case (.shortcodeSpotify, .shortcodeSpotify): return true
       case (.shortcodeStorify, .shortcodeStorify): return true
@@ -1270,7 +1282,9 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .embedMedium,
       .embedQzObject,
       .embedOdesliCoOembed,
+      .embedOembedSmartframeIo_,
       .embedPinterest,
+      .embedMegaphoneEpisode,
       .embedPublicApiWordpressComOembed_1_0_,
       .embedPublicApiWordpressComOembedForHttps_3A_2F_2FqzCom,
       .embedTwitter,
@@ -1346,7 +1360,6 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeGravatar,
       .shortcodeGravatarProfile,
       .shortcodeHouzz,
-      .shortcodeHulu,
       .shortcodeInstagram,
       .shortcodeKickstarter,
       .shortcodeLatex,
@@ -1362,6 +1375,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeQuartzyPs,
       .shortcodeQuestion,
       .shortcodeQuiz,
+      .shortcodeQuizWrapper,
       .shortcodeQzAtlas,
       .shortcodeQzDailyBrief,
       .shortcodeQzDatawrapper,
@@ -1389,6 +1403,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeSlide,
       .shortcodeSlideshare,
       .shortcodeSlideshow,
+      .shortcodeSmartframe,
       .shortcodeSoundcloud,
       .shortcodeSpotify,
       .shortcodeStorify,
@@ -1434,7 +1449,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "a85f4f7c82c8ab548329cf75f9498824b66efc95e80bff989b1018855df64200"
+  public let operationIdentifier: String? = "5a4ec5b812aa17556611458bbc51daedbea4b1684e2a20add96fc30ebdf22745"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -17630,6 +17645,7 @@ public struct ArticleParts: GraphQLFragment {
       }
       brandSafety
       canonicalUrl
+      colorScheme
       excerpt
       featuredImageSize
       flags {
@@ -17728,6 +17744,7 @@ public struct ArticleParts: GraphQLFragment {
       GraphQLField("blocks", type: .list(.object(Block.selections))),
       GraphQLField("brandSafety", type: .list(.scalar(Int.self))),
       GraphQLField("canonicalUrl", type: .scalar(String.self)),
+      GraphQLField("colorScheme", type: .list(.scalar(String.self))),
       GraphQLField("excerpt", type: .scalar(String.self)),
       GraphQLField("featuredImageSize", type: .scalar(String.self)),
       GraphQLField("flags", type: .object(Flag.selections)),
@@ -17809,6 +17826,16 @@ public struct ArticleParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "canonicalUrl")
+    }
+  }
+
+  /// Color Scheme per post
+  public var colorScheme: [String?]? {
+    get {
+      return resultMap["colorScheme"] as? [String?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "colorScheme")
     }
   }
 
