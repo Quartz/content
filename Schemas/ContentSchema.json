@@ -4318,6 +4318,22 @@
             "deprecationReason": null
           },
           {
+            "name": "colorScheme",
+            "description": "Color Scheme per post",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "commentCount",
             "description": "The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility.",
             "args": [],
@@ -8891,6 +8907,12 @@
             "deprecationReason": null
           },
           {
+            "name": "IMAGE_WEBP",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "IMAGE_X_ICON",
             "description": null,
             "isDeprecated": false,
@@ -11625,6 +11647,22 @@
               "kind": "OBJECT",
               "name": "BulletinToCoAuthorConnection",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "colorScheme",
+            "description": "Color Scheme per post",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -20555,18 +20593,6 @@
           {
             "name": "link",
             "description": "The link to the term",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "linked",
-            "description": "The linked_account of the author",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -52067,7 +52093,19 @@
             "deprecationReason": null
           },
           {
+            "name": "EMBED_OEMBED_SMARTFRAME_IO_",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "EMBED_PINTEREST",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "EMBED_MEGAPHONE_EPISODE",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -52523,12 +52561,6 @@
             "deprecationReason": null
           },
           {
-            "name": "SHORTCODE_HULU",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "SHORTCODE_INSTAGRAM",
             "description": null,
             "isDeprecated": false,
@@ -52614,6 +52646,12 @@
           },
           {
             "name": "SHORTCODE_QUIZ",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SHORTCODE_QUIZ_WRAPPER",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -52776,6 +52814,12 @@
           },
           {
             "name": "SHORTCODE_SLIDESHOW",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SHORTCODE_SMARTFRAME",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
