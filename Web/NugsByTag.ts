@@ -1,8 +1,10 @@
 import type * as Types from './types';
 
 import type { NugPartsFragment } from './NugParts';
+import type { BulletinDataPartsFragment } from './BulletinDataParts';
 import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
+import { BulletinDataPartsFragmentDoc } from './BulletinDataParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type NugsByTagQueryVariables = Types.Exact<{
@@ -12,7 +14,10 @@ export type NugsByTagQueryVariables = Types.Exact<{
 
 
 export type NugsByTagQuery = { __typename?: 'RootQuery', nugs?: Types.Maybe<{ __typename?: 'RootQueryToNugConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Nug' }
+      { __typename?: 'Nug', bulletin?: Types.Maybe<(
+        { __typename?: 'BulletinData' }
+        & BulletinDataPartsFragment
+      )> }
       & NugPartsFragment
     )>>> }> };
 
@@ -22,10 +27,14 @@ export const NugsByTagDocument = /*#__PURE__*/ gql`
   nugs(first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...NugParts
+      bulletin {
+        ...BulletinDataParts
+      }
     }
   }
 }
-    ${NugPartsFragmentDoc}`;
+    ${NugPartsFragmentDoc}
+${BulletinDataPartsFragmentDoc}`;
 
 /**
  * __useNugsByTagQuery__

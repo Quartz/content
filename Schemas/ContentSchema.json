@@ -34923,6 +34923,18 @@
             "deprecationReason": null
           },
           {
+            "name": "bulletin",
+            "description": "Bulletin data",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BulletinData",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "content",
             "description": "The content of the post.",
             "args": [
