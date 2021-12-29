@@ -9903,8 +9903,6 @@ export declare type TimezoneEnum =
  | 'PACIFIC_EASTER'
 /** Efate */
  | 'PACIFIC_EFATE'
-/** Enderbury */
- | 'PACIFIC_ENDERBURY'
 /** Fakaofo */
  | 'PACIFIC_FAKAOFO'
 /** Fiji */
@@ -9921,6 +9919,8 @@ export declare type TimezoneEnum =
  | 'PACIFIC_GUAM'
 /** Honolulu */
  | 'PACIFIC_HONOLULU'
+/** Kanton */
+ | 'PACIFIC_KANTON'
 /** Kiritimati */
  | 'PACIFIC_KIRITIMATI'
 /** Kosrae */
