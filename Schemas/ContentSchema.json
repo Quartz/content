@@ -108961,12 +108961,6 @@
             "deprecationReason": null
           },
           {
-            "name": "PACIFIC_ENDERBURY",
-            "description": "Enderbury",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "PACIFIC_FAKAOFO",
             "description": "Fakaofo",
             "isDeprecated": false,
@@ -109011,6 +109005,12 @@
           {
             "name": "PACIFIC_HONOLULU",
             "description": "Honolulu",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PACIFIC_KANTON",
+            "description": "Kanton",
             "isDeprecated": false,
             "deprecationReason": null
           },

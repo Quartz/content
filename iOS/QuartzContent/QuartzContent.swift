@@ -16372,6 +16372,10 @@ public final class NugQuery: GraphQLQuery {
         nodes {
           __typename
           ...NugParts
+          bulletin {
+            __typename
+            ...BulletinDataParts
+          }
         }
       }
     }
@@ -16379,7 +16383,7 @@ public final class NugQuery: GraphQLQuery {
 
   public let operationName: String = "Nug"
 
-  public let operationIdentifier: String? = "5c2ea1fab08108960b90961230ffb2d31dd2b4ad281b8220e0179556dff3aa7a"
+  public let operationIdentifier: String? = "3b10be4e83d90d29641890d49b219a51340dd2dd729e27209cef6453635b28d5"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -16388,6 +16392,7 @@ public final class NugQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + BulletinDataParts.fragmentDefinition)
     return document
   }
 
@@ -16476,6 +16481,7 @@ public final class NugQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLFragmentSpread(NugParts.self),
+            GraphQLField("bulletin", type: .object(Bulletin.selections)),
           ]
         }
 
@@ -16491,6 +16497,16 @@ public final class NugQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// Bulletin data
+        public var bulletin: Bulletin? {
+          get {
+            return (resultMap["bulletin"] as? ResultMap).flatMap { Bulletin(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "bulletin")
           }
         }
 
@@ -16519,6 +16535,58 @@ public final class NugQuery: GraphQLQuery {
             }
           }
         }
+
+        public struct Bulletin: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["BulletinData"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLFragmentSpread(BulletinDataParts.self),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+
+          public struct Fragments {
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var bulletinDataParts: BulletinDataParts {
+              get {
+                return BulletinDataParts(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -16534,6 +16602,10 @@ public final class NugsByTagQuery: GraphQLQuery {
         nodes {
           __typename
           ...NugParts
+          bulletin {
+            __typename
+            ...BulletinDataParts
+          }
         }
       }
     }
@@ -16541,7 +16613,7 @@ public final class NugsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "NugsByTag"
 
-  public let operationIdentifier: String? = "9e8fd877386f92e55499a317fdd4ea0b4fdf915f71df1038ac74e26545e155f8"
+  public let operationIdentifier: String? = "ec6c3bfe9ef49daddbc6746d3050118c5a941bf27dce9dff03d35523d9d26872"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -16550,6 +16622,7 @@ public final class NugsByTagQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
+    document.append("\n" + BulletinDataParts.fragmentDefinition)
     return document
   }
 
@@ -16640,6 +16713,7 @@ public final class NugsByTagQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLFragmentSpread(NugParts.self),
+            GraphQLField("bulletin", type: .object(Bulletin.selections)),
           ]
         }
 
@@ -16655,6 +16729,16 @@ public final class NugsByTagQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// Bulletin data
+        public var bulletin: Bulletin? {
+          get {
+            return (resultMap["bulletin"] as? ResultMap).flatMap { Bulletin(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "bulletin")
           }
         }
 
@@ -16680,6 +16764,58 @@ public final class NugsByTagQuery: GraphQLQuery {
             }
             set {
               resultMap += newValue.resultMap
+            }
+          }
+        }
+
+        public struct Bulletin: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["BulletinData"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLFragmentSpread(BulletinDataParts.self),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+
+          public struct Fragments {
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var bulletinDataParts: BulletinDataParts {
+              get {
+                return BulletinDataParts(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
             }
           }
         }
