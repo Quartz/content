@@ -22,6 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useNugLazyQuery = exports.useNugQuery = exports.NugDocument = void 0;
 const client_1 = require("@apollo/client");
 const NugParts_1 = require("./NugParts");
+const BulletinDataParts_1 = require("./BulletinDataParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.NugDocument = client_1.gql `
@@ -29,10 +30,14 @@ exports.NugDocument = client_1.gql `
   nugs(where: {id: $id}) {
     nodes {
       ...NugParts
+      bulletin {
+        ...BulletinDataParts
+      }
     }
   }
 }
-    ${NugParts_1.NugPartsFragmentDoc}`;
+    ${NugParts_1.NugPartsFragmentDoc}
+${BulletinDataParts_1.BulletinDataPartsFragmentDoc}`;
 /**
  * __useNugQuery__
  *

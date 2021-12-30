@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import { NugPartsFragmentDoc } from './NugParts';
+import { BulletinDataPartsFragmentDoc } from './BulletinDataParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const NugsByTagDocument = /*#__PURE__*/ gql `
@@ -7,10 +8,14 @@ export const NugsByTagDocument = /*#__PURE__*/ gql `
   nugs(first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...NugParts
+      bulletin {
+        ...BulletinDataParts
+      }
     }
   }
 }
-    ${NugPartsFragmentDoc}`;
+    ${NugPartsFragmentDoc}
+${BulletinDataPartsFragmentDoc}`;
 /**
  * __useNugsByTagQuery__
  *

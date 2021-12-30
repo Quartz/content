@@ -1,5 +1,6 @@
 import type * as Types from './types';
 import type { NugPartsFragment } from './NugParts';
+import type { BulletinDataPartsFragment } from './BulletinDataParts';
 import * as Apollo from '@apollo/client';
 export declare type NugQueryVariables = Types.Exact<{
     id: Types.Scalars['Int'];
@@ -10,6 +11,9 @@ export declare type NugQuery = {
         __typename?: 'RootQueryToNugConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Nug';
+            bulletin?: Types.Maybe<({
+                __typename?: 'BulletinData';
+            } & BulletinDataPartsFragment)>;
         } & NugPartsFragment)>>>;
     }>;
 };

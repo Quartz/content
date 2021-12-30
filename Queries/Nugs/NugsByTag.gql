@@ -10,6 +10,9 @@ query NugsByTag(
 	) {
 		nodes {
 			...NugParts
+			bulletin {
+				...BulletinDataParts
+			}
 		}
 	}
 }
