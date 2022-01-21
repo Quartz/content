@@ -6061,7 +6061,7 @@ public final class FirstPopularArticlesQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query FirstPopularArticles($edition: EditionName, $first: Int) {
-      posts(first: $first, where: {popular: {edition: $edition}}) {
+      posts(first: $first, where: {popular: {edition: $edition}}) @connection(key: "FirstPopularArticles") {
         __typename
         nodes {
           __typename
@@ -6078,7 +6078,7 @@ public final class FirstPopularArticlesQuery: GraphQLQuery {
 
   public let operationName: String = "FirstPopularArticles"
 
-  public let operationIdentifier: String? = "083222693de9665d6a6563f066e4b98fa05e063b8e287e2e8b4f4d7ab6c1adaf"
+  public let operationIdentifier: String? = "01e39d649fe1225929745bd85e3f48e62d86ab3bab484741c757bd25ef3d48fb"
 
   public var queryDocument: String {
     var document: String = operationDefinition
