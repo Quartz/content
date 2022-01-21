@@ -1,0 +1,23 @@
+query FirstFeedConcentByRecency(
+	$first: Int
+) {
+	feedContent( first: $first ) @connection(key: "FirstFeedConcentByRecency") {
+		nodes {
+			...on Post {
+				...ArticleTeaserParts
+			}
+			...on Email {
+				...EmailParts
+				link
+				emailLists {
+					nodes {
+						slug
+					}
+				}
+			}
+		}
+		pageInfo {
+			endCursor
+		}
+	}
+}
