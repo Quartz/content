@@ -6061,10 +6061,7 @@ public final class FirstPopularArticlesQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query FirstPopularArticles($edition: EditionName, $first: Int) {
-      firstPopularArticles: posts(
-        first: $first
-        where: {popular: {edition: $edition}}
-      ) {
+      posts(first: $first, where: {popular: {edition: $edition}}) @connection(key: "FirstPopularArticles") {
         __typename
         nodes {
           __typename
@@ -6081,7 +6078,7 @@ public final class FirstPopularArticlesQuery: GraphQLQuery {
 
   public let operationName: String = "FirstPopularArticles"
 
-  public let operationIdentifier: String? = "a04fc2e72272793d1e202545d625fa71eb090f6f1e6193eaafbae80bcaff4fec"
+  public let operationIdentifier: String? = "01e39d649fe1225929745bd85e3f48e62d86ab3bab484741c757bd25ef3d48fb"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -6108,7 +6105,7 @@ public final class FirstPopularArticlesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("posts", alias: "firstPopularArticles", arguments: ["first": GraphQLVariable("first"), "where": ["popular": ["edition": GraphQLVariable("edition")]]], type: .object(FirstPopularArticle.selections)),
+        GraphQLField("posts", arguments: ["first": GraphQLVariable("first"), "where": ["popular": ["edition": GraphQLVariable("edition")]]], type: .object(Post.selections)),
       ]
     }
 
@@ -6118,21 +6115,21 @@ public final class FirstPopularArticlesQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(firstPopularArticles: FirstPopularArticle? = nil) {
-      self.init(unsafeResultMap: ["__typename": "RootQuery", "firstPopularArticles": firstPopularArticles.flatMap { (value: FirstPopularArticle) -> ResultMap in value.resultMap }])
+    public init(posts: Post? = nil) {
+      self.init(unsafeResultMap: ["__typename": "RootQuery", "posts": posts.flatMap { (value: Post) -> ResultMap in value.resultMap }])
     }
 
     /// Connection between the RootQuery type and the post type
-    public var firstPopularArticles: FirstPopularArticle? {
+    public var posts: Post? {
       get {
-        return (resultMap["firstPopularArticles"] as? ResultMap).flatMap { FirstPopularArticle(unsafeResultMap: $0) }
+        return (resultMap["posts"] as? ResultMap).flatMap { Post(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "firstPopularArticles")
+        resultMap.updateValue(newValue?.resultMap, forKey: "posts")
       }
     }
 
-    public struct FirstPopularArticle: GraphQLSelectionSet {
+    public struct Post: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["RootQueryToPostConnection"]
 
       public static var selections: [GraphQLSelection] {
