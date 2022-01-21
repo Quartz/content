@@ -11,7 +11,7 @@ export type FirstPopularArticlesQueryVariables = Types.Exact<{
 }>;
 
 
-export type FirstPopularArticlesQuery = { __typename?: 'RootQuery', firstPopularArticles?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+export type FirstPopularArticlesQuery = { __typename?: 'RootQuery', posts?: Types.Maybe<{ __typename?: 'RootQueryToPostConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Post' }
       & ArticleTeaserPartsFragment
     )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> };
@@ -19,10 +19,7 @@ export type FirstPopularArticlesQuery = { __typename?: 'RootQuery', firstPopular
 
 export const FirstPopularArticlesDocument = /*#__PURE__*/ gql`
     query FirstPopularArticles($edition: EditionName, $first: Int) {
-  firstPopularArticles: posts(
-    first: $first
-    where: {popular: {edition: $edition}}
-  ) {
+  posts(first: $first, where: {popular: {edition: $edition}}) @connection(key: "FirstPopularArticles") {
     nodes {
       ...ArticleTeaserParts
     }

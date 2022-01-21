@@ -7,7 +7,7 @@ export declare type FirstPopularArticlesQueryVariables = Types.Exact<{
 }>;
 export declare type FirstPopularArticlesQuery = {
     __typename?: 'RootQuery';
-    firstPopularArticles?: Types.Maybe<{
+    posts?: Types.Maybe<{
         __typename?: 'RootQueryToPostConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Post';
