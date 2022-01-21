@@ -2,14 +2,14 @@ query FirstPopularArticles(
 	$edition: EditionName
 	$first: Int
 ) {
-	posts(
+	firstPopularArticles: posts(
 		first: $first
 		where: {
 			popular: {
 				edition: $edition
 			}
 		}
-	) @connection(key: "FirstPopularArticles") {
+	) {
 		nodes {
 			...ArticleTeaserParts
 		}

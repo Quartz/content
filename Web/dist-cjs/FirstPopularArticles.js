@@ -26,7 +26,7 @@ const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.FirstPopularArticlesDocument = client_1.gql `
     query FirstPopularArticles($edition: EditionName, $first: Int) {
-  posts(first: $first, where: {popular: {edition: $edition}}) {
+  posts(first: $first, where: {popular: {edition: $edition}}) @connection(key: "FirstPopularArticles") {
     nodes {
       ...ArticleTeaserParts
     }

@@ -4,7 +4,7 @@ import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const FirstPopularArticlesDocument = /*#__PURE__*/ gql `
     query FirstPopularArticles($edition: EditionName, $first: Int) {
-  posts(first: $first, where: {popular: {edition: $edition}}) {
+  posts(first: $first, where: {popular: {edition: $edition}}) @connection(key: "FirstPopularArticles") {
     nodes {
       ...ArticleTeaserParts
     }
