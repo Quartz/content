@@ -36,6 +36,7 @@ export * from './EssentialsByArticlePreview';
 export * from './EssentialsByCollection';
 export * from './EssentialsByGuide';
 export * from './EssentialsByObsession';
+export * from './FirstFeedContentByRecency';
 export * from './FirstPopularArticles';
 export * from './GuideParts';
 export * from './Guides';
