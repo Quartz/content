@@ -1,0 +1,21 @@
+query FirstPopularArticles(
+	$edition: EditionName
+	$first: Int
+) {
+	posts(
+		first: $first
+		where: {
+			popular: {
+				edition: $edition
+			}
+		}
+	) @connection(key: "FirstPopularArticles") {
+		nodes {
+			...ArticleTeaserParts
+		}
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+	}
+}

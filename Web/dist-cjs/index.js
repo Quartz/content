@@ -48,6 +48,8 @@ __exportStar(require("./EssentialsByArticlePreview"), exports);
 __exportStar(require("./EssentialsByCollection"), exports);
 __exportStar(require("./EssentialsByGuide"), exports);
 __exportStar(require("./EssentialsByObsession"), exports);
+__exportStar(require("./FirstFeedConcentByRecency"), exports);
+__exportStar(require("./FirstPopularArticles"), exports);
 __exportStar(require("./GuideParts"), exports);
 __exportStar(require("./Guides"), exports);
 __exportStar(require("./GuidesBySlug"), exports);
