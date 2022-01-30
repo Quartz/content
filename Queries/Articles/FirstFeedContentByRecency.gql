@@ -1,7 +1,7 @@
-query FirstFeedConcentByRecency(
+query FirstFeedContentByRecency(
 	$first: Int
 ) {
-	feedContent( first: $first ) @connection(key: "FirstFeedConcentByRecency") {
+	feedContent( first: $first ) @connection(key: "FirstFeedContentByRecency") {
 		nodes {
 			...on Post {
 				...ArticleTeaserParts
