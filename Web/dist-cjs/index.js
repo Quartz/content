@@ -65,6 +65,7 @@ __exportStar(require("./MemberHome"), exports);
 __exportStar(require("./MemberVideo"), exports);
 __exportStar(require("./MenuByName"), exports);
 __exportStar(require("./MenuItemParts"), exports);
+__exportStar(require("./NonHomeEssentials"), exports);
 __exportStar(require("./Nug"), exports);
 __exportStar(require("./NugParts"), exports);
 __exportStar(require("./NugsByTag"), exports);

@@ -52,6 +52,7 @@ export * from './MemberHome';
 export * from './MemberVideo';
 export * from './MenuByName';
 export * from './MenuItemParts';
+export * from './NonHomeEssentials';
 export * from './Nug';
 export * from './NugParts';
 export * from './NugsByTag';
