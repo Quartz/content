@@ -1,0 +1,23 @@
+query NonHomeEssentials(
+	$after: String = ""
+	$perPage: Int
+) {
+	collections(
+        first: $perPage
+        after: $after
+		where: {
+			tagNotIn: 400
+		}
+	) {
+		nodes {
+			...CollectionParts
+            bulletin {
+			...BulletinDataParts
+		}
+		}
+        pageInfo {
+					endCursor
+					hasNextPage
+				}
+	}
+}
