@@ -3,9 +3,9 @@ import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { EmailPartsFragmentDoc } from './EmailParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
-export const FirstFeedConcentByRecencyDocument = /*#__PURE__*/ gql `
-    query FirstFeedConcentByRecency($first: Int) {
-  feedContent(first: $first) @connection(key: "FirstFeedConcentByRecency") {
+export const FirstFeedContentByRecencyDocument = /*#__PURE__*/ gql `
+    query FirstFeedContentByRecency($first: Int) {
+  feedContent(first: $first) @connection(key: "FirstFeedContentByRecency") {
     nodes {
       ... on Post {
         ...ArticleTeaserParts
@@ -28,27 +28,27 @@ export const FirstFeedConcentByRecencyDocument = /*#__PURE__*/ gql `
     ${ArticleTeaserPartsFragmentDoc}
 ${EmailPartsFragmentDoc}`;
 /**
- * __useFirstFeedConcentByRecencyQuery__
+ * __useFirstFeedContentByRecencyQuery__
  *
- * To run a query within a React component, call `useFirstFeedConcentByRecencyQuery` and pass it any options that fit your needs.
- * When your component renders, `useFirstFeedConcentByRecencyQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useFirstFeedContentByRecencyQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFirstFeedContentByRecencyQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useFirstFeedConcentByRecencyQuery({
+ * const { data, loading, error } = useFirstFeedContentByRecencyQuery({
  *   variables: {
  *      first: // value for 'first'
  *   },
  * });
  */
-export function useFirstFeedConcentByRecencyQuery(baseOptions) {
+export function useFirstFeedContentByRecencyQuery(baseOptions) {
     const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
-    return Apollo.useQuery(FirstFeedConcentByRecencyDocument, options);
+    return Apollo.useQuery(FirstFeedContentByRecencyDocument, options);
 }
-export function useFirstFeedConcentByRecencyLazyQuery(baseOptions) {
+export function useFirstFeedContentByRecencyLazyQuery(baseOptions) {
     const options = Object.assign(Object.assign({}, defaultOptions), baseOptions);
-    return Apollo.useLazyQuery(FirstFeedConcentByRecencyDocument, options);
+    return Apollo.useLazyQuery(FirstFeedContentByRecencyDocument, options);
 }
-//# sourceMappingURL=FirstFeedConcentByRecency.js.map
+//# sourceMappingURL=FirstFeedContentByRecency.js.map

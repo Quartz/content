@@ -2,10 +2,10 @@ import type * as Types from './types';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { EmailPartsFragment } from './EmailParts';
 import * as Apollo from '@apollo/client';
-export declare type FirstFeedConcentByRecencyQueryVariables = Types.Exact<{
+export declare type FirstFeedContentByRecencyQueryVariables = Types.Exact<{
     first?: Types.Maybe<Types.Scalars['Int']>;
 }>;
-export declare type FirstFeedConcentByRecencyQuery = {
+export declare type FirstFeedContentByRecencyQuery = {
     __typename?: 'RootQuery';
     feedContent?: Types.Maybe<{
         __typename?: 'RootQueryToFeedContentConnection';
@@ -40,30 +40,30 @@ export declare type FirstFeedConcentByRecencyQuery = {
         }>;
     }>;
 };
-export declare const FirstFeedConcentByRecencyDocument: Apollo.DocumentNode;
+export declare const FirstFeedContentByRecencyDocument: Apollo.DocumentNode;
 /**
- * __useFirstFeedConcentByRecencyQuery__
+ * __useFirstFeedContentByRecencyQuery__
  *
- * To run a query within a React component, call `useFirstFeedConcentByRecencyQuery` and pass it any options that fit your needs.
- * When your component renders, `useFirstFeedConcentByRecencyQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useFirstFeedContentByRecencyQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFirstFeedContentByRecencyQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useFirstFeedConcentByRecencyQuery({
+ * const { data, loading, error } = useFirstFeedContentByRecencyQuery({
  *   variables: {
  *      first: // value for 'first'
  *   },
  * });
  */
-export declare function useFirstFeedConcentByRecencyQuery(baseOptions?: Apollo.QueryHookOptions<FirstFeedConcentByRecencyQuery, FirstFeedConcentByRecencyQueryVariables>): Apollo.QueryResult<FirstFeedConcentByRecencyQuery, Types.Exact<{
+export declare function useFirstFeedContentByRecencyQuery(baseOptions?: Apollo.QueryHookOptions<FirstFeedContentByRecencyQuery, FirstFeedContentByRecencyQueryVariables>): Apollo.QueryResult<FirstFeedContentByRecencyQuery, Types.Exact<{
     first?: Types.Maybe<number> | undefined;
 }>>;
-export declare function useFirstFeedConcentByRecencyLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FirstFeedConcentByRecencyQuery, FirstFeedConcentByRecencyQueryVariables>): Apollo.QueryTuple<FirstFeedConcentByRecencyQuery, Types.Exact<{
+export declare function useFirstFeedContentByRecencyLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FirstFeedContentByRecencyQuery, FirstFeedContentByRecencyQueryVariables>): Apollo.QueryTuple<FirstFeedContentByRecencyQuery, Types.Exact<{
     first?: Types.Maybe<number> | undefined;
 }>>;
-export declare type FirstFeedConcentByRecencyQueryHookResult = ReturnType<typeof useFirstFeedConcentByRecencyQuery>;
-export declare type FirstFeedConcentByRecencyLazyQueryHookResult = ReturnType<typeof useFirstFeedConcentByRecencyLazyQuery>;
-export declare type FirstFeedConcentByRecencyQueryResult = Apollo.QueryResult<FirstFeedConcentByRecencyQuery, FirstFeedConcentByRecencyQueryVariables>;
-//# sourceMappingURL=FirstFeedConcentByRecency.d.ts.map
+export declare type FirstFeedContentByRecencyQueryHookResult = ReturnType<typeof useFirstFeedContentByRecencyQuery>;
+export declare type FirstFeedContentByRecencyLazyQueryHookResult = ReturnType<typeof useFirstFeedContentByRecencyLazyQuery>;
+export declare type FirstFeedContentByRecencyQueryResult = Apollo.QueryResult<FirstFeedContentByRecencyQuery, FirstFeedContentByRecencyQueryVariables>;
+//# sourceMappingURL=FirstFeedContentByRecency.d.ts.map
