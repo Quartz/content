@@ -6056,12 +6056,12 @@ public final class ContentByTagQuery: GraphQLQuery {
   }
 }
 
-public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
+public final class FirstFeedContentByRecencyQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query FirstFeedConcentByRecency($first: Int) {
-      feedContent(first: $first) @connection(key: "FirstFeedConcentByRecency") {
+    query FirstFeedContentByRecency($first: Int) {
+      feedContent(first: $first) @connection(key: "FirstFeedContentByRecency") {
         __typename
         nodes {
           __typename
@@ -6088,9 +6088,9 @@ public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "FirstFeedConcentByRecency"
+  public let operationName: String = "FirstFeedContentByRecency"
 
-  public let operationIdentifier: String? = "a1b4f88b3a0fe0273e8d56c2138a80740f12fb4f7c41ca426aab8b47d4a544a7"
+  public let operationIdentifier: String? = "cf0ab37bf3a1d4987a64e0dec954607f561590260f3382ae71c3018f81f13a8a"
 
   public var queryDocument: String {
     var document: String = operationDefinition
