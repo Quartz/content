@@ -1,4 +1,5 @@
 import type * as Types from './types';
+import type { TagPartsFragment } from './TagParts';
 import type { MediaPartsFragment } from './MediaParts';
 import type { BlockPartsFragment } from './BlockParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
@@ -14,10 +15,9 @@ export declare type CollectionPartsFragment = {
     slug?: Types.Maybe<string>;
     tags?: Types.Maybe<{
         __typename?: 'CollectionToTagConnection';
-        nodes?: Types.Maybe<Array<Types.Maybe<{
+        nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Tag';
-            slug?: Types.Maybe<string>;
-        }>>>;
+        } & TagPartsFragment)>>>;
     }>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';

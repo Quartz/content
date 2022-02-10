@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollectionPartsFragmentDoc = void 0;
 const client_1 = require("@apollo/client");
+const TagParts_1 = require("./TagParts");
 const MediaParts_1 = require("./MediaParts");
 const BlockParts_1 = require("./BlockParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
@@ -17,7 +18,7 @@ exports.CollectionPartsFragmentDoc = client_1.gql `
   slug
   tags {
     nodes {
-      slug
+      ...TagParts
     }
   }
   featuredImage {
@@ -38,7 +39,8 @@ exports.CollectionPartsFragmentDoc = client_1.gql `
     }
   }
 }
-    ${MediaParts_1.MediaPartsFragmentDoc}
+    ${TagParts_1.TagPartsFragmentDoc}
+${MediaParts_1.MediaPartsFragmentDoc}
 ${BlockParts_1.BlockPartsFragmentDoc}
 ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}
 ${NugParts_1.NugPartsFragmentDoc}`;

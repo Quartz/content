@@ -8,7 +8,7 @@ fragment CollectionParts on Collection {
 	slug
 	tags {
       nodes {
-        slug
+        ...TagParts
       }
     }
 	featuredImage {

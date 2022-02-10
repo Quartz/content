@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { TagPartsFragmentDoc } from './TagParts';
 import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
@@ -14,7 +15,7 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
   slug
   tags {
     nodes {
-      slug
+      ...TagParts
     }
   }
   featuredImage {
@@ -35,7 +36,8 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
     }
   }
 }
-    ${MediaPartsFragmentDoc}
+    ${TagPartsFragmentDoc}
+${MediaPartsFragmentDoc}
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;

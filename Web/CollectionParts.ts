@@ -1,15 +1,20 @@
 import type * as Types from './types';
 
+import type { TagPartsFragment } from './TagParts';
 import type { MediaPartsFragment } from './MediaParts';
 import type { BlockPartsFragment } from './BlockParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { NugPartsFragment } from './NugParts';
 import { gql } from '@apollo/client';
+import { TagPartsFragmentDoc } from './TagParts';
 import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { NugPartsFragmentDoc } from './NugParts';
-export type CollectionPartsFragment = { __typename?: 'Collection', id: string, collectionId: number, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, excerpt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, tags?: Types.Maybe<{ __typename?: 'CollectionToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', slug?: Types.Maybe<string> }>>> }>, featuredImage?: Types.Maybe<(
+export type CollectionPartsFragment = { __typename?: 'Collection', id: string, collectionId: number, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, excerpt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, tags?: Types.Maybe<{ __typename?: 'CollectionToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Tag' }
+      & TagPartsFragment
+    )>>> }>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, blocks?: Types.Maybe<Array<Types.Maybe<(
@@ -37,7 +42,7 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
   slug
   tags {
     nodes {
-      slug
+      ...TagParts
     }
   }
   featuredImage {
@@ -58,7 +63,8 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
     }
   }
 }
-    ${MediaPartsFragmentDoc}
+    ${TagPartsFragmentDoc}
+${MediaPartsFragmentDoc}
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
 ${NugPartsFragmentDoc}`;
