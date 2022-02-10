@@ -12,6 +12,13 @@ export declare type CollectionPartsFragment = {
     excerpt?: Types.Maybe<string>;
     modifiedGmt?: Types.Maybe<string>;
     slug?: Types.Maybe<string>;
+    tags?: Types.Maybe<{
+        __typename?: 'CollectionToTagConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<{
+            __typename?: 'Tag';
+            slug?: Types.Maybe<string>;
+        }>>>;
+    }>;
     featuredImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;

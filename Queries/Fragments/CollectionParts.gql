@@ -6,6 +6,11 @@ fragment CollectionParts on Collection {
 	excerpt
 	modifiedGmt
 	slug
+	tags {
+      nodes {
+        slug
+      }
+    }
 	featuredImage {
 		...MediaParts
 	}

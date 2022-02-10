@@ -12,6 +12,11 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
   excerpt
   modifiedGmt
   slug
+  tags {
+    nodes {
+      slug
+    }
+  }
   featuredImage {
     ...MediaParts
   }
