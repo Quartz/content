@@ -6,11 +6,16 @@ fragment CollectionParts on Collection {
 	excerpt
 	modifiedGmt
 	slug
-	tags {
-      nodes {
-        ...TagParts
-      }
-    }
+	tags(
+		where: {
+			orderby: COUNT
+		},
+		last: 10
+	) {
+		nodes {
+			slug
+		}
+	}
 	featuredImage {
 		...MediaParts
 	}
