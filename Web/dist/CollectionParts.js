@@ -12,6 +12,11 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
   excerpt
   modifiedGmt
   slug
+  tags(where: {orderby: COUNT}, last: 10) {
+    nodes {
+      slug
+    }
+  }
   featuredImage {
     ...MediaParts
   }

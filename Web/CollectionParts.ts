@@ -9,7 +9,7 @@ import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { NugPartsFragmentDoc } from './NugParts';
-export type CollectionPartsFragment = { __typename?: 'Collection', id: string, collectionId: number, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, excerpt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, featuredImage?: Types.Maybe<(
+export type CollectionPartsFragment = { __typename?: 'Collection', id: string, collectionId: number, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, excerpt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, tags?: Types.Maybe<{ __typename?: 'CollectionToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', slug?: Types.Maybe<string> }>>> }>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, blocks?: Types.Maybe<Array<Types.Maybe<(
@@ -35,6 +35,11 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
   excerpt
   modifiedGmt
   slug
+  tags(where: {orderby: COUNT}, last: 10) {
+    nodes {
+      slug
+    }
+  }
   featuredImage {
     ...MediaParts
   }

@@ -15,6 +15,11 @@ exports.CollectionPartsFragmentDoc = client_1.gql `
   excerpt
   modifiedGmt
   slug
+  tags(where: {orderby: COUNT}, last: 10) {
+    nodes {
+      slug
+    }
+  }
   featuredImage {
     ...MediaParts
   }
