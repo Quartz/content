@@ -21,6 +21,11 @@ export const ArticlePartsFragmentDoc = /*#__PURE__*/ gql `
   brandSafety
   canonicalUrl
   colorScheme
+  contentType {
+    node {
+      name
+    }
+  }
   excerpt
   featuredImageSize
   flags {

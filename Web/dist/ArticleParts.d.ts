@@ -38,6 +38,13 @@ export declare type ArticlePartsFragment = ({
     blocks?: Types.Maybe<Array<Types.Maybe<({
         __typename?: 'Block';
     } & BlockPartsFragment)>>>;
+    contentType?: Types.Maybe<{
+        __typename?: 'ContentNodeToContentTypeConnectionEdge';
+        node?: Types.Maybe<{
+            __typename?: 'ContentType';
+            name?: Types.Maybe<string>;
+        }>;
+    }>;
     flags?: Types.Maybe<{
         __typename?: 'PostToFlagConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<{

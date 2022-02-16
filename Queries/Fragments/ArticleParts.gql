@@ -11,6 +11,11 @@ fragment ArticleParts on Post {
 	brandSafety
 	canonicalUrl
 	colorScheme
+	contentType {
+      node {
+        name
+	  }
+	}
 	excerpt
 	featuredImageSize
 	flags {
