@@ -24,7 +24,7 @@ export type ArticlePartsFragment = (
     )>>> }>, blocks?: Types.Maybe<Array<Types.Maybe<(
     { __typename?: 'Block' }
     & BlockPartsFragment
-  )>>>, flags?: Types.Maybe<{ __typename?: 'PostToFlagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Flag', name?: Types.Maybe<string>, slug?: Types.Maybe<string> }>>> }>, guides?: Types.Maybe<{ __typename?: 'PostToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+  )>>>, contentType?: Types.Maybe<{ __typename?: 'ContentNodeToContentTypeConnectionEdge', node?: Types.Maybe<{ __typename?: 'ContentType', name?: Types.Maybe<string> }> }>, flags?: Types.Maybe<{ __typename?: 'PostToFlagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Flag', name?: Types.Maybe<string>, slug?: Types.Maybe<string> }>>> }>, guides?: Types.Maybe<{ __typename?: 'PostToGuideConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'Guide' }
       & GuidePartsFragment
     )>>> }>, locations?: Types.Maybe<{ __typename?: 'PostToLocationConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Location', name?: Types.Maybe<string> }>>> }>, obsessions?: Types.Maybe<{ __typename?: 'PostToObsessionConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
@@ -57,6 +57,11 @@ export const ArticlePartsFragmentDoc = /*#__PURE__*/ gql`
   brandSafety
   canonicalUrl
   colorScheme
+  contentType {
+    node {
+      name
+    }
+  }
   excerpt
   featuredImageSize
   flags {

@@ -24,6 +24,11 @@ exports.ArticlePartsFragmentDoc = client_1.gql `
   brandSafety
   canonicalUrl
   colorScheme
+  contentType {
+    node {
+      name
+    }
+  }
   excerpt
   featuredImageSize
   flags {
