@@ -259,6 +259,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case el
   case embedAnimoto
   case embedApiCrowdsignalComOembed
+  case embedApiDescriptComV2Oembed
   case embedGfycat
   case embedImgur
   case embedMeetup
@@ -349,6 +350,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeCrowdsignal
   case shortcodeDailymotion
   case shortcodeDailymotionChannel
+  case shortcodeDescript
   case shortcodeEmbed
   case shortcodeEndmatter
   case shortcodeExplanation
@@ -507,6 +509,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "EL": self = .el
       case "EMBED_ANIMOTO": self = .embedAnimoto
       case "EMBED_API_CROWDSIGNAL_COM_OEMBED": self = .embedApiCrowdsignalComOembed
+      case "EMBED_API_DESCRIPT_COM_V2_OEMBED": self = .embedApiDescriptComV2Oembed
       case "EMBED_GFYCAT": self = .embedGfycat
       case "EMBED_IMGUR": self = .embedImgur
       case "EMBED_MEETUP": self = .embedMeetup
@@ -597,6 +600,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_CROWDSIGNAL": self = .shortcodeCrowdsignal
       case "SHORTCODE_DAILYMOTION": self = .shortcodeDailymotion
       case "SHORTCODE_DAILYMOTION_CHANNEL": self = .shortcodeDailymotionChannel
+      case "SHORTCODE_DESCRIPT": self = .shortcodeDescript
       case "SHORTCODE_EMBED": self = .shortcodeEmbed
       case "SHORTCODE_ENDMATTER": self = .shortcodeEndmatter
       case "SHORTCODE_EXPLANATION": self = .shortcodeExplanation
@@ -756,6 +760,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .el: return "EL"
       case .embedAnimoto: return "EMBED_ANIMOTO"
       case .embedApiCrowdsignalComOembed: return "EMBED_API_CROWDSIGNAL_COM_OEMBED"
+      case .embedApiDescriptComV2Oembed: return "EMBED_API_DESCRIPT_COM_V2_OEMBED"
       case .embedGfycat: return "EMBED_GFYCAT"
       case .embedImgur: return "EMBED_IMGUR"
       case .embedMeetup: return "EMBED_MEETUP"
@@ -846,6 +851,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeCrowdsignal: return "SHORTCODE_CROWDSIGNAL"
       case .shortcodeDailymotion: return "SHORTCODE_DAILYMOTION"
       case .shortcodeDailymotionChannel: return "SHORTCODE_DAILYMOTION_CHANNEL"
+      case .shortcodeDescript: return "SHORTCODE_DESCRIPT"
       case .shortcodeEmbed: return "SHORTCODE_EMBED"
       case .shortcodeEndmatter: return "SHORTCODE_ENDMATTER"
       case .shortcodeExplanation: return "SHORTCODE_EXPLANATION"
@@ -1005,6 +1011,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.el, .el): return true
       case (.embedAnimoto, .embedAnimoto): return true
       case (.embedApiCrowdsignalComOembed, .embedApiCrowdsignalComOembed): return true
+      case (.embedApiDescriptComV2Oembed, .embedApiDescriptComV2Oembed): return true
       case (.embedGfycat, .embedGfycat): return true
       case (.embedImgur, .embedImgur): return true
       case (.embedMeetup, .embedMeetup): return true
@@ -1095,6 +1102,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeCrowdsignal, .shortcodeCrowdsignal): return true
       case (.shortcodeDailymotion, .shortcodeDailymotion): return true
       case (.shortcodeDailymotionChannel, .shortcodeDailymotionChannel): return true
+      case (.shortcodeDescript, .shortcodeDescript): return true
       case (.shortcodeEmbed, .shortcodeEmbed): return true
       case (.shortcodeEndmatter, .shortcodeEndmatter): return true
       case (.shortcodeExplanation, .shortcodeExplanation): return true
@@ -1255,6 +1263,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .el,
       .embedAnimoto,
       .embedApiCrowdsignalComOembed,
+      .embedApiDescriptComV2Oembed,
       .embedGfycat,
       .embedImgur,
       .embedMeetup,
@@ -1345,6 +1354,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeCrowdsignal,
       .shortcodeDailymotion,
       .shortcodeDailymotionChannel,
+      .shortcodeDescript,
       .shortcodeEmbed,
       .shortcodeEndmatter,
       .shortcodeExplanation,
@@ -1449,7 +1459,7 @@ public final class ArticleQuery: GraphQLQuery {
 
   public let operationName: String = "Article"
 
-  public let operationIdentifier: String? = "5a4ec5b812aa17556611458bbc51daedbea4b1684e2a20add96fc30ebdf22745"
+  public let operationIdentifier: String? = "b948e63f10c578e778d99440869123726093c94e877dbbfd9dfea290054f486c"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -18770,6 +18780,13 @@ public struct ArticleParts: GraphQLFragment {
       brandSafety
       canonicalUrl
       colorScheme
+      contentType {
+        __typename
+        node {
+          __typename
+          name
+        }
+      }
       excerpt
       featuredImageSize
       flags {
@@ -18869,6 +18886,7 @@ public struct ArticleParts: GraphQLFragment {
       GraphQLField("brandSafety", type: .list(.scalar(Int.self))),
       GraphQLField("canonicalUrl", type: .scalar(String.self)),
       GraphQLField("colorScheme", type: .list(.scalar(String.self))),
+      GraphQLField("contentType", type: .object(ContentType.selections)),
       GraphQLField("excerpt", type: .scalar(String.self)),
       GraphQLField("featuredImageSize", type: .scalar(String.self)),
       GraphQLField("flags", type: .object(Flag.selections)),
@@ -18960,6 +18978,16 @@ public struct ArticleParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "colorScheme")
+    }
+  }
+
+  /// Connection between the ContentNode type and the ContentType type
+  public var contentType: ContentType? {
+    get {
+      return (resultMap["contentType"] as? ResultMap).flatMap { ContentType(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "contentType")
     }
   }
 
@@ -19392,6 +19420,86 @@ public struct ArticleParts: GraphQLFragment {
         }
         set {
           resultMap += newValue.resultMap
+        }
+      }
+    }
+  }
+
+  public struct ContentType: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["ContentNodeToContentTypeConnectionEdge"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("node", type: .object(Node.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(node: Node? = nil) {
+      self.init(unsafeResultMap: ["__typename": "ContentNodeToContentTypeConnectionEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    public var node: Node? {
+      get {
+        return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "node")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["ContentType"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(name: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "ContentType", "name": name])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The internal name of the post type. This should not be used for display purposes.
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
         }
       }
     }
