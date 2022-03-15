@@ -25,6 +25,8 @@ export declare type RootQueryToContentUnionConnectionWhereArgs = {
 };
 /** Arguments for filtering the ContentTypeToContentNodeConnection connection */
 export declare type ContentTypeToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypeEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -53,11 +55,35 @@ export declare type ContentTypeToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types */
+export declare type ContentTypeEnum = 
+/** The Type of Content object */
+'ATTACHMENT'
+/** The Type of Content object */
+ | 'BLOG'
+/** The Type of Content object */
+ | 'BULLETIN'
+/** The Type of Content object */
+ | 'CHAPTER'
+/** The Type of Content object */
+ | 'COLLECTION'
+/** The Type of Content object */
+ | 'NUG'
+/** The Type of Content object */
+ | 'PAGE'
+/** The Type of Content object */
+ | 'POST'
+/** The Type of Content object */
+ | 'PROMOTION'
+/** The Type of Content object */
+ | 'QZ_EMAIL';
 /** Filter the connection based on input */
 export declare type DateQueryInput = {
     /** Nodes should be returned after this date */
@@ -97,11 +123,195 @@ export declare type DateInput = {
     year?: Maybe<Scalars['Int']>;
 };
 /** The column to use when filtering by date */
-export declare type PostObjectsConnectionDateColumnEnum = 'DATE' | 'MODIFIED';
+export declare type PostObjectsConnectionDateColumnEnum = 
+/** The date the comment was created in local time. */
+'DATE'
+/** The most recent modification date of the comment. */
+ | 'MODIFIED';
 /** The logical relation between each item in the array when there are more than one. */
-export declare type RelationEnum = 'AND' | 'OR';
+export declare type RelationEnum = 
+/** The logical AND condition returns true if both operands are true, otherwise, it returns false. */
+'AND'
+/** The logical OR condition returns false if both operands are false, otherwise, it returns true. */
+ | 'OR';
 /** The MimeType of the object */
-export declare type MimeTypeEnum = 'APPLICATION_JAVA' | 'APPLICATION_MSWORD' | 'APPLICATION_OCTET_STREAM' | 'APPLICATION_ONENOTE' | 'APPLICATION_OXPS' | 'APPLICATION_PDF' | 'APPLICATION_RAR' | 'APPLICATION_RTF' | 'APPLICATION_TTAF_XML' | 'APPLICATION_VND_APPLE_KEYNOTE' | 'APPLICATION_VND_APPLE_NUMBERS' | 'APPLICATION_VND_APPLE_PAGES' | 'APPLICATION_VND_MS_ACCESS' | 'APPLICATION_VND_MS_EXCEL' | 'APPLICATION_VND_MS_EXCEL_ADDIN_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_SHEET_BINARY_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT' | 'APPLICATION_VND_MS_POWERPOINT_ADDIN_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_SLIDE_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_PROJECT' | 'APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12' | 'APPLICATION_VND_MS_WORD_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_WRITE' | 'APPLICATION_VND_MS_XPSDOCUMENT' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_CHART' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_DATABASE' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE' | 'APPLICATION_WORDPERFECT' | 'APPLICATION_X_7Z_COMPRESSED' | 'APPLICATION_X_GZIP' | 'APPLICATION_X_TAR' | 'APPLICATION_ZIP' | 'AUDIO_AAC' | 'AUDIO_FLAC' | 'AUDIO_MIDI' | 'AUDIO_MPEG' | 'AUDIO_OGG' | 'AUDIO_WAV' | 'AUDIO_X_MATROSKA' | 'AUDIO_X_MS_WAX' | 'AUDIO_X_MS_WMA' | 'AUDIO_X_REALAUDIO' | 'IMAGE_BMP' | 'IMAGE_GIF' | 'IMAGE_HEIC' | 'IMAGE_JPEG' | 'IMAGE_PNG' | 'IMAGE_TIFF' | 'IMAGE_WEBP' | 'IMAGE_X_ICON' | 'TEXT_CALENDAR' | 'TEXT_CSS' | 'TEXT_CSV' | 'TEXT_PLAIN' | 'TEXT_RICHTEXT' | 'TEXT_TAB_SEPARATED_VALUES' | 'TEXT_VTT' | 'VIDEO_3GPP' | 'VIDEO_3GPP2' | 'VIDEO_AVI' | 'VIDEO_DIVX' | 'VIDEO_MP4' | 'VIDEO_MPEG' | 'VIDEO_OGG' | 'VIDEO_QUICKTIME' | 'VIDEO_WEBM' | 'VIDEO_X_MATROSKA' | 'VIDEO_X_MS_ASF' | 'VIDEO_X_MS_WM' | 'VIDEO_X_MS_WMV' | 'VIDEO_X_MS_WMX';
+export declare type MimeTypeEnum = 
+/** MimeType application/java */
+'APPLICATION_JAVA'
+/** MimeType application/msword */
+ | 'APPLICATION_MSWORD'
+/** MimeType application/octet-stream */
+ | 'APPLICATION_OCTET_STREAM'
+/** MimeType application/onenote */
+ | 'APPLICATION_ONENOTE'
+/** MimeType application/oxps */
+ | 'APPLICATION_OXPS'
+/** MimeType application/pdf */
+ | 'APPLICATION_PDF'
+/** MimeType application/rar */
+ | 'APPLICATION_RAR'
+/** MimeType application/rtf */
+ | 'APPLICATION_RTF'
+/** MimeType application/ttaf+xml */
+ | 'APPLICATION_TTAF_XML'
+/** MimeType application/vnd.apple.keynote */
+ | 'APPLICATION_VND_APPLE_KEYNOTE'
+/** MimeType application/vnd.apple.numbers */
+ | 'APPLICATION_VND_APPLE_NUMBERS'
+/** MimeType application/vnd.apple.pages */
+ | 'APPLICATION_VND_APPLE_PAGES'
+/** MimeType application/vnd.ms-access */
+ | 'APPLICATION_VND_MS_ACCESS'
+/** MimeType application/vnd.ms-excel */
+ | 'APPLICATION_VND_MS_EXCEL'
+/** MimeType application/vnd.ms-excel.addin.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_EXCEL_ADDIN_MACROENABLED_12'
+/** MimeType application/vnd.ms-excel.sheet.binary.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_EXCEL_SHEET_BINARY_MACROENABLED_12'
+/** MimeType application/vnd.ms-excel.sheet.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12'
+/** MimeType application/vnd.ms-excel.template.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12'
+/** MimeType application/vnd.ms-powerpoint */
+ | 'APPLICATION_VND_MS_POWERPOINT'
+/** MimeType application/vnd.ms-powerpoint.addin.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_POWERPOINT_ADDIN_MACROENABLED_12'
+/** MimeType application/vnd.ms-powerpoint.presentation.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12'
+/** MimeType application/vnd.ms-powerpoint.slideshow.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12'
+/** MimeType application/vnd.ms-powerpoint.slide.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_POWERPOINT_SLIDE_MACROENABLED_12'
+/** MimeType application/vnd.ms-powerpoint.template.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12'
+/** MimeType application/vnd.ms-project */
+ | 'APPLICATION_VND_MS_PROJECT'
+/** MimeType application/vnd.ms-word.document.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12'
+/** MimeType application/vnd.ms-word.template.macroEnabled.12 */
+ | 'APPLICATION_VND_MS_WORD_TEMPLATE_MACROENABLED_12'
+/** MimeType application/vnd.ms-write */
+ | 'APPLICATION_VND_MS_WRITE'
+/** MimeType application/vnd.ms-xpsdocument */
+ | 'APPLICATION_VND_MS_XPSDOCUMENT'
+/** MimeType application/vnd.oasis.opendocument.chart */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_CHART'
+/** MimeType application/vnd.oasis.opendocument.database */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_DATABASE'
+/** MimeType application/vnd.oasis.opendocument.formula */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA'
+/** MimeType application/vnd.oasis.opendocument.graphics */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS'
+/** MimeType application/vnd.oasis.opendocument.presentation */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION'
+/** MimeType application/vnd.oasis.opendocument.spreadsheet */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET'
+/** MimeType application/vnd.oasis.opendocument.text */
+ | 'APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT'
+/** MimeType application/vnd.openxmlformats-officedocument.presentationml.presentation */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION'
+/** MimeType application/vnd.openxmlformats-officedocument.presentationml.slide */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDE'
+/** MimeType application/vnd.openxmlformats-officedocument.presentationml.slideshow */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW'
+/** MimeType application/vnd.openxmlformats-officedocument.presentationml.template */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE'
+/** MimeType application/vnd.openxmlformats-officedocument.spreadsheetml.sheet */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET'
+/** MimeType application/vnd.openxmlformats-officedocument.spreadsheetml.template */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE'
+/** MimeType application/vnd.openxmlformats-officedocument.wordprocessingml.document */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT'
+/** MimeType application/vnd.openxmlformats-officedocument.wordprocessingml.template */
+ | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE'
+/** MimeType application/wordperfect */
+ | 'APPLICATION_WORDPERFECT'
+/** MimeType application/x-7z-compressed */
+ | 'APPLICATION_X_7Z_COMPRESSED'
+/** MimeType application/x-gzip */
+ | 'APPLICATION_X_GZIP'
+/** MimeType application/x-tar */
+ | 'APPLICATION_X_TAR'
+/** MimeType application/zip */
+ | 'APPLICATION_ZIP'
+/** MimeType audio/aac */
+ | 'AUDIO_AAC'
+/** MimeType audio/flac */
+ | 'AUDIO_FLAC'
+/** MimeType audio/midi */
+ | 'AUDIO_MIDI'
+/** MimeType audio/mpeg */
+ | 'AUDIO_MPEG'
+/** MimeType audio/ogg */
+ | 'AUDIO_OGG'
+/** MimeType audio/wav */
+ | 'AUDIO_WAV'
+/** MimeType audio/x-matroska */
+ | 'AUDIO_X_MATROSKA'
+/** MimeType audio/x-ms-wax */
+ | 'AUDIO_X_MS_WAX'
+/** MimeType audio/x-ms-wma */
+ | 'AUDIO_X_MS_WMA'
+/** MimeType audio/x-realaudio */
+ | 'AUDIO_X_REALAUDIO'
+/** MimeType image/bmp */
+ | 'IMAGE_BMP'
+/** MimeType image/gif */
+ | 'IMAGE_GIF'
+/** MimeType image/heic */
+ | 'IMAGE_HEIC'
+/** MimeType image/jpeg */
+ | 'IMAGE_JPEG'
+/** MimeType image/png */
+ | 'IMAGE_PNG'
+/** MimeType image/tiff */
+ | 'IMAGE_TIFF'
+/** MimeType image/webp */
+ | 'IMAGE_WEBP'
+/** MimeType image/x-icon */
+ | 'IMAGE_X_ICON'
+/** MimeType text/calendar */
+ | 'TEXT_CALENDAR'
+/** MimeType text/css */
+ | 'TEXT_CSS'
+/** MimeType text/csv */
+ | 'TEXT_CSV'
+/** MimeType text/plain */
+ | 'TEXT_PLAIN'
+/** MimeType text/richtext */
+ | 'TEXT_RICHTEXT'
+/** MimeType text/tab-separated-values */
+ | 'TEXT_TAB_SEPARATED_VALUES'
+/** MimeType text/vtt */
+ | 'TEXT_VTT'
+/** MimeType video/3gpp */
+ | 'VIDEO_3GPP'
+/** MimeType video/3gpp2 */
+ | 'VIDEO_3GPP2'
+/** MimeType video/avi */
+ | 'VIDEO_AVI'
+/** MimeType video/divx */
+ | 'VIDEO_DIVX'
+/** MimeType video/mp4 */
+ | 'VIDEO_MP4'
+/** MimeType video/mpeg */
+ | 'VIDEO_MPEG'
+/** MimeType video/ogg */
+ | 'VIDEO_OGG'
+/** MimeType video/quicktime */
+ | 'VIDEO_QUICKTIME'
+/** MimeType video/webm */
+ | 'VIDEO_WEBM'
+/** MimeType video/x-matroska */
+ | 'VIDEO_X_MATROSKA'
+/** MimeType video/x-ms-asf */
+ | 'VIDEO_X_MS_ASF'
+/** MimeType video/x-ms-wm */
+ | 'VIDEO_X_MS_WM'
+/** MimeType video/x-ms-wmv */
+ | 'VIDEO_X_MS_WMV'
+/** MimeType video/x-ms-wmx */
+ | 'VIDEO_X_MS_WMX';
 /** Options for ordering the connection */
 export declare type PostObjectsConnectionOrderbyInput = {
     /** The field to order the connection by */
@@ -134,7 +344,11 @@ export declare type PostObjectsConnectionOrderbyEnum =
 /** Order by title */
  | 'TITLE';
 /** The cardinality of the connection order */
-export declare type OrderEnum = 'ASC' | 'DESC';
+export declare type OrderEnum = 
+/** Sort the query result set in an ascending order */
+'ASC'
+/** Sort the query result set in a descending order */
+ | 'DESC';
 /** The status of the object. */
 export declare type PostStatusEnum = 
 /** Objects with the auto-draft status */
@@ -172,7 +386,15 @@ export declare type PostStatusEnum =
 /** Objects with the writing status */
  | 'WRITING';
 /** What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are judged in that order. Default is the value of the 'avatar_rating' option */
-export declare type AvatarRatingEnum = 'G' | 'PG' | 'R' | 'X';
+export declare type AvatarRatingEnum = 
+/** Indicates a G level avatar rating level. */
+'G'
+/** Indicates a PG level avatar rating level. */
+ | 'PG'
+/** Indicates an R level avatar rating level. */
+ | 'R'
+/** Indicates an X level avatar rating level. */
+ | 'X';
 /** Arguments for filtering the UserToBulletinConnection connection */
 export declare type UserToBulletinConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -211,7 +433,9 @@ export declare type UserToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -236,6 +460,8 @@ export declare type PostObjectFieldFormatEnum =
  | 'RENDERED';
 /** Arguments for filtering the HierarchicalContentNodeToContentNodeAncestorsConnection connection */
 export declare type HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypeEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -264,13 +490,17 @@ export declare type HierarchicalContentNodeToContentNodeAncestorsConnectionWhere
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
 /** Arguments for filtering the HierarchicalContentNodeToContentNodeChildrenConnection connection */
 export declare type HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypeEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -299,7 +529,9 @@ export declare type HierarchicalContentNodeToContentNodeChildrenConnectionWhereA
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -365,26 +597,40 @@ export declare type MediaItemToCommentConnectionWhereArgs = {
     /** Include comments for a specific user ID. */
     userId?: Maybe<Scalars['ID']>;
 };
-/** Allowed Content Types */
-export declare type ContentTypeEnum = 
-/** The Type of Content object */
-'ATTACHMENT'
-/** The Type of Content object */
- | 'BULLETIN'
-/** The Type of Content object */
- | 'CHAPTER'
-/** The Type of Content object */
- | 'COLLECTION'
-/** The Type of Content object */
- | 'PAGE'
-/** The Type of Content object */
- | 'POST'
-/** The Type of Content object */
- | 'PROMOTION'
-/** The Type of Content object */
- | 'QZ_EMAIL';
 /** Options for ordering the connection */
-export declare type CommentsConnectionOrderbyEnum = 'COMMENT_AGENT' | 'COMMENT_APPROVED' | 'COMMENT_AUTHOR' | 'COMMENT_AUTHOR_EMAIL' | 'COMMENT_AUTHOR_IP' | 'COMMENT_AUTHOR_URL' | 'COMMENT_CONTENT' | 'COMMENT_DATE' | 'COMMENT_DATE_GMT' | 'COMMENT_ID' | 'COMMENT_IN' | 'COMMENT_KARMA' | 'COMMENT_PARENT' | 'COMMENT_POST_ID' | 'COMMENT_TYPE' | 'USER_ID';
+export declare type CommentsConnectionOrderbyEnum = 
+/** Order by browser user agent of the commenter. */
+'COMMENT_AGENT'
+/** Order by true/false approval of the comment. */
+ | 'COMMENT_APPROVED'
+/** Order by name of the comment author. */
+ | 'COMMENT_AUTHOR'
+/** Order by e-mail of the comment author. */
+ | 'COMMENT_AUTHOR_EMAIL'
+/** Order by IP address of the comment author. */
+ | 'COMMENT_AUTHOR_IP'
+/** Order by URL address of the comment author. */
+ | 'COMMENT_AUTHOR_URL'
+/** Order by the comment contents. */
+ | 'COMMENT_CONTENT'
+/** Order by date/time timestamp of the comment. */
+ | 'COMMENT_DATE'
+/** Order by GMT timezone date/time timestamp of the comment. */
+ | 'COMMENT_DATE_GMT'
+/** Order by the globally unique identifier for the comment object */
+ | 'COMMENT_ID'
+/** Order by the array list of comment IDs listed in the where clause. */
+ | 'COMMENT_IN'
+/** Order by the comment karma score. */
+ | 'COMMENT_KARMA'
+/** Order by the comment parent ID. */
+ | 'COMMENT_PARENT'
+/** Order by the post object ID. */
+ | 'COMMENT_POST_ID'
+/** Order by the the type of comment, such as 'comment', 'pingback', or 'trackback'. */
+ | 'COMMENT_TYPE'
+/** Order by the user ID. */
+ | 'USER_ID';
 /** Arguments for filtering the CommentToParentCommentConnection connection */
 export declare type CommentToParentCommentConnectionWhereArgs = {
     /** Comment author email address. */
@@ -545,6 +791,8 @@ export declare type PageToCoAuthorConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -561,7 +809,21 @@ export declare type PageToCoAuthorConnectionWhereArgs = {
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 /** Options for ordering the connection by */
-export declare type TermObjectsConnectionOrderbyEnum = 'COUNT' | 'DESCRIPTION' | 'NAME' | 'SLUG' | 'TERM_GROUP' | 'TERM_ID' | 'TERM_ORDER';
+export declare type TermObjectsConnectionOrderbyEnum = 
+/** Order the connection by item count. */
+'COUNT'
+/** Order the connection by description. */
+ | 'DESCRIPTION'
+/** Order the connection by name. */
+ | 'NAME'
+/** Order the connection by slug. */
+ | 'SLUG'
+/** Order the connection by term group. */
+ | 'TERM_GROUP'
+/** Order the connection by term id. */
+ | 'TERM_ID'
+/** Order the connection by term order. */
+ | 'TERM_ORDER';
 /** Arguments for filtering the CoAuthorToBulletinConnection connection */
 export declare type CoAuthorToBulletinConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -600,7 +862,9 @@ export declare type CoAuthorToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -647,7 +911,9 @@ export declare type CoAuthorToChapterConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -690,6 +956,8 @@ export declare type ChapterToCoAuthorConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -731,6 +999,8 @@ export declare type ChapterToProjectConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -784,7 +1054,9 @@ export declare type ProjectToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -831,7 +1103,9 @@ export declare type ProjectToChapterConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -850,6 +1124,8 @@ export declare type ProjectToChapterConnectionWhereArgs = {
 };
 /** Arguments for filtering the ProjectToContentNodeConnection connection */
 export declare type ProjectToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfProjectEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -878,11 +1154,21 @@ export declare type ProjectToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Project taxonomy. */
+export declare type ContentTypesOfProjectEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'CHAPTER'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the ProjectToPostConnection connection */
 export declare type ProjectToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -929,7 +1215,9 @@ export declare type ProjectToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -972,6 +1260,8 @@ export declare type ChapterToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1017,7 +1307,9 @@ export declare type TagToBlogPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1060,6 +1352,8 @@ export declare type BlogPostToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1075,6 +1369,83 @@ export declare type BlogPostToTagConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
+/** Arguments for filtering the BlogPostToTermNodeConnection connection */
+export declare type BlogPostToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Allowed taxonomies */
+export declare type TaxonomyEnum = 
+/** Taxonomy enum category */
+'CATEGORY'
+/** Taxonomy enum author */
+ | 'COAUTHOR'
+/** Taxonomy enum edition */
+ | 'EDITION'
+/** Taxonomy enum qz_email_list */
+ | 'EMAILLIST'
+/** Taxonomy enum segment-group */
+ | 'EMAILSEGMENT'
+/** Taxonomy enum flag */
+ | 'FLAG'
+/** Taxonomy enum guide */
+ | 'GUIDE'
+/** Taxonomy enum location */
+ | 'LOCATION'
+/** Taxonomy enum obsession */
+ | 'OBSESSION'
+/** Taxonomy enum post_format */
+ | 'POSTFORMAT'
+/** Taxonomy enum project */
+ | 'PROJECT'
+/** Taxonomy enum series */
+ | 'SERIES'
+/** Taxonomy enum show */
+ | 'SHOW'
+/** Taxonomy enum post_tag */
+ | 'TAG'
+/** Taxonomy enum topic */
+ | 'TOPIC';
 /** Arguments for filtering the TagToBulletinConnection connection */
 export declare type TagToBulletinConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -1113,7 +1484,9 @@ export declare type TagToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1160,7 +1533,9 @@ export declare type TagToChapterConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1207,7 +1582,9 @@ export declare type TagToCollectionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1250,6 +1627,8 @@ export declare type CollectionToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1265,8 +1644,55 @@ export declare type CollectionToTagConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
+/** Arguments for filtering the CollectionToTermNodeConnection connection */
+export declare type CollectionToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
 /** Arguments for filtering the TagToContentNodeConnection connection */
 export declare type TagToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfTagEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -1295,11 +1721,31 @@ export declare type TagToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Tag taxonomy. */
+export declare type ContentTypesOfTagEnum = 
+/** The Type of Content object */
+'BLOG'
+/** The Type of Content object */
+ | 'BULLETIN'
+/** The Type of Content object */
+ | 'CHAPTER'
+/** The Type of Content object */
+ | 'COLLECTION'
+/** The Type of Content object */
+ | 'NUG'
+/** The Type of Content object */
+ | 'POST'
+/** The Type of Content object */
+ | 'PROMOTION'
+/** The Type of Content object */
+ | 'QZ_EMAIL';
 /** Arguments for filtering the TagToEmailConnection connection */
 export declare type TagToEmailConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -1330,7 +1776,9 @@ export declare type TagToEmailConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1373,6 +1821,8 @@ export declare type EmailToCoAuthorConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1414,6 +1864,8 @@ export declare type EmailToEmailListConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1431,6 +1883,8 @@ export declare type EmailToEmailListConnectionWhereArgs = {
 };
 /** Arguments for filtering the EmailListToContentNodeConnection connection */
 export declare type EmailListToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfEmailListEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -1459,11 +1913,19 @@ export declare type EmailListToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the EmailList taxonomy. */
+export declare type ContentTypesOfEmailListEnum = 
+/** The Type of Content object */
+'NUG'
+/** The Type of Content object */
+ | 'QZ_EMAIL';
 /** Arguments for filtering the EmailListToEmailConnection connection */
 export declare type EmailListToEmailConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -1494,7 +1956,9 @@ export declare type EmailListToEmailConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1541,7 +2005,9 @@ export declare type EmailListToNugConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1584,6 +2050,8 @@ export declare type NugToEmailListConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1625,6 +2093,8 @@ export declare type NugToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1635,6 +2105,51 @@ export declare type NugToTagConnectionWhereArgs = {
     search?: Maybe<Scalars['String']>;
     /** Array of slugs to return term(s) for. Default empty. */
     slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the NugToTermNodeConnection connection */
+export declare type NugToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
     /** Array of term taxonomy IDs, to match when querying terms. */
     termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
     /** Whether to prime meta caches for matched terms. Default true. */
@@ -1666,6 +2181,8 @@ export declare type NugToTopicConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1719,7 +2236,9 @@ export declare type TopicToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1762,6 +2281,8 @@ export declare type TopicToTopicConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -1779,6 +2300,8 @@ export declare type TopicToTopicConnectionWhereArgs = {
 };
 /** Arguments for filtering the TopicToContentNodeConnection connection */
 export declare type TopicToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfTopicEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -1807,13 +2330,25 @@ export declare type TopicToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Topic taxonomy. */
+export declare type ContentTypesOfTopicEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'NUG'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the GuideToContentNodeConnection connection */
 export declare type GuideToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfGuideEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -1842,11 +2377,17 @@ export declare type GuideToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Guide taxonomy. */
+export declare type ContentTypesOfGuideEnum = 
+/** The Type of Content object */
+'POST';
 /** Arguments for filtering the GuideToPostConnection connection */
 export declare type GuideToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -1893,7 +2434,9 @@ export declare type GuideToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -1940,7 +2483,9 @@ export declare type TopicToNugConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2003,7 +2548,9 @@ export declare type TopicToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2046,6 +2593,8 @@ export declare type EmailToEmailSegmentConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -2063,6 +2612,8 @@ export declare type EmailToEmailSegmentConnectionWhereArgs = {
 };
 /** Arguments for filtering the EmailSegmentToContentNodeConnection connection */
 export declare type EmailSegmentToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfEmailSegmentEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -2091,11 +2642,17 @@ export declare type EmailSegmentToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the EmailSegment taxonomy. */
+export declare type ContentTypesOfEmailSegmentEnum = 
+/** The Type of Content object */
+'QZ_EMAIL';
 /** Arguments for filtering the EmailSegmentToEmailConnection connection */
 export declare type EmailSegmentToEmailConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -2126,7 +2683,9 @@ export declare type EmailSegmentToEmailConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2173,7 +2732,9 @@ export declare type EmailToRevisionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2216,6 +2777,8 @@ export declare type EmailToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -2226,6 +2789,51 @@ export declare type EmailToTagConnectionWhereArgs = {
     search?: Maybe<Scalars['String']>;
     /** Array of slugs to return term(s) for. Default empty. */
     slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the EmailToTermNodeConnection connection */
+export declare type EmailToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
     /** Array of term taxonomy IDs, to match when querying terms. */
     termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
     /** Whether to prime meta caches for matched terms. Default true. */
@@ -2261,7 +2869,9 @@ export declare type TagToNugConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2324,7 +2934,9 @@ export declare type TagToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2371,7 +2983,9 @@ export declare type TagToPromotionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2414,6 +3028,8 @@ export declare type PromotionToObsessionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -2467,7 +3083,9 @@ export declare type ObsessionToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2486,6 +3104,8 @@ export declare type ObsessionToBulletinConnectionWhereArgs = {
 };
 /** Arguments for filtering the ObsessionToContentNodeConnection connection */
 export declare type ObsessionToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfObsessionEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -2514,11 +3134,21 @@ export declare type ObsessionToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Obsession taxonomy. */
+export declare type ContentTypesOfObsessionEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'POST'
+/** The Type of Content object */
+ | 'PROMOTION';
 /** Arguments for filtering the ObsessionToPostConnection connection */
 export declare type ObsessionToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -2565,7 +3195,9 @@ export declare type ObsessionToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2612,7 +3244,9 @@ export declare type ObsessionToPromotionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2655,6 +3289,8 @@ export declare type PromotionToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -2670,8 +3306,100 @@ export declare type PromotionToTagConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
+/** Arguments for filtering the PromotionToTermNodeConnection connection */
+export declare type PromotionToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the ChapterToTermNodeConnection connection */
+export declare type ChapterToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
 /** Arguments for filtering the CoAuthorToContentNodeConnection connection */
 export declare type CoAuthorToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfCoAuthorEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -2700,11 +3428,25 @@ export declare type CoAuthorToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the CoAuthor taxonomy. */
+export declare type ContentTypesOfCoAuthorEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'CHAPTER'
+/** The Type of Content object */
+ | 'PAGE'
+/** The Type of Content object */
+ | 'POST'
+/** The Type of Content object */
+ | 'QZ_EMAIL';
 /** Arguments for filtering the CoAuthorToEmailConnection connection */
 export declare type CoAuthorToEmailConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -2735,7 +3477,9 @@ export declare type CoAuthorToEmailConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2790,7 +3534,9 @@ export declare type CoAuthorToPageConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -2841,7 +3587,9 @@ export declare type CoAuthorToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -2957,7 +3705,9 @@ export declare type PageToRevisionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -2988,6 +3738,8 @@ export declare type PageToTermNodeConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3005,8 +3757,6 @@ export declare type PageToTermNodeConnectionWhereArgs = {
     /** Whether to prime meta caches for matched terms. Default true. */
     updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
-/** Allowed taxonomies */
-export declare type TaxonomyEnum = 'CATEGORY' | 'COAUTHOR' | 'EDITION' | 'EMAILLIST' | 'EMAILSEGMENT' | 'FLAG' | 'GUIDE' | 'LOCATION' | 'OBSESSION' | 'POSTFORMAT' | 'PROJECT' | 'SERIES' | 'SHOW' | 'TAG' | 'TOPIC';
 /** Allowed content block names */
 export declare type BlockNameEnum = 'BLOCKQUOTE' | 'CORE_ARCHIVES' | 'CORE_AUDIO' | 'CORE_BLOCK' | 'CORE_BUTTON' | 'CORE_CATEGORIES' | 'CORE_CODE' | 'CORE_COLUMN' | 'CORE_COLUMNS' | 'CORE_COVER_IMAGE' | 'CORE_EMBED' | 'CORE_EMBED_ANIMOTO' | 'CORE_EMBED_CLOUDUP' | 'CORE_EMBED_COLLEGEHUMOR' | 'CORE_EMBED_DAILYMOTION' | 'CORE_EMBED_FACEBOOK' | 'CORE_EMBED_FLICKR' | 'CORE_EMBED_FUNNYORDIE' | 'CORE_EMBED_HULU' | 'CORE_EMBED_IMGUR' | 'CORE_EMBED_INSTAGRAM' | 'CORE_EMBED_ISSUU' | 'CORE_EMBED_KICKSTARTER' | 'CORE_EMBED_MEETUP_COM' | 'CORE_EMBED_MIXCLOUD' | 'CORE_EMBED_PHOTOBUCKET' | 'CORE_EMBED_POLLDADDY' | 'CORE_EMBED_REDDIT' | 'CORE_EMBED_REVERBNATION' | 'CORE_EMBED_SCREENCAST' | 'CORE_EMBED_SCRIBD' | 'CORE_EMBED_SLIDESHARE' | 'CORE_EMBED_SMUGMUG' | 'CORE_EMBED_SOUNDCLOUD' | 'CORE_EMBED_SPEAKER' | 'CORE_EMBED_SPOTIFY' | 'CORE_EMBED_TED' | 'CORE_EMBED_TUMBLR' | 'CORE_EMBED_TWITTER' | 'CORE_EMBED_VIDEOPRESS' | 'CORE_EMBED_VIMEO' | 'CORE_EMBED_WORDPRESS' | 'CORE_EMBED_WORDPRESS_TV' | 'CORE_EMBED_YOUTUBE' | 'CORE_FILE' | 'CORE_FREEFORM' | 'CORE_GALLERY' | 'CORE_HEADING' | 'CORE_HTML' | 'CORE_IMAGE' | 'CORE_LATEST_COMMENTS' | 'CORE_LATEST_POSTS' | 'CORE_LIST' | 'CORE_MORE' | 'CORE_NEXTPAGE' | 'CORE_PARAGRAPH' | 'CORE_PREFORMATTED' | 'CORE_PULLQUOTE' | 'CORE_QUOTE' | 'CORE_SEPARATOR' | 'CORE_SHORTCODE' | 'CORE_SPACER' | 'CORE_SUBHEAD' | 'CORE_TABLE' | 'CORE_TEXT_COLUMNS' | 'CORE_VERSE' | 'CORE_VIDEO' | 'EL' | 'EMBED_ANIMOTO' | 'EMBED_API_CROWDSIGNAL_COM_OEMBED' | 'EMBED_API_DESCRIPT_COM_V2_OEMBED' | 'EMBED_GFYCAT' | 'EMBED_IMGUR' | 'EMBED_MEETUP' | 'EMBED_SCREENCAST' | 'EMBED_SMUGMUG' | 'EMBED_DATAWRAPPER' | 'EMBED_ATLAS' | 'EMBED_AUDIO' | 'EMBED_CLOUDUP' | 'EMBED_CODEPEN_IO_API_OEMBED' | 'EMBED_EMBED_GETTYIMAGES_COM_OEMBED_' | 'EMBED_SPOTIFY' | 'EMBED_FACEBOOK_ALTERNATE' | 'EMBED_FACEBOOK_ALTERNATE_VIDEO' | 'EMBED_FACEBOOK_PHOTO' | 'EMBED_FACEBOOK_VIDEO' | 'EMBED_WISTIA' | 'EMBED_FLICKR' | 'EMBED_GITHUB_GIST' | 'EMBED_GOOGLEPLUS' | 'EMBED_INSTAGRAM' | 'EMBED_INLINE_PDFS' | 'EMBED_ISSUU' | 'EMBED_ICLOUD' | 'EMBED_MEDIUM' | 'EMBED_QZ_OBJECT' | 'EMBED_ODESLI_CO_OEMBED' | 'EMBED_OEMBED_SMARTFRAME_IO_' | 'EMBED_PINTEREST' | 'EMBED_MEGAPHONE_EPISODE' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED_1_0_' | 'EMBED_PUBLIC_API_WORDPRESS_COM_OEMBED__FOR_HTTPS_3A_2F_2FQZ_COM' | 'EMBED_TWITTER' | 'EMBED_FACEBOOK' | 'EMBED_VINE' | 'EMBED_AMAZON' | 'EMBED_SERVICES_CARTO_COM_OEMBED' | 'EMBED_SKETCHFAB' | 'EMBED_SOUNDCLOUD' | 'EMBED_SPEAKERDECK' | 'EMBED_VIDEO' | 'EMBED_VIMEO' | 'EMBED_WORDPRESS_TV' | 'EMBED_WPCOM_VIMEO_EMBED_URL' | 'EMBED_WPCOM_YOUTUBE_EMBED_CRAZY_URL' | 'EMBED_DAILYMOTION' | 'EMBED_DOCUMENTCLOUD' | 'EMBED_WWW_HOUZZ_COM_OEMBED' | 'EMBED_KICKSTARTER' | 'EMBED_LOOM' | 'EMBED_MIXCLOUD' | 'EMBED_REDDIT' | 'EMBED_REVERBNATION' | 'EMBED_SCRIBD' | 'EMBED_SLIDESHARE' | 'EMBED_SOMEECARDS' | 'EMBED_TED' | 'EMBED_WWW_TED_COM_TALKS_OEMBED_JSON' | 'EMBED_TIKTOK' | 'EMBED_TUMBLR' | 'EMBED_YOUTUBE' | 'FIGURE' | 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6' | 'HR' | 'IMG' | 'OL' | 'P' | 'PRE' | 'QZ_ITEM' | 'QZ_POST_TOUT' | 'QZ_TAXONOMY_TERM' | 'QZ_WIFY_ANSWER' | 'SAFE_COMMENT' | 'SHORTCODE_ANSWER' | 'SHORTCODE_ARCHIVEORG' | 'SHORTCODE_ARCHIVEORG_BOOK' | 'SHORTCODE_ARCHIVES' | 'SHORTCODE_AUDIO' | 'SHORTCODE_BANDCAMP' | 'SHORTCODE_BRIGHTCOVE' | 'SHORTCODE_CAPTION' | 'SHORTCODE_CPI_BROADBAND_MAP' | 'SHORTCODE_CROWDSIGNAL' | 'SHORTCODE_DAILYMOTION' | 'SHORTCODE_DAILYMOTION_CHANNEL' | 'SHORTCODE_DESCRIPT' | 'SHORTCODE_EMBED' | 'SHORTCODE_ENDMATTER' | 'SHORTCODE_EXPLANATION' | 'SHORTCODE_FACEBOOK' | 'SHORTCODE_FLICKR' | 'SHORTCODE_GALLERY' | 'SHORTCODE_GEO_LOCATION' | 'SHORTCODE_GETTY' | 'SHORTCODE_GIST' | 'SHORTCODE_GOOGLEAPPS' | 'SHORTCODE_GOOGLEMAPS' | 'SHORTCODE_GOOGLEPLUS' | 'SHORTCODE_GRAVATAR' | 'SHORTCODE_GRAVATAR_PROFILE' | 'SHORTCODE_HOUZZ' | 'SHORTCODE_INSTAGRAM' | 'SHORTCODE_KICKSTARTER' | 'SHORTCODE_LATEX' | 'SHORTCODE_MAILCHIMP_SUBSCRIBER_POPUP' | 'SHORTCODE_MEDIUM' | 'SHORTCODE_MIXCLOUD' | 'SHORTCODE_PLAYLIST' | 'SHORTCODE_POLLDADDY' | 'SHORTCODE_PRESENTATION' | 'SHORTCODE_PROMO_LINK' | 'SHORTCODE_PULLQUOTE' | 'SHORTCODE_QUARTZY_AD' | 'SHORTCODE_QUARTZY_PS' | 'SHORTCODE_QUESTION' | 'SHORTCODE_QUIZ' | 'SHORTCODE_QUIZ_WRAPPER' | 'SHORTCODE_QZ_ATLAS' | 'SHORTCODE_QZ_DAILY_BRIEF' | 'SHORTCODE_QZ_DATAWRAPPER' | 'SHORTCODE_QZ_FACEBOOK_POST' | 'SHORTCODE_QZ_FACEBOOK_VIDEO' | 'SHORTCODE_QZ_FURTHER_READING' | 'SHORTCODE_QZ_GUIDE_PROMO' | 'SHORTCODE_QZ_IFRAME' | 'SHORTCODE_QZ_INLINE_AD' | 'SHORTCODE_QZ_INTERACTIVE' | 'SHORTCODE_QZ_RELATED_STACK' | 'SHORTCODE_QZ_SECTION_DIVIDER' | 'SHORTCODE_QZ_TIPS' | 'SHORTCODE_QZ_TOPIC_UPDATE' | 'SHORTCODE_RECIPE' | 'SHORTCODE_RECIPE_DIRECTIONS' | 'SHORTCODE_RECIPE_IMAGE' | 'SHORTCODE_RECIPE_INGREDIENTS' | 'SHORTCODE_RECIPE_NOTES' | 'SHORTCODE_RECIPE_NUTRITION' | 'SHORTCODE_SCRIBD' | 'SHORTCODE_SERIES_RECIRC' | 'SHORTCODE_SIMPLE_PAYMENT' | 'SHORTCODE_SITEMAP' | 'SHORTCODE_SLIDE' | 'SHORTCODE_SLIDESHARE' | 'SHORTCODE_SLIDESHOW' | 'SHORTCODE_SMARTFRAME' | 'SHORTCODE_SOUNDCLOUD' | 'SHORTCODE_SPOTIFY' | 'SHORTCODE_STORIFY' | 'SHORTCODE_TED' | 'SHORTCODE_TWEET' | 'SHORTCODE_TWITCH' | 'SHORTCODE_TWITCHTV' | 'SHORTCODE_TWITTER_TIMELINE' | 'SHORTCODE_UNTAPPD_MENU' | 'SHORTCODE_UPCOMINGEVENTS' | 'SHORTCODE_USTREAM' | 'SHORTCODE_USTREAMSOCIAL' | 'SHORTCODE_VIDEO' | 'SHORTCODE_VIDEOPRESS' | 'SHORTCODE_VIMEO' | 'SHORTCODE_VINE' | 'SHORTCODE_VR' | 'SHORTCODE_WPVIDEO' | 'SHORTCODE_WP_CAPTION' | 'SHORTCODE_WRONG' | 'SHORTCODE_WUFOO' | 'SHORTCODE_YOUTUBE' | 'TABLE' | 'UL';
 /** Arguments for filtering the BulletinToCoAuthorConnection connection */
@@ -3035,6 +3785,8 @@ export declare type BulletinToCoAuthorConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3076,6 +3828,8 @@ export declare type BulletinToEditionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3129,7 +3883,9 @@ export declare type EditionToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3148,6 +3904,8 @@ export declare type EditionToBulletinConnectionWhereArgs = {
 };
 /** Arguments for filtering the EditionToContentNodeConnection connection */
 export declare type EditionToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfEditionEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -3176,11 +3934,19 @@ export declare type EditionToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Edition taxonomy. */
+export declare type ContentTypesOfEditionEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the EditionToPostConnection connection */
 export declare type EditionToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3227,7 +3993,9 @@ export declare type EditionToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3270,6 +4038,8 @@ export declare type BulletinToFlagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3323,7 +4093,9 @@ export declare type FlagToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3342,6 +4114,8 @@ export declare type FlagToBulletinConnectionWhereArgs = {
 };
 /** Arguments for filtering the FlagToContentNodeConnection connection */
 export declare type FlagToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfFlagEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -3370,11 +4144,19 @@ export declare type FlagToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Flag taxonomy. */
+export declare type ContentTypesOfFlagEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the FlagToPostConnection connection */
 export declare type FlagToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3421,7 +4203,9 @@ export declare type FlagToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3464,6 +4248,8 @@ export declare type BulletinToLocationConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3517,7 +4303,9 @@ export declare type LocationToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3536,6 +4324,8 @@ export declare type LocationToBulletinConnectionWhereArgs = {
 };
 /** Arguments for filtering the LocationToContentNodeConnection connection */
 export declare type LocationToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfLocationEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -3564,11 +4354,19 @@ export declare type LocationToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Location taxonomy. */
+export declare type ContentTypesOfLocationEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the LocationToPostConnection connection */
 export declare type LocationToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3615,7 +4413,9 @@ export declare type LocationToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3658,6 +4458,8 @@ export declare type BulletinToObsessionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3699,6 +4501,8 @@ export declare type BulletinToProjectConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3752,7 +4556,9 @@ export declare type BulletinToRevisionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3795,6 +4601,8 @@ export declare type BulletinToSeriesConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -3848,7 +4656,9 @@ export declare type SeriesToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3867,6 +4677,8 @@ export declare type SeriesToBulletinConnectionWhereArgs = {
 };
 /** Arguments for filtering the SeriesToContentNodeConnection connection */
 export declare type SeriesToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfSeriesEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -3895,11 +4707,19 @@ export declare type SeriesToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Series taxonomy. */
+export declare type ContentTypesOfSeriesEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the SeriesToPostConnection connection */
 export declare type SeriesToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3946,7 +4766,9 @@ export declare type SeriesToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -3989,6 +4811,8 @@ export declare type BulletinToShowConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4042,7 +4866,9 @@ export declare type ShowToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -4061,6 +4887,8 @@ export declare type ShowToBulletinConnectionWhereArgs = {
 };
 /** Arguments for filtering the ShowToContentNodeConnection connection */
 export declare type ShowToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfShowEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -4089,11 +4917,19 @@ export declare type ShowToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Show taxonomy. */
+export declare type ContentTypesOfShowEnum = 
+/** The Type of Content object */
+'BULLETIN'
+/** The Type of Content object */
+ | 'POST';
 /** Arguments for filtering the ShowToPostConnection connection */
 export declare type ShowToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -4140,7 +4976,9 @@ export declare type ShowToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -4183,6 +5021,8 @@ export declare type BulletinToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4193,6 +5033,51 @@ export declare type BulletinToTagConnectionWhereArgs = {
     search?: Maybe<Scalars['String']>;
     /** Array of slugs to return term(s) for. Default empty. */
     slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Array of term taxonomy IDs, to match when querying terms. */
+    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to prime meta caches for matched terms. Default true. */
+    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+};
+/** Arguments for filtering the BulletinToTermNodeConnection connection */
+export declare type BulletinToTermNodeConnectionWhereArgs = {
+    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+    cacheDomain?: Maybe<Scalars['String']>;
+    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+    childOf?: Maybe<Scalars['Int']>;
+    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+    childless?: Maybe<Scalars['Boolean']>;
+    /** Retrieve terms where the description is LIKE the input value. Default empty. */
+    descriptionLike?: Maybe<Scalars['String']>;
+    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+    hideEmpty?: Maybe<Scalars['Boolean']>;
+    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+    hierarchical?: Maybe<Scalars['Boolean']>;
+    /** Array of term ids to include. Default empty array. */
+    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Array of names to return term(s) for. Default empty. */
+    name?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** Retrieve terms where the name is LIKE the input value. Default empty. */
+    nameLike?: Maybe<Scalars['String']>;
+    /** Array of object IDs. Results will be limited to terms associated with these objects. */
+    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
+    /** Field(s) to order terms by. Defaults to 'name'. */
+    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+    padCounts?: Maybe<Scalars['Boolean']>;
+    /** Parent term ID to retrieve direct-child terms of. Default empty. */
+    parent?: Maybe<Scalars['Int']>;
+    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+    search?: Maybe<Scalars['String']>;
+    /** Array of slugs to return term(s) for. Default empty. */
+    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+    /** The Taxonomy to filter terms by */
+    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
     /** Array of term taxonomy IDs, to match when querying terms. */
     termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
     /** Whether to prime meta caches for matched terms. Default true. */
@@ -4224,6 +5109,8 @@ export declare type BulletinToTopicConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4338,7 +5225,9 @@ export declare type UserToMediaItemConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -4381,7 +5270,9 @@ export declare type UserToPageConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -4432,7 +5323,9 @@ export declare type UserToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -4451,6 +5344,8 @@ export declare type UserToPostConnectionWhereArgs = {
 };
 /** Arguments for filtering the UserToContentRevisionUnionConnection connection */
 export declare type UserToContentRevisionUnionConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypeEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -4479,7 +5374,9 @@ export declare type UserToContentRevisionUnionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -4510,6 +5407,8 @@ export declare type PostToCategoryConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4551,6 +5450,8 @@ export declare type CategoryToCategoryConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4568,6 +5469,8 @@ export declare type CategoryToCategoryConnectionWhereArgs = {
 };
 /** Arguments for filtering the CategoryToContentNodeConnection connection */
 export declare type CategoryToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfCategoryEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -4596,11 +5499,17 @@ export declare type CategoryToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the Category taxonomy. */
+export declare type ContentTypesOfCategoryEnum = 
+/** The Type of Content object */
+'POST';
 /** Arguments for filtering the CategoryToPostConnection connection */
 export declare type CategoryToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -4647,7 +5556,9 @@ export declare type CategoryToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -4690,6 +5601,8 @@ export declare type PostToCoAuthorConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4792,6 +5705,8 @@ export declare type PostToEditionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4833,6 +5748,8 @@ export declare type PostToFlagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4874,6 +5791,8 @@ export declare type PostToGuideConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4915,6 +5834,8 @@ export declare type PostToLocationConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4956,6 +5877,8 @@ export declare type PostToObsessionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -4997,6 +5920,8 @@ export declare type PostToPostFormatConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5014,6 +5939,8 @@ export declare type PostToPostFormatConnectionWhereArgs = {
 };
 /** Arguments for filtering the PostFormatToContentNodeConnection connection */
 export declare type PostFormatToContentNodeConnectionWhereArgs = {
+    /** The Types of content to filter */
+    contentTypes?: Maybe<Array<Maybe<ContentTypesOfPostFormatEnum>>>;
     /** Filter the connection based on dates */
     dateQuery?: Maybe<DateQueryInput>;
     /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -5042,11 +5969,17 @@ export declare type PostFormatToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Allowed Content Types of the PostFormat taxonomy. */
+export declare type ContentTypesOfPostFormatEnum = 
+/** The Type of Content object */
+'POST';
 /** Arguments for filtering the PostFormatToPostConnection connection */
 export declare type PostFormatToPostConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -5093,7 +6026,9 @@ export declare type PostFormatToPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -5136,6 +6071,8 @@ export declare type PostToProjectConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5197,7 +6134,9 @@ export declare type PostToRevisionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -5240,6 +6179,8 @@ export declare type PostToSeriesConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5281,6 +6222,8 @@ export declare type PostToShowConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5322,6 +6265,8 @@ export declare type PostToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5363,6 +6308,8 @@ export declare type PostToTermNodeConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5406,6 +6353,8 @@ export declare type PostToTopicConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5427,10 +6376,10 @@ export declare type BlogPostIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToBlogPostConnection connection */
 export declare type RootQueryToBlogPostConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -5461,7 +6410,9 @@ export declare type RootQueryToBlogPostConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -5484,10 +6435,10 @@ export declare type BulletinIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToBulletinConnection connection */
 export declare type RootQueryToBulletinConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -5526,7 +6477,9 @@ export declare type RootQueryToBulletinConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -5569,6 +6522,8 @@ export declare type RootQueryToCategoryConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5602,10 +6557,10 @@ export declare type ChapterIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToChapterConnection connection */
 export declare type RootQueryToChapterConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -5636,7 +6591,9 @@ export declare type RootQueryToChapterConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -5691,6 +6648,8 @@ export declare type RootQueryToCoAuthorConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5712,10 +6671,10 @@ export declare type CollectionIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToCollectionConnection connection */
 export declare type RootQueryToCollectionConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -5747,7 +6706,9 @@ export declare type RootQueryToCollectionConnectionWhereArgs = {
     preview?: Maybe<PreviewQuery>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -5816,7 +6777,9 @@ export declare type RootQueryToContentNodeConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -5859,6 +6822,8 @@ export declare type RootQueryToEditionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5880,10 +6845,10 @@ export declare type EmailIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export declare type EmailListIdType = 
 /** The Database ID for the node */
@@ -5922,6 +6887,8 @@ export declare type RootQueryToEmailListConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -5975,6 +6942,8 @@ export declare type RootQueryToEmailSegmentConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6020,7 +6989,9 @@ export declare type RootQueryToEmailConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -6075,6 +7046,8 @@ export declare type RootQueryToFlagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6128,6 +7101,8 @@ export declare type RootQueryToGuideConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6181,6 +7156,8 @@ export declare type RootQueryToLocationConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6202,12 +7179,12 @@ export declare type MediaItemIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
  | 'SLUG'
 /** Identify a media item by its source url */
- | 'SOURCE_URL';
+ | 'SOURCE_URL'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToMediaItemConnection connection */
 export declare type RootQueryToMediaItemConnectionWhereArgs = {
     /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -6246,7 +7223,9 @@ export declare type RootQueryToMediaItemConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -6260,7 +7239,43 @@ export declare type MenuNodeIdTypeEnum =
 /** Identify a menu node by it's name */
  | 'NAME';
 /** Registered menu locations */
-export declare type MenuLocationEnum = 'AUTHORS_WORK' | 'CASE_STUDIES_CREATIVE' | 'CLIENTS_CREATIVE' | 'DISPLAY_CREATIVE' | 'FEATURED_QUARTZ' | 'FEATURES_MARKETING_MEMBERS' | 'FEATURES_MEMBERS' | 'FEATURES_VIDEO_MEMBERS' | 'INSIGHTS_CREATIVE' | 'OBSESSIONS_AFRICA' | 'OBSESSIONS_INDIA' | 'OBSESSIONS_QUARTZ' | 'OBSESSIONS_WORK' | 'PLAYER_VIDEO' | 'PREMIUM_MEMBERS' | 'RELATED_MBB' | 'SHOWS_VIDEO' | 'TOP_WORK';
+export declare type MenuLocationEnum = 
+/** Put the menu in the authors_work location */
+'AUTHORS_WORK'
+/** Put the menu in the case-studies_creative location */
+ | 'CASE_STUDIES_CREATIVE'
+/** Put the menu in the clients_creative location */
+ | 'CLIENTS_CREATIVE'
+/** Put the menu in the display_creative location */
+ | 'DISPLAY_CREATIVE'
+/** Put the menu in the featured_quartz location */
+ | 'FEATURED_QUARTZ'
+/** Put the menu in the features-marketing_members location */
+ | 'FEATURES_MARKETING_MEMBERS'
+/** Put the menu in the features_members location */
+ | 'FEATURES_MEMBERS'
+/** Put the menu in the features-video_members location */
+ | 'FEATURES_VIDEO_MEMBERS'
+/** Put the menu in the insights_creative location */
+ | 'INSIGHTS_CREATIVE'
+/** Put the menu in the obsessions_africa location */
+ | 'OBSESSIONS_AFRICA'
+/** Put the menu in the obsessions_india location */
+ | 'OBSESSIONS_INDIA'
+/** Put the menu in the obsessions_quartz location */
+ | 'OBSESSIONS_QUARTZ'
+/** Put the menu in the obsessions_work location */
+ | 'OBSESSIONS_WORK'
+/** Put the menu in the player_video location */
+ | 'PLAYER_VIDEO'
+/** Put the menu in the premium_members location */
+ | 'PREMIUM_MEMBERS'
+/** Put the menu in the related_mbb location */
+ | 'RELATED_MBB'
+/** Put the menu in the shows_video location */
+ | 'SHOWS_VIDEO'
+/** Put the menu in the top_work location */
+ | 'TOP_WORK';
 /** Arguments for filtering the MenuToMenuItemConnection connection */
 export declare type MenuToMenuItemConnectionWhereArgs = {
     /** The ID of the object */
@@ -6315,10 +7330,10 @@ export declare type NugIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToNugConnection connection */
 export declare type RootQueryToNugConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -6349,7 +7364,9 @@ export declare type RootQueryToNugConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -6404,6 +7421,8 @@ export declare type RootQueryToObsessionConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6465,7 +7484,9 @@ export declare type RootQueryToPageConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Title of the object */
     title?: Maybe<Scalars['String']>;
@@ -6476,10 +7497,10 @@ export declare type PostIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export declare type PostFormatIdType = 
 /** The Database ID for the node */
@@ -6518,6 +7539,8 @@ export declare type RootQueryToPostFormatConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6583,7 +7606,9 @@ export declare type RootQueryToPostConnectionWhereArgs = {
     recommended?: Maybe<RecommendedQuery>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -6650,6 +7675,8 @@ export declare type RootQueryToProjectConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6671,10 +7698,10 @@ export declare type PromotionIdType =
 'DATABASE_ID'
 /** Identify a resource by the (hashed) Global ID. */
  | 'ID'
-/** Identify a resource by the URI. */
- | 'URI'
 /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
- | 'SLUG';
+ | 'SLUG'
+/** Identify a resource by the URI. */
+ | 'URI';
 /** Arguments for filtering the RootQueryToPromotionConnection connection */
 export declare type RootQueryToPromotionConnectionWhereArgs = {
     /** Filter the connection based on dates */
@@ -6705,7 +7732,9 @@ export declare type RootQueryToPromotionConnectionWhereArgs = {
     password?: Maybe<Scalars['String']>;
     /** Show Posts based on a keyword search */
     search?: Maybe<Scalars['String']>;
+    /** Retrieve posts where post status is in an array. */
     stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+    /** Show posts with a specific status. */
     status?: Maybe<PostStatusEnum>;
     /** Tag Slug */
     tag?: Maybe<Scalars['String']>;
@@ -6760,6 +7789,8 @@ export declare type RootQueryToSeriesConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6813,6 +7844,8 @@ export declare type RootQueryToShowConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6871,6 +7904,8 @@ export declare type RootQueryToTagConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6924,6 +7959,8 @@ export declare type RootQueryToTopicConnectionWhereArgs = {
     nameLike?: Maybe<Scalars['String']>;
     /** Array of object IDs. Results will be limited to terms associated with these objects. */
     objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+    /** Direction the connection should be ordered in */
+    order?: Maybe<OrderEnum>;
     /** Field(s) to order terms by. Defaults to 'name'. */
     orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
     /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
@@ -6988,7 +8025,9 @@ export declare type RootQueryToUserConnectionWhereArgs = {
 };
 /** Options for ordering the connection */
 export declare type UsersConnectionOrderbyInput = {
+    /** The field name used to sort the results. */
     field: UsersConnectionOrderbyEnum;
+    /** The cardinality of the order of the connection */
     order?: Maybe<OrderEnum>;
 };
 /** Field to order the connection by */
@@ -7010,225 +8049,38 @@ export declare type UsersConnectionOrderbyEnum =
 /** Order by URL */
  | 'URL';
 /** Names of available user roles */
-export declare type UserRoleEnum = 'ADMINISTRATOR' | 'AUTHOR' | 'BUSINESS' | 'CONTRIBUTOR' | 'EDITOR' | 'SUBSCRIBER' | 'VIP_SUPPORT' | 'VIP_SUPPORT__INACTIVE_';
-/** Names of available user roles */
-export declare type UsersConnectionSearchColumnEnum = 'ADMINISTRATOR' | 'AUTHOR' | 'BUSINESS' | 'CONTRIBUTOR' | 'EDITOR' | 'SUBSCRIBER' | 'VIP_SUPPORT' | 'VIP_SUPPORT__INACTIVE_';
-/** Input for the UpdateCategory mutation */
-export declare type UpdateCategoryInput = {
-    /** The slug that the category will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the category object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the category object to update */
-    id: Scalars['ID'];
-    /** The name of the category object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** The ID of the category that should be set as the parent */
-    parentId?: Maybe<Scalars['ID']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateCoAuthor mutation */
-export declare type UpdateCoAuthorInput = {
-    /** The slug that the author will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the author object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the coAuthor object to update */
-    id: Scalars['ID'];
-    /** The name of the author object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateEdition mutation */
-export declare type UpdateEditionInput = {
-    /** The slug that the edition will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the edition object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the edition object to update */
-    id: Scalars['ID'];
-    /** The name of the edition object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateEmailList mutation */
-export declare type UpdateEmailListInput = {
-    /** The slug that the qz_email_list will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the qz_email_list object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the emailList object to update */
-    id: Scalars['ID'];
-    /** The name of the qz_email_list object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateEmailSegment mutation */
-export declare type UpdateEmailSegmentInput = {
-    /** The slug that the segment-group will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the segment-group object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the emailSegment object to update */
-    id: Scalars['ID'];
-    /** The name of the segment-group object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateFlag mutation */
-export declare type UpdateFlagInput = {
-    /** The slug that the flag will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the flag object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the flag object to update */
-    id: Scalars['ID'];
-    /** The name of the flag object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateGuide mutation */
-export declare type UpdateGuideInput = {
-    /** The slug that the guide will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the guide object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the guide object to update */
-    id: Scalars['ID'];
-    /** The name of the guide object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateLocation mutation */
-export declare type UpdateLocationInput = {
-    /** The slug that the location will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the location object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the location object to update */
-    id: Scalars['ID'];
-    /** The name of the location object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateObsession mutation */
-export declare type UpdateObsessionInput = {
-    /** The slug that the obsession will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the obsession object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the obsession object to update */
-    id: Scalars['ID'];
-    /** The name of the obsession object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdatePostFormat mutation */
-export declare type UpdatePostFormatInput = {
-    /** The slug that the post_format will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the post_format object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the postFormat object to update */
-    id: Scalars['ID'];
-    /** The name of the post_format object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateProject mutation */
-export declare type UpdateProjectInput = {
-    /** The slug that the project will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the project object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the project object to update */
-    id: Scalars['ID'];
-    /** The name of the project object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateSeries mutation */
-export declare type UpdateSeriesInput = {
-    /** The slug that the series will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the series object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the series object to update */
-    id: Scalars['ID'];
-    /** The name of the series object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateShow mutation */
-export declare type UpdateShowInput = {
-    /** The slug that the show will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the show object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the show object to update */
-    id: Scalars['ID'];
-    /** The name of the show object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateTag mutation */
-export declare type UpdateTagInput = {
-    /** The slug that the post_tag will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the post_tag object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the tag object to update */
-    id: Scalars['ID'];
-    /** The name of the post_tag object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
-/** Input for the UpdateTopic mutation */
-export declare type UpdateTopicInput = {
-    /** The slug that the topic will be an alias of */
-    aliasOf?: Maybe<Scalars['String']>;
-    clientMutationId?: Maybe<Scalars['String']>;
-    /** The description of the topic object */
-    description?: Maybe<Scalars['String']>;
-    /** The ID of the topic object to update */
-    id: Scalars['ID'];
-    /** The name of the topic object to mutate */
-    name?: Maybe<Scalars['String']>;
-    /** The ID of the topic that should be set as the parent */
-    parentId?: Maybe<Scalars['ID']>;
-    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
-    slug?: Maybe<Scalars['String']>;
-};
+export declare type UserRoleEnum = 
+/** User role with specific capabilities */
+'ADMINISTRATOR'
+/** User role with specific capabilities */
+ | 'AUTHOR'
+/** User role with specific capabilities */
+ | 'BUSINESS'
+/** User role with specific capabilities */
+ | 'CONTRIBUTOR'
+/** User role with specific capabilities */
+ | 'EDITOR'
+/** User role with specific capabilities */
+ | 'SUBSCRIBER'
+/** User role with specific capabilities */
+ | 'VIP_SUPPORT'
+/** User role with specific capabilities */
+ | 'VIP_SUPPORT__INACTIVE_';
+/** Column used for searching for users. */
+export declare type UsersConnectionSearchColumnEnum = 
+/** The user's email address. */
+'EMAIL'
+/** The globally unique ID. */
+ | 'ID'
+/** The username the User uses to login with. */
+ | 'LOGIN'
+/** A URL-friendly name for the user. The default is the user's username. */
+ | 'NICENAME'
+/** The URL of the user\s website. */
+ | 'URL';
 /** Input for the createBlogPost mutation */
 export declare type CreateBlogPostInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -7253,6 +8105,7 @@ export declare type CreateBlogPostInput = {
 export declare type BlogPostTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BlogPostTagsNodeInput>>>;
 };
 /** List of tags to connect the blogPost to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7270,6 +8123,7 @@ export declare type BlogPostTagsNodeInput = {
 export declare type CreateBulletinInput = {
     /** The userId to assign as the author of the object */
     authorId?: Maybe<Scalars['ID']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the bulletin and coAuthors */
     coAuthors?: Maybe<BulletinCoAuthorsInput>;
@@ -7312,6 +8166,7 @@ export declare type CreateBulletinInput = {
 export declare type BulletinCoAuthorsInput = {
     /** If true, this will append the coAuthor to existing related coAuthors. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinCoAuthorsNodeInput>>>;
 };
 /** List of coAuthors to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7329,6 +8184,7 @@ export declare type BulletinCoAuthorsNodeInput = {
 export declare type BulletinEditionsInput = {
     /** If true, this will append the edition to existing related editions. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinEditionsNodeInput>>>;
 };
 /** List of editions to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7346,6 +8202,7 @@ export declare type BulletinEditionsNodeInput = {
 export declare type BulletinFlagsInput = {
     /** If true, this will append the flag to existing related flags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinFlagsNodeInput>>>;
 };
 /** List of flags to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7363,6 +8220,7 @@ export declare type BulletinFlagsNodeInput = {
 export declare type BulletinLocationsInput = {
     /** If true, this will append the location to existing related locations. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinLocationsNodeInput>>>;
 };
 /** List of locations to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7380,6 +8238,7 @@ export declare type BulletinLocationsNodeInput = {
 export declare type BulletinObsessionsInput = {
     /** If true, this will append the obsession to existing related obsessions. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinObsessionsNodeInput>>>;
 };
 /** List of obsessions to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7397,6 +8256,7 @@ export declare type BulletinObsessionsNodeInput = {
 export declare type BulletinProjectsInput = {
     /** If true, this will append the project to existing related projects. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinProjectsNodeInput>>>;
 };
 /** List of projects to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7414,6 +8274,7 @@ export declare type BulletinProjectsNodeInput = {
 export declare type BulletinSeriesesInput = {
     /** If true, this will append the series to existing related serieses. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinSeriesesNodeInput>>>;
 };
 /** List of serieses to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7431,6 +8292,7 @@ export declare type BulletinSeriesesNodeInput = {
 export declare type BulletinShowsInput = {
     /** If true, this will append the show to existing related shows. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinShowsNodeInput>>>;
 };
 /** List of shows to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7448,6 +8310,7 @@ export declare type BulletinShowsNodeInput = {
 export declare type BulletinTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinTagsNodeInput>>>;
 };
 /** List of tags to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7465,6 +8328,7 @@ export declare type BulletinTagsNodeInput = {
 export declare type BulletinTopicsInput = {
     /** If true, this will append the topic to existing related topics. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<BulletinTopicsNodeInput>>>;
 };
 /** List of topics to connect the bulletin to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7482,6 +8346,7 @@ export declare type BulletinTopicsNodeInput = {
 export declare type CreateCategoryInput = {
     /** The slug that the category will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the category object */
     description?: Maybe<Scalars['String']>;
@@ -7494,6 +8359,7 @@ export declare type CreateCategoryInput = {
 };
 /** Input for the createChapter mutation */
 export declare type CreateChapterInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the chapter and coAuthors */
     coAuthors?: Maybe<ChapterCoAuthorsInput>;
@@ -7522,6 +8388,7 @@ export declare type CreateChapterInput = {
 export declare type ChapterCoAuthorsInput = {
     /** If true, this will append the coAuthor to existing related coAuthors. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<ChapterCoAuthorsNodeInput>>>;
 };
 /** List of coAuthors to connect the chapter to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7539,6 +8406,7 @@ export declare type ChapterCoAuthorsNodeInput = {
 export declare type ChapterProjectsInput = {
     /** If true, this will append the project to existing related projects. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<ChapterProjectsNodeInput>>>;
 };
 /** List of projects to connect the chapter to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7556,6 +8424,7 @@ export declare type ChapterProjectsNodeInput = {
 export declare type ChapterTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<ChapterTagsNodeInput>>>;
 };
 /** List of tags to connect the chapter to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7573,6 +8442,7 @@ export declare type ChapterTagsNodeInput = {
 export declare type CreateCoAuthorInput = {
     /** The slug that the author will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the author object */
     description?: Maybe<Scalars['String']>;
@@ -7583,6 +8453,7 @@ export declare type CreateCoAuthorInput = {
 };
 /** Input for the createCollection mutation */
 export declare type CreateCollectionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -7607,6 +8478,7 @@ export declare type CreateCollectionInput = {
 export declare type CollectionTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<CollectionTagsNodeInput>>>;
 };
 /** List of tags to connect the collection to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7630,6 +8502,7 @@ export declare type CreateCommentInput = {
     authorEmail?: Maybe<Scalars['String']>;
     /** The url of the comment's author. */
     authorUrl?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the post object the comment belongs to. */
     commentOn?: Maybe<Scalars['Int']>;
@@ -7646,6 +8519,7 @@ export declare type CreateCommentInput = {
 export declare type CreateEditionInput = {
     /** The slug that the edition will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the edition object */
     description?: Maybe<Scalars['String']>;
@@ -7656,6 +8530,7 @@ export declare type CreateEditionInput = {
 };
 /** Input for the createEmail mutation */
 export declare type CreateEmailInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the email and coAuthors */
     coAuthors?: Maybe<EmailCoAuthorsInput>;
@@ -7684,6 +8559,7 @@ export declare type CreateEmailInput = {
 export declare type EmailCoAuthorsInput = {
     /** If true, this will append the coAuthor to existing related coAuthors. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<EmailCoAuthorsNodeInput>>>;
 };
 /** List of coAuthors to connect the email to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7701,6 +8577,7 @@ export declare type EmailCoAuthorsNodeInput = {
 export declare type EmailEmailListsInput = {
     /** If true, this will append the emailList to existing related emailLists. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<EmailEmailListsNodeInput>>>;
 };
 /** List of emailLists to connect the email to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7718,6 +8595,7 @@ export declare type EmailEmailListsNodeInput = {
 export declare type EmailEmailSegmentsInput = {
     /** If true, this will append the emailSegment to existing related emailSegments. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<EmailEmailSegmentsNodeInput>>>;
 };
 /** List of emailSegments to connect the email to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7735,6 +8613,7 @@ export declare type EmailEmailSegmentsNodeInput = {
 export declare type EmailTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<EmailTagsNodeInput>>>;
 };
 /** List of tags to connect the email to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7752,6 +8631,7 @@ export declare type EmailTagsNodeInput = {
 export declare type CreateEmailListInput = {
     /** The slug that the qz_email_list will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the qz_email_list object */
     description?: Maybe<Scalars['String']>;
@@ -7764,6 +8644,7 @@ export declare type CreateEmailListInput = {
 export declare type CreateEmailSegmentInput = {
     /** The slug that the segment-group will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the segment-group object */
     description?: Maybe<Scalars['String']>;
@@ -7776,6 +8657,7 @@ export declare type CreateEmailSegmentInput = {
 export declare type CreateFlagInput = {
     /** The slug that the flag will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the flag object */
     description?: Maybe<Scalars['String']>;
@@ -7788,6 +8670,7 @@ export declare type CreateFlagInput = {
 export declare type CreateGuideInput = {
     /** The slug that the guide will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the guide object */
     description?: Maybe<Scalars['String']>;
@@ -7800,6 +8683,7 @@ export declare type CreateGuideInput = {
 export declare type CreateLocationInput = {
     /** The slug that the location will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the location object */
     description?: Maybe<Scalars['String']>;
@@ -7816,6 +8700,7 @@ export declare type CreateMediaItemInput = {
     authorId?: Maybe<Scalars['ID']>;
     /** The caption for the mediaItem */
     caption?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The comment status for the mediaItem */
     commentStatus?: Maybe<Scalars['String']>;
@@ -7852,6 +8737,7 @@ export declare type MediaItemStatusEnum =
  | 'TRASH';
 /** Input for the createNug mutation */
 export declare type CreateNugInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -7880,6 +8766,7 @@ export declare type CreateNugInput = {
 export declare type NugEmailListsInput = {
     /** If true, this will append the emailList to existing related emailLists. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<NugEmailListsNodeInput>>>;
 };
 /** List of emailLists to connect the nug to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7897,6 +8784,7 @@ export declare type NugEmailListsNodeInput = {
 export declare type NugTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<NugTagsNodeInput>>>;
 };
 /** List of tags to connect the nug to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7914,6 +8802,7 @@ export declare type NugTagsNodeInput = {
 export declare type NugTopicsInput = {
     /** If true, this will append the topic to existing related topics. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<NugTopicsNodeInput>>>;
 };
 /** List of topics to connect the nug to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7931,6 +8820,7 @@ export declare type NugTopicsNodeInput = {
 export declare type CreateObsessionInput = {
     /** The slug that the obsession will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the obsession object */
     description?: Maybe<Scalars['String']>;
@@ -7943,6 +8833,7 @@ export declare type CreateObsessionInput = {
 export declare type CreatePageInput = {
     /** The userId to assign as the author of the object */
     authorId?: Maybe<Scalars['ID']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the page and coAuthors */
     coAuthors?: Maybe<PageCoAuthorsInput>;
@@ -7969,6 +8860,7 @@ export declare type CreatePageInput = {
 export declare type PageCoAuthorsInput = {
     /** If true, this will append the coAuthor to existing related coAuthors. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PageCoAuthorsNodeInput>>>;
 };
 /** List of coAuthors to connect the page to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -7988,6 +8880,7 @@ export declare type CreatePostInput = {
     authorId?: Maybe<Scalars['ID']>;
     /** Set connections between the post and categories */
     categories?: Maybe<PostCategoriesInput>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the post and coAuthors */
     coAuthors?: Maybe<PostCoAuthorsInput>;
@@ -8042,6 +8935,7 @@ export declare type CreatePostInput = {
 export declare type PostCategoriesInput = {
     /** If true, this will append the category to existing related categories. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostCategoriesNodeInput>>>;
 };
 /** List of categories to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8059,6 +8953,7 @@ export declare type PostCategoriesNodeInput = {
 export declare type PostCoAuthorsInput = {
     /** If true, this will append the coAuthor to existing related coAuthors. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostCoAuthorsNodeInput>>>;
 };
 /** List of coAuthors to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8076,6 +8971,7 @@ export declare type PostCoAuthorsNodeInput = {
 export declare type PostEditionsInput = {
     /** If true, this will append the edition to existing related editions. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostEditionsNodeInput>>>;
 };
 /** List of editions to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8093,6 +8989,7 @@ export declare type PostEditionsNodeInput = {
 export declare type PostFlagsInput = {
     /** If true, this will append the flag to existing related flags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostFlagsNodeInput>>>;
 };
 /** List of flags to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8110,6 +9007,7 @@ export declare type PostFlagsNodeInput = {
 export declare type PostGuidesInput = {
     /** If true, this will append the guide to existing related guides. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostGuidesNodeInput>>>;
 };
 /** List of guides to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8127,6 +9025,7 @@ export declare type PostGuidesNodeInput = {
 export declare type PostLocationsInput = {
     /** If true, this will append the location to existing related locations. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostLocationsNodeInput>>>;
 };
 /** List of locations to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8144,6 +9043,7 @@ export declare type PostLocationsNodeInput = {
 export declare type PostObsessionsInput = {
     /** If true, this will append the obsession to existing related obsessions. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostObsessionsNodeInput>>>;
 };
 /** List of obsessions to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8161,6 +9061,7 @@ export declare type PostObsessionsNodeInput = {
 export declare type PostPostFormatsInput = {
     /** If true, this will append the postFormat to existing related postFormats. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostPostFormatsNodeInput>>>;
 };
 /** List of postFormats to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8178,6 +9079,7 @@ export declare type PostPostFormatsNodeInput = {
 export declare type PostProjectsInput = {
     /** If true, this will append the project to existing related projects. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostProjectsNodeInput>>>;
 };
 /** List of projects to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8195,6 +9097,7 @@ export declare type PostProjectsNodeInput = {
 export declare type PostSeriesesInput = {
     /** If true, this will append the series to existing related serieses. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostSeriesesNodeInput>>>;
 };
 /** List of serieses to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8212,6 +9115,7 @@ export declare type PostSeriesesNodeInput = {
 export declare type PostShowsInput = {
     /** If true, this will append the show to existing related shows. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostShowsNodeInput>>>;
 };
 /** List of shows to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8229,6 +9133,7 @@ export declare type PostShowsNodeInput = {
 export declare type PostTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostTagsNodeInput>>>;
 };
 /** List of tags to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8246,6 +9151,7 @@ export declare type PostTagsNodeInput = {
 export declare type PostTopicsInput = {
     /** If true, this will append the topic to existing related topics. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PostTopicsNodeInput>>>;
 };
 /** List of topics to connect the post to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8263,6 +9169,7 @@ export declare type PostTopicsNodeInput = {
 export declare type CreatePostFormatInput = {
     /** The slug that the post_format will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the post_format object */
     description?: Maybe<Scalars['String']>;
@@ -8275,6 +9182,7 @@ export declare type CreatePostFormatInput = {
 export declare type CreateProjectInput = {
     /** The slug that the project will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the project object */
     description?: Maybe<Scalars['String']>;
@@ -8285,6 +9193,7 @@ export declare type CreateProjectInput = {
 };
 /** Input for the createPromotion mutation */
 export declare type CreatePromotionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -8311,6 +9220,7 @@ export declare type CreatePromotionInput = {
 export declare type PromotionObsessionsInput = {
     /** If true, this will append the obsession to existing related obsessions. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PromotionObsessionsNodeInput>>>;
 };
 /** List of obsessions to connect the promotion to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8328,6 +9238,7 @@ export declare type PromotionObsessionsNodeInput = {
 export declare type PromotionTagsInput = {
     /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
     append?: Maybe<Scalars['Boolean']>;
+    /** The input list of items to set. */
     nodes?: Maybe<Array<Maybe<PromotionTagsNodeInput>>>;
 };
 /** List of tags to connect the promotion to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
@@ -8345,6 +9256,7 @@ export declare type PromotionTagsNodeInput = {
 export declare type CreateSeriesInput = {
     /** The slug that the series will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the series object */
     description?: Maybe<Scalars['String']>;
@@ -8357,6 +9269,7 @@ export declare type CreateSeriesInput = {
 export declare type CreateShowInput = {
     /** The slug that the show will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the show object */
     description?: Maybe<Scalars['String']>;
@@ -8369,6 +9282,7 @@ export declare type CreateShowInput = {
 export declare type CreateTagInput = {
     /** The slug that the post_tag will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the post_tag object */
     description?: Maybe<Scalars['String']>;
@@ -8381,6 +9295,7 @@ export declare type CreateTagInput = {
 export declare type CreateTopicInput = {
     /** The slug that the topic will be an alias of */
     aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The description of the topic object */
     description?: Maybe<Scalars['String']>;
@@ -8395,6 +9310,7 @@ export declare type CreateTopicInput = {
 export declare type CreateUserInput = {
     /** User's AOL IM account. */
     aim?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** A string containing content about the user. */
     description?: Maybe<Scalars['String']>;
@@ -8431,6 +9347,7 @@ export declare type CreateUserInput = {
 };
 /** Input for the deleteBlogPost mutation */
 export declare type DeleteBlogPostInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8439,6 +9356,7 @@ export declare type DeleteBlogPostInput = {
 };
 /** Input for the deleteBulletin mutation */
 export declare type DeleteBulletinInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8447,12 +9365,14 @@ export declare type DeleteBulletinInput = {
 };
 /** Input for the deleteCategory mutation */
 export declare type DeleteCategoryInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the category to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteChapter mutation */
 export declare type DeleteChapterInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8461,12 +9381,14 @@ export declare type DeleteChapterInput = {
 };
 /** Input for the deleteCoAuthor mutation */
 export declare type DeleteCoAuthorInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the coAuthor to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteCollection mutation */
 export declare type DeleteCollectionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8475,6 +9397,7 @@ export declare type DeleteCollectionInput = {
 };
 /** Input for the deleteComment mutation */
 export declare type DeleteCommentInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the comment should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8483,12 +9406,14 @@ export declare type DeleteCommentInput = {
 };
 /** Input for the deleteEdition mutation */
 export declare type DeleteEditionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the edition to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteEmail mutation */
 export declare type DeleteEmailInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8497,36 +9422,42 @@ export declare type DeleteEmailInput = {
 };
 /** Input for the deleteEmailList mutation */
 export declare type DeleteEmailListInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the emailList to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteEmailSegment mutation */
 export declare type DeleteEmailSegmentInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the emailSegment to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteFlag mutation */
 export declare type DeleteFlagInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the flag to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteGuide mutation */
 export declare type DeleteGuideInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the guide to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteLocation mutation */
 export declare type DeleteLocationInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the location to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteMediaItem mutation */
 export declare type DeleteMediaItemInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the mediaItem should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8535,6 +9466,7 @@ export declare type DeleteMediaItemInput = {
 };
 /** Input for the deleteNug mutation */
 export declare type DeleteNugInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8543,12 +9475,14 @@ export declare type DeleteNugInput = {
 };
 /** Input for the deleteObsession mutation */
 export declare type DeleteObsessionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the obsession to delete */
     id: Scalars['ID'];
 };
 /** Input for the deletePage mutation */
 export declare type DeletePageInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8557,6 +9491,7 @@ export declare type DeletePageInput = {
 };
 /** Input for the deletePost mutation */
 export declare type DeletePostInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8565,18 +9500,21 @@ export declare type DeletePostInput = {
 };
 /** Input for the deletePostFormat mutation */
 export declare type DeletePostFormatInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the postFormat to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteProject mutation */
 export declare type DeleteProjectInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the project to delete */
     id: Scalars['ID'];
 };
 /** Input for the deletePromotion mutation */
 export declare type DeletePromotionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Whether the object should be force deleted instead of being moved to the trash */
     forceDelete?: Maybe<Scalars['Boolean']>;
@@ -8585,30 +9523,35 @@ export declare type DeletePromotionInput = {
 };
 /** Input for the deleteSeries mutation */
 export declare type DeleteSeriesInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the series to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteShow mutation */
 export declare type DeleteShowInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the show to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteTag mutation */
 export declare type DeleteTagInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the tag to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteTopic mutation */
 export declare type DeleteTopicInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the topic to delete */
     id: Scalars['ID'];
 };
 /** Input for the deleteUser mutation */
 export declare type DeleteUserInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the user you want to delete */
     id: Scalars['ID'];
@@ -8619,6 +9562,7 @@ export declare type DeleteUserInput = {
 export declare type RegisterUserInput = {
     /** User's AOL IM account. */
     aim?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** A string containing content about the user. */
     description?: Maybe<Scalars['String']>;
@@ -8653,6 +9597,7 @@ export declare type RegisterUserInput = {
 };
 /** Input for the resetUserPassword mutation */
 export declare type ResetUserPasswordInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Password reset key */
     key?: Maybe<Scalars['String']>;
@@ -8663,18 +9608,21 @@ export declare type ResetUserPasswordInput = {
 };
 /** Input for the restoreComment mutation */
 export declare type RestoreCommentInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the comment to be restored */
     id: Scalars['ID'];
 };
 /** Input for the sendPasswordResetEmail mutation */
 export declare type SendPasswordResetEmailInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** A string that contains the user's username or email address. */
     username: Scalars['String'];
 };
 /** Input for the updateBlogPost mutation */
 export declare type UpdateBlogPostInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -8701,6 +9649,7 @@ export declare type UpdateBlogPostInput = {
 export declare type UpdateBulletinInput = {
     /** The userId to assign as the author of the object */
     authorId?: Maybe<Scalars['ID']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the bulletin and coAuthors */
     coAuthors?: Maybe<BulletinCoAuthorsInput>;
@@ -8741,8 +9690,26 @@ export declare type UpdateBulletinInput = {
     /** Set connections between the bulletin and topics */
     topics?: Maybe<BulletinTopicsInput>;
 };
+/** Input for the UpdateCategory mutation */
+export declare type UpdateCategoryInput = {
+    /** The slug that the category will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the category object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the category object to update */
+    id: Scalars['ID'];
+    /** The name of the category object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** The ID of the category that should be set as the parent */
+    parentId?: Maybe<Scalars['ID']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updateChapter mutation */
 export declare type UpdateChapterInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the chapter and coAuthors */
     coAuthors?: Maybe<ChapterCoAuthorsInput>;
@@ -8769,8 +9736,24 @@ export declare type UpdateChapterInput = {
     /** The title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Input for the UpdateCoAuthor mutation */
+export declare type UpdateCoAuthorInput = {
+    /** The slug that the author will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the author object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the coAuthor object to update */
+    id: Scalars['ID'];
+    /** The name of the author object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updateCollection mutation */
 export declare type UpdateCollectionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -8803,6 +9786,7 @@ export declare type UpdateCommentInput = {
     authorEmail?: Maybe<Scalars['String']>;
     /** The url of the comment's author. */
     authorUrl?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The ID of the post object the comment belongs to. */
     commentOn?: Maybe<Scalars['Int']>;
@@ -8817,8 +9801,24 @@ export declare type UpdateCommentInput = {
     /** Type of comment. */
     type?: Maybe<Scalars['String']>;
 };
+/** Input for the UpdateEdition mutation */
+export declare type UpdateEditionInput = {
+    /** The slug that the edition will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the edition object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the edition object to update */
+    id: Scalars['ID'];
+    /** The name of the edition object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updateEmail mutation */
 export declare type UpdateEmailInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the email and coAuthors */
     coAuthors?: Maybe<EmailCoAuthorsInput>;
@@ -8845,6 +9845,81 @@ export declare type UpdateEmailInput = {
     /** The title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Input for the UpdateEmailList mutation */
+export declare type UpdateEmailListInput = {
+    /** The slug that the qz_email_list will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the qz_email_list object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the emailList object to update */
+    id: Scalars['ID'];
+    /** The name of the qz_email_list object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateEmailSegment mutation */
+export declare type UpdateEmailSegmentInput = {
+    /** The slug that the segment-group will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the segment-group object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the emailSegment object to update */
+    id: Scalars['ID'];
+    /** The name of the segment-group object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateFlag mutation */
+export declare type UpdateFlagInput = {
+    /** The slug that the flag will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the flag object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the flag object to update */
+    id: Scalars['ID'];
+    /** The name of the flag object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateGuide mutation */
+export declare type UpdateGuideInput = {
+    /** The slug that the guide will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the guide object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the guide object to update */
+    id: Scalars['ID'];
+    /** The name of the guide object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateLocation mutation */
+export declare type UpdateLocationInput = {
+    /** The slug that the location will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the location object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the location object to update */
+    id: Scalars['ID'];
+    /** The name of the location object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updateMediaItem mutation */
 export declare type UpdateMediaItemInput = {
     /** Alternative text to display when mediaItem is not displayed */
@@ -8853,6 +9928,7 @@ export declare type UpdateMediaItemInput = {
     authorId?: Maybe<Scalars['ID']>;
     /** The caption for the mediaItem */
     caption?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The comment status for the mediaItem */
     commentStatus?: Maybe<Scalars['String']>;
@@ -8881,6 +9957,7 @@ export declare type UpdateMediaItemInput = {
 };
 /** Input for the updateNug mutation */
 export declare type UpdateNugInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -8907,10 +9984,26 @@ export declare type UpdateNugInput = {
     /** Set connections between the nug and topics */
     topics?: Maybe<NugTopicsInput>;
 };
+/** Input for the UpdateObsession mutation */
+export declare type UpdateObsessionInput = {
+    /** The slug that the obsession will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the obsession object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the obsession object to update */
+    id: Scalars['ID'];
+    /** The name of the obsession object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updatePage mutation */
 export declare type UpdatePageInput = {
     /** The userId to assign as the author of the object */
     authorId?: Maybe<Scalars['ID']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the page and coAuthors */
     coAuthors?: Maybe<PageCoAuthorsInput>;
@@ -8941,6 +10034,7 @@ export declare type UpdatePostInput = {
     authorId?: Maybe<Scalars['ID']>;
     /** Set connections between the post and categories */
     categories?: Maybe<PostCategoriesInput>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Set connections between the post and coAuthors */
     coAuthors?: Maybe<PostCoAuthorsInput>;
@@ -8993,8 +10087,39 @@ export declare type UpdatePostInput = {
     /** Set connections between the post and topics */
     topics?: Maybe<PostTopicsInput>;
 };
+/** Input for the UpdatePostFormat mutation */
+export declare type UpdatePostFormatInput = {
+    /** The slug that the post_format will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the post_format object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the postFormat object to update */
+    id: Scalars['ID'];
+    /** The name of the post_format object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateProject mutation */
+export declare type UpdateProjectInput = {
+    /** The slug that the project will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the project object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the project object to update */
+    id: Scalars['ID'];
+    /** The name of the project object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updatePromotion mutation */
 export declare type UpdatePromotionInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** The content of the object */
     content?: Maybe<Scalars['String']>;
@@ -9019,8 +10144,24 @@ export declare type UpdatePromotionInput = {
     /** The title of the object */
     title?: Maybe<Scalars['String']>;
 };
+/** Input for the UpdateSeries mutation */
+export declare type UpdateSeriesInput = {
+    /** The slug that the series will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the series object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the series object to update */
+    id: Scalars['ID'];
+    /** The name of the series object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updateSettings mutation */
 export declare type UpdateSettingsInput = {
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** Allow people to submit comments on new posts. */
     discussionSettingsDefaultCommentStatus?: Maybe<Scalars['String']>;
@@ -9053,10 +10194,58 @@ export declare type UpdateSettingsInput = {
     /** Convert emoticons like :-) and :-P to graphics on display. */
     writingSettingsUseSmilies?: Maybe<Scalars['Boolean']>;
 };
+/** Input for the UpdateShow mutation */
+export declare type UpdateShowInput = {
+    /** The slug that the show will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the show object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the show object to update */
+    id: Scalars['ID'];
+    /** The name of the show object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateTag mutation */
+export declare type UpdateTagInput = {
+    /** The slug that the post_tag will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the post_tag object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the tag object to update */
+    id: Scalars['ID'];
+    /** The name of the post_tag object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
+/** Input for the UpdateTopic mutation */
+export declare type UpdateTopicInput = {
+    /** The slug that the topic will be an alias of */
+    aliasOf?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Maybe<Scalars['String']>;
+    /** The description of the topic object */
+    description?: Maybe<Scalars['String']>;
+    /** The ID of the topic object to update */
+    id: Scalars['ID'];
+    /** The name of the topic object to mutate */
+    name?: Maybe<Scalars['String']>;
+    /** The ID of the topic that should be set as the parent */
+    parentId?: Maybe<Scalars['ID']>;
+    /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+    slug?: Maybe<Scalars['String']>;
+};
 /** Input for the updateUser mutation */
 export declare type UpdateUserInput = {
     /** User's AOL IM account. */
     aim?: Maybe<Scalars['String']>;
+    /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
     clientMutationId?: Maybe<Scalars['String']>;
     /** A string containing content about the user. */
     description?: Maybe<Scalars['String']>;
@@ -9090,1087 +10279,5 @@ export declare type UpdateUserInput = {
     websiteUrl?: Maybe<Scalars['String']>;
     /** User's Yahoo IM account. */
     yim?: Maybe<Scalars['String']>;
-};
-/** The Type of Identifier used to fetch a single Content Type node. To be used along with the "id" field. Default is "ID". */
-export declare type ContentTypeIdTypeEnum = 
-/** The globally unique ID */
-'ID'
-/** The name of the content type. */
- | 'NAME';
-/** The Type of Identifier used to fetch a single Taxonomy node. To be used along with the "id" field. Default is "ID". */
-export declare type TaxonomyIdTypeEnum = 
-/** The globally unique ID */
-'ID'
-/** The name of the taxonomy */
- | 'NAME';
-/** The Type of Identifier used to fetch a single resource. Default is "ID". To be used along with the "id" field. */
-export declare type TermNodeIdTypeEnum = 
-/** The Database ID for the node */
-'DATABASE_ID'
-/** The hashed Global ID */
- | 'ID'
-/** The name of the node */
- | 'NAME'
-/** Url friendly name of the node */
- | 'SLUG'
-/** The URI for the node */
- | 'URI';
-/** Available timezones */
-export declare type TimezoneEnum = 
-/** Abidjan */
-'AFRICA_ABIDJAN'
-/** Accra */
- | 'AFRICA_ACCRA'
-/** Addis Ababa */
- | 'AFRICA_ADDIS_ABABA'
-/** Algiers */
- | 'AFRICA_ALGIERS'
-/** Asmara */
- | 'AFRICA_ASMARA'
-/** Bamako */
- | 'AFRICA_BAMAKO'
-/** Bangui */
- | 'AFRICA_BANGUI'
-/** Banjul */
- | 'AFRICA_BANJUL'
-/** Bissau */
- | 'AFRICA_BISSAU'
-/** Blantyre */
- | 'AFRICA_BLANTYRE'
-/** Brazzaville */
- | 'AFRICA_BRAZZAVILLE'
-/** Bujumbura */
- | 'AFRICA_BUJUMBURA'
-/** Cairo */
- | 'AFRICA_CAIRO'
-/** Casablanca */
- | 'AFRICA_CASABLANCA'
-/** Ceuta */
- | 'AFRICA_CEUTA'
-/** Conakry */
- | 'AFRICA_CONAKRY'
-/** Dakar */
- | 'AFRICA_DAKAR'
-/** Dar es Salaam */
- | 'AFRICA_DAR_ES_SALAAM'
-/** Djibouti */
- | 'AFRICA_DJIBOUTI'
-/** Douala */
- | 'AFRICA_DOUALA'
-/** El Aaiun */
- | 'AFRICA_EL_AAIUN'
-/** Freetown */
- | 'AFRICA_FREETOWN'
-/** Gaborone */
- | 'AFRICA_GABORONE'
-/** Harare */
- | 'AFRICA_HARARE'
-/** Johannesburg */
- | 'AFRICA_JOHANNESBURG'
-/** Juba */
- | 'AFRICA_JUBA'
-/** Kampala */
- | 'AFRICA_KAMPALA'
-/** Khartoum */
- | 'AFRICA_KHARTOUM'
-/** Kigali */
- | 'AFRICA_KIGALI'
-/** Kinshasa */
- | 'AFRICA_KINSHASA'
-/** Lagos */
- | 'AFRICA_LAGOS'
-/** Libreville */
- | 'AFRICA_LIBREVILLE'
-/** Lome */
- | 'AFRICA_LOME'
-/** Luanda */
- | 'AFRICA_LUANDA'
-/** Lubumbashi */
- | 'AFRICA_LUBUMBASHI'
-/** Lusaka */
- | 'AFRICA_LUSAKA'
-/** Malabo */
- | 'AFRICA_MALABO'
-/** Maputo */
- | 'AFRICA_MAPUTO'
-/** Maseru */
- | 'AFRICA_MASERU'
-/** Mbabane */
- | 'AFRICA_MBABANE'
-/** Mogadishu */
- | 'AFRICA_MOGADISHU'
-/** Monrovia */
- | 'AFRICA_MONROVIA'
-/** Nairobi */
- | 'AFRICA_NAIROBI'
-/** Ndjamena */
- | 'AFRICA_NDJAMENA'
-/** Niamey */
- | 'AFRICA_NIAMEY'
-/** Nouakchott */
- | 'AFRICA_NOUAKCHOTT'
-/** Ouagadougou */
- | 'AFRICA_OUAGADOUGOU'
-/** Porto-Novo */
- | 'AFRICA_PORTO_NOVO'
-/** Sao Tome */
- | 'AFRICA_SAO_TOME'
-/** Tripoli */
- | 'AFRICA_TRIPOLI'
-/** Tunis */
- | 'AFRICA_TUNIS'
-/** Windhoek */
- | 'AFRICA_WINDHOEK'
-/** Adak */
- | 'AMERICA_ADAK'
-/** Anchorage */
- | 'AMERICA_ANCHORAGE'
-/** Anguilla */
- | 'AMERICA_ANGUILLA'
-/** Antigua */
- | 'AMERICA_ANTIGUA'
-/** Araguaina */
- | 'AMERICA_ARAGUAINA'
-/** Argentina - Buenos Aires */
- | 'AMERICA_ARGENTINA_BUENOS_AIRES'
-/** Argentina - Catamarca */
- | 'AMERICA_ARGENTINA_CATAMARCA'
-/** Argentina - Cordoba */
- | 'AMERICA_ARGENTINA_CORDOBA'
-/** Argentina - Jujuy */
- | 'AMERICA_ARGENTINA_JUJUY'
-/** Argentina - La Rioja */
- | 'AMERICA_ARGENTINA_LA_RIOJA'
-/** Argentina - Mendoza */
- | 'AMERICA_ARGENTINA_MENDOZA'
-/** Argentina - Rio Gallegos */
- | 'AMERICA_ARGENTINA_RIO_GALLEGOS'
-/** Argentina - Salta */
- | 'AMERICA_ARGENTINA_SALTA'
-/** Argentina - San Juan */
- | 'AMERICA_ARGENTINA_SAN_JUAN'
-/** Argentina - San Luis */
- | 'AMERICA_ARGENTINA_SAN_LUIS'
-/** Argentina - Tucuman */
- | 'AMERICA_ARGENTINA_TUCUMAN'
-/** Argentina - Ushuaia */
- | 'AMERICA_ARGENTINA_USHUAIA'
-/** Aruba */
- | 'AMERICA_ARUBA'
-/** Asuncion */
- | 'AMERICA_ASUNCION'
-/** Atikokan */
- | 'AMERICA_ATIKOKAN'
-/** Bahia */
- | 'AMERICA_BAHIA'
-/** Bahia Banderas */
- | 'AMERICA_BAHIA_BANDERAS'
-/** Barbados */
- | 'AMERICA_BARBADOS'
-/** Belem */
- | 'AMERICA_BELEM'
-/** Belize */
- | 'AMERICA_BELIZE'
-/** Blanc-Sablon */
- | 'AMERICA_BLANC_SABLON'
-/** Boa Vista */
- | 'AMERICA_BOA_VISTA'
-/** Bogota */
- | 'AMERICA_BOGOTA'
-/** Boise */
- | 'AMERICA_BOISE'
-/** Cambridge Bay */
- | 'AMERICA_CAMBRIDGE_BAY'
-/** Campo Grande */
- | 'AMERICA_CAMPO_GRANDE'
-/** Cancun */
- | 'AMERICA_CANCUN'
-/** Caracas */
- | 'AMERICA_CARACAS'
-/** Cayenne */
- | 'AMERICA_CAYENNE'
-/** Cayman */
- | 'AMERICA_CAYMAN'
-/** Chicago */
- | 'AMERICA_CHICAGO'
-/** Chihuahua */
- | 'AMERICA_CHIHUAHUA'
-/** Costa Rica */
- | 'AMERICA_COSTA_RICA'
-/** Creston */
- | 'AMERICA_CRESTON'
-/** Cuiaba */
- | 'AMERICA_CUIABA'
-/** Curacao */
- | 'AMERICA_CURACAO'
-/** Danmarkshavn */
- | 'AMERICA_DANMARKSHAVN'
-/** Dawson */
- | 'AMERICA_DAWSON'
-/** Dawson Creek */
- | 'AMERICA_DAWSON_CREEK'
-/** Denver */
- | 'AMERICA_DENVER'
-/** Detroit */
- | 'AMERICA_DETROIT'
-/** Dominica */
- | 'AMERICA_DOMINICA'
-/** Edmonton */
- | 'AMERICA_EDMONTON'
-/** Eirunepe */
- | 'AMERICA_EIRUNEPE'
-/** El Salvador */
- | 'AMERICA_EL_SALVADOR'
-/** Fortaleza */
- | 'AMERICA_FORTALEZA'
-/** Fort Nelson */
- | 'AMERICA_FORT_NELSON'
-/** Glace Bay */
- | 'AMERICA_GLACE_BAY'
-/** Goose Bay */
- | 'AMERICA_GOOSE_BAY'
-/** Grand Turk */
- | 'AMERICA_GRAND_TURK'
-/** Grenada */
- | 'AMERICA_GRENADA'
-/** Guadeloupe */
- | 'AMERICA_GUADELOUPE'
-/** Guatemala */
- | 'AMERICA_GUATEMALA'
-/** Guayaquil */
- | 'AMERICA_GUAYAQUIL'
-/** Guyana */
- | 'AMERICA_GUYANA'
-/** Halifax */
- | 'AMERICA_HALIFAX'
-/** Havana */
- | 'AMERICA_HAVANA'
-/** Hermosillo */
- | 'AMERICA_HERMOSILLO'
-/** Indiana - Indianapolis */
- | 'AMERICA_INDIANA_INDIANAPOLIS'
-/** Indiana - Knox */
- | 'AMERICA_INDIANA_KNOX'
-/** Indiana - Marengo */
- | 'AMERICA_INDIANA_MARENGO'
-/** Indiana - Petersburg */
- | 'AMERICA_INDIANA_PETERSBURG'
-/** Indiana - Tell City */
- | 'AMERICA_INDIANA_TELL_CITY'
-/** Indiana - Vevay */
- | 'AMERICA_INDIANA_VEVAY'
-/** Indiana - Vincennes */
- | 'AMERICA_INDIANA_VINCENNES'
-/** Indiana - Winamac */
- | 'AMERICA_INDIANA_WINAMAC'
-/** Inuvik */
- | 'AMERICA_INUVIK'
-/** Iqaluit */
- | 'AMERICA_IQALUIT'
-/** Jamaica */
- | 'AMERICA_JAMAICA'
-/** Juneau */
- | 'AMERICA_JUNEAU'
-/** Kentucky - Louisville */
- | 'AMERICA_KENTUCKY_LOUISVILLE'
-/** Kentucky - Monticello */
- | 'AMERICA_KENTUCKY_MONTICELLO'
-/** Kralendijk */
- | 'AMERICA_KRALENDIJK'
-/** La Paz */
- | 'AMERICA_LA_PAZ'
-/** Lima */
- | 'AMERICA_LIMA'
-/** Los Angeles */
- | 'AMERICA_LOS_ANGELES'
-/** Lower Princes */
- | 'AMERICA_LOWER_PRINCES'
-/** Maceio */
- | 'AMERICA_MACEIO'
-/** Managua */
- | 'AMERICA_MANAGUA'
-/** Manaus */
- | 'AMERICA_MANAUS'
-/** Marigot */
- | 'AMERICA_MARIGOT'
-/** Martinique */
- | 'AMERICA_MARTINIQUE'
-/** Matamoros */
- | 'AMERICA_MATAMOROS'
-/** Mazatlan */
- | 'AMERICA_MAZATLAN'
-/** Menominee */
- | 'AMERICA_MENOMINEE'
-/** Merida */
- | 'AMERICA_MERIDA'
-/** Metlakatla */
- | 'AMERICA_METLAKATLA'
-/** Mexico City */
- | 'AMERICA_MEXICO_CITY'
-/** Miquelon */
- | 'AMERICA_MIQUELON'
-/** Moncton */
- | 'AMERICA_MONCTON'
-/** Monterrey */
- | 'AMERICA_MONTERREY'
-/** Montevideo */
- | 'AMERICA_MONTEVIDEO'
-/** Montserrat */
- | 'AMERICA_MONTSERRAT'
-/** Nassau */
- | 'AMERICA_NASSAU'
-/** New York */
- | 'AMERICA_NEW_YORK'
-/** Nipigon */
- | 'AMERICA_NIPIGON'
-/** Nome */
- | 'AMERICA_NOME'
-/** Noronha */
- | 'AMERICA_NORONHA'
-/** North Dakota - Beulah */
- | 'AMERICA_NORTH_DAKOTA_BEULAH'
-/** North Dakota - Center */
- | 'AMERICA_NORTH_DAKOTA_CENTER'
-/** North Dakota - New Salem */
- | 'AMERICA_NORTH_DAKOTA_NEW_SALEM'
-/** Nuuk */
- | 'AMERICA_NUUK'
-/** Ojinaga */
- | 'AMERICA_OJINAGA'
-/** Panama */
- | 'AMERICA_PANAMA'
-/** Pangnirtung */
- | 'AMERICA_PANGNIRTUNG'
-/** Paramaribo */
- | 'AMERICA_PARAMARIBO'
-/** Phoenix */
- | 'AMERICA_PHOENIX'
-/** Porto Velho */
- | 'AMERICA_PORTO_VELHO'
-/** Port-au-Prince */
- | 'AMERICA_PORT_AU_PRINCE'
-/** Port of Spain */
- | 'AMERICA_PORT_OF_SPAIN'
-/** Puerto Rico */
- | 'AMERICA_PUERTO_RICO'
-/** Punta Arenas */
- | 'AMERICA_PUNTA_ARENAS'
-/** Rainy River */
- | 'AMERICA_RAINY_RIVER'
-/** Rankin Inlet */
- | 'AMERICA_RANKIN_INLET'
-/** Recife */
- | 'AMERICA_RECIFE'
-/** Regina */
- | 'AMERICA_REGINA'
-/** Resolute */
- | 'AMERICA_RESOLUTE'
-/** Rio Branco */
- | 'AMERICA_RIO_BRANCO'
-/** Santarem */
- | 'AMERICA_SANTAREM'
-/** Santiago */
- | 'AMERICA_SANTIAGO'
-/** Santo Domingo */
- | 'AMERICA_SANTO_DOMINGO'
-/** Sao Paulo */
- | 'AMERICA_SAO_PAULO'
-/** Scoresbysund */
- | 'AMERICA_SCORESBYSUND'
-/** Sitka */
- | 'AMERICA_SITKA'
-/** St Barthelemy */
- | 'AMERICA_ST_BARTHELEMY'
-/** St Johns */
- | 'AMERICA_ST_JOHNS'
-/** St Kitts */
- | 'AMERICA_ST_KITTS'
-/** St Lucia */
- | 'AMERICA_ST_LUCIA'
-/** St Thomas */
- | 'AMERICA_ST_THOMAS'
-/** St Vincent */
- | 'AMERICA_ST_VINCENT'
-/** Swift Current */
- | 'AMERICA_SWIFT_CURRENT'
-/** Tegucigalpa */
- | 'AMERICA_TEGUCIGALPA'
-/** Thule */
- | 'AMERICA_THULE'
-/** Thunder Bay */
- | 'AMERICA_THUNDER_BAY'
-/** Tijuana */
- | 'AMERICA_TIJUANA'
-/** Toronto */
- | 'AMERICA_TORONTO'
-/** Tortola */
- | 'AMERICA_TORTOLA'
-/** Vancouver */
- | 'AMERICA_VANCOUVER'
-/** Whitehorse */
- | 'AMERICA_WHITEHORSE'
-/** Winnipeg */
- | 'AMERICA_WINNIPEG'
-/** Yakutat */
- | 'AMERICA_YAKUTAT'
-/** Yellowknife */
- | 'AMERICA_YELLOWKNIFE'
-/** Casey */
- | 'ANTARCTICA_CASEY'
-/** Davis */
- | 'ANTARCTICA_DAVIS'
-/** DumontDUrville */
- | 'ANTARCTICA_DUMONTDURVILLE'
-/** Macquarie */
- | 'ANTARCTICA_MACQUARIE'
-/** Mawson */
- | 'ANTARCTICA_MAWSON'
-/** McMurdo */
- | 'ANTARCTICA_MCMURDO'
-/** Palmer */
- | 'ANTARCTICA_PALMER'
-/** Rothera */
- | 'ANTARCTICA_ROTHERA'
-/** Syowa */
- | 'ANTARCTICA_SYOWA'
-/** Troll */
- | 'ANTARCTICA_TROLL'
-/** Vostok */
- | 'ANTARCTICA_VOSTOK'
-/** Longyearbyen */
- | 'ARCTIC_LONGYEARBYEN'
-/** Aden */
- | 'ASIA_ADEN'
-/** Almaty */
- | 'ASIA_ALMATY'
-/** Amman */
- | 'ASIA_AMMAN'
-/** Anadyr */
- | 'ASIA_ANADYR'
-/** Aqtau */
- | 'ASIA_AQTAU'
-/** Aqtobe */
- | 'ASIA_AQTOBE'
-/** Ashgabat */
- | 'ASIA_ASHGABAT'
-/** Atyrau */
- | 'ASIA_ATYRAU'
-/** Baghdad */
- | 'ASIA_BAGHDAD'
-/** Bahrain */
- | 'ASIA_BAHRAIN'
-/** Baku */
- | 'ASIA_BAKU'
-/** Bangkok */
- | 'ASIA_BANGKOK'
-/** Barnaul */
- | 'ASIA_BARNAUL'
-/** Beirut */
- | 'ASIA_BEIRUT'
-/** Bishkek */
- | 'ASIA_BISHKEK'
-/** Brunei */
- | 'ASIA_BRUNEI'
-/** Chita */
- | 'ASIA_CHITA'
-/** Choibalsan */
- | 'ASIA_CHOIBALSAN'
-/** Colombo */
- | 'ASIA_COLOMBO'
-/** Damascus */
- | 'ASIA_DAMASCUS'
-/** Dhaka */
- | 'ASIA_DHAKA'
-/** Dili */
- | 'ASIA_DILI'
-/** Dubai */
- | 'ASIA_DUBAI'
-/** Dushanbe */
- | 'ASIA_DUSHANBE'
-/** Famagusta */
- | 'ASIA_FAMAGUSTA'
-/** Gaza */
- | 'ASIA_GAZA'
-/** Hebron */
- | 'ASIA_HEBRON'
-/** Hong Kong */
- | 'ASIA_HONG_KONG'
-/** Hovd */
- | 'ASIA_HOVD'
-/** Ho Chi Minh */
- | 'ASIA_HO_CHI_MINH'
-/** Irkutsk */
- | 'ASIA_IRKUTSK'
-/** Jakarta */
- | 'ASIA_JAKARTA'
-/** Jayapura */
- | 'ASIA_JAYAPURA'
-/** Jerusalem */
- | 'ASIA_JERUSALEM'
-/** Kabul */
- | 'ASIA_KABUL'
-/** Kamchatka */
- | 'ASIA_KAMCHATKA'
-/** Karachi */
- | 'ASIA_KARACHI'
-/** Kathmandu */
- | 'ASIA_KATHMANDU'
-/** Khandyga */
- | 'ASIA_KHANDYGA'
-/** Kolkata */
- | 'ASIA_KOLKATA'
-/** Krasnoyarsk */
- | 'ASIA_KRASNOYARSK'
-/** Kuala Lumpur */
- | 'ASIA_KUALA_LUMPUR'
-/** Kuching */
- | 'ASIA_KUCHING'
-/** Kuwait */
- | 'ASIA_KUWAIT'
-/** Macau */
- | 'ASIA_MACAU'
-/** Magadan */
- | 'ASIA_MAGADAN'
-/** Makassar */
- | 'ASIA_MAKASSAR'
-/** Manila */
- | 'ASIA_MANILA'
-/** Muscat */
- | 'ASIA_MUSCAT'
-/** Nicosia */
- | 'ASIA_NICOSIA'
-/** Novokuznetsk */
- | 'ASIA_NOVOKUZNETSK'
-/** Novosibirsk */
- | 'ASIA_NOVOSIBIRSK'
-/** Omsk */
- | 'ASIA_OMSK'
-/** Oral */
- | 'ASIA_ORAL'
-/** Phnom Penh */
- | 'ASIA_PHNOM_PENH'
-/** Pontianak */
- | 'ASIA_PONTIANAK'
-/** Pyongyang */
- | 'ASIA_PYONGYANG'
-/** Qatar */
- | 'ASIA_QATAR'
-/** Qostanay */
- | 'ASIA_QOSTANAY'
-/** Qyzylorda */
- | 'ASIA_QYZYLORDA'
-/** Riyadh */
- | 'ASIA_RIYADH'
-/** Sakhalin */
- | 'ASIA_SAKHALIN'
-/** Samarkand */
- | 'ASIA_SAMARKAND'
-/** Seoul */
- | 'ASIA_SEOUL'
-/** Shanghai */
- | 'ASIA_SHANGHAI'
-/** Singapore */
- | 'ASIA_SINGAPORE'
-/** Srednekolymsk */
- | 'ASIA_SREDNEKOLYMSK'
-/** Taipei */
- | 'ASIA_TAIPEI'
-/** Tashkent */
- | 'ASIA_TASHKENT'
-/** Tbilisi */
- | 'ASIA_TBILISI'
-/** Tehran */
- | 'ASIA_TEHRAN'
-/** Thimphu */
- | 'ASIA_THIMPHU'
-/** Tokyo */
- | 'ASIA_TOKYO'
-/** Tomsk */
- | 'ASIA_TOMSK'
-/** Ulaanbaatar */
- | 'ASIA_ULAANBAATAR'
-/** Urumqi */
- | 'ASIA_URUMQI'
-/** Ust-Nera */
- | 'ASIA_UST_NERA'
-/** Vientiane */
- | 'ASIA_VIENTIANE'
-/** Vladivostok */
- | 'ASIA_VLADIVOSTOK'
-/** Yakutsk */
- | 'ASIA_YAKUTSK'
-/** Yangon */
- | 'ASIA_YANGON'
-/** Yekaterinburg */
- | 'ASIA_YEKATERINBURG'
-/** Yerevan */
- | 'ASIA_YEREVAN'
-/** Azores */
- | 'ATLANTIC_AZORES'
-/** Bermuda */
- | 'ATLANTIC_BERMUDA'
-/** Canary */
- | 'ATLANTIC_CANARY'
-/** Cape Verde */
- | 'ATLANTIC_CAPE_VERDE'
-/** Faroe */
- | 'ATLANTIC_FAROE'
-/** Madeira */
- | 'ATLANTIC_MADEIRA'
-/** Reykjavik */
- | 'ATLANTIC_REYKJAVIK'
-/** South Georgia */
- | 'ATLANTIC_SOUTH_GEORGIA'
-/** Stanley */
- | 'ATLANTIC_STANLEY'
-/** St Helena */
- | 'ATLANTIC_ST_HELENA'
-/** Adelaide */
- | 'AUSTRALIA_ADELAIDE'
-/** Brisbane */
- | 'AUSTRALIA_BRISBANE'
-/** Broken Hill */
- | 'AUSTRALIA_BROKEN_HILL'
-/** Darwin */
- | 'AUSTRALIA_DARWIN'
-/** Eucla */
- | 'AUSTRALIA_EUCLA'
-/** Hobart */
- | 'AUSTRALIA_HOBART'
-/** Lindeman */
- | 'AUSTRALIA_LINDEMAN'
-/** Lord Howe */
- | 'AUSTRALIA_LORD_HOWE'
-/** Melbourne */
- | 'AUSTRALIA_MELBOURNE'
-/** Perth */
- | 'AUSTRALIA_PERTH'
-/** Sydney */
- | 'AUSTRALIA_SYDNEY'
-/** Amsterdam */
- | 'EUROPE_AMSTERDAM'
-/** Andorra */
- | 'EUROPE_ANDORRA'
-/** Astrakhan */
- | 'EUROPE_ASTRAKHAN'
-/** Athens */
- | 'EUROPE_ATHENS'
-/** Belgrade */
- | 'EUROPE_BELGRADE'
-/** Berlin */
- | 'EUROPE_BERLIN'
-/** Bratislava */
- | 'EUROPE_BRATISLAVA'
-/** Brussels */
- | 'EUROPE_BRUSSELS'
-/** Bucharest */
- | 'EUROPE_BUCHAREST'
-/** Budapest */
- | 'EUROPE_BUDAPEST'
-/** Busingen */
- | 'EUROPE_BUSINGEN'
-/** Chisinau */
- | 'EUROPE_CHISINAU'
-/** Copenhagen */
- | 'EUROPE_COPENHAGEN'
-/** Dublin */
- | 'EUROPE_DUBLIN'
-/** Gibraltar */
- | 'EUROPE_GIBRALTAR'
-/** Guernsey */
- | 'EUROPE_GUERNSEY'
-/** Helsinki */
- | 'EUROPE_HELSINKI'
-/** Isle of Man */
- | 'EUROPE_ISLE_OF_MAN'
-/** Istanbul */
- | 'EUROPE_ISTANBUL'
-/** Jersey */
- | 'EUROPE_JERSEY'
-/** Kaliningrad */
- | 'EUROPE_KALININGRAD'
-/** Kiev */
- | 'EUROPE_KIEV'
-/** Kirov */
- | 'EUROPE_KIROV'
-/** Lisbon */
- | 'EUROPE_LISBON'
-/** Ljubljana */
- | 'EUROPE_LJUBLJANA'
-/** London */
- | 'EUROPE_LONDON'
-/** Luxembourg */
- | 'EUROPE_LUXEMBOURG'
-/** Madrid */
- | 'EUROPE_MADRID'
-/** Malta */
- | 'EUROPE_MALTA'
-/** Mariehamn */
- | 'EUROPE_MARIEHAMN'
-/** Minsk */
- | 'EUROPE_MINSK'
-/** Monaco */
- | 'EUROPE_MONACO'
-/** Moscow */
- | 'EUROPE_MOSCOW'
-/** Oslo */
- | 'EUROPE_OSLO'
-/** Paris */
- | 'EUROPE_PARIS'
-/** Podgorica */
- | 'EUROPE_PODGORICA'
-/** Prague */
- | 'EUROPE_PRAGUE'
-/** Riga */
- | 'EUROPE_RIGA'
-/** Rome */
- | 'EUROPE_ROME'
-/** Samara */
- | 'EUROPE_SAMARA'
-/** San Marino */
- | 'EUROPE_SAN_MARINO'
-/** Sarajevo */
- | 'EUROPE_SARAJEVO'
-/** Saratov */
- | 'EUROPE_SARATOV'
-/** Simferopol */
- | 'EUROPE_SIMFEROPOL'
-/** Skopje */
- | 'EUROPE_SKOPJE'
-/** Sofia */
- | 'EUROPE_SOFIA'
-/** Stockholm */
- | 'EUROPE_STOCKHOLM'
-/** Tallinn */
- | 'EUROPE_TALLINN'
-/** Tirane */
- | 'EUROPE_TIRANE'
-/** Ulyanovsk */
- | 'EUROPE_ULYANOVSK'
-/** Uzhgorod */
- | 'EUROPE_UZHGOROD'
-/** Vaduz */
- | 'EUROPE_VADUZ'
-/** Vatican */
- | 'EUROPE_VATICAN'
-/** Vienna */
- | 'EUROPE_VIENNA'
-/** Vilnius */
- | 'EUROPE_VILNIUS'
-/** Volgograd */
- | 'EUROPE_VOLGOGRAD'
-/** Warsaw */
- | 'EUROPE_WARSAW'
-/** Zagreb */
- | 'EUROPE_ZAGREB'
-/** Zaporozhye */
- | 'EUROPE_ZAPOROZHYE'
-/** Zurich */
- | 'EUROPE_ZURICH'
-/** Antananarivo */
- | 'INDIAN_ANTANANARIVO'
-/** Chagos */
- | 'INDIAN_CHAGOS'
-/** Christmas */
- | 'INDIAN_CHRISTMAS'
-/** Cocos */
- | 'INDIAN_COCOS'
-/** Comoro */
- | 'INDIAN_COMORO'
-/** Kerguelen */
- | 'INDIAN_KERGUELEN'
-/** Mahe */
- | 'INDIAN_MAHE'
-/** Maldives */
- | 'INDIAN_MALDIVES'
-/** Mauritius */
- | 'INDIAN_MAURITIUS'
-/** Mayotte */
- | 'INDIAN_MAYOTTE'
-/** Reunion */
- | 'INDIAN_REUNION'
-/** Apia */
- | 'PACIFIC_APIA'
-/** Auckland */
- | 'PACIFIC_AUCKLAND'
-/** Bougainville */
- | 'PACIFIC_BOUGAINVILLE'
-/** Chatham */
- | 'PACIFIC_CHATHAM'
-/** Chuuk */
- | 'PACIFIC_CHUUK'
-/** Easter */
- | 'PACIFIC_EASTER'
-/** Efate */
- | 'PACIFIC_EFATE'
-/** Fakaofo */
- | 'PACIFIC_FAKAOFO'
-/** Fiji */
- | 'PACIFIC_FIJI'
-/** Funafuti */
- | 'PACIFIC_FUNAFUTI'
-/** Galapagos */
- | 'PACIFIC_GALAPAGOS'
-/** Gambier */
- | 'PACIFIC_GAMBIER'
-/** Guadalcanal */
- | 'PACIFIC_GUADALCANAL'
-/** Guam */
- | 'PACIFIC_GUAM'
-/** Honolulu */
- | 'PACIFIC_HONOLULU'
-/** Kanton */
- | 'PACIFIC_KANTON'
-/** Kiritimati */
- | 'PACIFIC_KIRITIMATI'
-/** Kosrae */
- | 'PACIFIC_KOSRAE'
-/** Kwajalein */
- | 'PACIFIC_KWAJALEIN'
-/** Majuro */
- | 'PACIFIC_MAJURO'
-/** Marquesas */
- | 'PACIFIC_MARQUESAS'
-/** Midway */
- | 'PACIFIC_MIDWAY'
-/** Nauru */
- | 'PACIFIC_NAURU'
-/** Niue */
- | 'PACIFIC_NIUE'
-/** Norfolk */
- | 'PACIFIC_NORFOLK'
-/** Noumea */
- | 'PACIFIC_NOUMEA'
-/** Pago Pago */
- | 'PACIFIC_PAGO_PAGO'
-/** Palau */
- | 'PACIFIC_PALAU'
-/** Pitcairn */
- | 'PACIFIC_PITCAIRN'
-/** Pohnpei */
- | 'PACIFIC_POHNPEI'
-/** Port Moresby */
- | 'PACIFIC_PORT_MORESBY'
-/** Rarotonga */
- | 'PACIFIC_RAROTONGA'
-/** Saipan */
- | 'PACIFIC_SAIPAN'
-/** Tahiti */
- | 'PACIFIC_TAHITI'
-/** Tarawa */
- | 'PACIFIC_TARAWA'
-/** Tongatapu */
- | 'PACIFIC_TONGATAPU'
-/** Wake */
- | 'PACIFIC_WAKE'
-/** Wallis */
- | 'PACIFIC_WALLIS'
-/** UTC offset: UTC+0 */
- | 'UTC_0'
-/** UTC offset: UTC+0:30 */
- | 'UTC_0_30'
-/** UTC offset: UTC+1 */
- | 'UTC_1'
-/** UTC offset: UTC+10 */
- | 'UTC_10'
-/** UTC offset: UTC+10:30 */
- | 'UTC_10_30'
-/** UTC offset: UTC+11 */
- | 'UTC_11'
-/** UTC offset: UTC+11:30 */
- | 'UTC_11_30'
-/** UTC offset: UTC+12 */
- | 'UTC_12'
-/** UTC offset: UTC+12:45 */
- | 'UTC_12_45'
-/** UTC offset: UTC+13 */
- | 'UTC_13'
-/** UTC offset: UTC+13:45 */
- | 'UTC_13_45'
-/** UTC offset: UTC+14 */
- | 'UTC_14'
-/** UTC offset: UTC+1:30 */
- | 'UTC_1_30'
-/** UTC offset: UTC+2 */
- | 'UTC_2'
-/** UTC offset: UTC+2:30 */
- | 'UTC_2_30'
-/** UTC offset: UTC+3 */
- | 'UTC_3'
-/** UTC offset: UTC+3:30 */
- | 'UTC_3_30'
-/** UTC offset: UTC+4 */
- | 'UTC_4'
-/** UTC offset: UTC+4:30 */
- | 'UTC_4_30'
-/** UTC offset: UTC+5 */
- | 'UTC_5'
-/** UTC offset: UTC+5:30 */
- | 'UTC_5_30'
-/** UTC offset: UTC+5:45 */
- | 'UTC_5_45'
-/** UTC offset: UTC+6 */
- | 'UTC_6'
-/** UTC offset: UTC+6:30 */
- | 'UTC_6_30'
-/** UTC offset: UTC+7 */
- | 'UTC_7'
-/** UTC offset: UTC+7:30 */
- | 'UTC_7_30'
-/** UTC offset: UTC+8 */
- | 'UTC_8'
-/** UTC offset: UTC+8:30 */
- | 'UTC_8_30'
-/** UTC offset: UTC+8:45 */
- | 'UTC_8_45'
-/** UTC offset: UTC+9 */
- | 'UTC_9'
-/** UTC offset: UTC+9:30 */
- | 'UTC_9_30';
-/** Options for filtering the connection */
-export declare type MenuItemsWhereArgs = {
-    /** The ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** The menu location for the menu being queried */
-    location?: Maybe<MenuLocationEnum>;
-};
-/** Arguments for filtering the RootQueryToCommentConnection connection */
-export declare type RootQueryToCommentConnectionWhereArgs = {
-    /** Comment author email address. */
-    authorEmail?: Maybe<Scalars['String']>;
-    /** Array of author IDs to include comments for. */
-    authorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of author IDs to exclude comments for. */
-    authorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Comment author URL. */
-    authorUrl?: Maybe<Scalars['String']>;
-    /** Array of comment IDs to include. */
-    commentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
-    commentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Include comments of a given type. */
-    commentType?: Maybe<Scalars['String']>;
-    /** Include comments from a given array of comment types. */
-    commentTypeIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Exclude comments from a given array of comment types. */
-    commentTypeNotIn?: Maybe<Scalars['String']>;
-    /** Content object author ID to limit results by. */
-    contentAuthor?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of author IDs to retrieve comments for. */
-    contentAuthorIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of author IDs *not* to retrieve comments for. */
-    contentAuthorNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Limit results to those affiliated with a given content object ID. */
-    contentId?: Maybe<Scalars['ID']>;
-    /** Array of content object IDs to include affiliated comments for. */
-    contentIdIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of content object IDs to exclude affiliated comments for. */
-    contentIdNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Content object name to retrieve affiliated comments for. */
-    contentName?: Maybe<Scalars['String']>;
-    /** Content Object parent ID to retrieve affiliated comments for. */
-    contentParent?: Maybe<Scalars['Int']>;
-    /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
-    contentStatus?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
-    contentType?: Maybe<Array<Maybe<ContentTypeEnum>>>;
-    /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
-    includeUnapproved?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Karma score to retrieve matching comments for. */
-    karma?: Maybe<Scalars['Int']>;
-    /** The cardinality of the order of the connection */
-    order?: Maybe<OrderEnum>;
-    /** Field to order the comments by. */
-    orderby?: Maybe<CommentsConnectionOrderbyEnum>;
-    /** Parent ID of comment to retrieve children of. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Array of parent IDs of comments to retrieve children for. */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of parent IDs of comments *not* to retrieve children for. */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Search term(s) to retrieve matching comments for. */
-    search?: Maybe<Scalars['String']>;
-    /** Comment status to limit results by. */
-    status?: Maybe<Scalars['String']>;
-    /** Include comments for a specific user ID. */
-    userId?: Maybe<Scalars['ID']>;
-};
-/** Arguments for filtering the RootQueryToContentRevisionUnionConnection connection */
-export declare type RootQueryToContentRevisionUnionConnectionWhereArgs = {
-    /** Filter the connection based on dates */
-    dateQuery?: Maybe<DateQueryInput>;
-    /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-    hasPassword?: Maybe<Scalars['Boolean']>;
-    /** Specific ID of the object */
-    id?: Maybe<Scalars['Int']>;
-    /** Array of IDs for the objects to retrieve */
-    in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Get objects with a specific mimeType property */
-    mimeType?: Maybe<MimeTypeEnum>;
-    /** Slug / post_name of the object */
-    name?: Maybe<Scalars['String']>;
-    /** Specify objects to retrieve. Use slugs */
-    nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-    notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** What paramater to use to order the objects by. */
-    orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-    /** Use ID to return only children. Use 0 to return only top-level items */
-    parent?: Maybe<Scalars['ID']>;
-    /** Specify objects whose parent is in an array */
-    parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Specify posts whose parent is not in an array */
-    parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Show posts with a specific password. */
-    password?: Maybe<Scalars['String']>;
-    /** Show Posts based on a keyword search */
-    search?: Maybe<Scalars['String']>;
-    stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-    status?: Maybe<PostStatusEnum>;
-    /** Title of the object */
-    title?: Maybe<Scalars['String']>;
-};
-/** Arguments for filtering the RootQueryToTermNodeConnection connection */
-export declare type RootQueryToTermNodeConnectionWhereArgs = {
-    /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-    cacheDomain?: Maybe<Scalars['String']>;
-    /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-    childOf?: Maybe<Scalars['Int']>;
-    /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-    childless?: Maybe<Scalars['Boolean']>;
-    /** Retrieve terms where the description is LIKE the input value. Default empty. */
-    descriptionLike?: Maybe<Scalars['String']>;
-    /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-    exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-    excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-    hideEmpty?: Maybe<Scalars['Boolean']>;
-    /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-    hierarchical?: Maybe<Scalars['Boolean']>;
-    /** Array of term ids to include. Default empty array. */
-    include?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Array of names to return term(s) for. Default empty. */
-    name?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** Retrieve terms where the name is LIKE the input value. Default empty. */
-    nameLike?: Maybe<Scalars['String']>;
-    /** Array of object IDs. Results will be limited to terms associated with these objects. */
-    objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Field(s) to order terms by. Defaults to 'name'. */
-    orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
-    /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-    padCounts?: Maybe<Scalars['Boolean']>;
-    /** Parent term ID to retrieve direct-child terms of. Default empty. */
-    parent?: Maybe<Scalars['Int']>;
-    /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-    search?: Maybe<Scalars['String']>;
-    /** Array of slugs to return term(s) for. Default empty. */
-    slug?: Maybe<Array<Maybe<Scalars['String']>>>;
-    /** The Taxonomy to filter terms by */
-    taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
-    /** Array of term taxonomy IDs, to match when querying terms. */
-    termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
-    /** Whether to prime meta caches for matched terms. Default true. */
-    updateTermMetaCache?: Maybe<Scalars['Boolean']>;
 };
 //# sourceMappingURL=types.d.ts.map
