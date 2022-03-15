@@ -68,23 +68,41 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
 /// Registered menu locations
 public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
+  /// Put the menu in the authors_work location
   case authorsWork
+  /// Put the menu in the case-studies_creative location
   case caseStudiesCreative
+  /// Put the menu in the clients_creative location
   case clientsCreative
+  /// Put the menu in the display_creative location
   case displayCreative
+  /// Put the menu in the featured_quartz location
   case featuredQuartz
+  /// Put the menu in the features-marketing_members location
   case featuresMarketingMembers
+  /// Put the menu in the features_members location
   case featuresMembers
+  /// Put the menu in the features-video_members location
   case featuresVideoMembers
+  /// Put the menu in the insights_creative location
   case insightsCreative
+  /// Put the menu in the obsessions_africa location
   case obsessionsAfrica
+  /// Put the menu in the obsessions_india location
   case obsessionsIndia
+  /// Put the menu in the obsessions_quartz location
   case obsessionsQuartz
+  /// Put the menu in the obsessions_work location
   case obsessionsWork
+  /// Put the menu in the player_video location
   case playerVideo
+  /// Put the menu in the premium_members location
   case premiumMembers
+  /// Put the menu in the related_mbb location
   case relatedMbb
+  /// Put the menu in the shows_video location
   case showsVideo
+  /// Put the menu in the top_work location
   case topWork
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
@@ -9877,7 +9895,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -10138,7 +10156,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -13451,7 +13469,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -14234,7 +14252,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -19454,7 +19472,7 @@ public struct ArticleParts: GraphQLFragment {
       }
     }
 
-    /// The nodes of the connection, without the edges
+    /// The node of the connection, without the edges
     public var node: Node? {
       get {
         return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
@@ -20210,7 +20228,7 @@ public struct ArticleParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -20312,7 +20330,7 @@ public struct ArticleParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -21410,7 +21428,7 @@ public struct AuthorParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -23092,7 +23110,7 @@ public struct EmailListParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -23615,7 +23633,7 @@ public struct GuideParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -24263,7 +24281,7 @@ public struct MenuItemParts: GraphQLFragment {
       }
     }
 
-    /// The nodes of the connection, without the edges
+    /// The node of the connection, without the edges
     public var node: Node? {
       get {
         return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
@@ -25128,7 +25146,7 @@ public struct NugParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -25230,7 +25248,7 @@ public struct NugParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -25336,7 +25354,7 @@ public struct ObsessionParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -25714,7 +25732,7 @@ public struct ProjectParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -26164,7 +26182,7 @@ public struct SeriesParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -26853,7 +26871,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -27458,7 +27476,7 @@ public struct TagParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -27647,7 +27665,7 @@ public struct TopicParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
