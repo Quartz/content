@@ -5,6 +5,7 @@ export * from './ArticleTeaser';
 export * from './ArticleTeaserParts';
 export * from './ArticlesByAuthor';
 export * from './ArticlesByGuide';
+export * from './ArticlesByGuide2';
 export * from './ArticlesByObsession';
 export * from './ArticlesByPopularity';
 export * from './ArticlesBySeries';

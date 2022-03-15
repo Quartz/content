@@ -1,0 +1,33 @@
+# Just used in one place in qz-react
+query ArticlesByGuide2(
+	$after: String = ""
+	$perPage: Int!
+	$slug: ID!
+) {
+	guide(id: $slug, idType: SLUG) {
+    ...GuideParts
+    essentials(first: 1) {
+      nodes {
+        ...CollectionParts
+      }
+    }
+    posts(
+      after: $after
+      first: $perPage
+      where: {
+        orderby: {
+          field: DATE
+          order: ASC
+        }
+      }
+    ) {
+      nodes {
+        ...ArticleTeaserParts
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}

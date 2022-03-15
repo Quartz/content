@@ -17,6 +17,7 @@ __exportStar(require("./ArticleTeaser"), exports);
 __exportStar(require("./ArticleTeaserParts"), exports);
 __exportStar(require("./ArticlesByAuthor"), exports);
 __exportStar(require("./ArticlesByGuide"), exports);
+__exportStar(require("./ArticlesByGuide2"), exports);
 __exportStar(require("./ArticlesByObsession"), exports);
 __exportStar(require("./ArticlesByPopularity"), exports);
 __exportStar(require("./ArticlesBySeries"), exports);
