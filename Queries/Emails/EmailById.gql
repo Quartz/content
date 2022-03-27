@@ -6,7 +6,21 @@ query EmailById(
 	) {
 		...EmailParts
 		disablePaywall
-		html
+		blocks {
+			innerHtml
+			type
+			tagName
+			attributes {
+				name
+				value
+			}
+		}
+		sendgridID
+		emailLogoAd {
+			alt
+			src
+			url
+		}
 		emailLists {
 			nodes {
 				...EmailListParts
