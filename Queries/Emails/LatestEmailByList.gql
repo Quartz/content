@@ -13,7 +13,7 @@ query LatestEmailByList(
 			emails(first: 1) {
 				nodes {
 					html
-					...EmailParts
+					...EmailTeaserParts
 				}
 			}
 		}

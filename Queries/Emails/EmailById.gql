@@ -5,22 +5,6 @@ query EmailById(
 		id: $id
 	) {
 		...EmailParts
-		disablePaywall
-		blocks {
-			innerHtml
-			type
-			tagName
-			attributes {
-				name
-				value
-			}
-		}
-		sendgridID
-		emailLogoAd {
-			alt
-			src
-			url
-		}
 		emailLists {
 			nodes {
 				...EmailListParts

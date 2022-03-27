@@ -7,7 +7,7 @@ query FirstFeedConcentByRecency(
 				...ArticleTeaserParts
 			}
 			...on Email {
-				...EmailParts
+				...EmailTeaserParts
 				link
 				emailLists {
 					nodes {

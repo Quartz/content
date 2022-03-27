@@ -19,7 +19,7 @@ query EmailsByList(
 				}
 			) {
 				nodes {
-					...EmailParts
+					...EmailTeaserParts
 				}
 				pageInfo {
 					endCursor

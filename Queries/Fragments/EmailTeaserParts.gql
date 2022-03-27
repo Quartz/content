@@ -1,0 +1,18 @@
+fragment EmailTeaserParts on Email {
+	id
+	dateGmt
+	emailId
+	featuredImage {
+		...MediaParts
+	}
+	link
+	segment
+	socialImage {
+		...MediaParts
+	}
+	seoTitle
+	socialDescription
+	socialTitle
+	subject
+	title
+}

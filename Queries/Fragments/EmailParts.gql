@@ -1,18 +1,13 @@
 fragment EmailParts on Email {
-	id
-	dateGmt
-	emailId
-	featuredImage {
-		...MediaParts
+	...EmailTeaserParts
+	disablePaywall
+	blocks {
+		...BlockParts
 	}
-	link
-	segment
-	socialImage {
-		...MediaParts
+	sendgridID
+	emailLogoAd {
+		alt
+		src
+		url
 	}
-	seoTitle
-	socialDescription
-	socialTitle
-	subject
-	title
 }

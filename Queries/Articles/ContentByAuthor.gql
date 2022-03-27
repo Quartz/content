@@ -21,7 +21,7 @@ query ContentByAuthor(
 	) {
 		nodes {
 			...on Email {
-				...EmailParts
+				...EmailTeaserParts
 				emailLists {
 					nodes {
 						slug
