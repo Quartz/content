@@ -5,6 +5,7 @@ query EmailById(
 		id: $id
 	) {
 		...EmailParts
+		html
 		emailLists {
 			nodes {
 				...EmailListParts
