@@ -15,4 +15,9 @@ fragment EmailTeaserParts on Email {
 	socialTitle
 	subject
 	title
+	authors: coAuthors {
+		nodes {
+			...AuthorParts
+		}
+	}
 }
