@@ -3,6 +3,11 @@ fragment EmailParts on Email {
 	disablePaywall
 	blocks {
 		...BlockParts
+		connections {
+        	... on Promotion {
+				...PromotionParts
+			}
+		}
 	}
 	sendgridID
 	emailLogoAd {
