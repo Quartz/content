@@ -1,10 +1,10 @@
 import type * as Types from './types';
 
 import type { EmailListPartsFragment } from './EmailListParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import { gql } from '@apollo/client';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type EmailsByListQueryVariables = Types.Exact<{
@@ -18,7 +18,7 @@ export type EmailsByListQueryVariables = Types.Exact<{
 export type EmailsByListQuery = { __typename?: 'RootQuery', emailLists?: Types.Maybe<{ __typename?: 'RootQueryToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'EmailList', emails?: Types.Maybe<{ __typename?: 'EmailListToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Email' }
-          & EmailPartsFragment
+          & EmailTeaserPartsFragment
         )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> }
       & EmailListPartsFragment
     )>>> }> };
@@ -31,7 +31,7 @@ export const EmailsByListDocument = /*#__PURE__*/ gql`
       ...EmailListParts
       emails(after: $after, first: $perPage, where: {tagSlugIn: $tags}) {
         nodes {
-          ...EmailParts
+          ...EmailTeaserParts
         }
         pageInfo {
           endCursor
@@ -42,7 +42,7 @@ export const EmailsByListDocument = /*#__PURE__*/ gql`
   }
 }
     ${EmailListPartsFragmentDoc}
-${EmailPartsFragmentDoc}`;
+${EmailTeaserPartsFragmentDoc}`;
 
 /**
  * __useEmailsByListQuery__

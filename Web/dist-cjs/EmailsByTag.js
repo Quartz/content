@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useEmailsByTagLazyQuery = exports.useEmailsByTagQuery = exports.EmailsByTagDocument = void 0;
 const client_1 = require("@apollo/client");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const EmailListParts_1 = require("./EmailListParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
@@ -29,7 +29,7 @@ exports.EmailsByTagDocument = client_1.gql `
     query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
-      ...EmailParts
+      ...EmailTeaserParts
       html
       link
       emailLists {
@@ -44,7 +44,7 @@ exports.EmailsByTagDocument = client_1.gql `
     }
   }
 }
-    ${EmailParts_1.EmailPartsFragmentDoc}
+    ${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}
 ${EmailListParts_1.EmailListPartsFragmentDoc}`;
 /**
  * __useEmailsByTagQuery__

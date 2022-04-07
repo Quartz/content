@@ -21,7 +21,7 @@ query ContentByTag(
 	) {
 		nodes {
 			...on Email {
-				...EmailParts
+				...EmailTeaserParts
 				emailLists {
 					nodes {
 						slug

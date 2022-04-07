@@ -8,7 +8,7 @@ query LatestFeedContent(
 				...ArticleTeaserParts
 			}
 			...on Email {
-				...EmailParts
+				...EmailTeaserParts
 				link
 				emailLists {
 					nodes {

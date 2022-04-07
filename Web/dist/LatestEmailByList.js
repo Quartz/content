@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const LatestEmailByListDocument = /*#__PURE__*/ gql `
@@ -10,13 +10,13 @@ export const LatestEmailByListDocument = /*#__PURE__*/ gql `
       emails(first: 1) {
         nodes {
           html
-          ...EmailParts
+          ...EmailTeaserParts
         }
       }
     }
   }
 }
-    ${EmailPartsFragmentDoc}`;
+    ${EmailTeaserPartsFragmentDoc}`;
 /**
  * __useLatestEmailByListQuery__
  *

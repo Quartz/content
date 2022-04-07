@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useLatestEmailByListLazyQuery = exports.useLatestEmailByListQuery = exports.LatestEmailByListDocument = void 0;
 const client_1 = require("@apollo/client");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.LatestEmailByListDocument = client_1.gql `
@@ -32,13 +32,13 @@ exports.LatestEmailByListDocument = client_1.gql `
       emails(first: 1) {
         nodes {
           html
-          ...EmailParts
+          ...EmailTeaserParts
         }
       }
     }
   }
 }
-    ${EmailParts_1.EmailPartsFragmentDoc}`;
+    ${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}`;
 /**
  * __useLatestEmailByListQuery__
  *

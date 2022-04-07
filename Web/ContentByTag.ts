@@ -1,11 +1,11 @@
 import type * as Types from './types';
 
 import type { TagPartsFragment } from './TagParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import { gql } from '@apollo/client';
 import { TagPartsFragmentDoc } from './TagParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
@@ -24,7 +24,7 @@ export type ContentByTagQuery = { __typename?: 'RootQuery', tags?: Types.Maybe<{
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | (
       { __typename?: 'Email', emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', slug?: Types.Maybe<string> }>>> }> }
-      & EmailPartsFragment
+      & EmailTeaserPartsFragment
     ) | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Bulletin' }>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> };
 
 
@@ -38,7 +38,7 @@ export const ContentByTagDocument = /*#__PURE__*/ gql`
   tagContent(after: $after, first: $perPage, where: {slug: $slug}) {
     nodes {
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         emailLists {
           nodes {
             slug
@@ -56,7 +56,7 @@ export const ContentByTagDocument = /*#__PURE__*/ gql`
   }
 }
     ${TagPartsFragmentDoc}
-${EmailPartsFragmentDoc}
+${EmailTeaserPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}`;
 
 /**

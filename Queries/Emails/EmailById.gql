@@ -5,7 +5,6 @@ query EmailById(
 		id: $id
 	) {
 		...EmailParts
-		disablePaywall
 		html
 		emailLists {
 			nodes {

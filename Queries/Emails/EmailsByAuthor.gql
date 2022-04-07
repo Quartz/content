@@ -15,7 +15,7 @@ query EmailsByAuthor(
 				first: $perPage
 			) {
 				nodes {
-					...EmailParts
+					...EmailTeaserParts
 					link
 					emailLists {
 						nodes {

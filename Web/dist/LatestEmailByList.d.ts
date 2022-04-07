@@ -1,5 +1,5 @@
 import type * as Types from './types';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type LatestEmailByListQueryVariables = Types.Exact<{
     perPage?: Types.Maybe<Types.Scalars['Int']>;
@@ -17,7 +17,7 @@ export declare type LatestEmailByListQuery = {
                 nodes?: Types.Maybe<Array<Types.Maybe<({
                     __typename?: 'Email';
                     html?: Types.Maybe<string>;
-                } & EmailPartsFragment)>>>;
+                } & EmailTeaserPartsFragment)>>>;
             }>;
         }>>>;
     }>;
