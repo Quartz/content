@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useFirstFeedConcentByRecencyLazyQuery = exports.useFirstFeedConcentByRecencyQuery = exports.FirstFeedConcentByRecencyDocument = void 0;
 const client_1 = require("@apollo/client");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.FirstFeedConcentByRecencyDocument = client_1.gql `
@@ -33,7 +33,7 @@ exports.FirstFeedConcentByRecencyDocument = client_1.gql `
         ...ArticleTeaserParts
       }
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         link
         emailLists {
           nodes {
@@ -48,7 +48,7 @@ exports.FirstFeedConcentByRecencyDocument = client_1.gql `
   }
 }
     ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}
-${EmailParts_1.EmailPartsFragmentDoc}`;
+${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}`;
 /**
  * __useFirstFeedConcentByRecencyQuery__
  *

@@ -1,11 +1,11 @@
 import type * as Types from './types';
 
 import type { AuthorPartsFragment } from './AuthorParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import type { EmailListPartsFragment } from './EmailListParts';
 import { gql } from '@apollo/client';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
@@ -22,7 +22,7 @@ export type EmailsByAuthorQuery = { __typename?: 'RootQuery', authors?: Types.Ma
               { __typename?: 'EmailList' }
               & EmailListPartsFragment
             )>>> }> }
-          & EmailPartsFragment
+          & EmailTeaserPartsFragment
         )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> }
       & AuthorPartsFragment
     )>>> }> };
@@ -35,7 +35,7 @@ export const EmailsByAuthorDocument = /*#__PURE__*/ gql`
       ...AuthorParts
       emails(after: $after, first: $perPage) {
         nodes {
-          ...EmailParts
+          ...EmailTeaserParts
           link
           emailLists {
             nodes {
@@ -52,7 +52,7 @@ export const EmailsByAuthorDocument = /*#__PURE__*/ gql`
   }
 }
     ${AuthorPartsFragmentDoc}
-${EmailPartsFragmentDoc}
+${EmailTeaserPartsFragmentDoc}
 ${EmailListPartsFragmentDoc}`;
 
 /**

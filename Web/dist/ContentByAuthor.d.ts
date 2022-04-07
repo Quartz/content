@@ -1,6 +1,6 @@
 import type * as Types from './types';
 import type { AuthorPartsFragment } from './AuthorParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type ContentByAuthorQueryVariables = Types.Exact<{
@@ -33,7 +33,7 @@ export declare type ContentByAuthorQuery = {
                     slug?: Types.Maybe<string>;
                 }>>>;
             }>;
-        } & EmailPartsFragment) | {
+        } & EmailTeaserPartsFragment) | {
             __typename?: 'Chapter';
         } | {
             __typename?: 'Promotion';

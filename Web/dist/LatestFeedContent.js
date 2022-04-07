@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const LatestFeedContentDocument = /*#__PURE__*/ gql `
@@ -11,7 +11,7 @@ export const LatestFeedContentDocument = /*#__PURE__*/ gql `
         ...ArticleTeaserParts
       }
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         link
         emailLists {
           nodes {
@@ -26,7 +26,7 @@ export const LatestFeedContentDocument = /*#__PURE__*/ gql `
   }
 }
     ${ArticleTeaserPartsFragmentDoc}
-${EmailPartsFragmentDoc}`;
+${EmailTeaserPartsFragmentDoc}`;
 /**
  * __useLatestFeedContentQuery__
  *

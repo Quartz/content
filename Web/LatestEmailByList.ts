@@ -1,8 +1,8 @@
 import type * as Types from './types';
 
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import { gql } from '@apollo/client';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type LatestEmailByListQueryVariables = Types.Exact<{
@@ -13,7 +13,7 @@ export type LatestEmailByListQueryVariables = Types.Exact<{
 
 export type LatestEmailByListQuery = { __typename?: 'RootQuery', emailLists?: Types.Maybe<{ __typename?: 'RootQueryToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', id: string, emails?: Types.Maybe<{ __typename?: 'EmailListToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'Email', html?: Types.Maybe<string> }
-          & EmailPartsFragment
+          & EmailTeaserPartsFragment
         )>>> }> }>>> }> };
 
 
@@ -25,13 +25,13 @@ export const LatestEmailByListDocument = /*#__PURE__*/ gql`
       emails(first: 1) {
         nodes {
           html
-          ...EmailParts
+          ...EmailTeaserParts
         }
       }
     }
   }
 }
-    ${EmailPartsFragmentDoc}`;
+    ${EmailTeaserPartsFragmentDoc}`;
 
 /**
  * __useLatestEmailByListQuery__

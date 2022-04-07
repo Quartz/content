@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
@@ -11,7 +11,7 @@ export const EmailsByAuthorDocument = /*#__PURE__*/ gql `
       ...AuthorParts
       emails(after: $after, first: $perPage) {
         nodes {
-          ...EmailParts
+          ...EmailTeaserParts
           link
           emailLists {
             nodes {
@@ -28,7 +28,7 @@ export const EmailsByAuthorDocument = /*#__PURE__*/ gql `
   }
 }
     ${AuthorPartsFragmentDoc}
-${EmailPartsFragmentDoc}
+${EmailTeaserPartsFragmentDoc}
 ${EmailListPartsFragmentDoc}`;
 /**
  * __useEmailsByAuthorQuery__

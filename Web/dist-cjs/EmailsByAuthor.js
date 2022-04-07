@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useEmailsByAuthorLazyQuery = exports.useEmailsByAuthorQuery = exports.EmailsByAuthorDocument = void 0;
 const client_1 = require("@apollo/client");
 const AuthorParts_1 = require("./AuthorParts");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const EmailListParts_1 = require("./EmailListParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
@@ -33,7 +33,7 @@ exports.EmailsByAuthorDocument = client_1.gql `
       ...AuthorParts
       emails(after: $after, first: $perPage) {
         nodes {
-          ...EmailParts
+          ...EmailTeaserParts
           link
           emailLists {
             nodes {
@@ -50,7 +50,7 @@ exports.EmailsByAuthorDocument = client_1.gql `
   }
 }
     ${AuthorParts_1.AuthorPartsFragmentDoc}
-${EmailParts_1.EmailPartsFragmentDoc}
+${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}
 ${EmailListParts_1.EmailListPartsFragmentDoc}`;
 /**
  * __useEmailsByAuthorQuery__

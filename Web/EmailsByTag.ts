@@ -1,9 +1,9 @@
 import type * as Types from './types';
 
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import type { EmailListPartsFragment } from './EmailListParts';
 import { gql } from '@apollo/client';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
@@ -19,7 +19,7 @@ export type EmailsByTagQuery = { __typename?: 'RootQuery', emails?: Types.Maybe<
           { __typename?: 'EmailList' }
           & EmailListPartsFragment
         )>>> }> }
-      & EmailPartsFragment
+      & EmailTeaserPartsFragment
     )>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string>, hasNextPage: boolean }> }> };
 
 
@@ -27,7 +27,7 @@ export const EmailsByTagDocument = /*#__PURE__*/ gql`
     query EmailsByTag($after: String = "", $perPage: Int = 10, $slug: [String]) {
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
-      ...EmailParts
+      ...EmailTeaserParts
       html
       link
       emailLists {
@@ -42,7 +42,7 @@ export const EmailsByTagDocument = /*#__PURE__*/ gql`
     }
   }
 }
-    ${EmailPartsFragmentDoc}
+    ${EmailTeaserPartsFragmentDoc}
 ${EmailListPartsFragmentDoc}`;
 
 /**

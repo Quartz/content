@@ -1,10 +1,10 @@
 import type * as Types from './types';
 
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import { gql } from '@apollo/client';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type FirstFeedConcentByRecencyQueryVariables = Types.Exact<{
@@ -17,7 +17,7 @@ export type FirstFeedConcentByRecencyQuery = { __typename?: 'RootQuery', feedCon
       & ArticleTeaserPartsFragment
     ) | { __typename?: 'Page' } | { __typename?: 'MediaItem' } | (
       { __typename?: 'Email', link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'EmailList', slug?: Types.Maybe<string> }>>> }> }
-      & EmailPartsFragment
+      & EmailTeaserPartsFragment
     ) | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'Collection' } | { __typename?: 'Bulletin' }>>>, pageInfo?: Types.Maybe<{ __typename?: 'WPPageInfo', endCursor?: Types.Maybe<string> }> }> };
 
 
@@ -29,7 +29,7 @@ export const FirstFeedConcentByRecencyDocument = /*#__PURE__*/ gql`
         ...ArticleTeaserParts
       }
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         link
         emailLists {
           nodes {
@@ -44,7 +44,7 @@ export const FirstFeedConcentByRecencyDocument = /*#__PURE__*/ gql`
   }
 }
     ${ArticleTeaserPartsFragmentDoc}
-${EmailPartsFragmentDoc}`;
+${EmailTeaserPartsFragmentDoc}`;
 
 /**
  * __useFirstFeedConcentByRecencyQuery__

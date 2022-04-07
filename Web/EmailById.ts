@@ -13,7 +13,7 @@ export type EmailByIdQueryVariables = Types.Exact<{
 
 
 export type EmailByIdQuery = { __typename?: 'RootQuery', email?: Types.Maybe<(
-    { __typename?: 'Email', disablePaywall?: Types.Maybe<boolean>, html?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+    { __typename?: 'Email', html?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
         { __typename?: 'EmailList' }
         & EmailListPartsFragment
       )>>> }> }
@@ -25,7 +25,6 @@ export const EmailByIdDocument = /*#__PURE__*/ gql`
     query EmailById($id: ID!) {
   email(id: $id) {
     ...EmailParts
-    disablePaywall
     html
     emailLists {
       nodes {

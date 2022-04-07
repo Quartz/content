@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useContentByTagLazyQuery = exports.useContentByTagQuery = exports.ContentByTagDocument = void 0;
 const client_1 = require("@apollo/client");
 const TagParts_1 = require("./TagParts");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
@@ -36,7 +36,7 @@ exports.ContentByTagDocument = client_1.gql `
   tagContent(after: $after, first: $perPage, where: {slug: $slug}) {
     nodes {
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         emailLists {
           nodes {
             slug
@@ -54,7 +54,7 @@ exports.ContentByTagDocument = client_1.gql `
   }
 }
     ${TagParts_1.TagPartsFragmentDoc}
-${EmailParts_1.EmailPartsFragmentDoc}
+${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}
 ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useContentByTagQuery__

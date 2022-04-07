@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import { EmailListPartsFragmentDoc } from './EmailListParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export const EmailsByListDocument = /*#__PURE__*/ gql `
@@ -10,7 +10,7 @@ export const EmailsByListDocument = /*#__PURE__*/ gql `
       ...EmailListParts
       emails(after: $after, first: $perPage, where: {tagSlugIn: $tags}) {
         nodes {
-          ...EmailParts
+          ...EmailTeaserParts
         }
         pageInfo {
           endCursor
@@ -21,7 +21,7 @@ export const EmailsByListDocument = /*#__PURE__*/ gql `
   }
 }
     ${EmailListPartsFragmentDoc}
-${EmailPartsFragmentDoc}`;
+${EmailTeaserPartsFragmentDoc}`;
 /**
  * __useEmailsByListQuery__
  *

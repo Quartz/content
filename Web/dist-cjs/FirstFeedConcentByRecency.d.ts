@@ -1,6 +1,6 @@
 import type * as Types from './types';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import * as Apollo from '@apollo/client';
 export declare type FirstFeedConcentByRecencyQueryVariables = Types.Exact<{
     first?: Types.Maybe<Types.Scalars['Int']>;
@@ -25,7 +25,7 @@ export declare type FirstFeedConcentByRecencyQuery = {
                     slug?: Types.Maybe<string>;
                 }>>>;
             }>;
-        } & EmailPartsFragment) | {
+        } & EmailTeaserPartsFragment) | {
             __typename?: 'Chapter';
         } | {
             __typename?: 'Promotion';
