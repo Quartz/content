@@ -68,23 +68,41 @@ public enum EditionName: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
 /// Registered menu locations
 public enum MenuLocationEnum: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
+  /// Put the menu in the authors_work location
   case authorsWork
+  /// Put the menu in the case-studies_creative location
   case caseStudiesCreative
+  /// Put the menu in the clients_creative location
   case clientsCreative
+  /// Put the menu in the display_creative location
   case displayCreative
+  /// Put the menu in the featured_quartz location
   case featuredQuartz
+  /// Put the menu in the features-marketing_members location
   case featuresMarketingMembers
+  /// Put the menu in the features_members location
   case featuresMembers
+  /// Put the menu in the features-video_members location
   case featuresVideoMembers
+  /// Put the menu in the insights_creative location
   case insightsCreative
+  /// Put the menu in the obsessions_africa location
   case obsessionsAfrica
+  /// Put the menu in the obsessions_india location
   case obsessionsIndia
+  /// Put the menu in the obsessions_quartz location
   case obsessionsQuartz
+  /// Put the menu in the obsessions_work location
   case obsessionsWork
+  /// Put the menu in the player_video location
   case playerVideo
+  /// Put the menu in the premium_members location
   case premiumMembers
+  /// Put the menu in the related_mbb location
   case relatedMbb
+  /// Put the menu in the shows_video location
   case showsVideo
+  /// Put the menu in the top_work location
   case topWork
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
@@ -350,6 +368,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeCrowdsignal
   case shortcodeDailymotion
   case shortcodeDailymotionChannel
+  case shortcodeDailyBriefReferral
   case shortcodeDescript
   case shortcodeEmbed
   case shortcodeEndmatter
@@ -385,6 +404,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeQzAtlas
   case shortcodeQzDailyBrief
   case shortcodeQzDatawrapper
+  case shortcodeQzEmailAuthors
+  case shortcodeQzEmailPartner
+  case shortcodeQzEmailSponsor
+  case shortcodeQzEmailSponsor_2
   case shortcodeQzFacebookPost
   case shortcodeQzFacebookVideo
   case shortcodeQzFurtherReading
@@ -600,6 +623,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_CROWDSIGNAL": self = .shortcodeCrowdsignal
       case "SHORTCODE_DAILYMOTION": self = .shortcodeDailymotion
       case "SHORTCODE_DAILYMOTION_CHANNEL": self = .shortcodeDailymotionChannel
+      case "SHORTCODE_DAILY_BRIEF_REFERRAL": self = .shortcodeDailyBriefReferral
       case "SHORTCODE_DESCRIPT": self = .shortcodeDescript
       case "SHORTCODE_EMBED": self = .shortcodeEmbed
       case "SHORTCODE_ENDMATTER": self = .shortcodeEndmatter
@@ -635,6 +659,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_QZ_ATLAS": self = .shortcodeQzAtlas
       case "SHORTCODE_QZ_DAILY_BRIEF": self = .shortcodeQzDailyBrief
       case "SHORTCODE_QZ_DATAWRAPPER": self = .shortcodeQzDatawrapper
+      case "SHORTCODE_QZ_EMAIL_AUTHORS": self = .shortcodeQzEmailAuthors
+      case "SHORTCODE_QZ_EMAIL_PARTNER": self = .shortcodeQzEmailPartner
+      case "SHORTCODE_QZ_EMAIL_SPONSOR": self = .shortcodeQzEmailSponsor
+      case "SHORTCODE_QZ_EMAIL_SPONSOR_2": self = .shortcodeQzEmailSponsor_2
       case "SHORTCODE_QZ_FACEBOOK_POST": self = .shortcodeQzFacebookPost
       case "SHORTCODE_QZ_FACEBOOK_VIDEO": self = .shortcodeQzFacebookVideo
       case "SHORTCODE_QZ_FURTHER_READING": self = .shortcodeQzFurtherReading
@@ -851,6 +879,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeCrowdsignal: return "SHORTCODE_CROWDSIGNAL"
       case .shortcodeDailymotion: return "SHORTCODE_DAILYMOTION"
       case .shortcodeDailymotionChannel: return "SHORTCODE_DAILYMOTION_CHANNEL"
+      case .shortcodeDailyBriefReferral: return "SHORTCODE_DAILY_BRIEF_REFERRAL"
       case .shortcodeDescript: return "SHORTCODE_DESCRIPT"
       case .shortcodeEmbed: return "SHORTCODE_EMBED"
       case .shortcodeEndmatter: return "SHORTCODE_ENDMATTER"
@@ -886,6 +915,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeQzAtlas: return "SHORTCODE_QZ_ATLAS"
       case .shortcodeQzDailyBrief: return "SHORTCODE_QZ_DAILY_BRIEF"
       case .shortcodeQzDatawrapper: return "SHORTCODE_QZ_DATAWRAPPER"
+      case .shortcodeQzEmailAuthors: return "SHORTCODE_QZ_EMAIL_AUTHORS"
+      case .shortcodeQzEmailPartner: return "SHORTCODE_QZ_EMAIL_PARTNER"
+      case .shortcodeQzEmailSponsor: return "SHORTCODE_QZ_EMAIL_SPONSOR"
+      case .shortcodeQzEmailSponsor_2: return "SHORTCODE_QZ_EMAIL_SPONSOR_2"
       case .shortcodeQzFacebookPost: return "SHORTCODE_QZ_FACEBOOK_POST"
       case .shortcodeQzFacebookVideo: return "SHORTCODE_QZ_FACEBOOK_VIDEO"
       case .shortcodeQzFurtherReading: return "SHORTCODE_QZ_FURTHER_READING"
@@ -1102,6 +1135,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeCrowdsignal, .shortcodeCrowdsignal): return true
       case (.shortcodeDailymotion, .shortcodeDailymotion): return true
       case (.shortcodeDailymotionChannel, .shortcodeDailymotionChannel): return true
+      case (.shortcodeDailyBriefReferral, .shortcodeDailyBriefReferral): return true
       case (.shortcodeDescript, .shortcodeDescript): return true
       case (.shortcodeEmbed, .shortcodeEmbed): return true
       case (.shortcodeEndmatter, .shortcodeEndmatter): return true
@@ -1137,6 +1171,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeQzAtlas, .shortcodeQzAtlas): return true
       case (.shortcodeQzDailyBrief, .shortcodeQzDailyBrief): return true
       case (.shortcodeQzDatawrapper, .shortcodeQzDatawrapper): return true
+      case (.shortcodeQzEmailAuthors, .shortcodeQzEmailAuthors): return true
+      case (.shortcodeQzEmailPartner, .shortcodeQzEmailPartner): return true
+      case (.shortcodeQzEmailSponsor, .shortcodeQzEmailSponsor): return true
+      case (.shortcodeQzEmailSponsor_2, .shortcodeQzEmailSponsor_2): return true
       case (.shortcodeQzFacebookPost, .shortcodeQzFacebookPost): return true
       case (.shortcodeQzFacebookVideo, .shortcodeQzFacebookVideo): return true
       case (.shortcodeQzFurtherReading, .shortcodeQzFurtherReading): return true
@@ -1354,6 +1392,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeCrowdsignal,
       .shortcodeDailymotion,
       .shortcodeDailymotionChannel,
+      .shortcodeDailyBriefReferral,
       .shortcodeDescript,
       .shortcodeEmbed,
       .shortcodeEndmatter,
@@ -1389,6 +1428,10 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeQzAtlas,
       .shortcodeQzDailyBrief,
       .shortcodeQzDatawrapper,
+      .shortcodeQzEmailAuthors,
+      .shortcodeQzEmailPartner,
+      .shortcodeQzEmailSponsor,
+      .shortcodeQzEmailSponsor_2,
       .shortcodeQzFacebookPost,
       .shortcodeQzFacebookVideo,
       .shortcodeQzFurtherReading,
@@ -4617,7 +4660,7 @@ public final class ContentByAuthorQuery: GraphQLQuery {
         nodes {
           __typename
           ... on Email {
-            ...EmailParts
+            ...EmailTeaserParts
             emailLists {
               __typename
               nodes {
@@ -4641,12 +4684,12 @@ public final class ContentByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "ContentByAuthor"
 
-  public let operationIdentifier: String? = "fb55b0eb7a8bfc01cd7ace276376713e8a7a9d96e4e00c8081ee88d3244e7865"
+  public let operationIdentifier: String? = "da51ba4ed3d4d86d50b6414b690d01e9baedadfa6a5dd5ecc8c4a437f8c587be"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + AuthorParts.fragmentDefinition)
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
@@ -4923,7 +4966,7 @@ public final class ContentByAuthorQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLFragmentSpread(EmailParts.self),
+              GraphQLFragmentSpread(EmailTeaserParts.self),
               GraphQLField("emailLists", type: .object(EmailList.selections)),
             ]
           }
@@ -4969,9 +5012,9 @@ public final class ContentByAuthorQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public var emailParts: EmailParts {
+            public var emailTeaserParts: EmailTeaserParts {
               get {
-                return EmailParts(unsafeResultMap: resultMap)
+                return EmailTeaserParts(unsafeResultMap: resultMap)
               }
               set {
                 resultMap += newValue.resultMap
@@ -5509,7 +5552,7 @@ public final class ContentByTagQuery: GraphQLQuery {
         nodes {
           __typename
           ... on Email {
-            ...EmailParts
+            ...EmailTeaserParts
             emailLists {
               __typename
               nodes {
@@ -5533,13 +5576,14 @@ public final class ContentByTagQuery: GraphQLQuery {
 
   public let operationName: String = "ContentByTag"
 
-  public let operationIdentifier: String? = "cf41f5874d57d8b69b9e06044e0f717eab245cb380d03297c793cc1eff24f6ab"
+  public let operationIdentifier: String? = "3d79d3f8169699d4b7e3195993293dcc6b89b7c28eefad0ea636d41e5ebce74b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + TagParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     return document
@@ -5811,7 +5855,7 @@ public final class ContentByTagQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLFragmentSpread(EmailParts.self),
+              GraphQLFragmentSpread(EmailTeaserParts.self),
               GraphQLField("emailLists", type: .object(EmailList.selections)),
             ]
           }
@@ -5857,9 +5901,9 @@ public final class ContentByTagQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public var emailParts: EmailParts {
+            public var emailTeaserParts: EmailTeaserParts {
               get {
-                return EmailParts(unsafeResultMap: resultMap)
+                return EmailTeaserParts(unsafeResultMap: resultMap)
               }
               set {
                 resultMap += newValue.resultMap
@@ -6079,7 +6123,7 @@ public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
             ...ArticleTeaserParts
           }
           ... on Email {
-            ...EmailParts
+            ...EmailTeaserParts
             link
             emailLists {
               __typename
@@ -6100,14 +6144,15 @@ public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
 
   public let operationName: String = "FirstFeedConcentByRecency"
 
-  public let operationIdentifier: String? = "a1b4f88b3a0fe0273e8d56c2138a80740f12fb4f7c41ca426aab8b47d4a544a7"
+  public let operationIdentifier: String? = "3d00255f89b94030e1543bb74f5222c6e990bbb1b8abe4516da72fafbb8e88be"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     return document
   }
 
@@ -6333,7 +6378,7 @@ public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLFragmentSpread(EmailParts.self),
+              GraphQLFragmentSpread(EmailTeaserParts.self),
               GraphQLField("link", type: .scalar(String.self)),
               GraphQLField("emailLists", type: .object(EmailList.selections)),
             ]
@@ -6390,9 +6435,9 @@ public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public var emailParts: EmailParts {
+            public var emailTeaserParts: EmailTeaserParts {
               get {
-                return EmailParts(unsafeResultMap: resultMap)
+                return EmailTeaserParts(unsafeResultMap: resultMap)
               }
               set {
                 resultMap += newValue.resultMap
@@ -6998,7 +7043,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
             ...ArticleTeaserParts
           }
           ... on Email {
-            ...EmailParts
+            ...EmailTeaserParts
             link
             emailLists {
               __typename
@@ -7019,14 +7064,15 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "1aeb0d796c967376cf2e03f4323ac24209926dbc11a8d2fa01cfd319de0158f1"
+  public let operationIdentifier: String? = "c604295273aad7296a7e2ca5979e2ecfdefcbd2d07c1e730a9971b26333a0a2c"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     return document
   }
 
@@ -7254,7 +7300,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLFragmentSpread(EmailParts.self),
+              GraphQLFragmentSpread(EmailTeaserParts.self),
               GraphQLField("link", type: .scalar(String.self)),
               GraphQLField("emailLists", type: .object(EmailList.selections)),
             ]
@@ -7311,9 +7357,9 @@ public final class LatestFeedContentQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public var emailParts: EmailParts {
+            public var emailTeaserParts: EmailTeaserParts {
               get {
-                return EmailParts(unsafeResultMap: resultMap)
+                return EmailTeaserParts(unsafeResultMap: resultMap)
               }
               set {
                 resultMap += newValue.resultMap
@@ -7806,7 +7852,7 @@ public final class CollectionQuery: GraphQLQuery {
 
   public let operationName: String = "Collection"
 
-  public let operationIdentifier: String? = "584019f6eec171f38c21262474ecf97d48add3dbb9634085b40d57205ef6d59b"
+  public let operationIdentifier: String? = "1c84c0e743cb247a6ba2deae8dc8391049dece0d47d31a8e8adda2e6c46e4caf"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7816,6 +7862,7 @@ public final class CollectionQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     return document
   }
 
@@ -7977,7 +8024,7 @@ public final class CollectionsQuery: GraphQLQuery {
 
   public let operationName: String = "Collections"
 
-  public let operationIdentifier: String? = "b7b382e40ea5c86960faa2a37e7fe544cc49a857457dfdec912f00d2acbce008"
+  public let operationIdentifier: String? = "67eb4825561a1f8875014ab21e5be8f76654f8fd597f6bbbe1440d8f9be13a6c"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7987,6 +8034,7 @@ public final class CollectionsQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     return document
   }
 
@@ -8225,7 +8273,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticle"
 
-  public let operationIdentifier: String? = "736868892ce0a360efbc7be8cb1566854930a13a1d221f810c59a67c7dce3ee2"
+  public let operationIdentifier: String? = "7ac8082c7df08a5d8fe240abc7562820bba2aef30f129c054d7a9c2d88bacfbc"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -8235,6 +8283,7 @@ public final class EssentialsByArticleQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     document.append("\n" + ObsessionParts.fragmentDefinition)
     document.append("\n" + GuideParts.fragmentDefinition)
     return document
@@ -8888,7 +8937,7 @@ public final class EssentialsByArticlePreviewQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByArticlePreview"
 
-  public let operationIdentifier: String? = "83cd2bc6e66a7f4b3a8970e9cd5864f0bd46f632aa9e90d7e97b68ca2aa61fe3"
+  public let operationIdentifier: String? = "990b987dbc6a83028a6ce9812e650f1e471f3713b2ba9e85ecfb39ef7aa83063"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -8898,6 +8947,7 @@ public final class EssentialsByArticlePreviewQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     document.append("\n" + ObsessionParts.fragmentDefinition)
     document.append("\n" + GuideParts.fragmentDefinition)
     return document
@@ -9561,7 +9611,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByCollection"
 
-  public let operationIdentifier: String? = "bb484107080c059d05bcb99cf6bca4c798fcc74fddcd1439525e1a48a2be4817"
+  public let operationIdentifier: String? = "2ad540a15607e5c9b3c29ea71f8c606622d4a05e89af3ac413e23d62943a7ec6"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9571,6 +9621,7 @@ public final class EssentialsByCollectionQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     document.append("\n" + BulletinDataParts.fragmentDefinition)
     return document
   }
@@ -9756,7 +9807,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByGuide"
 
-  public let operationIdentifier: String? = "df1494d49b9b1a17a267d2d07449219b61db3c5133e6e396146f9d4e5b9abcd7"
+  public let operationIdentifier: String? = "13884a674944b430fc7ba5a2449fcd051bc5e2867add85e1e13ee13f1513a1d2"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -9766,6 +9817,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     return document
   }
 
@@ -9877,7 +9929,7 @@ public final class EssentialsByGuideQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -10017,7 +10069,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
 
   public let operationName: String = "EssentialsByObsession"
 
-  public let operationIdentifier: String? = "7568a7f5cec928baca0ca7ff8ba2d4cc8d85dbd2c67a89d60f2e5dc436e72503"
+  public let operationIdentifier: String? = "d4d0d85cea580ffad29f7d3e9e1e75d2cec93094ac54b1c61c4113221bc27718"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10027,6 +10079,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     return document
   }
 
@@ -10138,7 +10191,7 @@ public final class EssentialsByObsessionQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -10280,7 +10333,7 @@ public final class NonHomeEssentialsQuery: GraphQLQuery {
 
   public let operationName: String = "NonHomeEssentials"
 
-  public let operationIdentifier: String? = "b52290432468fd30618a35817a1eb75d8d4cc91ec3f0554073020e1b2b0c3dec"
+  public let operationIdentifier: String? = "5544ad7daabe58eab79f74bae404690bc8eb1f670406f6492f0a01ab3388175c"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -10290,6 +10343,7 @@ public final class NonHomeEssentialsQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     document.append("\n" + BulletinDataParts.fragmentDefinition)
     return document
   }
@@ -11620,7 +11674,6 @@ public final class EmailByIdQuery: GraphQLQuery {
       email(id: $id) {
         __typename
         ...EmailParts
-        disablePaywall
         html
         emailLists {
           __typename
@@ -11635,12 +11688,16 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "d18f49f4ab20265b007eec3716f9edfde94f28df481db244b3d385957cbb0738"
+  public let operationIdentifier: String? = "f703d3458f55003a431b05d3ae23e5f67d1b338b821435dd3a43339b2430a9f6"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
+    document.append("\n" + BlockParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     document.append("\n" + EmailListParts.fragmentDefinition)
     return document
   }
@@ -11691,7 +11748,6 @@ public final class EmailByIdQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLFragmentSpread(EmailParts.self),
-          GraphQLField("disablePaywall", type: .scalar(Bool.self)),
           GraphQLField("html", type: .scalar(String.self)),
           GraphQLField("emailLists", type: .object(EmailList.selections)),
         ]
@@ -11709,16 +11765,6 @@ public final class EmailByIdQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      /// Whether the paywall for this email should be disabled
-      public var disablePaywall: Bool? {
-        get {
-          return resultMap["disablePaywall"] as? Bool
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "disablePaywall")
         }
       }
 
@@ -12149,7 +12195,7 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
             __typename
             nodes {
               __typename
-              ...EmailParts
+              ...EmailTeaserParts
               link
               emailLists {
                 __typename
@@ -12172,12 +12218,12 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByAuthor"
 
-  public let operationIdentifier: String? = "91e11a12df9f8ed53c810ba1589de278d3aebf1644451fc7971542a1dd41449a"
+  public let operationIdentifier: String? = "8389b3f0665499be6c60b9acd5f5a033ab8a15c4604430bff26ea66e0f077a1b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + AuthorParts.fragmentDefinition)
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
     document.append("\n" + EmailListParts.fragmentDefinition)
     return document
@@ -12383,7 +12429,7 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
             public static var selections: [GraphQLSelection] {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLFragmentSpread(EmailParts.self),
+                GraphQLFragmentSpread(EmailTeaserParts.self),
                 GraphQLField("link", type: .scalar(String.self)),
                 GraphQLField("emailLists", type: .object(EmailList.selections)),
               ]
@@ -12440,9 +12486,9 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public var emailParts: EmailParts {
+              public var emailTeaserParts: EmailTeaserParts {
                 get {
-                  return EmailParts(unsafeResultMap: resultMap)
+                  return EmailTeaserParts(unsafeResultMap: resultMap)
                 }
                 set {
                   resultMap += newValue.resultMap
@@ -12613,7 +12659,7 @@ public final class EmailsByListQuery: GraphQLQuery {
             __typename
             nodes {
               __typename
-              ...EmailParts
+              ...EmailTeaserParts
             }
             pageInfo {
               __typename
@@ -12628,13 +12674,14 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "0579a8e6c3d5c2584eeec0e71323c03e23dbfed3144413b7be785d3584476184"
+  public let operationIdentifier: String? = "efbcd0ad292a11f7bd14e64bca38f705cac03c3c8b00e6780fe5d4904e216afd"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + EmailListParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     return document
   }
 
@@ -12840,7 +12887,7 @@ public final class EmailsByListQuery: GraphQLQuery {
             public static var selections: [GraphQLSelection] {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLFragmentSpread(EmailParts.self),
+                GraphQLFragmentSpread(EmailTeaserParts.self),
               ]
             }
 
@@ -12875,9 +12922,9 @@ public final class EmailsByListQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public var emailParts: EmailParts {
+              public var emailTeaserParts: EmailTeaserParts {
                 get {
-                  return EmailParts(unsafeResultMap: resultMap)
+                  return EmailTeaserParts(unsafeResultMap: resultMap)
                 }
                 set {
                   resultMap += newValue.resultMap
@@ -12951,7 +12998,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
         __typename
         nodes {
           __typename
-          ...EmailParts
+          ...EmailTeaserParts
           html
           link
           emailLists {
@@ -12973,12 +13020,13 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "2667c8b3112f0b5977dc3c89fe03f461187b469d4d19ce089d733a17caaa512f"
+  public let operationIdentifier: String? = "be944e87b3b6ab53b95efc78a4e2d700caf8f6d44ead677a7cf7e78f3b0c8d97"
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     document.append("\n" + EmailListParts.fragmentDefinition)
     return document
   }
@@ -13082,7 +13130,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLFragmentSpread(EmailParts.self),
+            GraphQLFragmentSpread(EmailTeaserParts.self),
             GraphQLField("html", type: .scalar(String.self)),
             GraphQLField("link", type: .scalar(String.self)),
             GraphQLField("emailLists", type: .object(EmailList.selections)),
@@ -13150,9 +13198,9 @@ public final class EmailsByTagQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public var emailParts: EmailParts {
+          public var emailTeaserParts: EmailTeaserParts {
             get {
-              return EmailParts(unsafeResultMap: resultMap)
+              return EmailTeaserParts(unsafeResultMap: resultMap)
             }
             set {
               resultMap += newValue.resultMap
@@ -13322,7 +13370,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
             nodes {
               __typename
               html
-              ...EmailParts
+              ...EmailTeaserParts
             }
           }
         }
@@ -13332,12 +13380,13 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
   public let operationName: String = "LatestEmailByList"
 
-  public let operationIdentifier: String? = "0a9c88300953ba4efa846bbf275f0b827cf79b241cd3aace086ff9119fa1869b"
+  public let operationIdentifier: String? = "b13d036feedc22f255733330697bdbabd2cd0e8c34419d108ff99fd01832f6d5"
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + EmailParts.fragmentDefinition)
+    document.append("\n" + EmailTeaserParts.fragmentDefinition)
     document.append("\n" + MediaParts.fragmentDefinition)
+    document.append("\n" + AuthorParts.fragmentDefinition)
     return document
   }
 
@@ -13451,7 +13500,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -13517,7 +13566,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("html", type: .scalar(String.self)),
-                GraphQLFragmentSpread(EmailParts.self),
+                GraphQLFragmentSpread(EmailTeaserParts.self),
               ]
             }
 
@@ -13562,9 +13611,9 @@ public final class LatestEmailByListQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public var emailParts: EmailParts {
+              public var emailTeaserParts: EmailTeaserParts {
                 get {
-                  return EmailParts(unsafeResultMap: resultMap)
+                  return EmailTeaserParts(unsafeResultMap: resultMap)
                 }
                 set {
                   resultMap += newValue.resultMap
@@ -14234,7 +14283,7 @@ public final class GuidesByTopicQuery: GraphQLQuery {
           }
         }
 
-        /// The globally unique ID for the object
+        /// The unique resource identifier path
         public var id: GraphQLID {
           get {
             return resultMap["id"]! as! GraphQLID
@@ -14387,7 +14436,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollection"
 
-  public let operationIdentifier: String? = "62937df7189382b272a88a7d971812c8474f667e180185d70f8a780b2a3f1804"
+  public let operationIdentifier: String? = "42677fa615cc12815717e5f48c99bea2dd4f0f4a8c46ac590605137b7e244125"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -14397,6 +14446,7 @@ public final class HomeCollectionQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     return document
   }
 
@@ -14543,7 +14593,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
 
   public let operationName: String = "HomeCollectionPreview"
 
-  public let operationIdentifier: String? = "a1840b13c7bb92d7e588207ee761a3b7adc42c20e0c851ec2bbeb1f9dab09cea"
+  public let operationIdentifier: String? = "f42a894a3bde376e820f4f8eebd21413cbcf8e554ec03fb475751600aeaa79ba"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -14553,6 +14603,7 @@ public final class HomeCollectionPreviewQuery: GraphQLQuery {
     document.append("\n" + ArticleTeaserParts.fragmentDefinition)
     document.append("\n" + VideoParts.fragmentDefinition)
     document.append("\n" + NugParts.fragmentDefinition)
+    document.append("\n" + PromotionParts.fragmentDefinition)
     return document
   }
 
@@ -19454,7 +19505,7 @@ public struct ArticleParts: GraphQLFragment {
       }
     }
 
-    /// The nodes of the connection, without the edges
+    /// The node of the connection, without the edges
     public var node: Node? {
       get {
         return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
@@ -20210,7 +20261,7 @@ public struct ArticleParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -20312,7 +20363,7 @@ public struct ArticleParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -21410,7 +21461,7 @@ public struct AuthorParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -22447,6 +22498,12 @@ public struct CollectionParts: GraphQLFragment {
           ... on Nug {
             ...NugParts
           }
+          ... on Nug {
+            ...NugParts
+          }
+          ... on Promotion {
+            ...PromotionParts
+          }
         }
       }
     }
@@ -22790,7 +22847,7 @@ public struct CollectionParts: GraphQLFragment {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLTypeCase(
-            variants: ["Post": AsPost.selections, "MediaItem": AsMediaItem.selections, "Nug": AsNug.selections],
+            variants: ["Post": AsPost.selections, "MediaItem": AsMediaItem.selections, "Nug": AsNug.selections, "Promotion": AsPromotion.selections],
             default: [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             ]
@@ -22814,10 +22871,6 @@ public struct CollectionParts: GraphQLFragment {
 
       public static func makeChapter() -> Connection {
         return Connection(unsafeResultMap: ["__typename": "Chapter"])
-      }
-
-      public static func makePromotion() -> Connection {
-        return Connection(unsafeResultMap: ["__typename": "Promotion"])
       }
 
       public static func makeBlogPost() -> Connection {
@@ -22985,6 +23038,7 @@ public struct CollectionParts: GraphQLFragment {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLFragmentSpread(NugParts.self),
+            GraphQLFragmentSpread(NugParts.self),
           ]
         }
 
@@ -23022,6 +23076,69 @@ public struct CollectionParts: GraphQLFragment {
           public var nugParts: NugParts {
             get {
               return NugParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+
+      public var asPromotion: AsPromotion? {
+        get {
+          if !AsPromotion.possibleTypes.contains(__typename) { return nil }
+          return AsPromotion(unsafeResultMap: resultMap)
+        }
+        set {
+          guard let newValue = newValue else { return }
+          resultMap = newValue.resultMap
+        }
+      }
+
+      public struct AsPromotion: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Promotion"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(PromotionParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var promotionParts: PromotionParts {
+            get {
+              return PromotionParts(unsafeResultMap: resultMap)
             }
             set {
               resultMap += newValue.resultMap
@@ -23092,7 +23209,7 @@ public struct EmailListParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -23251,6 +23368,383 @@ public struct EmailParts: GraphQLFragment {
     """
     fragment EmailParts on Email {
       __typename
+      ...EmailTeaserParts
+      disablePaywall
+      blocks {
+        __typename
+        ...BlockParts
+        connections {
+          __typename
+          ... on Promotion {
+            ...PromotionParts
+          }
+        }
+      }
+      sendgridID
+      emailLogoAd {
+        __typename
+        alt
+        src
+        url
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Email"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLFragmentSpread(EmailTeaserParts.self),
+      GraphQLField("disablePaywall", type: .scalar(Bool.self)),
+      GraphQLField("blocks", type: .list(.object(Block.selections))),
+      GraphQLField("sendgridID", type: .list(.scalar(String.self))),
+      GraphQLField("emailLogoAd", type: .object(EmailLogoAd.selections)),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  /// Whether the paywall for this email should be disabled
+  public var disablePaywall: Bool? {
+    get {
+      return resultMap["disablePaywall"] as? Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "disablePaywall")
+    }
+  }
+
+  /// Structured / parsed post content described as a shallow tree of block elements
+  public var blocks: [Block?]? {
+    get {
+      return (resultMap["blocks"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Block?] in value.map { (value: ResultMap?) -> Block? in value.flatMap { (value: ResultMap) -> Block in Block(unsafeResultMap: value) } } }
+    }
+    set {
+      resultMap.updateValue(newValue.flatMap { (value: [Block?]) -> [ResultMap?] in value.map { (value: Block?) -> ResultMap? in value.flatMap { (value: Block) -> ResultMap in value.resultMap } } }, forKey: "blocks")
+    }
+  }
+
+  /// Sendgrid Single Send Email ID
+  public var sendgridId: [String?]? {
+    get {
+      return resultMap["sendgridID"] as? [String?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "sendgridID")
+    }
+  }
+
+  /// Email sponsor logo
+  public var emailLogoAd: EmailLogoAd? {
+    get {
+      return (resultMap["emailLogoAd"] as? ResultMap).flatMap { EmailLogoAd(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "emailLogoAd")
+    }
+  }
+
+  public var fragments: Fragments {
+    get {
+      return Fragments(unsafeResultMap: resultMap)
+    }
+    set {
+      resultMap += newValue.resultMap
+    }
+  }
+
+  public struct Fragments {
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var emailTeaserParts: EmailTeaserParts {
+      get {
+        return EmailTeaserParts(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+  }
+
+  public struct Block: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Block"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(BlockParts.self),
+        GraphQLField("connections", type: .list(.object(Connection.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// Objects connected to this block
+    public var connections: [Connection?]? {
+      get {
+        return (resultMap["connections"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Connection?] in value.map { (value: ResultMap?) -> Connection? in value.flatMap { (value: ResultMap) -> Connection in Connection(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Connection?]) -> [ResultMap?] in value.map { (value: Connection?) -> ResultMap? in value.flatMap { (value: Connection) -> ResultMap in value.resultMap } } }, forKey: "connections")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var blockParts: BlockParts {
+        get {
+          return BlockParts(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+    }
+
+    public struct Connection: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Post", "Page", "MediaItem", "Email", "Chapter", "Promotion", "BlogPost", "Nug", "Collection", "Bulletin"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLTypeCase(
+            variants: ["Promotion": AsPromotion.selections],
+            default: [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            ]
+          )
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public static func makePost() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Post"])
+      }
+
+      public static func makePage() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Page"])
+      }
+
+      public static func makeMediaItem() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "MediaItem"])
+      }
+
+      public static func makeEmail() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Email"])
+      }
+
+      public static func makeChapter() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Chapter"])
+      }
+
+      public static func makeBlogPost() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "BlogPost"])
+      }
+
+      public static func makeNug() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Nug"])
+      }
+
+      public static func makeCollection() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Collection"])
+      }
+
+      public static func makeBulletin() -> Connection {
+        return Connection(unsafeResultMap: ["__typename": "Bulletin"])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var asPromotion: AsPromotion? {
+        get {
+          if !AsPromotion.possibleTypes.contains(__typename) { return nil }
+          return AsPromotion(unsafeResultMap: resultMap)
+        }
+        set {
+          guard let newValue = newValue else { return }
+          resultMap = newValue.resultMap
+        }
+      }
+
+      public struct AsPromotion: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Promotion"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(PromotionParts.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var promotionParts: PromotionParts {
+            get {
+              return PromotionParts(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+  }
+
+  public struct EmailLogoAd: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["EmailLogoAd"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("alt", type: .scalar(String.self)),
+        GraphQLField("src", type: .scalar(String.self)),
+        GraphQLField("url", type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(alt: String? = nil, src: String? = nil, url: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "EmailLogoAd", "alt": alt, "src": src, "url": url])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// Alt text for sponsor logo image
+    public var alt: String? {
+      get {
+        return resultMap["alt"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "alt")
+      }
+    }
+
+    /// Email sponsor logo URL
+    public var src: String? {
+      get {
+        return resultMap["src"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "src")
+      }
+    }
+
+    /// Email sponsor logo clickthru URL
+    public var url: String? {
+      get {
+        return resultMap["url"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "url")
+      }
+    }
+  }
+}
+
+public struct EmailTeaserParts: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment EmailTeaserParts on Email {
+      __typename
       id
       dateGmt
       emailId
@@ -23269,6 +23763,13 @@ public struct EmailParts: GraphQLFragment {
       socialTitle
       subject
       title
+      authors: coAuthors {
+        __typename
+        nodes {
+          __typename
+          ...AuthorParts
+        }
+      }
     }
     """
 
@@ -23289,6 +23790,7 @@ public struct EmailParts: GraphQLFragment {
       GraphQLField("socialTitle", type: .scalar(String.self)),
       GraphQLField("subject", type: .scalar(String.self)),
       GraphQLField("title", type: .scalar(String.self)),
+      GraphQLField("coAuthors", alias: "authors", type: .object(Author.selections)),
     ]
   }
 
@@ -23298,8 +23800,8 @@ public struct EmailParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title])
+  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil, authors: Author? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title, "authors": authors.flatMap { (value: Author) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -23432,6 +23934,16 @@ public struct EmailParts: GraphQLFragment {
     }
   }
 
+  /// Connection between the email type and the coAuthor type
+  public var authors: Author? {
+    get {
+      return (resultMap["authors"] as? ResultMap).flatMap { Author(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "authors")
+    }
+  }
+
   public struct FeaturedImage: GraphQLSelectionSet {
     public static let possibleTypes: [String] = ["MediaItem"]
 
@@ -23535,6 +24047,102 @@ public struct EmailParts: GraphQLFragment {
       }
     }
   }
+
+  public struct Author: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["EmailToCoAuthorConnection"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nodes: [Node?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "EmailToCoAuthorConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    /// The nodes of the connection, without the edges
+    public var nodes: [Node?]? {
+      get {
+        return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+      }
+    }
+
+    public struct Node: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CoAuthor"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(AuthorParts.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(avatar: String? = nil, bio: String? = nil, emeritus: Bool? = nil, email: String? = nil, facebook: String? = nil, firstName: String? = nil, id: GraphQLID, instagram: String? = nil, lastName: String? = nil, linkedin: String? = nil, name: String? = nil, organization: String? = nil, pgp: String? = nil, shortBio: String? = nil, title: String? = nil, twitter: String? = nil, type: String? = nil, url: String? = nil, username: String? = nil, website: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "CoAuthor", "avatar": avatar, "bio": bio, "emeritus": emeritus, "email": email, "facebook": facebook, "firstName": firstName, "id": id, "instagram": instagram, "lastName": lastName, "linkedin": linkedin, "name": name, "organization": organization, "pgp": pgp, "shortBio": shortBio, "title": title, "twitter": twitter, "type": type, "url": url, "username": username, "website": website])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var authorParts: AuthorParts {
+          get {
+            return AuthorParts(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
 }
 
 public struct GuideParts: GraphQLFragment {
@@ -23615,7 +24223,7 @@ public struct GuideParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -24263,7 +24871,7 @@ public struct MenuItemParts: GraphQLFragment {
       }
     }
 
-    /// The nodes of the connection, without the edges
+    /// The node of the connection, without the edges
     public var node: Node? {
       get {
         return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
@@ -25128,7 +25736,7 @@ public struct NugParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -25230,7 +25838,7 @@ public struct NugParts: GraphQLFragment {
         }
       }
 
-      /// The globally unique ID for the object
+      /// The unique resource identifier path
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -25336,7 +25944,7 @@ public struct ObsessionParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -25714,7 +26322,7 @@ public struct ProjectParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -26164,7 +26772,7 @@ public struct SeriesParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -26853,7 +27461,7 @@ public struct ShowParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -27458,7 +28066,7 @@ public struct TagParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
@@ -27647,7 +28255,7 @@ public struct TopicParts: GraphQLFragment {
     }
   }
 
-  /// The globally unique ID for the object
+  /// The unique resource identifier path
   public var id: GraphQLID {
     get {
       return resultMap["id"]! as! GraphQLID
