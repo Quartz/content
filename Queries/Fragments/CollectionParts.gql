@@ -31,12 +31,6 @@ fragment CollectionParts on Collection {
 			... on Nug {
 				...NugParts
 			}
-			... on Nug {
-				...NugParts
-			}
-			... on Promotion {
-				...PromotionParts
-			}
 		}
 	}
 }

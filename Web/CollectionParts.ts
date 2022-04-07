@@ -55,9 +55,6 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
       ... on Nug {
         ...NugParts
       }
-      ... on Promotion {
-        ...PromotionParts
-      }
     }
   }
 }
