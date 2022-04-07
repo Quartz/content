@@ -3,6 +3,7 @@ import type { MediaPartsFragment } from './MediaParts';
 import type { BlockPartsFragment } from './BlockParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { NugPartsFragment } from './NugParts';
+import type { PromotionPartsFragment } from './PromotionParts';
 export declare type CollectionPartsFragment = {
     __typename?: 'Collection';
     id: string;
@@ -34,13 +35,13 @@ export declare type CollectionPartsFragment = {
             __typename?: 'Email';
         } | {
             __typename?: 'Chapter';
-        } | {
+        } | ({
             __typename?: 'Promotion';
-        } | {
+        } & PromotionPartsFragment) | {
             __typename?: 'BlogPost';
         } | ({
             __typename?: 'Nug';
-        } & NugPartsFragment) | {
+        } & NugPartsFragment & NugPartsFragment) | {
             __typename?: 'Collection';
         } | {
             __typename?: 'Bulletin';

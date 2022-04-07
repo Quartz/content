@@ -2,25 +2,29 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmailPartsFragmentDoc = void 0;
 const client_1 = require("@apollo/client");
-const MediaParts_1 = require("./MediaParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
+const BlockParts_1 = require("./BlockParts");
+const PromotionParts_1 = require("./PromotionParts");
 exports.EmailPartsFragmentDoc = client_1.gql `
     fragment EmailParts on Email {
-  id
-  dateGmt
-  emailId
-  featuredImage {
-    ...MediaParts
+  ...EmailTeaserParts
+  disablePaywall
+  blocks {
+    ...BlockParts
+    connections {
+      ... on Promotion {
+        ...PromotionParts
+      }
+    }
   }
-  link
-  segment
-  socialImage {
-    ...MediaParts
+  sendgridID
+  emailLogoAd {
+    alt
+    src
+    url
   }
-  seoTitle
-  socialDescription
-  socialTitle
-  subject
-  title
 }
-    ${MediaParts_1.MediaPartsFragmentDoc}`;
+    ${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}
+${BlockParts_1.BlockPartsFragmentDoc}
+${PromotionParts_1.PromotionPartsFragmentDoc}`;
 //# sourceMappingURL=EmailParts.js.map

@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
-import { EmailPartsFragmentDoc } from './EmailParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
@@ -14,7 +14,7 @@ export const ContentByAuthorDocument = /*#__PURE__*/ gql `
   authorContent(after: $after, first: $perPage, where: {slug: $slug}) {
     nodes {
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         emailLists {
           nodes {
             slug
@@ -32,7 +32,7 @@ export const ContentByAuthorDocument = /*#__PURE__*/ gql `
   }
 }
     ${AuthorPartsFragmentDoc}
-${EmailPartsFragmentDoc}
+${EmailTeaserPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useContentByAuthorQuery__

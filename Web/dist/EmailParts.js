@@ -1,23 +1,27 @@
 import { gql } from '@apollo/client';
-import { MediaPartsFragmentDoc } from './MediaParts';
+import { EmailTeaserPartsFragmentDoc } from './EmailTeaserParts';
+import { BlockPartsFragmentDoc } from './BlockParts';
+import { PromotionPartsFragmentDoc } from './PromotionParts';
 export const EmailPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment EmailParts on Email {
-  id
-  dateGmt
-  emailId
-  featuredImage {
-    ...MediaParts
+  ...EmailTeaserParts
+  disablePaywall
+  blocks {
+    ...BlockParts
+    connections {
+      ... on Promotion {
+        ...PromotionParts
+      }
+    }
   }
-  link
-  segment
-  socialImage {
-    ...MediaParts
+  sendgridID
+  emailLogoAd {
+    alt
+    src
+    url
   }
-  seoTitle
-  socialDescription
-  socialTitle
-  subject
-  title
 }
-    ${MediaPartsFragmentDoc}`;
+    ${EmailTeaserPartsFragmentDoc}
+${BlockPartsFragmentDoc}
+${PromotionPartsFragmentDoc}`;
 //# sourceMappingURL=EmailParts.js.map

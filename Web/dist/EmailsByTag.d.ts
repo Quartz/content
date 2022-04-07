@@ -1,5 +1,5 @@
 import type * as Types from './types';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import type { EmailListPartsFragment } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export declare type EmailsByTagQueryVariables = Types.Exact<{
@@ -21,7 +21,7 @@ export declare type EmailsByTagQuery = {
                     __typename?: 'EmailList';
                 } & EmailListPartsFragment)>>>;
             }>;
-        } & EmailPartsFragment)>>>;
+        } & EmailTeaserPartsFragment)>>>;
         pageInfo?: Types.Maybe<{
             __typename?: 'WPPageInfo';
             endCursor?: Types.Maybe<string>;

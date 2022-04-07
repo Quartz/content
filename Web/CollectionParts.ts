@@ -4,11 +4,13 @@ import type { MediaPartsFragment } from './MediaParts';
 import type { BlockPartsFragment } from './BlockParts';
 import type { ArticleTeaserPartsFragment } from './ArticleTeaserParts';
 import type { NugPartsFragment } from './NugParts';
+import type { PromotionPartsFragment } from './PromotionParts';
 import { gql } from '@apollo/client';
 import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { NugPartsFragmentDoc } from './NugParts';
+import { PromotionPartsFragmentDoc } from './PromotionParts';
 export type CollectionPartsFragment = { __typename?: 'Collection', id: string, collectionId: number, title?: Types.Maybe<string>, dateGmt?: Types.Maybe<string>, excerpt?: Types.Maybe<string>, modifiedGmt?: Types.Maybe<string>, slug?: Types.Maybe<string>, tags?: Types.Maybe<{ __typename?: 'CollectionToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', slug?: Types.Maybe<string> }>>> }>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
@@ -19,8 +21,12 @@ export type CollectionPartsFragment = { __typename?: 'Collection', id: string, c
     ) | { __typename?: 'Page' } | (
       { __typename?: 'MediaItem' }
       & MediaPartsFragment
-    ) | { __typename?: 'Email' } | { __typename?: 'Chapter' } | { __typename?: 'Promotion' } | { __typename?: 'BlogPost' } | (
+    ) | { __typename?: 'Email' } | { __typename?: 'Chapter' } | (
+      { __typename?: 'Promotion' }
+      & PromotionPartsFragment
+    ) | { __typename?: 'BlogPost' } | (
       { __typename?: 'Nug' }
+      & NugPartsFragment
       & NugPartsFragment
     ) | { __typename?: 'Collection' } | { __typename?: 'Bulletin' }>>> }
     & BlockPartsFragment
@@ -55,6 +61,9 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
       ... on Nug {
         ...NugParts
       }
+      ... on Nug {
+        ...NugParts
+      }
       ... on Promotion {
         ...PromotionParts
       }
@@ -64,4 +73,5 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql`
     ${MediaPartsFragmentDoc}
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
-${NugPartsFragmentDoc}`;
+${NugPartsFragmentDoc}
+${PromotionPartsFragmentDoc}`;

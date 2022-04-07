@@ -3,6 +3,7 @@ import { MediaPartsFragmentDoc } from './MediaParts';
 import { BlockPartsFragmentDoc } from './BlockParts';
 import { ArticleTeaserPartsFragmentDoc } from './ArticleTeaserParts';
 import { NugPartsFragmentDoc } from './NugParts';
+import { PromotionPartsFragmentDoc } from './PromotionParts';
 export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
     fragment CollectionParts on Collection {
   id
@@ -32,11 +33,18 @@ export const CollectionPartsFragmentDoc = /*#__PURE__*/ gql `
       ... on Nug {
         ...NugParts
       }
+      ... on Nug {
+        ...NugParts
+      }
+      ... on Promotion {
+        ...PromotionParts
+      }
     }
   }
 }
     ${MediaPartsFragmentDoc}
 ${BlockPartsFragmentDoc}
 ${ArticleTeaserPartsFragmentDoc}
-${NugPartsFragmentDoc}`;
+${NugPartsFragmentDoc}
+${PromotionPartsFragmentDoc}`;
 //# sourceMappingURL=CollectionParts.js.map

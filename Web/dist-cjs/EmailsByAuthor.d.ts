@@ -1,6 +1,6 @@
 import type * as Types from './types';
 import type { AuthorPartsFragment } from './AuthorParts';
-import type { EmailPartsFragment } from './EmailParts';
+import type { EmailTeaserPartsFragment } from './EmailTeaserParts';
 import type { EmailListPartsFragment } from './EmailListParts';
 import * as Apollo from '@apollo/client';
 export declare type EmailsByAuthorQueryVariables = Types.Exact<{
@@ -25,7 +25,7 @@ export declare type EmailsByAuthorQuery = {
                             __typename?: 'EmailList';
                         } & EmailListPartsFragment)>>>;
                     }>;
-                } & EmailPartsFragment)>>>;
+                } & EmailTeaserPartsFragment)>>>;
                 pageInfo?: Types.Maybe<{
                     __typename?: 'WPPageInfo';
                     endCursor?: Types.Maybe<string>;

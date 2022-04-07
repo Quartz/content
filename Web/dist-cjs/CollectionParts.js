@@ -6,6 +6,7 @@ const MediaParts_1 = require("./MediaParts");
 const BlockParts_1 = require("./BlockParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const NugParts_1 = require("./NugParts");
+const PromotionParts_1 = require("./PromotionParts");
 exports.CollectionPartsFragmentDoc = client_1.gql `
     fragment CollectionParts on Collection {
   id
@@ -35,11 +36,18 @@ exports.CollectionPartsFragmentDoc = client_1.gql `
       ... on Nug {
         ...NugParts
       }
+      ... on Nug {
+        ...NugParts
+      }
+      ... on Promotion {
+        ...PromotionParts
+      }
     }
   }
 }
     ${MediaParts_1.MediaPartsFragmentDoc}
 ${BlockParts_1.BlockPartsFragmentDoc}
 ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}
-${NugParts_1.NugPartsFragmentDoc}`;
+${NugParts_1.NugPartsFragmentDoc}
+${PromotionParts_1.PromotionPartsFragmentDoc}`;
 //# sourceMappingURL=CollectionParts.js.map

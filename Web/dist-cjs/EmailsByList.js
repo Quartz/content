@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useEmailsByListLazyQuery = exports.useEmailsByListQuery = exports.EmailsByListDocument = void 0;
 const client_1 = require("@apollo/client");
 const EmailListParts_1 = require("./EmailListParts");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
 exports.EmailsByListDocument = client_1.gql `
@@ -32,7 +32,7 @@ exports.EmailsByListDocument = client_1.gql `
       ...EmailListParts
       emails(after: $after, first: $perPage, where: {tagSlugIn: $tags}) {
         nodes {
-          ...EmailParts
+          ...EmailTeaserParts
         }
         pageInfo {
           endCursor
@@ -43,7 +43,7 @@ exports.EmailsByListDocument = client_1.gql `
   }
 }
     ${EmailListParts_1.EmailListPartsFragmentDoc}
-${EmailParts_1.EmailPartsFragmentDoc}`;
+${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}`;
 /**
  * __useEmailsByListQuery__
  *

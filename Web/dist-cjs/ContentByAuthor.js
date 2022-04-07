@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useContentByAuthorLazyQuery = exports.useContentByAuthorQuery = exports.ContentByAuthorDocument = void 0;
 const client_1 = require("@apollo/client");
 const AuthorParts_1 = require("./AuthorParts");
-const EmailParts_1 = require("./EmailParts");
+const EmailTeaserParts_1 = require("./EmailTeaserParts");
 const ArticleTeaserParts_1 = require("./ArticleTeaserParts");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
@@ -36,7 +36,7 @@ exports.ContentByAuthorDocument = client_1.gql `
   authorContent(after: $after, first: $perPage, where: {slug: $slug}) {
     nodes {
       ... on Email {
-        ...EmailParts
+        ...EmailTeaserParts
         emailLists {
           nodes {
             slug
@@ -54,7 +54,7 @@ exports.ContentByAuthorDocument = client_1.gql `
   }
 }
     ${AuthorParts_1.AuthorPartsFragmentDoc}
-${EmailParts_1.EmailPartsFragmentDoc}
+${EmailTeaserParts_1.EmailTeaserPartsFragmentDoc}
 ${ArticleTeaserParts_1.ArticleTeaserPartsFragmentDoc}`;
 /**
  * __useContentByAuthorQuery__
