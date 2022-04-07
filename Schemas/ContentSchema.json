@@ -52999,7 +52999,7 @@
             "deprecationReason": null
           },
           {
-            "name": "SHORTCODE_QZ_EMAIL_AUTHORS",
+            "name": "SHORTCODE_QZ_EMAIL_AUTHOR",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
