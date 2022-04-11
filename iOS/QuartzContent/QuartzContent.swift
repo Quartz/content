@@ -363,6 +363,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeAudio
   case shortcodeBandcamp
   case shortcodeBrightcove
+  case shortcodeButton
   case shortcodeCaption
   case shortcodeCpiBroadbandMap
   case shortcodeCrowdsignal
@@ -618,6 +619,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_AUDIO": self = .shortcodeAudio
       case "SHORTCODE_BANDCAMP": self = .shortcodeBandcamp
       case "SHORTCODE_BRIGHTCOVE": self = .shortcodeBrightcove
+      case "SHORTCODE_BUTTON": self = .shortcodeButton
       case "SHORTCODE_CAPTION": self = .shortcodeCaption
       case "SHORTCODE_CPI_BROADBAND_MAP": self = .shortcodeCpiBroadbandMap
       case "SHORTCODE_CROWDSIGNAL": self = .shortcodeCrowdsignal
@@ -874,6 +876,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeAudio: return "SHORTCODE_AUDIO"
       case .shortcodeBandcamp: return "SHORTCODE_BANDCAMP"
       case .shortcodeBrightcove: return "SHORTCODE_BRIGHTCOVE"
+      case .shortcodeButton: return "SHORTCODE_BUTTON"
       case .shortcodeCaption: return "SHORTCODE_CAPTION"
       case .shortcodeCpiBroadbandMap: return "SHORTCODE_CPI_BROADBAND_MAP"
       case .shortcodeCrowdsignal: return "SHORTCODE_CROWDSIGNAL"
@@ -1130,6 +1133,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeAudio, .shortcodeAudio): return true
       case (.shortcodeBandcamp, .shortcodeBandcamp): return true
       case (.shortcodeBrightcove, .shortcodeBrightcove): return true
+      case (.shortcodeButton, .shortcodeButton): return true
       case (.shortcodeCaption, .shortcodeCaption): return true
       case (.shortcodeCpiBroadbandMap, .shortcodeCpiBroadbandMap): return true
       case (.shortcodeCrowdsignal, .shortcodeCrowdsignal): return true
@@ -1387,6 +1391,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeAudio,
       .shortcodeBandcamp,
       .shortcodeBrightcove,
+      .shortcodeButton,
       .shortcodeCaption,
       .shortcodeCpiBroadbandMap,
       .shortcodeCrowdsignal,
