@@ -12,7 +12,6 @@ query EmailsByTag(
 	) {
 		nodes {
 			...EmailTeaserParts
-			html
 			link
 			emailLists {
 				nodes {

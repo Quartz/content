@@ -15,7 +15,7 @@ export type EmailsByTagQueryVariables = Types.Exact<{
 
 
 export type EmailsByTagQuery = { __typename?: 'RootQuery', emails?: Types.Maybe<{ __typename?: 'RootQueryToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'Email', html?: Types.Maybe<string>, link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+      { __typename?: 'Email', link?: Types.Maybe<string>, emailLists?: Types.Maybe<{ __typename?: 'EmailToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
           { __typename?: 'EmailList' }
           & EmailListPartsFragment
         )>>> }> }
@@ -28,7 +28,6 @@ export const EmailsByTagDocument = /*#__PURE__*/ gql`
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailTeaserParts
-      html
       link
       emailLists {
         nodes {
