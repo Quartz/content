@@ -12996,7 +12996,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
         nodes {
           __typename
           ...EmailTeaserParts
-          html
           link
           emailLists {
             __typename
@@ -13017,7 +13016,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "be944e87b3b6ab53b95efc78a4e2d700caf8f6d44ead677a7cf7e78f3b0c8d97"
+  public let operationIdentifier: String? = "9f51b66b92d099d79beda1baab887b454de7658fccf1fd5175e65a120972a7cf"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -13128,7 +13127,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLFragmentSpread(EmailTeaserParts.self),
-            GraphQLField("html", type: .scalar(String.self)),
             GraphQLField("link", type: .scalar(String.self)),
             GraphQLField("emailLists", type: .object(EmailList.selections)),
           ]
@@ -13146,16 +13144,6 @@ public final class EmailsByTagQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// The id for the list in Sendgrid
-        public var html: String? {
-          get {
-            return resultMap["html"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "html")
           }
         }
 

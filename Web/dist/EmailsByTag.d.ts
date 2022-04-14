@@ -13,7 +13,6 @@ export declare type EmailsByTagQuery = {
         __typename?: 'RootQueryToEmailConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
             __typename?: 'Email';
-            html?: Types.Maybe<string>;
             link?: Types.Maybe<string>;
             emailLists?: Types.Maybe<{
                 __typename?: 'EmailToEmailListConnection';

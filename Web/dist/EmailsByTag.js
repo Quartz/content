@@ -8,7 +8,6 @@ export const EmailsByTagDocument = /*#__PURE__*/ gql `
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailTeaserParts
-      html
       link
       emailLists {
         nodes {

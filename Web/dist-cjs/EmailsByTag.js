@@ -30,7 +30,6 @@ exports.EmailsByTagDocument = client_1.gql `
   emails(after: $after, first: $perPage, where: {tagSlugIn: $slug}) {
     nodes {
       ...EmailTeaserParts
-      html
       link
       emailLists {
         nodes {
