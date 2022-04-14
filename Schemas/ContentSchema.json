@@ -35784,6 +35784,22 @@
         "description": "The emailList type",
         "fields": [
           {
+            "name": "colors",
+            "description": "Email list theme colors",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentNodes",
             "description": "Connection between the emailList type and the ContentNode type",
             "args": [
@@ -57301,6 +57317,12 @@
           },
           {
             "name": "SHORTCODE_QZ_EMAIL_AUTHOR",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SHORTCODE_QZ_EMAIL_ONLY_CONTENT",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
