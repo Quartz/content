@@ -8,6 +8,7 @@ export declare type EmailListPartsFragment = {
     listId?: Types.Maybe<number>;
     name?: Types.Maybe<string>;
     slug?: Types.Maybe<string>;
+    colors?: Types.Maybe<Array<Types.Maybe<string>>>;
     summary?: Types.Maybe<string>;
     subtitle?: Types.Maybe<string>;
     isPrivate?: Types.Maybe<boolean>;

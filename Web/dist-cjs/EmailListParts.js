@@ -15,6 +15,7 @@ exports.EmailListPartsFragmentDoc = client_1.gql `
   listId
   name
   slug
+  colors
   summary
   subtitle
 }
