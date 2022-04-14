@@ -12,6 +12,7 @@ export const EmailListPartsFragmentDoc = /*#__PURE__*/ gql `
   listId
   name
   slug
+  colors
   summary
   subtitle
 }

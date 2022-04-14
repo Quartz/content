@@ -406,6 +406,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
   case shortcodeQzDailyBrief
   case shortcodeQzDatawrapper
   case shortcodeQzEmailAuthor
+  case shortcodeQzEmailOnlyContent
   case shortcodeQzEmailPartner
   case shortcodeQzEmailSponsor
   case shortcodeQzEmailSponsor_2
@@ -662,6 +663,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case "SHORTCODE_QZ_DAILY_BRIEF": self = .shortcodeQzDailyBrief
       case "SHORTCODE_QZ_DATAWRAPPER": self = .shortcodeQzDatawrapper
       case "SHORTCODE_QZ_EMAIL_AUTHOR": self = .shortcodeQzEmailAuthor
+      case "SHORTCODE_QZ_EMAIL_ONLY_CONTENT": self = .shortcodeQzEmailOnlyContent
       case "SHORTCODE_QZ_EMAIL_PARTNER": self = .shortcodeQzEmailPartner
       case "SHORTCODE_QZ_EMAIL_SPONSOR": self = .shortcodeQzEmailSponsor
       case "SHORTCODE_QZ_EMAIL_SPONSOR_2": self = .shortcodeQzEmailSponsor_2
@@ -919,6 +921,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case .shortcodeQzDailyBrief: return "SHORTCODE_QZ_DAILY_BRIEF"
       case .shortcodeQzDatawrapper: return "SHORTCODE_QZ_DATAWRAPPER"
       case .shortcodeQzEmailAuthor: return "SHORTCODE_QZ_EMAIL_AUTHOR"
+      case .shortcodeQzEmailOnlyContent: return "SHORTCODE_QZ_EMAIL_ONLY_CONTENT"
       case .shortcodeQzEmailPartner: return "SHORTCODE_QZ_EMAIL_PARTNER"
       case .shortcodeQzEmailSponsor: return "SHORTCODE_QZ_EMAIL_SPONSOR"
       case .shortcodeQzEmailSponsor_2: return "SHORTCODE_QZ_EMAIL_SPONSOR_2"
@@ -1176,6 +1179,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       case (.shortcodeQzDailyBrief, .shortcodeQzDailyBrief): return true
       case (.shortcodeQzDatawrapper, .shortcodeQzDatawrapper): return true
       case (.shortcodeQzEmailAuthor, .shortcodeQzEmailAuthor): return true
+      case (.shortcodeQzEmailOnlyContent, .shortcodeQzEmailOnlyContent): return true
       case (.shortcodeQzEmailPartner, .shortcodeQzEmailPartner): return true
       case (.shortcodeQzEmailSponsor, .shortcodeQzEmailSponsor): return true
       case (.shortcodeQzEmailSponsor_2, .shortcodeQzEmailSponsor_2): return true
@@ -1434,6 +1438,7 @@ public enum BlockNameEnum: RawRepresentable, Equatable, Hashable, CaseIterable, 
       .shortcodeQzDailyBrief,
       .shortcodeQzDatawrapper,
       .shortcodeQzEmailAuthor,
+      .shortcodeQzEmailOnlyContent,
       .shortcodeQzEmailPartner,
       .shortcodeQzEmailSponsor,
       .shortcodeQzEmailSponsor_2,
@@ -11685,7 +11690,7 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "f703d3458f55003a431b05d3ae23e5f67d1b338b821435dd3a43339b2430a9f6"
+  public let operationIdentifier: String? = "423b09a30f262922d86d06d41df6668df18e34a7c4108f4d76a8286dcee1e1ab"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -11931,7 +11936,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
   public let operationName: String = "EmailListsBySlug"
 
-  public let operationIdentifier: String? = "60454d2288d9e20de944c3ba154302289ac51c899e6c27255f33d4caffa1bd8b"
+  public let operationIdentifier: String? = "bbf76044e52eb625315389746cc87132c9076e0457f384c25f5cb0c3331591a7"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -12215,7 +12220,7 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByAuthor"
 
-  public let operationIdentifier: String? = "8389b3f0665499be6c60b9acd5f5a033ab8a15c4604430bff26ea66e0f077a1b"
+  public let operationIdentifier: String? = "e7d722470d6ad4ab5a88dc9f06259aa58ae1a3b84bd8a9fd05a731e166cf929e"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -12671,7 +12676,7 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "efbcd0ad292a11f7bd14e64bca38f705cac03c3c8b00e6780fe5d4904e216afd"
+  public let operationIdentifier: String? = "319cca85957d4475aa0a7a2738453c87397a3f1f7d4051071e14144cf1e8bedb"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -13016,7 +13021,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "9f51b66b92d099d79beda1baab887b454de7658fccf1fd5175e65a120972a7cf"
+  public let operationIdentifier: String? = "3b59e353f2777dbf056d4035601ebb20aa52c55c9116a12961473084e8c44ec8"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -23084,6 +23089,7 @@ public struct EmailListParts: GraphQLFragment {
       listId
       name
       slug
+      colors
       summary
       subtitle
     }
@@ -23102,6 +23108,7 @@ public struct EmailListParts: GraphQLFragment {
       GraphQLField("listId", type: .scalar(Int.self)),
       GraphQLField("name", type: .scalar(String.self)),
       GraphQLField("slug", type: .scalar(String.self)),
+      GraphQLField("colors", type: .list(.scalar(String.self))),
       GraphQLField("summary", type: .scalar(String.self)),
       GraphQLField("subtitle", type: .scalar(String.self)),
     ]
@@ -23113,8 +23120,8 @@ public struct EmailListParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, description: String? = nil, featuredImage: FeaturedImage? = nil, isPrivate: Bool? = nil, link: String? = nil, listId: Int? = nil, name: String? = nil, slug: String? = nil, summary: String? = nil, subtitle: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "EmailList", "id": id, "description": description, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "isPrivate": isPrivate, "link": link, "listId": listId, "name": name, "slug": slug, "summary": summary, "subtitle": subtitle])
+  public init(id: GraphQLID, description: String? = nil, featuredImage: FeaturedImage? = nil, isPrivate: Bool? = nil, link: String? = nil, listId: Int? = nil, name: String? = nil, slug: String? = nil, colors: [String?]? = nil, summary: String? = nil, subtitle: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "EmailList", "id": id, "description": description, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "isPrivate": isPrivate, "link": link, "listId": listId, "name": name, "slug": slug, "colors": colors, "summary": summary, "subtitle": subtitle])
   }
 
   public var __typename: String {
@@ -23203,6 +23210,16 @@ public struct EmailListParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "slug")
+    }
+  }
+
+  /// Email list theme colors
+  public var colors: [String?]? {
+    get {
+      return resultMap["colors"] as? [String?]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "colors")
     }
   }
 
