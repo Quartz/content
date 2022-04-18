@@ -7,6 +7,7 @@ export declare type EmailTeaserPartsFragment = {
     dateGmt?: Types.Maybe<string>;
     emailId: number;
     link?: Types.Maybe<string>;
+    slug?: Types.Maybe<string>;
     segment?: Types.Maybe<string>;
     seoTitle?: Types.Maybe<string>;
     socialDescription?: Types.Maybe<string>;

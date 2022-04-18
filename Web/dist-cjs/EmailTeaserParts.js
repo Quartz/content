@@ -13,6 +13,7 @@ exports.EmailTeaserPartsFragmentDoc = client_1.gql `
     ...MediaParts
   }
   link
+  slug
   segment
   socialImage {
     ...MediaParts
