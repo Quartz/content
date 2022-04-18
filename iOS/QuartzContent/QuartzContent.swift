@@ -4694,7 +4694,7 @@ public final class ContentByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "ContentByAuthor"
 
-  public let operationIdentifier: String? = "da51ba4ed3d4d86d50b6414b690d01e9baedadfa6a5dd5ecc8c4a437f8c587be"
+  public let operationIdentifier: String? = "5176f6d70ac9beaa4a809749f56626bec75355ba8428b55ff87e6b9374c30264"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -5586,7 +5586,7 @@ public final class ContentByTagQuery: GraphQLQuery {
 
   public let operationName: String = "ContentByTag"
 
-  public let operationIdentifier: String? = "3d79d3f8169699d4b7e3195993293dcc6b89b7c28eefad0ea636d41e5ebce74b"
+  public let operationIdentifier: String? = "763d2c4f7dcdc503e9cd6de0d2f25fc9b23ac812b68a359264ccba56eb8c029a"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -6154,7 +6154,7 @@ public final class FirstFeedConcentByRecencyQuery: GraphQLQuery {
 
   public let operationName: String = "FirstFeedConcentByRecency"
 
-  public let operationIdentifier: String? = "3d00255f89b94030e1543bb74f5222c6e990bbb1b8abe4516da72fafbb8e88be"
+  public let operationIdentifier: String? = "43c4163a285b06c96fd4571596d35b43318b6ef9ea94c9829d410914ce93f0f9"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -7074,7 +7074,7 @@ public final class LatestFeedContentQuery: GraphQLQuery {
 
   public let operationName: String = "LatestFeedContent"
 
-  public let operationIdentifier: String? = "c604295273aad7296a7e2ca5979e2ecfdefcbd2d07c1e730a9971b26333a0a2c"
+  public let operationIdentifier: String? = "47ba053fc12c764eaeb9e24c96a1a1597cb291d156aacc2c98b924699367850e"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -11690,7 +11690,7 @@ public final class EmailByIdQuery: GraphQLQuery {
 
   public let operationName: String = "EmailById"
 
-  public let operationIdentifier: String? = "423b09a30f262922d86d06d41df6668df18e34a7c4108f4d76a8286dcee1e1ab"
+  public let operationIdentifier: String? = "d9656d64432fadfc115591d1db1fcecbaa209e9a4b49ceb1df444b4056444f3b"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -12220,7 +12220,7 @@ public final class EmailsByAuthorQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByAuthor"
 
-  public let operationIdentifier: String? = "e7d722470d6ad4ab5a88dc9f06259aa58ae1a3b84bd8a9fd05a731e166cf929e"
+  public let operationIdentifier: String? = "acefb79c7528b8afc5d1fec73ddd629aa4071bc6c1ca582d4a971d672cfce560"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -12676,7 +12676,7 @@ public final class EmailsByListQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByList"
 
-  public let operationIdentifier: String? = "319cca85957d4475aa0a7a2738453c87397a3f1f7d4051071e14144cf1e8bedb"
+  public let operationIdentifier: String? = "3445d332884bd77f8d6610b821d68a8add9af9bbc211dc07dfe0b24af5c9bd92"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -13021,7 +13021,7 @@ public final class EmailsByTagQuery: GraphQLQuery {
 
   public let operationName: String = "EmailsByTag"
 
-  public let operationIdentifier: String? = "3b59e353f2777dbf056d4035601ebb20aa52c55c9116a12961473084e8c44ec8"
+  public let operationIdentifier: String? = "721de88667bcb5d5bcf067200cbc1e6a8db9df8aa1363eba3cfce40cd07790bf"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -13370,7 +13370,7 @@ public final class LatestEmailByListQuery: GraphQLQuery {
 
   public let operationName: String = "LatestEmailByList"
 
-  public let operationIdentifier: String? = "b13d036feedc22f255733330697bdbabd2cd0e8c34419d108ff99fd01832f6d5"
+  public let operationIdentifier: String? = "118cf0971a44293231d9c9fab565e1fe8fd1f13d32fa8e0c5979c7e0ff4be788"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -23687,6 +23687,7 @@ public struct EmailTeaserParts: GraphQLFragment {
         ...MediaParts
       }
       link
+      slug
       segment
       socialImage {
         __typename
@@ -23717,6 +23718,7 @@ public struct EmailTeaserParts: GraphQLFragment {
       GraphQLField("emailId", type: .nonNull(.scalar(Int.self))),
       GraphQLField("featuredImage", type: .object(FeaturedImage.selections)),
       GraphQLField("link", type: .scalar(String.self)),
+      GraphQLField("slug", type: .scalar(String.self)),
       GraphQLField("segment", type: .scalar(String.self)),
       GraphQLField("socialImage", type: .object(SocialImage.selections)),
       GraphQLField("seoTitle", type: .scalar(String.self)),
@@ -23734,8 +23736,8 @@ public struct EmailTeaserParts: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil, authors: Author? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title, "authors": authors.flatMap { (value: Author) -> ResultMap in value.resultMap }])
+  public init(id: GraphQLID, dateGmt: String? = nil, emailId: Int, featuredImage: FeaturedImage? = nil, link: String? = nil, slug: String? = nil, segment: String? = nil, socialImage: SocialImage? = nil, seoTitle: String? = nil, socialDescription: String? = nil, socialTitle: String? = nil, subject: String? = nil, title: String? = nil, authors: Author? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Email", "id": id, "dateGmt": dateGmt, "emailId": emailId, "featuredImage": featuredImage.flatMap { (value: FeaturedImage) -> ResultMap in value.resultMap }, "link": link, "slug": slug, "segment": segment, "socialImage": socialImage.flatMap { (value: SocialImage) -> ResultMap in value.resultMap }, "seoTitle": seoTitle, "socialDescription": socialDescription, "socialTitle": socialTitle, "subject": subject, "title": title, "authors": authors.flatMap { (value: Author) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -23795,6 +23797,16 @@ public struct EmailTeaserParts: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "link")
+    }
+  }
+
+  /// The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+  public var slug: String? {
+    get {
+      return resultMap["slug"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "slug")
     }
   }
 
