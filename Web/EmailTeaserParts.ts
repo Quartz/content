@@ -5,7 +5,7 @@ import type { AuthorPartsFragment } from './AuthorParts';
 import { gql } from '@apollo/client';
 import { MediaPartsFragmentDoc } from './MediaParts';
 import { AuthorPartsFragmentDoc } from './AuthorParts';
-export type EmailTeaserPartsFragment = { __typename?: 'Email', id: string, dateGmt?: Types.Maybe<string>, emailId: number, link?: Types.Maybe<string>, segment?: Types.Maybe<string>, seoTitle?: Types.Maybe<string>, socialDescription?: Types.Maybe<string>, socialTitle?: Types.Maybe<string>, subject?: Types.Maybe<string>, title?: Types.Maybe<string>, featuredImage?: Types.Maybe<(
+export type EmailTeaserPartsFragment = { __typename?: 'Email', id: string, dateGmt?: Types.Maybe<string>, emailId: number, link?: Types.Maybe<string>, slug?: Types.Maybe<string>, segment?: Types.Maybe<string>, seoTitle?: Types.Maybe<string>, socialDescription?: Types.Maybe<string>, socialTitle?: Types.Maybe<string>, subject?: Types.Maybe<string>, title?: Types.Maybe<string>, featuredImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
   )>, socialImage?: Types.Maybe<(
@@ -25,6 +25,7 @@ export const EmailTeaserPartsFragmentDoc = /*#__PURE__*/ gql`
     ...MediaParts
   }
   link
+  slug
   segment
   socialImage {
     ...MediaParts

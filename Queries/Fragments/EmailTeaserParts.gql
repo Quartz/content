@@ -6,6 +6,7 @@ fragment EmailTeaserParts on Email {
 		...MediaParts
 	}
 	link
+	slug
 	segment
 	socialImage {
 		...MediaParts

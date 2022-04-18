@@ -10,6 +10,7 @@ export const EmailTeaserPartsFragmentDoc = /*#__PURE__*/ gql `
     ...MediaParts
   }
   link
+  slug
   segment
   socialImage {
     ...MediaParts
