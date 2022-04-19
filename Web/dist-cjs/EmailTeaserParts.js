@@ -23,6 +23,13 @@ exports.EmailTeaserPartsFragmentDoc = client_1.gql `
   socialTitle
   subject
   title
+  tags {
+    nodes {
+      id
+      slug
+      name
+    }
+  }
   authors: coAuthors {
     nodes {
       ...AuthorParts

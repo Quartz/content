@@ -20,6 +20,13 @@ export const EmailTeaserPartsFragmentDoc = /*#__PURE__*/ gql `
   socialTitle
   subject
   title
+  tags {
+    nodes {
+      id
+      slug
+      name
+    }
+  }
   authors: coAuthors {
     nodes {
       ...AuthorParts

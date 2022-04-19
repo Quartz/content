@@ -11,7 +11,7 @@ export type EmailTeaserPartsFragment = { __typename?: 'Email', id: string, dateG
   )>, socialImage?: Types.Maybe<(
     { __typename?: 'MediaItem' }
     & MediaPartsFragment
-  )>, authors?: Types.Maybe<{ __typename?: 'EmailToCoAuthorConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
+  )>, tags?: Types.Maybe<{ __typename?: 'EmailToTagConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Tag', id: string, slug?: Types.Maybe<string>, name?: Types.Maybe<string> }>>> }>, authors?: Types.Maybe<{ __typename?: 'EmailToCoAuthorConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
       { __typename?: 'CoAuthor' }
       & AuthorPartsFragment
     )>>> }> };
@@ -35,6 +35,13 @@ export const EmailTeaserPartsFragmentDoc = /*#__PURE__*/ gql`
   socialTitle
   subject
   title
+  tags {
+    nodes {
+      id
+      slug
+      name
+    }
+  }
   authors: coAuthors {
     nodes {
       ...AuthorParts

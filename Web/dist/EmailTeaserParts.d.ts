@@ -20,6 +20,15 @@ export declare type EmailTeaserPartsFragment = {
     socialImage?: Types.Maybe<({
         __typename?: 'MediaItem';
     } & MediaPartsFragment)>;
+    tags?: Types.Maybe<{
+        __typename?: 'EmailToTagConnection';
+        nodes?: Types.Maybe<Array<Types.Maybe<{
+            __typename?: 'Tag';
+            id: string;
+            slug?: Types.Maybe<string>;
+            name?: Types.Maybe<string>;
+        }>>>;
+    }>;
     authors?: Types.Maybe<{
         __typename?: 'EmailToCoAuthorConnection';
         nodes?: Types.Maybe<Array<Types.Maybe<({
