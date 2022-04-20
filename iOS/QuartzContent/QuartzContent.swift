@@ -11927,6 +11927,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
               __typename
               id
               emailId
+              link
             }
           }
         }
@@ -11936,7 +11937,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
 
   public let operationName: String = "EmailListsBySlug"
 
-  public let operationIdentifier: String? = "bbf76044e52eb625315389746cc87132c9076e0457f384c25f5cb0c3331591a7"
+  public let operationIdentifier: String? = "a3e3478b494f9a112f7ff4d22159a7d01aa2b8f3b28fd6401e321a2d9933b8b5"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -12134,6 +12135,7 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
                 GraphQLField("emailId", type: .nonNull(.scalar(Int.self))),
+                GraphQLField("link", type: .scalar(String.self)),
               ]
             }
 
@@ -12143,8 +12145,8 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(id: GraphQLID, emailId: Int) {
-              self.init(unsafeResultMap: ["__typename": "Email", "id": id, "emailId": emailId])
+            public init(id: GraphQLID, emailId: Int, link: String? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Email", "id": id, "emailId": emailId, "link": link])
             }
 
             public var __typename: String {
@@ -12174,6 +12176,16 @@ public final class EmailListsBySlugQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "emailId")
+              }
+            }
+
+            /// The permalink of the post
+            public var link: String? {
+              get {
+                return resultMap["link"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "link")
               }
             }
           }
