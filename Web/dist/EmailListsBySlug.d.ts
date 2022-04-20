@@ -17,6 +17,7 @@ export declare type EmailListsBySlugQuery = {
                     __typename?: 'Email';
                     id: string;
                     emailId: number;
+                    link?: Types.Maybe<string>;
                 }>>>;
             }>;
         } & EmailListPartsFragment)>>>;

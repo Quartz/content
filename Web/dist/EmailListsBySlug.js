@@ -11,6 +11,7 @@ export const EmailListsBySlugDocument = /*#__PURE__*/ gql `
         nodes {
           id
           emailId
+          link
         }
       }
     }
