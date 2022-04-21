@@ -12,7 +12,7 @@ export type EmailListsBySlugQueryVariables = Types.Exact<{
 
 
 export type EmailListsBySlugQuery = { __typename?: 'RootQuery', emailLists?: Types.Maybe<{ __typename?: 'RootQueryToEmailListConnection', nodes?: Types.Maybe<Array<Types.Maybe<(
-      { __typename?: 'EmailList', emails?: Types.Maybe<{ __typename?: 'EmailListToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Email', id: string, emailId: number }>>> }> }
+      { __typename?: 'EmailList', emails?: Types.Maybe<{ __typename?: 'EmailListToEmailConnection', nodes?: Types.Maybe<Array<Types.Maybe<{ __typename?: 'Email', id: string, emailId: number, link?: Types.Maybe<string> }>>> }> }
       & EmailListPartsFragment
     )>>> }> };
 
@@ -26,6 +26,7 @@ export const EmailListsBySlugDocument = /*#__PURE__*/ gql`
         nodes {
           id
           emailId
+          link
         }
       }
     }

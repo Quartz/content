@@ -14,6 +14,7 @@ query EmailListsBySlug(
 				nodes {
 					id
 					emailId
+					link
 				}
 			}
 		}

@@ -33,6 +33,7 @@ exports.EmailListsBySlugDocument = client_1.gql `
         nodes {
           id
           emailId
+          link
         }
       }
     }
